@@ -4,6 +4,8 @@ import customerTableData from '../../../../../cache/cx360_customer_table.json';
 import { generateCustomerDetail } from '@/app/lib/generate-customer-detail';
 import { transformCustomerRecords } from '@/app/lib/cache-transform';
 
+export const dynamic = 'force-dynamic';
+
 const customerTable = transformCustomerRecords(customerTableData as unknown[]);
 
 interface CustomerDetailPageProps {
@@ -20,11 +22,4 @@ export default function CustomerDetailPage({ params }: CustomerDetailPageProps) 
   const customerDetail = generateCustomerDetail(customer);
 
   return <CustomerDetailContent customer={customerDetail} />;
-}
-
-// Generate static params for all customers
-export function generateStaticParams() {
-  return customerTable.map((customer) => ({
-    id: customer.customer_id,
-  }));
 }

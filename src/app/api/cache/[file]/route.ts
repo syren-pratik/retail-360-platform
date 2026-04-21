@@ -8,10 +8,10 @@ import path from 'path';
  */
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ file: string }> }
+  { params }: { params: { file: string } }
 ) {
   try {
-    const { file } = await params;
+    const { file } = params;
 
     // Validate filename to prevent directory traversal
     if (!file || (file ?? '').includes('..') || (file ?? '').includes('/')) {
