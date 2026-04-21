@@ -1,0 +1,142 @@
+[
+  {
+    "sku": "PRD-000022",
+    "name": "Fortune Sunflower Oil 5L",
+    "department": "Grocery & Staples",
+    "lost_qty": "20846.0",
+    "lost_revenue": "1.2903736E7"
+  },
+  {
+    "sku": "PRD-000028",
+    "name": "Nature Fresh Sunflower Oil 5L",
+    "department": "Grocery & Staples",
+    "lost_qty": "17515.0",
+    "lost_revenue": "9896145.0"
+  },
+  {
+    "sku": "PRD-000075",
+    "name": "DMart Home Wheat Atta 10kg",
+    "department": "Grocery & Staples",
+    "lost_qty": "22368.0",
+    "lost_revenue": "7873430.0"
+  },
+  {
+    "sku": "PRD-000466",
+    "name": "Pantene Anti-Dandruff Shampoo 340ml",
+    "department": "Personal Care",
+    "lost_qty": "18583.0",
+    "lost_revenue": "6913025.0"
+  },
+  {
+    "sku": "PRD-000092",
+    "name": "India Gate Basmati Rice 5kg Value",
+    "department": "Grocery & Staples",
+    "lost_qty": "7238.0",
+    "lost_revenue": "6239415.0"
+  },
+  {
+    "sku": "PRD-000460",
+    "name": "Head & Shoulders Anti-Dandruff Shampoo 340ml",
+    "department": "Personal Care",
+    "lost_qty": "15807.0",
+    "lost_revenue": "5816866.0"
+  },
+  {
+    "sku": "PRD-000102",
+    "name": "DMart Home Non-Basmati Rice 5kg",
+    "department": "Grocery & Staples",
+    "lost_qty": "17861.0",
+    "lost_revenue": "5251105.0"
+  },
+  {
+    "sku": "PRD-000093",
+    "name": "Daawat Basmati Rice 1kg",
+    "department": "Grocery & Staples",
+    "lost_qty": "22845.0",
+    "lost_revenue": "4888916.0"
+  },
+  {
+    "sku": "PRD-000096",
+    "name": "Kohinoor Basmati Rice 5kg",
+    "department": "Grocery & Staples",
+    "lost_qty": "9230.0",
+    "lost_revenue": "4744477.0"
+  },
+  {
+    "sku": "PRD-000053",
+    "name": "KLF Coconad Coconut Oil 1L",
+    "department": "Grocery & Staples",
+    "lost_qty": "20924.0",
+    "lost_revenue": "4603236.0"
+  },
+  {
+    "sku": "PRD-000025",
+    "name": "Saffola Sunflower Oil 5L Premium",
+    "department": "Grocery & Staples",
+    "lost_qty": "7059.0",
+    "lost_revenue": "4390636.0"
+  },
+  {
+    "sku": "PRD-000246",
+    "name": "Amul Butter 500g Value",
+    "department": "Dairy & Frozen",
+    "lost_qty": "16684.0",
+    "lost_revenue": "3887256.0"
+  },
+  {
+    "sku": "PRD-000071",
+    "name": "Patanjali Wheat Atta 5kg Premium",
+    "department": "Grocery & Staples",
+    "lost_qty": "18189.0",
+    "lost_revenue": "3819627.0"
+  },
+  {
+    "sku": "PRD-000248",
+    "name": "Britannia Butter 500g",
+    "department": "Dairy & Frozen",
+    "lost_qty": "17642.0",
+    "lost_revenue": "3740125.0"
+  },
+  {
+    "sku": "PRD-000467",
+    "name": "Dove Anti-Dandruff Shampoo 180ml",
+    "department": "Personal Care",
+    "lost_qty": "17393.0",
+    "lost_revenue": "3739474.0"
+  },
+  {
+    "sku": "PRD-000063",
+    "name": "Aashirvaad Wheat Atta 10kg",
+    "department": "Grocery & Staples",
+    "lost_qty": "11613.0",
+    "lost_revenue": "3727805.0"
+  },
+  {
+    "sku": "PRD-000060",
+    "name": "Patanjali Coconut Oil 1L Premium",
+    "department": "Grocery & Staples",
+    "lost_qty": "21055.0",
+    "lost_revenue": "3726788.0"
+  },
+  {
+    "sku": "PRD-000090",
+    "name": "India Gate Basmati Rice 5kg",
+    "department": "Grocery & Staples",
+    "lost_qty": "5810.0",
+    "lost_revenue": "3631063.0"
+  },
+  {
+    "sku": "PRD-000100",
+    "name": "Daawat Non-Basmati Rice 5kg",
+    "department": "Grocery & Staples",
+    "lost_qty": "14518.0",
+    "lost_revenue": "3586045.0"
+  },
+  {
+    "sku": "PRD-000135",
+    "name": "Madhur White Sugar 5kg Value",
+    "department": "Grocery & Staples",
+    "lost_qty": "18374.0",
+    "lost_revenue": "3527885.0"
+  }
+]

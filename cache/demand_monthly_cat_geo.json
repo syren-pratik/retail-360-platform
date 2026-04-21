@@ -1,0 +1,36 @@
+{
+  "byCategory": [
+    { "category": "Grocery & Staples", "month": "Jan", "demand": 285000 },
+    { "category": "Grocery & Staples", "month": "Feb", "demand": 298000 },
+    { "category": "Grocery & Staples", "month": "Mar", "demand": 312000 },
+    { "category": "Grocery & Staples", "month": "Apr", "demand": 325000 },
+    { "category": "Dairy & Frozen", "month": "Jan", "demand": 142000 },
+    { "category": "Dairy & Frozen", "month": "Feb", "demand": 148000 },
+    { "category": "Dairy & Frozen", "month": "Mar", "demand": 156000 },
+    { "category": "Dairy & Frozen", "month": "Apr", "demand": 162000 },
+    { "category": "Personal Care", "month": "Jan", "demand": 98000 },
+    { "category": "Personal Care", "month": "Feb", "demand": 102000 },
+    { "category": "Personal Care", "month": "Mar", "demand": 108000 },
+    { "category": "Personal Care", "month": "Apr", "demand": 112000 },
+    { "category": "Beverages", "month": "Jan", "demand": 85000 },
+    { "category": "Beverages", "month": "Feb", "demand": 92000 },
+    { "category": "Beverages", "month": "Mar", "demand": 98000 },
+    { "category": "Beverages", "month": "Apr", "demand": 105000 },
+    { "category": "Snacks & Biscuits", "month": "Jan", "demand": 72000 },
+    { "category": "Snacks & Biscuits", "month": "Feb", "demand": 78000 },
+    { "category": "Snacks & Biscuits", "month": "Mar", "demand": 82000 },
+    { "category": "Snacks & Biscuits", "month": "Apr", "demand": 88000 }
+  ],
+  "byGeography": [
+    { "region": "West", "city": "Mumbai", "demand": 320000, "growth": 8.5 },
+    { "region": "West", "city": "Pune", "demand": 145000, "growth": 12.2 },
+    { "region": "West", "city": "Ahmedabad", "demand": 125000, "growth": 9.8 },
+    { "region": "North", "city": "Delhi NCR", "demand": 298000, "growth": 7.2 },
+    { "region": "North", "city": "Jaipur", "demand": 85000, "growth": 15.5 },
+    { "region": "North", "city": "Lucknow", "demand": 72000, "growth": 11.3 },
+    { "region": "South", "city": "Bangalore", "demand": 245000, "growth": 14.8 },
+    { "region": "South", "city": "Chennai", "demand": 178000, "growth": 6.5 },
+    { "region": "South", "city": "Hyderabad", "demand": 165000, "growth": 10.2 },
+    { "region": "East", "city": "Kolkata", "demand": 142000, "growth": 5.8 }
+  ]
+}

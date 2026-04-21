@@ -1,0 +1,162 @@
+[
+  {
+    "product_id": "PRD-000365",
+    "product_name": "Nescafe Instant Coffee 50g Value",
+    "department": "Beverages",
+    "abc_class": "A",
+    "stores_affected": "227",
+    "stockout_instances": "4120"
+  },
+  {
+    "product_id": "PRD-000331",
+    "product_name": "Bisleri Packaged Water 1L Value",
+    "department": "Beverages",
+    "abc_class": "A",
+    "stores_affected": "219",
+    "stockout_instances": "3393"
+  },
+  {
+    "product_id": "PRD-000300",
+    "product_name": "Sprite Lemon Lime 2L",
+    "department": "Beverages",
+    "abc_class": "A",
+    "stores_affected": "213",
+    "stockout_instances": "3104"
+  },
+  {
+    "product_id": "PRD-000310",
+    "product_name": "Slice Mango Juice 1L",
+    "department": "Beverages",
+    "abc_class": "A",
+    "stores_affected": "195",
+    "stockout_instances": "2614"
+  },
+  {
+    "product_id": "PRD-000364",
+    "product_name": "Nescafe Instant Coffee 50g Premium",
+    "department": "Beverages",
+    "abc_class": "A",
+    "stores_affected": "190",
+    "stockout_instances": "2009"
+  },
+  {
+    "product_id": "PRD-000288",
+    "product_name": "Safal Frozen Peas 500g",
+    "department": "Dairy & Frozen",
+    "abc_class": "A",
+    "stores_affected": "176",
+    "stockout_instances": "1747"
+  },
+  {
+    "product_id": "PRD-000193",
+    "product_name": "Mother Dairy Toned Milk 500ml",
+    "department": "Dairy & Frozen",
+    "abc_class": "A",
+    "stores_affected": "174",
+    "stockout_instances": "1688"
+  },
+  {
+    "product_id": "PRD-000283",
+    "product_name": "Milky Mist Fresh Paneer 500g Value",
+    "department": "Dairy & Frozen",
+    "abc_class": "A",
+    "stores_affected": "174",
+    "stockout_instances": "1609"
+  },
+  {
+    "product_id": "PRD-000349",
+    "product_name": "Brooke Bond Black Tea 500g Premium",
+    "department": "Beverages",
+    "abc_class": "A",
+    "stores_affected": "174",
+    "stockout_instances": "1485"
+  },
+  {
+    "product_id": "PRD-000282",
+    "product_name": "Milky Mist Fresh Paneer 500g Premium",
+    "department": "Dairy & Frozen",
+    "abc_class": "A",
+    "stores_affected": "162",
+    "stockout_instances": "1472"
+  },
+  {
+    "product_id": "PRD-000313",
+    "product_name": "Real Mango Juice 200ml",
+    "department": "Beverages",
+    "abc_class": "A",
+    "stores_affected": "173",
+    "stockout_instances": "1423"
+  },
+  {
+    "product_id": "PRD-000494",
+    "product_name": "Ghadi Washing Powder 500g Premium",
+    "department": "Personal Care",
+    "abc_class": "A",
+    "stores_affected": "158",
+    "stockout_instances": "1376"
+  },
+  {
+    "product_id": "PRD-000298",
+    "product_name": "Pepsi Cola 2L",
+    "department": "Beverages",
+    "abc_class": "A",
+    "stores_affected": "167",
+    "stockout_instances": "1307"
+  },
+  {
+    "product_id": "PRD-000304",
+    "product_name": "Limca Lemon Lime 250ml Premium",
+    "department": "Beverages",
+    "abc_class": "A",
+    "stores_affected": "170",
+    "stockout_instances": "1264"
+  },
+  {
+    "product_id": "PRD-000344",
+    "product_name": "Tata Tea Black Tea 500g Value",
+    "department": "Beverages",
+    "abc_class": "A",
+    "stores_affected": "158",
+    "stockout_instances": "1264"
+  },
+  {
+    "product_id": "PRD-000205",
+    "product_name": "Mother Dairy Full Cream Milk 1L Premium",
+    "department": "Dairy & Frozen",
+    "abc_class": "A",
+    "stores_affected": "158",
+    "stockout_instances": "1206"
+  },
+  {
+    "product_id": "PRD-000207",
+    "product_name": "Nandini Full Cream Milk 500ml",
+    "department": "Dairy & Frozen",
+    "abc_class": "A",
+    "stores_affected": "157",
+    "stockout_instances": "1189"
+  },
+  {
+    "product_id": "PRD-000487",
+    "product_name": "Tide Washing Powder 500g",
+    "department": "Personal Care",
+    "abc_class": "A",
+    "stores_affected": "157",
+    "stockout_instances": "1162"
+  },
+  {
+    "product_id": "PRD-000290",
+    "product_name": "Godrej Frozen Peas 500g",
+    "department": "Dairy & Frozen",
+    "abc_class": "A",
+    "stores_affected": "154",
+    "stockout_instances": "1140"
+  },
+  {
+    "product_id": "PRD-000185",
+    "product_name": "MDH Cumin Seeds 100g",
+    "department": "Grocery & Staples",
+    "abc_class": "A",
+    "stores_affected": "153",
+    "stockout_instances": "1124"
+  }
+]

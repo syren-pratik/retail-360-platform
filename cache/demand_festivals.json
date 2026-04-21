@@ -1,0 +1,30 @@
+[
+  {
+    "festival": "Diwali",
+    "date": "2026-10-20",
+    "duration_days": "5",
+    "expected_lift_pct": "35",
+    "regions": "North,West"
+  },
+  {
+    "festival": "Christmas",
+    "date": "2026-12-25",
+    "duration_days": "3",
+    "expected_lift_pct": "25",
+    "regions": "All"
+  },
+  {
+    "festival": "Holi",
+    "date": "2026-03-14",
+    "duration_days": "2",
+    "expected_lift_pct": "20",
+    "regions": "North,East"
+  },
+  {
+    "festival": "Eid",
+    "date": "2026-04-01",
+    "duration_days": "3",
+    "expected_lift_pct": "18",
+    "regions": "All"
+  }
+]

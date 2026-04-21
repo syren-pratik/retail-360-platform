@@ -1,0 +1,37 @@
+[
+  {
+    "feature": "price",
+    "importance": "0.25",
+    "direction": "negative"
+  },
+  {
+    "feature": "seasonality",
+    "importance": "0.22",
+    "direction": "positive"
+  },
+  {
+    "feature": "promotions",
+    "importance": "0.18",
+    "direction": "positive"
+  },
+  {
+    "feature": "day_of_week",
+    "importance": "0.12",
+    "direction": "positive"
+  },
+  {
+    "feature": "weather",
+    "importance": "0.10",
+    "direction": "mixed"
+  },
+  {
+    "feature": "holidays",
+    "importance": "0.08",
+    "direction": "positive"
+  },
+  {
+    "feature": "competitor_price",
+    "importance": "0.05",
+    "direction": "negative"
+  }
+]

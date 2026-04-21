@@ -1,0 +1,302 @@
+[
+  {
+    "product_id": "PRD-000050",
+    "product_name": "Parachute Coconut Oil 500ml",
+    "store_id": "STR-0042",
+    "store_name": "Delhi NCR Hypermarket 2",
+    "department": "Grocery & Staples",
+    "expected_qty": "0",
+    "expected_date": "2026-04-22",
+    "status": "scheduled"
+  },
+  {
+    "product_id": "PRD-000400",
+    "product_name": "Oreo Cream Biscuits 300g",
+    "store_id": "STR-0042",
+    "store_name": "Delhi NCR Hypermarket 2",
+    "department": "Snacks & Biscuits",
+    "expected_qty": "0",
+    "expected_date": "2026-04-21",
+    "status": "scheduled"
+  },
+  {
+    "product_id": "PRD-000157",
+    "product_name": "Patanjali Turmeric Powder 100g",
+    "store_id": "STR-0041",
+    "store_name": "Delhi NCR Hypermarket 1",
+    "department": "Grocery & Staples",
+    "expected_qty": "0",
+    "expected_date": "2026-04-24",
+    "status": "scheduled"
+  },
+  {
+    "product_id": "PRD-000022",
+    "product_name": "Fortune Sunflower Oil 5L",
+    "store_id": "STR-0041",
+    "store_name": "Delhi NCR Hypermarket 1",
+    "department": "Grocery & Staples",
+    "expected_qty": "0",
+    "expected_date": "2026-04-21",
+    "status": "in_transit"
+  },
+  {
+    "product_id": "PRD-000403",
+    "product_name": "Parle Cream Biscuits 100g Value",
+    "store_id": "STR-0041",
+    "store_name": "Delhi NCR Hypermarket 1",
+    "department": "Snacks & Biscuits",
+    "expected_qty": "3",
+    "expected_date": "2026-04-19",
+    "status": "delayed"
+  },
+  {
+    "product_id": "PRD-000071",
+    "product_name": "Patanjali Wheat Atta 5kg Premium",
+    "store_id": "STR-0041",
+    "store_name": "Delhi NCR Hypermarket 1",
+    "department": "Grocery & Staples",
+    "expected_qty": "0",
+    "expected_date": "2026-04-23",
+    "status": "scheduled"
+  },
+  {
+    "product_id": "PRD-000093",
+    "product_name": "Daawat Basmati Rice 1kg",
+    "store_id": "STR-0042",
+    "store_name": "Delhi NCR Hypermarket 2",
+    "department": "Grocery & Staples",
+    "expected_qty": "0",
+    "expected_date": "2026-04-18",
+    "status": "scheduled"
+  },
+  {
+    "product_id": "PRD-000119",
+    "product_name": "DMart Home Toor Dal 1kg",
+    "store_id": "STR-0041",
+    "store_name": "Delhi NCR Hypermarket 1",
+    "department": "Grocery & Staples",
+    "expected_qty": "3",
+    "expected_date": "2026-04-21",
+    "status": "delayed"
+  },
+  {
+    "product_id": "PRD-000416",
+    "product_name": "Pringles Potato Chips 130g",
+    "store_id": "STR-0041",
+    "store_name": "Delhi NCR Hypermarket 1",
+    "department": "Snacks & Biscuits",
+    "expected_qty": "0",
+    "expected_date": "2026-04-22",
+    "status": "in_transit"
+  },
+  {
+    "product_id": "PRD-000437",
+    "product_name": "Top Ramen Instant Noodles 70g",
+    "store_id": "STR-0041",
+    "store_name": "Delhi NCR Hypermarket 1",
+    "department": "Snacks & Biscuits",
+    "expected_qty": "0",
+    "expected_date": "2026-04-22",
+    "status": "in_transit"
+  },
+  {
+    "product_id": "PRD-000288",
+    "product_name": "Safal Frozen Peas 500g",
+    "store_id": "STR-0042",
+    "store_name": "Delhi NCR Hypermarket 2",
+    "department": "Dairy & Frozen",
+    "expected_qty": "0",
+    "expected_date": "2026-04-24",
+    "status": "delayed"
+  },
+  {
+    "product_id": "PRD-000457",
+    "product_name": "Godrej No.1 Bath Soap 100g",
+    "store_id": "STR-0041",
+    "store_name": "Delhi NCR Hypermarket 1",
+    "department": "Personal Care",
+    "expected_qty": "0",
+    "expected_date": "2026-04-18",
+    "status": "scheduled"
+  },
+  {
+    "product_id": "PRD-000159",
+    "product_name": "MDH Red Chili Powder 100g",
+    "store_id": "STR-0042",
+    "store_name": "Delhi NCR Hypermarket 2",
+    "department": "Grocery & Staples",
+    "expected_qty": "2",
+    "expected_date": "2026-04-20",
+    "status": "scheduled"
+  },
+  {
+    "product_id": "PRD-000093",
+    "product_name": "Daawat Basmati Rice 1kg",
+    "store_id": "STR-0041",
+    "store_name": "Delhi NCR Hypermarket 1",
+    "department": "Grocery & Staples",
+    "expected_qty": "0",
+    "expected_date": "2026-04-24",
+    "status": "delayed"
+  },
+  {
+    "product_id": "PRD-000128",
+    "product_name": "BB Royal Moong Dal 500g",
+    "store_id": "STR-0042",
+    "store_name": "Delhi NCR Hypermarket 2",
+    "department": "Grocery & Staples",
+    "expected_qty": "2",
+    "expected_date": "2026-04-20",
+    "status": "scheduled"
+  },
+  {
+    "product_id": "PRD-000173",
+    "product_name": "MDH Garam Masala 50g",
+    "store_id": "STR-0041",
+    "store_name": "Delhi NCR Hypermarket 1",
+    "department": "Grocery & Staples",
+    "expected_qty": "0",
+    "expected_date": "2026-04-24",
+    "status": "in_transit"
+  },
+  {
+    "product_id": "PRD-000119",
+    "product_name": "DMart Home Toor Dal 1kg",
+    "store_id": "STR-0042",
+    "store_name": "Delhi NCR Hypermarket 2",
+    "department": "Grocery & Staples",
+    "expected_qty": "0",
+    "expected_date": "2026-04-19",
+    "status": "in_transit"
+  },
+  {
+    "product_id": "PRD-000135",
+    "product_name": "Madhur White Sugar 5kg Value",
+    "store_id": "STR-0041",
+    "store_name": "Delhi NCR Hypermarket 1",
+    "department": "Grocery & Staples",
+    "expected_qty": "3",
+    "expected_date": "2026-04-24",
+    "status": "scheduled"
+  },
+  {
+    "product_id": "PRD-000442",
+    "product_name": "Lux Bath Soap 100g Premium",
+    "store_id": "STR-0041",
+    "store_name": "Delhi NCR Hypermarket 1",
+    "department": "Personal Care",
+    "expected_qty": "0",
+    "expected_date": "2026-04-19",
+    "status": "in_transit"
+  },
+  {
+    "product_id": "PRD-000022",
+    "product_name": "Fortune Sunflower Oil 5L",
+    "store_id": "STR-0042",
+    "store_name": "Delhi NCR Hypermarket 2",
+    "department": "Grocery & Staples",
+    "expected_qty": "0",
+    "expected_date": "2026-04-23",
+    "status": "scheduled"
+  },
+  {
+    "product_id": "PRD-000416",
+    "product_name": "Pringles Potato Chips 130g",
+    "store_id": "STR-0041",
+    "store_name": "Delhi NCR Hypermarket 1",
+    "department": "Snacks & Biscuits",
+    "expected_qty": "0",
+    "expected_date": "2026-04-22",
+    "status": "in_transit"
+  },
+  {
+    "product_id": "PRD-000193",
+    "product_name": "Mother Dairy Toned Milk 500ml",
+    "store_id": "STR-0041",
+    "store_name": "Delhi NCR Hypermarket 1",
+    "department": "Dairy & Frozen",
+    "expected_qty": "0",
+    "expected_date": "2026-04-23",
+    "status": "scheduled"
+  },
+  {
+    "product_id": "PRD-000288",
+    "product_name": "Safal Frozen Peas 500g",
+    "store_id": "STR-0042",
+    "store_name": "Delhi NCR Hypermarket 2",
+    "department": "Dairy & Frozen",
+    "expected_qty": "0",
+    "expected_date": "2026-04-21",
+    "status": "in_transit"
+  },
+  {
+    "product_id": "PRD-000005",
+    "product_name": "Patanjali Iodized Salt 1kg",
+    "store_id": "STR-0042",
+    "store_name": "Delhi NCR Hypermarket 2",
+    "department": "Grocery & Staples",
+    "expected_qty": "2",
+    "expected_date": "2026-04-22",
+    "status": "scheduled"
+  },
+  {
+    "product_id": "PRD-000416",
+    "product_name": "Pringles Potato Chips 130g",
+    "store_id": "STR-0042",
+    "store_name": "Delhi NCR Hypermarket 2",
+    "department": "Snacks & Biscuits",
+    "expected_qty": "0",
+    "expected_date": "2026-04-23",
+    "status": "scheduled"
+  },
+  {
+    "product_id": "PRD-000050",
+    "product_name": "Parachute Coconut Oil 500ml",
+    "store_id": "STR-0041",
+    "store_name": "Delhi NCR Hypermarket 1",
+    "department": "Grocery & Staples",
+    "expected_qty": "0",
+    "expected_date": "2026-04-20",
+    "status": "scheduled"
+  },
+  {
+    "product_id": "PRD-000185",
+    "product_name": "MDH Cumin Seeds 100g",
+    "store_id": "STR-0042",
+    "store_name": "Delhi NCR Hypermarket 2",
+    "department": "Grocery & Staples",
+    "expected_qty": "0",
+    "expected_date": "2026-04-23",
+    "status": "in_transit"
+  },
+  {
+    "product_id": "PRD-000466",
+    "product_name": "Pantene Anti-Dandruff Shampoo 340ml",
+    "store_id": "STR-0041",
+    "store_name": "Delhi NCR Hypermarket 1",
+    "department": "Personal Care",
+    "expected_qty": "2",
+    "expected_date": "2026-04-23",
+    "status": "in_transit"
+  },
+  {
+    "product_id": "PRD-000185",
+    "product_name": "MDH Cumin Seeds 100g",
+    "store_id": "STR-0042",
+    "store_name": "Delhi NCR Hypermarket 2",
+    "department": "Grocery & Staples",
+    "expected_qty": "0",
+    "expected_date": "2026-04-21",
+    "status": "in_transit"
+  },
+  {
+    "product_id": "PRD-000423",
+    "product_name": "Balaji Namkeen Mix 200g",
+    "store_id": "STR-0042",
+    "store_name": "Delhi NCR Hypermarket 2",
+    "department": "Snacks & Biscuits",
+    "expected_qty": "0",
+    "expected_date": "2026-04-23",
+    "status": "scheduled"
+  }
+]

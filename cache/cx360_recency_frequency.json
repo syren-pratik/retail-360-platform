@@ -1,0 +1,127 @@
+[
+  {
+    "recency": "0-7 days",
+    "frequency": "1-2 orders",
+    "customer_count": 409
+  },
+  {
+    "recency": "0-7 days",
+    "frequency": "3-5 orders",
+    "customer_count": 580
+  },
+  {
+    "recency": "0-7 days",
+    "frequency": "6-10 orders",
+    "customer_count": 217
+  },
+  {
+    "recency": "0-7 days",
+    "frequency": "11-20 orders",
+    "customer_count": 49
+  },
+  {
+    "recency": "0-7 days",
+    "frequency": "20+ orders",
+    "customer_count": 2859
+  },
+  {
+    "recency": "8-30 days",
+    "frequency": "1-2 orders",
+    "customer_count": 1299
+  },
+  {
+    "recency": "8-30 days",
+    "frequency": "3-5 orders",
+    "customer_count": 2236
+  },
+  {
+    "recency": "8-30 days",
+    "frequency": "6-10 orders",
+    "customer_count": 1107
+  },
+  {
+    "recency": "8-30 days",
+    "frequency": "11-20 orders",
+    "customer_count": 427
+  },
+  {
+    "recency": "8-30 days",
+    "frequency": "20+ orders",
+    "customer_count": 7124
+  },
+  {
+    "recency": "31-60 days",
+    "frequency": "1-2 orders",
+    "customer_count": 1106
+  },
+  {
+    "recency": "31-60 days",
+    "frequency": "3-5 orders",
+    "customer_count": 2123
+  },
+  {
+    "recency": "31-60 days",
+    "frequency": "6-10 orders",
+    "customer_count": 2501
+  },
+  {
+    "recency": "31-60 days",
+    "frequency": "11-20 orders",
+    "customer_count": 3991
+  },
+  {
+    "recency": "31-60 days",
+    "frequency": "20+ orders",
+    "customer_count": 4202
+  },
+  {
+    "recency": "61-90 days",
+    "frequency": "1-2 orders",
+    "customer_count": 305
+  },
+  {
+    "recency": "61-90 days",
+    "frequency": "3-5 orders",
+    "customer_count": 979
+  },
+  {
+    "recency": "61-90 days",
+    "frequency": "6-10 orders",
+    "customer_count": 2399
+  },
+  {
+    "recency": "61-90 days",
+    "frequency": "11-20 orders",
+    "customer_count": 3510
+  },
+  {
+    "recency": "61-90 days",
+    "frequency": "20+ orders",
+    "customer_count": 2738
+  },
+  {
+    "recency": "90+ days",
+    "frequency": "1-2 orders",
+    "customer_count": 631
+  },
+  {
+    "recency": "90+ days",
+    "frequency": "3-5 orders",
+    "customer_count": 2004
+  },
+  {
+    "recency": "90+ days",
+    "frequency": "6-10 orders",
+    "customer_count": 3583
+  },
+  {
+    "recency": "90+ days",
+    "frequency": "11-20 orders",
+    "customer_count": 3195
+  },
+  {
+    "recency": "90+ days",
+    "frequency": "20+ orders",
+    "customer_count": 426
+  }
+]

@@ -1,0 +1,842 @@
+[
+  {
+    "store_id": "STR-0201",
+    "store_name": "Pune Hypermarket 1",
+    "city": "Pune",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0246",
+    "store_name": "Jaipur Hypermarket 1",
+    "city": "Jaipur",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0052",
+    "store_name": "Delhi NCR Hypermarket 12",
+    "city": "Delhi NCR",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0150",
+    "store_name": "Hyderabad Hypermarket 5",
+    "city": "Hyderabad",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0116",
+    "store_name": "Chennai Hypermarket 1",
+    "city": "Chennai",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0004",
+    "store_name": "Mumbai Hypermarket 4",
+    "city": "Mumbai",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0148",
+    "store_name": "Hyderabad Hypermarket 3",
+    "city": "Hyderabad",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0207",
+    "store_name": "Pune Hypermarket 7",
+    "city": "Pune",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0046",
+    "store_name": "Delhi NCR Hypermarket 6",
+    "city": "Delhi NCR",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0147",
+    "store_name": "Hyderabad Hypermarket 2",
+    "city": "Hyderabad",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0051",
+    "store_name": "Delhi NCR Hypermarket 11",
+    "city": "Delhi NCR",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0230",
+    "store_name": "Ahmedabad Hypermarket 5",
+    "city": "Ahmedabad",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0247",
+    "store_name": "Jaipur Hypermarket 2",
+    "city": "Jaipur",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0246",
+    "store_name": "Jaipur Hypermarket 1",
+    "city": "Jaipur",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0177",
+    "store_name": "Kolkata Hypermarket 2",
+    "city": "Kolkata",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0084",
+    "store_name": "Bangalore Hypermarket 4",
+    "city": "Bangalore",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0048",
+    "store_name": "Delhi NCR Hypermarket 8",
+    "city": "Delhi NCR",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0262",
+    "store_name": "Lucknow Hypermarket 2",
+    "city": "Lucknow",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0002",
+    "store_name": "Mumbai Hypermarket 2",
+    "city": "Mumbai",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0083",
+    "store_name": "Bangalore Hypermarket 3",
+    "city": "Bangalore",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0180",
+    "store_name": "Kolkata Hypermarket 5",
+    "city": "Kolkata",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0116",
+    "store_name": "Chennai Hypermarket 1",
+    "city": "Chennai",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0004",
+    "store_name": "Mumbai Hypermarket 4",
+    "city": "Mumbai",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0012",
+    "store_name": "Mumbai Hypermarket 12",
+    "city": "Mumbai",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0207",
+    "store_name": "Pune Hypermarket 7",
+    "city": "Pune",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0002",
+    "store_name": "Mumbai Hypermarket 2",
+    "city": "Mumbai",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0082",
+    "store_name": "Bangalore Hypermarket 2",
+    "city": "Bangalore",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0247",
+    "store_name": "Jaipur Hypermarket 2",
+    "city": "Jaipur",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0119",
+    "store_name": "Chennai Hypermarket 4",
+    "city": "Chennai",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0178",
+    "store_name": "Kolkata Hypermarket 3",
+    "city": "Kolkata",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0008",
+    "store_name": "Mumbai Hypermarket 8",
+    "city": "Mumbai",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0150",
+    "store_name": "Hyderabad Hypermarket 5",
+    "city": "Hyderabad",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0228",
+    "store_name": "Ahmedabad Hypermarket 3",
+    "city": "Ahmedabad",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0049",
+    "store_name": "Delhi NCR Hypermarket 9",
+    "city": "Delhi NCR",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0203",
+    "store_name": "Pune Hypermarket 3",
+    "city": "Pune",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0249",
+    "store_name": "Jaipur Hypermarket 4",
+    "city": "Jaipur",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0227",
+    "store_name": "Ahmedabad Hypermarket 2",
+    "city": "Ahmedabad",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0201",
+    "store_name": "Pune Hypermarket 1",
+    "city": "Pune",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0149",
+    "store_name": "Hyderabad Hypermarket 4",
+    "city": "Hyderabad",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0045",
+    "store_name": "Delhi NCR Hypermarket 5",
+    "city": "Delhi NCR",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0081",
+    "store_name": "Bangalore Hypermarket 1",
+    "city": "Bangalore",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0146",
+    "store_name": "Hyderabad Hypermarket 1",
+    "city": "Hyderabad",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0202",
+    "store_name": "Pune Hypermarket 2",
+    "city": "Pune",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0262",
+    "store_name": "Lucknow Hypermarket 2",
+    "city": "Lucknow",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0005",
+    "store_name": "Mumbai Hypermarket 5",
+    "city": "Mumbai",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0119",
+    "store_name": "Chennai Hypermarket 4",
+    "city": "Chennai",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0088",
+    "store_name": "Bangalore Hypermarket 8",
+    "city": "Bangalore",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0263",
+    "store_name": "Lucknow Hypermarket 3",
+    "city": "Lucknow",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0042",
+    "store_name": "Delhi NCR Hypermarket 2",
+    "city": "Delhi NCR",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0122",
+    "store_name": "Chennai Hypermarket 7",
+    "city": "Chennai",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0044",
+    "store_name": "Delhi NCR Hypermarket 4",
+    "city": "Delhi NCR",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0089",
+    "store_name": "Bangalore Hypermarket 9",
+    "city": "Bangalore",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0181",
+    "store_name": "Kolkata Hypermarket 6",
+    "city": "Kolkata",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0085",
+    "store_name": "Bangalore Hypermarket 5",
+    "city": "Bangalore",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0081",
+    "store_name": "Bangalore Hypermarket 1",
+    "city": "Bangalore",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0005",
+    "store_name": "Mumbai Hypermarket 5",
+    "city": "Mumbai",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0085",
+    "store_name": "Bangalore Hypermarket 5",
+    "city": "Bangalore",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0202",
+    "store_name": "Pune Hypermarket 2",
+    "city": "Pune",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0082",
+    "store_name": "Bangalore Hypermarket 2",
+    "city": "Bangalore",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0151",
+    "store_name": "Hyderabad Hypermarket 6",
+    "city": "Hyderabad",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0006",
+    "store_name": "Mumbai Hypermarket 6",
+    "city": "Mumbai",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0228",
+    "store_name": "Ahmedabad Hypermarket 3",
+    "city": "Ahmedabad",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0041",
+    "store_name": "Delhi NCR Hypermarket 1",
+    "city": "Delhi NCR",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0052",
+    "store_name": "Delhi NCR Hypermarket 12",
+    "city": "Delhi NCR",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0012",
+    "store_name": "Mumbai Hypermarket 12",
+    "city": "Mumbai",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0120",
+    "store_name": "Chennai Hypermarket 5",
+    "city": "Chennai",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0176",
+    "store_name": "Kolkata Hypermarket 1",
+    "city": "Kolkata",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0047",
+    "store_name": "Delhi NCR Hypermarket 7",
+    "city": "Delhi NCR",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0153",
+    "store_name": "Hyderabad Hypermarket 8",
+    "city": "Hyderabad",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0230",
+    "store_name": "Ahmedabad Hypermarket 5",
+    "city": "Ahmedabad",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0205",
+    "store_name": "Pune Hypermarket 5",
+    "city": "Pune",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0046",
+    "store_name": "Delhi NCR Hypermarket 6",
+    "city": "Delhi NCR",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0261",
+    "store_name": "Lucknow Hypermarket 1",
+    "city": "Lucknow",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0206",
+    "store_name": "Pune Hypermarket 6",
+    "city": "Pune",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0229",
+    "store_name": "Ahmedabad Hypermarket 4",
+    "city": "Ahmedabad",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0226",
+    "store_name": "Ahmedabad Hypermarket 1",
+    "city": "Ahmedabad",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0086",
+    "store_name": "Bangalore Hypermarket 6",
+    "city": "Bangalore",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0006",
+    "store_name": "Mumbai Hypermarket 6",
+    "city": "Mumbai",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0180",
+    "store_name": "Kolkata Hypermarket 5",
+    "city": "Kolkata",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0118",
+    "store_name": "Chennai Hypermarket 3",
+    "city": "Chennai",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0049",
+    "store_name": "Delhi NCR Hypermarket 9",
+    "city": "Delhi NCR",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0008",
+    "store_name": "Mumbai Hypermarket 8",
+    "city": "Mumbai",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0050",
+    "store_name": "Delhi NCR Hypermarket 10",
+    "city": "Delhi NCR",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0176",
+    "store_name": "Kolkata Hypermarket 1",
+    "city": "Kolkata",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0178",
+    "store_name": "Kolkata Hypermarket 3",
+    "city": "Kolkata",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0003",
+    "store_name": "Mumbai Hypermarket 3",
+    "city": "Mumbai",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0050",
+    "store_name": "Delhi NCR Hypermarket 10",
+    "city": "Delhi NCR",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0261",
+    "store_name": "Lucknow Hypermarket 1",
+    "city": "Lucknow",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0203",
+    "store_name": "Pune Hypermarket 3",
+    "city": "Pune",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0009",
+    "store_name": "Mumbai Hypermarket 9",
+    "city": "Mumbai",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0204",
+    "store_name": "Pune Hypermarket 4",
+    "city": "Pune",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0086",
+    "store_name": "Bangalore Hypermarket 6",
+    "city": "Bangalore",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0152",
+    "store_name": "Hyderabad Hypermarket 7",
+    "city": "Hyderabad",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0249",
+    "store_name": "Jaipur Hypermarket 4",
+    "city": "Jaipur",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0122",
+    "store_name": "Chennai Hypermarket 7",
+    "city": "Chennai",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0226",
+    "store_name": "Ahmedabad Hypermarket 1",
+    "city": "Ahmedabad",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0043",
+    "store_name": "Delhi NCR Hypermarket 3",
+    "city": "Delhi NCR",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0117",
+    "store_name": "Chennai Hypermarket 2",
+    "city": "Chennai",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0248",
+    "store_name": "Jaipur Hypermarket 3",
+    "city": "Jaipur",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0118",
+    "store_name": "Chennai Hypermarket 3",
+    "city": "Chennai",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0231",
+    "store_name": "Ahmedabad Hypermarket 6",
+    "city": "Ahmedabad",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0206",
+    "store_name": "Pune Hypermarket 6",
+    "city": "Pune",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0001",
+    "store_name": "Mumbai Hypermarket 1",
+    "city": "Mumbai",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0152",
+    "store_name": "Hyderabad Hypermarket 7",
+    "city": "Hyderabad",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0151",
+    "store_name": "Hyderabad Hypermarket 6",
+    "city": "Hyderabad",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0177",
+    "store_name": "Kolkata Hypermarket 2",
+    "city": "Kolkata",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0003",
+    "store_name": "Mumbai Hypermarket 3",
+    "city": "Mumbai",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0087",
+    "store_name": "Bangalore Hypermarket 7",
+    "city": "Bangalore",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0204",
+    "store_name": "Pune Hypermarket 4",
+    "city": "Pune",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0123",
+    "store_name": "Chennai Hypermarket 8",
+    "city": "Chennai",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0042",
+    "store_name": "Delhi NCR Hypermarket 2",
+    "city": "Delhi NCR",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0048",
+    "store_name": "Delhi NCR Hypermarket 8",
+    "city": "Delhi NCR",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0045",
+    "store_name": "Delhi NCR Hypermarket 5",
+    "city": "Delhi NCR",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0007",
+    "store_name": "Mumbai Hypermarket 7",
+    "city": "Mumbai",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0043",
+    "store_name": "Delhi NCR Hypermarket 3",
+    "city": "Delhi NCR",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0179",
+    "store_name": "Kolkata Hypermarket 4",
+    "city": "Kolkata",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0121",
+    "store_name": "Chennai Hypermarket 6",
+    "city": "Chennai",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0123",
+    "store_name": "Chennai Hypermarket 8",
+    "city": "Chennai",
+    "department": "Personal Care",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0010",
+    "store_name": "Mumbai Hypermarket 10",
+    "city": "Mumbai",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  },
+  {
+    "store_id": "STR-0205",
+    "store_name": "Pune Hypermarket 5",
+    "city": "Pune",
+    "department": "Snacks & Biscuits",
+    "avg_daily_demand": "14.0"
+  }
+]

@@ -1,0 +1,212 @@
+[
+  {
+    "segment": "Medium Risk",
+    "category": "Grocery",
+    "customer_count": 2935,
+    "total_spend": 94244494
+  },
+  {
+    "segment": "Medium Risk",
+    "category": "Dairy",
+    "customer_count": 989,
+    "total_spend": 31536946
+  },
+  {
+    "segment": "Medium Risk",
+    "category": "Household",
+    "customer_count": 2534,
+    "total_spend": 82739950
+  },
+  {
+    "segment": "Medium Risk",
+    "category": "Beverages",
+    "customer_count": 1485,
+    "total_spend": 48565240
+  },
+  {
+    "segment": "Medium Risk",
+    "category": "Snacks",
+    "customer_count": 1973,
+    "total_spend": 64396574
+  },
+  {
+    "segment": "New Customers",
+    "category": "Grocery",
+    "customer_count": 1114,
+    "total_spend": 6988753
+  },
+  {
+    "segment": "New Customers",
+    "category": "Electronics",
+    "customer_count": 1422,
+    "total_spend": 8831182
+  },
+  {
+    "segment": "New Customers",
+    "category": "Clothing",
+    "customer_count": 1886,
+    "total_spend": 11925353
+  },
+  {
+    "segment": "New Customers",
+    "category": "Snacks",
+    "customer_count": 1074,
+    "total_spend": 6782406
+  },
+  {
+    "segment": "New Customers",
+    "category": "Beauty",
+    "customer_count": 1888,
+    "total_spend": 11680965
+  },
+  {
+    "segment": "Churned",
+    "category": "Grocery",
+    "customer_count": 1765,
+    "total_spend": 18411729
+  },
+  {
+    "segment": "Churned",
+    "category": "Dairy",
+    "customer_count": 710,
+    "total_spend": 7613830
+  },
+  {
+    "segment": "Churned",
+    "category": "Household",
+    "customer_count": 742,
+    "total_spend": 7818250
+  },
+  {
+    "segment": "Churned",
+    "category": "Beverages",
+    "customer_count": 760,
+    "total_spend": 8095478
+  },
+  {
+    "segment": "Churned",
+    "category": "Snacks",
+    "customer_count": 1010,
+    "total_spend": 10639717
+  },
+  {
+    "segment": "Low-Value",
+    "category": "Dairy",
+    "customer_count": 1017,
+    "total_spend": 5608940
+  },
+  {
+    "segment": "Low-Value",
+    "category": "Basic Grocery",
+    "customer_count": 2568,
+    "total_spend": 13890039
+  },
+  {
+    "segment": "Low-Value",
+    "category": "Household",
+    "customer_count": 1511,
+    "total_spend": 8244187
+  },
+  {
+    "segment": "Low-Value",
+    "category": "Beverages",
+    "customer_count": 2079,
+    "total_spend": 11390384
+  },
+  {
+    "segment": "Low-Value",
+    "category": "Snacks",
+    "customer_count": 2990,
+    "total_spend": 16474661
+  },
+  {
+    "segment": "Loyal Active",
+    "category": "Grocery",
+    "customer_count": 2623,
+    "total_spend": 183360528
+  },
+  {
+    "segment": "Loyal Active",
+    "category": "Dairy",
+    "customer_count": 1882,
+    "total_spend": 132274117
+  },
+  {
+    "segment": "Loyal Active",
+    "category": "Household",
+    "customer_count": 1519,
+    "total_spend": 106889682
+  },
+  {
+    "segment": "Loyal Active",
+    "category": "Beverages",
+    "customer_count": 737,
+    "total_spend": 51434133
+  },
+  {
+    "segment": "Loyal Active",
+    "category": "Snacks",
+    "customer_count": 755,
+    "total_spend": 53064262
+  },
+  {
+    "segment": "High Risk",
+    "category": "Basic Grocery",
+    "customer_count": 1918,
+    "total_spend": 39671207
+  },
+  {
+    "segment": "High Risk",
+    "category": "Household",
+    "customer_count": 1122,
+    "total_spend": 23000083
+  },
+  {
+    "segment": "High Risk",
+    "category": "Beverages",
+    "customer_count": 1123,
+    "total_spend": 23221174
+  },
+  {
+    "segment": "High Risk",
+    "category": "Snacks",
+    "customer_count": 1484,
+    "total_spend": 30471239
+  },
+  {
+    "segment": "High Risk",
+    "category": "Discounts",
+    "customer_count": 1830,
+    "total_spend": 37370315
+  },
+  {
+    "segment": "High-Value VIP",
+    "category": "Electronics",
+    "customer_count": 789,
+    "total_spend": 111920579
+  },
+  {
+    "segment": "High-Value VIP",
+    "category": "Clothing",
+    "customer_count": 500,
+    "total_spend": 69481219
+  },
+  {
+    "segment": "High-Value VIP",
+    "category": "Beauty",
+    "customer_count": 255,
+    "total_spend": 34656767
+  },
+  {
+    "segment": "High-Value VIP",
+    "category": "Premium Foods",
+    "customer_count": 648,
+    "total_spend": 91844652
+  },
+  {
+    "segment": "High-Value VIP",
+    "category": "Home & Kitchen",
+    "customer_count": 363,
+    "total_spend": 50641589
+  }
+]

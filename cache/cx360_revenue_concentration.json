@@ -1,0 +1,62 @@
+[
+  {
+    "percentile": "Top 10%",
+    "customer_count": 5000,
+    "cumulative_revenue": 579661934,
+    "cumulative_pct": 38.3
+  },
+  {
+    "percentile": "Top 20%",
+    "customer_count": 10000,
+    "cumulative_revenue": 886513720,
+    "cumulative_pct": 58.5
+  },
+  {
+    "percentile": "Top 30%",
+    "customer_count": 15000,
+    "cumulative_revenue": 1088976095,
+    "cumulative_pct": 71.9
+  },
+  {
+    "percentile": "Top 40%",
+    "customer_count": 20000,
+    "cumulative_revenue": 1231372231,
+    "cumulative_pct": 81.3
+  },
+  {
+    "percentile": "Top 50%",
+    "customer_count": 25000,
+    "cumulative_revenue": 1331694472,
+    "cumulative_pct": 87.9
+  },
+  {
+    "percentile": "Top 60%",
+    "customer_count": 30000,
+    "cumulative_revenue": 1398721098,
+    "cumulative_pct": 92.3
+  },
+  {
+    "percentile": "Top 70%",
+    "customer_count": 35000,
+    "cumulative_revenue": 1445373759,
+    "cumulative_pct": 95.4
+  },
+  {
+    "percentile": "Top 80%",
+    "customer_count": 40000,
+    "cumulative_revenue": 1480750507,
+    "cumulative_pct": 97.7
+  },
+  {
+    "percentile": "Top 90%",
+    "customer_count": 45000,
+    "cumulative_revenue": 1504207901,
+    "cumulative_pct": 99.3
+  },
+  {
+    "percentile": "Top 100%",
+    "customer_count": 50000,
+    "cumulative_revenue": 1515180624,
+    "cumulative_pct": 100
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "basket_range": "₹0-200",
+    "customer_count": 4375,
+    "avg_basket": 145,
+    "pct_of_total": 8.8
+  },
+  {
+    "basket_range": "₹200-500",
+    "customer_count": 12817,
+    "avg_basket": 338,
+    "pct_of_total": 25.6
+  },
+  {
+    "basket_range": "₹500-1,000",
+    "customer_count": 17419,
+    "avg_basket": 729,
+    "pct_of_total": 34.8
+  },
+  {
+    "basket_range": "₹1,000-2,000",
+    "customer_count": 10646,
+    "avg_basket": 1313,
+    "pct_of_total": 21.3
+  },
+  {
+    "basket_range": "₹2,000-5,000",
+    "customer_count": 3528,
+    "avg_basket": 2729,
+    "pct_of_total": 7.1
+  },
+  {
+    "basket_range": "₹5,000+",
+    "customer_count": 1215,
+    "avg_basket": 6208,
+    "pct_of_total": 2.4
+  }
+]

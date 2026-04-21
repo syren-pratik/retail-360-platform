@@ -1,0 +1,167 @@
+[
+  {
+    "customer_id": "CUST-35286",
+    "customer_name": "Customer 35286",
+    "segment": "Medium Risk",
+    "clv": 1984,
+    "churn_probability": 0.498,
+    "days_since_last_order": 73,
+    "alert_type": "Low",
+    "recommended_action": "Schedule loyalty program engagement",
+    "potential_revenue_at_risk": 988
+  },
+  {
+    "customer_id": "CUST-25437",
+    "customer_name": "Customer 25437",
+    "segment": "Medium Risk",
+    "clv": 1974,
+    "churn_probability": 0.499,
+    "days_since_last_order": 35,
+    "alert_type": "Low",
+    "recommended_action": "Schedule loyalty program engagement",
+    "potential_revenue_at_risk": 985
+  },
+  {
+    "customer_id": "CUST-24940",
+    "customer_name": "Customer 24940",
+    "segment": "Medium Risk",
+    "clv": 1983,
+    "churn_probability": 0.496,
+    "days_since_last_order": 56,
+    "alert_type": "Low",
+    "recommended_action": "Schedule loyalty program engagement",
+    "potential_revenue_at_risk": 983
+  },
+  {
+    "customer_id": "CUST-16051",
+    "customer_name": "Customer 16051",
+    "segment": "Medium Risk",
+    "clv": 1997,
+    "churn_probability": 0.492,
+    "days_since_last_order": 65,
+    "alert_type": "Low",
+    "recommended_action": "Schedule loyalty program engagement",
+    "potential_revenue_at_risk": 982
+  },
+  {
+    "customer_id": "CUST-21352",
+    "customer_name": "Customer 21352",
+    "segment": "Medium Risk",
+    "clv": 1988,
+    "churn_probability": 0.494,
+    "days_since_last_order": 66,
+    "alert_type": "Low",
+    "recommended_action": "Schedule loyalty program engagement",
+    "potential_revenue_at_risk": 982
+  },
+  {
+    "customer_id": "CUST-21871",
+    "customer_name": "Customer 21871",
+    "segment": "Medium Risk",
+    "clv": 1956,
+    "churn_probability": 0.5,
+    "days_since_last_order": 67,
+    "alert_type": "Low",
+    "recommended_action": "Schedule loyalty program engagement",
+    "potential_revenue_at_risk": 978
+  },
+  {
+    "customer_id": "CUST-33356",
+    "customer_name": "Customer 33356",
+    "segment": "Medium Risk",
+    "clv": 1997,
+    "churn_probability": 0.489,
+    "days_since_last_order": 41,
+    "alert_type": "Low",
+    "recommended_action": "Schedule loyalty program engagement",
+    "potential_revenue_at_risk": 977
+  },
+  {
+    "customer_id": "CUST-03731",
+    "customer_name": "Customer 03731",
+    "segment": "Medium Risk",
+    "clv": 2000,
+    "churn_probability": 0.488,
+    "days_since_last_order": 33,
+    "alert_type": "Low",
+    "recommended_action": "Schedule loyalty program engagement",
+    "potential_revenue_at_risk": 976
+  },
+  {
+    "customer_id": "CUST-46265",
+    "customer_name": "Customer 46265",
+    "segment": "Medium Risk",
+    "clv": 1974,
+    "churn_probability": 0.494,
+    "days_since_last_order": 51,
+    "alert_type": "Low",
+    "recommended_action": "Schedule loyalty program engagement",
+    "potential_revenue_at_risk": 975
+  },
+  {
+    "customer_id": "CUST-09533",
+    "customer_name": "Customer 09533",
+    "segment": "Medium Risk",
+    "clv": 1966,
+    "churn_probability": 0.496,
+    "days_since_last_order": 46,
+    "alert_type": "Low",
+    "recommended_action": "Schedule loyalty program engagement",
+    "potential_revenue_at_risk": 975
+  },
+  {
+    "customer_id": "CUST-08747",
+    "customer_name": "Customer 08747",
+    "segment": "Medium Risk",
+    "clv": 1999,
+    "churn_probability": 0.487,
+    "days_since_last_order": 59,
+    "alert_type": "Low",
+    "recommended_action": "Schedule loyalty program engagement",
+    "potential_revenue_at_risk": 974
+  },
+  {
+    "customer_id": "CUST-16700",
+    "customer_name": "Customer 16700",
+    "segment": "Medium Risk",
+    "clv": 1958,
+    "churn_probability": 0.497,
+    "days_since_last_order": 47,
+    "alert_type": "Low",
+    "recommended_action": "Schedule loyalty program engagement",
+    "potential_revenue_at_risk": 973
+  },
+  {
+    "customer_id": "CUST-03987",
+    "customer_name": "Customer 03987",
+    "segment": "Medium Risk",
+    "clv": 1965,
+    "churn_probability": 0.495,
+    "days_since_last_order": 55,
+    "alert_type": "Low",
+    "recommended_action": "Schedule loyalty program engagement",
+    "potential_revenue_at_risk": 973
+  },
+  {
+    "customer_id": "CUST-09520",
+    "customer_name": "Customer 09520",
+    "segment": "Medium Risk",
+    "clv": 1967,
+    "churn_probability": 0.494,
+    "days_since_last_order": 48,
+    "alert_type": "Low",
+    "recommended_action": "Schedule loyalty program engagement",
+    "potential_revenue_at_risk": 972
+  },
+  {
+    "customer_id": "CUST-09622",
+    "customer_name": "Customer 09622",
+    "segment": "Medium Risk",
+    "clv": 1940,
+    "churn_probability": 0.5,
+    "days_since_last_order": 50,
+    "alert_type": "Low",
+    "recommended_action": "Schedule loyalty program engagement",
+    "potential_revenue_at_risk": 970
+  }
+]

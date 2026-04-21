@@ -1,0 +1,26 @@
+[
+  {
+    "clv_tier": "Platinum",
+    "customer_count": 2555,
+    "avg_clv": 6242,
+    "total_clv": 15948047
+  },
+  {
+    "clv_tier": "Gold",
+    "customer_count": 7516,
+    "avg_clv": 3237,
+    "total_clv": 24328719
+  },
+  {
+    "clv_tier": "Silver",
+    "customer_count": 21550,
+    "avg_clv": 1125,
+    "total_clv": 24238609
+  },
+  {
+    "clv_tier": "Bronze",
+    "customer_count": 18379,
+    "avg_clv": 277,
+    "total_clv": 5099475
+  }
+]

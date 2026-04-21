@@ -1,0 +1,128 @@
+[
+  {
+    "cohort_month": "2024-01",
+    "period_number": 0,
+    "retention_rate": 1,
+    "original_customers": 4250
+  },
+  {
+    "cohort_month": "2024-01",
+    "period_number": 1,
+    "retention_rate": 0.68,
+    "original_customers": 4250
+  },
+  {
+    "cohort_month": "2024-01",
+    "period_number": 2,
+    "retention_rate": 0.52,
+    "original_customers": 4250
+  },
+  {
+    "cohort_month": "2024-01",
+    "period_number": 3,
+    "retention_rate": 0.45,
+    "original_customers": 4250
+  },
+  {
+    "cohort_month": "2024-01",
+    "period_number": 4,
+    "retention_rate": 0.41,
+    "original_customers": 4250
+  },
+  {
+    "cohort_month": "2024-01",
+    "period_number": 5,
+    "retention_rate": 0.38,
+    "original_customers": 4250
+  },
+  {
+    "cohort_month": "2024-02",
+    "period_number": 0,
+    "retention_rate": 1,
+    "original_customers": 3890
+  },
+  {
+    "cohort_month": "2024-02",
+    "period_number": 1,
+    "retention_rate": 0.72,
+    "original_customers": 3890
+  },
+  {
+    "cohort_month": "2024-02",
+    "period_number": 2,
+    "retention_rate": 0.55,
+    "original_customers": 3890
+  },
+  {
+    "cohort_month": "2024-02",
+    "period_number": 3,
+    "retention_rate": 0.48,
+    "original_customers": 3890
+  },
+  {
+    "cohort_month": "2024-02",
+    "period_number": 4,
+    "retention_rate": 0.43,
+    "original_customers": 3890
+  },
+  {
+    "cohort_month": "2024-03",
+    "period_number": 0,
+    "retention_rate": 1,
+    "original_customers": 4580
+  },
+  {
+    "cohort_month": "2024-03",
+    "period_number": 1,
+    "retention_rate": 0.65,
+    "original_customers": 4580
+  },
+  {
+    "cohort_month": "2024-03",
+    "period_number": 2,
+    "retention_rate": 0.49,
+    "original_customers": 4580
+  },
+  {
+    "cohort_month": "2024-03",
+    "period_number": 3,
+    "retention_rate": 0.4,
+    "original_customers": 4580
+  },
+  {
+    "cohort_month": "2024-04",
+    "period_number": 0,
+    "retention_rate": 1,
+    "original_customers": 5120
+  },
+  {
+    "cohort_month": "2024-04",
+    "period_number": 1,
+    "retention_rate": 0.7,
+    "original_customers": 5120
+  },
+  {
+    "cohort_month": "2024-04",
+    "period_number": 2,
+    "retention_rate": 0.58,
+    "original_customers": 5120
+  },
+  {
+    "cohort_month": "2024-05",
+    "period_number": 0,
+    "retention_rate": 1,
+    "original_customers": 4800
+  },
+  {
+    "cohort_month": "2024-05",
+    "period_number": 1,
+    "retention_rate": 0.74,
+    "original_customers": 4800
+  },
+  {
+    "cohort_month": "2024-06",
+    "period_number": 0,
+    "retention_rate": 1,
+    "original_customers": 5200
+  }
+]

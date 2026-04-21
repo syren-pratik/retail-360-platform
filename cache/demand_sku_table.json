@@ -1,0 +1,1002 @@
+[
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "44",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "44.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000189",
+    "product_name": "Catch Cumin Seeds 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "38",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "19.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "45",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "22.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "52",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "26.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "14",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "7.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "18",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "9.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "61",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "30.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "28",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "14.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "31",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "31.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "27",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "27.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "21",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "10.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "25",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "12.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "15",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "15.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "26",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "13.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "22",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "22.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "29",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "14.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "31",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "15.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "15",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "15.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "36",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "18.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "20",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "20.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "31",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "15.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "42",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "42.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "45",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "45.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "49",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "24.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "26",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "13.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "29",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "29.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "15",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "7.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "35",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "35.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "25",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "25.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "32",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "32.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "33",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "33.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "62",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "62.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "45",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "45.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "24",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "24.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "18",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "18.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "37",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "12.3",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "29",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "14.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "37",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "37.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "49",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "24.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "52",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "52.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "48",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "48.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "42",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "42.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "15",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "7.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "31",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "31.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "18",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "9.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "36",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "36.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000189",
+    "product_name": "Catch Cumin Seeds 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "28",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "14.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "29",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "14.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "37",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "12.3",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "17",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "8.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "16",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "8.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000189",
+    "product_name": "Catch Cumin Seeds 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "50",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "25.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000189",
+    "product_name": "Catch Cumin Seeds 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "41",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "20.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "42",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "21.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000189",
+    "product_name": "Catch Cumin Seeds 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "27",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "13.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "40",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "20.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "67",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "33.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "27",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "27.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "39",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "39.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "44",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "22.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "38",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "38.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "62",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "20.7",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000189",
+    "product_name": "Catch Cumin Seeds 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "21",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "7.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "33",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "33.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "33",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "11.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "29",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "29.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "43",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "43.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "50",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "25.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "43",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "43.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "23",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "11.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000189",
+    "product_name": "Catch Cumin Seeds 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "38",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "19.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "41",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "41.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "26",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "26.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "32",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "32.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "49",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "49.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "34",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "17.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "31",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "31.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "27",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "27.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "40",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "40.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "42",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "42.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "22",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "22.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "36",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "36.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "34",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "34.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "46",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "23.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "60",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "60.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "39",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "19.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "47",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "47.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "33",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "33.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "37",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "37.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "17",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "8.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "32",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "32.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "33",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "16.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000039",
+    "product_name": "Nature Fresh Mustard Oil 500ml Premium",
+    "department": "Grocery & Staples",
+    "current_stock": "33",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "33.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "41",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "41.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000189",
+    "product_name": "Catch Cumin Seeds 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "40",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "20.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "43",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "21.5",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "40",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "10.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000178",
+    "product_name": "Everest Garam Masala 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "23",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "23.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000038",
+    "product_name": "Nature Fresh Mustard Oil 500ml",
+    "department": "Grocery & Staples",
+    "current_stock": "42",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "14.0",
+    "stockout_risk": "Low"
+  },
+  {
+    "product_id": "PRD-000189",
+    "product_name": "Catch Cumin Seeds 100g",
+    "department": "Grocery & Staples",
+    "current_stock": "19",
+    "forecast_7d": "0.0",
+    "forecast_14d": "0.0",
+    "days_of_stock": "9.5",
+    "stockout_risk": "Low"
+  }
+]

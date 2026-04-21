@@ -1,0 +1,90 @@
+{
+  "acquisition": [
+    {
+      "channel": "Organic Search",
+      "customer_count": 10861,
+      "pct_of_total": 21.7,
+      "avg_clv": 1393,
+      "total_revenue": 331196648
+    },
+    {
+      "channel": "Paid Ads (Google/Meta)",
+      "customer_count": 8884,
+      "pct_of_total": 17.8,
+      "avg_clv": 1399,
+      "total_revenue": 267584250
+    },
+    {
+      "channel": "Direct Traffic",
+      "customer_count": 7580,
+      "pct_of_total": 15.2,
+      "avg_clv": 1408,
+      "total_revenue": 232094785
+    },
+    {
+      "channel": "Referral",
+      "customer_count": 5962,
+      "pct_of_total": 11.9,
+      "avg_clv": 1391,
+      "total_revenue": 182070890
+    },
+    {
+      "channel": "Email / SMS",
+      "customer_count": 5051,
+      "pct_of_total": 10.1,
+      "avg_clv": 1378,
+      "total_revenue": 150872323
+    },
+    {
+      "channel": "Marketplace",
+      "customer_count": 4085,
+      "pct_of_total": 8.2,
+      "avg_clv": 1363,
+      "total_revenue": 121792140
+    },
+    {
+      "channel": "Social Media",
+      "customer_count": 4000,
+      "pct_of_total": 8,
+      "avg_clv": 1388,
+      "total_revenue": 121669935
+    },
+    {
+      "channel": "Offline (Store Walk-in)",
+      "customer_count": 3577,
+      "pct_of_total": 7.2,
+      "avg_clv": 1403,
+      "total_revenue": 107899653
+    }
+  ],
+  "shopping": [
+    {
+      "channel": "In-Store",
+      "customer_count": 22542,
+      "pct_of_total": 45.1,
+      "avg_basket": 983,
+      "total_transactions": 429773
+    },
+    {
+      "channel": "Online",
+      "customer_count": 14908,
+      "pct_of_total": 29.8,
+      "avg_basket": 970,
+      "total_transactions": 282698
+    },
+    {
+      "channel": "Mobile App",
+      "customer_count": 7562,
+      "pct_of_total": 15.1,
+      "avg_basket": 967,
+      "total_transactions": 144093
+    },
+    {
+      "channel": "Omnichannel",
+      "customer_count": 4988,
+      "pct_of_total": 10,
+      "avg_basket": 979,
+      "total_transactions": 95932
+    }
+  ]
+}
