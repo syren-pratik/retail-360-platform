@@ -44,7 +44,7 @@
   {
     "segment": "New Customers",
     "category": "Clothing",
-    "customer_count": 1886,
+    "customer_count": 2100,
     "total_spend": 11925353
   },
   {
@@ -56,7 +56,7 @@
   {
     "segment": "New Customers",
     "category": "Beauty",
-    "customer_count": 1888,
+    "customer_count": 1650,
     "total_spend": 11680965
   },
   {
@@ -120,31 +120,31 @@
     "total_spend": 16474661
   },
   {
-    "segment": "Loyal Active",
+    "segment": "Low Risk",
     "category": "Grocery",
     "customer_count": 2623,
     "total_spend": 183360528
   },
   {
-    "segment": "Loyal Active",
+    "segment": "Low Risk",
     "category": "Dairy",
     "customer_count": 1882,
     "total_spend": 132274117
   },
   {
-    "segment": "Loyal Active",
+    "segment": "Low Risk",
     "category": "Household",
     "customer_count": 1519,
     "total_spend": 106889682
   },
   {
-    "segment": "Loyal Active",
+    "segment": "Low Risk",
     "category": "Beverages",
     "customer_count": 737,
     "total_spend": 51434133
   },
   {
-    "segment": "Loyal Active",
+    "segment": "Low Risk",
     "category": "Snacks",
     "customer_count": 755,
     "total_spend": 53064262
@@ -152,7 +152,7 @@
   {
     "segment": "High Risk",
     "category": "Basic Grocery",
-    "customer_count": 1918,
+    "customer_count": 1500,
     "total_spend": 39671207
   },
   {
@@ -176,7 +176,7 @@
   {
     "segment": "High Risk",
     "category": "Discounts",
-    "customer_count": 1830,
+    "customer_count": 2250,
     "total_spend": 37370315
   },
   {

@@ -32,6 +32,7 @@ interface TopFilterBarProps {
   segments: string[];
   loyaltyTiers: string[];
   cities?: string[];
+  acquisitionChannels?: string[];
   customers?: CustomerRecord[];
   kpis?: Record<string, unknown>;
   onExportAllData?: () => void;
@@ -42,12 +43,6 @@ const dateRangeOptions = [
   { value: '30d', label: 'Last 30 days' },
   { value: '90d', label: 'Last 90 days' },
   { value: 'YTD', label: 'Year to date' },
-];
-
-const channelOptions = [
-  { value: 'all', label: 'All Channels' },
-  { value: 'online', label: 'Online' },
-  { value: 'in-store', label: 'In-Store' },
 ];
 
 function getDateRangeFromPreset(preset: string): [string, string] {
@@ -95,6 +90,7 @@ export default function TopFilterBar({
   segments,
   loyaltyTiers,
   cities = [],
+  acquisitionChannels = [],
   customers = [],
   kpis,
   onExportAllData,
@@ -402,26 +398,27 @@ export default function TopFilterBar({
             />
           </div>
 
-          {/* Channel Filter */}
-          <div className="relative">
-            <select
-              value={globalFilters.channel}
-              onChange={(e) => handleChannelChange(e.target.value)}
-              className="h-9 px-3 pr-8 text-sm border border-[var(--border-default)] rounded-md bg-white appearance-none cursor-pointer hover:border-[var(--border-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] focus:ring-opacity-20"
-            >
-              {channelOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-            <ChevronDown
-              size={14}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[var(--text-tertiary)] pointer-events-none"
-            />
-          </div>
+          {/* Acquisition Channel Filter */}
+          {acquisitionChannels.length > 0 && (
+            <div className="relative">
+              <select
+                value={globalFilters.channel}
+                onChange={(e) => handleChannelChange(e.target.value)}
+                className="h-9 px-3 pr-8 text-sm border border-[var(--border-default)] rounded-md bg-white appearance-none cursor-pointer hover:border-[var(--border-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] focus:ring-opacity-20"
+              >
+                <option value="all">All Channels</option>
+                {acquisitionChannels.map((ch) => (
+                  <option key={ch} value={ch}>{ch}</option>
+                ))}
+              </select>
+              <ChevronDown
+                size={14}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[var(--text-tertiary)] pointer-events-none"
+              />
+            </div>
+          )}
 
-          {/* City Filter */}
+          {/* Geography Filter */}
           {cities.length > 0 && (
             <div className="relative">
               <select

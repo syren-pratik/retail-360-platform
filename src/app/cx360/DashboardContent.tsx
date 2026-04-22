@@ -141,7 +141,7 @@ export default function DashboardContent({
       {
         segment: 'customer_segment',
         loyaltyTier: 'loyalty_tier',
-        channel: 'preferred_channel',
+        channel: 'acquisition_channel',
         city: 'city',
         recency: 'days_since_last_purchase',
       }
@@ -156,6 +156,17 @@ export default function DashboardContent({
       if (city) citySet.add(city);
     });
     return Array.from(citySet).sort();
+  }, [customerTable]);
+
+  // Extract unique acquisition channels from customer table
+  const uniqueAcquisitionChannels = useMemo(() => {
+    const channelSet = new Set<string>();
+    customerTable.forEach(c => {
+      if (c.acquisition_channel) channelSet.add(c.acquisition_channel);
+    });
+    // Order by defined taxonomy
+    const order = ['Organic', 'Paid', 'Direct', 'Referral', 'Email / SMS', 'Marketplace / Platform', 'Offline'];
+    return order.filter(ch => channelSet.has(ch));
   }, [customerTable]);
 
   // Compute CLV Distribution from filtered customers
@@ -422,6 +433,7 @@ export default function DashboardContent({
         segments={dimensions.segments}
         loyaltyTiers={dimensions.loyalty_tiers}
         cities={uniqueCities}
+        acquisitionChannels={uniqueAcquisitionChannels}
         customers={customerTable}
       />
 

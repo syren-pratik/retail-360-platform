@@ -5065,7 +5065,7 @@
     "frequency": 38,
     "monetary": 3649.8,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -5076,7 +5076,7 @@
     "frequency": 43,
     "monetary": 2340.96,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5087,7 +5087,7 @@
     "frequency": 43,
     "monetary": 2951.97,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5098,7 +5098,7 @@
     "frequency": 45,
     "monetary": 3234.16,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5109,7 +5109,7 @@
     "frequency": 46,
     "monetary": 2263.7,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5120,7 +5120,7 @@
     "frequency": 33,
     "monetary": 3216.28,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -5131,7 +5131,7 @@
     "frequency": 25,
     "monetary": 2894,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5142,7 +5142,7 @@
     "frequency": 24,
     "monetary": 3154.74,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5153,7 +5153,7 @@
     "frequency": 51,
     "monetary": 4197.8,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5164,7 +5164,7 @@
     "frequency": 46,
     "monetary": 4006.2,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5175,7 +5175,7 @@
     "frequency": 52,
     "monetary": 2020.38,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5186,7 +5186,7 @@
     "frequency": 22,
     "monetary": 3101.79,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5197,7 +5197,7 @@
     "frequency": 60,
     "monetary": 3475.99,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5208,7 +5208,7 @@
     "frequency": 22,
     "monetary": 3043.1,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5219,7 +5219,7 @@
     "frequency": 35,
     "monetary": 4235,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 4,
     "f_score": 4,
     "m_score": 4
@@ -5230,7 +5230,7 @@
     "frequency": 55,
     "monetary": 4187.26,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5241,7 +5241,7 @@
     "frequency": 41,
     "monetary": 2335.74,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5252,7 +5252,7 @@
     "frequency": 23,
     "monetary": 4087.73,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5263,7 +5263,7 @@
     "frequency": 25,
     "monetary": 3922.57,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5274,7 +5274,7 @@
     "frequency": 26,
     "monetary": 3174.03,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5285,7 +5285,7 @@
     "frequency": 55,
     "monetary": 2968.24,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5296,7 +5296,7 @@
     "frequency": 30,
     "monetary": 2502.57,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -5307,7 +5307,7 @@
     "frequency": 37,
     "monetary": 2196.49,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -5318,7 +5318,7 @@
     "frequency": 22,
     "monetary": 2480.63,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5329,7 +5329,7 @@
     "frequency": 56,
     "monetary": 3390.81,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5340,7 +5340,7 @@
     "frequency": 46,
     "monetary": 3099.15,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5351,7 +5351,7 @@
     "frequency": 53,
     "monetary": 4466.98,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5362,7 +5362,7 @@
     "frequency": 29,
     "monetary": 2023.66,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5373,7 +5373,7 @@
     "frequency": 49,
     "monetary": 3041.39,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5384,7 +5384,7 @@
     "frequency": 39,
     "monetary": 4160.35,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -5395,7 +5395,7 @@
     "frequency": 52,
     "monetary": 3937.69,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5406,7 +5406,7 @@
     "frequency": 26,
     "monetary": 2306.34,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5417,7 +5417,7 @@
     "frequency": 43,
     "monetary": 2621.28,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5428,7 +5428,7 @@
     "frequency": 44,
     "monetary": 4212.22,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5439,7 +5439,7 @@
     "frequency": 39,
     "monetary": 2405.07,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -5450,7 +5450,7 @@
     "frequency": 21,
     "monetary": 3139.8,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5461,7 +5461,7 @@
     "frequency": 35,
     "monetary": 2885.12,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -5472,7 +5472,7 @@
     "frequency": 55,
     "monetary": 3989.12,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5483,7 +5483,7 @@
     "frequency": 26,
     "monetary": 3078.43,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5494,7 +5494,7 @@
     "frequency": 49,
     "monetary": 3254.23,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5505,7 +5505,7 @@
     "frequency": 44,
     "monetary": 2287.52,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5516,7 +5516,7 @@
     "frequency": 37,
     "monetary": 3937.52,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -5527,7 +5527,7 @@
     "frequency": 31,
     "monetary": 3418.18,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 4,
     "f_score": 4,
     "m_score": 4
@@ -5538,7 +5538,7 @@
     "frequency": 30,
     "monetary": 3340.97,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -5549,7 +5549,7 @@
     "frequency": 27,
     "monetary": 3648.19,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5560,7 +5560,7 @@
     "frequency": 42,
     "monetary": 3511.76,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5571,7 +5571,7 @@
     "frequency": 51,
     "monetary": 4405.02,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5582,7 +5582,7 @@
     "frequency": 24,
     "monetary": 2535.21,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5593,7 +5593,7 @@
     "frequency": 56,
     "monetary": 2128.17,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 4,
     "f_score": 5,
     "m_score": 4
@@ -5604,7 +5604,7 @@
     "frequency": 54,
     "monetary": 2689.82,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5615,7 +5615,7 @@
     "frequency": 48,
     "monetary": 3289.65,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5626,7 +5626,7 @@
     "frequency": 26,
     "monetary": 3390.95,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5637,7 +5637,7 @@
     "frequency": 40,
     "monetary": 3206.37,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5648,7 +5648,7 @@
     "frequency": 34,
     "monetary": 2166.42,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -5659,7 +5659,7 @@
     "frequency": 33,
     "monetary": 2154.62,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -5670,7 +5670,7 @@
     "frequency": 30,
     "monetary": 3109.06,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -5681,7 +5681,7 @@
     "frequency": 46,
     "monetary": 2791.13,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5692,7 +5692,7 @@
     "frequency": 41,
     "monetary": 2070,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5703,7 +5703,7 @@
     "frequency": 57,
     "monetary": 3822.15,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5714,7 +5714,7 @@
     "frequency": 39,
     "monetary": 3714.23,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -5725,7 +5725,7 @@
     "frequency": 54,
     "monetary": 2360.06,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5736,7 +5736,7 @@
     "frequency": 20,
     "monetary": 3768.99,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5747,7 +5747,7 @@
     "frequency": 24,
     "monetary": 3301.94,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5758,7 +5758,7 @@
     "frequency": 52,
     "monetary": 3446.3,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5769,7 +5769,7 @@
     "frequency": 22,
     "monetary": 3114.7,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5780,7 +5780,7 @@
     "frequency": 51,
     "monetary": 3019.25,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 4,
     "f_score": 5,
     "m_score": 4
@@ -5791,7 +5791,7 @@
     "frequency": 46,
     "monetary": 2018.79,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5802,7 +5802,7 @@
     "frequency": 24,
     "monetary": 3088.69,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5813,7 +5813,7 @@
     "frequency": 58,
     "monetary": 2643.54,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 4,
     "f_score": 5,
     "m_score": 4
@@ -5824,7 +5824,7 @@
     "frequency": 41,
     "monetary": 2880.78,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5835,7 +5835,7 @@
     "frequency": 54,
     "monetary": 3657.28,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5846,7 +5846,7 @@
     "frequency": 21,
     "monetary": 4258.93,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5857,7 +5857,7 @@
     "frequency": 25,
     "monetary": 3228.72,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5868,7 +5868,7 @@
     "frequency": 56,
     "monetary": 2327.08,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5879,7 +5879,7 @@
     "frequency": 50,
     "monetary": 3858.58,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5890,7 +5890,7 @@
     "frequency": 34,
     "monetary": 4122.21,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -5901,7 +5901,7 @@
     "frequency": 25,
     "monetary": 4332.55,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5912,7 +5912,7 @@
     "frequency": 56,
     "monetary": 3664.34,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5923,7 +5923,7 @@
     "frequency": 23,
     "monetary": 3380.14,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5934,7 +5934,7 @@
     "frequency": 35,
     "monetary": 2524.11,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -5945,7 +5945,7 @@
     "frequency": 28,
     "monetary": 4003.02,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -5956,7 +5956,7 @@
     "frequency": 43,
     "monetary": 2901.58,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5967,7 +5967,7 @@
     "frequency": 59,
     "monetary": 4144.7,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -5978,7 +5978,7 @@
     "frequency": 38,
     "monetary": 2250.04,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -5989,7 +5989,7 @@
     "frequency": 35,
     "monetary": 3409.32,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -6000,7 +6000,7 @@
     "frequency": 52,
     "monetary": 2751.93,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -6011,7 +6011,7 @@
     "frequency": 59,
     "monetary": 3992.99,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -6022,7 +6022,7 @@
     "frequency": 50,
     "monetary": 2567.67,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -6033,7 +6033,7 @@
     "frequency": 35,
     "monetary": 3979.89,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -6044,7 +6044,7 @@
     "frequency": 21,
     "monetary": 3401.44,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -6055,7 +6055,7 @@
     "frequency": 53,
     "monetary": 3715.16,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -6066,7 +6066,7 @@
     "frequency": 51,
     "monetary": 2471.97,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -6077,7 +6077,7 @@
     "frequency": 34,
     "monetary": 4167.82,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -6088,7 +6088,7 @@
     "frequency": 46,
     "monetary": 2755.9,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -6099,7 +6099,7 @@
     "frequency": 48,
     "monetary": 2079.48,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -6110,7 +6110,7 @@
     "frequency": 21,
     "monetary": 3836.75,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -6121,7 +6121,7 @@
     "frequency": 36,
     "monetary": 2385.54,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -6132,7 +6132,7 @@
     "frequency": 54,
     "monetary": 2797.71,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -6143,7 +6143,7 @@
     "frequency": 31,
     "monetary": 4028.04,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -6154,7 +6154,7 @@
     "frequency": 20,
     "monetary": 4292.1,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -6165,7 +6165,7 @@
     "frequency": 29,
     "monetary": 2589.46,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -6176,7 +6176,7 @@
     "frequency": 48,
     "monetary": 2641.47,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -6187,7 +6187,7 @@
     "frequency": 51,
     "monetary": 2284.26,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 4,
     "f_score": 5,
     "m_score": 4
@@ -6198,7 +6198,7 @@
     "frequency": 52,
     "monetary": 4018.12,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -6209,7 +6209,7 @@
     "frequency": 58,
     "monetary": 2740.5,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -6220,7 +6220,7 @@
     "frequency": 33,
     "monetary": 3555.63,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -6231,7 +6231,7 @@
     "frequency": 28,
     "monetary": 2751.57,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -6242,7 +6242,7 @@
     "frequency": 37,
     "monetary": 3678.08,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 4,
     "m_score": 4
@@ -6253,7 +6253,7 @@
     "frequency": 53,
     "monetary": 2483.89,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -6264,7 +6264,7 @@
     "frequency": 50,
     "monetary": 2948.06,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -6275,7 +6275,7 @@
     "frequency": 26,
     "monetary": 2087.99,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 3,
     "m_score": 4
@@ -6286,7 +6286,7 @@
     "frequency": 40,
     "monetary": 2408.97,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -6297,7 +6297,7 @@
     "frequency": 52,
     "monetary": 4425.5,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -6308,7 +6308,7 @@
     "frequency": 47,
     "monetary": 2146.29,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4
@@ -6319,7 +6319,7 @@
     "frequency": 42,
     "monetary": 3442.99,
     "clv_tier": "Gold",
-    "customer_segment": "Loyal Active",
+    "customer_segment": "Low Risk",
     "r_score": 5,
     "f_score": 5,
     "m_score": 4

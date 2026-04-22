@@ -59,14 +59,12 @@ export function applyFilters<T extends object>(
     });
   }
 
-  // Apply channel filter
+  // Apply channel filter (acquisition channel)
   if (filters.channel !== 'all' && fieldMapping.channel) {
     const field = fieldMapping.channel;
-    const channelValue = filters.channel === 'online' ? 'Online' : 'In-Store';
     result = result.filter((item) => {
       const value = (item as Record<string, unknown>)[field as string];
-      // 'Both' matches any channel filter
-      return value === channelValue || value === 'Both';
+      return typeof value === 'string' && value === filters.channel;
     });
   }
 
@@ -147,7 +145,7 @@ export function getFilterSummary(filters: GlobalFilters): string[] {
 export const customerTableFieldMapping = {
   segment: 'customer_segment' as const,
   loyaltyTier: 'loyalty_tier' as const,
-  channel: 'preferred_channel' as const,
+  channel: 'acquisition_channel' as const,
   city: 'city' as const,
   recency: 'days_since_last_purchase' as const,
 };

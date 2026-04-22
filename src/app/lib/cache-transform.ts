@@ -175,6 +175,7 @@ export function transformCustomerRecords(raw: unknown[]): CustomerRecord[] {
     churn_prob_90d: toNumber(r.churn_prob_90d),
     churn_risk_tier: r.churn_risk_tier as string,
     preferred_channel: (r.preferred_channel || 'Unknown') as string,
+    acquisition_channel: (r.acquisition_channel || undefined) as string | undefined,
     geography: (r.geography || r.city || 'Unknown') as string,
     city: (r.city || r.geography || 'Unknown') as string,
     top_category: (r.top_category || 'Unknown') as string,

@@ -8,7 +8,7 @@
     },
     {
       "from": "High-Value VIP",
-      "to": "Loyal Active",
+      "to": "Low Risk",
       "count": 300
     },
     {
@@ -17,22 +17,22 @@
       "count": 100
     },
     {
-      "from": "Loyal Active",
-      "to": "Loyal Active",
+      "from": "Low Risk",
+      "to": "Low Risk",
       "count": 5800
     },
     {
-      "from": "Loyal Active",
+      "from": "Low Risk",
       "to": "High-Value VIP",
       "count": 450
     },
     {
-      "from": "Loyal Active",
+      "from": "Low Risk",
       "to": "Medium Risk",
       "count": 900
     },
     {
-      "from": "Loyal Active",
+      "from": "Low Risk",
       "to": "High Risk",
       "count": 350
     },
@@ -43,7 +43,7 @@
     },
     {
       "from": "Medium Risk",
-      "to": "Loyal Active",
+      "to": "Low Risk",
       "count": 1200
     },
     {
@@ -73,7 +73,7 @@
     },
     {
       "from": "High Risk",
-      "to": "Loyal Active",
+      "to": "Low Risk",
       "count": 400
     },
     {
@@ -103,7 +103,7 @@
     },
     {
       "from": "New Customers",
-      "to": "Loyal Active",
+      "to": "Low Risk",
       "count": 2000
     },
     {
@@ -133,7 +133,7 @@
     },
     {
       "from": "Low-Value",
-      "to": "Loyal Active",
+      "to": "Low Risk",
       "count": 800
     }
   ]

@@ -1,60 +1,60 @@
 {
   "acquisition": [
     {
-      "channel": "Organic Search",
-      "customer_count": 10861,
-      "pct_of_total": 21.7,
-      "avg_clv": 1393,
-      "total_revenue": 331196648
+      "channel": "Organic",
+      "customer_count": 14861,
+      "pct_of_total": 29.7,
+      "avg_clv": 1391,
+      "total_revenue": 452866583,
+      "description": "Organic search, social media, content"
     },
     {
-      "channel": "Paid Ads (Google/Meta)",
+      "channel": "Paid",
       "customer_count": 8884,
       "pct_of_total": 17.8,
       "avg_clv": 1399,
-      "total_revenue": 267584250
+      "total_revenue": 267584250,
+      "description": "Google Ads, Meta, display advertising"
     },
     {
-      "channel": "Direct Traffic",
+      "channel": "Direct",
       "customer_count": 7580,
       "pct_of_total": 15.2,
       "avg_clv": 1408,
-      "total_revenue": 232094785
+      "total_revenue": 232094785,
+      "description": "Direct website visits, brand awareness"
     },
     {
       "channel": "Referral",
       "customer_count": 5962,
       "pct_of_total": 11.9,
       "avg_clv": 1391,
-      "total_revenue": 182070890
+      "total_revenue": 182070890,
+      "description": "Word of mouth, referral programs"
     },
     {
       "channel": "Email / SMS",
       "customer_count": 5051,
       "pct_of_total": 10.1,
       "avg_clv": 1378,
-      "total_revenue": 150872323
+      "total_revenue": 150872323,
+      "description": "Email campaigns, SMS marketing"
     },
     {
-      "channel": "Marketplace",
+      "channel": "Marketplace / Platform",
       "customer_count": 4085,
       "pct_of_total": 8.2,
       "avg_clv": 1363,
-      "total_revenue": 121792140
+      "total_revenue": 121792140,
+      "description": "Amazon, Flipkart, other platforms"
     },
     {
-      "channel": "Social Media",
-      "customer_count": 4000,
-      "pct_of_total": 8,
-      "avg_clv": 1388,
-      "total_revenue": 121669935
-    },
-    {
-      "channel": "Offline (Store Walk-in)",
+      "channel": "Offline",
       "customer_count": 3577,
       "pct_of_total": 7.2,
       "avg_clv": 1403,
-      "total_revenue": 107899653
+      "total_revenue": 107899653,
+      "description": "Store walk-ins, events, flyers"
     }
   ],
   "shopping": [
@@ -82,7 +82,7 @@
     {
       "channel": "Omnichannel",
       "customer_count": 4988,
-      "pct_of_total": 10,
+      "pct_of_total": 10.0,
       "avg_basket": 979,
       "total_transactions": 95932
     }
