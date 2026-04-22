@@ -108,35 +108,49 @@ export function transformChurnDrivers(raw: unknown[]): ChurnDriver[] {
 
 // Transform Cohort Retention Matrix
 export function transformCohortRetention(raw: unknown[]): CohortRetentionMatrix[] {
-  // Group by cohort_month and build retention arrays
-  const grouped: Record<string, { cohort_month: string; original_customers: number; retentionMap: Map<number, number> }> = {};
+  const grouped: Record<string, {
+    cohort_month: string;
+    original_customers: number;
+    retentionMap: Map<number, number>;
+    retainedMap: Map<number, number>;
+  }> = {};
+
+  // Preserve insertion order for correct chronological display
+  const order: string[] = [];
 
   for (const r of raw as Record<string, string>[]) {
     const cohort = r.cohort_month;
     const period = toNumber(r.period_number);
     const rate = toNumber(r.retention_rate);
+    const retained = toNumber(r.retained_customers);
 
     if (!grouped[cohort]) {
       grouped[cohort] = {
         cohort_month: cohort,
         original_customers: toNumber(r.original_customers),
         retentionMap: new Map(),
+        retainedMap: new Map(),
       };
+      order.push(cohort);
     }
     grouped[cohort].retentionMap.set(period, rate);
+    if (retained) grouped[cohort].retainedMap.set(period, retained);
   }
 
-  // Convert map to array
-  return Object.values(grouped).map((g) => {
+  return order.map((cohort) => {
+    const g = grouped[cohort];
     const maxPeriod = Math.max(...Array.from(g.retentionMap.keys()));
     const retention: number[] = [];
+    const retainedArr: number[] = [];
     for (let i = 0; i <= maxPeriod; i++) {
-      retention.push(g.retentionMap.get(i) || 0);
+      retention.push(g.retentionMap.get(i) ?? 0);
+      retainedArr.push(g.retainedMap.get(i) ?? Math.round((g.retentionMap.get(i) ?? 0) * g.original_customers));
     }
     return {
       cohort_month: g.cohort_month,
       original_customers: g.original_customers,
       retention,
+      retained: retainedArr,
     };
   });
 }

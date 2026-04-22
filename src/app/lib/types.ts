@@ -64,6 +64,7 @@ export interface CohortRetentionMatrix {
   cohort_month: string;
   original_customers: number;
   retention: number[];
+  retained: number[];  // retained_customers per period
 }
 
 // Basket Distribution Types

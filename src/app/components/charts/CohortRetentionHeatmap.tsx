@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { Maximize2 } from 'lucide-react';
 import { CohortRetentionMatrix } from '@/app/lib/types';
 import { useDashboard } from '@/app/context/DashboardContext';
@@ -11,292 +12,306 @@ interface CohortRetentionHeatmapProps {
 
 const CHART_ID = 'cohort_retention';
 
-const getRetentionColor = (value: number | null): string => {
-  if (value === null) return 'transparent';
-  // Gradient from green (high) to yellow (mid) to red (low)
-  if (value >= 70) return '#10B981'; // Green
-  if (value >= 50) return '#34D399'; // Light green
-  if (value >= 40) return '#FCD34D'; // Yellow
-  if (value >= 30) return '#FBBF24'; // Amber
-  if (value >= 20) return '#F97316'; // Orange
-  return '#EF4444'; // Red
-};
+function getRetentionColor(rate: number): string {
+  if (rate >= 0.95) return '#1a3a5c';
+  if (rate >= 0.90) return '#2a5a8c';
+  if (rate >= 0.85) return '#3a7abc';
+  if (rate >= 0.80) return '#5a9ad4';
+  if (rate >= 0.75) return '#7ab4e4';
+  if (rate >= 0.70) return '#9ac8ec';
+  if (rate >= 0.65) return '#b4d8f2';
+  if (rate >= 0.60) return '#cce4f6';
+  if (rate >= 0.50) return '#deedf8';
+  return '#eef5fb';
+}
 
-const formatMonth = (monthStr: string | undefined | null): string => {
-  if (!monthStr || typeof monthStr !== 'string') return 'Unknown';
-  const parts = monthStr.split('-');
-  if (parts.length < 2) return monthStr;
-  const [year, month] = parts;
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  const monthIndex = parseInt(month) - 1;
-  if (monthIndex < 0 || monthIndex >= 12) return monthStr;
-  return `${months[monthIndex]} ${year?.slice(2) || ''}`;
-};
+function getTextColor(rate: number): string {
+  return rate >= 0.80 ? '#ffffff' : '#1a3a5c';
+}
+
+interface TooltipData {
+  cohort: string;
+  period: number;
+  rate: number;
+  retained: number;
+  original: number;
+  x: number;
+  y: number;
+}
 
 export default function CohortRetentionHeatmap({ data }: CohortRetentionHeatmapProps) {
   const { activeDrilldowns, addDrilldown, expandedChart, setExpandedChart } = useDashboard();
+  const [tooltip, setTooltip] = useState<TooltipData | null>(null);
 
-  // Find if this chart has an active drilldown
-  const activeDrilldown = activeDrilldowns.find((d) => d.source === CHART_ID);
+  const validData = (data ?? []).filter(d => d?.retention?.length > 0 && d.cohort_month);
+  const maxPeriods = validData.length > 0
+    ? Math.max(...validData.map(d => d.retention.length))
+    : 0;
+
+  const activeDrilldown = activeDrilldowns.find(d => d.source === CHART_ID);
   const selectedCohort = activeDrilldown?.value;
 
-  // Find max number of periods - safely handle empty data
-  const validData = (data ?? []).filter(d => d && d.retention && d.cohort_month);
-  const maxPeriods = validData.length > 0
-    ? Math.max(...validData.map(d => d.retention?.length ?? 0))
-    : 0;
-  const periodHeaders = Array.from({ length: maxPeriods }, (_, i) => `M${i}`);
-
-  const handleCohortClick = (cohortMonth: string) => {
+  const handleCellClick = (cohortMonth: string, period: number) => {
     addDrilldown({
       source: CHART_ID,
       field: 'cohort_month',
       value: cohortMonth,
-      label: `Cohort: ${formatMonth(cohortMonth)}`,
+      label: `Cohort: ${cohortMonth} · M${period}`,
     });
   };
 
-  const handleExpand = () => {
-    setExpandedChart(CHART_ID);
+  const handleMouseEnter = (
+    e: React.MouseEvent<HTMLTableCellElement>,
+    cohort: CohortRetentionMatrix,
+    periodIdx: number
+  ) => {
+    const rate = cohort.retention[periodIdx];
+    const retained = cohort.retained?.[periodIdx] ?? Math.round(rate * cohort.original_customers);
+    const rect = (e.target as HTMLElement).getBoundingClientRect();
+    setTooltip({
+      cohort: cohort.cohort_month,
+      period: periodIdx,
+      rate,
+      retained,
+      original: cohort.original_customers,
+      x: rect.left + rect.width / 2,
+      y: rect.top,
+    });
   };
 
-  // Transform data for the table export
-  const tableData = validData.map((cohort) => ({
-    cohort_month: formatMonth(cohort.cohort_month),
-    original_customers: cohort.original_customers ?? 0,
-    ...(cohort.retention ?? []).reduce((acc, val, i) => {
-      acc[`M${i}`] = val !== null ? `${val.toFixed(1)}%` : '—';
+  const tableData = validData.map(cohort => ({
+    cohort_month: cohort.cohort_month,
+    original_customers: cohort.original_customers,
+    ...cohort.retention.reduce((acc, val, i) => {
+      acc[`M${i}`] = `${Math.round(val * 100)}%`;
       return acc;
     }, {} as Record<string, string>),
   }));
 
-  const renderTable = () => (
-    <table className="w-full text-sm">
-      <thead>
-        <tr className="table-header">
-          <th className="px-3 py-2 text-left font-medium text-[var(--text-secondary)] rounded-tl-md">
-            Cohort
-          </th>
-          <th className="px-3 py-2 text-right font-medium text-[var(--text-secondary)]">
-            Size
-          </th>
-          {periodHeaders.map((period) => (
+  const periodHeaders = Array.from({ length: maxPeriods }, (_, i) => `M${i}`);
+
+  const renderGrid = (compact = false) => (
+    <div className="overflow-x-auto">
+      <table className="w-full border-collapse" style={{ minWidth: `${Math.max(600, 220 + maxPeriods * 72)}px` }}>
+        <thead>
+          <tr style={{ background: 'var(--bg-secondary)' }}>
             <th
-              key={period}
-              className="px-3 py-2 text-center font-medium text-[var(--text-secondary)] last:rounded-tr-md"
+              className="text-left text-xs font-semibold text-[var(--text-secondary)] px-4 py-2.5 whitespace-nowrap"
+              style={{ position: 'sticky', left: 0, background: 'var(--bg-secondary)', zIndex: 2, minWidth: 140 }}
             >
-              {period}
+              Cohort
             </th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {validData.map((cohort, rowIndex) => (
-          <tr
-            key={cohort.cohort_month}
-            onClick={() => handleCohortClick(cohort.cohort_month)}
-            className={`table-row border-b border-[var(--border-subtle)] cursor-pointer transition-colors ${
-              rowIndex === validData.length - 1 ? 'border-b-0' : ''
-            } ${selectedCohort === cohort.cohort_month ? 'bg-[var(--accent-primary-light)]' : ''} ${
-              selectedCohort && selectedCohort !== cohort.cohort_month ? 'opacity-50' : ''
-            }`}
-          >
-            <td className="px-3 py-2 text-[var(--text-primary)] font-medium">
-              {formatMonth(cohort.cohort_month)}
-            </td>
-            <td className="px-3 py-2 text-right text-[var(--text-secondary)]">
-              {(cohort.original_customers ?? 0).toLocaleString('en-IN')}
-            </td>
-            {(cohort.retention ?? []).map((value, i) => (
-              <td key={i} className="px-2 py-2 text-center">
-                {value !== null ? (
-                  <span
-                    className="inline-block px-2 py-1 rounded text-xs font-medium"
-                    style={{
-                      backgroundColor: getRetentionColor(value),
-                      color: value >= 40 ? '#1F2937' : 'white',
-                    }}
-                  >
-                    {value.toFixed(1)}%
-                  </span>
-                ) : (
-                  <span className="text-[var(--text-tertiary)]">—</span>
-                )}
-              </td>
-            ))}
-            {/* Fill empty cells for alignment */}
-            {Array.from({ length: maxPeriods - cohort.retention.length }).map((_, i) => (
-              <td key={`empty-${i}`} className="px-2 py-2 text-center">
-                <span className="text-[var(--text-tertiary)]">—</span>
-              </td>
+            <th
+              className="text-right text-xs font-semibold text-[var(--text-secondary)] px-4 py-2.5 whitespace-nowrap"
+              style={{ position: 'sticky', left: 140, background: 'var(--bg-secondary)', zIndex: 2, minWidth: 80 }}
+            >
+              Customers
+            </th>
+            {periodHeaders.map((_, i) => (
+              <th
+                key={i}
+                className="text-center text-xs font-semibold text-[var(--text-secondary)] py-2.5"
+                style={{ minWidth: 64 }}
+              >
+                M{i}
+              </th>
             ))}
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {validData.map((cohort, rowIdx) => {
+            const isDimmed = selectedCohort && selectedCohort !== cohort.cohort_month;
+            return (
+              <tr
+                key={cohort.cohort_month}
+                style={{
+                  opacity: isDimmed ? 0.4 : 1,
+                  transition: 'opacity 0.15s',
+                  borderBottom: rowIdx < validData.length - 1 ? '1px solid var(--border-subtle)' : 'none',
+                }}
+              >
+                {/* Cohort label — sticky */}
+                <td
+                  className="px-4 py-1.5 text-sm font-medium text-[var(--text-primary)] whitespace-nowrap"
+                  style={{ position: 'sticky', left: 0, background: 'white', zIndex: 1 }}
+                >
+                  {cohort.cohort_month}
+                </td>
+                {/* Customer count — sticky */}
+                <td
+                  className="px-4 py-1.5 text-sm text-right text-[var(--text-secondary)] whitespace-nowrap"
+                  style={{ position: 'sticky', left: 140, background: 'white', zIndex: 1 }}
+                >
+                  {cohort.original_customers.toLocaleString('en-IN')}
+                </td>
+                {/* Retention cells */}
+                {Array.from({ length: maxPeriods }, (_, periodIdx) => {
+                  const rate = cohort.retention[periodIdx];
+                  if (rate === undefined) {
+                    return (
+                      <td key={periodIdx} style={{ minWidth: 64, padding: '4px 2px' }} />
+                    );
+                  }
+                  const bg = getRetentionColor(rate);
+                  const color = getTextColor(rate);
+                  const pct = Math.round(rate * 100);
+                  return (
+                    <td
+                      key={periodIdx}
+                      style={{ minWidth: 64, padding: compact ? '3px 2px' : '4px 2px', cursor: 'pointer' }}
+                      onClick={() => handleCellClick(cohort.cohort_month, periodIdx)}
+                      onMouseEnter={(e) => handleMouseEnter(e, cohort, periodIdx)}
+                      onMouseLeave={() => setTooltip(null)}
+                    >
+                      <div
+                        style={{
+                          background: bg,
+                          color,
+                          borderRadius: 4,
+                          padding: compact ? '4px 6px' : '6px 8px',
+                          textAlign: 'center',
+                          fontSize: 13,
+                          fontWeight: 500,
+                          lineHeight: 1,
+                          transition: 'opacity 0.1s',
+                        }}
+                        className="hover:opacity-80"
+                      >
+                        {pct}%
+                      </div>
+                    </td>
+                  );
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 
-  // Render expanded modal
   if (expandedChart === CHART_ID) {
     return (
       <>
-        <CohortRetentionCard
-          data={data}
-          maxPeriods={maxPeriods}
-          periodHeaders={periodHeaders}
-          selectedCohort={selectedCohort}
-          onCohortClick={handleCohortClick}
-          onExpand={handleExpand}
+        <CohortCard
+          validData={validData}
+          renderGrid={renderGrid}
+          onExpand={() => setExpandedChart(CHART_ID)}
+          tooltip={tooltip}
         />
         <ChartExpandModal
           title="Cohort Retention Analysis"
-          subtitle="Monthly retention rates by acquisition cohort (Click a row to filter)"
+          subtitle="Month-over-month retention by acquisition cohort"
           rawData={tableData}
           columns={[
             { key: 'cohort_month', label: 'Cohort' },
-            { key: 'original_customers', label: 'Size', format: (v) => (v as number).toLocaleString('en-IN') },
-            ...periodHeaders.map((p) => ({ key: p, label: p })),
+            { key: 'original_customers', label: '# Customers', format: (v) => (v as number).toLocaleString('en-IN') },
+            ...periodHeaders.map(p => ({ key: p, label: p })),
           ]}
         >
-          <div className="overflow-x-auto">{renderTable()}</div>
+          {renderGrid(false)}
         </ChartExpandModal>
       </>
     );
   }
 
   return (
-    <CohortRetentionCard
-      data={data}
-      maxPeriods={maxPeriods}
-      periodHeaders={periodHeaders}
-      selectedCohort={selectedCohort}
-      onCohortClick={handleCohortClick}
-      onExpand={handleExpand}
+    <CohortCard
+      validData={validData}
+      renderGrid={renderGrid}
+      onExpand={() => setExpandedChart(CHART_ID)}
+      tooltip={tooltip}
     />
   );
 }
 
-// Separate card component
-interface CohortRetentionCardProps {
-  data: CohortRetentionMatrix[];
-  maxPeriods: number;
-  periodHeaders: string[];
-  selectedCohort?: string;
-  onCohortClick: (cohortMonth: string) => void;
+interface CohortCardProps {
+  validData: CohortRetentionMatrix[];
+  renderGrid: (compact?: boolean) => React.ReactNode;
   onExpand: () => void;
+  tooltip: TooltipData | null;
 }
 
-function CohortRetentionCard({
-  data,
-  maxPeriods,
-  periodHeaders,
-  selectedCohort,
-  onCohortClick,
-  onExpand,
-}: CohortRetentionCardProps) {
-  // Filter valid data
-  const cardValidData = (data ?? []).filter(d => d && d.retention && d.cohort_month);
+function CohortCard({ validData, renderGrid, onExpand, tooltip }: CohortCardProps) {
+  // Build legend steps
+  const legendSteps = [
+    { rate: 0.95, label: '95%+' },
+    { rate: 0.85, label: '85%' },
+    { rate: 0.75, label: '75%' },
+    { rate: 0.65, label: '65%' },
+    { rate: 0.55, label: '55%' },
+  ];
 
   return (
-    <div className="card">
+    <div className="card relative">
+      {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div>
           <h3 className="text-base font-semibold text-[var(--text-primary)]">
             Cohort Retention Analysis
           </h3>
           <p className="text-sm text-[var(--text-secondary)]">
-            Monthly retention rates by acquisition cohort
+            Month-over-month retention by acquisition cohort · {validData.length} cohorts
           </p>
         </div>
         <button
           onClick={onExpand}
-          className="p-1.5 rounded-md text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors"
-          title="Expand chart"
+          className="p-1.5 rounded-md text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors flex-shrink-0"
+          title="Expand"
         >
           <Maximize2 size={16} />
         </button>
       </div>
-      <div className="overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="table-header">
-              <th className="px-3 py-2 text-left font-medium text-[var(--text-secondary)] rounded-tl-md">
-                Cohort
-              </th>
-              <th className="px-3 py-2 text-right font-medium text-[var(--text-secondary)]">
-                Size
-              </th>
-              {periodHeaders.map((period) => (
-                <th
-                  key={period}
-                  className="px-3 py-2 text-center font-medium text-[var(--text-secondary)] last:rounded-tr-md"
-                >
-                  {period}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {cardValidData.map((cohort, rowIndex) => (
-              <tr
-                key={cohort.cohort_month}
-                onClick={() => onCohortClick(cohort.cohort_month)}
-                className={`table-row border-b border-[var(--border-subtle)] cursor-pointer transition-colors ${
-                  rowIndex === cardValidData.length - 1 ? 'border-b-0' : ''
-                } ${selectedCohort === cohort.cohort_month ? 'bg-[var(--accent-primary-light)]' : ''} ${
-                  selectedCohort && selectedCohort !== cohort.cohort_month ? 'opacity-50' : ''
-                }`}
-              >
-                <td className="px-3 py-2 text-[var(--text-primary)] font-medium">
-                  {formatMonth(cohort.cohort_month)}
-                </td>
-                <td className="px-3 py-2 text-right text-[var(--text-secondary)]">
-                  {(cohort.original_customers ?? 0).toLocaleString('en-IN')}
-                </td>
-                {(cohort.retention ?? []).map((value, i) => (
-                  <td key={i} className="px-2 py-2 text-center">
-                    {value !== null ? (
-                      <span
-                        className="inline-block px-2 py-1 rounded text-xs font-medium"
-                        style={{
-                          backgroundColor: getRetentionColor(value),
-                          color: value >= 40 ? '#1F2937' : 'white',
-                        }}
-                      >
-                        {value.toFixed(1)}%
-                      </span>
-                    ) : (
-                      <span className="text-[var(--text-tertiary)]">—</span>
-                    )}
-                  </td>
-                ))}
-                {/* Fill empty cells for alignment */}
-                {Array.from({ length: maxPeriods - cohort.retention.length }).map((_, i) => (
-                  <td key={`empty-${i}`} className="px-2 py-2 text-center">
-                    <span className="text-[var(--text-tertiary)]">—</span>
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      {/* Color Legend */}
-      <div className="mt-4 flex items-center justify-end gap-2 text-xs text-[var(--text-secondary)]">
-        <span>Retention:</span>
-        <div className="flex items-center gap-1">
-          <div className="w-4 h-4 rounded bg-[#EF4444]" />
-          <span>Low</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <div className="w-4 h-4 rounded bg-[#FBBF24]" />
-          <span>Mid</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <div className="w-4 h-4 rounded bg-[#10B981]" />
-          <span>High</span>
+
+      {/* Grid */}
+      {renderGrid(false)}
+
+      {/* Legend */}
+      <div className="mt-3 flex items-center gap-1.5 justify-end">
+        <span className="text-xs text-[var(--text-tertiary)] mr-1">Retention:</span>
+        {legendSteps.map(step => (
+          <div key={step.rate} className="flex items-center gap-1">
+            <div
+              style={{ width: 16, height: 16, borderRadius: 3, background: getRetentionColor(step.rate) }}
+            />
+            <span className="text-xs text-[var(--text-secondary)]">{step.label}</span>
+          </div>
+        ))}
+        <div className="flex items-center gap-1 ml-1">
+          <div style={{ width: 16, height: 16, borderRadius: 3, background: '#eef5fb', border: '1px solid #e2e8f0' }} />
+          <span className="text-xs text-[var(--text-secondary)]">{'<50%'}</span>
         </div>
       </div>
+
+      {/* Tooltip */}
+      {tooltip && (
+        <div
+          className="fixed z-50 pointer-events-none"
+          style={{ left: tooltip.x, top: tooltip.y - 8, transform: 'translate(-50%, -100%)' }}
+        >
+          <div
+            className="bg-[#1a3a5c] text-white rounded-lg shadow-xl text-xs leading-relaxed"
+            style={{ padding: '8px 12px', minWidth: 200, whiteSpace: 'nowrap' }}
+          >
+            <div className="font-semibold mb-1">{tooltip.cohort} — Month {tooltip.period}</div>
+            <div>{Math.round(tooltip.rate * 100)}% retained ({tooltip.retained.toLocaleString('en-IN')} of {tooltip.original.toLocaleString('en-IN')})</div>
+            <div className="text-blue-200 mt-0.5">
+              Drop from M0: {tooltip.period === 0 ? '—' : `−${Math.round((1 - tooltip.rate) * 100)} pp`}
+            </div>
+          </div>
+          {/* Arrow */}
+          <div
+            className="mx-auto"
+            style={{
+              width: 0, height: 0,
+              borderLeft: '6px solid transparent',
+              borderRight: '6px solid transparent',
+              borderTop: '6px solid #1a3a5c',
+              marginLeft: 'calc(50% - 6px)',
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 }
