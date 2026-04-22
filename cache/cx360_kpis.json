@@ -1,10 +1,12 @@
 {
   "total_customers": 50000,
-  "active_customers": 39900,
-  "active_rate_pct": 79.8,
+  "active_customers": 45013,
+  "active_rate_pct": 90.0,
   "avg_clv": 1392,
   "total_revenue": 1515180624,
   "avg_basket_value": 976,
-  "churn_rate_pct": 40.8,
-  "new_customers_30d": 4949
+  "churn_rate_pct": 10.0,
+  "new_customers_30d": 7384,
+  "at_risk_count": 15865,
+  "at_risk_rate_pct": 31.7
 }

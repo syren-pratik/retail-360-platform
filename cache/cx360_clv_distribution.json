@@ -3,24 +3,32 @@
     "clv_tier": "Platinum",
     "customer_count": 2555,
     "avg_clv": 6242,
-    "total_clv": 15948047
+    "avg_frequency": 69.8,
+    "avg_recency": 8,
+    "pct_of_total": 5.1
   },
   {
     "clv_tier": "Gold",
     "customer_count": 7516,
     "avg_clv": 3237,
-    "total_clv": 24328719
+    "avg_frequency": 39.9,
+    "avg_recency": 16,
+    "pct_of_total": 15.0
   },
   {
     "clv_tier": "Silver",
     "customer_count": 21550,
     "avg_clv": 1125,
-    "total_clv": 24238609
+    "avg_frequency": 15.0,
+    "avg_recency": 49,
+    "pct_of_total": 43.1
   },
   {
     "clv_tier": "Bronze",
     "customer_count": 18379,
     "avg_clv": 277,
-    "total_clv": 5099475
+    "avg_frequency": 8.2,
+    "avg_recency": 98,
+    "pct_of_total": 36.8
   }
 ]

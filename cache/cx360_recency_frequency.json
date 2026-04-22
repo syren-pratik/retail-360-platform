@@ -1,127 +1,38 @@
-[
-  {
-    "recency": "0-7 days",
-    "frequency": "1-2 orders",
-    "customer_count": 409
-  },
-  {
-    "recency": "0-7 days",
-    "frequency": "3-5 orders",
-    "customer_count": 580
-  },
-  {
-    "recency": "0-7 days",
-    "frequency": "6-10 orders",
-    "customer_count": 217
-  },
-  {
-    "recency": "0-7 days",
-    "frequency": "11-20 orders",
-    "customer_count": 49
-  },
-  {
-    "recency": "0-7 days",
-    "frequency": "20+ orders",
-    "customer_count": 2859
-  },
-  {
-    "recency": "8-30 days",
-    "frequency": "1-2 orders",
-    "customer_count": 1299
-  },
-  {
-    "recency": "8-30 days",
-    "frequency": "3-5 orders",
-    "customer_count": 2236
-  },
-  {
-    "recency": "8-30 days",
-    "frequency": "6-10 orders",
-    "customer_count": 1107
-  },
-  {
-    "recency": "8-30 days",
-    "frequency": "11-20 orders",
-    "customer_count": 427
-  },
-  {
-    "recency": "8-30 days",
-    "frequency": "20+ orders",
-    "customer_count": 7124
-  },
-  {
-    "recency": "31-60 days",
-    "frequency": "1-2 orders",
-    "customer_count": 1106
-  },
-  {
-    "recency": "31-60 days",
-    "frequency": "3-5 orders",
-    "customer_count": 2123
-  },
-  {
-    "recency": "31-60 days",
-    "frequency": "6-10 orders",
-    "customer_count": 2501
-  },
-  {
-    "recency": "31-60 days",
-    "frequency": "11-20 orders",
-    "customer_count": 3991
-  },
-  {
-    "recency": "31-60 days",
-    "frequency": "20+ orders",
-    "customer_count": 4202
-  },
-  {
-    "recency": "61-90 days",
-    "frequency": "1-2 orders",
-    "customer_count": 305
-  },
-  {
-    "recency": "61-90 days",
-    "frequency": "3-5 orders",
-    "customer_count": 979
-  },
-  {
-    "recency": "61-90 days",
-    "frequency": "6-10 orders",
-    "customer_count": 2399
-  },
-  {
-    "recency": "61-90 days",
-    "frequency": "11-20 orders",
-    "customer_count": 3510
-  },
-  {
-    "recency": "61-90 days",
-    "frequency": "20+ orders",
-    "customer_count": 2738
-  },
-  {
-    "recency": "90+ days",
-    "frequency": "1-2 orders",
-    "customer_count": 631
-  },
-  {
-    "recency": "90+ days",
-    "frequency": "3-5 orders",
-    "customer_count": 2004
-  },
-  {
-    "recency": "90+ days",
-    "frequency": "6-10 orders",
-    "customer_count": 3583
-  },
-  {
-    "recency": "90+ days",
-    "frequency": "11-20 orders",
-    "customer_count": 3195
-  },
-  {
-    "recency": "90+ days",
-    "frequency": "20+ orders",
-    "customer_count": 426
-  }
-]
+{
+  "recency_distribution": [
+    {
+      "recency_band": "0-30",
+      "customer_count": 16307
+    },
+    {
+      "recency_band": "31-60",
+      "customer_count": 13923
+    },
+    {
+      "recency_band": "61-90",
+      "customer_count": 9931
+    },
+    {
+      "recency_band": "90+",
+      "customer_count": 9839
+    }
+  ],
+  "frequency_distribution": [
+    {
+      "frequency_band": "1x",
+      "customer_count": 1200
+    },
+    {
+      "frequency_band": "2-5x",
+      "customer_count": 10472
+    },
+    {
+      "frequency_band": "6-10x",
+      "customer_count": 9807
+    },
+    {
+      "frequency_band": "10+x",
+      "customer_count": 28521
+    }
+  ]
+}

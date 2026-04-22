@@ -1,167 +1,232 @@
-[
-  {
-    "customer_id": "CUST-35286",
-    "customer_name": "Customer 35286",
-    "segment": "Medium Risk",
-    "clv": 1984,
-    "churn_probability": 0.498,
-    "days_since_last_order": 73,
-    "alert_type": "Low",
-    "recommended_action": "Schedule loyalty program engagement",
-    "potential_revenue_at_risk": 988
-  },
-  {
-    "customer_id": "CUST-25437",
-    "customer_name": "Customer 25437",
-    "segment": "Medium Risk",
-    "clv": 1974,
-    "churn_probability": 0.499,
-    "days_since_last_order": 35,
-    "alert_type": "Low",
-    "recommended_action": "Schedule loyalty program engagement",
-    "potential_revenue_at_risk": 985
-  },
-  {
-    "customer_id": "CUST-24940",
-    "customer_name": "Customer 24940",
-    "segment": "Medium Risk",
-    "clv": 1983,
-    "churn_probability": 0.496,
-    "days_since_last_order": 56,
-    "alert_type": "Low",
-    "recommended_action": "Schedule loyalty program engagement",
-    "potential_revenue_at_risk": 983
-  },
-  {
-    "customer_id": "CUST-16051",
-    "customer_name": "Customer 16051",
-    "segment": "Medium Risk",
-    "clv": 1997,
-    "churn_probability": 0.492,
-    "days_since_last_order": 65,
-    "alert_type": "Low",
-    "recommended_action": "Schedule loyalty program engagement",
-    "potential_revenue_at_risk": 982
-  },
-  {
-    "customer_id": "CUST-21352",
-    "customer_name": "Customer 21352",
-    "segment": "Medium Risk",
-    "clv": 1988,
-    "churn_probability": 0.494,
-    "days_since_last_order": 66,
-    "alert_type": "Low",
-    "recommended_action": "Schedule loyalty program engagement",
-    "potential_revenue_at_risk": 982
-  },
-  {
-    "customer_id": "CUST-21871",
-    "customer_name": "Customer 21871",
-    "segment": "Medium Risk",
-    "clv": 1956,
-    "churn_probability": 0.5,
-    "days_since_last_order": 67,
-    "alert_type": "Low",
-    "recommended_action": "Schedule loyalty program engagement",
-    "potential_revenue_at_risk": 978
-  },
-  {
-    "customer_id": "CUST-33356",
-    "customer_name": "Customer 33356",
-    "segment": "Medium Risk",
-    "clv": 1997,
-    "churn_probability": 0.489,
-    "days_since_last_order": 41,
-    "alert_type": "Low",
-    "recommended_action": "Schedule loyalty program engagement",
-    "potential_revenue_at_risk": 977
-  },
-  {
-    "customer_id": "CUST-03731",
-    "customer_name": "Customer 03731",
-    "segment": "Medium Risk",
-    "clv": 2000,
-    "churn_probability": 0.488,
-    "days_since_last_order": 33,
-    "alert_type": "Low",
-    "recommended_action": "Schedule loyalty program engagement",
-    "potential_revenue_at_risk": 976
-  },
-  {
-    "customer_id": "CUST-46265",
-    "customer_name": "Customer 46265",
-    "segment": "Medium Risk",
-    "clv": 1974,
-    "churn_probability": 0.494,
-    "days_since_last_order": 51,
-    "alert_type": "Low",
-    "recommended_action": "Schedule loyalty program engagement",
-    "potential_revenue_at_risk": 975
-  },
-  {
-    "customer_id": "CUST-09533",
-    "customer_name": "Customer 09533",
-    "segment": "Medium Risk",
-    "clv": 1966,
-    "churn_probability": 0.496,
-    "days_since_last_order": 46,
-    "alert_type": "Low",
-    "recommended_action": "Schedule loyalty program engagement",
-    "potential_revenue_at_risk": 975
-  },
-  {
-    "customer_id": "CUST-08747",
-    "customer_name": "Customer 08747",
-    "segment": "Medium Risk",
-    "clv": 1999,
-    "churn_probability": 0.487,
-    "days_since_last_order": 59,
-    "alert_type": "Low",
-    "recommended_action": "Schedule loyalty program engagement",
-    "potential_revenue_at_risk": 974
-  },
-  {
-    "customer_id": "CUST-16700",
-    "customer_name": "Customer 16700",
-    "segment": "Medium Risk",
-    "clv": 1958,
-    "churn_probability": 0.497,
-    "days_since_last_order": 47,
-    "alert_type": "Low",
-    "recommended_action": "Schedule loyalty program engagement",
-    "potential_revenue_at_risk": 973
-  },
-  {
-    "customer_id": "CUST-03987",
-    "customer_name": "Customer 03987",
-    "segment": "Medium Risk",
-    "clv": 1965,
-    "churn_probability": 0.495,
-    "days_since_last_order": 55,
-    "alert_type": "Low",
-    "recommended_action": "Schedule loyalty program engagement",
-    "potential_revenue_at_risk": 973
-  },
-  {
-    "customer_id": "CUST-09520",
-    "customer_name": "Customer 09520",
-    "segment": "Medium Risk",
-    "clv": 1967,
-    "churn_probability": 0.494,
-    "days_since_last_order": 48,
-    "alert_type": "Low",
-    "recommended_action": "Schedule loyalty program engagement",
-    "potential_revenue_at_risk": 972
-  },
-  {
-    "customer_id": "CUST-09622",
-    "customer_name": "Customer 09622",
-    "segment": "Medium Risk",
-    "clv": 1940,
-    "churn_probability": 0.5,
-    "days_since_last_order": 50,
-    "alert_type": "Low",
-    "recommended_action": "Schedule loyalty program engagement",
-    "potential_revenue_at_risk": 970
+{
+  "alerts": [
+    {
+      "customer_id": "CUST-49814",
+      "customer_name": "Customer 49814",
+      "segment": "High Risk",
+      "clv": 1199,
+      "churn_probability": 0.75,
+      "days_since_last_order": 96,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 898
+    },
+    {
+      "customer_id": "CUST-29446",
+      "customer_name": "Customer 29446",
+      "segment": "High Risk",
+      "clv": 1196,
+      "churn_probability": 0.74,
+      "days_since_last_order": 68,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 887
+    },
+    {
+      "customer_id": "CUST-33014",
+      "customer_name": "Customer 33014",
+      "segment": "High Risk",
+      "clv": 1181,
+      "churn_probability": 0.75,
+      "days_since_last_order": 71,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 882
+    },
+    {
+      "customer_id": "CUST-18664",
+      "customer_name": "Customer 18664",
+      "segment": "High Risk",
+      "clv": 1176,
+      "churn_probability": 0.75,
+      "days_since_last_order": 90,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 882
+    },
+    {
+      "customer_id": "CUST-27420",
+      "customer_name": "Customer 27420",
+      "segment": "High Risk",
+      "clv": 1190,
+      "churn_probability": 0.74,
+      "days_since_last_order": 82,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 877
+    },
+    {
+      "customer_id": "CUST-29258",
+      "customer_name": "Customer 29258",
+      "segment": "High Risk",
+      "clv": 1193,
+      "churn_probability": 0.73,
+      "days_since_last_order": 71,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 875
+    },
+    {
+      "customer_id": "CUST-07835",
+      "customer_name": "Customer 07835",
+      "segment": "High Risk",
+      "clv": 1194,
+      "churn_probability": 0.73,
+      "days_since_last_order": 102,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 874
+    },
+    {
+      "customer_id": "CUST-49100",
+      "customer_name": "Customer 49100",
+      "segment": "High Risk",
+      "clv": 1198,
+      "churn_probability": 0.73,
+      "days_since_last_order": 101,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 872
+    },
+    {
+      "customer_id": "CUST-22523",
+      "customer_name": "Customer 22523",
+      "segment": "High Risk",
+      "clv": 1174,
+      "churn_probability": 0.74,
+      "days_since_last_order": 75,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 868
+    },
+    {
+      "customer_id": "CUST-40442",
+      "customer_name": "Customer 40442",
+      "segment": "High Risk",
+      "clv": 1164,
+      "churn_probability": 0.75,
+      "days_since_last_order": 73,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 868
+    },
+    {
+      "customer_id": "CUST-11708",
+      "customer_name": "Customer 11708",
+      "segment": "High Risk",
+      "clv": 1165,
+      "churn_probability": 0.74,
+      "days_since_last_order": 83,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 868
+    },
+    {
+      "customer_id": "CUST-42249",
+      "customer_name": "Customer 42249",
+      "segment": "High Risk",
+      "clv": 1196,
+      "churn_probability": 0.72,
+      "days_since_last_order": 91,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 866
+    },
+    {
+      "customer_id": "CUST-27983",
+      "customer_name": "Customer 27983",
+      "segment": "High Risk",
+      "clv": 1175,
+      "churn_probability": 0.74,
+      "days_since_last_order": 65,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 865
+    },
+    {
+      "customer_id": "CUST-31659",
+      "customer_name": "Customer 31659",
+      "segment": "High Risk",
+      "clv": 1183,
+      "churn_probability": 0.73,
+      "days_since_last_order": 51,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 865
+    },
+    {
+      "customer_id": "CUST-30618",
+      "customer_name": "Customer 30618",
+      "segment": "High Risk",
+      "clv": 1154,
+      "churn_probability": 0.75,
+      "days_since_last_order": 46,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 863
+    },
+    {
+      "customer_id": "CUST-49925",
+      "customer_name": "Customer 49925",
+      "segment": "High Risk",
+      "clv": 1169,
+      "churn_probability": 0.74,
+      "days_since_last_order": 48,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 861
+    },
+    {
+      "customer_id": "CUST-37040",
+      "customer_name": "Customer 37040",
+      "segment": "High Risk",
+      "clv": 1185,
+      "churn_probability": 0.73,
+      "days_since_last_order": 73,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 861
+    },
+    {
+      "customer_id": "CUST-12654",
+      "customer_name": "Customer 12654",
+      "segment": "High Risk",
+      "clv": 1187,
+      "churn_probability": 0.72,
+      "days_since_last_order": 103,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 861
+    },
+    {
+      "customer_id": "CUST-28173",
+      "customer_name": "Customer 28173",
+      "segment": "High Risk",
+      "clv": 1197,
+      "churn_probability": 0.72,
+      "days_since_last_order": 79,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 861
+    },
+    {
+      "customer_id": "CUST-07070",
+      "customer_name": "Customer 07070",
+      "segment": "High Risk",
+      "clv": 1161,
+      "churn_probability": 0.74,
+      "days_since_last_order": 47,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Assign dedicated account manager and offer exclusive loyalty reward",
+      "potential_revenue_at_risk": 860
+    }
+  ],
+  "summary": {
+    "total_at_risk": 15865,
+    "high_priority": 5002,
+    "medium_priority": 10863,
+    "low_priority": 0,
+    "total_revenue_at_risk": 4731011,
+    "avg_churn_probability": 0.679
   }
-]
+}

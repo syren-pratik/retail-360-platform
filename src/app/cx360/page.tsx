@@ -51,10 +51,10 @@ const categoryBySegment = transformCategoryBySegment(categoryBySegmentData as un
 const customerTable = transformCustomerRecords(customerTableData as unknown[]);
 const dimensions = transformDimensions(dimensionsData as unknown[]);
 const segmentMigration = transformSegmentMigration(segmentMigrationData as unknown);
-const revenueConcentration = transformRevenueConcentration(revenueConcentrationData as unknown[]);
-const recencyFrequency = transformRecencyFrequency(recencyFrequencyData as unknown[]);
+const revenueConcentration = transformRevenueConcentration(revenueConcentrationData as unknown);
+const recencyFrequency = transformRecencyFrequency(recencyFrequencyData as unknown);
 const channelAnalysis = transformChannelAnalysis(channelAnalysisData as unknown);
-const atRiskAlerts = transformAtRiskAlerts(atRiskAlertsData as unknown[]);
+const atRiskAlerts = transformAtRiskAlerts(atRiskAlertsData as unknown);
 
 export default function CX360Page() {
   return (
