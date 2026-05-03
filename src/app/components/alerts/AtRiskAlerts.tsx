@@ -6,9 +6,32 @@ import { useRouter } from 'next/navigation';
 import { AtRiskAlertsData, AtRiskAlert } from '@/app/lib/types';
 import { useDashboard } from '@/app/context/DashboardContext';
 
+// ─── Types ────────────────────────────────────────────────────────────────────
+
+export interface ComputedAlert {
+  customer_id: string;
+  alert_type: 'high_value_declining';
+  churn_probability: number; // 0–100 integer
+  segment: string;
+  clv: number;
+  days_since_order: number;
+  risk_level: string;
+}
+
+interface ComputedSummary {
+  total_at_risk: number;
+  high_priority: number;
+  total_revenue_at_risk: number;
+  avg_churn_probability: number;
+}
+
 interface AtRiskAlertsProps {
   data: AtRiskAlertsData;
+  computedSummary?: ComputedSummary;
+  computedAlerts?: ComputedAlert[];
 }
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 
 const alertTypeIcons: Record<string, React.ReactNode> = {
   'high_value_declining': <TrendingDown size={14} className="text-[#EF4444]" />,
@@ -19,21 +42,36 @@ const alertTypeIcons: Record<string, React.ReactNode> = {
   'early_churn_signal': <TrendingDown size={14} className="text-[#EF4444]" />,
 };
 
-const formatAlertType = (type: string): string => {
-  return type.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-};
+const formatAlertType = (type: string): string =>
+  type.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
-export default function AtRiskAlerts({ data }: AtRiskAlertsProps) {
+function isComputed(alert: AtRiskAlert | ComputedAlert): alert is ComputedAlert {
+  return 'risk_level' in alert;
+}
+
+// ─── Component ────────────────────────────────────────────────────────────────
+
+export default function AtRiskAlerts({ data, computedSummary, computedAlerts }: AtRiskAlertsProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedAlert, setSelectedAlert] = useState<AtRiskAlert | null>(null);
   const router = useRouter();
   const { triggerChatMessage } = useDashboard();
 
-  // Show top 4 alerts in collapsed view
-  const displayAlerts = isExpanded ? data.alerts : data.alerts.slice(0, 4);
+  const summary: ComputedSummary = computedSummary ?? data.summary;
 
-  const handleAlertClick = (alert: AtRiskAlert) => {
-    setSelectedAlert(alert);
+  const allAlerts: (AtRiskAlert | ComputedAlert)[] =
+    computedAlerts !== undefined ? computedAlerts : data.alerts;
+
+  const displayAlerts = isExpanded ? allAlerts : allAlerts.slice(0, 4);
+
+  const revAtRiskCr = (summary.total_revenue_at_risk / 10000000).toFixed(1);
+
+  const handleAlertClick = (alert: AtRiskAlert | ComputedAlert) => {
+    if (isComputed(alert)) {
+      router.push(`/cx360/customer/${alert.customer_id}`);
+    } else {
+      setSelectedAlert(alert);
+    }
   };
 
   const handleViewCustomer = (customerId: string) => {
@@ -58,9 +96,14 @@ export default function AtRiskAlerts({ data }: AtRiskAlertsProps) {
           <div>
             <h3 className="text-base font-semibold text-[var(--text-primary)]">
               At-Risk Customers
+              {computedSummary && (
+                <span className="ml-2 text-xs px-2 py-0.5 bg-blue-50 text-blue-600 rounded-full font-normal">
+                  Filtered view
+                </span>
+              )}
             </h3>
             <p className="text-sm text-[var(--text-secondary)]">
-              {data.summary.high_priority} high priority alerts
+              {summary.high_priority.toLocaleString('en-IN')} high priority alerts
             </p>
           </div>
         </div>
@@ -69,13 +112,13 @@ export default function AtRiskAlerts({ data }: AtRiskAlertsProps) {
         <div className="flex items-center gap-6">
           <div className="text-right">
             <p className="text-lg font-semibold text-[#EF4444]">
-              ₹{(data.summary.total_revenue_at_risk / 10000000).toFixed(1)} Cr
+              ₹{revAtRiskCr} Cr
             </p>
             <p className="text-xs text-[var(--text-tertiary)]">Revenue at Risk</p>
           </div>
           <div className="text-right">
             <p className="text-lg font-semibold text-[var(--text-primary)]">
-              {data.summary.total_at_risk.toLocaleString('en-IN')}
+              {summary.total_at_risk.toLocaleString('en-IN')}
             </p>
             <p className="text-xs text-[var(--text-tertiary)]">Total At-Risk</p>
           </div>
@@ -84,54 +127,104 @@ export default function AtRiskAlerts({ data }: AtRiskAlertsProps) {
 
       {/* Alert Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-        {displayAlerts.map((alert) => (
-          <div
-            key={alert.customer_id}
-            onClick={() => handleAlertClick(alert)}
-            className="p-3 rounded-lg border border-[var(--border-default)] hover:border-[var(--accent-primary)] hover:bg-[var(--bg-secondary)] cursor-pointer transition-all"
-          >
-            <div className="flex items-start justify-between mb-2">
-              <div className="flex items-center gap-2">
-                {alertTypeIcons[alert.alert_type] || <AlertTriangle size={14} className="text-[#F59E0B]" />}
-                <span className="text-xs font-medium text-[var(--text-secondary)]">
-                  {formatAlertType(alert.alert_type)}
+        {displayAlerts.map((alert, i) =>
+          isComputed(alert) ? (
+            // ── Computed alert card ──────────────────────────────────────────
+            <div
+              key={`${alert.customer_id}-${i}`}
+              onClick={() => handleAlertClick(alert)}
+              className="p-3 rounded-lg border border-[var(--border-default)] hover:border-[var(--accent-primary)] hover:bg-[var(--bg-secondary)] cursor-pointer transition-all"
+            >
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  {alertTypeIcons[alert.alert_type] || <TrendingDown size={14} className="text-[#EF4444]" />}
+                  <span className="text-xs font-medium text-[var(--text-secondary)]">
+                    {formatAlertType(alert.alert_type)}
+                  </span>
+                </div>
+                <span
+                  className="text-xs font-medium px-1.5 py-0.5 rounded"
+                  style={{
+                    backgroundColor: alert.churn_probability >= 70 ? '#FEE2E2' : '#FEF3C7',
+                    color: alert.churn_probability >= 70 ? '#DC2626' : '#D97706',
+                  }}
+                >
+                  {alert.churn_probability}%
                 </span>
               </div>
-              <span
-                className="text-xs font-medium px-1.5 py-0.5 rounded"
-                style={{
-                  backgroundColor: alert.churn_probability >= 0.7 ? '#FEE2E2' : '#FEF3C7',
-                  color: alert.churn_probability >= 0.7 ? '#DC2626' : '#D97706',
-                }}
-              >
-                {(alert.churn_probability * 100).toFixed(0)}%
-              </span>
-            </div>
 
-            <p className="font-medium text-sm text-[var(--text-primary)] truncate">
-              {alert.customer_name}
-            </p>
-            <p className="text-xs text-[var(--text-tertiary)] mb-2">
-              {alert.segment} • ₹{alert.clv.toLocaleString('en-IN')} CLV
-            </p>
+              <p className="font-medium text-sm text-[var(--text-primary)] truncate">
+                Customer {alert.customer_id.replace('CUST-', '')}
+              </p>
+              <p className="text-xs text-[var(--text-tertiary)] mb-2">
+                {alert.segment} · ₹{alert.clv.toLocaleString('en-IN')} CLV
+              </p>
 
-            <div className="flex items-center justify-between">
-              <span className="text-xs text-[var(--text-secondary)]">
-                {alert.days_since_last_order}d since order
-              </span>
-              <ChevronRight size={14} className="text-[var(--text-tertiary)]" />
+              <div className="flex items-center justify-between">
+                <span
+                  className="text-xs font-medium px-1.5 py-0.5 rounded"
+                  style={{
+                    backgroundColor: alert.risk_level === 'Critical' ? '#FEE2E2' : '#FEF3C7',
+                    color: alert.risk_level === 'Critical' ? '#DC2626' : '#D97706',
+                  }}
+                >
+                  {alert.risk_level}
+                </span>
+                <span className="text-xs text-[var(--text-secondary)]">
+                  {alert.days_since_order}d since order
+                </span>
+              </div>
             </div>
-          </div>
-        ))}
+          ) : (
+            // ── Static alert card (original) ────────────────────────────────
+            <div
+              key={alert.customer_id}
+              onClick={() => handleAlertClick(alert)}
+              className="p-3 rounded-lg border border-[var(--border-default)] hover:border-[var(--accent-primary)] hover:bg-[var(--bg-secondary)] cursor-pointer transition-all"
+            >
+              <div className="flex items-start justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  {alertTypeIcons[alert.alert_type] || <AlertTriangle size={14} className="text-[#F59E0B]" />}
+                  <span className="text-xs font-medium text-[var(--text-secondary)]">
+                    {formatAlertType(alert.alert_type)}
+                  </span>
+                </div>
+                <span
+                  className="text-xs font-medium px-1.5 py-0.5 rounded"
+                  style={{
+                    backgroundColor: alert.churn_probability >= 0.7 ? '#FEE2E2' : '#FEF3C7',
+                    color: alert.churn_probability >= 0.7 ? '#DC2626' : '#D97706',
+                  }}
+                >
+                  {(alert.churn_probability * 100).toFixed(0)}%
+                </span>
+              </div>
+
+              <p className="font-medium text-sm text-[var(--text-primary)] truncate">
+                {alert.customer_name}
+              </p>
+              <p className="text-xs text-[var(--text-tertiary)] mb-2">
+                {alert.segment} · ₹{alert.clv.toLocaleString('en-IN')} CLV
+              </p>
+
+              <div className="flex items-center justify-between">
+                <span className="text-xs text-[var(--text-secondary)]">
+                  {alert.days_since_last_order}d since order
+                </span>
+                <ChevronRight size={14} className="text-[var(--text-tertiary)]" />
+              </div>
+            </div>
+          )
+        )}
       </div>
 
-      {/* Expand/Collapse Button */}
-      {data.alerts.length > 4 && (
+      {/* Expand/Collapse */}
+      {allAlerts.length > 4 && (
         <button
           onClick={() => setIsExpanded(!isExpanded)}
           className="mt-4 w-full py-2 text-sm text-[var(--accent-primary)] hover:bg-[var(--bg-secondary)] rounded-md transition-colors flex items-center justify-center gap-1"
         >
-          {isExpanded ? 'Show Less' : `Show All ${data.alerts.length} Alerts`}
+          {isExpanded ? 'Show Less' : `Show All ${allAlerts.length} Alerts`}
           <ChevronRight
             size={16}
             className={`transform transition-transform ${isExpanded ? 'rotate-90' : ''}`}
@@ -139,7 +232,7 @@ export default function AtRiskAlerts({ data }: AtRiskAlertsProps) {
         </button>
       )}
 
-      {/* Alert Detail Modal */}
+      {/* Static Alert Detail Modal */}
       {selectedAlert && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
           <div
@@ -163,18 +256,16 @@ export default function AtRiskAlerts({ data }: AtRiskAlertsProps) {
             </div>
 
             <div className="p-4 space-y-4">
-              {/* Customer Info */}
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <Users size={16} className="text-[var(--text-secondary)]" />
                   <span className="font-medium">{selectedAlert.customer_name}</span>
                 </div>
                 <p className="text-sm text-[var(--text-secondary)]">
-                  ID: {selectedAlert.customer_id} • {selectedAlert.segment}
+                  ID: {selectedAlert.customer_id} · {selectedAlert.segment}
                 </p>
               </div>
 
-              {/* Risk Metrics */}
               <div className="grid grid-cols-2 gap-3">
                 <div className="p-3 rounded-lg bg-[var(--bg-secondary)]">
                   <p className="text-xs text-[var(--text-tertiary)]">Churn Probability</p>
@@ -202,7 +293,6 @@ export default function AtRiskAlerts({ data }: AtRiskAlertsProps) {
                 </div>
               </div>
 
-              {/* Alert Type & Recommendation */}
               <div className="p-3 rounded-lg border border-[var(--border-default)]">
                 <div className="flex items-center gap-2 mb-2">
                   {alertTypeIcons[selectedAlert.alert_type]}
@@ -216,7 +306,6 @@ export default function AtRiskAlerts({ data }: AtRiskAlertsProps) {
                 </p>
               </div>
 
-              {/* Action Buttons */}
               <div className="flex gap-3">
                 <button
                   onClick={() => handleViewCustomer(selectedAlert.customer_id)}

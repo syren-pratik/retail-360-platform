@@ -163,13 +163,11 @@ function ChurnDriversCard({
             Top factors influencing churn (SHAP importance)
           </p>
         </div>
-        <button
-          onClick={onExpand}
-          className="p-1.5 rounded-md text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors"
-          title="Expand chart"
-        >
-          <Maximize2 size={16} />
-        </button>
+        <div className="flex items-center gap-1">
+          <button onClick={onExpand} className="p-1.5 rounded-md text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors" title="Expand chart">
+            <Maximize2 size={16} />
+          </button>
+        </div>
       </div>
       <div className="h-[280px]">
         <ChartWrapper height={280}>

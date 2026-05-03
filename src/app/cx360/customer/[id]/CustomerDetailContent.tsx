@@ -456,7 +456,6 @@ export default function CustomerDetailContent({ customer }: CustomerDetailConten
                 key={index}
                 className="flex items-start gap-3 p-3 bg-[var(--bg-secondary)] rounded-lg"
               >
-                <span className="text-amber-500 mt-0.5">💡</span>
                 <p className="text-sm text-[var(--text-primary)]">{insight}</p>
               </div>
             ))}

@@ -60,7 +60,7 @@ interface Message {
   actions?: DashboardAction[];
 }
 
-type ModuleType = 'cx360' | 'demand';
+type ModuleType = 'cx360' | 'demand' | 'inventory';
 
 // Context-aware prompt configurations
 const CX360_DEFAULT_PROMPTS = [
@@ -108,27 +108,45 @@ const DEMAND_DEFAULT_PROMPTS = [
   "What's driving demand for Beverages?",
 ];
 
+const INVENTORY_DEFAULT_PROMPTS = [
+  "Why is revenue at risk increasing this week?",
+  "Which supplier is causing the most stockouts?",
+  "Show me categories with worst forecast accuracy",
+  "Which stores need urgent replenishment today?",
+];
+
 const CX360_WELCOME: Message = {
   id: 'welcome-cx360',
   role: 'assistant',
-  content: "Hi! I'm your AI **agent** for customer analytics. I can not only answer questions, but also **take actions** on your dashboard:\n\n📊 Query data and create charts\n📌 Pin charts to your dashboard\n🎯 Create customer segments\n🔔 Set up monitoring alerts\n💡 Generate action recommendations\n\nTry asking me to \"show churn by segment and pin it\" or \"create a segment of high-value churning customers\"!",
+  content: "Hi! I'm your AI **agent** for customer analytics. I can not only answer questions, but also **take actions** on your dashboard:\n\n- Query data and create charts\n- Pin charts to your dashboard\n- Create customer segments\n- Set up monitoring alerts\n- Generate action recommendations\n\nTry asking me to \"show churn by segment and pin it\" or \"create a segment of high-value churning customers\"!",
   timestamp: new Date(),
 };
 
 const DEMAND_WELCOME: Message = {
   id: 'welcome-demand',
   role: 'assistant',
-  content: "Hi! I'm your AI **agent** for demand forecasting. I can not only answer questions, but also **take actions** on your dashboard:\n\n📊 Query forecast data and visualize\n📌 Pin charts to your dashboard\n🔔 Set up alerts for anomalies\n📥 Export data to CSV\n\nTry asking me about \"forecast accuracy for Dairy\" or \"which SKUs have the most lost sales\"!",
+  content: "Hi! I'm your AI **agent** for demand forecasting. I can not only answer questions, but also **take actions** on your dashboard:\n\n- Query forecast data and visualize\n- Pin charts to your dashboard\n- Set up alerts for anomalies\n- Export data to CSV\n\nTry asking me about \"forecast accuracy for Dairy\" or \"which SKUs have the most lost sales\"!",
+  timestamp: new Date(),
+};
+
+const INVENTORY_WELCOME: Message = {
+  id: 'welcome-inventory',
+  role: 'assistant',
+  content: "Hi! I'm your Supply Intelligence assistant. I can analyse inventory health, forecast accuracy, supplier performance, and recommend actions.\n\n- Identify stockout root causes\n- Analyse supplier OTIF trends\n- Forecast accuracy by department\n- Replenishment priority recommendations\n\nTry asking me to analyse stockout root causes or identify reorder priorities.",
   timestamp: new Date(),
 };
 
 export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
   const pathname = usePathname();
   const params = useParams();
-  const currentModule: ModuleType = pathname.startsWith('/demand') ? 'demand' : 'cx360';
+  const currentModule: ModuleType =
+    pathname.startsWith('/demand') ? 'demand' :
+    pathname.startsWith('/inventory') ? 'inventory' : 'cx360';
   const [lastModule, setLastModule] = useState<ModuleType>(currentModule);
 
-  const welcomeMessage = currentModule === 'demand' ? DEMAND_WELCOME : CX360_WELCOME;
+  const welcomeMessage =
+    currentModule === 'demand' ? DEMAND_WELCOME :
+    currentModule === 'inventory' ? INVENTORY_WELCOME : CX360_WELCOME;
 
   const [messages, setMessages] = useState<Message[]>([welcomeMessage]);
   const [isLoading, setIsLoading] = useState(false);
@@ -148,6 +166,9 @@ export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
   const examplePrompts = useMemo(() => {
     if (currentModule === 'demand') {
       return DEMAND_DEFAULT_PROMPTS;
+    }
+    if (currentModule === 'inventory') {
+      return INVENTORY_DEFAULT_PROMPTS;
     }
 
     // Customer detail page prompts
@@ -182,7 +203,9 @@ export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
   // Reset chat when switching modules
   useEffect(() => {
     if (currentModule !== lastModule) {
-      const newWelcome = currentModule === 'demand' ? DEMAND_WELCOME : CX360_WELCOME;
+      const newWelcome =
+        currentModule === 'demand' ? DEMAND_WELCOME :
+        currentModule === 'inventory' ? INVENTORY_WELCOME : CX360_WELCOME;
       setMessages([newWelcome]);
       setLastModule(currentModule);
     }
@@ -367,7 +390,7 @@ export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
             AI Assistant
           </span>
           <span className="text-xs px-2 py-0.5 rounded-full bg-[var(--bg-secondary)] text-[var(--text-tertiary)]">
-            {currentModule === 'demand' ? 'Demand' : 'CX360'}
+            {currentModule === 'demand' ? 'Demand' : currentModule === 'inventory' ? 'Supply' : 'CX360'}
           </span>
         </div>
         <button

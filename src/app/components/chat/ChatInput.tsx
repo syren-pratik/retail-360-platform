@@ -34,7 +34,7 @@ export default function ChatInput({ onSend, disabled = false }: ChatInputProps) 
         onKeyDown={handleKeyDown}
         placeholder="Ask about your customer data..."
         disabled={disabled}
-        className="flex-1 input-base disabled:opacity-50 disabled:cursor-not-allowed"
+        className="flex-1 input-base px-3 disabled:opacity-50 disabled:cursor-not-allowed"
       />
       <button
         onClick={handleSend}

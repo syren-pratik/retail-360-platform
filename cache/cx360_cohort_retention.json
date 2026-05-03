@@ -1,80 +1,548 @@
 [
-  {"cohort_month":"January 2024","original_customers":5500,"period_number":0,"retention_rate":0.92,"retained_customers":5060},
-  {"cohort_month":"January 2024","original_customers":5500,"period_number":1,"retention_rate":0.88,"retained_customers":4840},
-  {"cohort_month":"January 2024","original_customers":5500,"period_number":2,"retention_rate":0.79,"retained_customers":4345},
-  {"cohort_month":"January 2024","original_customers":5500,"period_number":3,"retention_rate":0.79,"retained_customers":4345},
-  {"cohort_month":"January 2024","original_customers":5500,"period_number":4,"retention_rate":0.79,"retained_customers":4345},
-  {"cohort_month":"January 2024","original_customers":5500,"period_number":5,"retention_rate":0.71,"retained_customers":3905},
-  {"cohort_month":"January 2024","original_customers":5500,"period_number":6,"retention_rate":0.71,"retained_customers":3905},
-  {"cohort_month":"January 2024","original_customers":5500,"period_number":7,"retention_rate":0.63,"retained_customers":3465},
-  {"cohort_month":"January 2024","original_customers":5500,"period_number":8,"retention_rate":0.63,"retained_customers":3465},
-  {"cohort_month":"January 2024","original_customers":5500,"period_number":9,"retention_rate":0.67,"retained_customers":3685},
-  {"cohort_month":"January 2024","original_customers":5500,"period_number":10,"retention_rate":0.63,"retained_customers":3465},
-  {"cohort_month":"January 2024","original_customers":5500,"period_number":11,"retention_rate":0.58,"retained_customers":3190},
-  {"cohort_month":"February 2024","original_customers":4800,"period_number":0,"retention_rate":0.93,"retained_customers":4464},
-  {"cohort_month":"February 2024","original_customers":4800,"period_number":1,"retention_rate":0.85,"retained_customers":4080},
-  {"cohort_month":"February 2024","original_customers":4800,"period_number":2,"retention_rate":0.81,"retained_customers":3888},
-  {"cohort_month":"February 2024","original_customers":4800,"period_number":3,"retention_rate":0.81,"retained_customers":3888},
-  {"cohort_month":"February 2024","original_customers":4800,"period_number":4,"retention_rate":0.81,"retained_customers":3888},
-  {"cohort_month":"February 2024","original_customers":4800,"period_number":5,"retention_rate":0.81,"retained_customers":3888},
-  {"cohort_month":"February 2024","original_customers":4800,"period_number":6,"retention_rate":0.81,"retained_customers":3888},
-  {"cohort_month":"February 2024","original_customers":4800,"period_number":7,"retention_rate":0.78,"retained_customers":3744},
-  {"cohort_month":"February 2024","original_customers":4800,"period_number":8,"retention_rate":0.78,"retained_customers":3744},
-  {"cohort_month":"February 2024","original_customers":4800,"period_number":9,"retention_rate":0.78,"retained_customers":3744},
-  {"cohort_month":"February 2024","original_customers":4800,"period_number":10,"retention_rate":0.70,"retained_customers":3360},
-  {"cohort_month":"March 2024","original_customers":6200,"period_number":0,"retention_rate":0.98,"retained_customers":6076},
-  {"cohort_month":"March 2024","original_customers":6200,"period_number":1,"retention_rate":0.90,"retained_customers":5580},
-  {"cohort_month":"March 2024","original_customers":6200,"period_number":2,"retention_rate":0.83,"retained_customers":5146},
-  {"cohort_month":"March 2024","original_customers":6200,"period_number":3,"retention_rate":0.80,"retained_customers":4960},
-  {"cohort_month":"March 2024","original_customers":6200,"period_number":4,"retention_rate":0.78,"retained_customers":4836},
-  {"cohort_month":"March 2024","original_customers":6200,"period_number":5,"retention_rate":0.75,"retained_customers":4650},
-  {"cohort_month":"March 2024","original_customers":6200,"period_number":6,"retention_rate":0.73,"retained_customers":4526},
-  {"cohort_month":"March 2024","original_customers":6200,"period_number":7,"retention_rate":0.73,"retained_customers":4526},
-  {"cohort_month":"March 2024","original_customers":6200,"period_number":8,"retention_rate":0.68,"retained_customers":4216},
-  {"cohort_month":"March 2024","original_customers":6200,"period_number":9,"retention_rate":0.68,"retained_customers":4216},
-  {"cohort_month":"April 2024","original_customers":5100,"period_number":0,"retention_rate":0.97,"retained_customers":4947},
-  {"cohort_month":"April 2024","original_customers":5100,"period_number":1,"retention_rate":0.83,"retained_customers":4233},
-  {"cohort_month":"April 2024","original_customers":5100,"period_number":2,"retention_rate":0.77,"retained_customers":3927},
-  {"cohort_month":"April 2024","original_customers":5100,"period_number":3,"retention_rate":0.77,"retained_customers":3927},
-  {"cohort_month":"April 2024","original_customers":5100,"period_number":4,"retention_rate":0.73,"retained_customers":3723},
-  {"cohort_month":"April 2024","original_customers":5100,"period_number":5,"retention_rate":0.70,"retained_customers":3570},
-  {"cohort_month":"April 2024","original_customers":5100,"period_number":6,"retention_rate":0.67,"retained_customers":3417},
-  {"cohort_month":"April 2024","original_customers":5100,"period_number":7,"retention_rate":0.50,"retained_customers":2550},
-  {"cohort_month":"April 2024","original_customers":5100,"period_number":8,"retention_rate":0.47,"retained_customers":2397},
-  {"cohort_month":"May 2024","original_customers":5800,"period_number":0,"retention_rate":0.94,"retained_customers":5452},
-  {"cohort_month":"May 2024","original_customers":5800,"period_number":1,"retention_rate":0.82,"retained_customers":4756},
-  {"cohort_month":"May 2024","original_customers":5800,"period_number":2,"retention_rate":0.82,"retained_customers":4756},
-  {"cohort_month":"May 2024","original_customers":5800,"period_number":3,"retention_rate":0.79,"retained_customers":4582},
-  {"cohort_month":"May 2024","original_customers":5800,"period_number":4,"retention_rate":0.74,"retained_customers":4292},
-  {"cohort_month":"May 2024","original_customers":5800,"period_number":5,"retention_rate":0.71,"retained_customers":4118},
-  {"cohort_month":"May 2024","original_customers":5800,"period_number":6,"retention_rate":0.65,"retained_customers":3770},
-  {"cohort_month":"May 2024","original_customers":5800,"period_number":7,"retention_rate":0.59,"retained_customers":3422},
-  {"cohort_month":"June 2024","original_customers":4200,"period_number":0,"retention_rate":1.00,"retained_customers":4200},
-  {"cohort_month":"June 2024","original_customers":4200,"period_number":1,"retention_rate":0.91,"retained_customers":3822},
-  {"cohort_month":"June 2024","original_customers":4200,"period_number":2,"retention_rate":0.91,"retained_customers":3822},
-  {"cohort_month":"June 2024","original_customers":4200,"period_number":3,"retention_rate":0.83,"retained_customers":3486},
-  {"cohort_month":"June 2024","original_customers":4200,"period_number":4,"retention_rate":0.87,"retained_customers":3654},
-  {"cohort_month":"June 2024","original_customers":4200,"period_number":5,"retention_rate":0.87,"retained_customers":3654},
-  {"cohort_month":"June 2024","original_customers":4200,"period_number":6,"retention_rate":0.78,"retained_customers":3276},
-  {"cohort_month":"July 2024","original_customers":5400,"period_number":0,"retention_rate":0.97,"retained_customers":5238},
-  {"cohort_month":"July 2024","original_customers":5400,"period_number":1,"retention_rate":0.94,"retained_customers":5076},
-  {"cohort_month":"July 2024","original_customers":5400,"period_number":2,"retention_rate":0.91,"retained_customers":4914},
-  {"cohort_month":"July 2024","original_customers":5400,"period_number":3,"retention_rate":0.85,"retained_customers":4590},
-  {"cohort_month":"July 2024","original_customers":5400,"period_number":4,"retention_rate":0.76,"retained_customers":4104},
-  {"cohort_month":"July 2024","original_customers":5400,"period_number":5,"retention_rate":0.71,"retained_customers":3834},
-  {"cohort_month":"August 2024","original_customers":4600,"period_number":0,"retention_rate":1.00,"retained_customers":4600},
-  {"cohort_month":"August 2024","original_customers":4600,"period_number":1,"retention_rate":0.85,"retained_customers":3910},
-  {"cohort_month":"August 2024","original_customers":4600,"period_number":2,"retention_rate":0.81,"retained_customers":3726},
-  {"cohort_month":"August 2024","original_customers":4600,"period_number":3,"retention_rate":0.69,"retained_customers":3174},
-  {"cohort_month":"August 2024","original_customers":4600,"period_number":4,"retention_rate":0.69,"retained_customers":3174},
-  {"cohort_month":"September 2024","original_customers":3800,"period_number":0,"retention_rate":1.00,"retained_customers":3800},
-  {"cohort_month":"September 2024","original_customers":3800,"period_number":1,"retention_rate":1.00,"retained_customers":3800},
-  {"cohort_month":"September 2024","original_customers":3800,"period_number":2,"retention_rate":0.94,"retained_customers":3572},
-  {"cohort_month":"September 2024","original_customers":3800,"period_number":3,"retention_rate":0.89,"retained_customers":3382},
-  {"cohort_month":"October 2024","original_customers":4900,"period_number":0,"retention_rate":1.00,"retained_customers":4900},
-  {"cohort_month":"October 2024","original_customers":4900,"period_number":1,"retention_rate":0.88,"retained_customers":4312},
-  {"cohort_month":"October 2024","original_customers":4900,"period_number":2,"retention_rate":0.88,"retained_customers":4312},
-  {"cohort_month":"November 2024","original_customers":5300,"period_number":0,"retention_rate":1.00,"retained_customers":5300},
-  {"cohort_month":"November 2024","original_customers":5300,"period_number":1,"retention_rate":0.87,"retained_customers":4611},
-  {"cohort_month":"December 2024","original_customers":4500,"period_number":0,"retention_rate":1.00,"retained_customers":4500}
+  {
+    "cohort_month": "January 2024",
+    "original_customers": 5500,
+    "period_number": 0,
+    "retention_rate": 1.0,
+    "retained_customers": 5500
+  },
+  {
+    "cohort_month": "January 2024",
+    "original_customers": 5500,
+    "period_number": 1,
+    "retention_rate": 0.88,
+    "retained_customers": 4840
+  },
+  {
+    "cohort_month": "January 2024",
+    "original_customers": 5500,
+    "period_number": 2,
+    "retention_rate": 0.79,
+    "retained_customers": 4345
+  },
+  {
+    "cohort_month": "January 2024",
+    "original_customers": 5500,
+    "period_number": 3,
+    "retention_rate": 0.79,
+    "retained_customers": 4345
+  },
+  {
+    "cohort_month": "January 2024",
+    "original_customers": 5500,
+    "period_number": 4,
+    "retention_rate": 0.79,
+    "retained_customers": 4345
+  },
+  {
+    "cohort_month": "January 2024",
+    "original_customers": 5500,
+    "period_number": 5,
+    "retention_rate": 0.71,
+    "retained_customers": 3905
+  },
+  {
+    "cohort_month": "January 2024",
+    "original_customers": 5500,
+    "period_number": 6,
+    "retention_rate": 0.71,
+    "retained_customers": 3905
+  },
+  {
+    "cohort_month": "January 2024",
+    "original_customers": 5500,
+    "period_number": 7,
+    "retention_rate": 0.63,
+    "retained_customers": 3465
+  },
+  {
+    "cohort_month": "January 2024",
+    "original_customers": 5500,
+    "period_number": 8,
+    "retention_rate": 0.63,
+    "retained_customers": 3465
+  },
+  {
+    "cohort_month": "January 2024",
+    "original_customers": 5500,
+    "period_number": 9,
+    "retention_rate": 0.67,
+    "retained_customers": 3685
+  },
+  {
+    "cohort_month": "January 2024",
+    "original_customers": 5500,
+    "period_number": 10,
+    "retention_rate": 0.63,
+    "retained_customers": 3465
+  },
+  {
+    "cohort_month": "January 2024",
+    "original_customers": 5500,
+    "period_number": 11,
+    "retention_rate": 0.58,
+    "retained_customers": 3190
+  },
+  {
+    "cohort_month": "February 2024",
+    "original_customers": 4800,
+    "period_number": 0,
+    "retention_rate": 1.0,
+    "retained_customers": 4800
+  },
+  {
+    "cohort_month": "February 2024",
+    "original_customers": 4800,
+    "period_number": 1,
+    "retention_rate": 0.85,
+    "retained_customers": 4080
+  },
+  {
+    "cohort_month": "February 2024",
+    "original_customers": 4800,
+    "period_number": 2,
+    "retention_rate": 0.81,
+    "retained_customers": 3888
+  },
+  {
+    "cohort_month": "February 2024",
+    "original_customers": 4800,
+    "period_number": 3,
+    "retention_rate": 0.81,
+    "retained_customers": 3888
+  },
+  {
+    "cohort_month": "February 2024",
+    "original_customers": 4800,
+    "period_number": 4,
+    "retention_rate": 0.81,
+    "retained_customers": 3888
+  },
+  {
+    "cohort_month": "February 2024",
+    "original_customers": 4800,
+    "period_number": 5,
+    "retention_rate": 0.81,
+    "retained_customers": 3888
+  },
+  {
+    "cohort_month": "February 2024",
+    "original_customers": 4800,
+    "period_number": 6,
+    "retention_rate": 0.81,
+    "retained_customers": 3888
+  },
+  {
+    "cohort_month": "February 2024",
+    "original_customers": 4800,
+    "period_number": 7,
+    "retention_rate": 0.78,
+    "retained_customers": 3744
+  },
+  {
+    "cohort_month": "February 2024",
+    "original_customers": 4800,
+    "period_number": 8,
+    "retention_rate": 0.78,
+    "retained_customers": 3744
+  },
+  {
+    "cohort_month": "February 2024",
+    "original_customers": 4800,
+    "period_number": 9,
+    "retention_rate": 0.78,
+    "retained_customers": 3744
+  },
+  {
+    "cohort_month": "February 2024",
+    "original_customers": 4800,
+    "period_number": 10,
+    "retention_rate": 0.7,
+    "retained_customers": 3360
+  },
+  {
+    "cohort_month": "March 2024",
+    "original_customers": 6200,
+    "period_number": 0,
+    "retention_rate": 1.0,
+    "retained_customers": 6200
+  },
+  {
+    "cohort_month": "March 2024",
+    "original_customers": 6200,
+    "period_number": 1,
+    "retention_rate": 0.9,
+    "retained_customers": 5580
+  },
+  {
+    "cohort_month": "March 2024",
+    "original_customers": 6200,
+    "period_number": 2,
+    "retention_rate": 0.83,
+    "retained_customers": 5146
+  },
+  {
+    "cohort_month": "March 2024",
+    "original_customers": 6200,
+    "period_number": 3,
+    "retention_rate": 0.8,
+    "retained_customers": 4960
+  },
+  {
+    "cohort_month": "March 2024",
+    "original_customers": 6200,
+    "period_number": 4,
+    "retention_rate": 0.78,
+    "retained_customers": 4836
+  },
+  {
+    "cohort_month": "March 2024",
+    "original_customers": 6200,
+    "period_number": 5,
+    "retention_rate": 0.75,
+    "retained_customers": 4650
+  },
+  {
+    "cohort_month": "March 2024",
+    "original_customers": 6200,
+    "period_number": 6,
+    "retention_rate": 0.73,
+    "retained_customers": 4526
+  },
+  {
+    "cohort_month": "March 2024",
+    "original_customers": 6200,
+    "period_number": 7,
+    "retention_rate": 0.73,
+    "retained_customers": 4526
+  },
+  {
+    "cohort_month": "March 2024",
+    "original_customers": 6200,
+    "period_number": 8,
+    "retention_rate": 0.68,
+    "retained_customers": 4216
+  },
+  {
+    "cohort_month": "March 2024",
+    "original_customers": 6200,
+    "period_number": 9,
+    "retention_rate": 0.68,
+    "retained_customers": 4216
+  },
+  {
+    "cohort_month": "April 2024",
+    "original_customers": 5100,
+    "period_number": 0,
+    "retention_rate": 1.0,
+    "retained_customers": 5100
+  },
+  {
+    "cohort_month": "April 2024",
+    "original_customers": 5100,
+    "period_number": 1,
+    "retention_rate": 0.83,
+    "retained_customers": 4233
+  },
+  {
+    "cohort_month": "April 2024",
+    "original_customers": 5100,
+    "period_number": 2,
+    "retention_rate": 0.77,
+    "retained_customers": 3927
+  },
+  {
+    "cohort_month": "April 2024",
+    "original_customers": 5100,
+    "period_number": 3,
+    "retention_rate": 0.77,
+    "retained_customers": 3927
+  },
+  {
+    "cohort_month": "April 2024",
+    "original_customers": 5100,
+    "period_number": 4,
+    "retention_rate": 0.73,
+    "retained_customers": 3723
+  },
+  {
+    "cohort_month": "April 2024",
+    "original_customers": 5100,
+    "period_number": 5,
+    "retention_rate": 0.7,
+    "retained_customers": 3570
+  },
+  {
+    "cohort_month": "April 2024",
+    "original_customers": 5100,
+    "period_number": 6,
+    "retention_rate": 0.67,
+    "retained_customers": 3417
+  },
+  {
+    "cohort_month": "April 2024",
+    "original_customers": 5100,
+    "period_number": 7,
+    "retention_rate": 0.5,
+    "retained_customers": 2550
+  },
+  {
+    "cohort_month": "April 2024",
+    "original_customers": 5100,
+    "period_number": 8,
+    "retention_rate": 0.47,
+    "retained_customers": 2397
+  },
+  {
+    "cohort_month": "May 2024",
+    "original_customers": 5800,
+    "period_number": 0,
+    "retention_rate": 1.0,
+    "retained_customers": 5800
+  },
+  {
+    "cohort_month": "May 2024",
+    "original_customers": 5800,
+    "period_number": 1,
+    "retention_rate": 0.82,
+    "retained_customers": 4756
+  },
+  {
+    "cohort_month": "May 2024",
+    "original_customers": 5800,
+    "period_number": 2,
+    "retention_rate": 0.82,
+    "retained_customers": 4756
+  },
+  {
+    "cohort_month": "May 2024",
+    "original_customers": 5800,
+    "period_number": 3,
+    "retention_rate": 0.79,
+    "retained_customers": 4582
+  },
+  {
+    "cohort_month": "May 2024",
+    "original_customers": 5800,
+    "period_number": 4,
+    "retention_rate": 0.74,
+    "retained_customers": 4292
+  },
+  {
+    "cohort_month": "May 2024",
+    "original_customers": 5800,
+    "period_number": 5,
+    "retention_rate": 0.71,
+    "retained_customers": 4118
+  },
+  {
+    "cohort_month": "May 2024",
+    "original_customers": 5800,
+    "period_number": 6,
+    "retention_rate": 0.65,
+    "retained_customers": 3770
+  },
+  {
+    "cohort_month": "May 2024",
+    "original_customers": 5800,
+    "period_number": 7,
+    "retention_rate": 0.59,
+    "retained_customers": 3422
+  },
+  {
+    "cohort_month": "June 2024",
+    "original_customers": 4200,
+    "period_number": 0,
+    "retention_rate": 1.0,
+    "retained_customers": 4200
+  },
+  {
+    "cohort_month": "June 2024",
+    "original_customers": 4200,
+    "period_number": 1,
+    "retention_rate": 0.91,
+    "retained_customers": 3822
+  },
+  {
+    "cohort_month": "June 2024",
+    "original_customers": 4200,
+    "period_number": 2,
+    "retention_rate": 0.91,
+    "retained_customers": 3822
+  },
+  {
+    "cohort_month": "June 2024",
+    "original_customers": 4200,
+    "period_number": 3,
+    "retention_rate": 0.83,
+    "retained_customers": 3486
+  },
+  {
+    "cohort_month": "June 2024",
+    "original_customers": 4200,
+    "period_number": 4,
+    "retention_rate": 0.87,
+    "retained_customers": 3654
+  },
+  {
+    "cohort_month": "June 2024",
+    "original_customers": 4200,
+    "period_number": 5,
+    "retention_rate": 0.87,
+    "retained_customers": 3654
+  },
+  {
+    "cohort_month": "June 2024",
+    "original_customers": 4200,
+    "period_number": 6,
+    "retention_rate": 0.78,
+    "retained_customers": 3276
+  },
+  {
+    "cohort_month": "July 2024",
+    "original_customers": 5400,
+    "period_number": 0,
+    "retention_rate": 1.0,
+    "retained_customers": 5400
+  },
+  {
+    "cohort_month": "July 2024",
+    "original_customers": 5400,
+    "period_number": 1,
+    "retention_rate": 0.94,
+    "retained_customers": 5076
+  },
+  {
+    "cohort_month": "July 2024",
+    "original_customers": 5400,
+    "period_number": 2,
+    "retention_rate": 0.91,
+    "retained_customers": 4914
+  },
+  {
+    "cohort_month": "July 2024",
+    "original_customers": 5400,
+    "period_number": 3,
+    "retention_rate": 0.85,
+    "retained_customers": 4590
+  },
+  {
+    "cohort_month": "July 2024",
+    "original_customers": 5400,
+    "period_number": 4,
+    "retention_rate": 0.76,
+    "retained_customers": 4104
+  },
+  {
+    "cohort_month": "July 2024",
+    "original_customers": 5400,
+    "period_number": 5,
+    "retention_rate": 0.71,
+    "retained_customers": 3834
+  },
+  {
+    "cohort_month": "August 2024",
+    "original_customers": 4600,
+    "period_number": 0,
+    "retention_rate": 1.0,
+    "retained_customers": 4600
+  },
+  {
+    "cohort_month": "August 2024",
+    "original_customers": 4600,
+    "period_number": 1,
+    "retention_rate": 0.85,
+    "retained_customers": 3910
+  },
+  {
+    "cohort_month": "August 2024",
+    "original_customers": 4600,
+    "period_number": 2,
+    "retention_rate": 0.81,
+    "retained_customers": 3726
+  },
+  {
+    "cohort_month": "August 2024",
+    "original_customers": 4600,
+    "period_number": 3,
+    "retention_rate": 0.69,
+    "retained_customers": 3174
+  },
+  {
+    "cohort_month": "August 2024",
+    "original_customers": 4600,
+    "period_number": 4,
+    "retention_rate": 0.69,
+    "retained_customers": 3174
+  },
+  {
+    "cohort_month": "September 2024",
+    "original_customers": 3800,
+    "period_number": 0,
+    "retention_rate": 1.0,
+    "retained_customers": 3800
+  },
+  {
+    "cohort_month": "September 2024",
+    "original_customers": 3800,
+    "period_number": 1,
+    "retention_rate": 1.0,
+    "retained_customers": 3800
+  },
+  {
+    "cohort_month": "September 2024",
+    "original_customers": 3800,
+    "period_number": 2,
+    "retention_rate": 0.94,
+    "retained_customers": 3572
+  },
+  {
+    "cohort_month": "September 2024",
+    "original_customers": 3800,
+    "period_number": 3,
+    "retention_rate": 0.89,
+    "retained_customers": 3382
+  },
+  {
+    "cohort_month": "October 2024",
+    "original_customers": 4900,
+    "period_number": 0,
+    "retention_rate": 1.0,
+    "retained_customers": 4900
+  },
+  {
+    "cohort_month": "October 2024",
+    "original_customers": 4900,
+    "period_number": 1,
+    "retention_rate": 0.88,
+    "retained_customers": 4312
+  },
+  {
+    "cohort_month": "October 2024",
+    "original_customers": 4900,
+    "period_number": 2,
+    "retention_rate": 0.88,
+    "retained_customers": 4312
+  },
+  {
+    "cohort_month": "November 2024",
+    "original_customers": 5300,
+    "period_number": 0,
+    "retention_rate": 1.0,
+    "retained_customers": 5300
+  },
+  {
+    "cohort_month": "November 2024",
+    "original_customers": 5300,
+    "period_number": 1,
+    "retention_rate": 0.87,
+    "retained_customers": 4611
+  },
+  {
+    "cohort_month": "December 2024",
+    "original_customers": 4500,
+    "period_number": 0,
+    "retention_rate": 1.0,
+    "retained_customers": 4500
+  }
 ]

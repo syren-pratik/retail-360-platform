@@ -2,13 +2,14 @@
 
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 import { Maximize2 } from 'lucide-react';
-import { ChurnRiskData } from '@/app/lib/types';
+import { ChurnRiskData, ChurnDetailData } from '@/app/lib/types';
 import { useDashboard } from '@/app/context/DashboardContext';
 import ChartWrapper from './ChartWrapper';
-import ChartExpandModal from './ChartExpandModal';
+import ChurnExpandModal from './ChurnExpandModal';
 
 interface ChurnRiskDonutProps {
   data: ChurnRiskData[];
+  churnDetail: ChurnDetailData;
 }
 
 const COLORS: Record<string, string> = {
@@ -27,6 +28,12 @@ const formatNumber = (num: number) => {
   if (num >= 1000) return `${(num / 1000).toFixed(1)}K`;
   return num.toString();
 };
+
+function fmtInr(n: number) {
+  if (n >= 10_000_000) return `₹${(n / 10_000_000).toFixed(0)}Cr`;
+  if (n >= 100_000)    return `₹${(n / 100_000).toFixed(1)}L`;
+  return `₹${n.toLocaleString('en-IN')}`;
+}
 
 interface CustomTooltipProps {
   active?: boolean;
@@ -54,7 +61,7 @@ const CustomTooltip = ({ active, payload, totalCustomers }: CustomTooltipProps) 
   return null;
 };
 
-export default function ChurnRiskDonut({ data }: ChurnRiskDonutProps) {
+export default function ChurnRiskDonut({ data, churnDetail }: ChurnRiskDonutProps) {
   const { activeDrilldowns, addDrilldown, expandedChart, setExpandedChart } = useDashboard();
   const totalCustomers = data.reduce((sum, d) => sum + d.customer_count, 0);
 
@@ -75,41 +82,6 @@ export default function ChurnRiskDonut({ data }: ChurnRiskDonutProps) {
     setExpandedChart(CHART_ID);
   };
 
-  const renderChart = (height: number) => (
-    <ResponsiveContainer width="100%" height="100%">
-      <PieChart>
-        <Pie
-          data={data}
-          cx="50%"
-          cy="50%"
-          innerRadius={height > 300 ? 90 : 70}
-          outerRadius={height > 300 ? 130 : 100}
-          paddingAngle={2}
-          dataKey="customer_count"
-          nameKey="churn_risk_tier"
-          onClick={(_, index) => handleSegmentClick(data[index])}
-          cursor="pointer"
-        >
-          {data.map((entry) => (
-            <Cell
-              key={entry.churn_risk_tier}
-              fill={COLORS[entry.churn_risk_tier]}
-              opacity={selectedTier && selectedTier !== entry.churn_risk_tier ? 0.3 : 1}
-            />
-          ))}
-        </Pie>
-        <Tooltip content={<CustomTooltip totalCustomers={totalCustomers} />} />
-        <Legend
-          verticalAlign="bottom"
-          height={36}
-          iconType="circle"
-          iconSize={8}
-          wrapperStyle={{ fontSize: 12 }}
-        />
-      </PieChart>
-    </ResponsiveContainer>
-  );
-
   // Render expanded modal
   if (expandedChart === CHART_ID) {
     return (
@@ -117,36 +89,12 @@ export default function ChurnRiskDonut({ data }: ChurnRiskDonutProps) {
         <ChurnRiskDonutCard
           data={data}
           totalCustomers={totalCustomers}
+          revenueAtRisk={churnDetail.summary.revenue_at_risk_90d}
           selectedTier={selectedTier}
           onSegmentClick={handleSegmentClick}
           onExpand={handleExpand}
         />
-        <ChartExpandModal
-          title="Churn Risk Distribution"
-          subtitle="Customers by risk tier"
-          rawData={data}
-          columns={[
-            { key: 'churn_risk_tier', label: 'Risk Tier' },
-            { key: 'customer_count', label: 'Customers', format: (v) => formatNumber(v as number) },
-            { key: 'avg_prob_30d', label: 'Avg 30d Prob', format: (v) => `${((v as number) * 100).toFixed(1)}%` },
-            { key: 'avg_prob_60d', label: 'Avg 60d Prob', format: (v) => `${((v as number) * 100).toFixed(1)}%` },
-            { key: 'avg_prob_90d', label: 'Avg 90d Prob', format: (v) => `${((v as number) * 100).toFixed(1)}%` },
-          ]}
-        >
-          <ChartWrapper height={400}>
-            <div className="h-full relative">
-              {renderChart(400)}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="text-center -mt-8">
-                  <p className="text-3xl font-semibold text-[var(--text-primary)]">
-                    {formatNumber(totalCustomers)}
-                  </p>
-                  <p className="text-sm text-[var(--text-tertiary)]">customers</p>
-                </div>
-              </div>
-            </div>
-          </ChartWrapper>
-        </ChartExpandModal>
+        <ChurnExpandModal data={churnDetail} onClose={() => setExpandedChart(null)} />
       </>
     );
   }
@@ -155,6 +103,7 @@ export default function ChurnRiskDonut({ data }: ChurnRiskDonutProps) {
     <ChurnRiskDonutCard
       data={data}
       totalCustomers={totalCustomers}
+      revenueAtRisk={churnDetail.summary.revenue_at_risk_90d}
       selectedTier={selectedTier}
       onSegmentClick={handleSegmentClick}
       onExpand={handleExpand}
@@ -166,6 +115,7 @@ export default function ChurnRiskDonut({ data }: ChurnRiskDonutProps) {
 interface ChurnRiskDonutCardProps {
   data: ChurnRiskData[];
   totalCustomers: number;
+  revenueAtRisk: number;
   selectedTier?: string;
   onSegmentClick: (entry: ChurnRiskData) => void;
   onExpand: () => void;
@@ -174,6 +124,7 @@ interface ChurnRiskDonutCardProps {
 function ChurnRiskDonutCard({
   data,
   totalCustomers,
+  revenueAtRisk,
   selectedTier,
   onSegmentClick,
   onExpand,
@@ -185,15 +136,13 @@ function ChurnRiskDonutCard({
           <h3 className="text-base font-semibold text-[var(--text-primary)]">
             Churn Risk Distribution
           </h3>
-          <p className="text-sm text-[var(--text-secondary)]">Customers by risk tier</p>
+          <p className="text-sm text-[var(--text-secondary)]">Customer risk segmentation (90-day probability)</p>
         </div>
-        <button
-          onClick={onExpand}
-          className="p-1.5 rounded-md text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors"
-          title="Expand chart"
-        >
-          <Maximize2 size={16} />
-        </button>
+        <div className="flex items-center gap-1">
+          <button onClick={onExpand} className="p-1.5 rounded-md text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors" title="Expand chart">
+            <Maximize2 size={16} />
+          </button>
+        </div>
       </div>
       <div className="h-[280px] relative">
         <ChartWrapper height={280}>
@@ -233,10 +182,10 @@ function ChurnRiskDonutCard({
         {/* Center text */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="text-center -mt-8">
-            <p className="text-2xl font-semibold text-[var(--text-primary)]">
-              {formatNumber(totalCustomers)}
+            <p className="text-xl font-bold text-red-600">
+              {fmtInr(revenueAtRisk)}
             </p>
-            <p className="text-xs text-[var(--text-tertiary)]">customers</p>
+            <p className="text-xs text-[var(--text-tertiary)]">at risk</p>
           </div>
         </div>
       </div>

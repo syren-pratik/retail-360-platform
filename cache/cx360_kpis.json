@@ -7,6 +7,6 @@
   "avg_basket_value": 976,
   "churn_rate_pct": 10.0,
   "new_customers_30d": 7384,
-  "at_risk_count": 15865,
-  "at_risk_rate_pct": 31.7
+  "at_risk_count": 13500,
+  "at_risk_rate_pct": 27.0
 }

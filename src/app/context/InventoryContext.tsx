@@ -2,7 +2,6 @@
 
 import { createContext, useContext, useState, useCallback, ReactNode } from 'react';
 
-// Get default date range (last 90 days)
 function getDefaultDateRange(): [string, string] {
   const end = new Date();
   const start = new Date();
@@ -15,10 +14,15 @@ export interface InventoryFilters {
   departments: string[];
   categories: string[];
   stores: string[];
-  abcClass: string;          // 'all' | 'A' | 'B' | 'C'
+  cities: string[];
+  abcClass: string;
   supplier: string[];
-  urgency: string;           // 'all' | 'Critical' | 'High' | 'Medium' | 'Low'
-  stockStatus: string;       // 'all' | 'stockout' | 'critical' | 'low' | 'healthy' | 'overstock' | 'deadstock'
+  urgency: string;
+  stockStatus: string;
+  forecastDepartment: string;
+  forecastHorizon: '7d' | '14d' | '30d';
+  selectedRole: string;
+  timePeriod: string;
 }
 
 export interface InventoryDrilldown {
@@ -32,14 +36,12 @@ export interface InventoryState {
   filters: InventoryFilters;
   setFilters: (updates: Partial<InventoryFilters>) => void;
   resetFilters: () => void;
+  setRole: (role: string) => void;
 
   activeDrilldowns: InventoryDrilldown[];
   addDrilldown: (d: InventoryDrilldown) => void;
   removeDrilldown: (field: string) => void;
   clearAllDrilldowns: () => void;
-
-  expandedChart: string | null;
-  setExpandedChart: (chartName: string | null) => void;
 
   selectedDepartment: string | null;
   setSelectedDepartment: (dept: string | null) => void;
@@ -50,22 +52,22 @@ const defaultFilters: InventoryFilters = {
   departments: [],
   categories: [],
   stores: [],
+  cities: [],
   abcClass: 'all',
   supplier: [],
   urgency: 'all',
   stockStatus: 'all',
+  forecastDepartment: 'all',
+  forecastHorizon: '14d',
+  selectedRole: 'all',
+  timePeriod: '90d',
 };
 
 const InventoryContext = createContext<InventoryState | null>(null);
 
-interface InventoryProviderProps {
-  children: ReactNode;
-}
-
-export function InventoryProvider({ children }: InventoryProviderProps) {
+export function InventoryProvider({ children }: { children: ReactNode }) {
   const [filters, setFiltersState] = useState<InventoryFilters>(defaultFilters);
   const [activeDrilldowns, setActiveDrilldowns] = useState<InventoryDrilldown[]>([]);
-  const [expandedChart, setExpandedChart] = useState<string | null>(null);
   const [selectedDepartment, setSelectedDepartment] = useState<string | null>(null);
 
   const setFilters = useCallback((updates: Partial<InventoryFilters>) => {
@@ -76,17 +78,15 @@ export function InventoryProvider({ children }: InventoryProviderProps) {
     setFiltersState(defaultFilters);
   }, []);
 
+  const setRole = useCallback((role: string) => {
+    setFiltersState((prev) => ({ ...prev, selectedRole: role }));
+  }, []);
+
   const addDrilldown = useCallback((d: InventoryDrilldown) => {
     setActiveDrilldowns((prev) => {
-      // Toggle behavior - if same drilldown exists, remove it
-      const existing = prev.find(
-        (existing) => existing.field === d.field && existing.value === d.value
-      );
-      if (existing) {
-        return prev.filter((existing) => existing.field !== d.field);
-      }
-      // Replace existing drilldown for same field
-      const filtered = prev.filter((existing) => existing.field !== d.field);
+      const existing = prev.find((e) => e.field === d.field && e.value === d.value);
+      if (existing) return prev.filter((e) => e.field !== d.field);
+      const filtered = prev.filter((e) => e.field !== d.field);
       return [...filtered, d];
     });
   }, []);
@@ -103,12 +103,11 @@ export function InventoryProvider({ children }: InventoryProviderProps) {
     filters,
     setFilters,
     resetFilters,
+    setRole,
     activeDrilldowns,
     addDrilldown,
     removeDrilldown,
     clearAllDrilldowns,
-    expandedChart,
-    setExpandedChart,
     selectedDepartment,
     setSelectedDepartment,
   };
@@ -122,8 +121,6 @@ export function InventoryProvider({ children }: InventoryProviderProps) {
 
 export function useInventory(): InventoryState {
   const context = useContext(InventoryContext);
-  if (!context) {
-    throw new Error('useInventory must be used within an InventoryProvider');
-  }
+  if (!context) throw new Error('useInventory must be used within an InventoryProvider');
   return context;
 }

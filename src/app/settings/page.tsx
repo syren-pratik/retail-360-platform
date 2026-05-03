@@ -344,7 +344,7 @@ export default function SettingsPage() {
               <select
                 value={refreshModule}
                 onChange={(e) => setRefreshModule(e.target.value as 'cx360' | 'demand' | 'all')}
-                className="input-base text-sm"
+                className="input-base text-sm px-3"
                 disabled={isRefreshing}
               >
                 <option value="cx360">CX360 Module</option>

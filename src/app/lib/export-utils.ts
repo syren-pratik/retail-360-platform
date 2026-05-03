@@ -1,8 +1,27 @@
 import html2canvas from 'html2canvas';
 
-/**
- * Format date for filename
- */
+const FRIENDLY_HEADERS: Record<string, string> = {
+  customer_id: 'Customer ID',
+  customer_segment: 'Segment',
+  loyalty_tier: 'Loyalty Tier',
+  clv_12m: 'CLV 12M (₹)',
+  clv_tier: 'CLV Tier',
+  churn_prob_90d: 'Churn Probability (90d)',
+  churn_risk_tier: 'Churn Risk',
+  total_spend: 'Total Spend (₹)',
+  total_transactions: 'Transactions',
+  avg_basket: 'Avg Basket (₹)',
+  days_since_last_purchase: 'Days Since Last Purchase',
+  preferred_channel: 'Preferred Channel',
+  acquisition_channel: 'Acquisition Channel',
+  city: 'City',
+  geography: 'Geography',
+  top_category: 'Top Category',
+  probability_alive: 'Probability Alive',
+  purchase_frequency: 'Purchase Frequency',
+  recency_days: 'Recency (Days)',
+};
+
 function getDateStamp(): string {
   const now = new Date();
   return `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}`;
@@ -21,14 +40,15 @@ export function exportCSV(
     return;
   }
 
-  // Get headers from first object
-  const headers = Object.keys(data[0]);
+  // Get raw keys for data access, friendly names for the header row
+  const keys = Object.keys(data[0]);
+  const headers = keys.map((key) => FRIENDLY_HEADERS[key] || key);
 
   // Convert data to CSV rows
   const csvRows = [
     headers.join(','), // Header row
     ...data.map((row) =>
-      headers
+      keys
         .map((header) => {
           const value = row[header];
           // Handle values with commas or quotes

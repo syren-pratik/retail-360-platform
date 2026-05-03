@@ -334,9 +334,9 @@ export default function ChatMessage({
                       <div className="flex items-center gap-2 mb-1">
                         <span className="font-medium text-[var(--text-primary)]">{result.tool}</span>
                         {result.output.success ? (
-                          <span className="text-green-600">✓</span>
+                          <span className="text-green-600 text-xs font-semibold">OK</span>
                         ) : (
-                          <span className="text-red-600">✗</span>
+                          <span className="text-red-600 text-xs font-semibold">Error</span>
                         )}
                       </div>
                       {typeof result.output.rowCount === 'number' && (

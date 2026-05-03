@@ -83,7 +83,7 @@ const CATEGORY_MAP: Record<string, [string, number][]> = {
   'High-Value VIP': [['Electronics', 30], ['Premium Foods', 25], ['Clothing', 20], ['Home & Kitchen', 15], ['Beauty', 10]],
   'Loyal Active': [['Grocery', 35], ['Dairy', 25], ['Household', 20], ['Beverages', 10], ['Snacks', 10]],
   'Medium Risk': [['Grocery', 30], ['Household', 25], ['Snacks', 20], ['Beverages', 15], ['Dairy', 10]],
-  'High Risk': [['Discounts', 25], ['Basic Grocery', 25], ['Snacks', 20], ['Beverages', 15], ['Household', 15]],
+  'High Risk': [['Personal Care', 25], ['Basic Grocery', 25], ['Snacks', 20], ['Beverages', 15], ['Household', 15]],
   'Churned': [['Grocery', 35], ['Snacks', 20], ['Household', 15], ['Dairy', 15], ['Beverages', 15]],
   'New Customers': [['Clothing', 25], ['Beauty', 25], ['Electronics', 20], ['Grocery', 15], ['Snacks', 15]],
   'Low-Value': [['Snacks', 30], ['Basic Grocery', 25], ['Beverages', 20], ['Household', 15], ['Dairy', 10]],

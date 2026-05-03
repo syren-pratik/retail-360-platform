@@ -284,8 +284,8 @@ PREVIEW DATA must be real — pull 3-5 rows from the query results.
 Format numbers nicely: round percentages to 1 decimal, add ₹ for money, format large numbers with commas.
 
 AXES MUST BE DESCRIPTIVE:
-✗ Bad: "X: segment, Y: value"
-✓ Good: "X: Customer Segment (Premium, Loyal, Regular, Occasional, New)"
+Bad: "X: segment, Y: value"
+Good: "X: Customer Segment (Premium, Loyal, Regular, Occasional, New)"
         "Y: Average 90-day Churn Probability (%), range 8.1% to 34.2%"
 
 WHEN DATA HAS A TIME DIMENSION:
@@ -631,17 +631,17 @@ function getMockAgentResponse(message: string, module: string): {
     return {
       answer: `I'm an AI analytics **agent** that can take actions on your dashboard, not just answer questions. Here's what I can do:
 
-**📊 Data & Visualization**
+**Data & Visualization**
 - Query your customer/sales data using natural language
 - Create charts (bar, line, donut, tables, KPIs)
 - Pin charts to your dashboard for permanent access
 
-**🎯 Customer Actions**
+**Customer Actions**
 - Create and save customer segments based on rules
 - Run Next-Best-Action analysis for customers or segments
 - Export data as CSV files
 
-**🔔 Monitoring**
+**Monitoring**
 - Set up alerts when metrics cross thresholds
 - Filter the dashboard to specific segments
 
@@ -767,7 +767,7 @@ function getMockAgentResponse(message: string, module: string): {
     };
 
     return {
-      answer: `Here's your **${title}**!\n\n**Key insight:** Occasional shoppers have the highest churn at 34.2%, followed by New customers at 28.7%. Premium customers are most loyal with only 8.1% churn.\n\nYou can now:\n📌 Pin to dashboard • 📥 Export CSV • ✏️ Customize`,
+      answer: `Here's your **${title}**!\n\n**Key insight:** Occasional shoppers have the highest churn at 34.2%, followed by New customers at 28.7%. Premium customers are most loyal with only 8.1% churn.\n\nYou can now: Pin to dashboard • Export CSV • Customize`,
       toolResults: [
         {
           tool: 'render_selected_chart',
@@ -783,7 +783,7 @@ function getMockAgentResponse(message: string, module: string): {
   // Handle pin request
   if (lowerMessage.includes('pin') && (lowerMessage.includes('dashboard') || lowerMessage.includes('this'))) {
     return {
-      answer: `✅ **Chart pinned to dashboard!**
+      answer: `**Chart pinned to dashboard!**
 
 The chart has been added to your CX360 dashboard in the "After KPIs" section. You can:
 - View it anytime on the main dashboard
@@ -805,7 +805,7 @@ The chart has been added to your CX360 dashboard in the "After KPIs" section. Yo
   if (lowerMessage.includes('segment') && (lowerMessage.includes('create') || lowerMessage.includes('high-value') || lowerMessage.includes('at risk'))) {
     const segmentId = `seg_${Date.now()}_mock`;
     return {
-      answer: `🎯 **Segment Created: "High-Value At-Risk Customers"**
+      answer: `**Segment Created: "High-Value At-Risk Customers"**
 
 **Definition:**
 - CLV ≥ ₹50,000
@@ -816,9 +816,9 @@ The chart has been added to your CX360 dashboard in the "After KPIs" section. Yo
 **Total CLV at Risk:** ₹12.4L
 
 Would you like me to:
-- 📊 Show the customer list
-- 🎯 Run Next-Best-Actions for this segment
-- 📥 Export the segment`,
+- Show the customer list
+- Run Next-Best-Actions for this segment
+- Export the segment`,
       toolResults: [
         {
           tool: 'create_segment',
@@ -841,7 +841,7 @@ Would you like me to:
   if (lowerMessage.includes('alert') || lowerMessage.includes('notify') || lowerMessage.includes('monitor')) {
     const alertId = `alert_${Date.now()}_mock`;
     return {
-      answer: `🔔 **Alert Created: "Premium Churn Warning"**
+      answer: `**Alert Created: "Premium Churn Warning"**
 
 **Trigger:** When churn rate for Premium segment goes **above 25%**
 **Check Frequency:** On every data refresh
@@ -875,7 +875,7 @@ You'll be notified when this threshold is crossed. Manage alerts in Settings.`,
     if (lowerMessage.includes('mumbai')) filterValue = 'Mumbai';
 
     return {
-      answer: `✅ **Dashboard filtered to ${filterValue}**
+      answer: `**Dashboard filtered to ${filterValue}**
 
 All charts and metrics now reflect only ${filterValue} data. Clear filters using the chips at the top of the dashboard or ask me to "reset filters".`,
       toolResults: [
@@ -893,7 +893,7 @@ All charts and metrics now reflect only ${filterValue} data. Clear filters using
   // Handle NBA request
   if (lowerMessage.includes('recommend') || lowerMessage.includes('what should') || lowerMessage.includes('action') || lowerMessage.includes('nba')) {
     return {
-      answer: `🎯 **Next Best Actions Generated**
+      answer: `**Next Best Actions Generated**
 
 I'll analyze the target customers and generate personalized recommendations. The actions will appear in the panel below with:
 - Priority ranking (1-3)
@@ -917,7 +917,7 @@ Processing your request...`,
   // Handle export request
   if (lowerMessage.includes('export') || lowerMessage.includes('download') || lowerMessage.includes('csv')) {
     return {
-      answer: `📥 **Export Ready**
+      answer: `**Export Ready**
 
 Downloading: **customer_analysis.csv**
 Contains: 500 customer records with CLV, churn risk, and segment data.

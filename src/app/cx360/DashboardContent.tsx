@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useCallback, useState } from 'react';
+import { useMemo, useCallback, useState, useEffect } from 'react';
 import TopFilterBar from '@/app/components/layout/TopFilterBar';
 import ActiveFilterChips from '@/app/components/layout/ActiveFilterChips';
 import KPICard from '@/app/components/kpi/KPICard';
@@ -36,7 +36,8 @@ import {
   ChurnDriver,
   CohortRetentionMatrix,
   BasketDistribution as BasketDistributionType,
-  CategoryBySegment as CategoryBySegmentType,
+  BasketData,
+  CategoryBySegmentData,
   CustomerRecord,
   DimensionsCache,
   SegmentMigrationData,
@@ -44,6 +45,12 @@ import {
   RecencyFrequencyData,
   ChannelAnalysisData,
   AtRiskAlertsData,
+  FrequencyData,
+  CohortDetailData,
+  ChurnDetailData,
+  RevenueDetailData,
+  CLVDetailData,
+  RFMDetailData,
 } from '@/app/lib/types';
 
 interface DashboardContentProps {
@@ -54,7 +61,8 @@ interface DashboardContentProps {
   churnDrivers: ChurnDriver[];
   cohortRetention: CohortRetentionMatrix[];
   basketDistribution: BasketDistributionType[];
-  categoryBySegment: CategoryBySegmentType[];
+  basketData: BasketData;
+  categoryBySegment: CategoryBySegmentData;
   customerTable: CustomerRecord[];
   dimensions: DimensionsCache;
   segmentMigration: SegmentMigrationData;
@@ -62,6 +70,13 @@ interface DashboardContentProps {
   recencyFrequency: RecencyFrequencyData;
   channelAnalysis: ChannelAnalysisData;
   atRiskAlerts: AtRiskAlertsData;
+  frequencyData: FrequencyData;
+  cohortDetail: CohortDetailData;
+  churnDetail: ChurnDetailData;
+  revenueDetail: RevenueDetailData;
+  clvDetail: CLVDetailData;
+  rfmDetail: RFMDetailData;
+  expandChart?: string;
 }
 
 // Calculate KPI changes
@@ -99,6 +114,7 @@ export default function DashboardContent({
   churnDrivers,
   cohortRetention,
   basketDistribution,
+  basketData,
   categoryBySegment,
   customerTable,
   dimensions,
@@ -107,9 +123,20 @@ export default function DashboardContent({
   recencyFrequency,
   channelAnalysis,
   atRiskAlerts,
+  frequencyData,
+  cohortDetail,
+  churnDetail,
+  revenueDetail,
+  clvDetail,
+  rfmDetail,
+  expandChart,
 }: DashboardContentProps) {
-  const { globalFilters, activeDrilldowns, resetFilters } = useDashboard();
+  const { globalFilters, activeDrilldowns, resetFilters, setExpandedChart } = useDashboard();
   const [lastUpdated] = useState(new Date());
+
+  useEffect(() => {
+    if (expandChart) setExpandedChart(expandChart);
+  }, [expandChart, setExpandedChart]);
 
   // Simulate refresh (in real app, this would fetch fresh data)
   const handleRefresh = useCallback(() => {
@@ -274,44 +301,63 @@ export default function DashboardContent({
     }).filter(d => d.customer_count > 0);
   }, [hasFilters, basketDistribution, filteredCustomerTable]);
 
+  // Derive at-risk summary from filtered customers (undefined when no filters → component uses static JSON)
+  const computedAtRiskSummary = useMemo(() => {
+    if (!hasFilters) return undefined;
+    if (!filteredCustomerTable.length) return {
+      total_at_risk: 0,
+      high_priority: 0,
+      total_revenue_at_risk: 0,
+      avg_churn_probability: 0,
+    };
+
+    const atRiskCustomers = filteredCustomerTable.filter(c =>
+      c.churn_prob_90d > 0.5 || c.days_since_last_purchase > 60
+    );
+
+    const allSpends = filteredCustomerTable
+      .map(c => c.total_spend)
+      .sort((a, b) => b - a);
+    const top30PctThreshold = allSpends[Math.floor(allSpends.length * 0.3)] ?? 0;
+
+    const highPriority = atRiskCustomers.filter(c =>
+      c.churn_prob_90d > 0.7 && c.total_spend >= top30PctThreshold
+    );
+
+    const totalRevAtRisk = atRiskCustomers.reduce((sum, c) => sum + c.clv_12m, 0);
+    const avgChurnProb = atRiskCustomers.length > 0
+      ? atRiskCustomers.reduce((sum, c) => sum + c.churn_prob_90d, 0) / atRiskCustomers.length
+      : 0;
+
+    return {
+      total_at_risk: atRiskCustomers.length,
+      high_priority: highPriority.length,
+      total_revenue_at_risk: Math.round(totalRevAtRisk),
+      avg_churn_probability: Math.round(avgChurnProb * 100) / 100,
+    };
+  }, [hasFilters, filteredCustomerTable]);
+
+  // Derive alert cards from filtered customers (undefined when no filters → component uses static rows)
+  const computedAlertCards = useMemo(() => {
+    if (!hasFilters) return undefined;
+    if (!filteredCustomerTable.length) return [];
+
+    return filteredCustomerTable
+      .filter(c => c.churn_prob_90d > 0.6 && c.days_since_last_purchase > 45)
+      .sort((a, b) => b.clv_12m - a.clv_12m)
+      .slice(0, 20)
+      .map(c => ({
+        customer_id: c.customer_id,
+        alert_type: 'high_value_declining' as const,
+        churn_probability: Math.round(c.churn_prob_90d * 100),
+        segment: c.customer_segment,
+        clv: c.clv_12m,
+        days_since_order: c.days_since_last_purchase,
+        risk_level: c.churn_prob_90d > 0.8 ? 'Critical' : 'High Risk',
+      }));
+  }, [hasFilters, filteredCustomerTable]);
+
   // Compute Category by Segment from filtered customers
-  const computedCategoryBySegment = useMemo((): CategoryBySegmentType[] => {
-    if (!hasFilters) return categoryBySegment;
-
-    const segmentCategoryMap = new Map<string, Map<string, { count: number; totalSpend: number }>>();
-
-    filteredCustomerTable.forEach(customer => {
-      const segment = customer.customer_segment;
-      const category = customer.top_category;
-
-      if (!segmentCategoryMap.has(segment)) {
-        segmentCategoryMap.set(segment, new Map());
-      }
-
-      const categoryMap = segmentCategoryMap.get(segment)!;
-      if (!categoryMap.has(category)) {
-        categoryMap.set(category, { count: 0, totalSpend: 0 });
-      }
-
-      const data = categoryMap.get(category)!;
-      data.count += 1;
-      data.totalSpend += customer.total_spend;
-    });
-
-    const result: CategoryBySegmentType[] = [];
-    segmentCategoryMap.forEach((categoryMap, segment) => {
-      categoryMap.forEach((data, category) => {
-        result.push({
-          customer_segment: segment,
-          top_category: category,
-          customer_count: data.count,
-          avg_spend: data.count > 0 ? data.totalSpend / data.count : 0,
-        });
-      });
-    });
-
-    return result;
-  }, [hasFilters, categoryBySegment, filteredCustomerTable]);
 
   // Generate sparkline data trending toward a final value
   const generateTrend = (finalValue: number, direction: 'up' | 'down' = 'up'): number[] => {
@@ -514,7 +560,11 @@ export default function DashboardContent({
 
         {/* Section 2: At-Risk Alerts Panel */}
         <section id="chart-at_risk_alerts">
-          <AtRiskAlerts data={atRiskAlerts} />
+          <AtRiskAlerts
+            data={atRiskAlerts}
+            computedSummary={computedAtRiskSummary}
+            computedAlerts={computedAlertCards}
+          />
         </section>
 
         {/* Section 2.5: AI Insights Strip */}
@@ -533,10 +583,10 @@ export default function DashboardContent({
         {/* Section 3: Customer Value Analysis */}
         <section className="grid grid-cols-2 gap-6">
           <div id="chart-clv_distribution" className="transition-all duration-300 rounded-xl">
-            <CLVDistribution data={computedClvDistribution} />
+            <CLVDistribution data={computedClvDistribution} clvDetail={clvDetail} />
           </div>
           <div id="chart-rfm_scatter" className="transition-all duration-300 rounded-xl">
-            <RFMScatter data={computedRfmSample} />
+            <RFMScatter data={computedRfmSample} rfmDetail={rfmDetail} />
           </div>
         </section>
 
@@ -554,14 +604,14 @@ export default function DashboardContent({
             />
           </div>
           <div id="chart-revenue_by_segment" className="transition-all duration-300 rounded-xl">
-            <RevenueBySegment data={revenueConcentration.by_segment} />
+            <RevenueBySegment data={revenueConcentration.by_segment} revenueDetail={revenueDetail} />
           </div>
         </section>
 
         {/* Section 6: Churn Intelligence */}
         <section className="grid grid-cols-2 gap-6">
           <div id="chart-churn_risk" className="transition-all duration-300 rounded-xl">
-            <ChurnRiskDonut data={computedChurnRisk} />
+            <ChurnRiskDonut data={computedChurnRisk} churnDetail={churnDetail} />
           </div>
           <div id="chart-churn_drivers" className="transition-all duration-300 rounded-xl">
             <ChurnDrivers data={churnDrivers} />
@@ -573,7 +623,7 @@ export default function DashboardContent({
 
         {/* Section 7: Cohort Retention (Full Width) */}
         <section id="chart-cohort_retention" className="transition-all duration-300 rounded-xl">
-          <CohortRetentionHeatmap data={cohortRetention} />
+          <CohortRetentionHeatmap data={cohortRetention} cohortDetail={cohortDetail} />
         </section>
 
         {/* Pinned Charts - After Cohort */}
@@ -599,6 +649,7 @@ export default function DashboardContent({
                 avg_frequency: recencyFrequency.summary.avg_frequency,
                 median_frequency: recencyFrequency.summary.median_frequency,
               }}
+              frequencyData={frequencyData}
             />
           </div>
         </section>
@@ -609,14 +660,14 @@ export default function DashboardContent({
             <ChannelPerformance data={channelAnalysis.channel_performance} />
           </div>
           <div id="chart-acquisition_by_channel" className="transition-all duration-300 rounded-xl">
-            <AcquisitionByChannel data={channelAnalysis.acquisition_by_channel} />
+            <AcquisitionByChannel data={channelAnalysis.acquisition_by_channel} deepDiveUrl="/cx360/deep/channels" />
           </div>
         </section>
 
         {/* Section 10: Basket & Behavior */}
         <section className="grid grid-cols-2 gap-6">
-          <BasketDistribution data={computedBasketDistribution} />
-          <CategoryBySegment data={computedCategoryBySegment} />
+          <BasketDistribution data={computedBasketDistribution} basketData={basketData} />
+          <CategoryBySegment data={categoryBySegment} />
         </section>
 
         {/* Pinned Charts - Bottom */}

@@ -1,0 +1,1779 @@
+{
+  "summary": {
+    "critical": 2,
+    "at_risk": 3,
+    "healthy": 2,
+    "overstock": 1,
+    "total_rev_at_risk_cr": 4.2
+  },
+  "categories": [
+    {
+      "name": "Grocery & Staples",
+      "status": "critical",
+      "rev_at_risk_cr": 1.42,
+      "osa_pct": 87.3,
+      "avg_dos": 11.2,
+      "stockout_skus": 67,
+      "overstock_value_cr": 18.4,
+      "turn_rate": 22.1
+    },
+    {
+      "name": "Dairy & Frozen",
+      "status": "critical",
+      "rev_at_risk_cr": 0.98,
+      "osa_pct": 89.1,
+      "avg_dos": 8.4,
+      "stockout_skus": 28,
+      "overstock_value_cr": 4.2,
+      "turn_rate": 26.8
+    },
+    {
+      "name": "Personal Care",
+      "status": "at_risk",
+      "rev_at_risk_cr": 0.71,
+      "osa_pct": 91.8,
+      "avg_dos": 14.8,
+      "stockout_skus": 31,
+      "overstock_value_cr": 22.1,
+      "turn_rate": 9.4
+    },
+    {
+      "name": "Snacks & Beverages",
+      "status": "at_risk",
+      "rev_at_risk_cr": 0.54,
+      "osa_pct": 93.2,
+      "avg_dos": 18.3,
+      "stockout_skus": 19,
+      "overstock_value_cr": 14.8,
+      "turn_rate": 18.7
+    },
+    {
+      "name": "Home & Kitchen",
+      "status": "at_risk",
+      "rev_at_risk_cr": 0.19,
+      "osa_pct": 94.1,
+      "avg_dos": 28.4,
+      "stockout_skus": 14,
+      "overstock_value_cr": 31.2,
+      "turn_rate": 6.2
+    },
+    {
+      "name": "Electronics",
+      "status": "healthy",
+      "rev_at_risk_cr": 0.28,
+      "osa_pct": 96.8,
+      "avg_dos": 21.7,
+      "stockout_skus": 8,
+      "overstock_value_cr": 28.9,
+      "turn_rate": 4.1
+    },
+    {
+      "name": "Apparel",
+      "status": "overstock",
+      "rev_at_risk_cr": 0.08,
+      "osa_pct": 97.2,
+      "avg_dos": 58.3,
+      "stockout_skus": 6,
+      "overstock_value_cr": 42.8,
+      "turn_rate": 3.8
+    },
+    {
+      "name": "Home & Living",
+      "status": "healthy",
+      "rev_at_risk_cr": 0.01,
+      "osa_pct": 98.4,
+      "avg_dos": 32.1,
+      "stockout_skus": 2,
+      "overstock_value_cr": 8.4,
+      "turn_rate": 5.9
+    }
+  ],
+  "store_category_matrix": [
+    {
+      "store_id": "STR-001",
+      "store_name": "Delhi NCR Hypermarket 1",
+      "city": "Delhi NCR",
+      "category": "Grocery & Staples",
+      "status": "critical",
+      "osa_pct": 86.8,
+      "dos": 5.2,
+      "stockout_skus": 8
+    },
+    {
+      "store_id": "STR-001",
+      "store_name": "Delhi NCR Hypermarket 1",
+      "city": "Delhi NCR",
+      "category": "Dairy & Frozen",
+      "status": "critical",
+      "osa_pct": 87.1,
+      "dos": 2.9,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-001",
+      "store_name": "Delhi NCR Hypermarket 1",
+      "city": "Delhi NCR",
+      "category": "Personal Care",
+      "status": "critical",
+      "osa_pct": 84.2,
+      "dos": 11.9,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-001",
+      "store_name": "Delhi NCR Hypermarket 1",
+      "city": "Delhi NCR",
+      "category": "Snacks & Beverages",
+      "status": "at_risk",
+      "osa_pct": 88.0,
+      "dos": 11.4,
+      "stockout_skus": 5
+    },
+    {
+      "store_id": "STR-001",
+      "store_name": "Delhi NCR Hypermarket 1",
+      "city": "Delhi NCR",
+      "category": "Home & Kitchen",
+      "status": "at_risk",
+      "osa_pct": 90.1,
+      "dos": 18.8,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-001",
+      "store_name": "Delhi NCR Hypermarket 1",
+      "city": "Delhi NCR",
+      "category": "Electronics",
+      "status": "at_risk",
+      "osa_pct": 91.5,
+      "dos": 17.8,
+      "stockout_skus": 1
+    },
+    {
+      "store_id": "STR-001",
+      "store_name": "Delhi NCR Hypermarket 1",
+      "city": "Delhi NCR",
+      "category": "Apparel",
+      "status": "at_risk",
+      "osa_pct": 89.8,
+      "dos": 31.0,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-001",
+      "store_name": "Delhi NCR Hypermarket 1",
+      "city": "Delhi NCR",
+      "category": "Home & Living",
+      "status": "at_risk",
+      "osa_pct": 90.5,
+      "dos": 23.3,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-002",
+      "store_name": "Delhi NCR Hypermarket 2",
+      "city": "Delhi NCR",
+      "category": "Grocery & Staples",
+      "status": "critical",
+      "osa_pct": 87.1,
+      "dos": 6.0,
+      "stockout_skus": 9
+    },
+    {
+      "store_id": "STR-002",
+      "store_name": "Delhi NCR Hypermarket 2",
+      "city": "Delhi NCR",
+      "category": "Dairy & Frozen",
+      "status": "critical",
+      "osa_pct": 88.4,
+      "dos": 4.1,
+      "stockout_skus": 5
+    },
+    {
+      "store_id": "STR-002",
+      "store_name": "Delhi NCR Hypermarket 2",
+      "city": "Delhi NCR",
+      "category": "Personal Care",
+      "status": "critical",
+      "osa_pct": 87.2,
+      "dos": 12.5,
+      "stockout_skus": 7
+    },
+    {
+      "store_id": "STR-002",
+      "store_name": "Delhi NCR Hypermarket 2",
+      "city": "Delhi NCR",
+      "category": "Snacks & Beverages",
+      "status": "critical",
+      "osa_pct": 86.3,
+      "dos": 10.2,
+      "stockout_skus": 5
+    },
+    {
+      "store_id": "STR-002",
+      "store_name": "Delhi NCR Hypermarket 2",
+      "city": "Delhi NCR",
+      "category": "Home & Kitchen",
+      "status": "at_risk",
+      "osa_pct": 91.1,
+      "dos": 17.8,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-002",
+      "store_name": "Delhi NCR Hypermarket 2",
+      "city": "Delhi NCR",
+      "category": "Electronics",
+      "status": "at_risk",
+      "osa_pct": 92.0,
+      "dos": 17.3,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-002",
+      "store_name": "Delhi NCR Hypermarket 2",
+      "city": "Delhi NCR",
+      "category": "Apparel",
+      "status": "at_risk",
+      "osa_pct": 91.6,
+      "dos": 32.3,
+      "stockout_skus": 1
+    },
+    {
+      "store_id": "STR-002",
+      "store_name": "Delhi NCR Hypermarket 2",
+      "city": "Delhi NCR",
+      "category": "Home & Living",
+      "status": "at_risk",
+      "osa_pct": 90.3,
+      "dos": 20.5,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-003",
+      "store_name": "Delhi NCR Hypermarket 3",
+      "city": "Delhi NCR",
+      "category": "Grocery & Staples",
+      "status": "critical",
+      "osa_pct": 87.9,
+      "dos": 6.1,
+      "stockout_skus": 10
+    },
+    {
+      "store_id": "STR-003",
+      "store_name": "Delhi NCR Hypermarket 3",
+      "city": "Delhi NCR",
+      "category": "Dairy & Frozen",
+      "status": "critical",
+      "osa_pct": 88.7,
+      "dos": 3.0,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-003",
+      "store_name": "Delhi NCR Hypermarket 3",
+      "city": "Delhi NCR",
+      "category": "Personal Care",
+      "status": "critical",
+      "osa_pct": 84.7,
+      "dos": 10.9,
+      "stockout_skus": 7
+    },
+    {
+      "store_id": "STR-003",
+      "store_name": "Delhi NCR Hypermarket 3",
+      "city": "Delhi NCR",
+      "category": "Snacks & Beverages",
+      "status": "critical",
+      "osa_pct": 85.0,
+      "dos": 12.5,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-003",
+      "store_name": "Delhi NCR Hypermarket 3",
+      "city": "Delhi NCR",
+      "category": "Home & Kitchen",
+      "status": "at_risk",
+      "osa_pct": 89.8,
+      "dos": 18.2,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-003",
+      "store_name": "Delhi NCR Hypermarket 3",
+      "city": "Delhi NCR",
+      "category": "Electronics",
+      "status": "at_risk",
+      "osa_pct": 91.5,
+      "dos": 14.9,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-003",
+      "store_name": "Delhi NCR Hypermarket 3",
+      "city": "Delhi NCR",
+      "category": "Apparel",
+      "status": "at_risk",
+      "osa_pct": 92.9,
+      "dos": 28.9,
+      "stockout_skus": 1
+    },
+    {
+      "store_id": "STR-003",
+      "store_name": "Delhi NCR Hypermarket 3",
+      "city": "Delhi NCR",
+      "category": "Home & Living",
+      "status": "at_risk",
+      "osa_pct": 92.6,
+      "dos": 22.0,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-004",
+      "store_name": "Delhi NCR Hypermarket 4",
+      "city": "Delhi NCR",
+      "category": "Grocery & Staples",
+      "status": "critical",
+      "osa_pct": 85.7,
+      "dos": 5.6,
+      "stockout_skus": 8
+    },
+    {
+      "store_id": "STR-004",
+      "store_name": "Delhi NCR Hypermarket 4",
+      "city": "Delhi NCR",
+      "category": "Dairy & Frozen",
+      "status": "critical",
+      "osa_pct": 87.8,
+      "dos": 6.1,
+      "stockout_skus": 5
+    },
+    {
+      "store_id": "STR-004",
+      "store_name": "Delhi NCR Hypermarket 4",
+      "city": "Delhi NCR",
+      "category": "Personal Care",
+      "status": "critical",
+      "osa_pct": 86.3,
+      "dos": 13.6,
+      "stockout_skus": 6
+    },
+    {
+      "store_id": "STR-004",
+      "store_name": "Delhi NCR Hypermarket 4",
+      "city": "Delhi NCR",
+      "category": "Snacks & Beverages",
+      "status": "critical",
+      "osa_pct": 84.7,
+      "dos": 12.7,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-004",
+      "store_name": "Delhi NCR Hypermarket 4",
+      "city": "Delhi NCR",
+      "category": "Home & Kitchen",
+      "status": "at_risk",
+      "osa_pct": 89.9,
+      "dos": 18.4,
+      "stockout_skus": 1
+    },
+    {
+      "store_id": "STR-004",
+      "store_name": "Delhi NCR Hypermarket 4",
+      "city": "Delhi NCR",
+      "category": "Electronics",
+      "status": "at_risk",
+      "osa_pct": 90.5,
+      "dos": 14.6,
+      "stockout_skus": 1
+    },
+    {
+      "store_id": "STR-004",
+      "store_name": "Delhi NCR Hypermarket 4",
+      "city": "Delhi NCR",
+      "category": "Apparel",
+      "status": "at_risk",
+      "osa_pct": 90.7,
+      "dos": 29.7,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-004",
+      "store_name": "Delhi NCR Hypermarket 4",
+      "city": "Delhi NCR",
+      "category": "Home & Living",
+      "status": "at_risk",
+      "osa_pct": 91.7,
+      "dos": 23.7,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-005",
+      "store_name": "Delhi NCR Hypermarket 5",
+      "city": "Delhi NCR",
+      "category": "Grocery & Staples",
+      "status": "critical",
+      "osa_pct": 85.9,
+      "dos": 4.6,
+      "stockout_skus": 9
+    },
+    {
+      "store_id": "STR-005",
+      "store_name": "Delhi NCR Hypermarket 5",
+      "city": "Delhi NCR",
+      "category": "Dairy & Frozen",
+      "status": "critical",
+      "osa_pct": 89.1,
+      "dos": 4.0,
+      "stockout_skus": 6
+    },
+    {
+      "store_id": "STR-005",
+      "store_name": "Delhi NCR Hypermarket 5",
+      "city": "Delhi NCR",
+      "category": "Personal Care",
+      "status": "critical",
+      "osa_pct": 84.1,
+      "dos": 13.8,
+      "stockout_skus": 5
+    },
+    {
+      "store_id": "STR-005",
+      "store_name": "Delhi NCR Hypermarket 5",
+      "city": "Delhi NCR",
+      "category": "Snacks & Beverages",
+      "status": "critical",
+      "osa_pct": 86.8,
+      "dos": 10.6,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-005",
+      "store_name": "Delhi NCR Hypermarket 5",
+      "city": "Delhi NCR",
+      "category": "Home & Kitchen",
+      "status": "at_risk",
+      "osa_pct": 88.1,
+      "dos": 19.6,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-005",
+      "store_name": "Delhi NCR Hypermarket 5",
+      "city": "Delhi NCR",
+      "category": "Electronics",
+      "status": "at_risk",
+      "osa_pct": 89.7,
+      "dos": 16.2,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-005",
+      "store_name": "Delhi NCR Hypermarket 5",
+      "city": "Delhi NCR",
+      "category": "Apparel",
+      "status": "at_risk",
+      "osa_pct": 92.7,
+      "dos": 30.1,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-005",
+      "store_name": "Delhi NCR Hypermarket 5",
+      "city": "Delhi NCR",
+      "category": "Home & Living",
+      "status": "at_risk",
+      "osa_pct": 90.5,
+      "dos": 21.6,
+      "stockout_skus": 1
+    },
+    {
+      "store_id": "STR-006",
+      "store_name": "Delhi NCR Hypermarket 6",
+      "city": "Delhi NCR",
+      "category": "Grocery & Staples",
+      "status": "critical",
+      "osa_pct": 88.4,
+      "dos": 6.5,
+      "stockout_skus": 9
+    },
+    {
+      "store_id": "STR-006",
+      "store_name": "Delhi NCR Hypermarket 6",
+      "city": "Delhi NCR",
+      "category": "Dairy & Frozen",
+      "status": "critical",
+      "osa_pct": 87.9,
+      "dos": 3.6,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-006",
+      "store_name": "Delhi NCR Hypermarket 6",
+      "city": "Delhi NCR",
+      "category": "Personal Care",
+      "status": "critical",
+      "osa_pct": 84.3,
+      "dos": 13.1,
+      "stockout_skus": 7
+    },
+    {
+      "store_id": "STR-006",
+      "store_name": "Delhi NCR Hypermarket 6",
+      "city": "Delhi NCR",
+      "category": "Snacks & Beverages",
+      "status": "critical",
+      "osa_pct": 85.0,
+      "dos": 10.7,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-006",
+      "store_name": "Delhi NCR Hypermarket 6",
+      "city": "Delhi NCR",
+      "category": "Home & Kitchen",
+      "status": "at_risk",
+      "osa_pct": 88.6,
+      "dos": 19.1,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-006",
+      "store_name": "Delhi NCR Hypermarket 6",
+      "city": "Delhi NCR",
+      "category": "Electronics",
+      "status": "at_risk",
+      "osa_pct": 92.1,
+      "dos": 15.2,
+      "stockout_skus": 1
+    },
+    {
+      "store_id": "STR-006",
+      "store_name": "Delhi NCR Hypermarket 6",
+      "city": "Delhi NCR",
+      "category": "Apparel",
+      "status": "at_risk",
+      "osa_pct": 92.4,
+      "dos": 29.4,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-006",
+      "store_name": "Delhi NCR Hypermarket 6",
+      "city": "Delhi NCR",
+      "category": "Home & Living",
+      "status": "healthy",
+      "osa_pct": 93.2,
+      "dos": 23.9,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-007",
+      "store_name": "Delhi NCR Supermarket 1",
+      "city": "Delhi NCR",
+      "category": "Grocery & Staples",
+      "status": "critical",
+      "osa_pct": 86.8,
+      "dos": 7.8,
+      "stockout_skus": 10
+    },
+    {
+      "store_id": "STR-007",
+      "store_name": "Delhi NCR Supermarket 1",
+      "city": "Delhi NCR",
+      "category": "Dairy & Frozen",
+      "status": "critical",
+      "osa_pct": 86.2,
+      "dos": 4.4,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-007",
+      "store_name": "Delhi NCR Supermarket 1",
+      "city": "Delhi NCR",
+      "category": "Personal Care",
+      "status": "critical",
+      "osa_pct": 83.2,
+      "dos": 11.6,
+      "stockout_skus": 5
+    },
+    {
+      "store_id": "STR-007",
+      "store_name": "Delhi NCR Supermarket 1",
+      "city": "Delhi NCR",
+      "category": "Snacks & Beverages",
+      "status": "critical",
+      "osa_pct": 86.2,
+      "dos": 12.6,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-007",
+      "store_name": "Delhi NCR Supermarket 1",
+      "city": "Delhi NCR",
+      "category": "Home & Kitchen",
+      "status": "at_risk",
+      "osa_pct": 88.3,
+      "dos": 19.8,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-007",
+      "store_name": "Delhi NCR Supermarket 1",
+      "city": "Delhi NCR",
+      "category": "Electronics",
+      "status": "at_risk",
+      "osa_pct": 90.1,
+      "dos": 16.5,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-007",
+      "store_name": "Delhi NCR Supermarket 1",
+      "city": "Delhi NCR",
+      "category": "Apparel",
+      "status": "at_risk",
+      "osa_pct": 90.0,
+      "dos": 28.5,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-007",
+      "store_name": "Delhi NCR Supermarket 1",
+      "city": "Delhi NCR",
+      "category": "Home & Living",
+      "status": "healthy",
+      "osa_pct": 93.4,
+      "dos": 20.7,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-008",
+      "store_name": "Delhi NCR Supermarket 2",
+      "city": "Delhi NCR",
+      "category": "Grocery & Staples",
+      "status": "critical",
+      "osa_pct": 89.0,
+      "dos": 6.1,
+      "stockout_skus": 9
+    },
+    {
+      "store_id": "STR-008",
+      "store_name": "Delhi NCR Supermarket 2",
+      "city": "Delhi NCR",
+      "category": "Dairy & Frozen",
+      "status": "critical",
+      "osa_pct": 90.1,
+      "dos": 4.9,
+      "stockout_skus": 5
+    },
+    {
+      "store_id": "STR-008",
+      "store_name": "Delhi NCR Supermarket 2",
+      "city": "Delhi NCR",
+      "category": "Personal Care",
+      "status": "critical",
+      "osa_pct": 84.0,
+      "dos": 10.8,
+      "stockout_skus": 7
+    },
+    {
+      "store_id": "STR-008",
+      "store_name": "Delhi NCR Supermarket 2",
+      "city": "Delhi NCR",
+      "category": "Snacks & Beverages",
+      "status": "critical",
+      "osa_pct": 85.8,
+      "dos": 10.1,
+      "stockout_skus": 5
+    },
+    {
+      "store_id": "STR-008",
+      "store_name": "Delhi NCR Supermarket 2",
+      "city": "Delhi NCR",
+      "category": "Home & Kitchen",
+      "status": "at_risk",
+      "osa_pct": 88.5,
+      "dos": 19.9,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-008",
+      "store_name": "Delhi NCR Supermarket 2",
+      "city": "Delhi NCR",
+      "category": "Electronics",
+      "status": "at_risk",
+      "osa_pct": 91.7,
+      "dos": 17.2,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-008",
+      "store_name": "Delhi NCR Supermarket 2",
+      "city": "Delhi NCR",
+      "category": "Apparel",
+      "status": "at_risk",
+      "osa_pct": 90.9,
+      "dos": 32.2,
+      "stockout_skus": 1
+    },
+    {
+      "store_id": "STR-008",
+      "store_name": "Delhi NCR Supermarket 2",
+      "city": "Delhi NCR",
+      "category": "Home & Living",
+      "status": "at_risk",
+      "osa_pct": 91.6,
+      "dos": 21.2,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-009",
+      "store_name": "Mumbai Hypermarket 1",
+      "city": "Mumbai",
+      "category": "Grocery & Staples",
+      "status": "at_risk",
+      "osa_pct": 92.4,
+      "dos": 14.4,
+      "stockout_skus": 10
+    },
+    {
+      "store_id": "STR-009",
+      "store_name": "Mumbai Hypermarket 1",
+      "city": "Mumbai",
+      "category": "Dairy & Frozen",
+      "status": "at_risk",
+      "osa_pct": 91.8,
+      "dos": 12.5,
+      "stockout_skus": 6
+    },
+    {
+      "store_id": "STR-009",
+      "store_name": "Mumbai Hypermarket 1",
+      "city": "Mumbai",
+      "category": "Personal Care",
+      "status": "at_risk",
+      "osa_pct": 90.4,
+      "dos": 19.3,
+      "stockout_skus": 7
+    },
+    {
+      "store_id": "STR-009",
+      "store_name": "Mumbai Hypermarket 1",
+      "city": "Mumbai",
+      "category": "Snacks & Beverages",
+      "status": "at_risk",
+      "osa_pct": 91.8,
+      "dos": 19.7,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-009",
+      "store_name": "Mumbai Hypermarket 1",
+      "city": "Mumbai",
+      "category": "Home & Kitchen",
+      "status": "healthy",
+      "osa_pct": 96.1,
+      "dos": 24.9,
+      "stockout_skus": 1
+    },
+    {
+      "store_id": "STR-009",
+      "store_name": "Mumbai Hypermarket 1",
+      "city": "Mumbai",
+      "category": "Electronics",
+      "status": "healthy",
+      "osa_pct": 94.4,
+      "dos": 22.8,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-009",
+      "store_name": "Mumbai Hypermarket 1",
+      "city": "Mumbai",
+      "category": "Apparel",
+      "status": "healthy",
+      "osa_pct": 96.7,
+      "dos": 34.8,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-009",
+      "store_name": "Mumbai Hypermarket 1",
+      "city": "Mumbai",
+      "category": "Home & Living",
+      "status": "healthy",
+      "osa_pct": 97.6,
+      "dos": 29.1,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-010",
+      "store_name": "Mumbai Hypermarket 2",
+      "city": "Mumbai",
+      "category": "Grocery & Staples",
+      "status": "at_risk",
+      "osa_pct": 91.1,
+      "dos": 11.3,
+      "stockout_skus": 7
+    },
+    {
+      "store_id": "STR-010",
+      "store_name": "Mumbai Hypermarket 2",
+      "city": "Mumbai",
+      "category": "Dairy & Frozen",
+      "status": "at_risk",
+      "osa_pct": 92.7,
+      "dos": 9.0,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-010",
+      "store_name": "Mumbai Hypermarket 2",
+      "city": "Mumbai",
+      "category": "Personal Care",
+      "status": "at_risk",
+      "osa_pct": 90.3,
+      "dos": 18.0,
+      "stockout_skus": 7
+    },
+    {
+      "store_id": "STR-010",
+      "store_name": "Mumbai Hypermarket 2",
+      "city": "Mumbai",
+      "category": "Snacks & Beverages",
+      "status": "at_risk",
+      "osa_pct": 89.3,
+      "dos": 18.9,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-010",
+      "store_name": "Mumbai Hypermarket 2",
+      "city": "Mumbai",
+      "category": "Home & Kitchen",
+      "status": "healthy",
+      "osa_pct": 95.3,
+      "dos": 23.3,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-010",
+      "store_name": "Mumbai Hypermarket 2",
+      "city": "Mumbai",
+      "category": "Electronics",
+      "status": "healthy",
+      "osa_pct": 94.2,
+      "dos": 23.4,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-010",
+      "store_name": "Mumbai Hypermarket 2",
+      "city": "Mumbai",
+      "category": "Apparel",
+      "status": "healthy",
+      "osa_pct": 96.3,
+      "dos": 35.6,
+      "stockout_skus": 1
+    },
+    {
+      "store_id": "STR-010",
+      "store_name": "Mumbai Hypermarket 2",
+      "city": "Mumbai",
+      "category": "Home & Living",
+      "status": "healthy",
+      "osa_pct": 97.9,
+      "dos": 29.4,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-011",
+      "store_name": "Mumbai Hypermarket 3",
+      "city": "Mumbai",
+      "category": "Grocery & Staples",
+      "status": "at_risk",
+      "osa_pct": 93.1,
+      "dos": 11.3,
+      "stockout_skus": 8
+    },
+    {
+      "store_id": "STR-011",
+      "store_name": "Mumbai Hypermarket 3",
+      "city": "Mumbai",
+      "category": "Dairy & Frozen",
+      "status": "at_risk",
+      "osa_pct": 94.4,
+      "dos": 9.4,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-011",
+      "store_name": "Mumbai Hypermarket 3",
+      "city": "Mumbai",
+      "category": "Personal Care",
+      "status": "at_risk",
+      "osa_pct": 88.2,
+      "dos": 18.9,
+      "stockout_skus": 7
+    },
+    {
+      "store_id": "STR-011",
+      "store_name": "Mumbai Hypermarket 3",
+      "city": "Mumbai",
+      "category": "Snacks & Beverages",
+      "status": "at_risk",
+      "osa_pct": 89.8,
+      "dos": 19.3,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-011",
+      "store_name": "Mumbai Hypermarket 3",
+      "city": "Mumbai",
+      "category": "Home & Kitchen",
+      "status": "healthy",
+      "osa_pct": 94.6,
+      "dos": 25.8,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-011",
+      "store_name": "Mumbai Hypermarket 3",
+      "city": "Mumbai",
+      "category": "Electronics",
+      "status": "healthy",
+      "osa_pct": 94.5,
+      "dos": 21.0,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-011",
+      "store_name": "Mumbai Hypermarket 3",
+      "city": "Mumbai",
+      "category": "Apparel",
+      "status": "healthy",
+      "osa_pct": 97.3,
+      "dos": 36.5,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-011",
+      "store_name": "Mumbai Hypermarket 3",
+      "city": "Mumbai",
+      "category": "Home & Living",
+      "status": "healthy",
+      "osa_pct": 95.8,
+      "dos": 27.2,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-012",
+      "store_name": "Mumbai Supermarket 1",
+      "city": "Mumbai",
+      "category": "Grocery & Staples",
+      "status": "at_risk",
+      "osa_pct": 92.7,
+      "dos": 12.9,
+      "stockout_skus": 7
+    },
+    {
+      "store_id": "STR-012",
+      "store_name": "Mumbai Supermarket 1",
+      "city": "Mumbai",
+      "category": "Dairy & Frozen",
+      "status": "at_risk",
+      "osa_pct": 92.0,
+      "dos": 12.5,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-012",
+      "store_name": "Mumbai Supermarket 1",
+      "city": "Mumbai",
+      "category": "Personal Care",
+      "status": "at_risk",
+      "osa_pct": 91.2,
+      "dos": 20.8,
+      "stockout_skus": 7
+    },
+    {
+      "store_id": "STR-012",
+      "store_name": "Mumbai Supermarket 1",
+      "city": "Mumbai",
+      "category": "Snacks & Beverages",
+      "status": "at_risk",
+      "osa_pct": 92.0,
+      "dos": 18.2,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-012",
+      "store_name": "Mumbai Supermarket 1",
+      "city": "Mumbai",
+      "category": "Home & Kitchen",
+      "status": "healthy",
+      "osa_pct": 95.6,
+      "dos": 23.4,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-012",
+      "store_name": "Mumbai Supermarket 1",
+      "city": "Mumbai",
+      "category": "Electronics",
+      "status": "healthy",
+      "osa_pct": 96.2,
+      "dos": 22.3,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-012",
+      "store_name": "Mumbai Supermarket 1",
+      "city": "Mumbai",
+      "category": "Apparel",
+      "status": "healthy",
+      "osa_pct": 96.5,
+      "dos": 37.1,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-012",
+      "store_name": "Mumbai Supermarket 1",
+      "city": "Mumbai",
+      "category": "Home & Living",
+      "status": "healthy",
+      "osa_pct": 96.3,
+      "dos": 27.4,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-013",
+      "store_name": "Bangalore Hypermarket 1",
+      "city": "Bangalore",
+      "category": "Grocery & Staples",
+      "status": "healthy",
+      "osa_pct": 94.9,
+      "dos": 15.4,
+      "stockout_skus": 9
+    },
+    {
+      "store_id": "STR-013",
+      "store_name": "Bangalore Hypermarket 1",
+      "city": "Bangalore",
+      "category": "Dairy & Frozen",
+      "status": "at_risk",
+      "osa_pct": 93.6,
+      "dos": 12.2,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-013",
+      "store_name": "Bangalore Hypermarket 1",
+      "city": "Bangalore",
+      "category": "Personal Care",
+      "status": "at_risk",
+      "osa_pct": 89.6,
+      "dos": 18.9,
+      "stockout_skus": 6
+    },
+    {
+      "store_id": "STR-013",
+      "store_name": "Bangalore Hypermarket 1",
+      "city": "Bangalore",
+      "category": "Snacks & Beverages",
+      "status": "healthy",
+      "osa_pct": 93.8,
+      "dos": 19.9,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-013",
+      "store_name": "Bangalore Hypermarket 1",
+      "city": "Bangalore",
+      "category": "Home & Kitchen",
+      "status": "healthy",
+      "osa_pct": 94.9,
+      "dos": 25.3,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-013",
+      "store_name": "Bangalore Hypermarket 1",
+      "city": "Bangalore",
+      "category": "Electronics",
+      "status": "healthy",
+      "osa_pct": 96.6,
+      "dos": 25.0,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-013",
+      "store_name": "Bangalore Hypermarket 1",
+      "city": "Bangalore",
+      "category": "Apparel",
+      "status": "healthy",
+      "osa_pct": 98.5,
+      "dos": 40.0,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-013",
+      "store_name": "Bangalore Hypermarket 1",
+      "city": "Bangalore",
+      "category": "Home & Living",
+      "status": "healthy",
+      "osa_pct": 98.1,
+      "dos": 31.1,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-014",
+      "store_name": "Bangalore Hypermarket 2",
+      "city": "Bangalore",
+      "category": "Grocery & Staples",
+      "status": "at_risk",
+      "osa_pct": 92.1,
+      "dos": 13.8,
+      "stockout_skus": 7
+    },
+    {
+      "store_id": "STR-014",
+      "store_name": "Bangalore Hypermarket 2",
+      "city": "Bangalore",
+      "category": "Dairy & Frozen",
+      "status": "at_risk",
+      "osa_pct": 93.2,
+      "dos": 12.8,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-014",
+      "store_name": "Bangalore Hypermarket 2",
+      "city": "Bangalore",
+      "category": "Personal Care",
+      "status": "at_risk",
+      "osa_pct": 92.8,
+      "dos": 18.6,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-014",
+      "store_name": "Bangalore Hypermarket 2",
+      "city": "Bangalore",
+      "category": "Snacks & Beverages",
+      "status": "at_risk",
+      "osa_pct": 92.7,
+      "dos": 17.3,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-014",
+      "store_name": "Bangalore Hypermarket 2",
+      "city": "Bangalore",
+      "category": "Home & Kitchen",
+      "status": "healthy",
+      "osa_pct": 93.9,
+      "dos": 28.0,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-014",
+      "store_name": "Bangalore Hypermarket 2",
+      "city": "Bangalore",
+      "category": "Electronics",
+      "status": "healthy",
+      "osa_pct": 94.6,
+      "dos": 25.7,
+      "stockout_skus": 1
+    },
+    {
+      "store_id": "STR-014",
+      "store_name": "Bangalore Hypermarket 2",
+      "city": "Bangalore",
+      "category": "Apparel",
+      "status": "healthy",
+      "osa_pct": 97.7,
+      "dos": 37.9,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-014",
+      "store_name": "Bangalore Hypermarket 2",
+      "city": "Bangalore",
+      "category": "Home & Living",
+      "status": "healthy",
+      "osa_pct": 99.8,
+      "dos": 28.3,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-015",
+      "store_name": "Bangalore Supermarket 1",
+      "city": "Bangalore",
+      "category": "Grocery & Staples",
+      "status": "healthy",
+      "osa_pct": 95.1,
+      "dos": 16.1,
+      "stockout_skus": 7
+    },
+    {
+      "store_id": "STR-015",
+      "store_name": "Bangalore Supermarket 1",
+      "city": "Bangalore",
+      "category": "Dairy & Frozen",
+      "status": "at_risk",
+      "osa_pct": 93.1,
+      "dos": 11.1,
+      "stockout_skus": 6
+    },
+    {
+      "store_id": "STR-015",
+      "store_name": "Bangalore Supermarket 1",
+      "city": "Bangalore",
+      "category": "Personal Care",
+      "status": "at_risk",
+      "osa_pct": 89.9,
+      "dos": 21.9,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-015",
+      "store_name": "Bangalore Supermarket 1",
+      "city": "Bangalore",
+      "category": "Snacks & Beverages",
+      "status": "at_risk",
+      "osa_pct": 91.9,
+      "dos": 17.8,
+      "stockout_skus": 5
+    },
+    {
+      "store_id": "STR-015",
+      "store_name": "Bangalore Supermarket 1",
+      "city": "Bangalore",
+      "category": "Home & Kitchen",
+      "status": "healthy",
+      "osa_pct": 94.2,
+      "dos": 27.6,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-015",
+      "store_name": "Bangalore Supermarket 1",
+      "city": "Bangalore",
+      "category": "Electronics",
+      "status": "healthy",
+      "osa_pct": 96.8,
+      "dos": 25.8,
+      "stockout_skus": 1
+    },
+    {
+      "store_id": "STR-015",
+      "store_name": "Bangalore Supermarket 1",
+      "city": "Bangalore",
+      "category": "Apparel",
+      "status": "healthy",
+      "osa_pct": 95.9,
+      "dos": 39.2,
+      "stockout_skus": 1
+    },
+    {
+      "store_id": "STR-015",
+      "store_name": "Bangalore Supermarket 1",
+      "city": "Bangalore",
+      "category": "Home & Living",
+      "status": "healthy",
+      "osa_pct": 97.1,
+      "dos": 30.9,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-016",
+      "store_name": "Chennai Hypermarket 1",
+      "city": "Chennai",
+      "category": "Grocery & Staples",
+      "status": "healthy",
+      "osa_pct": 95.4,
+      "dos": 16.8,
+      "stockout_skus": 7
+    },
+    {
+      "store_id": "STR-016",
+      "store_name": "Chennai Hypermarket 1",
+      "city": "Chennai",
+      "category": "Dairy & Frozen",
+      "status": "healthy",
+      "osa_pct": 94.7,
+      "dos": 14.2,
+      "stockout_skus": 6
+    },
+    {
+      "store_id": "STR-016",
+      "store_name": "Chennai Hypermarket 1",
+      "city": "Chennai",
+      "category": "Personal Care",
+      "status": "at_risk",
+      "osa_pct": 92.4,
+      "dos": 22.3,
+      "stockout_skus": 5
+    },
+    {
+      "store_id": "STR-016",
+      "store_name": "Chennai Hypermarket 1",
+      "city": "Chennai",
+      "category": "Snacks & Beverages",
+      "status": "at_risk",
+      "osa_pct": 92.8,
+      "dos": 22.2,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-016",
+      "store_name": "Chennai Hypermarket 1",
+      "city": "Chennai",
+      "category": "Home & Kitchen",
+      "status": "healthy",
+      "osa_pct": 96.8,
+      "dos": 26.5,
+      "stockout_skus": 1
+    },
+    {
+      "store_id": "STR-016",
+      "store_name": "Chennai Hypermarket 1",
+      "city": "Chennai",
+      "category": "Electronics",
+      "status": "healthy",
+      "osa_pct": 99.6,
+      "dos": 25.8,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-016",
+      "store_name": "Chennai Hypermarket 1",
+      "city": "Chennai",
+      "category": "Apparel",
+      "status": "healthy",
+      "osa_pct": 97.6,
+      "dos": 38.3,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-016",
+      "store_name": "Chennai Hypermarket 1",
+      "city": "Chennai",
+      "category": "Home & Living",
+      "status": "healthy",
+      "osa_pct": 98.5,
+      "dos": 33.7,
+      "stockout_skus": 1
+    },
+    {
+      "store_id": "STR-017",
+      "store_name": "Chennai Hypermarket 2",
+      "city": "Chennai",
+      "category": "Grocery & Staples",
+      "status": "at_risk",
+      "osa_pct": 92.8,
+      "dos": 16.2,
+      "stockout_skus": 8
+    },
+    {
+      "store_id": "STR-017",
+      "store_name": "Chennai Hypermarket 2",
+      "city": "Chennai",
+      "category": "Dairy & Frozen",
+      "status": "at_risk",
+      "osa_pct": 96.7,
+      "dos": 12.6,
+      "stockout_skus": 5
+    },
+    {
+      "store_id": "STR-017",
+      "store_name": "Chennai Hypermarket 2",
+      "city": "Chennai",
+      "category": "Personal Care",
+      "status": "at_risk",
+      "osa_pct": 92.4,
+      "dos": 22.9,
+      "stockout_skus": 6
+    },
+    {
+      "store_id": "STR-017",
+      "store_name": "Chennai Hypermarket 2",
+      "city": "Chennai",
+      "category": "Snacks & Beverages",
+      "status": "at_risk",
+      "osa_pct": 92.6,
+      "dos": 19.3,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-017",
+      "store_name": "Chennai Hypermarket 2",
+      "city": "Chennai",
+      "category": "Home & Kitchen",
+      "status": "healthy",
+      "osa_pct": 96.2,
+      "dos": 26.7,
+      "stockout_skus": 1
+    },
+    {
+      "store_id": "STR-017",
+      "store_name": "Chennai Hypermarket 2",
+      "city": "Chennai",
+      "category": "Electronics",
+      "status": "healthy",
+      "osa_pct": 99.1,
+      "dos": 25.6,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-017",
+      "store_name": "Chennai Hypermarket 2",
+      "city": "Chennai",
+      "category": "Apparel",
+      "status": "healthy",
+      "osa_pct": 99.8,
+      "dos": 41.7,
+      "stockout_skus": 1
+    },
+    {
+      "store_id": "STR-017",
+      "store_name": "Chennai Hypermarket 2",
+      "city": "Chennai",
+      "category": "Home & Living",
+      "status": "healthy",
+      "osa_pct": 99.8,
+      "dos": 33.2,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-018",
+      "store_name": "Pune Hypermarket 1",
+      "city": "Pune",
+      "category": "Grocery & Staples",
+      "status": "healthy",
+      "osa_pct": 93.7,
+      "dos": 17.2,
+      "stockout_skus": 9
+    },
+    {
+      "store_id": "STR-018",
+      "store_name": "Pune Hypermarket 1",
+      "city": "Pune",
+      "category": "Dairy & Frozen",
+      "status": "healthy",
+      "osa_pct": 97.1,
+      "dos": 17.4,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-018",
+      "store_name": "Pune Hypermarket 1",
+      "city": "Pune",
+      "category": "Personal Care",
+      "status": "healthy",
+      "osa_pct": 94.2,
+      "dos": 24.1,
+      "stockout_skus": 7
+    },
+    {
+      "store_id": "STR-018",
+      "store_name": "Pune Hypermarket 1",
+      "city": "Pune",
+      "category": "Snacks & Beverages",
+      "status": "at_risk",
+      "osa_pct": 92.9,
+      "dos": 24.8,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-018",
+      "store_name": "Pune Hypermarket 1",
+      "city": "Pune",
+      "category": "Home & Kitchen",
+      "status": "healthy",
+      "osa_pct": 97.6,
+      "dos": 30.6,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-018",
+      "store_name": "Pune Hypermarket 1",
+      "city": "Pune",
+      "category": "Electronics",
+      "status": "healthy",
+      "osa_pct": 99.7,
+      "dos": 30.0,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-018",
+      "store_name": "Pune Hypermarket 1",
+      "city": "Pune",
+      "category": "Apparel",
+      "status": "healthy",
+      "osa_pct": 98.9,
+      "dos": 41.8,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-018",
+      "store_name": "Pune Hypermarket 1",
+      "city": "Pune",
+      "category": "Home & Living",
+      "status": "healthy",
+      "osa_pct": 99.7,
+      "dos": 33.4,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-019",
+      "store_name": "Pune Hypermarket 2",
+      "city": "Pune",
+      "category": "Grocery & Staples",
+      "status": "healthy",
+      "osa_pct": 94.5,
+      "dos": 17.7,
+      "stockout_skus": 7
+    },
+    {
+      "store_id": "STR-019",
+      "store_name": "Pune Hypermarket 2",
+      "city": "Pune",
+      "category": "Dairy & Frozen",
+      "status": "healthy",
+      "osa_pct": 95.7,
+      "dos": 15.6,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-019",
+      "store_name": "Pune Hypermarket 2",
+      "city": "Pune",
+      "category": "Personal Care",
+      "status": "at_risk",
+      "osa_pct": 92.5,
+      "dos": 25.1,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-019",
+      "store_name": "Pune Hypermarket 2",
+      "city": "Pune",
+      "category": "Snacks & Beverages",
+      "status": "healthy",
+      "osa_pct": 95.0,
+      "dos": 22.4,
+      "stockout_skus": 5
+    },
+    {
+      "store_id": "STR-019",
+      "store_name": "Pune Hypermarket 2",
+      "city": "Pune",
+      "category": "Home & Kitchen",
+      "status": "healthy",
+      "osa_pct": 96.1,
+      "dos": 28.5,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-019",
+      "store_name": "Pune Hypermarket 2",
+      "city": "Pune",
+      "category": "Electronics",
+      "status": "healthy",
+      "osa_pct": 99.7,
+      "dos": 30.0,
+      "stockout_skus": 3
+    },
+    {
+      "store_id": "STR-019",
+      "store_name": "Pune Hypermarket 2",
+      "city": "Pune",
+      "category": "Apparel",
+      "status": "healthy",
+      "osa_pct": 99.3,
+      "dos": 44.1,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-019",
+      "store_name": "Pune Hypermarket 2",
+      "city": "Pune",
+      "category": "Home & Living",
+      "status": "healthy",
+      "osa_pct": 99.8,
+      "dos": 33.3,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-020",
+      "store_name": "Pune Supermarket 1",
+      "city": "Pune",
+      "category": "Grocery & Staples",
+      "status": "healthy",
+      "osa_pct": 97.3,
+      "dos": 18.0,
+      "stockout_skus": 8
+    },
+    {
+      "store_id": "STR-020",
+      "store_name": "Pune Supermarket 1",
+      "city": "Pune",
+      "category": "Dairy & Frozen",
+      "status": "healthy",
+      "osa_pct": 94.9,
+      "dos": 18.1,
+      "stockout_skus": 6
+    },
+    {
+      "store_id": "STR-020",
+      "store_name": "Pune Supermarket 1",
+      "city": "Pune",
+      "category": "Personal Care",
+      "status": "healthy",
+      "osa_pct": 94.6,
+      "dos": 23.8,
+      "stockout_skus": 4
+    },
+    {
+      "store_id": "STR-020",
+      "store_name": "Pune Supermarket 1",
+      "city": "Pune",
+      "category": "Snacks & Beverages",
+      "status": "healthy",
+      "osa_pct": 95.4,
+      "dos": 21.6,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-020",
+      "store_name": "Pune Supermarket 1",
+      "city": "Pune",
+      "category": "Home & Kitchen",
+      "status": "healthy",
+      "osa_pct": 98.1,
+      "dos": 31.8,
+      "stockout_skus": 2
+    },
+    {
+      "store_id": "STR-020",
+      "store_name": "Pune Supermarket 1",
+      "city": "Pune",
+      "category": "Electronics",
+      "status": "healthy",
+      "osa_pct": 98.3,
+      "dos": 29.1,
+      "stockout_skus": 0
+    },
+    {
+      "store_id": "STR-020",
+      "store_name": "Pune Supermarket 1",
+      "city": "Pune",
+      "category": "Apparel",
+      "status": "healthy",
+      "osa_pct": 97.7,
+      "dos": 43.6,
+      "stockout_skus": 1
+    },
+    {
+      "store_id": "STR-020",
+      "store_name": "Pune Supermarket 1",
+      "city": "Pune",
+      "category": "Home & Living",
+      "status": "healthy",
+      "osa_pct": 99.4,
+      "dos": 35.0,
+      "stockout_skus": 0
+    }
+  ],
+  "health_trend_12m": [
+    {
+      "month": "May 2025",
+      "critical_pct": 8,
+      "at_risk_pct": 22,
+      "healthy_pct": 58,
+      "overstock_pct": 12
+    },
+    {
+      "month": "Jun 2025",
+      "critical_pct": 9,
+      "at_risk_pct": 21,
+      "healthy_pct": 57,
+      "overstock_pct": 13
+    },
+    {
+      "month": "Jul 2025",
+      "critical_pct": 11,
+      "at_risk_pct": 24,
+      "healthy_pct": 54,
+      "overstock_pct": 11
+    },
+    {
+      "month": "Aug 2025",
+      "critical_pct": 14,
+      "at_risk_pct": 26,
+      "healthy_pct": 50,
+      "overstock_pct": 10
+    },
+    {
+      "month": "Sep 2025",
+      "critical_pct": 12,
+      "at_risk_pct": 23,
+      "healthy_pct": 53,
+      "overstock_pct": 12
+    },
+    {
+      "month": "Oct 2025",
+      "critical_pct": 18,
+      "at_risk_pct": 28,
+      "healthy_pct": 42,
+      "overstock_pct": 12
+    },
+    {
+      "month": "Nov 2025",
+      "critical_pct": 22,
+      "at_risk_pct": 31,
+      "healthy_pct": 36,
+      "overstock_pct": 11
+    },
+    {
+      "month": "Dec 2025",
+      "critical_pct": 19,
+      "at_risk_pct": 29,
+      "healthy_pct": 40,
+      "overstock_pct": 12
+    },
+    {
+      "month": "Jan 2026",
+      "critical_pct": 16,
+      "at_risk_pct": 27,
+      "healthy_pct": 44,
+      "overstock_pct": 13
+    },
+    {
+      "month": "Feb 2026",
+      "critical_pct": 21,
+      "at_risk_pct": 32,
+      "healthy_pct": 36,
+      "overstock_pct": 11
+    },
+    {
+      "month": "Mar 2026",
+      "critical_pct": 24,
+      "at_risk_pct": 34,
+      "healthy_pct": 31,
+      "overstock_pct": 11
+    },
+    {
+      "month": "Apr 2026",
+      "critical_pct": 26,
+      "at_risk_pct": 37,
+      "healthy_pct": 28,
+      "overstock_pct": 9
+    }
+  ]
+}

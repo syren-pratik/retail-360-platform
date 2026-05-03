@@ -1,37 +1,38 @@
 'use client';
 
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Cell,
-} from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { Maximize2 } from 'lucide-react';
-import { CLVTierData } from '@/app/lib/types';
+import { CLVTierData, CLVDetailData } from '@/app/lib/types';
 import { useDashboard } from '@/app/context/DashboardContext';
 import ChartWrapper from './ChartWrapper';
-import ChartExpandModal from './ChartExpandModal';
+import CLVExpandModal from './CLVExpandModal';
 
 interface CLVDistributionProps {
   data: CLVTierData[];
+  clvDetail: CLVDetailData;
 }
 
-const COLORS = ['#6366F1', '#3B82F6', '#10B981', '#F59E0B', '#F43F5E'];
+const TIER_COLORS: Record<string, string> = {
+  Platinum: '#6366F1',
+  Gold: '#F59E0B',
+  Silver: '#64748B',
+  Bronze: '#92400E',
+  'At-Risk': '#F43F5E',
+};
+
 const CHART_ID = 'clv_distribution';
 
-const formatNumber = (num: number) => {
-  if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
-  if (num >= 1000) return `${(num / 1000).toFixed(0)}K`;
-  return num.toString();
-};
+function fmtInr(n: number) {
+  if (n >= 100_000) return `₹${(n / 100_000).toFixed(1)}L`;
+  if (n >= 1_000) return `₹${(n / 1_000).toFixed(0)}K`;
+  return `₹${n.toLocaleString('en-IN')}`;
+}
 
-const formatCurrency = (num: number) => {
-  return `₹${formatNumber(num)}`;
-};
+function fmtCount(n: number) {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
+  if (n >= 1_000) return `${(n / 1_000).toFixed(0)}K`;
+  return n.toString();
+}
 
 interface CustomTooltipProps {
   active?: boolean;
@@ -40,204 +41,117 @@ interface CustomTooltipProps {
 
 const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
   if (active && payload && payload.length) {
-    const data = payload[0].payload;
+    const d = payload[0].payload;
     return (
       <div className="bg-white border border-[var(--border-default)] rounded-lg p-3 shadow-sm">
-        <p className="font-medium text-sm mb-1">{data.clv_tier}</p>
-        <p className="text-sm">{formatNumber(data.customer_count)} customers</p>
-        <p className="text-xs text-[var(--text-tertiary)] mt-1">
-          Avg CLV: {formatCurrency(data.avg_clv)}
-        </p>
+        <p className="font-medium text-sm mb-1">{d.clv_tier}</p>
+        <p className="text-sm">{fmtCount(d.customer_count)} customers</p>
+        <p className="text-xs text-[var(--text-tertiary)] mt-1">Avg CLV: {fmtInr(d.avg_clv)}</p>
       </div>
     );
   }
   return null;
 };
 
-export default function CLVDistribution({ data }: CLVDistributionProps) {
+export default function CLVDistribution({ data, clvDetail }: CLVDistributionProps) {
   const { activeDrilldowns, addDrilldown, expandedChart, setExpandedChart } = useDashboard();
 
-  // Find if this chart has an active drilldown
   const activeDrilldown = activeDrilldowns.find((d) => d.source === CHART_ID);
   const selectedTier = activeDrilldown?.value;
 
   const handleBarClick = (entry: CLVTierData) => {
-    addDrilldown({
-      source: CHART_ID,
-      field: 'clv_tier',
-      value: entry.clv_tier,
-      label: `CLV Tier: ${entry.clv_tier}`,
-    });
+    addDrilldown({ source: CHART_ID, field: 'clv_tier', value: entry.clv_tier, label: `CLV Tier: ${entry.clv_tier}` });
   };
 
-  const handleExpand = () => {
-    setExpandedChart(CHART_ID);
-  };
+  // Pareto insight from detail data
+  const p = clvDetail.pareto?.find((x) => x.top_pct === 15);
+  const paretoInsight = p
+    ? `Top 15% (Platinum) = ${p.clv_share}% of total CLV`
+    : clvDetail.summary?.total_clv
+      ? `Total portfolio CLV: ${fmtInr(clvDetail.summary.total_clv)}`
+      : '';
 
-  const renderChart = () => (
-    <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 20 }}>
-        <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" />
-        <XAxis
-          dataKey="clv_tier"
-          tick={{ fontSize: 12, fill: 'var(--text-secondary)' }}
-          tickLine={false}
-          axisLine={{ stroke: 'var(--border-default)' }}
-        />
-        <YAxis
-          tick={{ fontSize: 12, fill: 'var(--text-secondary)' }}
-          tickFormatter={formatNumber}
-          tickLine={false}
-          axisLine={false}
-        />
-        <Tooltip content={<CustomTooltip />} />
-        <Bar
-          dataKey="customer_count"
-          radius={[4, 4, 0, 0]}
-          onClick={(_, index) => handleBarClick(data[index])}
-          cursor="pointer"
-        >
-          {data.map((entry, index) => (
-            <Cell
-              key={`cell-${index}`}
-              fill={COLORS[index % COLORS.length]}
-              opacity={selectedTier && selectedTier !== entry.clv_tier ? 0.3 : 1}
-            />
-          ))}
-        </Bar>
-      </BarChart>
-    </ResponsiveContainer>
-  );
-
-  // Render expanded modal
   if (expandedChart === CHART_ID) {
     return (
       <>
-        <CLVDistributionCard
-          data={data}
-          selectedTier={selectedTier}
-          onBarClick={handleBarClick}
-          onExpand={handleExpand}
-        />
-        <ChartExpandModal
-          title="CLV Distribution by Tier"
-          subtitle="Customer count and average CLV per tier"
-          rawData={data}
-          columns={[
-            { key: 'clv_tier', label: 'CLV Tier' },
-            { key: 'customer_count', label: 'Customers', format: (v) => formatNumber(v as number) },
-            { key: 'avg_clv', label: 'Avg CLV', format: (v) => formatCurrency(v as number) },
-            { key: 'total_clv', label: 'Total CLV', format: (v) => formatCurrency(v as number) },
-            { key: 'avg_frequency', label: 'Avg Frequency', format: (v) => (v as number).toFixed(1) },
-            { key: 'avg_recency', label: 'Avg Recency (days)', format: (v) => Math.round(v as number).toString() },
-          ]}
-        >
-          <ChartWrapper height={400}>
-            {renderChart()}
-          </ChartWrapper>
-        </ChartExpandModal>
+        <CLVDistributionCard data={data} selectedTier={selectedTier} onBarClick={handleBarClick}
+          onExpand={() => setExpandedChart(CHART_ID)} paretoInsight={paretoInsight} />
+        <CLVExpandModal data={clvDetail} onClose={() => setExpandedChart(null)} />
       </>
     );
   }
 
   return (
-    <CLVDistributionCard
-      data={data}
-      selectedTier={selectedTier}
-      onBarClick={handleBarClick}
-      onExpand={handleExpand}
-    />
+    <CLVDistributionCard data={data} selectedTier={selectedTier} onBarClick={handleBarClick}
+      onExpand={() => setExpandedChart(CHART_ID)} paretoInsight={paretoInsight} />
   );
 }
 
-// Separate card component for reuse
 interface CLVDistributionCardProps {
   data: CLVTierData[];
   selectedTier?: string;
   onBarClick: (entry: CLVTierData) => void;
   onExpand: () => void;
+  paretoInsight: string;
 }
 
-function CLVDistributionCard({ data, selectedTier, onBarClick, onExpand }: CLVDistributionCardProps) {
+function CLVDistributionCard({ data, selectedTier, onBarClick, onExpand, paretoInsight }: CLVDistributionCardProps) {
   return (
     <div className="card h-full">
       <div className="flex items-start justify-between mb-4">
         <div>
-          <h3 className="text-base font-semibold text-[var(--text-primary)]">
-            CLV Distribution by Tier
-          </h3>
-          <p className="text-sm text-[var(--text-secondary)]">
-            Customer count and average CLV per tier
-          </p>
+          <h3 className="text-base font-semibold text-[var(--text-primary)]">CLV Distribution by Tier</h3>
+          <p className="text-sm text-[var(--text-secondary)]">12-month predicted customer lifetime value</p>
         </div>
-        <button
-          onClick={onExpand}
-          className="p-1.5 rounded-md text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors"
-          title="Expand chart"
-        >
-          <Maximize2 size={16} />
-        </button>
+        <div className="flex items-center gap-1">
+          <button onClick={onExpand} className="p-1.5 rounded-md text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors" title="Expand chart">
+            <Maximize2 size={16} />
+          </button>
+        </div>
       </div>
-      <div className="h-[280px]">
-        <ChartWrapper height={280}>
+
+      <div className="h-[220px]">
+        <ChartWrapper height={220}>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 20 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" />
-              <XAxis
-                dataKey="clv_tier"
-                tick={{ fontSize: 12, fill: 'var(--text-secondary)' }}
-                tickLine={false}
-                axisLine={{ stroke: 'var(--border-default)' }}
-              />
-              <YAxis
-                tick={{ fontSize: 12, fill: 'var(--text-secondary)' }}
-                tickFormatter={formatNumber}
-                tickLine={false}
-                axisLine={false}
-              />
+              <XAxis dataKey="clv_tier" tick={{ fontSize: 12, fill: 'var(--text-secondary)' }} tickLine={false}
+                axisLine={{ stroke: 'var(--border-default)' }} />
+              <YAxis tick={{ fontSize: 12, fill: 'var(--text-secondary)' }} tickFormatter={fmtCount}
+                tickLine={false} axisLine={false} />
               <Tooltip content={<CustomTooltip />} />
-              <Bar
-                dataKey="customer_count"
-                radius={[4, 4, 0, 0]}
-                onClick={(_, index) => onBarClick(data[index])}
-                cursor="pointer"
-              >
-                {data.map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                    opacity={selectedTier && selectedTier !== entry.clv_tier ? 0.3 : 1}
-                  />
+              <Bar dataKey="customer_count" radius={[4, 4, 0, 0]} onClick={(_, index) => onBarClick(data[index])} cursor="pointer">
+                {data.map((entry) => (
+                  <Cell key={entry.clv_tier} fill={TIER_COLORS[entry.clv_tier] ?? '#6366F1'}
+                    opacity={selectedTier && selectedTier !== entry.clv_tier ? 0.3 : 1} />
                 ))}
               </Bar>
             </BarChart>
           </ResponsiveContainer>
         </ChartWrapper>
       </div>
-      {/* Legend with CLV values */}
-      <div className="mt-4 grid grid-cols-5 gap-2">
-        {data.map((tier, index) => (
-          <button
-            key={tier.clv_tier}
-            onClick={() => onBarClick(tier)}
+
+      {/* Tier legend with avg CLV */}
+      <div className="mt-3 grid grid-cols-4 gap-1">
+        {data.map((tier) => (
+          <button key={tier.clv_tier} onClick={() => onBarClick(tier)}
             className={`text-center p-2 rounded-md transition-all cursor-pointer hover:bg-[var(--bg-secondary)] ${
               selectedTier === tier.clv_tier ? 'bg-[var(--accent-primary-light)]' : ''
-            }`}
-          >
-            <div
-              className="w-3 h-3 rounded-sm mx-auto mb-1"
-              style={{
-                backgroundColor: COLORS[index],
-                opacity: selectedTier && selectedTier !== tier.clv_tier ? 0.3 : 1,
-              }}
-            />
+            }`}>
+            <div className="w-3 h-3 rounded-sm mx-auto mb-1"
+              style={{ backgroundColor: TIER_COLORS[tier.clv_tier] ?? '#6366F1',
+                opacity: selectedTier && selectedTier !== tier.clv_tier ? 0.3 : 1 }} />
             <p className="text-xs text-[var(--text-secondary)]">{tier.clv_tier}</p>
-            <p className="text-xs font-medium text-[var(--text-primary)]">
-              {formatCurrency(tier.avg_clv)}
-            </p>
+            <p className="text-xs font-medium text-[var(--text-primary)]">{fmtInr(tier.avg_clv)}</p>
           </button>
         ))}
       </div>
+
+      {paretoInsight && (
+        <div className="mt-2 pt-2 border-t border-[var(--border-subtle)]">
+          <p className="text-xs text-[var(--text-tertiary)] italic">{paretoInsight}</p>
+        </div>
+      )}
     </div>
   );
 }

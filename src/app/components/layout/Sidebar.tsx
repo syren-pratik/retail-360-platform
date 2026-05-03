@@ -1,6 +1,6 @@
 'use client';
 
-import { BarChart3, Package, DollarSign, Settings, ChevronLeft, ChevronRight } from 'lucide-react';
+import { BarChart3, Package2, DollarSign, TrendingUp, Settings, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -10,31 +10,10 @@ interface SidebarProps {
 }
 
 const navItems = [
-  {
-    name: 'CX360',
-    href: '/cx360',
-    icon: BarChart3,
-    enabled: true,
-  },
-  // Demand Forecast hidden temporarily
-  // {
-  //   name: 'Demand Forecast',
-  //   href: '/demand',
-  //   icon: TrendingUp,
-  //   enabled: true,
-  // },
-  {
-    name: 'Inventory',
-    href: '/inventory',
-    icon: Package,
-    enabled: true,
-  },
-  {
-    name: 'Price Intel',
-    href: '/price',
-    icon: DollarSign,
-    enabled: true,
-  },
+  { name: 'CX360',       href: '/cx360',     icon: BarChart3,  enabled: true },
+  { name: 'Supply',      href: '/inventory', icon: Package2,   enabled: true },
+  { name: 'Demand',      href: '/demand',    icon: TrendingUp, enabled: true },
+  { name: 'Price Intel', href: '/price',     icon: DollarSign, enabled: true },
 ];
 
 export default function Sidebar({ collapsed, onToggle }: SidebarProps) {

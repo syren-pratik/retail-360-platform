@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useCallback, ReactNode, useState } from 'react';
-import { X, Download, Image as ImageIcon, Loader2 } from 'lucide-react';
+import { X, Download, Image as ImageIcon, Loader2, ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
 import { useDashboard } from '@/app/context/DashboardContext';
 import { exportPNG } from '@/app/lib/export-utils';
 
@@ -22,7 +23,6 @@ interface ChartExpandModalProps {
 
 export default function ChartExpandModal({
   title,
-  subtitle,
   children,
   rawData,
   columns,
@@ -109,16 +109,15 @@ export default function ChartExpandModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-start justify-between p-6 border-b border-[var(--border-default)]">
-          <div>
-            <h2 className="text-xl font-semibold text-[var(--text-primary)]">
-              {title}
-            </h2>
-            {subtitle && (
-              <p className="text-sm text-[var(--text-secondary)] mt-1">
-                {subtitle}
-              </p>
-            )}
+        <div className="flex items-center justify-between px-6 py-3 border-b border-[var(--border-default)] flex-shrink-0">
+          <div className="flex items-center gap-3">
+            <Link href="/cx360" onClick={handleClose} className="flex items-center gap-1.5 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
+              <ArrowLeft size={15} />
+              Back to CX360
+            </Link>
+            <span className="text-[var(--border-default)]">|</span>
+            <span className="text-sm font-semibold text-[var(--text-primary)]">{title}</span>
+            <span className="text-xs px-2 py-0.5 bg-blue-50 text-blue-600 rounded-full font-medium">Deep Dive</span>
           </div>
           <div className="flex items-center gap-2">
             {rawData && columns && (
@@ -146,9 +145,9 @@ export default function ChartExpandModal({
             )}
             <button
               onClick={handleClose}
-              className="p-2 rounded-md hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              className="p-1.5 rounded-md hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
             >
-              <X size={20} />
+              <X size={18} />
             </button>
           </div>
         </div>

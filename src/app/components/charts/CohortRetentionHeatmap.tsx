@@ -2,12 +2,13 @@
 
 import { useState } from 'react';
 import { Maximize2 } from 'lucide-react';
-import { CohortRetentionMatrix } from '@/app/lib/types';
+import { CohortRetentionMatrix, CohortDetailData } from '@/app/lib/types';
 import { useDashboard } from '@/app/context/DashboardContext';
-import ChartExpandModal from './ChartExpandModal';
+import CohortExpandModal from './CohortExpandModal';
 
 interface CohortRetentionHeatmapProps {
   data: CohortRetentionMatrix[];
+  cohortDetail: CohortDetailData;
 }
 
 const CHART_ID = 'cohort_retention';
@@ -39,7 +40,7 @@ interface TooltipData {
   y: number;
 }
 
-export default function CohortRetentionHeatmap({ data }: CohortRetentionHeatmapProps) {
+export default function CohortRetentionHeatmap({ data, cohortDetail }: CohortRetentionHeatmapProps) {
   const { activeDrilldowns, addDrilldown, expandedChart, setExpandedChart } = useDashboard();
   const [tooltip, setTooltip] = useState<TooltipData | null>(null);
 
@@ -78,15 +79,6 @@ export default function CohortRetentionHeatmap({ data }: CohortRetentionHeatmapP
       y: rect.top,
     });
   };
-
-  const tableData = validData.map(cohort => ({
-    cohort_month: cohort.cohort_month,
-    original_customers: cohort.original_customers,
-    ...cohort.retention.reduce((acc, val, i) => {
-      acc[`M${i}`] = `${Math.round(val * 100)}%`;
-      return acc;
-    }, {} as Record<string, string>),
-  }));
 
   const periodHeaders = Array.from({ length: maxPeriods }, (_, i) => `M${i}`);
 
@@ -199,18 +191,7 @@ export default function CohortRetentionHeatmap({ data }: CohortRetentionHeatmapP
           onExpand={() => setExpandedChart(CHART_ID)}
           tooltip={tooltip}
         />
-        <ChartExpandModal
-          title="Cohort Retention Analysis"
-          subtitle="Month-over-month retention by acquisition cohort"
-          rawData={tableData}
-          columns={[
-            { key: 'cohort_month', label: 'Cohort' },
-            { key: 'original_customers', label: '# Customers', format: (v) => (v as number).toLocaleString('en-IN') },
-            ...periodHeaders.map(p => ({ key: p, label: p })),
-          ]}
-        >
-          {renderGrid(false)}
-        </ChartExpandModal>
+        <CohortExpandModal data={cohortDetail} onClose={() => setExpandedChart(null)} />
       </>
     );
   }
@@ -254,13 +235,11 @@ function CohortCard({ validData, renderGrid, onExpand, tooltip }: CohortCardProp
             Month-over-month retention by acquisition cohort · {validData.length} cohorts
           </p>
         </div>
-        <button
-          onClick={onExpand}
-          className="p-1.5 rounded-md text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors flex-shrink-0"
-          title="Expand"
-        >
-          <Maximize2 size={16} />
-        </button>
+        <div className="flex items-center gap-1 flex-shrink-0">
+          <button onClick={onExpand} className="p-1.5 rounded-md text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors" title="Expand">
+            <Maximize2 size={16} />
+          </button>
+        </div>
       </div>
 
       {/* Grid */}
