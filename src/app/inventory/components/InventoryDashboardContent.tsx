@@ -553,7 +553,7 @@ export default function InventoryDashboardContent() {
     <div className="space-y-5 pb-8">
       {/* Page header */}
       <div className="px-6 pt-5 pb-1">
-        <h1 className="text-xl font-semibold text-[var(--text-primary)]">Supply Intelligence</h1>
+        <h1 className="text-xl font-semibold text-[var(--text-primary)]">Inventory Intelligence</h1>
         <p className="text-sm text-[var(--text-secondary)] mt-0.5">
           Inventory health, demand forecasting, and supply chain performance across all stores
         </p>

@@ -54,7 +54,7 @@ function ChartCardInner({
   return (
     <section
       id={`section-${id}`}
-      className={`card h-full animate-fade-in ${className}`}
+      className={`card animate-fade-in ${className}`}
     >
       {/* Header */}
       <div className="flex items-start justify-between mb-4">

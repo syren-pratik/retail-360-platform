@@ -1,23 +1,43 @@
 'use client';
 
-import { BarChart3, Package2, DollarSign, TrendingUp, Settings, ChevronLeft, ChevronRight } from 'lucide-react';
+import { BarChart3, Package2, DollarSign, TrendingUp, Settings, ChevronLeft, ChevronRight, ShoppingBag, Snowflake, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 interface SidebarProps {
   collapsed: boolean;
   onToggle: () => void;
 }
 
-const navItems = [
-  { name: 'CX360',       href: '/cx360',     icon: BarChart3,  enabled: true },
-  { name: 'Supply',      href: '/inventory', icon: Package2,   enabled: true },
-  { name: 'Demand',      href: '/demand',    icon: TrendingUp, enabled: true },
-  { name: 'Price Intel', href: '/price',     icon: DollarSign, enabled: true },
+interface NavItem {
+  name: string;
+  href: string;
+  icon: React.ElementType;
+  enabled: boolean;
+  children?: { name: string; href: string; icon: React.ElementType; enabled: boolean }[];
+}
+
+const navItems: NavItem[] = [
+  { name: 'Customer 360',           href: '/cx360',      icon: BarChart3,   enabled: true },
+  { name: 'Inventory Intelligence', href: '/inventory',  icon: Package2,    enabled: true },
+  {
+    name: 'Forecasting',
+    href: '/merchandise',
+    icon: ShoppingBag,
+    enabled: true,
+    children: [
+      { name: 'Demand',      href: '/merchandise/demand',      icon: TrendingUp, enabled: true },
+      { name: 'Cold-Start',  href: '/merchandise/cold-start',  icon: Snowflake,  enabled: true },
+    ],
+  },
+  { name: 'Price Intelligence', href: '/price', icon: DollarSign, enabled: true },
 ];
 
 export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
   const pathname = usePathname();
+  const isMerchActive = pathname.startsWith('/merchandise');
+  const [merchExpanded, setMerchExpanded] = useState(isMerchActive);
 
   return (
     <aside
@@ -41,15 +61,77 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 py-4">
+      <nav className="flex-1 py-4 overflow-y-auto">
         <ul className="space-y-1">
           {navItems.map((item) => {
-            const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
+            const hasChildren = !!item.children?.length;
+            const isActive = !hasChildren && (pathname === item.href || pathname.startsWith(item.href + '/'));
+            const isParentActive = hasChildren && pathname.startsWith(item.href + '/');
             const Icon = item.icon;
 
+            if (hasChildren) {
+              return (
+                <li key={item.name}>
+                  {/* Parent row */}
+                  <div className="relative">
+                    {isParentActive && (
+                      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-8 bg-[var(--accent-primary)] rounded-r-full" />
+                    )}
+                    <button
+                      onClick={() => !collapsed && setMerchExpanded((prev) => !prev)}
+                      className={`flex items-center gap-3 mx-2 px-3 py-2.5 rounded-md text-sm font-medium transition-colors w-[calc(100%-16px)] ${
+                        isParentActive
+                          ? 'bg-[var(--accent-primary-light)] text-[var(--accent-primary)]'
+                          : 'text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] hover:text-[var(--text-primary)]'
+                      }`}
+                    >
+                      <Icon size={20} className="flex-shrink-0" />
+                      {!collapsed && (
+                        <>
+                          <span className="flex-1 text-left">{item.name}</span>
+                          <ChevronDown
+                            size={14}
+                            className={`transition-transform duration-200 ${merchExpanded ? 'rotate-180' : ''}`}
+                          />
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  {/* Children */}
+                  {!collapsed && merchExpanded && (
+                    <ul className="mt-1 ml-4 space-y-1 border-l border-[var(--border-default)] pl-2">
+                      {item.children!.map((child) => {
+                        const childActive = pathname === child.href || pathname.startsWith(child.href + '/');
+                        const ChildIcon = child.icon;
+                        return (
+                          <li key={child.name} className="relative">
+                            {childActive && (
+                              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-[var(--accent-primary)] rounded-r-full -ml-2" />
+                            )}
+                            <Link
+                              href={child.href}
+                              className={`flex items-center gap-2 px-3 py-2 rounded-md text-xs font-medium transition-colors ${
+                                childActive
+                                  ? 'bg-[var(--accent-primary-light)] text-[var(--accent-primary)]'
+                                  : 'text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] hover:text-[var(--text-primary)]'
+                              }`}
+                            >
+                              <ChildIcon size={14} />
+                              <span>{child.name}</span>
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
+                </li>
+              );
+            }
+
+            // Regular item
             return (
               <li key={item.name} className="relative">
-                {/* Active indicator - left border accent */}
                 {isActive && item.enabled && (
                   <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-8 bg-[var(--accent-primary)] rounded-r-full" />
                 )}

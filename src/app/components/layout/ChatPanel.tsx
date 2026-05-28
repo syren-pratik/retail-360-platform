@@ -60,7 +60,7 @@ interface Message {
   actions?: DashboardAction[];
 }
 
-type ModuleType = 'cx360' | 'demand' | 'inventory';
+type ModuleType = 'cx360' | 'demand' | 'inventory' | 'merchandise' | 'coldstart';
 
 // Context-aware prompt configurations
 const CX360_DEFAULT_PROMPTS = [
@@ -132,19 +132,45 @@ const DEMAND_WELCOME: Message = {
 const INVENTORY_WELCOME: Message = {
   id: 'welcome-inventory',
   role: 'assistant',
-  content: "Hi! I'm your Supply Intelligence assistant. I can analyse inventory health, forecast accuracy, supplier performance, and recommend actions.\n\n- Identify stockout root causes\n- Analyse supplier OTIF trends\n- Forecast accuracy by department\n- Replenishment priority recommendations\n\nTry asking me to analyse stockout root causes or identify reorder priorities.",
+  content: "Hi! I'm your Inventory Intelligence assistant. I can analyse inventory health, forecast accuracy, supplier performance, and recommend actions.\n\n- Identify stockout root causes\n- Analyse supplier OTIF trends\n- Forecast accuracy by department\n- Replenishment priority recommendations\n\nTry asking me to analyse stockout root causes or identify reorder priorities.",
   timestamp: new Date(),
 };
+
+const MERCHANDISE_WELCOME: Message = {
+  id: 'welcome-merchandise',
+  role: 'assistant',
+  content: "Hi! I'm your Merchandise Demand analyst. I help category managers act on forecast signals, event ramp-ups, and promo performance — not just answer questions, but surface the next action.\n\n- Identify understock and overstock risks by category\n- Surface SKUs not ramped for upcoming events\n- Analyse promo lift vs. target and flag under-performers\n- Forecast accuracy by velocity class and department\n\nTry asking \"which SKUs are not ramped for the next event?\" or \"which categories will miss their Q2 plan?\"",
+  timestamp: new Date(),
+};
+
+const COLDSTART_WELCOME: Message = {
+  id: 'welcome-coldstart',
+  role: 'assistant',
+  content: "Hi! I'm your Cold-Start Forecasting analyst for the Lucknow new-store launch.\n\n- Drill into individual SKU accuracy — predicted vs actual with 95% CI bands\n- Understand how Bayesian blending evolves as local data accumulates (α curve)\n- Identify which festival × category pairs drive the largest demand spikes\n- Compare analog city contributions in the prediction decomposition\n- Find the worst-forecasting SKUs in the 90-day holdout set\n\nTry asking \"at what α does the blended model stabilise?\" or \"which SKU has the widest CI on Day 1?\"",
+  timestamp: new Date(),
+};
+
+const COLDSTART_DEFAULT_PROMPTS = [
+  'Which hero SKU has the highest analog MAPE vs champion MAPE gap?',
+  'At what day does the confidence interval narrow below 20% of predicted?',
+  'Which festival × category pair shows the sharpest demand ramp?',
+  'How does the blended prediction decompose on Day 45 for Coffee?',
+  'Which SKU holdout rows have error > 40% and why?',
+];
 
 export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
   const pathname = usePathname();
   const params = useParams();
   const currentModule: ModuleType =
+    pathname.startsWith('/merchandise/cold-start') ? 'coldstart' :
+    pathname.startsWith('/merchandise') ? 'merchandise' :
     pathname.startsWith('/demand') ? 'demand' :
     pathname.startsWith('/inventory') ? 'inventory' : 'cx360';
   const [lastModule, setLastModule] = useState<ModuleType>(currentModule);
 
   const welcomeMessage =
+    currentModule === 'coldstart' ? COLDSTART_WELCOME :
+    currentModule === 'merchandise' ? MERCHANDISE_WELCOME :
     currentModule === 'demand' ? DEMAND_WELCOME :
     currentModule === 'inventory' ? INVENTORY_WELCOME : CX360_WELCOME;
 
@@ -164,6 +190,17 @@ export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
 
   // Context-aware prompts based on active state
   const examplePrompts = useMemo(() => {
+    if (currentModule === 'coldstart') {
+      return COLDSTART_DEFAULT_PROMPTS;
+    }
+    if (currentModule === 'merchandise') {
+      return [
+        'Which SKUs are not ramped for the next event?',
+        'Show me under-performing promos',
+        "What's the forecast accuracy for Grocery & Staples?",
+        'Which categories will miss their Q2 plan?',
+      ];
+    }
     if (currentModule === 'demand') {
       return DEMAND_DEFAULT_PROMPTS;
     }
@@ -204,6 +241,7 @@ export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
   useEffect(() => {
     if (currentModule !== lastModule) {
       const newWelcome =
+        currentModule === 'merchandise' ? MERCHANDISE_WELCOME :
         currentModule === 'demand' ? DEMAND_WELCOME :
         currentModule === 'inventory' ? INVENTORY_WELCOME : CX360_WELCOME;
       setMessages([newWelcome]);
@@ -390,7 +428,7 @@ export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
             AI Assistant
           </span>
           <span className="text-xs px-2 py-0.5 rounded-full bg-[var(--bg-secondary)] text-[var(--text-tertiary)]">
-            {currentModule === 'demand' ? 'Demand' : currentModule === 'inventory' ? 'Supply' : 'CX360'}
+            {currentModule === 'merchandise' ? 'Merchandising' : currentModule === 'demand' ? 'Demand' : currentModule === 'inventory' ? 'Supply' : 'CX360'}
           </span>
         </div>
         <button
