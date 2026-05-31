@@ -83,7 +83,9 @@ export default function ColdstartHeatmap({ cells }: Props) {
     return visible.sort((a, b) => b.mape - a.mape).slice(0, 5);
   }, [cellMap, visibleCategories, visibleStoreTypes]);
 
-  const modelLabel = MODEL_LABELS[activeModel] ?? activeModel;
+  const modelLabel = (filters.model === 'all' || !MODEL_LABELS[filters.model])
+    ? `${MODEL_LABELS.fix2_blending} — default`
+    : MODEL_LABELS[filters.model];
 
   const colCount = visibleStoreTypes.length;
 

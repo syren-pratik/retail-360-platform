@@ -2,13 +2,14 @@
 
 import React, { useMemo, useState } from 'react';
 import ChartCard from '@/app/components/charts/ChartCard';
-import type { ColdstartSKUHoldout } from '@/app/lib/coldstart-types';
+import type { ColdstartSKUHoldout, ColdstartHeroSKU } from '@/app/lib/coldstart-types';
 import { useColdstartFilters } from '../ColdstartFilterContext';
 import { exportCSV } from '@/app/lib/export-utils';
 import { Download } from 'lucide-react';
 
 interface Props {
   holdouts: ColdstartSKUHoldout[];
+  heroSkus: ColdstartHeroSKU[];
 }
 
 type SortKey = 'sku_id' | 'category' | 'actual' | 'predicted' | 'error_pct';
@@ -16,13 +17,16 @@ type SortDir = 'asc' | 'desc';
 
 const PAGE_SIZE = 10;
 
-export default function ColdstartSKUHoldoutTable({ holdouts }: Props) {
+export default function ColdstartSKUHoldoutTable({ holdouts, heroSkus }: Props) {
   const { filters, dispatch } = useColdstartFilters();
 
   const [search, setSearch] = useState('');
   const [sortKey, setSortKey] = useState<SortKey>('error_pct');
   const [sortDir, setSortDir] = useState<SortDir>('desc');
   const [page, setPage] = useState(0);
+  const [nonHeroMsg, setNonHeroMsg] = useState(false);
+
+  const heroSKUIds = useMemo(() => new Set(heroSkus.map((s) => s.sku_id)), [heroSkus]);
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase();
@@ -56,9 +60,14 @@ export default function ColdstartSKUHoldoutTable({ holdouts }: Props) {
   }
 
   function handleRowClick(sku_id: string) {
-    dispatch({ type: 'SET_SELECTED_SKU', payload: sku_id });
-    const el = document.getElementById('section-coldstart-sku-drill');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (heroSKUIds.has(sku_id)) {
+      dispatch({ type: 'SET_SELECTED_SKU', payload: sku_id });
+      const el = document.getElementById('section-coldstart-sku-drill');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      setNonHeroMsg(true);
+      setTimeout(() => setNonHeroMsg(false), 3000);
+    }
   }
 
   const SortIcon = ({ k }: { k: SortKey }) =>
@@ -121,7 +130,7 @@ export default function ColdstartSKUHoldoutTable({ holdouts }: Props) {
           <tbody>
             {pageRows.map((h) => {
               const isSelected = filters.selected_sku_id === h.sku_id;
-              const isHero = parseInt(h.sku_id.split('-')[2]) <= 10;
+              const isHero = heroSKUIds.has(h.sku_id);
               return (
                 <tr
                   key={h.sku_id}
@@ -131,7 +140,10 @@ export default function ColdstartSKUHoldoutTable({ holdouts }: Props) {
                   <td className="py-1.5 px-2 font-mono text-[var(--text-primary)]">
                     {h.sku_id}
                     {isHero && (
-                      <span className="ml-1 text-[9px] bg-amber-100 text-amber-700 px-1 rounded font-normal">hero</span>
+                      <>
+                        <span className="ml-1 text-[9px] bg-amber-100 text-amber-700 px-1 rounded font-normal">hero</span>
+                        <span className="ml-1 text-[9px] bg-blue-100 text-blue-700 px-1 rounded font-normal">Drill</span>
+                      </>
                     )}
                   </td>
                   <td className="py-1.5 px-2 text-[var(--text-secondary)]">{h.category}</td>
@@ -149,6 +161,13 @@ export default function ColdstartSKUHoldoutTable({ holdouts }: Props) {
           </tbody>
         </table>
       </div>
+
+      {/* Non-hero toast */}
+      {nonHeroMsg && (
+        <div className="mt-2 text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded px-3 py-2">
+          Detailed drill-down available for hero SKUs only. Showing summary data.
+        </div>
+      )}
 
       {/* Pagination */}
       {totalPages > 1 && (

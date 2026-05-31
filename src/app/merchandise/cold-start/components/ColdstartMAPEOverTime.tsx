@@ -93,7 +93,6 @@ export default function ColdstartMAPEOverTime({ data, convergenceDay }: Props) {
     return data.filter((d) => d.day >= start && d.day <= end);
   }, [data, filters.horizon]);
 
-  // Show all lines but bold the selected model
   const isSelected = (id: string) => filters.model === 'all' || filters.model === id;
   const isBold = (id: string) => filters.model !== 'all' && filters.model === id;
 
@@ -163,7 +162,7 @@ export default function ColdstartMAPEOverTime({ data, convergenceDay }: Props) {
             />
           ))}
 
-          {/* Model lines */}
+          {/* Model lines — only selected model shown when filtered */}
           {ALL_MODEL_KEYS.map((key) => (
             isSelected(key) && (
               <Line
@@ -171,8 +170,8 @@ export default function ColdstartMAPEOverTime({ data, convergenceDay }: Props) {
                 type="monotone"
                 dataKey={key as ModelKey}
                 stroke={MODEL_COLORS[key]}
-                strokeWidth={isBold(key) ? 3 : filters.model === 'all' ? 1.5 : 1}
-                strokeOpacity={filters.model === 'all' ? 0.8 : isBold(key) ? 1 : 0.35}
+                strokeWidth={isBold(key) ? 3 : 1.5}
+                strokeOpacity={filters.model === 'all' ? 0.85 : 1}
                 dot={false}
                 name={key}
               />

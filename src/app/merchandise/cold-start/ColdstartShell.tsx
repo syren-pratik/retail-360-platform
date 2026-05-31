@@ -200,7 +200,7 @@ export default function ColdstartShell() {
           <h2 className="text-sm font-semibold text-[var(--text-primary)] mb-3 uppercase tracking-wide">
             SKU Holdout Results
           </h2>
-          <ColdstartSKUHoldoutTable holdouts={payload.sku_holdouts} />
+          <ColdstartSKUHoldoutTable holdouts={payload.sku_holdouts} heroSkus={payload.hero_skus} />
         </div>
 
         {/* Section: External Signals */}
