@@ -19,10 +19,10 @@ const GEN_START = Date.now();
 
 const SEED = 42;
 const ANCHOR_DATE = '2026-05-17';
-const HIST_DAYS = 90;
+const HIST_DAYS = 91;
 const FORE_DAYS = 60;
 
-const HIST_START = addDays(ANCHOR_DATE, -HIST_DAYS);        // 2026-02-16
+const HIST_START = addDays(ANCHOR_DATE, -HIST_DAYS);        // 2026-02-15
 const FORE_END   = addDays(ANCHOR_DATE, FORE_DAYS - 1);     // 2026-07-15
 
 // ─── PRNG (Mulberry32) ────────────────────────────────────────────────────────
@@ -780,7 +780,7 @@ const accuracy_trend_4w = [3, 2, 1, 0].map((weeksAgo) => {
   return { week: `W${4 - weeksAgo} (${wStart.slice(5, 10)})`, accuracy_pct: Math.round((100 - wMape) * 10) / 10 };
 });
 
-const futureEvents = EVENTS_CONFIG.filter((e) => e.date > ANCHOR_DATE).sort((a, b) => a.date.localeCompare(b.date));
+const futureEvents = EVENTS_CONFIG.filter((e) => e.date > ANCHOR_DATE && e.cultural_significance === 'high').sort((a, b) => a.date.localeCompare(b.date));
 const nextEv = futureEvents[0];
 const daysUntilNext = diffDays(ANCHOR_DATE, nextEv?.date ?? addDays(ANCHOR_DATE, 30));
 const festivalSensitiveSKUs = SKUS.filter((s) => s.is_festival_sensitive).length;
@@ -817,6 +817,12 @@ for (const sku of SKUS) {
 }
 
 const modelMeta = {
+  // Top-level MLflow metrics for quick access
+  test_mape: 0.15908,
+  test_wmape: 0.1439,
+  test_mae: 1.14293,
+  test_rmse: 2.16967,
+  test_bias: -0.01293,
   production_model: {
     name: 'demand_forecast_champion',
     version: 'v1',
@@ -846,7 +852,8 @@ const modelMeta = {
     week: `W${i + 1}`, mape_pct: Math.round((15.9 + (rng() - 0.5) * 2.5) * 10) / 10,
   })),
   feature_importance_global: [
-    { feature: 'rolling_28d_avg',   display_name: '28-day rolling average',   importance: 0.182 },
+    { feature: 'days_of_stock',     display_name: 'Days of stock coverage',    importance: 0.204 },
+    { feature: 'rolling_28d_avg',   display_name: '28-day rolling average',    importance: 0.182 },
     { feature: 'lag_7d',            display_name: "Last week's demand",        importance: 0.148 },
     { feature: 'lag_14d',           display_name: 'Two weeks ago demand',      importance: 0.112 },
     { feature: 'dow_sin',           display_name: 'Day of week pattern',       importance: 0.098 },
@@ -866,6 +873,74 @@ const modelMeta = {
   drift_last_checked: ANCHOR_DATE,
   challenger_note: 'Challenger model v4 (Ensemble) in shadow evaluation — current improvement +0.4pp MAPE, not yet promoted.',
 };
+
+// ─── SKU Map (needed below and in PASS 2) ────────────────────────────────────
+
+const SKU_MAP = new Map(SKUS.map((s) => [s.sku_id, s]));
+
+// ─── Plan vs Actual ───────────────────────────────────────────────────────────
+
+const planVsActual = categoryPlans.map((cp) => ({
+  department: cp.department,
+  category: cp.category,
+  subcategory: cp.subcategory,
+  quarter: cp.quarter,
+  plan_revenue_inr: cp.plan_revenue_inr,
+  actual_revenue_inr: cp.actual_to_date_inr,
+  forecast_to_end_inr: cp.forecast_to_end_inr,
+  variance_pct: cp.variance_pct,
+  status: cp.status,
+}));
+
+// ─── Accuracy by Horizon ──────────────────────────────────────────────────────
+
+const accuracyByHorizon: Record<string, { mape_pct: number; wmape_pct: number; bias_pct: number; sku_count: number }> = {
+  '7d':  { mape_pct: 10.2, wmape_pct: 9.8,  bias_pct: -0.8, sku_count: SKUS.length },
+  '14d': { mape_pct: 15.9, wmape_pct: 14.4, bias_pct: -1.3, sku_count: SKUS.length },
+  '28d': { mape_pct: 19.3, wmape_pct: 17.8, bias_pct: -1.5, sku_count: SKUS.length },
+  '60d': { mape_pct: 24.7, wmape_pct: 22.1, bias_pct: -2.1, sku_count: SKUS.length },
+};
+
+// ─── Worst Forecasted SKUs (top-10 by MAPE last 30d) ─────────────────────────
+
+const skuMapeList = SKUS.map((sku) => {
+  let sum = 0, count = 0;
+  for (const pt of SKU_SERIES.get(sku.sku_id) ?? []) {
+    if (!pt.is_actual || pt.actual_units === null || pt.actual_units === 0 || pt.date < last30Start) continue;
+    sum += Math.abs((pt.forecast_units - pt.actual_units) / pt.actual_units);
+    count++;
+  }
+  return { sku, mape: count > 0 ? sum / count : 0 };
+}).sort((a, b) => b.mape - a.mape);
+
+const worstForecastedSKUs = skuMapeList.slice(0, 10).map(({ sku, mape }) => {
+  const mape_pct = Math.round(mape * 1000) / 10;
+  const pts = (SKU_SERIES.get(sku.sku_id) ?? []).filter((p) => p.is_actual && p.actual_units !== null && p.date >= last30Start);
+  const avgA = pts.length > 0 ? pts.reduce((s, p) => s + (p.actual_units ?? 0), 0) / pts.length : sku.base_demand;
+  const avgF = pts.length > 0 ? pts.reduce((s, p) => s + p.forecast_units, 0) / pts.length : sku.base_demand;
+  return {
+    sku_id: sku.sku_id,
+    product_name: sku.product_name,
+    department: sku.department,
+    mape_pct,
+    direction: avgF > avgA ? 'over' : 'under',
+    avg_error_units: Math.round(Math.abs(avgF - avgA)),
+  };
+});
+
+// ─── New Product SKUs (from launches data) ────────────────────────────────────
+
+const newProductSKUs = launches.map((l) => {
+  const sku = SKU_MAP.get(l.sku_id);
+  return {
+    sku_id: l.sku_id,
+    product_name: sku?.product_name ?? l.sku_id,
+    launch_date: l.launch_date,
+    days_in_market: l.days_in_market,
+    department: sku?.department ?? 'Unknown',
+    performance_status: l.performance_status,
+  };
+});
 
 // ─── Core payload ─────────────────────────────────────────────────────────────
 
@@ -892,7 +967,11 @@ const corePayload = {
   anomalies,
   structural_shifts: structuralShifts,
   kpis,
-  model_meta: modelMeta,
+  model_card: modelMeta,
+  plan_vs_actual: planVsActual,
+  accuracy_by_horizon: accuracyByHorizon,
+  worst_forecasted_skus: worstForecastedSKUs,
+  new_product_skus: newProductSKUs,
   // top-30 SKU daily aggregate series for the SKU detail view
   daily_forecast_points,
 };
@@ -901,7 +980,6 @@ const corePayload = {
 
 console.log('\nBuilding precomputed.json…');
 
-const SKU_MAP = new Map(SKUS.map((s) => [s.sku_id, s]));
 
 const DEPT_KEY_MAP: Record<string, string | null> = {
   'all':               null,
@@ -912,12 +990,11 @@ const DEPT_KEY_MAP: Record<string, string | null> = {
   'Personal Care':     'Personal Care',
 };
 
-const FORECAST_DATES = ALL_DATES.filter((d) => d >= ANCHOR_DATE);
-
-const precomputed: Record<string, unknown> = {};
+const precomputed: { departments: Record<string, Record<string, unknown>> } = { departments: {} };
 
 for (const [deptKey, deptName] of Object.entries(DEPT_KEY_MAP)) {
   const deptSKUs = deptName === null ? SKUS : SKUS.filter((s) => s.department === deptName);
+  precomputed.departments[deptKey] = {};
 
   // Build per-SKU date→point lookup
   const seriesLookup = new Map<string, Map<string, AggPoint>>();
@@ -943,67 +1020,71 @@ for (const [deptKey, deptName] of Object.entries(DEPT_KEY_MAP)) {
   }
   const top5Ids = Array.from(skuVol.entries()).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([id]) => id);
   const top5Set = new Set(top5Ids);
-  const topsku_ids = [...top5Ids, 'Others'];
-  const topsku_names: Record<string, string> = { Others: 'Others' };
-  for (const id of top5Ids) topsku_names[id] = (SKU_MAP.get(id)?.product_name ?? id).substring(0, 22);
+  const sku_ids = [...top5Ids, 'Others'];
+  const sku_names: Record<string, string> = { Others: 'Others' };
+  for (const id of top5Ids) sku_names[id] = (SKU_MAP.get(id)?.product_name ?? id).substring(0, 22);
 
-  // subcat_chart
-  const subcat_chart = ALL_DATES.map((date) => {
-    const pt: Record<string, unknown> = { date, is_actual: date < ANCHOR_DATE, total: 0, lower_95: null, ci_range: null };
-    for (const sub of topSubcats) pt[sub] = 0;
-    let totalForecast = 0;
-    for (const sku of deptSKUs) {
-      const dp = seriesLookup.get(sku.sku_id)?.get(date);
-      if (!dp) continue;
-      const units = dp.is_actual ? (dp.actual_units ?? 0) : dp.forecast_units;
-      if (topSubcats.includes(sku.subcategory)) pt[sku.subcategory] = ((pt[sku.subcategory] as number) ?? 0) + units;
-      pt.total = (pt.total as number) + units;
-      if (!dp.is_actual) totalForecast += dp.forecast_units;
-    }
-    if (date >= ANCHOR_DATE && totalForecast > 0) {
-      pt.lower_95 = Math.max(0, totalForecast * 0.88);
-      pt.ci_range = totalForecast * 0.24;
-    }
-    return pt;
-  });
-
-  // topsku_chart
-  const topsku_chart = ALL_DATES.map((date) => {
-    const pt: Record<string, unknown> = { date, is_actual: date < ANCHOR_DATE, total: 0, lower_95: null, ci_range: null };
-    for (const id of topsku_ids) pt[id] = 0;
-    let totalForecast = 0;
-    for (const sku of deptSKUs) {
-      const dp = seriesLookup.get(sku.sku_id)?.get(date);
-      if (!dp) continue;
-      const units = dp.is_actual ? (dp.actual_units ?? 0) : dp.forecast_units;
-      const key = top5Set.has(sku.sku_id) ? sku.sku_id : 'Others';
-      pt[key] = ((pt[key] as number) ?? 0) + units;
-      pt.total = (pt.total as number) + units;
-      if (!dp.is_actual) totalForecast += dp.forecast_units;
-    }
-    if (date >= ANCHOR_DATE && totalForecast > 0) {
-      pt.lower_95 = Math.max(0, totalForecast * 0.88);
-      pt.ci_range = totalForecast * 0.24;
-    }
-    return pt;
-  });
-
-  // sku_tables per horizon
-  const sku_tables: Record<number, unknown[]> = {};
   for (const h of [7, 14, 28, 60]) {
-    const hDates = FORECAST_DATES.slice(0, h);
-    const hDateSet = new Set(hDates);
+    const horizonEnd = addDays(ANCHOR_DATE, h);
+    // chart dates: HIST_START to ANCHOR+h (91+h+1 points for h≤FORE_DAYS-1)
+    const hDates = ALL_DATES.filter((d) => d <= horizonEnd);
+    const hForecastDates = hDates.filter((d) => d >= ANCHOR_DATE);
+    const hForecastSet = new Set(hForecastDates);
 
+    // subcategory_chart points for this horizon
+    const subcat_chart_points = hDates.map((date) => {
+      const isActual = date < ANCHOR_DATE;
+      const pt: Record<string, unknown> = { date, is_actual: isActual, is_forecast: !isActual, total: 0, lower_95: null, ci_range: null };
+      for (const sub of topSubcats) pt[sub] = 0;
+      let totalForecast = 0;
+      for (const sku of deptSKUs) {
+        const dp = seriesLookup.get(sku.sku_id)?.get(date);
+        if (!dp) continue;
+        const units = dp.is_actual ? (dp.actual_units ?? 0) : dp.forecast_units;
+        if (topSubcats.includes(sku.subcategory)) pt[sku.subcategory] = ((pt[sku.subcategory] as number) ?? 0) + units;
+        pt.total = (pt.total as number) + units;
+        if (!dp.is_actual) totalForecast += dp.forecast_units;
+      }
+      if (date >= ANCHOR_DATE && totalForecast > 0) {
+        pt.lower_95 = Math.max(0, totalForecast * 0.88);
+        pt.ci_range = totalForecast * 0.24;
+      }
+      return pt;
+    });
+
+    // top_sku_chart points for this horizon
+    const topsku_chart_points = hDates.map((date) => {
+      const isActual = date < ANCHOR_DATE;
+      const pt: Record<string, unknown> = { date, is_actual: isActual, is_forecast: !isActual, total: 0, lower_95: null, ci_range: null };
+      for (const id of sku_ids) pt[id] = 0;
+      let totalForecast = 0;
+      for (const sku of deptSKUs) {
+        const dp = seriesLookup.get(sku.sku_id)?.get(date);
+        if (!dp) continue;
+        const units = dp.is_actual ? (dp.actual_units ?? 0) : dp.forecast_units;
+        const key = top5Set.has(sku.sku_id) ? sku.sku_id : 'Others';
+        pt[key] = ((pt[key] as number) ?? 0) + units;
+        pt.total = (pt.total as number) + units;
+        if (!dp.is_actual) totalForecast += dp.forecast_units;
+      }
+      if (date >= ANCHOR_DATE && totalForecast > 0) {
+        pt.lower_95 = Math.max(0, totalForecast * 0.88);
+        pt.ci_range = totalForecast * 0.24;
+      }
+      return pt;
+    });
+
+    // top_skus: ranked by forecast revenue over this horizon
     const ranked = deptSKUs.map((sku) => {
       const rev = (SKU_SERIES.get(sku.sku_id) ?? [])
-        .filter((p) => hDateSet.has(p.date) && !p.is_actual)
+        .filter((p) => hForecastSet.has(p.date) && !p.is_actual)
         .reduce((s, p) => s + p.forecast_units * sku.price_inr, 0);
       return { sku, rev };
     }).sort((a, b) => b.rev - a.rev).slice(0, 10);
 
-    sku_tables[h] = ranked.map(({ sku, rev }) => {
+    const top_skus = ranked.map(({ sku, rev }) => {
       const dateMap = seriesLookup.get(sku.sku_id)!;
-      const sparkline = hDates.map((d) => dateMap.get(d)?.forecast_units ?? 0);
+      const sparkline = hForecastDates.map((d) => dateMap.get(d)?.forecast_units ?? 0);
 
       const recentActuals = (SKU_SERIES.get(sku.sku_id) ?? []).filter((p) => p.is_actual && p.actual_units !== null).slice(-7);
       const risk: { label: string; variant: string } = { label: 'On Track', variant: 'neutral' };
@@ -1024,9 +1105,14 @@ for (const [deptKey, deptName] of Object.entries(DEPT_KEY_MAP)) {
         risk,
       };
     });
+
+    precomputed.departments[deptKey][String(h)] = {
+      subcategory_chart: { chart_points: subcat_chart_points, subcategories: topSubcats },
+      top_sku_chart: { chart_points: topsku_chart_points, sku_ids, sku_names },
+      top_skus,
+    };
   }
 
-  precomputed[deptKey] = { subcat_chart, subcategories: topSubcats, topsku_chart, topsku_ids, topsku_names: topsku_names, sku_tables };
   console.log(`  ${deptKey}: ${deptSKUs.length} SKUs, ${topSubcats.length} subcats, ${top5Ids.length} top SKUs`);
 }
 
@@ -1050,11 +1136,12 @@ for (const sku of TOP30_SKUS) {
   const detail = {
     sku_id: sku.sku_id,
     product_name: sku.product_name,
-    series: series.map((pt) => {
+    daily_series: series.map((pt) => {
       const units = pt.is_actual ? (pt.actual_units ?? 0) : pt.forecast_units;
       return {
         date: pt.date,
         is_actual: pt.is_actual,
+        is_forecast: !pt.is_actual,
         actual_units: pt.actual_units,
         forecast_units: pt.forecast_units,
         lower_95: pt.lower_95,

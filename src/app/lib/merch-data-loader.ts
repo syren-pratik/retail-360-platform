@@ -22,7 +22,7 @@ export interface MerchSKUDetailPoint {
 export interface MerchSKUDetailData {
   sku_id: string;
   product_name: string;
-  series: MerchSKUDetailPoint[];
+  daily_series: MerchSKUDetailPoint[];
 }
 
 export async function fetchMerchDemandSKU(skuId: string): Promise<MerchSKUDetailData> {

@@ -230,25 +230,35 @@ export interface MerchDemandPayload {
   model_meta: MerchDemandModelMeta;
 }
 
-// Pre-aggregated chart data per department (used when precomputed is populated)
-export interface MerchDemandPrecomputedDept {
-  subcat_chart: Record<string, unknown>[];
-  subcategories: string[];
-  topsku_chart: Record<string, unknown>[];
-  topsku_ids: string[];
-  topsku_names: Record<string, string>;
-  // Keyed by horizon (7 | 14 | 28 | 60)
-  sku_tables: Record<number, {
+// Pre-aggregated chart data per department+horizon (used when precomputed is populated)
+export interface MerchDemandPrecomputedHorizon {
+  subcategory_chart: {
+    chart_points: Record<string, unknown>[];
+    subcategories: string[];
+  };
+  top_sku_chart: {
+    chart_points: Record<string, unknown>[];
+    sku_ids: string[];
+    sku_names: Record<string, string>;
+  };
+  top_skus: {
     sku: MerchDemandSKU;
     sparkline: number[];
     revenue_at_stake: number;
     risk: { label: string; variant: string };
-  }[]>;
+  }[];
 }
 
 export interface MerchDemandFullPayload extends MerchDemandPayload {
   daily_forecast_points: MerchDemandForecastPoint[];
   weekly_forecast_points: MerchDemandWeeklyPoint[];
-  // Populated by the API when pre-aggregation is available; daily_forecast_points will be []
-  precomputed?: Record<string, MerchDemandPrecomputedDept>;
+  // Populated by the API; structured as departments → deptKey → horizonStr → data
+  precomputed?: {
+    departments: Record<string, Record<string, MerchDemandPrecomputedHorizon>>;
+  };
+  model_card?: Record<string, unknown>;
+  plan_vs_actual?: Record<string, unknown>[];
+  accuracy_by_horizon?: Record<string, { mape_pct: number; wmape_pct: number; bias_pct: number; sku_count: number }>;
+  worst_forecasted_skus?: Record<string, unknown>[];
+  new_product_skus?: Record<string, unknown>[];
 }

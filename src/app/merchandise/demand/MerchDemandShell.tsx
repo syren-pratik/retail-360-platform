@@ -8,7 +8,11 @@ import MerchTopFilterBar from './components/MerchTopFilterBar';
 import MerchActiveFilterChips from './components/MerchActiveFilterChips';
 import MerchKPIStrip from './components/MerchKPIStrip';
 import MerchInsightsStrip from './components/MerchInsightsStrip';
+import MerchExceptionCenter from './components/MerchExceptionCenter';
 import MerchForecastExplorer from './components/MerchForecastExplorer';
+import MerchEventIntelligence from './components/MerchEventIntelligence';
+import MerchPlanVsActual from './components/MerchPlanVsActual';
+import MerchAccuracyDashboard from './components/MerchAccuracyDashboard';
 import LastUpdated from '@/app/components/ui/LastUpdated';
 
 type State =
@@ -22,8 +26,8 @@ export default function MerchDemandShell() {
   const load = () => {
     setState({ status: 'loading' });
     fetchMerchDemandPayload()
-      .then(payload => setState({ status: 'ready', payload }))
-      .catch(err => setState({ status: 'error', message: String(err?.message ?? err) }));
+      .then((payload) => setState({ status: 'ready', payload }))
+      .catch((err) => setState({ status: 'error', message: String(err?.message ?? err) }));
   };
 
   useEffect(() => { load(); }, []);
@@ -59,14 +63,12 @@ export default function MerchDemandShell() {
   }
 
   const { payload } = state;
+  const precomputed = payload.precomputed ?? null;
 
   return (
     <MerchFilterProvider>
       <div className="min-h-screen">
-        <MerchTopFilterBar
-          stores={payload.stores}
-          generatedAt={payload.generated_at}
-        />
+        <MerchTopFilterBar stores={payload.stores} generatedAt={payload.generated_at} />
         <MerchActiveFilterChips />
 
         <div className="px-8 py-6 space-y-6">
@@ -77,24 +79,24 @@ export default function MerchDemandShell() {
                 Merchandise Demand
               </h1>
               <p className="text-sm text-[var(--text-secondary)] mt-1">
-                Category-level demand intelligence for India
+                Category-level demand intelligence · India · {payload.skus.length} SKUs · {payload.stores.length} stores
               </p>
             </div>
             <LastUpdated timestamp={new Date(payload.generated_at)} />
           </header>
 
+          {/* Layer 1: Executive Summary */}
           <MerchKPIStrip kpis={payload.kpis} />
-
           <MerchInsightsStrip />
 
-          <MerchForecastExplorer payload={payload} />
+          {/* Layer 2: Operational Dashboard */}
+          <MerchExceptionCenter core={payload} />
+          <MerchForecastExplorer core={payload} precomputed={precomputed} />
+          <MerchEventIntelligence core={payload} />
+          <MerchPlanVsActual core={payload} />
 
-          {/* Placeholder for Sprints 3–6 */}
-          <section className="card p-8 text-center">
-            <p className="text-sm font-medium text-[var(--text-secondary)]">
-              Sprints 3–6: SKU Detail + What-if, Action Center, Plan vs Actual, All SKUs, Model Performance.
-            </p>
-          </section>
+          {/* Layer 3: Model Intelligence */}
+          <MerchAccuracyDashboard core={payload} />
         </div>
       </div>
     </MerchFilterProvider>
