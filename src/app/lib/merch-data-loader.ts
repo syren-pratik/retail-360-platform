@@ -4,21 +4,32 @@ export async function fetchMerchDemandPayload(): Promise<MerchDemandFullPayload>
   const res = await fetch('/api/merch/demand/payload', { cache: 'default' });
   if (!res.ok) {
     const body = await res.json().catch(() => ({}));
-    throw new Error(
-      body?.error ?? `fetchMerchDemandPayload: HTTP ${res.status} ${res.statusText}`
-    );
+    throw new Error(body?.error ?? `fetchMerchDemandPayload: HTTP ${res.status} ${res.statusText}`);
   }
   return res.json() as Promise<MerchDemandFullPayload>;
 }
 
-// Stub — Sprint 4 will implement this for the SKU deep-dive page.
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export async function fetchMerchDemandSKU(_sku_id: string): Promise<never> {
-  throw new Error('fetchMerchDemandSKU: not implemented (Sprint 4)');
+export interface MerchSKUDetailPoint {
+  date: string;
+  is_actual: boolean;
+  actual_units: number | null;
+  forecast_units: number;
+  lower_95: number;
+  upper_95: number;
+  revenue_inr: number;
 }
 
-// Stub — Sprint 5 will implement this for the category deep-dive page.
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export async function fetchMerchDemandCategory(_category: string): Promise<never> {
-  throw new Error('fetchMerchDemandCategory: not implemented (Sprint 5)');
+export interface MerchSKUDetailData {
+  sku_id: string;
+  product_name: string;
+  series: MerchSKUDetailPoint[];
+}
+
+export async function fetchMerchDemandSKU(skuId: string): Promise<MerchSKUDetailData> {
+  const res = await fetch(`/api/merch/demand/payload?type=sku&sku_id=${encodeURIComponent(skuId)}`, { cache: 'default' });
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({}));
+    throw new Error(body?.error ?? `fetchMerchDemandSKU: HTTP ${res.status} ${res.statusText}`);
+  }
+  return res.json() as Promise<MerchSKUDetailData>;
 }

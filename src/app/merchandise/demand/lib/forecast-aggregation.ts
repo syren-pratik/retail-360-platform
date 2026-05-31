@@ -330,7 +330,9 @@ export function getSKUForecastSeries(
   // Group by date, filtering to this SKU + filtered stores
   const byDate = new Map<string, MerchDemandForecastPoint[]>();
   for (const p of points) {
-    if (p.sku_id !== sku.sku_id || !storeSet.has(p.store_id)) continue;
+    if (p.sku_id !== sku.sku_id) continue;
+    // store_id 'ALL' means aggregate across all stores — bypass store filter
+    if (p.store_id !== 'ALL' && !storeSet.has(p.store_id)) continue;
     const arr = byDate.get(p.date);
     if (arr) arr.push(p);
     else byDate.set(p.date, [p]);
