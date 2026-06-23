@@ -17,6 +17,7 @@ import { useDashboard } from '@/app/context/DashboardContext';
 import { NoDataFallback } from '@/app/components/ui/NoDataFallback';
 import ChartWrapper from './ChartWrapper';
 import ChartExpandModal from './ChartExpandModal';
+import { AIInsightButton } from './ChartCard';
 
 interface CustomersByGeographyProps {
   data: GeographyByState[];
@@ -237,13 +238,16 @@ function CustomersByGeographyCard({
             Color intensity indicates avg CLV
           </p>
         </div>
-        <button
-          onClick={onExpand}
-          className="p-1.5 rounded-md text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors"
-          title="Expand chart"
-        >
-          <Maximize2 size={16} />
-        </button>
+        <div className="flex items-center gap-1">
+          <AIInsightButton id={CHART_ID} title="Customers by State" data={data as unknown as Record<string, unknown>[]} />
+          <button
+            onClick={onExpand}
+            className="p-1.5 rounded-md text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors"
+            title="Expand chart"
+          >
+            <Maximize2 size={16} />
+          </button>
+        </div>
       </div>
 
       <div className="h-[220px]">

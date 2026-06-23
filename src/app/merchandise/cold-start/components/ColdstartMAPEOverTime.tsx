@@ -109,6 +109,7 @@ export default function ColdstartMAPEOverTime({ data, convergenceDay }: Props) {
       subtitle={subtitle}
       height={340}
       exportFilename="coldstart_mape_over_time"
+      data={filteredData as unknown as Record<string, unknown>[]}
     >
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={filteredData} margin={{ top: 8, right: 24, bottom: 8, left: 0 }}>

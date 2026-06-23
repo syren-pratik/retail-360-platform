@@ -236,76 +236,60 @@ function OptionCard({
       }`}
       onClick={onSelect}
     >
-      {/* Header */}
-      <div className="flex items-center gap-2 mb-2">
-        <span className="flex items-center justify-center w-6 h-6 rounded bg-[var(--bg-secondary)] text-[var(--text-secondary)]">
-          {CHART_ICONS[option.chart_type] || <BarChart3 size={16} />}
-        </span>
-        <div className="flex-1">
-          <div className="flex items-center gap-1.5">
-            <span className="text-xs font-semibold px-1.5 py-0.5 rounded bg-[var(--bg-tertiary)] text-[var(--text-secondary)]">
+      <div className="flex gap-3">
+        {/* Preview thumbnail */}
+        <div className="w-28 shrink-0 bg-[var(--bg-secondary)] rounded-md p-1 flex items-center justify-center self-stretch">
+          <div className="w-full">
+            <MiniChartPreview
+              chartType={option.chart_type}
+              data={option.preview_data}
+              config={option.config}
+            />
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-1.5 mb-1">
+            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[var(--bg-tertiary)] text-[var(--text-secondary)]">
               {option.option_id}
             </span>
-            <span className="text-xs font-medium text-[var(--text-primary)]">
+            <span className="flex items-center gap-1 text-[10px] font-medium text-[var(--text-tertiary)]">
+              {CHART_ICONS[option.chart_type] || <BarChart3 size={12} />}
               {CHART_LABELS[option.chart_type] || option.chart_type}
             </span>
           </div>
+
+          <h4 className="text-xs font-semibold text-[var(--text-primary)] mb-0.5 leading-snug">
+            {option.title}
+          </h4>
+
+          <p className="text-[10px] text-[var(--text-secondary)] line-clamp-2 mb-1">
+            {option.description}
+          </p>
+
+          {(option.axes.x || option.axes.y) && (
+            <p className="text-[9px] text-[var(--text-tertiary)] truncate">
+              {option.axes.x && <>X: {option.axes.x}</>}
+              {option.axes.x && option.axes.y && ' · '}
+              {option.axes.y && <>Y: {option.axes.y}</>}
+            </p>
+          )}
+        </div>
+
+        {/* Selection indicator */}
+        <div className="shrink-0 self-center">
+          <span
+            className={`flex items-center justify-center w-5 h-5 rounded-full border transition-colors ${
+              isSelected
+                ? 'bg-[var(--accent-primary)] border-[var(--accent-primary)] text-white'
+                : 'border-[var(--border-default)] text-transparent'
+            }`}
+          >
+            <Check size={12} />
+          </span>
         </div>
       </div>
-
-      {/* Title */}
-      <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-1 line-clamp-1">
-        {option.title}
-      </h4>
-
-      {/* Description */}
-      <p className="text-[10px] text-[var(--text-secondary)] italic mb-2 line-clamp-2">
-        Best for: {option.description}
-      </p>
-
-      {/* Axes Info */}
-      <div className="flex flex-wrap gap-1 mb-2">
-        {option.axes.x && (
-          <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-[var(--bg-secondary)] text-[var(--text-tertiary)]">
-            X: {option.axes.x.slice(0, 20)}...
-          </span>
-        )}
-        {option.axes.y && (
-          <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-[var(--bg-secondary)] text-[var(--text-tertiary)]">
-            Y: {option.axes.y.slice(0, 20)}...
-          </span>
-        )}
-      </div>
-
-      {/* Mini Preview */}
-      <div className="bg-[var(--bg-secondary)] rounded p-1 mb-2">
-        <MiniChartPreview
-          chartType={option.chart_type}
-          data={option.preview_data}
-          config={option.config}
-        />
-      </div>
-
-      {/* Select Button */}
-      <button
-        className={`w-full py-1.5 rounded-md text-xs font-medium transition-colors ${
-          isSelected
-            ? 'bg-[var(--accent-primary)] text-white'
-            : 'bg-[var(--bg-tertiary)] text-[var(--text-secondary)] hover:bg-[var(--accent-primary)] hover:text-white'
-        }`}
-        onClick={(e) => {
-          e.stopPropagation();
-          onSelect();
-        }}
-      >
-        {isSelected ? (
-          <span className="flex items-center justify-center gap-1">
-            <Check size={12} /> Selected
-          </span>
-        ) : (
-          'Select This'
-        )}
-      </button>
     </div>
   );
 }
@@ -339,8 +323,8 @@ export default function ChartOptionsSelector({
         </p>
       </div>
 
-      {/* Options Grid */}
-      <div className={`grid gap-3 ${options.length === 2 ? 'grid-cols-2' : 'grid-cols-1 sm:grid-cols-3'}`}>
+      {/* Options — stacked rows (panel is too narrow for columns) */}
+      <div className="space-y-2">
         {options.map((option) => (
           <OptionCard
             key={option.option_id}
@@ -350,6 +334,7 @@ export default function ChartOptionsSelector({
           />
         ))}
       </div>
+      <p className="text-[10px] text-[var(--text-tertiary)] mt-2">Tap an option to render the full chart</p>
     </div>
   );
 }

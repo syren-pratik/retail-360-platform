@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import type { CategoryHealthData, CategoryHealthItem } from './InventoryDashboardContent';
+import { AIInsightButton } from '@/app/components/charts/ChartCard';
 
 interface Props {
   data: CategoryHealthData | null;
@@ -63,7 +64,8 @@ export default function CategoryHealthGrid({ data }: Props) {
             </p>
           )}
         </div>
-        <div className="flex gap-1">
+        <div className="flex items-center gap-1">
+          <AIInsightButton id="inventory-category-health" title="Category Health" data={categories as unknown as Record<string, unknown>[]} />
           {(['grid', 'chart'] as const).map(v => (
             <button
               key={v}

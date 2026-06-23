@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo } from 'react';
+import { BarChart2 } from 'lucide-react';
 import {
   ComposedChart,
   Area,
@@ -18,6 +19,7 @@ import {
 } from '../lib/forecast-aggregation';
 import type { SKUForecastPoint, WhatIfParams } from '../lib/forecast-aggregation';
 import type { MerchDemandSKU } from '@/app/lib/merch-demand-types';
+import { AIInsightButton } from '@/app/components/charts/ChartCard';
 
 interface TooltipEntry {
   name: string;
@@ -91,8 +93,21 @@ export default function MerchSKUForecastChart({
 
   const interval = Math.max(1, Math.ceil(chartData.length / 8));
 
+  if (baseSeries.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center h-[220px] gap-2 text-sm text-[var(--text-secondary)]">
+        <BarChart2 size={24} className="text-[var(--text-tertiary)]" />
+        <p>Forecast chart available for top-30 SKUs</p>
+        <p className="text-xs text-[var(--text-tertiary)]">Drivers and what-if simulator below are based on model features</p>
+      </div>
+    );
+  }
+
   return (
     <div>
+      <div className="flex items-center justify-end">
+        <AIInsightButton id="merch-sku-forecast" title="SKU Forecast" data={chartData as unknown as Record<string, unknown>[]} />
+      </div>
       <ResponsiveContainer width="100%" height={200}>
         <ComposedChart data={chartData} margin={{ top: 8, right: 8, left: 0, bottom: 8 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle, #F3F4F6)" vertical={false} />

@@ -1,12 +1,13 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
   ResponsiveContainer, ReferenceLine, Cell,
 } from 'recharts';
 import type { MerchDemandFullPayload } from '@/app/lib/merch-demand-types';
-import MerchExpandModal from './MerchExpandModal';
+import { AIInsightButton } from '@/app/components/charts/ChartCard';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -283,7 +284,7 @@ interface Props {
 }
 
 export default function MerchAccuracyDashboard({ core }: Props) {
-  const [expanded, setExpanded] = useState(false);
+  const router = useRouter();
 
   const modelCard = core.model_card ?? {};
   const accuracyTrend12w = useMemo(
@@ -313,25 +314,37 @@ export default function MerchAccuracyDashboard({ core }: Props) {
       {/* 2×2 grid */}
       <div className="grid grid-cols-2 gap-4">
         <div className="card">
-          <p className="text-xs font-medium text-[var(--text-primary)] mb-1">Accuracy Trend (12 weeks)</p>
+          <div className="flex items-center justify-between mb-1">
+            <p className="text-xs font-medium text-[var(--text-primary)]">Accuracy Trend (12 weeks)</p>
+            <AIInsightButton id="merch-accuracy-trend" title="Accuracy Trend (12 weeks)" data={accuracyTrend12w as unknown as Record<string, unknown>[]} />
+          </div>
           <p className="text-[10px] text-[var(--text-tertiary)] mb-3">MAPE % over last 12 weeks</p>
           <AccuracyTrendChart data={accuracyTrend12w} />
         </div>
 
         <div className="card">
-          <p className="text-xs font-medium text-[var(--text-primary)] mb-1">Accuracy by Dimension</p>
+          <div className="flex items-center justify-between mb-1">
+            <p className="text-xs font-medium text-[var(--text-primary)]">Accuracy by Dimension</p>
+            <AIInsightButton id="merch-accuracy-by-dimension" title="Accuracy by Dimension" data={deptData as unknown as Record<string, unknown>[]} />
+          </div>
           <p className="text-[10px] text-[var(--text-tertiary)] mb-2">MAPE % breakdown</p>
           <AccuracyDimensionChart deptData={deptData} velocityData={velocityData} />
         </div>
 
         <div className="card">
-          <p className="text-xs font-medium text-[var(--text-primary)] mb-1">Accuracy by Horizon</p>
+          <div className="flex items-center justify-between mb-1">
+            <p className="text-xs font-medium text-[var(--text-primary)]">Accuracy by Horizon</p>
+            <AIInsightButton id="merch-accuracy-by-horizon" title="Accuracy by Horizon" data={Object.entries(accuracyByHorizon).map(([horizon, v]) => ({ horizon, ...v })) as unknown as Record<string, unknown>[]} />
+          </div>
           <p className="text-[10px] text-[var(--text-tertiary)] mb-3">MAPE & wMAPE by forecast window</p>
           <AccuracyByHorizonChart data={accuracyByHorizon} />
         </div>
 
         <div className="card">
-          <p className="text-xs font-medium text-[var(--text-primary)] mb-1">Worst Forecasted SKUs</p>
+          <div className="flex items-center justify-between mb-1">
+            <p className="text-xs font-medium text-[var(--text-primary)]">Worst Forecasted SKUs</p>
+            <AIInsightButton id="merch-worst-forecasted-skus" title="Worst Forecasted SKUs" data={worstSKUs.slice(0, 8) as unknown as Record<string, unknown>[]} />
+          </div>
           <p className="text-[10px] text-[var(--text-tertiary)] mb-3">Highest MAPE — need attention</p>
           <WorstSKUList skus={worstSKUs.slice(0, 8)} />
         </div>
@@ -340,7 +353,10 @@ export default function MerchAccuracyDashboard({ core }: Props) {
       {/* Feature importance — full width */}
       {featureImportance.length > 0 && (
         <div className="card">
-          <p className="text-xs font-medium text-[var(--text-primary)] mb-1">Feature Importance</p>
+          <div className="flex items-center justify-between mb-1">
+            <p className="text-xs font-medium text-[var(--text-primary)]">Feature Importance</p>
+            <AIInsightButton id="merch-feature-importance" title="Feature Importance" data={featureImportance as unknown as Record<string, unknown>[]} />
+          </div>
           <p className="text-[10px] text-[var(--text-tertiary)] mb-4">Global SHAP-based feature importance from production model</p>
           <FeatureImportanceChart features={featureImportance} />
         </div>
@@ -357,36 +373,25 @@ export default function MerchAccuracyDashboard({ core }: Props) {
   );
 
   return (
-    <>
-      <section id="merch-accuracy-dashboard">
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <h2 className="text-base font-semibold text-[var(--text-primary)]">Forecast Accuracy & Model Intelligence</h2>
-            <p className="text-sm text-[var(--text-secondary)] mt-0.5">
-              Model performance · feature drivers · horizon degradation
-            </p>
-          </div>
-          <button
-            onClick={() => setExpanded(true)}
-            className="p-1.5 rounded-md hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)] transition-colors"
-            title="Expand"
-          >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M3 8V3h5M13 8v5H8M10 3h3v3M6 13H3v-3" />
-            </svg>
-          </button>
+    <section id="merch-accuracy-dashboard">
+      <div className="flex items-center justify-between mb-4">
+        <div>
+          <h2 className="text-base font-semibold text-[var(--text-primary)]">Forecast Accuracy & Model Intelligence</h2>
+          <p className="text-sm text-[var(--text-secondary)] mt-0.5">
+            Model performance · feature drivers · horizon degradation
+          </p>
         </div>
-        {dashboard}
-      </section>
-
-      <MerchExpandModal
-        isOpen={expanded}
-        onClose={() => setExpanded(false)}
-        title="Forecast Accuracy & Model Intelligence"
-        subtitle="Model performance · feature drivers · horizon degradation"
-      >
-        {dashboard}
-      </MerchExpandModal>
-    </>
+        <button
+          onClick={() => router.push('/merchandise/demand/deep-dive/accuracy')}
+          className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-[var(--text-secondary)] border border-[var(--border-default)] rounded-md hover:bg-[var(--bg-secondary)] hover:text-[var(--text-primary)] transition-colors"
+        >
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M2 6V2h4M10 6v4H6M7.5 2H10v2.5M4.5 10H2V7.5" />
+          </svg>
+          Deep Dive
+        </button>
+      </div>
+      {dashboard}
+    </section>
   );
 }

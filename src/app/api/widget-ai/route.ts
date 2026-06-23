@@ -232,9 +232,13 @@ Generate analysis. Return ONLY valid JSON.`,
 
     let result: WidgetAnalysis;
     try {
-      result = JSON.parse(text);
+      // Claude may wrap JSON in ```json fences or add prose — extract the first JSON object
+      const cleaned = text.replace(/```(?:json)?/g, '').trim();
+      const start = cleaned.indexOf('{');
+      const end = cleaned.lastIndexOf('}');
+      result = JSON.parse(start >= 0 ? cleaned.slice(start, end + 1) : cleaned);
     } catch {
-      // If parsing fails, return mock
+      console.warn('Widget AI: failed to parse Claude response, using mock', text.slice(0, 200));
       result = getMockAnalysis(chartTitle, chartType || 'chart', data || []);
     }
 

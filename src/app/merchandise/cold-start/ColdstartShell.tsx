@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { ChevronDown, Wrench } from 'lucide-react';
 import type { ColdstartPayload } from '@/app/lib/coldstart-types';
 import { fetchColdstartPayload } from '@/app/lib/coldstart-data-loader';
 import { ColdstartFilterProvider } from './ColdstartFilterContext';
@@ -31,6 +32,7 @@ type State =
 
 export default function ColdstartShell() {
   const [state, setState] = useState<State>({ status: 'loading' });
+  const [showTechnicals, setShowTechnicals] = useState(false);
 
   async function load() {
     setState({ status: 'loading' });
@@ -98,6 +100,8 @@ export default function ColdstartShell() {
         {/* Insights strip */}
         <ColdstartInsightsStrip />
 
+        {/* ─── Business view ─────────────────────────────── */}
+
         {/* Section: Cost of MAPE */}
         <div>
           <h2 className="text-sm font-semibold text-[var(--text-primary)] mb-3 uppercase tracking-wide">
@@ -106,38 +110,14 @@ export default function ColdstartShell() {
           <ColdstartCostOfMAPE data={payload.cost_of_mape} />
         </div>
 
-        {/* Section: Model Comparison */}
-        <div>
-          <h2 className="text-sm font-semibold text-[var(--text-primary)] mb-3 uppercase tracking-wide">
-            Model Iterations
-          </h2>
-          <ColdstartModelComparison variants={payload.model_variants} />
-        </div>
-
-        {/* Section: MAPE Over Time */}
-        <div>
-          <h2 className="text-sm font-semibold text-[var(--text-primary)] mb-3 uppercase tracking-wide">
-            Accuracy Over Time
-          </h2>
-          <ColdstartMAPEOverTime
-            data={payload.mape_over_time}
-            convergenceDay={payload.kpis.convergence_day}
-          />
-        </div>
-
-        {/* Section: SKU Depth Analysis (Sprint 5) */}
+        {/* Section: SKU Depth Analysis */}
         <div>
           <h2 className="text-sm font-semibold text-[var(--text-primary)] mb-3 uppercase tracking-wide">
             SKU Depth Analysis
           </h2>
           <div className="space-y-4">
-            {/* Hero SKU selector — controls all charts in this section */}
             <ColdstartHeroSKUSelector heroSKUs={payload.hero_skus} />
-
-            {/* Prediction decomposition */}
             <ColdstartPredictionDecomposition data={payload.prediction_decomposition} />
-
-            {/* SKU drill-down */}
             <ColdstartSKUDrill series={payload.sku_drill_series} />
           </div>
         </div>
@@ -169,15 +149,7 @@ export default function ColdstartShell() {
           />
         </div>
 
-        {/* Section: Analog Contribution Waterfall (Sprint 7b) */}
-        <div>
-          <h2 className="text-sm font-semibold text-[var(--text-primary)] mb-3 uppercase tracking-wide">
-            Analog Contribution Breakdown
-          </h2>
-          <ColdstartAnalogWaterfall data={payload.analog_waterfall} />
-        </div>
-
-        {/* Section: Weather Sensitivity & Climate Risk (Sprint 7a) */}
+        {/* Section: Weather Sensitivity & Climate Risk */}
         <ColdstartWeatherSensitivity
           temperatureElasticity={payload.weather_temperature_elasticity}
           monsoonImpact={payload.weather_monsoon_impact}
@@ -186,22 +158,6 @@ export default function ColdstartShell() {
           storeRisk={payload.weather_store_risk}
           signalInputs={payload.weather_signal_inputs}
         />
-
-        {/* Section: Heatmap */}
-        <div>
-          <h2 className="text-sm font-semibold text-[var(--text-primary)] mb-3 uppercase tracking-wide">
-            Category × Store Type Heatmap
-          </h2>
-          <ColdstartHeatmap cells={payload.heatmap_cells} />
-        </div>
-
-        {/* Section: SKU Holdout Results */}
-        <div>
-          <h2 className="text-sm font-semibold text-[var(--text-primary)] mb-3 uppercase tracking-wide">
-            SKU Holdout Results
-          </h2>
-          <ColdstartSKUHoldoutTable holdouts={payload.sku_holdouts} heroSkus={payload.hero_skus} />
-        </div>
 
         {/* Section: External Signals */}
         <div>
@@ -214,8 +170,70 @@ export default function ColdstartShell() {
           />
         </div>
 
-        {/* Section: Methodology */}
-        <ColdstartMethodology methodology={payload.methodology} />
+        {/* ─── Technicals (collapsible) ────────────────────── */}
+        <div className="border-t border-[var(--border-default)] pt-4">
+          <button
+            onClick={() => setShowTechnicals((v) => !v)}
+            className="flex items-center gap-2 w-full text-left group"
+            aria-expanded={showTechnicals}
+          >
+            <Wrench size={14} className="text-[var(--text-tertiary)] group-hover:text-[var(--text-primary)]" />
+            <span className="text-sm font-semibold text-[var(--text-primary)] uppercase tracking-wide">
+              Technicals
+            </span>
+            <span className="text-xs text-[var(--text-tertiary)] font-normal normal-case tracking-normal">
+              Model iterations, accuracy diagnostics, holdout backtests, methodology
+            </span>
+            <ChevronDown
+              size={16}
+              className={`ml-auto text-[var(--text-tertiary)] transition-transform ${showTechnicals ? 'rotate-180' : ''}`}
+            />
+          </button>
+
+          {showTechnicals && (
+            <div className="mt-4 space-y-6">
+              <div>
+                <h2 className="text-sm font-semibold text-[var(--text-primary)] mb-3 uppercase tracking-wide">
+                  Model Iterations
+                </h2>
+                <ColdstartModelComparison variants={payload.model_variants} />
+              </div>
+
+              <div>
+                <h2 className="text-sm font-semibold text-[var(--text-primary)] mb-3 uppercase tracking-wide">
+                  Accuracy Over Time
+                </h2>
+                <ColdstartMAPEOverTime
+                  data={payload.mape_over_time}
+                  convergenceDay={payload.kpis.convergence_day}
+                />
+              </div>
+
+              <div>
+                <h2 className="text-sm font-semibold text-[var(--text-primary)] mb-3 uppercase tracking-wide">
+                  Analog Contribution Breakdown
+                </h2>
+                <ColdstartAnalogWaterfall data={payload.analog_waterfall} />
+              </div>
+
+              <div>
+                <h2 className="text-sm font-semibold text-[var(--text-primary)] mb-3 uppercase tracking-wide">
+                  Category × Store Type Heatmap
+                </h2>
+                <ColdstartHeatmap cells={payload.heatmap_cells} />
+              </div>
+
+              <div>
+                <h2 className="text-sm font-semibold text-[var(--text-primary)] mb-3 uppercase tracking-wide">
+                  SKU Holdout Results
+                </h2>
+                <ColdstartSKUHoldoutTable holdouts={payload.sku_holdouts} heroSkus={payload.hero_skus} />
+              </div>
+
+              <ColdstartMethodology methodology={payload.methodology} />
+            </div>
+          )}
+        </div>
       </div>
     </ColdstartFilterProvider>
   );

@@ -1,6 +1,10 @@
 'use client';
 
-import { BarChart3, Package2, DollarSign, TrendingUp, Settings, ChevronLeft, ChevronRight, ShoppingBag, Snowflake, ChevronDown } from 'lucide-react';
+import {
+  BarChart3, Package2, DollarSign, TrendingUp, TrendingDown,
+  Settings, ChevronLeft, ChevronRight, ShoppingBag, Snowflake,
+  ChevronDown, Tag, LineChart, Bot, BarChart2, Building2,
+} from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -10,34 +14,61 @@ interface SidebarProps {
   onToggle: () => void;
 }
 
+interface ChildItem {
+  name: string;
+  href: string;
+  icon: React.ElementType;
+  enabled: boolean;
+}
+
 interface NavItem {
   name: string;
   href: string;
   icon: React.ElementType;
   enabled: boolean;
-  children?: { name: string; href: string; icon: React.ElementType; enabled: boolean }[];
+  children?: ChildItem[];
 }
 
 const navItems: NavItem[] = [
-  { name: 'Customer 360',           href: '/cx360',      icon: BarChart3,   enabled: true },
-  { name: 'Inventory Intelligence', href: '/inventory',  icon: Package2,    enabled: true },
+  { name: 'Customer 360',           href: '/cx360',     icon: BarChart3,  enabled: true },
+  { name: 'Inventory Intelligence', href: '/inventory', icon: Package2,   enabled: true },
   {
-    name: 'Forecasting',
+    name: 'Demand Planning',
     href: '/merchandise',
     icon: ShoppingBag,
     enabled: true,
     children: [
-      { name: 'Demand',      href: '/merchandise/demand',      icon: TrendingUp, enabled: true },
-      { name: 'Cold-Start',  href: '/merchandise/cold-start',  icon: Snowflake,  enabled: true },
+      { name: 'Demand',         href: '/merchandise/demand',                       icon: TrendingUp, enabled: true },
+      { name: 'Cold-Start',     href: '/merchandise/cold-start',                   icon: Snowflake,  enabled: true },
+      { name: 'Store Opening',  href: '/merchandise/cold-start/store-opening',     icon: Building2,  enabled: true },
     ],
   },
-  { name: 'Price Intelligence', href: '/price', icon: DollarSign, enabled: true },
+  {
+    name: 'Price Intelligence',
+    href: '/price-intel',
+    icon: DollarSign,
+    enabled: true,
+    children: [
+      { name: 'Overview',            href: '/price-intel?tab=overview',   icon: BarChart2,    enabled: true },
+      { name: 'Promotions',          href: '/price-intel?tab=promo',      icon: Tag,          enabled: true },
+      { name: 'Markdown & Clearance',href: '/price-intel?tab=markdown',   icon: TrendingDown, enabled: true },
+      { name: 'Forecasting',         href: '/price-intel?tab=forecasting',icon: LineChart,    enabled: true },
+      { name: 'AI Agents',           href: '/price-intel?tab=agents',     icon: Bot,          enabled: true },
+    ],
+  },
 ];
 
 export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
   const pathname = usePathname();
-  const isMerchActive = pathname.startsWith('/merchandise');
-  const [merchExpanded, setMerchExpanded] = useState(isMerchActive);
+
+  const [expanded, setExpanded] = useState<Record<string, boolean>>(() => ({
+    'Demand Planning': pathname.startsWith('/merchandise'),
+    'Price Intelligence': pathname === '/price-intel' || pathname.startsWith('/price-intel/'),
+  }));
+
+  function toggleGroup(name: string) {
+    setExpanded(prev => ({ ...prev, [name]: !prev[name] }));
+  }
 
   return (
     <aside
@@ -45,12 +76,10 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
         collapsed ? 'w-16' : 'w-60'
       }`}
     >
-      {/* Logo / App Name */}
+      {/* Logo */}
       <div className="h-16 flex items-center justify-between px-4 border-b border-[var(--border-default)]">
         {!collapsed && (
-          <span className="text-lg font-semibold text-[var(--text-primary)]">
-            Retail 360
-          </span>
+          <span className="text-lg font-semibold text-[var(--text-primary)]">Retail 360</span>
         )}
         <button
           onClick={onToggle}
@@ -65,20 +94,20 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
         <ul className="space-y-1">
           {navItems.map((item) => {
             const hasChildren = !!item.children?.length;
-            const isActive = !hasChildren && (pathname === item.href || pathname.startsWith(item.href + '/'));
-            const isParentActive = hasChildren && pathname.startsWith(item.href + '/');
-            const Icon = item.icon;
+            const isActive    = !hasChildren && (pathname === item.href || pathname.startsWith(item.href + '/'));
+            const isParentActive = hasChildren && (pathname === item.href || pathname.startsWith(item.href + '/'));
+            const isExpanded  = expanded[item.name] ?? false;
+            const Icon        = item.icon;
 
             if (hasChildren) {
               return (
                 <li key={item.name}>
-                  {/* Parent row */}
                   <div className="relative">
                     {isParentActive && (
                       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-8 bg-[var(--accent-primary)] rounded-r-full" />
                     )}
                     <button
-                      onClick={() => !collapsed && setMerchExpanded((prev) => !prev)}
+                      onClick={() => !collapsed && toggleGroup(item.name)}
                       className={`flex items-center gap-3 mx-2 px-3 py-2.5 rounded-md text-sm font-medium transition-colors w-[calc(100%-16px)] ${
                         isParentActive
                           ? 'bg-[var(--accent-primary-light)] text-[var(--accent-primary)]'
@@ -91,18 +120,21 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
                           <span className="flex-1 text-left">{item.name}</span>
                           <ChevronDown
                             size={14}
-                            className={`transition-transform duration-200 ${merchExpanded ? 'rotate-180' : ''}`}
+                            className={`transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
                           />
                         </>
                       )}
                     </button>
                   </div>
 
-                  {/* Children */}
-                  {!collapsed && merchExpanded && (
+                  {!collapsed && isExpanded && (
                     <ul className="mt-1 ml-4 space-y-1 border-l border-[var(--border-default)] pl-2">
                       {item.children!.map((child) => {
-                        const childActive = pathname === child.href || pathname.startsWith(child.href + '/');
+                        // Only the most-specific child should highlight when paths overlap (e.g. /cold-start vs /cold-start/store-opening)
+                        const siblingMoreSpecific = item.children!.some(
+                          (other) => other.href !== child.href && (pathname === other.href || pathname.startsWith(other.href + '/')) && other.href.startsWith(child.href + '/'),
+                        );
+                        const childActive = !siblingMoreSpecific && (pathname === child.href || pathname.startsWith(child.href + '/'));
                         const ChildIcon = child.icon;
                         return (
                           <li key={child.name} className="relative">
@@ -129,7 +161,6 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
               );
             }
 
-            // Regular item
             return (
               <li key={item.name} className="relative">
                 {isActive && item.enabled && (
@@ -157,9 +188,7 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
                     {!collapsed && (
                       <div className="flex items-center justify-between flex-1">
                         <span>{item.name}</span>
-                        <span className="text-xs bg-[var(--bg-tertiary)] px-1.5 py-0.5 rounded">
-                          Soon
-                        </span>
+                        <span className="text-xs bg-[var(--bg-tertiary)] px-1.5 py-0.5 rounded">Soon</span>
                       </div>
                     )}
                   </div>

@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
 import { executeQuery } from '@/app/lib/data-source';
+import { promises as fsp } from 'fs';
+import path from 'path';
 
 // Initialize Anthropic client - supports both direct Anthropic and Azure AI Foundry
 let anthropic: Anthropic | null = null;
@@ -31,6 +33,24 @@ try {
 // ============================================================================
 
 const TOOLS: Anthropic.Tool[] = [
+  {
+    name: 'get_dashboard_data',
+    description: `Fetch the EXACT data behind the dashboards — the same JSON the UI renders. ALWAYS prefer this over query_data for questions about anything visible in the app: Price Intelligence (margins, promos, markdowns, forecasts, departments, SKUs), Demand Planning, inventory, supply chain, or Customer 360 KPIs. The numbers returned match what the user sees on screen. Use dataset="list" to discover all available datasets.`,
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        dataset: {
+          type: 'string',
+          description: 'Dataset name, e.g. "price_intel_core", "merch_demand_core", "cx360_kpis", "inventory_alerts", "supply_kpis" — or "list" to enumerate all available datasets.',
+        },
+        section: {
+          type: 'string',
+          description: 'For price_intel_core / merch_demand_core only: which slice to fetch (price_intel_core sections: kpis, action_queue, promo, markdown, forecast, departments, skus). Required for those datasets to keep responses small.',
+        },
+      },
+      required: ['dataset'],
+    },
+  },
   {
     name: 'query_data',
     description: 'Run a SQL query against the retail database to fetch customer, sales, or forecast data. Use this when the user asks a question that requires data lookup.',
@@ -255,6 +275,7 @@ You don't just answer questions — you TAKE ACTIONS on the dashboard using your
 
 ## Your Capabilities (Tools)
 
+0. **get_dashboard_data** — Fetch the EXACT JSON behind the dashboards (PREFERRED for any on-screen question)
 1. **query_data** — Run SQL against the retail database
 2. **propose_chart_options** — Propose 2-3 chart options for the user to choose from
 3. **render_selected_chart** — Render the chart the user selected
@@ -304,8 +325,21 @@ WHEN DATA IS TWO NUMERIC VARIABLES:
 EXCEPTION: If the user EXPLICITLY requests a specific chart type ("show me a bar chart of X"), still propose options but make their requested type Option A.
 EXCEPTION: If the user says "just show me a table" or "give me the raw data", skip options and render the table directly.
 
+## Data Source Selection — IMPORTANT
+
+The dashboards render from precomputed JSON datasets, NOT from SQL. For any question about what's on screen, use get_dashboard_data FIRST:
+- Price Intelligence (margin leakage, promos, ROI, markdowns, sell-through, forecast, departments, SKU pricing) → dataset="price_intel_core" with section: kpis | action_queue | promo | markdown | forecast | departments | skus
+- Demand Planning → dataset="merch_demand_core" (no section → lists available sections)
+- Customer 360 KPIs/charts → cx360_kpis, cx360_churn_risk, cx360_clv_distribution, cx360_segment_migration, cx360_cohort_retention, cx360_at_risk_alerts, etc.
+- Inventory → inventory_kpis, inventory_alerts, inventory_health_matrix, inventory_stockout_trend, etc.
+- Supply chain → supply_kpis, supply_supplier_otif, supply_reorder_intelligence, etc.
+- Not sure of the name? Call get_dashboard_data with dataset="list" first.
+NEVER answer "I don't have access to that data" before trying get_dashboard_data. Numbers from these datasets match the user's screen exactly — cite them confidently.
+Use query_data only for ad-hoc customer-level SQL exploration that no dataset covers.
+
 ## How to Behave
 
+- When the user asks about anything visible on a dashboard → use get_dashboard_data, then answer with the real numbers (and propose_chart_options if a visual helps)
 - When the user asks a data question → use query_data, then propose_chart_options
 - When the user selects a chart option → use render_selected_chart
 - When the user says "pin this" or "add to dashboard" → use pin_to_dashboard
@@ -366,8 +400,89 @@ interface DashboardAction {
   payload: Record<string, unknown>;
 }
 
+// ── Grounded dashboard data access ──────────────────────────────────────────
+
+const CACHE_ROOT = path.join(process.cwd(), 'cache');
+
+const CORE_SECTIONS: Record<string, string[]> = {
+  kpis: ['headline', 'kpis', 'model_card'],
+  action_queue: ['action_queue', 'live_activity'],
+  promo: ['campaigns', 'promo_roi_trend', 'mechanic_roi', 'lift_by_segment', 'ai_suggestions'],
+  markdown: ['markdown_queue', 'sell_through_heatmap', 'inventory_aging'],
+  forecast: ['forecast_14w', 'channel_performance', 'margin_waterfall'],
+  departments: ['departments'],
+  skus: ['skus'],
+};
+
+function truncateArrays(value: unknown, maxItems = 40): unknown {
+  if (Array.isArray(value)) {
+    const sliced = value.slice(0, maxItems).map((v) => truncateArrays(v, maxItems));
+    return value.length > maxItems
+      ? [...sliced, { _truncated: `${value.length - maxItems} more rows omitted (total ${value.length})` }]
+      : sliced;
+  }
+  if (value && typeof value === 'object') {
+    const out: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(value as Record<string, unknown>)) out[k] = truncateArrays(v, maxItems);
+    return out;
+  }
+  return value;
+}
+
+async function executeDashboardDataTool(input: { dataset: string; section?: string }): Promise<Record<string, unknown>> {
+  try {
+    const dataset = String(input.dataset || '').toLowerCase().replace(/\.json$/, '');
+
+    if (dataset === 'list') {
+      const files = await fsp.readdir(CACHE_ROOT);
+      const names = files
+        .filter((f) => f.endsWith('.json') && f !== '_meta.json')
+        .map((f) => f.replace(/\.json$/, ''));
+      return { success: true, datasets: [...names, 'price_intel_core', 'merch_demand_core'].sort() };
+    }
+
+    if (!/^[a-z0-9_]+$/.test(dataset)) {
+      return { success: false, error: 'Invalid dataset name' };
+    }
+
+    const isCore = dataset === 'price_intel_core' || dataset === 'merch_demand_core';
+    const filePath = isCore
+      ? path.join(CACHE_ROOT, dataset.replace('_core', ''), 'core.json')
+      : path.join(CACHE_ROOT, `${dataset}.json`);
+
+    const raw = JSON.parse(await fsp.readFile(filePath, 'utf-8')) as Record<string, unknown>;
+
+    if (isCore) {
+      if (!input.section) {
+        return {
+          success: true,
+          note: 'Large dataset — pass a section to fetch data.',
+          available_sections: dataset === 'price_intel_core' ? Object.keys(CORE_SECTIONS) : Object.keys(raw),
+        };
+      }
+      const keys = CORE_SECTIONS[input.section] ?? [input.section];
+      const picked: Record<string, unknown> = {};
+      for (const k of keys) if (k in raw) picked[k] = raw[k];
+      if (Object.keys(picked).length === 0) {
+        return { success: false, error: `Unknown section "${input.section}"`, available_keys: Object.keys(raw) };
+      }
+      return { success: true, dataset, section: input.section, data: truncateArrays(picked) };
+    }
+
+    return { success: true, dataset, data: truncateArrays(raw) };
+  } catch (error) {
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Failed to read dataset',
+      hint: 'Call get_dashboard_data with dataset="list" to see valid names.',
+    };
+  }
+}
+
 async function executeTool(toolName: string, input: Record<string, unknown>): Promise<Record<string, unknown>> {
   switch (toolName) {
+    case 'get_dashboard_data':
+      return await executeDashboardDataTool(input as { dataset: string; section?: string });
     case 'query_data':
       return await executeQueryTool(input as { sql: string; explanation: string });
     case 'propose_chart_options':
@@ -959,147 +1074,214 @@ The file will download automatically.`,
 // MAIN API HANDLER
 // ============================================================================
 
+function toolStartLabel(name: string, input: Record<string, unknown>): string {
+  switch (name) {
+    case 'get_dashboard_data':
+      return input.dataset === 'list'
+        ? 'Discovering available datasets'
+        : `Reading ${input.dataset}${input.section ? ` · ${input.section}` : ''}`;
+    case 'query_data':
+      return (input.explanation as string) || 'Running SQL query';
+    case 'propose_chart_options':
+      return 'Designing chart options';
+    case 'render_selected_chart':
+      return 'Rendering chart';
+    case 'pin_to_dashboard':
+      return 'Pinning to dashboard';
+    case 'create_segment':
+      return 'Creating segment';
+    case 'set_alert':
+      return 'Setting up alert';
+    case 'run_nba':
+      return 'Generating recommendations';
+    case 'export_data':
+      return 'Preparing export';
+    case 'apply_dashboard_filter':
+      return 'Applying filter';
+    default:
+      return name.replace(/_/g, ' ');
+  }
+}
+
+function toolEndSummary(result: Record<string, unknown>): string {
+  if (result.success === false) return 'no luck — trying another way';
+  if (typeof result.rowCount === 'number') return `${result.rowCount} rows`;
+  if (Array.isArray(result.datasets)) return `${result.datasets.length} datasets`;
+  if (Array.isArray(result.options)) return `${result.options.length} options ready`;
+  if (result.data !== undefined) return 'data loaded';
+  return 'done';
+}
+
 export async function POST(request: NextRequest) {
-  let userMessage = '';
-  let currentModule = 'cx360';
+  const body = await request.json().catch(() => null);
+  const { message, history = [], module: currentModule = 'cx360', context } = (body ?? {}) as {
+    message?: string;
+    history?: Array<{ role: string; content: string }>;
+    module?: string;
+    context?: DashboardContext;
+  };
 
-  try {
-    const body = await request.json();
-    const { message, history = [], module = 'cx360', context } = body as {
-      message: string;
-      history: Array<{ role: string; content: string }>;
-      module?: string;
-      context?: DashboardContext;
-    };
-    userMessage = message || '';
-    currentModule = module;
+  if (!message) {
+    return NextResponse.json({ error: 'Message is required' }, { status: 400 });
+  }
 
-    if (!message) {
-      return NextResponse.json({ error: 'Message is required' }, { status: 400 });
-    }
+  // Only stream when the client opted in via Accept: text/event-stream.
+  // JSON callers (Scenario Simulator, future integrations) get the final payload as plain JSON.
+  const wantsStream = (request.headers.get('accept') ?? '').includes('text/event-stream');
 
-    // If no valid API key or client, return mock agent response
-    if (!process.env.ANTHROPIC_API_KEY || !anthropic) {
-      console.log('No API key configured, returning mock agent response');
-      const mockResponse = getMockAgentResponse(message, currentModule);
-      return NextResponse.json({
-        ...mockResponse,
-        source: 'mock' as const,
-      });
-    }
+  const encoder = new TextEncoder();
 
-    // Build messages array with context
-    const messages: Anthropic.MessageParam[] = [
-      // Include last 10 messages from history
-      ...history.slice(-10).map((m) => ({
-        role: m.role as 'user' | 'assistant',
-        content: m.content,
-      })),
-      { role: 'user', content: buildContextualMessage(message, currentModule, context) },
-    ];
+  // Holds the final {answer, toolResults, ...} object regardless of mode.
+  let finalPayload: Record<string, unknown> | null = null;
 
-    // First Claude call with tools
-    let response;
-    try {
-      response = await anthropic.messages.create({
-        model: modelName,
-        max_tokens: 4096,
-        system: getAgentSystemPrompt(currentModule),
-        tools: TOOLS,
-        messages,
-      });
-    } catch (apiError) {
-      console.error('Anthropic API error:', apiError);
-      const mockResponse = getMockAgentResponse(message, currentModule);
-      return NextResponse.json({ ...mockResponse, source: 'mock' as const });
-    }
-
-    // Tool use loop — process tool calls iteratively
-    const toolResults: ToolResult[] = [];
-    const chartsCreated: ChartConfig[] = [];
-    let chartProposal: ChartProposal | undefined;
-    let iterations = 0;
-    const MAX_ITERATIONS = 5;
-
-    while (response.stop_reason === 'tool_use' && iterations < MAX_ITERATIONS) {
-      iterations++;
-
-      // Find tool use blocks
-      const toolUseBlocks = response.content.filter(
-        (block): block is Anthropic.ToolUseBlock => block.type === 'tool_use'
-      );
-
-      // Execute each tool
-      const toolResultMessages: Anthropic.ToolResultBlockParam[] = [];
-
-      for (const toolUse of toolUseBlocks) {
-        const result = await executeTool(toolUse.name, toolUse.input as Record<string, unknown>);
-
-        // Track chart proposals
-        if (toolUse.name === 'propose_chart_options' && result.success) {
-          chartProposal = {
-            question: result.question as string,
-            data_summary: result.data_summary as string,
-            options: result.options as ChartProposal['options'],
-          };
+  const stream = new ReadableStream({
+    async start(controller) {
+      const send = (obj: unknown) => {
+        if (obj && typeof obj === 'object' && (obj as { type?: string }).type === 'final') {
+          finalPayload = (obj as { data: Record<string, unknown> }).data;
         }
-
-        // Track rendered charts
-        if (toolUse.name === 'render_selected_chart' && result.chart) {
-          chartsCreated.push(result.chart as ChartConfig);
-        }
-
-        toolResultMessages.push({
-          type: 'tool_result',
-          tool_use_id: toolUse.id,
-          content: JSON.stringify(result),
-        });
-
-        toolResults.push({
-          tool: toolUse.name,
-          input: toolUse.input as Record<string, unknown>,
-          output: result,
-        });
-      }
-
-      // Send tool results back to Claude for next step
-      messages.push({ role: 'assistant', content: response.content });
-      messages.push({ role: 'user', content: toolResultMessages });
+        if (wantsStream) controller.enqueue(encoder.encode(`data: ${JSON.stringify(obj)}\n\n`));
+      };
 
       try {
-        response = await anthropic.messages.create({
+        // If no valid API key or client, return mock agent response
+        if (!process.env.ANTHROPIC_API_KEY || !anthropic) {
+          const mockResponse = getMockAgentResponse(message, currentModule);
+          send({ type: 'final', data: { ...mockResponse, source: 'mock' } });
+          return;
+        }
+
+        send({ type: 'status', label: 'Thinking…' });
+
+        const messages: Anthropic.MessageParam[] = [
+          ...history.slice(-10).map((m) => ({
+            role: m.role as 'user' | 'assistant',
+            content: m.content,
+          })),
+          { role: 'user', content: buildContextualMessage(message, currentModule, context) },
+        ];
+
+        let response = await anthropic.messages.create({
           model: modelName,
           max_tokens: 4096,
           system: getAgentSystemPrompt(currentModule),
           tools: TOOLS,
           messages,
         });
-      } catch (apiError) {
-        console.error('Anthropic API error in tool loop:', apiError);
-        break;
+
+        const toolResults: ToolResult[] = [];
+        const chartsCreated: ChartConfig[] = [];
+        let chartProposal: ChartProposal | undefined;
+        let iterations = 0;
+        const MAX_ITERATIONS = 8;
+
+        while (response.stop_reason === 'tool_use' && iterations < MAX_ITERATIONS) {
+          iterations++;
+
+          // Stream Claude's interim reasoning text (written before tool calls)
+          const interimText = response.content
+            .filter((b): b is Anthropic.TextBlock => b.type === 'text')
+            .map((b) => b.text)
+            .join(' ')
+            .trim();
+          if (interimText) {
+            send({ type: 'thinking', text: interimText.slice(0, 280) });
+          }
+
+          const toolUseBlocks = response.content.filter(
+            (block): block is Anthropic.ToolUseBlock => block.type === 'tool_use'
+          );
+
+          const toolResultMessages: Anthropic.ToolResultBlockParam[] = [];
+
+          for (const toolUse of toolUseBlocks) {
+            const input = toolUse.input as Record<string, unknown>;
+            send({ type: 'tool_start', tool: toolUse.name, label: toolStartLabel(toolUse.name, input) });
+
+            const result = await executeTool(toolUse.name, input);
+
+            send({ type: 'tool_end', tool: toolUse.name, ok: result.success !== false, summary: toolEndSummary(result) });
+
+            if (toolUse.name === 'propose_chart_options' && result.success) {
+              chartProposal = {
+                question: result.question as string,
+                data_summary: result.data_summary as string,
+                options: result.options as ChartProposal['options'],
+              };
+            }
+            if (toolUse.name === 'render_selected_chart' && result.chart) {
+              chartsCreated.push(result.chart as ChartConfig);
+            }
+
+            toolResultMessages.push({
+              type: 'tool_result',
+              tool_use_id: toolUse.id,
+              content: JSON.stringify(result),
+            });
+            toolResults.push({ tool: toolUse.name, input, output: result });
+          }
+
+          messages.push({ role: 'assistant', content: response.content });
+          messages.push({ role: 'user', content: toolResultMessages });
+
+          send({ type: 'status', label: 'Analyzing results…' });
+
+          try {
+            response = await anthropic.messages.create({
+              model: modelName,
+              max_tokens: 4096,
+              system: getAgentSystemPrompt(currentModule),
+              tools: TOOLS,
+              messages,
+            });
+          } catch (apiError) {
+            console.error('Anthropic API error in tool loop:', apiError);
+            break;
+          }
+        }
+
+        const finalText = response.content
+          .filter((block): block is Anthropic.TextBlock => block.type === 'text')
+          .map((block) => block.text)
+          .join('\n');
+
+        send({
+          type: 'final',
+          data: {
+            answer: finalText || 'I gathered the data but ran out of steps to summarize — ask me to continue.',
+            toolResults,
+            chartsCreated,
+            chartProposal,
+            actions: extractActions(toolResults),
+            source: 'claude',
+          },
+        });
+      } catch (error) {
+        console.error('Chat API error:', error);
+        const mockResponse = getMockAgentResponse(message, currentModule);
+        send({ type: 'final', data: { ...mockResponse, source: 'mock' } });
+      } finally {
+        controller.close();
       }
-    }
+    },
+  });
 
-    // Extract final text response
-    const textBlocks = response.content.filter(
-      (block): block is Anthropic.TextBlock => block.type === 'text'
-    );
-    const finalText = textBlocks.map((block) => block.text).join('\n');
-
-    // Build response for frontend
-    return NextResponse.json({
-      answer: finalText,
-      toolResults,
-      chartsCreated,
-      chartProposal,
-      actions: extractActions(toolResults),
-      source: 'claude' as const,
+  if (wantsStream) {
+    return new Response(stream, {
+      headers: {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache, no-transform',
+        Connection: 'keep-alive',
+      },
     });
-  } catch (error) {
-    console.error('Chat API error:', error);
-
-    // Fallback to mock response
-    const mockResponse = getMockAgentResponse(userMessage, currentModule);
-    return NextResponse.json({ ...mockResponse, source: 'mock' as const });
   }
+
+  // Non-streaming JSON mode: fully drain the stream before responding.
+  const reader = stream.getReader();
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
+    const { done } = await reader.read();
+    if (done) break;
+  }
+  return NextResponse.json(finalPayload ?? { error: 'No response generated' });
 }

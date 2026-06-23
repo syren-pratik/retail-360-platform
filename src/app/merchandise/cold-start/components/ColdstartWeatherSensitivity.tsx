@@ -150,6 +150,7 @@ export default function ColdstartWeatherSensitivity({
           subtitle="Demand change per +1°C above category threshold · 95% CI shown"
           height={320}
           exportFilename="coldstart_temp_elasticity"
+          data={tempChartData as unknown as Record<string, unknown>[]}
         >
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
@@ -213,6 +214,7 @@ export default function ColdstartWeatherSensitivity({
           subtitle="Category-level demand delta · monsoon days vs normal · derived from is_monsoon_active flag"
           height={320}
           exportFilename="coldstart_monsoon_impact"
+          data={monsoonSorted as unknown as Record<string, unknown>[]}
         >
           <div className="space-y-1.5 overflow-y-auto" style={{ maxHeight: '280px' }}>
             {monsoonSorted.map((row) => (
@@ -287,6 +289,7 @@ export default function ColdstartWeatherSensitivity({
           subtitle="12-month risk index · pre-monsoon inventory pull-forward window highlighted · Indian monsoon season"
           height={320}
           exportFilename="coldstart_monsoon_window"
+          data={monsoonCalendar as unknown as Record<string, unknown>[]}
         >
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={monsoonCalendar} margin={{ top: 8, right: 24, bottom: 8, left: 0 }}>

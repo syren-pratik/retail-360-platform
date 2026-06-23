@@ -95,8 +95,9 @@ export async function runQuery(sql: string): Promise<QueryResult> {
 
   const startTime = Date.now();
 
-  // Clean up the host URL
-  const host = config.host.replace(/\/$/, '');
+  // Normalize host: accept "adb-….net", "https://adb-….net", or trailing slash variants
+  let host = config.host.trim().replace(/\/$/, '');
+  if (!/^https?:\/\//i.test(host)) host = `https://${host}`;
   const url = `${host}/api/2.0/sql/statements`;
 
   try {

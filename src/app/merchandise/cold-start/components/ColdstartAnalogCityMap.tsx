@@ -87,6 +87,7 @@ export default function ColdstartAnalogCityMap({ analogs, target }: Props) {
         subtitle="GDP/capita vs population — Lucknow crosshairs show target position"
         height={300}
         exportFilename="coldstart_analog_cities"
+        data={scatterData as unknown as Record<string, unknown>[]}
       >
         <ResponsiveContainer width="100%" height="100%">
           <ScatterChart margin={{ top: 8, right: 16, bottom: 24, left: 8 }}>
@@ -154,6 +155,7 @@ export default function ColdstartAnalogCityMap({ analogs, target }: Props) {
         subtitle="Similarity scores from Notebook 22 · top 3 used for demand transfer"
         height={300}
         exportFilename="coldstart_analog_ranking"
+        data={analogs as unknown as Record<string, unknown>[]}
       >
         <div className="overflow-auto h-full">
           <table className="w-full text-xs">

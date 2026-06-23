@@ -14,6 +14,7 @@ import { Maximize2 } from 'lucide-react';
 import { AcquisitionChannel } from '@/app/lib/types';
 import { useDashboard } from '@/app/context/DashboardContext';
 import ChartWrapper from './ChartWrapper';
+import { AIInsightButton } from './ChartCard';
 
 interface AcquisitionByChannelProps {
   data: AcquisitionChannel[];
@@ -135,6 +136,7 @@ function AcquisitionByChannelCard({
           </p>
         </div>
         <div className="flex items-center gap-1">
+          <AIInsightButton id={CHART_ID} title="Acquisition Channels" data={data as unknown as Record<string, unknown>[]} />
           <button
             onClick={onExpand}
             className="p-1.5 rounded-md text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors"

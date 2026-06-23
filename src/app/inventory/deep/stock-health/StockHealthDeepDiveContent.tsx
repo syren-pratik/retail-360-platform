@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Download } from 'lucide-react';
+import { AIInsightButton } from '@/app/components/charts/ChartCard';
 import {
   BarChart, Bar, LineChart, Line, AreaChart, Area, ComposedChart,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
@@ -364,7 +365,10 @@ export default function StockHealthDeepDiveContent({
 
             {/* LEFT: Revenue at Risk by Store */}
             <div className="card">
-              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Revenue at Risk by Store</h4>
+              <div className="flex items-start justify-between">
+                <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Revenue at Risk by Store</h4>
+                <AIInsightButton id="inventory-deep-revenue-risk-by-store" title="Revenue at Risk by Store" data={sortedStores as unknown as Record<string, unknown>[]} />
+              </div>
               <p className="text-xs text-[var(--text-secondary)] mb-3">Sorted by exposure — critical stores in red</p>
               <div style={{ height: storeBarHeight }}>
                 {isMounted && (
@@ -410,7 +414,10 @@ export default function StockHealthDeepDiveContent({
 
             {/* RIGHT: Revenue at Risk by Category (treemap-style flex) */}
             <div className="card">
-              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Revenue at Risk by Category</h4>
+              <div className="flex items-start justify-between">
+                <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Revenue at Risk by Category</h4>
+                <AIInsightButton id="inventory-deep-revenue-risk-by-category" title="Revenue at Risk by Category" data={sortedCategoryRisk as unknown as Record<string, unknown>[]} />
+              </div>
               <p className="text-xs text-[var(--text-secondary)] mb-3">Area proportional to revenue exposure · days running shown</p>
               <div className="flex flex-wrap gap-2 mt-2">
                 {sortedCategoryRisk.map(cat => {
@@ -460,7 +467,10 @@ export default function StockHealthDeepDiveContent({
 
             {/* LEFT: Revenue Lost vs Recovered */}
             <div className="card">
-              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Revenue Lost vs Recovered</h4>
+              <div className="flex items-start justify-between">
+                <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Revenue Lost vs Recovered</h4>
+                <AIInsightButton id="inventory-deep-revenue-lost-vs-recovered" title="Revenue Lost vs Recovered" data={revenueAtRisk.weekly_lost_vs_recovered as unknown as Record<string, unknown>[]} />
+              </div>
               <p className="text-xs text-[var(--text-secondary)] mb-3">Weekly bars · recovery rate % (right axis)</p>
               <div style={{ height: 260 }}>
                 {isMounted && (
@@ -508,7 +518,10 @@ export default function StockHealthDeepDiveContent({
 
             {/* RIGHT: Revenue at Risk 60-Day Trend */}
             <div className="card">
-              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Revenue at Risk — 60-Day Trend</h4>
+              <div className="flex items-start justify-between">
+                <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Revenue at Risk — 60-Day Trend</h4>
+                <AIInsightButton id="inventory-deep-revenue-risk-trend" title="Revenue at Risk — 60-Day Trend" data={trendWithRolling as unknown as Record<string, unknown>[]} />
+              </div>
               <p className="text-xs text-[var(--text-secondary)] mb-3">Daily exposure · amber = 7-day rolling average</p>
               <div style={{ height: 260 }}>
                 {isMounted && (
@@ -584,7 +597,10 @@ export default function StockHealthDeepDiveContent({
 
           {/* Sortable Table */}
           <div className="card overflow-x-auto">
-            <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Category Health Scorecard</h4>
+            <div className="flex items-start justify-between">
+              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Category Health Scorecard</h4>
+              <AIInsightButton id="inventory-deep-category-health-scorecard" title="Category Health Scorecard" data={sortedCategories as unknown as Record<string, unknown>[]} />
+            </div>
             <p className="text-xs text-[var(--text-secondary)] mb-4">Click column headers to sort</p>
             <table className="w-full text-sm" style={{ minWidth: 700 }}>
               <thead>
@@ -657,7 +673,10 @@ export default function StockHealthDeepDiveContent({
 
           {/* Category Health Trend 12m Area Chart */}
           <div className="card">
-            <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Category Health Trend — Last 12 Months</h4>
+            <div className="flex items-start justify-between">
+              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Category Health Trend — Last 12 Months</h4>
+              <AIInsightButton id="inventory-deep-category-health-trend" title="Category Health Trend — Last 12 Months" data={categoryHealth.health_trend_12m as unknown as Record<string, unknown>[]} />
+            </div>
             <p className="text-xs text-[var(--text-secondary)] mb-3">Stacked % share of categories by status · deterioration visible</p>
             <div style={{ height: 220 }}>
               {isMounted && (
@@ -724,7 +743,10 @@ export default function StockHealthDeepDiveContent({
 
             {/* LEFT: Overstock by Category stacked */}
             <div className="card">
-              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Overstock by Category</h4>
+              <div className="flex items-start justify-between">
+                <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Overstock by Category</h4>
+                <AIInsightButton id="inventory-deep-overstock-by-category" title="Overstock by Category" data={sortedOverstockCats as unknown as Record<string, unknown>[]} />
+              </div>
               <p className="text-xs text-[var(--text-secondary)] mb-3">Slow-moving (45-90d) + Dead Stock (90d+)</p>
               <div style={{ height: 280 }}>
                 {isMounted && (
@@ -761,7 +783,10 @@ export default function StockHealthDeepDiveContent({
 
             {/* RIGHT: Markdown Risk Waterfall */}
             <div className="card">
-              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Markdown Risk Waterfall</h4>
+              <div className="flex items-start justify-between">
+                <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Markdown Risk Waterfall</h4>
+                <AIInsightButton id="inventory-deep-markdown-risk-waterfall" title="Markdown Risk Waterfall" data={waterfallData as unknown as Record<string, unknown>[]} />
+              </div>
               <p className="text-xs text-[var(--text-secondary)] mb-3">P&L impact breakdown from overstock markdown actions</p>
               <div style={{ height: 280 }}>
                 {isMounted && (
@@ -811,7 +836,10 @@ export default function StockHealthDeepDiveContent({
 
           {/* Full-width: Overstock Trend vs Purchasing */}
           <div className="card">
-            <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Overstock Trend vs Purchasing Volume</h4>
+            <div className="flex items-start justify-between">
+              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Overstock Trend vs Purchasing Volume</h4>
+              <AIInsightButton id="inventory-deep-overstock-vs-purchasing" title="Overstock Trend vs Purchasing Volume" data={filteredOverstockTrend as unknown as Record<string, unknown>[]} />
+            </div>
             <p className="text-xs text-[var(--text-secondary)] mb-3">
               Monthly overstock (line) vs purchase volume (bars) · time filter applies
             </p>

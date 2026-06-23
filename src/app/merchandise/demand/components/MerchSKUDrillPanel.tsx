@@ -1,10 +1,11 @@
 'use client';
 
 import { useMerchFilters } from '../MerchFilterContext';
-import type { MerchDemandPrecomputedHorizon, MerchDemandFullPayload } from '@/app/lib/merch-demand-types';
+import type { MerchDemandPrecomputedHorizon, MerchDemandFullPayload, MerchDemandForecastPoint } from '@/app/lib/merch-demand-types';
 import type { MerchSKUDetailData } from '@/app/lib/merch-data-loader';
 import { formatLakhsCrores } from '@/app/lib/merch-format';
 import MerchSKUDetailView from './MerchSKUDetailView';
+import { AIInsightButton } from '@/app/components/charts/ChartCard';
 
 type TopSKUEntry = MerchDemandPrecomputedHorizon['top_skus'][number];
 
@@ -58,6 +59,7 @@ export default function MerchSKUDrillPanel({
   core,
   selectedSubcategory,
   selectedSKUId,
+  skuDetailData,
   skuDetailLoading,
   onSKUSelect,
   horizon,
@@ -77,12 +79,39 @@ export default function MerchSKUDrillPanel({
       );
     }
 
+    const hasSKUDetail = skuDetailData !== null && skuDetailData.sku_id === selectedSKUId;
+    const payloadToUse: MerchDemandFullPayload = hasSKUDetail && skuDetailData
+      ? {
+          ...core,
+          daily_forecast_points: skuDetailData.daily_series.map((p): MerchDemandForecastPoint => ({
+            sku_id: selectedSKUId,
+            store_id: 'ALL',
+            date: p.date,
+            is_actual: p.is_actual,
+            actual_units: p.actual_units,
+            forecast_units: p.forecast_units,
+            lower_95: p.lower_95,
+            upper_95: p.upper_95,
+            lower_80: null,
+            upper_80: null,
+            revenue_inr: p.revenue_inr,
+            confidence: 'Medium',
+          })),
+        }
+      : core;
+
     return (
       <div className="overflow-y-auto" style={{ maxHeight: 480 }}>
+        {!hasSKUDetail && (
+          <div className="mb-3 px-3 py-2 bg-amber-50 border border-amber-200 rounded-md text-xs text-amber-700">
+            Detailed forecast data available for top-30 SKUs only.
+            Showing summary drivers and what-if simulator.
+          </div>
+        )}
         <MerchSKUDetailView
           key={selectedSKUId}
           sku={sku}
-          payload={core}
+          payload={payloadToUse}
           filters={state}
           onBack={() => onSKUSelect(null)}
         />
@@ -97,11 +126,14 @@ export default function MerchSKUDrillPanel({
 
   return (
     <div className="flex flex-col h-full">
-      <div className="mb-3">
-        <p className="text-xs font-medium text-[var(--text-primary)]">Top SKUs by Forecast Revenue</p>
-        <p className="text-xs text-[var(--text-tertiary)] mt-0.5">
-          {horizon}d horizon · ranked by ₹ forecast · click to inspect
-        </p>
+      <div className="mb-3 flex items-start justify-between">
+        <div>
+          <p className="text-xs font-medium text-[var(--text-primary)]">Top SKUs by Forecast Revenue</p>
+          <p className="text-xs text-[var(--text-tertiary)] mt-0.5">
+            {horizon}d horizon · ranked by ₹ forecast · click to inspect
+          </p>
+        </div>
+        <AIInsightButton id="merch-top-skus-forecast-revenue" title="Top SKUs by Forecast Revenue" data={rows as unknown as Record<string, unknown>[]} />
       </div>
 
       {rows.length === 0 ? (

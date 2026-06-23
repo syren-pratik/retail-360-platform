@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Download } from 'lucide-react';
+import { AIInsightButton } from '@/app/components/charts/ChartCard';
 import {
   BarChart, Bar, ComposedChart, Line, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
@@ -448,7 +449,10 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
           <div className="card overflow-x-auto">
             <div className="flex items-center justify-between mb-3">
               <div>
-                <h4 className="text-sm font-semibold text-[var(--text-primary)]">Supplier Scorecard</h4>
+                <div className="flex items-start justify-between">
+                  <h4 className="text-sm font-semibold text-[var(--text-primary)]">Supplier Scorecard</h4>
+                  <AIInsightButton id="inventory-deep-supplier-scorecard" title="Supplier Scorecard" data={sortedSuppliers as unknown as Record<string, unknown>[]} />
+                </div>
                 <p className="text-xs text-[var(--text-secondary)]">All suppliers ranked by OTIF performance</p>
               </div>
             </div>
@@ -593,7 +597,10 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
 
             {/* RIGHT — OTIF vs Stockout Correlation */}
             <div className="card">
-              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">OTIF vs Stockout Correlation</h4>
+              <div className="flex items-start justify-between">
+                <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">OTIF vs Stockout Correlation</h4>
+                <AIInsightButton id="inventory-deep-otif-stockout-correlation" title="OTIF vs Stockout Correlation" data={filteredMonthly as unknown as Record<string, unknown>[]} />
+              </div>
               <p className="text-xs text-[var(--text-secondary)] mb-3">Monthly relationship between supplier OTIF and stockout count</p>
               <div style={{ height: 280 }}>
                 {isMounted && (
@@ -657,7 +664,10 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
 
             {/* LEFT — Delay Reasons by Supplier */}
             <div className="card">
-              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Delay Reasons by Supplier</h4>
+              <div className="flex items-start justify-between">
+                <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Delay Reasons by Supplier</h4>
+                <AIInsightButton id="inventory-deep-delay-reasons" title="Delay Reasons by Supplier" data={delayReasonsData as unknown as Record<string, unknown>[]} />
+              </div>
               <p className="text-xs text-[var(--text-secondary)] mb-3">% share of delay cause per supplier</p>
               <div style={{ height: 240 }}>
                 {isMounted && (
@@ -698,7 +708,10 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
 
             {/* RIGHT — Lead Time vs Commitment */}
             <div className="card">
-              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Lead Time vs Commitment</h4>
+              <div className="flex items-start justify-between">
+                <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Lead Time vs Commitment</h4>
+                <AIInsightButton id="inventory-deep-lead-time-vs-commitment" title="Lead Time vs Commitment" data={leadTimeData as unknown as Record<string, unknown>[]} />
+              </div>
               <p className="text-xs text-[var(--text-secondary)] mb-3">Actual vs committed lead days · top 12 by lead time</p>
               <div style={{ height: 320 }}>
                 {isMounted && (
@@ -782,7 +795,10 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
 
             {/* LEFT — Safety Stock Coverage by ABC Class */}
             <div className="card">
-              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Safety Stock Coverage by ABC Class</h4>
+              <div className="flex items-start justify-between">
+                <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Safety Stock Coverage by ABC Class</h4>
+                <AIInsightButton id="inventory-deep-safety-stock-abc" title="Safety Stock Coverage by ABC Class" data={replenishment.safety_stock_by_abc as unknown as Record<string, unknown>[]} />
+              </div>
               <p className="text-xs text-[var(--text-secondary)] mb-3">Actual coverage vs target · gap SKUs shown above bars</p>
               <div style={{ height: 240 }}>
                 {isMounted && (
@@ -835,7 +851,10 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
 
             {/* RIGHT — Replenishment Cycle Funnel */}
             <div className="card">
-              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Replenishment Cycle Funnel</h4>
+              <div className="flex items-start justify-between">
+                <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Replenishment Cycle Funnel</h4>
+                <AIInsightButton id="inventory-deep-replenishment-funnel" title="Replenishment Cycle Funnel" data={funnelStages as unknown as Record<string, unknown>[]} />
+              </div>
               <p className="text-xs text-[var(--text-secondary)] mb-3">Orders progressing through replenishment stages</p>
               <div className="space-y-3 max-h-[280px] overflow-y-auto">
                 {funnelStages.map((stage, idx) => {
@@ -876,7 +895,10 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
 
           {/* Store Replenishment Health Grid */}
           <div>
-            <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-1">Store Replenishment Health</h4>
+            <div className="flex items-start justify-between">
+              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-1">Store Replenishment Health</h4>
+              <AIInsightButton id="inventory-deep-store-replenishment-health" title="Store Replenishment Health" data={replenishment.store_health_scores as unknown as Record<string, unknown>[]} />
+            </div>
             <p className="text-xs text-[var(--text-secondary)] mb-3">Top 16 stores by health score</p>
             <div className="grid grid-cols-4 gap-3">
               {replenishment.store_health_scores.slice(0, 16).map(store => (
@@ -1144,7 +1166,10 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
 
             {/* RIGHT — Receiving Capacity */}
             <div className="card">
-              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Receiving Capacity</h4>
+              <div className="flex items-start justify-between">
+                <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Receiving Capacity</h4>
+                <AIInsightButton id="inventory-deep-receiving-capacity" title="Receiving Capacity" data={inbound.receiving_capacity as unknown as Record<string, unknown>[]} />
+              </div>
               <p className="text-xs text-[var(--text-secondary)] mb-3">Inbound volume vs max capacity · red zone = over capacity</p>
               <div style={{ height: 200 }}>
                 {isMounted && (
@@ -1185,7 +1210,10 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
 
           {/* Reliability by Origin City */}
           <div className="card">
-            <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Reliability by Origin City</h4>
+            <div className="flex items-start justify-between">
+              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Reliability by Origin City</h4>
+              <AIInsightButton id="inventory-deep-reliability-by-origin" title="Reliability by Origin City" data={reliabilitySorted as unknown as Record<string, unknown>[]} />
+            </div>
             <p className="text-xs text-[var(--text-secondary)] mb-3">On-time % sorted ascending · red = high risk origin</p>
             <div style={{ height: 220 }}>
               {isMounted && (

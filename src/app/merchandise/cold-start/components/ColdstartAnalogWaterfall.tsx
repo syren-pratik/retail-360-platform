@@ -225,6 +225,7 @@ export default function ColdstartAnalogWaterfall({ data }: Props) {
             title="Analog Contribution Waterfall"
             subtitle={`${entry.product_name} · Day ${entry.day_num} snapshot`}
             height={340}
+            data={rows as unknown as Record<string, unknown>[]}
           >
             <ResponsiveContainer width="100%" height="100%">
               <BarChart

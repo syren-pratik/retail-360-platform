@@ -95,6 +95,7 @@ export default function ColdstartSKUDrill({ series }: Props) {
       height={320}
       exportFilename="coldstart_sku_drill"
       isEmpty={isEmpty}
+      data={chartData as unknown as Record<string, unknown>[]}
     >
       <div className="space-y-3">
         <ResponsiveContainer width="100%" height={240}>

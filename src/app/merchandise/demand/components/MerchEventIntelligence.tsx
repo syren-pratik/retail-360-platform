@@ -1,11 +1,12 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ResponsiveContainer,
 } from 'recharts';
 import type { MerchDemandFullPayload, MerchDemandEvent, MerchDemandEventLift } from '@/app/lib/merch-demand-types';
-import MerchExpandModal from './MerchExpandModal';
+import { AIInsightButton } from '@/app/components/charts/ChartCard';
 
 const EVENT_TYPE_COLOR: Record<string, string> = {
   festival:       'var(--chart-amber)',
@@ -156,8 +157,8 @@ interface Props {
 }
 
 export default function MerchEventIntelligence({ core }: Props) {
+  const router = useRouter();
   const [selectedEventId, setSelectedEventId] = useState<string | null>(null);
-  const [expanded, setExpanded] = useState(false);
 
   const anchorDate = core.data_window.forecast_start;
 
@@ -259,36 +260,28 @@ export default function MerchEventIntelligence({ core }: Props) {
   );
 
   return (
-    <>
-      <section className="card p-0 overflow-hidden">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border-default)]">
-          <div>
-            <h2 className="text-base font-semibold text-[var(--text-primary)]">Event Intelligence</h2>
-            <p className="text-sm text-[var(--text-secondary)] mt-0.5">
-              Upcoming events · demand ramp forecasts · category lifts
-            </p>
-          </div>
-          <button
-            onClick={() => setExpanded(true)}
-            className="p-1.5 rounded-md hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)] transition-colors"
-            title="Expand"
-          >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M3 8V3h5M13 8v5H8M10 3h3v3M6 13H3v-3" />
-            </svg>
-          </button>
+    <section className="card p-0 overflow-hidden">
+      <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border-default)]">
+        <div>
+          <h2 className="text-base font-semibold text-[var(--text-primary)]">Event Intelligence</h2>
+          <p className="text-sm text-[var(--text-secondary)] mt-0.5">
+            Upcoming events · demand ramp forecasts · category lifts
+          </p>
         </div>
-        {content}
-      </section>
-
-      <MerchExpandModal
-        isOpen={expanded}
-        onClose={() => setExpanded(false)}
-        title="Event Intelligence"
-        subtitle={`${core.events.length} events · demand ramp forecasts`}
-      >
-        {content}
-      </MerchExpandModal>
-    </>
+        <div className="flex items-center gap-2">
+        <AIInsightButton id="merch-event-intelligence" title="Event Intelligence" data={sortedEvents as unknown as Record<string, unknown>[]} />
+        <button
+          onClick={() => router.push('/merchandise/demand/deep-dive/events')}
+          className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-[var(--text-secondary)] border border-[var(--border-default)] rounded-md hover:bg-[var(--bg-secondary)] hover:text-[var(--text-primary)] transition-colors"
+        >
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M2 6V2h4M10 6v4H6M7.5 2H10v2.5M4.5 10H2V7.5" />
+          </svg>
+          Deep Dive
+        </button>
+        </div>
+      </div>
+      {content}
+    </section>
   );
 }

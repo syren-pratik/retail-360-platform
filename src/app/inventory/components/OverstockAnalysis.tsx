@@ -6,6 +6,7 @@ import {
   ComposedChart, Line, CartesianGrid,
 } from 'recharts';
 import type { OverstockData } from './InventoryDashboardContent';
+import { AIInsightButton } from '@/app/components/charts/ChartCard';
 
 interface Props {
   data: OverstockData | null;
@@ -39,15 +40,18 @@ export default function OverstockAnalysis({ data }: Props) {
             </p>
           )}
         </div>
-        {trendDisplay && (
-          <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${
-            summary?.trend === 'improving' ? 'bg-emerald-50 text-emerald-700' :
-            summary?.trend === 'declining' ? 'bg-red-50 text-red-700' :
-            'bg-gray-100 text-gray-600'
-          }`}>
-            {trendDisplay}
-          </span>
-        )}
+        <div className="flex items-center gap-1.5">
+          <AIInsightButton id="inventory-overstock-analysis" title="Overstock Analysis" data={byCategory as unknown as Record<string, unknown>[]} />
+          {trendDisplay && (
+            <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${
+              summary?.trend === 'improving' ? 'bg-emerald-50 text-emerald-700' :
+              summary?.trend === 'declining' ? 'bg-red-50 text-red-700' :
+              'bg-gray-100 text-gray-600'
+            }`}>
+              {trendDisplay}
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Tabs */}

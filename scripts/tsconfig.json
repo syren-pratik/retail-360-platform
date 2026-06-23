@@ -10,5 +10,5 @@
     "incremental": false,
     "plugins": []
   },
-  "include": ["./**/*.ts", "../src/app/lib/merch-demand-types.ts", "../src/app/lib/market-config.ts", "../src/app/lib/coldstart-types.ts"]
+  "include": ["./**/*.ts", "../src/app/lib/merch-demand-types.ts", "../src/app/lib/market-config.ts", "../src/app/lib/coldstart-types.ts", "../src/app/lib/store-opening-types.ts"]
 }

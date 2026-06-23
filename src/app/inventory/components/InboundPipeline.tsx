@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, ReferenceLine } from 'recharts';
 import type { InboundData, InboundShipment } from './InventoryDashboardContent';
+import { AIInsightButton } from '@/app/components/charts/ChartCard';
 
 interface Props {
   data: InboundData | null;
@@ -46,12 +47,15 @@ export default function InboundPipeline({ data }: Props) {
             </p>
           )}
         </div>
-        {summary && (
-          <div className="text-right">
-            <p className="text-xs font-semibold text-[var(--text-primary)]">{summary.due_this_week.count}</p>
-            <p className="text-[10px] text-[var(--text-tertiary)]">due this week</p>
-          </div>
-        )}
+        <div className="flex items-start gap-1.5">
+          <AIInsightButton id="inventory-inbound-pipeline" title="Inbound Pipeline" data={gantt as unknown as Record<string, unknown>[]} />
+          {summary && (
+            <div className="text-right">
+              <p className="text-xs font-semibold text-[var(--text-primary)]">{summary.due_this_week.count}</p>
+              <p className="text-[10px] text-[var(--text-tertiary)]">due this week</p>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Tabs */}

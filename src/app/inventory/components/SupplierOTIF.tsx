@@ -7,6 +7,7 @@ import {
   ScatterChart, Scatter, ZAxis,
 } from 'recharts';
 import type { SupplierOTIFData, SupplierRecord } from './InventoryDashboardContent';
+import { AIInsightButton } from '@/app/components/charts/ChartCard';
 
 interface Props {
   data: SupplierOTIFData | null;
@@ -94,6 +95,7 @@ export default function SupplierOTIF({ data }: Props) {
             OTIF, fill rate, and delay analysis across {suppliers.length} suppliers
           </p>
         </div>
+        <AIInsightButton id="inventory-supplier-otif" title="Supplier Performance" data={suppliers as unknown as Record<string, unknown>[]} />
       </div>
 
       {/* Tabs */}

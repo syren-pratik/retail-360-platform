@@ -96,6 +96,7 @@ export default function ColdstartHeatmap({ cells }: Props) {
       subtitle={`Showing: ${modelLabel} · green = accurate, red = critical`}
       height={380}
       exportFilename="coldstart_heatmap"
+      data={cells as unknown as Record<string, unknown>[]}
     >
       <div className="overflow-auto h-full flex flex-col gap-4">
         {/* Model indicator */}

@@ -1,10 +1,11 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { Maximize2, Clock, TrendingDown, TrendingUp, AlertCircle, Zap } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { Clock, TrendingDown, TrendingUp, AlertCircle, Zap } from 'lucide-react';
 import type { MerchDemandFullPayload, MerchDemandActionItem, MerchDemandSKU } from '@/app/lib/merch-demand-types';
 import { formatLakhsCrores } from '@/app/lib/merch-format';
-import MerchExpandModal from './MerchExpandModal';
+import { AIInsightButton } from '@/app/components/charts/ChartCard';
 
 type Priority = 'Critical' | 'High' | 'Medium' | 'Low';
 
@@ -138,10 +139,10 @@ interface Props {
 }
 
 export default function MerchExceptionCenter({ core }: Props) {
+  const router = useRouter();
   const [priorityFilter, setPriorityFilter] = useState<string>('All');
   const [typeFilter, setTypeFilter] = useState('all');
   const [showAll, setShowAll] = useState(false);
-  const [expanded, setExpanded] = useState(false);
 
   const skuById = useMemo(
     () => new Map<string, MerchDemandSKU>(core.skus.map((s) => [s.sku_id, s])),
@@ -178,17 +179,16 @@ export default function MerchExceptionCenter({ core }: Props) {
   );
 
   return (
-    <>
-      <section id="merch-exception-center" className="card p-0 overflow-hidden">
-        {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border-default)]">
-          <div>
-            <h2 className="text-base font-semibold text-[var(--text-primary)]">Exception Center</h2>
-            <p className="text-sm text-[var(--text-secondary)] mt-0.5">
-              {filteredItems.length} items need attention · ranked by ₹ impact
-            </p>
-          </div>
-          <div className="flex items-center gap-2 flex-wrap">
+    <section id="merch-exception-center" className="card p-0 overflow-hidden">
+      {/* Header */}
+      <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border-default)]">
+        <div>
+          <h2 className="text-base font-semibold text-[var(--text-primary)]">Exception Center</h2>
+          <p className="text-sm text-[var(--text-secondary)] mt-0.5">
+            {filteredItems.length} items need attention · ranked by ₹ impact
+          </p>
+        </div>
+        <div className="flex items-center gap-2 flex-wrap">
             {(['All', 'Critical', 'High', 'Medium'] as const).map((p) => (
               <button
                 key={p}
@@ -216,43 +216,30 @@ export default function MerchExceptionCenter({ core }: Props) {
               <option value="anomaly">Anomaly</option>
             </select>
             <button
-              onClick={() => setExpanded(true)}
-              className="p-1.5 rounded-md hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)] transition-colors"
-              title="Expand all exceptions"
+              onClick={() => router.push('/merchandise/demand/deep-dive/exceptions')}
+              className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-[var(--text-secondary)] border border-[var(--border-default)] rounded-md hover:bg-[var(--bg-secondary)] hover:text-[var(--text-primary)] transition-colors"
             >
-              <Maximize2 size={16} />
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M2 6V2h4M10 6v4H6M7.5 2H10v2.5M4.5 10H2V7.5" />
+              </svg>
+              Deep Dive
             </button>
+            <AIInsightButton id="merch-exception-center" title="Exception Center" data={filteredItems as unknown as Record<string, unknown>[]} />
           </div>
         </div>
 
-        {list}
+      {list}
 
-        {filteredItems.length > 8 && (
-          <div className="p-4 text-center border-t border-[var(--border-subtle)]">
-            <button
-              onClick={() => setShowAll(!showAll)}
-              className="text-sm text-[var(--accent-primary)] hover:underline"
-            >
-              {showAll ? 'Show fewer' : `Show all ${filteredItems.length} exceptions`}
-            </button>
-          </div>
-        )}
-      </section>
-
-      <MerchExpandModal
-        isOpen={expanded}
-        onClose={() => setExpanded(false)}
-        title="Exception Center — All Items"
-        subtitle={`${sortedItems.length} total exceptions · ranked by ₹ impact`}
-      >
-        <div className="border border-[var(--border-default)] rounded-lg overflow-hidden">
-          <div className="divide-y divide-[var(--border-subtle)]">
-            {sortedItems.map((item) => (
-              <ExceptionRow key={item.action_id} item={item} sku={skuById.get(item.sku_id)} />
-            ))}
-          </div>
+      {filteredItems.length > 8 && (
+        <div className="p-4 text-center border-t border-[var(--border-subtle)]">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="text-sm text-[var(--accent-primary)] hover:underline"
+          >
+            {showAll ? 'Show fewer' : `Show all ${filteredItems.length} exceptions`}
+          </button>
         </div>
-      </MerchExpandModal>
-    </>
+      )}
+    </section>
   );
 }

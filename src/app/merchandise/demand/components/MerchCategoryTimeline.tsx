@@ -14,6 +14,7 @@ import {
   Legend,
 } from 'recharts';
 import type { MerchDemandPrecomputedHorizon } from '@/app/lib/merch-demand-types';
+import { AIInsightButton } from '@/app/components/charts/ChartCard';
 
 const PALETTE = [
   'var(--chart-blue)',
@@ -120,7 +121,7 @@ export default function MerchCategoryTimeline({
       const names: Record<string, string> = { ...(precomp.top_sku_chart.sku_names ?? {}) };
       return {
         chartData: precomp.top_sku_chart.chart_points as Record<string, unknown>[],
-        series: precomp.top_sku_chart.sku_ids,
+        series: precomp.top_sku_chart.sku_ids.filter((id) => id !== 'Others'),
         seriesNames: names,
       };
     }
@@ -170,12 +171,15 @@ export default function MerchCategoryTimeline({
 
   return (
     <div>
-      <div className="mb-3">
-        <p className="text-xs font-medium text-[var(--text-primary)]">Category Demand Timeline</p>
-        <p className="text-xs text-[var(--text-tertiary)] mt-0.5">
-          Historical actuals + {horizon}d forecast · daily units aggregated
-          {selectedSubcategory ? ` · ${selectedSubcategory} highlighted` : ''}
-        </p>
+      <div className="mb-3 flex items-start justify-between">
+        <div>
+          <p className="text-xs font-medium text-[var(--text-primary)]">Category Demand Timeline</p>
+          <p className="text-xs text-[var(--text-tertiary)] mt-0.5">
+            Historical actuals + {horizon}d forecast · daily units aggregated
+            {selectedSubcategory ? ` · ${selectedSubcategory} highlighted` : ''}
+          </p>
+        </div>
+        <AIInsightButton id="merch-category-timeline" title="Category Demand Timeline" data={chartData as unknown as Record<string, unknown>[]} />
       </div>
 
       <div style={{ height }}>

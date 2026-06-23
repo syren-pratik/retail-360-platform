@@ -12,7 +12,9 @@
     "test:smoke:ui": "playwright test tests/smoke.spec.ts --ui",
     "test:health": "curl -s http://localhost:3000/api/health-check | npx json",
     "gen:merch-demand": "ts-node --project scripts/tsconfig.json scripts/gen-merch-demand.ts",
-    "gen:coldstart-data": "ts-node --project scripts/tsconfig.json scripts/gen-coldstart-data.ts"
+    "gen:coldstart-data": "ts-node --project scripts/tsconfig.json scripts/gen-coldstart-data.ts",
+    "gen:price-intel": "ts-node --project scripts/tsconfig.json scripts/gen-price-intel.ts",
+    "gen:store-opening": "ts-node --project scripts/tsconfig.json scripts/gen-store-opening.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.82.0",

@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 import { Maximize2 } from 'lucide-react';
 import { useDashboard } from '@/app/context/DashboardContext';
+import { AIInsightButton } from './ChartCard';
 
 interface ChartWrapperProps {
   children: ReactNode;
@@ -12,6 +13,7 @@ interface ChartWrapperProps {
   title?: string;
   subtitle?: string;
   showExpand?: boolean;
+  data?: Record<string, unknown>[];
 }
 
 // Inner component that renders the chart
@@ -22,6 +24,7 @@ function ChartContent({
   title,
   subtitle,
   showExpand = true,
+  data,
 }: ChartWrapperProps) {
   const { setExpandedChart } = useDashboard();
 
@@ -44,15 +47,20 @@ function ChartContent({
               <p className="text-sm text-[var(--text-secondary)]">{subtitle}</p>
             )}
           </div>
-          {showExpand && chartId && (
-            <button
-              onClick={handleExpand}
-              className="p-1.5 rounded-md text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors"
-              title="Expand chart"
-            >
-              <Maximize2 size={16} />
-            </button>
-          )}
+          <div className="flex items-center gap-1">
+            {data && data.length > 0 && (
+              <AIInsightButton id={chartId ?? title} title={title} data={data} />
+            )}
+            {showExpand && chartId && (
+              <button
+                onClick={handleExpand}
+                className="p-1.5 rounded-md text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors"
+                title="Expand chart"
+              >
+                <Maximize2 size={16} />
+              </button>
+            )}
+          </div>
         </div>
         <div style={{ height: `${height}px` }}>{children}</div>
       </div>

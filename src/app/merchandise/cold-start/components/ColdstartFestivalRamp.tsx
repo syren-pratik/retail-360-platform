@@ -75,6 +75,7 @@ export default function ColdstartFestivalRamp({ patterns }: Props) {
         subtitle={`${selFest} × ${selCat} · uplift multiplier vs. days to festival`}
         height={280}
         exportFilename="coldstart_festival_ramp"
+        data={chartData as unknown as Record<string, unknown>[]}
       >
         {/* Selector */}
         <div className="flex items-center gap-2 mb-2">
@@ -132,6 +133,7 @@ export default function ColdstartFestivalRamp({ patterns }: Props) {
         subtitle="Ranked by peak uplift · click row to view ramp"
         height={280}
         exportFilename="coldstart_festival_pairs"
+        data={pairs as unknown as Record<string, unknown>[]}
       >
         <div className="overflow-auto h-full">
           <table className="w-full text-xs">

@@ -30,7 +30,7 @@ const ITERATION_STEPS: {
   { id: 'naive_baseline',  step: 'Baseline',     description: 'National avg scaled to Lucknow population',                          mape: 0.442, isChampion: false },
   { id: 'original_analog', step: 'Analog (raw)', description: 'Direct transfer from analog cities — uncalibrated',                  mape: 0.540, isChampion: false },
   { id: 'fix1_store_type', step: 'Fix 1',        description: 'Analog weighted by store format (Express / Dark Store / Hypermarket)',mape: 0.541, isChampion: false },
-  { id: 'fix2_blending',   step: 'Fix 2',        description: 'Bayesian blend: analog prior + live Lucknow data (alpha = d/90)',    mape: 0.277, isChampion: true  },
+  { id: 'fix2_blending',   step: 'Fix 2',        description: 'Progressive blend: analog prior + live Lucknow data (alpha = d/90)',    mape: 0.277, isChampion: true  },
   { id: 'fix3_festival',   step: 'Fix 3',        description: 'Festival calendar uplift — reduces MAPE vs raw analog',              mape: 0.544, isChampion: false },
   { id: 'all_3_combined',  step: 'All 3',        description: 'Store type + blending + festival combined',                          mape: 0.312, isChampion: false },
 ];
@@ -80,6 +80,7 @@ export default function ColdstartModelComparison({ variants }: Props) {
         subtitle="Click a bar to filter · lower is better · 90-day holdout"
         height={280}
         exportFilename="coldstart_model_comparison"
+        data={chartData as unknown as Record<string, unknown>[]}
       >
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
@@ -142,6 +143,7 @@ export default function ColdstartModelComparison({ variants }: Props) {
         subtitle="Click a row to filter the page to that model"
         height={280}
         exportFilename="coldstart_iteration_timeline"
+        data={variants as unknown as Record<string, unknown>[]}
       >
         <div className="overflow-auto h-full">
           <table className="w-full text-xs">

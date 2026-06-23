@@ -1,13 +1,13 @@
 'use client';
 
 import { useCallback, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useMerchFilters } from '../MerchFilterContext';
 import type { MerchDemandFullPayload, MerchDemandPrecomputedHorizon } from '@/app/lib/merch-demand-types';
 import { fetchMerchDemandSKU } from '@/app/lib/merch-data-loader';
 import type { MerchSKUDetailData } from '@/app/lib/merch-data-loader';
 import MerchCategoryTimeline from './MerchCategoryTimeline';
 import MerchSKUDrillPanel from './MerchSKUDrillPanel';
-import MerchExpandModal from './MerchExpandModal';
 
 interface Props {
   core: MerchDemandFullPayload;
@@ -15,13 +15,13 @@ interface Props {
 }
 
 export default function MerchForecastExplorer({ core, precomputed }: Props) {
+  const router = useRouter();
   const { state } = useMerchFilters();
   const [breakdownMode, setBreakdownMode] = useState<'subcategory' | 'topSKUs'>('subcategory');
   const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(null);
   const [selectedSKUId, setSelectedSKUId] = useState<string | null>(null);
   const [skuDetailData, setSkuDetailData] = useState<MerchSKUDetailData | null>(null);
   const [skuDetailLoading, setSkuDetailLoading] = useState(false);
-  const [forecastExpanded, setForecastExpanded] = useState(false);
 
   const deptKey = state.department || 'all';
   const horizonKey = String(state.horizon);
@@ -58,8 +58,7 @@ export default function MerchForecastExplorer({ core, precomputed }: Props) {
   }, []);
 
   return (
-    <>
-      <section className="card p-0 overflow-hidden">
+    <section className="card p-0 overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-3 border-b border-[var(--border-default)]">
           <div>
@@ -88,13 +87,13 @@ export default function MerchForecastExplorer({ core, precomputed }: Props) {
               ))}
             </div>
             <button
-              onClick={() => setForecastExpanded(true)}
-              className="p-1.5 rounded-md hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)] transition-colors"
-              title="Expand chart"
+              onClick={() => router.push('/merchandise/demand/deep-dive/forecast')}
+              className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-[var(--text-secondary)] border border-[var(--border-default)] rounded-md hover:bg-[var(--bg-secondary)] hover:text-[var(--text-primary)] transition-colors"
             >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M3 8V3h5M13 8v5H8M10 3h3v3M6 13H3v-3" />
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M2 6V2h4M10 6v4H6M7.5 2H10v2.5M4.5 10H2V7.5" />
               </svg>
+              Deep Dive
             </button>
           </div>
         </div>
@@ -126,24 +125,6 @@ export default function MerchForecastExplorer({ core, precomputed }: Props) {
             />
           </div>
         </div>
-      </section>
-
-      <MerchExpandModal
-        isOpen={forecastExpanded}
-        onClose={() => setForecastExpanded(false)}
-        title="Forecast Explorer — Category Timeline"
-        subtitle={`${state.horizon}d horizon · ${deptKey === 'all' ? 'All departments' : deptKey}`}
-      >
-        <MerchCategoryTimeline
-          precomp={precomp}
-          breakdownMode={breakdownMode}
-          selectedSubcategory={selectedSubcategory}
-          onSubcategoryClick={handleSubcategoryClick}
-          horizon={state.horizon}
-          anchorDate={anchorDate}
-          expanded
-        />
-      </MerchExpandModal>
-    </>
+    </section>
   );
 }

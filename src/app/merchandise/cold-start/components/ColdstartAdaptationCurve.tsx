@@ -59,6 +59,7 @@ export default function ColdstartAdaptationCurve({ data }: Props) {
       subtitle="blended = α × local + (1−α) × analog · α grows from 0 → 1 as local data accumulates"
       height={300}
       exportFilename="coldstart_adaptation_curve"
+      data={data as unknown as Record<string, unknown>[]}
     >
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data} margin={{ top: 8, right: 24, bottom: 8, left: 0 }}>

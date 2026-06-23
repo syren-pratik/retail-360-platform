@@ -1,6 +1,6 @@
 'use client';
 
-import { Sparkles, X } from 'lucide-react';
+import { Sparkles, X, Check, Loader2, AlertTriangle } from 'lucide-react';
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { usePathname, useParams } from 'next/navigation';
 import ChatMessage from '../chat/ChatMessage';
@@ -13,6 +13,13 @@ import type { PinnedChart } from '@/app/lib/pinned-charts';
 interface ChatPanelProps {
   isOpen: boolean;
   onToggle: () => void;
+}
+
+interface AgentActivity {
+  kind: 'status' | 'thinking' | 'tool';
+  text: string;
+  done?: boolean;
+  ok?: boolean;
 }
 
 interface ToolResult {
@@ -39,6 +46,60 @@ interface ChartProposal {
   question: string;
   data_summary: string;
   options: ChartOptionData[];
+}
+
+// Rotating loader lines — Syren voice, sprinkled mention, ~30% reference Syren directly
+const SYREN_FUN_LINES = [
+  'Syren agents at play…',
+  'Turning your data into answers…',
+  'Reading every chart on screen…',
+  'Connecting the dots across departments…',
+  'Asking your data the hard questions…',
+  'Crunching numbers, Syren-style…',
+  'Sniffing out anomalies…',
+  'Cross-checking the live dashboards…',
+  'Stitching insights together…',
+  'Almost there — finalising the story…',
+  'Pulling the freshest numbers off your screen…',
+  'Syren is reading between the KPIs…',
+  'Triangulating across departments…',
+  'Following the data where it leads…',
+  'Decomposing the drivers behind the move…',
+  'Hunting the outlier…',
+  'Letting Syren take a closer look…',
+  'Listening to the live data stream…',
+  'Mapping cause to effect…',
+  'Verifying every number before it ships…',
+  'Pressure-testing the answer…',
+  'Surfacing the signal beneath the noise…',
+  'Reconciling forecast with actual…',
+  'Grounding every claim in your data…',
+  'Syren refuses to guess — checking instead…',
+  'Sweeping the action queue…',
+  'Walking the markdown queue…',
+  'Tracing margin leakage to its source…',
+  'Asking your forecast what to expect…',
+  'Quantifying revenue at risk…',
+  'Modelling the cascade impact…',
+  'Reading the promo ROI trend…',
+  'Walking the elasticity curve…',
+  'Triaging across categories…',
+  'Mapping store-level impact…',
+  'Lining up the supporting numbers…',
+  'Adding the explainability layer…',
+  'Drafting the executive read…',
+  'Syren is picking the number that matters…',
+  'Last sanity check, then it\'s yours…',
+];
+
+// Shuffled per-request, so consecutive questions don't repeat the same opener
+function shuffledLines(): string[] {
+  const arr = [...SYREN_FUN_LINES];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
 }
 
 interface Message {
@@ -176,6 +237,21 @@ export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
 
   const [messages, setMessages] = useState<Message[]>([welcomeMessage]);
   const [isLoading, setIsLoading] = useState(false);
+  const [activity, setActivity] = useState<AgentActivity[]>([]);
+  const [funIndex, setFunIndex] = useState(0);
+  const [funDeck, setFunDeck] = useState<string[]>(() => shuffledLines());
+
+  // Cycle through a shuffled deck of Syren-voice loader lines while the agent works
+  useEffect(() => {
+    if (!isLoading) {
+      setFunIndex(0);
+      return;
+    }
+    setFunDeck(shuffledLines()); // fresh shuffle per request
+    setFunIndex(0);
+    const id = setInterval(() => setFunIndex((i) => i + 1), 2600);
+    return () => clearInterval(id);
+  }, [isLoading]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const {
     pendingChatMessage,
@@ -255,7 +331,7 @@ export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages, scrollToBottom]);
+  }, [messages, activity, scrollToBottom]);
 
   // Handle pending chat messages from chart clicks
   useEffect(() => {
@@ -296,9 +372,11 @@ export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
         customerId: currentCustomerId,
       };
 
+      setActivity([{ kind: 'status', text: 'Thinking…' }]);
+
       const response = await fetch('/api/chat', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Accept: 'text/event-stream' },
         body: JSON.stringify({
           message: content,
           history,
@@ -307,10 +385,58 @@ export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
         }),
       });
 
-      const data = await response.json();
+      if (!response.ok || !response.body) {
+        throw new Error('Failed to get response');
+      }
 
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to get response');
+      // Parse SSE stream: live agent activity events, then a final payload
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      let data: any = null;
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const parts = buffer.split('\n\n');
+        buffer = parts.pop() ?? '';
+        for (const part of parts) {
+          const line = part.trim();
+          if (!line.startsWith('data:')) continue;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          let evt: any;
+          try {
+            evt = JSON.parse(line.slice(5).trim());
+          } catch {
+            continue;
+          }
+          if (evt.type === 'final') {
+            data = evt.data;
+          } else if (evt.type === 'thinking') {
+            setActivity((prev) => [...prev.filter((a) => a.kind !== 'status'), { kind: 'thinking', text: evt.text }]);
+          } else if (evt.type === 'tool_start') {
+            setActivity((prev) => [...prev.filter((a) => a.kind !== 'status'), { kind: 'tool', text: evt.label, done: false }]);
+          } else if (evt.type === 'tool_end') {
+            setActivity((prev) => {
+              const next = [...prev];
+              for (let i = next.length - 1; i >= 0; i--) {
+                if (next[i].kind === 'tool' && !next[i].done) {
+                  next[i] = { ...next[i], done: true, ok: evt.ok, text: `${next[i].text} — ${evt.summary}` };
+                  break;
+                }
+              }
+              return next;
+            });
+          } else if (evt.type === 'status') {
+            setActivity((prev) => [...prev.filter((a) => a.kind !== 'status'), { kind: 'status', text: evt.label }]);
+          }
+        }
+      }
+
+      if (!data) {
+        throw new Error('Connection interrupted — please try again');
       }
 
       // Add assistant message with SQL metadata and agent fields
@@ -360,6 +486,7 @@ export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
       setMessages((prev) => [...prev, errorMessage]);
     } finally {
       setIsLoading(false);
+      setActivity([]);
     }
   };
 
@@ -462,18 +589,51 @@ export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
           />
         ))}
 
-        {/* Loading indicator */}
+        {/* Live agent activity */}
         {isLoading && (
           <div className="flex gap-2 mb-4">
             <div className="w-7 h-7 rounded-full bg-[var(--accent-primary-light)] flex items-center justify-center flex-shrink-0">
-              <Sparkles size={14} className="text-[var(--accent-primary)]" />
+              <Sparkles size={14} className="text-[var(--accent-primary)] animate-pulse" />
             </div>
-            <div className="bg-white border border-[var(--border-default)] rounded-lg px-3 py-2">
-              <div className="flex items-center gap-1">
-                <span className="w-2 h-2 bg-[var(--text-tertiary)] rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                <span className="w-2 h-2 bg-[var(--text-tertiary)] rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                <span className="w-2 h-2 bg-[var(--text-tertiary)] rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
-              </div>
+            <div className="bg-white border border-[var(--border-default)] rounded-lg px-3 py-2 max-w-[85%] min-w-[180px]">
+              {activity.length === 0 ? (
+                <div className="flex items-center gap-2">
+                  <span className="flex items-center gap-0.5 shrink-0">
+                    <span className="w-1.5 h-1.5 bg-[var(--accent-primary)] rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                    <span className="w-1.5 h-1.5 bg-[var(--accent-primary)] rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                    <span className="w-1.5 h-1.5 bg-[var(--accent-primary)] rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                  </span>
+                  <span
+                    key={funIndex}
+                    className="text-xs text-[var(--text-secondary)] leading-snug animate-fade-in"
+                  >
+                    {funDeck[funIndex % funDeck.length]}
+                  </span>
+                </div>
+              ) : (
+                <div className="space-y-1.5">
+                  {activity.map((a, i) =>
+                    a.kind === 'thinking' ? (
+                      <p key={i} className="text-[11px] italic text-[var(--text-tertiary)] leading-snug">
+                        {a.text}
+                      </p>
+                    ) : (
+                      <div key={i} className="flex items-start gap-1.5 text-[11px] text-[var(--text-secondary)]">
+                        <span className="mt-0.5 shrink-0">
+                          {a.kind === 'status' || !a.done ? (
+                            <Loader2 size={11} className="animate-spin text-[var(--accent-primary)]" />
+                          ) : a.ok === false ? (
+                            <AlertTriangle size={11} className="text-amber-500" />
+                          ) : (
+                            <Check size={11} className="text-emerald-500" />
+                          )}
+                        </span>
+                        <span className="leading-snug">{a.text}</span>
+                      </div>
+                    )
+                  )}
+                </div>
+              )}
             </div>
           </div>
         )}

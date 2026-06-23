@@ -76,6 +76,7 @@ export default function ColdstartPredictionDecomposition({ data }: Props) {
         subtitle={`SKU ${filters.selected_sku_id} · analog contributions + local blend across 5 snapshots`}
         height={260}
         exportFilename="coldstart_pred_decomp"
+        data={chartData as unknown as Record<string, unknown>[]}
       >
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={chartData} margin={{ top: 4, right: 16, bottom: 4, left: 0 }}>

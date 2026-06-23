@@ -17,6 +17,7 @@ import { ChannelPerformance as ChannelPerformanceType } from '@/app/lib/types';
 import { useDashboard } from '@/app/context/DashboardContext';
 import ChartWrapper from './ChartWrapper';
 import ChartExpandModal from './ChartExpandModal';
+import { AIInsightButton } from './ChartCard';
 
 interface ChannelPerformanceProps {
   data: ChannelPerformanceType[];
@@ -225,6 +226,7 @@ function ChannelPerformanceCard({
           </p>
         </div>
         <div className="flex items-center gap-1">
+          <AIInsightButton id={CHART_ID} title="Channel Performance" data={data as unknown as Record<string, unknown>[]} />
           <button
             onClick={onExpand}
             className="p-1.5 rounded-md text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors"

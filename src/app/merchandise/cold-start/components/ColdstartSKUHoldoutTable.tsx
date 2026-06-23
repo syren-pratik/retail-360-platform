@@ -85,6 +85,7 @@ export default function ColdstartSKUHoldoutTable({ holdouts, heroSkus }: Props) 
       height={420}
       exportFilename="coldstart_sku_holdouts"
       showExport={false}
+      data={sorted as unknown as Record<string, unknown>[]}
     >
       {/* Toolbar */}
       <div className="flex items-center gap-2 mb-3">

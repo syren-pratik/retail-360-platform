@@ -99,6 +99,7 @@ export default function ColdstartCostOfMAPE({ data }: Props) {
           subtitle="Estimated inventory loss cost from forecast error · 42 SKUs · Lucknow launch"
           height={220}
           exportFilename="coldstart_cost_mape_table"
+          data={rows as unknown as Record<string, unknown>[]}
         >
           <div className="overflow-hidden rounded-lg border border-[var(--border-default)] text-xs">
             <table className="w-full">
@@ -143,6 +144,7 @@ export default function ColdstartCostOfMAPE({ data }: Props) {
           subtitle="Champion model savings widen as local data accumulates and analog prior fades"
           height={220}
           exportFilename="coldstart_cost_mape_chart"
+          data={weekly_breakdown as unknown as Record<string, unknown>[]}
         >
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={weekly_breakdown} margin={{ top: 4, right: 16, bottom: 4, left: 0 }}>

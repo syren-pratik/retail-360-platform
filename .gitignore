@@ -38,3 +38,8 @@ next-env.d.ts
 # Generated merch demand cache — regenerate with `npm run gen:merch-demand`
 cache/merch_demand/
 cache/merch_demand_*.json
+
+# Local-only artifacts
+.playwright-mcp/
+deploy.zip
+*-E

@@ -6,9 +6,11 @@ export function formatINR(n: number): string {
 }
 
 export function formatLakhsCrores(n: number): string {
-  if (n >= 10_000_000) return `₹${(n / 10_000_000).toFixed(1)}Cr`;
-  if (n >= 100_000)    return `₹${(n / 100_000).toFixed(1)}L`;
-  if (n >= 1_000)      return `₹${(n / 1_000).toFixed(1)}K`;
+  const sign = n < 0 ? '-' : '';
+  const abs = Math.abs(n);
+  if (abs >= 10_000_000) return `${sign}₹${(abs / 10_000_000).toFixed(1)}Cr`;
+  if (abs >= 100_000)    return `${sign}₹${(abs / 100_000).toFixed(1)}L`;
+  if (abs >= 1_000)      return `${sign}₹${(abs / 1_000).toFixed(1)}K`;
   return formatINR(n);
 }
 

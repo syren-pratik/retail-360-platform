@@ -5,6 +5,7 @@ import { Maximize2 } from 'lucide-react';
 import { CLVTierData, CLVDetailData } from '@/app/lib/types';
 import { useDashboard } from '@/app/context/DashboardContext';
 import ChartWrapper from './ChartWrapper';
+import { AIInsightButton } from './ChartCard';
 import CLVExpandModal from './CLVExpandModal';
 
 interface CLVDistributionProps {
@@ -104,6 +105,7 @@ function CLVDistributionCard({ data, selectedTier, onBarClick, onExpand, paretoI
           <p className="text-sm text-[var(--text-secondary)]">12-month predicted customer lifetime value</p>
         </div>
         <div className="flex items-center gap-1">
+          <AIInsightButton id={CHART_ID} title="CLV Distribution by Tier" data={data as unknown as Record<string, unknown>[]} />
           <button onClick={onExpand} className="p-1.5 rounded-md text-[var(--text-tertiary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] transition-colors" title="Expand chart">
             <Maximize2 size={16} />
           </button>

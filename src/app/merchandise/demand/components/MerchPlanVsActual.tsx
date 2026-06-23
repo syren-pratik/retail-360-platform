@@ -1,10 +1,11 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { ChevronUp, ChevronDown } from 'lucide-react';
 import type { MerchDemandFullPayload } from '@/app/lib/merch-demand-types';
 import { formatLakhsCrores } from '@/app/lib/merch-format';
-import MerchExpandModal from './MerchExpandModal';
+import { AIInsightButton } from '@/app/components/charts/ChartCard';
 
 type PlanRow = {
   department: string;
@@ -165,7 +166,7 @@ interface Props {
 }
 
 export default function MerchPlanVsActual({ core }: Props) {
-  const [expanded, setExpanded] = useState(false);
+  const router = useRouter();
 
   const rows = (core.plan_vs_actual ?? []) as PlanRow[];
 
@@ -176,51 +177,43 @@ export default function MerchPlanVsActual({ core }: Props) {
   }, [rows]);
 
   return (
-    <>
-      <section className="card p-0 overflow-hidden">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border-default)]">
-          <div>
-            <h2 className="text-base font-semibold text-[var(--text-primary)]">Plan vs Actual</h2>
-            <p className="text-sm text-[var(--text-secondary)] mt-0.5">
-              {rows.length} subcategories ·{' '}
-              <span className="text-emerald-600">{statusCounts.on_track} on track</span> ·{' '}
-              <span className="text-amber-600">{statusCounts.at_risk} at risk</span> ·{' '}
-              <span className="text-rose-600">{statusCounts.will_miss} will miss</span>
-            </p>
-          </div>
+    <section className="card p-0 overflow-hidden">
+      <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border-default)]">
+        <div>
+          <h2 className="text-base font-semibold text-[var(--text-primary)]">Plan vs Actual</h2>
+          <p className="text-sm text-[var(--text-secondary)] mt-0.5">
+            {rows.length} subcategories ·{' '}
+            <span className="text-emerald-600">{statusCounts.on_track} on track</span> ·{' '}
+            <span className="text-amber-600">{statusCounts.at_risk} at risk</span> ·{' '}
+            <span className="text-rose-600">{statusCounts.will_miss} will miss</span>
+          </p>
+        </div>
+        <div className="flex items-center gap-2">
+        <AIInsightButton id="merch-plan-vs-actual" title="Plan vs Actual" data={rows as unknown as Record<string, unknown>[]} />
+        <button
+          onClick={() => router.push('/merchandise/demand/deep-dive/plan')}
+          className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-[var(--text-secondary)] border border-[var(--border-default)] rounded-md hover:bg-[var(--bg-secondary)] hover:text-[var(--text-primary)] transition-colors"
+        >
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M2 6V2h4M10 6v4H6M7.5 2H10v2.5M4.5 10H2V7.5" />
+          </svg>
+          Deep Dive
+        </button>
+        </div>
+      </div>
+
+      <PlanTable rows={rows.slice(0, 10)} />
+
+      {rows.length > 10 && (
+        <div className="p-4 text-center border-t border-[var(--border-subtle)]">
           <button
-            onClick={() => setExpanded(true)}
-            className="p-1.5 rounded-md hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)] transition-colors"
-            title="Expand"
+            onClick={() => router.push('/merchandise/demand/deep-dive/plan')}
+            className="text-sm text-[var(--accent-primary)] hover:underline"
           >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M3 8V3h5M13 8v5H8M10 3h3v3M6 13H3v-3" />
-            </svg>
+            View all {rows.length} subcategories
           </button>
         </div>
-
-        <PlanTable rows={rows.slice(0, 10)} />
-
-        {rows.length > 10 && (
-          <div className="p-4 text-center border-t border-[var(--border-subtle)]">
-            <button
-              onClick={() => setExpanded(true)}
-              className="text-sm text-[var(--accent-primary)] hover:underline"
-            >
-              View all {rows.length} subcategories
-            </button>
-          </div>
-        )}
-      </section>
-
-      <MerchExpandModal
-        isOpen={expanded}
-        onClose={() => setExpanded(false)}
-        title="Plan vs Actual — All Subcategories"
-        subtitle={`${rows.length} subcategories · sortable by any column`}
-      >
-        <PlanTable rows={rows} />
-      </MerchExpandModal>
-    </>
+      )}
+    </section>
   );
 }

@@ -2,6 +2,7 @@
 
 import { memo, ReactNode } from 'react';
 import { Maximize2 } from 'lucide-react';
+import { AIInsightButton } from '@/app/components/charts/ChartCard';
 
 interface Props {
   id: string;
@@ -12,6 +13,7 @@ interface Props {
   onExpand?: () => void;
   className?: string;
   headerExtra?: ReactNode;
+  data?: Record<string, unknown>[];
 }
 
 function MerchChartCardInner({
@@ -23,6 +25,7 @@ function MerchChartCardInner({
   onExpand,
   className = '',
   headerExtra,
+  data,
 }: Props) {
   return (
     <section id={`section-${id}`} className={`card ${className}`}>
@@ -33,6 +36,9 @@ function MerchChartCardInner({
         </div>
         <div className="flex items-center gap-1 flex-shrink-0 ml-2">
           {headerExtra}
+          {data && data.length > 0 && (
+            <AIInsightButton id={id} title={title} data={data} />
+          )}
           {onExpand && (
             <button
               onClick={onExpand}

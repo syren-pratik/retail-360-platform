@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import type { ReplenishmentData, StoreHealthScore } from './InventoryDashboardContent';
+import { AIInsightButton } from '@/app/components/charts/ChartCard';
 
 interface Props {
   data: ReplenishmentData | null;
@@ -42,12 +43,15 @@ export default function ReplenishmentHealth({ data }: Props) {
             </p>
           )}
         </div>
-        {summary && (
-          <div className="text-right">
-            <p className="text-xs font-semibold text-amber-600">₹{summary.urgent_pending_cr.toFixed(1)}Cr</p>
-            <p className="text-[10px] text-[var(--text-tertiary)]">urgent pending</p>
-          </div>
-        )}
+        <div className="flex items-start gap-1.5">
+          <AIInsightButton id="inventory-replenishment-health" title="Replenishment Health" data={stores as unknown as Record<string, unknown>[]} />
+          {summary && (
+            <div className="text-right">
+              <p className="text-xs font-semibold text-amber-600">₹{summary.urgent_pending_cr.toFixed(1)}Cr</p>
+              <p className="text-[10px] text-[var(--text-tertiary)]">urgent pending</p>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Tabs */}

@@ -8,6 +8,7 @@ import {
   ReferenceLine, Legend,
 } from 'recharts';
 import { ArrowLeft, Download } from 'lucide-react';
+import { AIInsightButton } from '@/app/components/charts/ChartCard';
 import type { SupplyKPIs, ForecastData, DeptAccuracy } from '../../components/InventoryDashboardContent';
 
 // ─── Props ────────────────────────────────────────────────────────────────────
@@ -273,7 +274,10 @@ export default function DemandForecastDeepDiveContent({ forecast, isStandalonePa
 
           {/* Full-width Forecast vs Actual ComposedChart */}
           <div className="card">
-            <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Forecast vs Actual</h4>
+            <div className="flex items-start justify-between">
+              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Forecast vs Actual</h4>
+              <AIInsightButton id="inventory-deep-forecast-vs-actual" title="Forecast vs Actual" data={filteredForecast as unknown as Record<string, unknown>[]} />
+            </div>
             <p className="text-xs text-[var(--text-secondary)] mb-3">
               Daily demand · shaded band = 95% confidence interval · dashed = forecast
             </p>
@@ -363,7 +367,10 @@ export default function DemandForecastDeepDiveContent({ forecast, isStandalonePa
 
             {/* LEFT — Accuracy by Department */}
             <div className="card">
-              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Accuracy by Department</h4>
+              <div className="flex items-start justify-between">
+                <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Accuracy by Department</h4>
+                <AIInsightButton id="inventory-deep-accuracy-by-department" title="Accuracy by Department" data={sortedDeptAccuracy as unknown as Record<string, unknown>[]} />
+              </div>
               <p className="text-xs text-[var(--text-secondary)] mb-3">Sorted highest → lowest · 85% = minimum target</p>
               <div style={{ height: 260 }}>
                 {isMounted && (
@@ -415,7 +422,10 @@ export default function DemandForecastDeepDiveContent({ forecast, isStandalonePa
 
             {/* RIGHT — Accuracy Trend Last 12 Weeks */}
             <div className="card">
-              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Accuracy Trend — Last 12 Weeks</h4>
+              <div className="flex items-start justify-between">
+                <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Accuracy Trend — Last 12 Weeks</h4>
+                <AIInsightButton id="inventory-deep-accuracy-trend" title="Accuracy Trend — Last 12 Weeks" data={filteredTrend as unknown as Record<string, unknown>[]} />
+              </div>
               <p className="text-xs text-[var(--text-secondary)] mb-3">Weekly accuracy % and MAPE · 85% target line</p>
               <div style={{ height: 260 }}>
                 {isMounted && (
@@ -488,7 +498,10 @@ export default function DemandForecastDeepDiveContent({ forecast, isStandalonePa
 
           {/* Full-width stacked AreaChart */}
           <div className="card">
-            <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Demand Decomposition</h4>
+            <div className="flex items-start justify-between">
+              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Demand Decomposition</h4>
+              <AIInsightButton id="inventory-deep-demand-decomposition" title="Demand Decomposition" data={filteredDecomp as unknown as Record<string, unknown>[]} />
+            </div>
             <p className="text-xs text-[var(--text-secondary)] mb-3">
               Stacked components of total daily demand — baseline, trend, seasonal, and promotional lift
             </p>
@@ -564,7 +577,10 @@ export default function DemandForecastDeepDiveContent({ forecast, isStandalonePa
 
           {/* Model comparison table */}
           <div className="card overflow-x-auto">
-            <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Model Comparison</h4>
+            <div className="flex items-start justify-between">
+              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Model Comparison</h4>
+              <AIInsightButton id="inventory-deep-model-comparison" title="Model Comparison" data={forecast.model_comparison as unknown as Record<string, unknown>[]} />
+            </div>
             <p className="text-xs text-[var(--text-secondary)] mb-4">All models · sorted by accuracy · ⭐ = production</p>
             <table className="w-full text-sm">
               <thead>
@@ -608,7 +624,10 @@ export default function DemandForecastDeepDiveContent({ forecast, isStandalonePa
 
             {/* LEFT — Model Accuracy vs MAPE grouped bar */}
             <div className="card">
-              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Model Accuracy vs MAPE</h4>
+              <div className="flex items-start justify-between">
+                <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Model Accuracy vs MAPE</h4>
+                <AIInsightButton id="inventory-deep-model-accuracy-vs-mape" title="Model Accuracy vs MAPE" data={forecast.model_comparison as unknown as Record<string, unknown>[]} />
+              </div>
               <p className="text-xs text-[var(--text-secondary)] mb-3">Side-by-side comparison across all models</p>
               <div style={{ height: 240 }}>
                 {isMounted && (
@@ -637,7 +656,10 @@ export default function DemandForecastDeepDiveContent({ forecast, isStandalonePa
 
             {/* RIGHT — Feature Importance */}
             <div className="card">
-              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Feature Importance</h4>
+              <div className="flex items-start justify-between">
+                <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Feature Importance</h4>
+                <AIInsightButton id="inventory-deep-feature-importance" title="Feature Importance" data={sortedFeatures as unknown as Record<string, unknown>[]} />
+              </div>
               <p className="text-xs text-[var(--text-secondary)] mb-3">Top predictors · green = positive, red = negative signal</p>
               <div style={{ height: 240 }}>
                 {isMounted && (
@@ -722,7 +744,10 @@ export default function DemandForecastDeepDiveContent({ forecast, isStandalonePa
 
           {/* Over vs Under Forecast by Department */}
           <div className="card">
-            <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Over vs Under Forecast by Department</h4>
+            <div className="flex items-start justify-between">
+              <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-0.5">Over vs Under Forecast by Department</h4>
+              <AIInsightButton id="inventory-deep-over-under-forecast" title="Over vs Under Forecast by Department" data={forecast.accuracy_by_dept as unknown as Record<string, unknown>[]} />
+            </div>
             <p className="text-xs text-[var(--text-secondary)] mb-3">
               Positive bias = over-forecast (overstock risk) · Negative = under-forecast (lost sales risk)
             </p>
