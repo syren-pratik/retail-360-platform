@@ -16,6 +16,7 @@ import {
   CrossSellOpportunity,
   CategorySegmentRow,
 } from '@/app/lib/types';
+import { useFormatMoney, useFormatMoneyPlain } from '@/app/lib/format-money';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -104,6 +105,8 @@ function Divider() {
 
 export default function CategoryDeepDiveContent({ data }: { data: unknown }) {
   const d = data as CategoryBySegmentData;
+  const fmtMoney = useFormatMoney();
+  const fmtMoneyPlain = useFormatMoneyPlain();
   const [isMounted, setIsMounted]   = useState(false);
   const [tab, setTab]               = useState<TabId>('heatmap');
   const [metric, setMetric]         = useState<HeatmapMetric>('penetration');
@@ -247,7 +250,7 @@ export default function CategoryDeepDiveContent({ data }: { data: unknown }) {
               bg: 'bg-blue-50',
               label: 'Top Revenue Combo',
               value: `${topCombo.segment} × ${topCombo.category}`,
-              sub:   `₹${(topCombo.revenue / 100000).toFixed(1)}L`,
+              sub:   fmtMoney(topCombo.revenue),
               subColor: 'text-[var(--text-secondary)]',
             },
             {
@@ -255,7 +258,7 @@ export default function CategoryDeepDiveContent({ data }: { data: unknown }) {
               bg: 'bg-amber-50',
               label: 'Biggest Cross-Sell Gap',
               value: biggestGap ? `${biggestGap.segment} → ${biggestGap.to_category}` : '—',
-              sub:   biggestGap ? `₹${(biggestGap.estimated_revenue / 100000).toFixed(1)}L uplift` : '',
+              sub:   biggestGap ? `${fmtMoney(biggestGap.estimated_revenue)} uplift` : '',
               subColor: 'text-[var(--text-secondary)]',
             },
             {
@@ -298,7 +301,7 @@ export default function CategoryDeepDiveContent({ data }: { data: unknown }) {
           <div className="flex items-center border-b border-[var(--border-default)] px-6">
             {([
               { id: 'heatmap',   label: 'Heatmap' },
-              { id: 'revenue',   label: 'Revenue ₹' },
+              { id: 'revenue',   label: 'Revenue' },
               { id: 'mix',       label: 'Mix %' },
               { id: 'crosssell', label: 'Cross-Sell Opportunities' },
             ] as { id: TabId; label: string }[]).map(t => (
@@ -422,10 +425,10 @@ export default function CategoryDeepDiveContent({ data }: { data: unknown }) {
                       <div className="grid grid-cols-2 gap-2.5">
                         {[
                           { label: 'Customers',      value: drillCell.metrics.customers.toLocaleString() },
-                          { label: 'Revenue',        value: `₹${(drillCell.metrics.revenue / 100000).toFixed(1)}L` },
+                          { label: 'Revenue',        value: fmtMoney(drillCell.metrics.revenue) },
                           { label: 'Penetration',    value: `${drillCell.metrics.penetration.toFixed(1)}%` },
                           { label: 'Revenue Share',  value: `${drillCell.metrics.revenue_share.toFixed(1)}%` },
-                          { label: 'Avg Spend',      value: `₹${drillCell.metrics.avg_spend.toLocaleString('en-IN')}` },
+                          { label: 'Avg Spend',      value: fmtMoneyPlain(drillCell.metrics.avg_spend) },
                           { label: 'Affinity Index', value: `${drillCell.metrics.affinity_index.toFixed(2)}x` },
                           { label: 'Growth MoM',     value: `${drillCell.metrics.growth_mom > 0 ? '+' : ''}${drillCell.metrics.growth_mom.toFixed(1)}%` },
                         ].map(row => (
@@ -480,8 +483,8 @@ export default function CategoryDeepDiveContent({ data }: { data: unknown }) {
                   <BarChart data={revenueBarData} margin={{ top: 10, right: 20, left: 10, bottom: 20 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" />
                     <XAxis dataKey="segment" tick={{ fontSize: 11, fill: 'var(--text-secondary)' }} tickLine={false} axisLine={{ stroke: 'var(--border-default)' }} />
-                    <YAxis tick={{ fontSize: 11, fill: 'var(--text-secondary)' }} tickLine={false} axisLine={false} tickFormatter={v => `₹${v}L`} />
-                    <Tooltip formatter={(v: unknown) => [`₹${(v as number).toFixed(1)}L`, '']} />
+                    <YAxis tick={{ fontSize: 11, fill: 'var(--text-secondary)' }} tickLine={false} axisLine={false} tickFormatter={v => fmtMoney(v * 100000)} />
+                    <Tooltip formatter={(v: unknown) => [fmtMoney((v as number) * 100000), '']} />
                     <Legend wrapperStyle={{ fontSize: 11 }} iconSize={10} />
                     {categories.map(cat => (
                       <Bar key={cat} dataKey={cat} stackId="a" fill={CATEGORY_COLORS[cat] || '#64748B'} />
@@ -528,7 +531,7 @@ export default function CategoryDeepDiveContent({ data }: { data: unknown }) {
                           </div>
                         </div>
                         <div className="text-right flex-shrink-0 ml-3">
-                          <div className="text-lg font-bold text-green-600">₹{(opp.estimated_revenue / 100000).toFixed(1)}L</div>
+                          <div className="text-lg font-bold text-green-600">{fmtMoney(opp.estimated_revenue)}</div>
                           <div className="text-[10px] text-[var(--text-tertiary)]">estimated uplift</div>
                         </div>
                       </div>
@@ -596,9 +599,9 @@ export default function CategoryDeepDiveContent({ data }: { data: unknown }) {
                     <tr key={row.segment} className="border-b border-[var(--border-subtle)] hover:bg-[var(--bg-secondary)] transition-colors">
                       <td className="px-5 py-3 font-medium text-[var(--text-primary)]">{row.segment}</td>
                       <td className="px-5 py-3 text-right text-[var(--text-primary)]">{row.total_customers.toLocaleString()}</td>
-                      <td className="px-5 py-3 text-right text-[var(--text-primary)]">₹{(row.total_revenue / 100000).toFixed(1)}L</td>
+                      <td className="px-5 py-3 text-right text-[var(--text-primary)]">{fmtMoney(row.total_revenue)}</td>
                       <td className="px-5 py-3 text-right text-[var(--text-secondary)]">
-                        ₹{row.total_customers > 0 ? Math.round(row.total_revenue / row.total_customers).toLocaleString('en-IN') : '—'}
+                        {row.total_customers > 0 ? fmtMoneyPlain(Math.round(row.total_revenue / row.total_customers)) : '—'}
                       </td>
                       <td className="px-5 py-3">
                         <span className="inline-flex items-center gap-1.5">

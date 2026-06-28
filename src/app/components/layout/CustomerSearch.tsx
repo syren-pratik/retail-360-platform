@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { Search, X } from 'lucide-react';
 import { CustomerRecord } from '@/app/lib/types';
+import { useFormatMoneyPlain } from '@/app/lib/format-money';
 
 interface CustomerSearchProps {
   customers: CustomerRecord[];
@@ -19,12 +20,9 @@ const segmentColors: Record<string, string> = {
   'Low-Value': 'bg-gray-100 text-gray-700',
 };
 
-const formatCurrency = (value: number) => {
-  return `₹${value.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`;
-};
-
 export default function CustomerSearch({ customers }: CustomerSearchProps) {
   const router = useRouter();
+  const formatCurrency = useFormatMoneyPlain();
   const [query, setQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [results, setResults] = useState<CustomerRecord[]>([]);

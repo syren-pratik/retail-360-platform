@@ -1,32 +1,10 @@
-// Force dynamic rendering to avoid static generation issues with JSON imports
+// Force dynamic rendering — the tenant cookie is read per request to swap
+// grocery ↔ apparel cache.
 export const dynamic = 'force-dynamic';
 
 import DashboardContent from './DashboardContent';
+import { loadCache } from '@/app/lib/cache-loader';
 
-// Import raw cache data
-import kpisData from '../../../cache/cx360_kpis.json';
-import clvDistributionData from '../../../cache/cx360_clv_distribution.json';
-import rfmSampleData from '../../../cache/cx360_rfm_sample.json';
-import churnRiskData from '../../../cache/cx360_churn_risk.json';
-import churnDriversData from '../../../cache/cx360_churn_drivers.json';
-import cohortRetentionData from '../../../cache/cx360_cohort_retention.json';
-import basketDistributionData from '../../../cache/cx360_basket_distribution.json';
-import categoryBySegmentData from '../../../cache/cx360_category_by_segment.json';
-import customerTableData from '../../../cache/cx360_customer_table.json';
-import dimensionsData from '../../../cache/dimensions.json';
-import segmentMigrationData from '../../../cache/cx360_segment_migration.json';
-import revenueConcentrationData from '../../../cache/cx360_revenue_concentration.json';
-import recencyFrequencyData from '../../../cache/cx360_recency_frequency.json';
-import channelAnalysisData from '../../../cache/cx360_channel_analysis.json';
-import atRiskAlertsData from '../../../cache/cx360_at_risk_alerts.json';
-import frequencyDetailData from '../../../cache/cx360_frequency_detail.json';
-import cohortDetailData from '../../../cache/cx360_cohort_detail.json';
-import churnDetailData from '../../../cache/cx360_churn_detail.json';
-import revenueDetailData from '../../../cache/cx360_revenue_detail.json';
-import clvDetailData from '../../../cache/cx360_clv_detail.json';
-import rfmDetailData from '../../../cache/cx360_rfm_detail.json';
-
-// Import transformation functions
 import {
   transformKPIs,
   transformCLVTiers,
@@ -52,31 +30,87 @@ import {
   transformRFMDetail,
 } from '@/app/lib/cache-transform';
 
-// Transform Databricks data to expected TypeScript types
-const kpis = transformKPIs(kpisData as unknown);
-const clvDistribution = transformCLVTiers(clvDistributionData as unknown[]);
-const rfmSample = transformRFMCustomers(rfmSampleData as unknown[]);
-const churnRisk = transformChurnRisk(churnRiskData as unknown[]);
-const churnDrivers = transformChurnDrivers(churnDriversData as unknown[]);
-const cohortRetention = transformCohortRetention(cohortRetentionData as unknown[]);
-const basketDistribution = transformBasketDistribution((basketDistributionData as unknown as Record<string, unknown>).distribution as unknown[] ?? []);
-const basketData = transformBasketData(basketDistributionData as unknown);
-const categoryBySegment = transformCategoryBySegment(categoryBySegmentData as unknown);
-const customerTable = transformCustomerRecords(customerTableData as unknown[]);
-const dimensions = transformDimensions(dimensionsData as unknown[]);
-const segmentMigration = transformSegmentMigration(segmentMigrationData as unknown);
-const revenueConcentration = transformRevenueConcentration(revenueConcentrationData as unknown);
-const recencyFrequency = transformRecencyFrequency(recencyFrequencyData as unknown);
-const channelAnalysis = transformChannelAnalysis(channelAnalysisData as unknown);
-const atRiskAlerts = transformAtRiskAlerts(atRiskAlertsData as unknown);
-const frequencyData = transformFrequencyData(frequencyDetailData as unknown);
-const cohortDetail = transformCohortDetail(cohortDetailData as unknown);
-const churnDetail = transformChurnDetail(churnDetailData as unknown);
-const revenueDetail = transformRevenueDetail(revenueDetailData as unknown);
-const clvDetail = transformCLVDetail(clvDetailData as unknown);
-const rfmDetail = transformRFMDetail(rfmDetailData as unknown);
+export default async function CX360Page({ searchParams }: { searchParams: { expand?: string } }) {
+  // Parallel load — loadCache reads tenant cookie + falls back to grocery
+  // if the apparel mirror doesn't exist for a given file.
+  const [
+    kpisData,
+    clvDistributionData,
+    rfmSampleData,
+    churnRiskData,
+    churnDriversData,
+    cohortRetentionData,
+    basketDistributionData,
+    categoryBySegmentData,
+    customerTableData,
+    dimensionsData,
+    segmentMigrationData,
+    revenueConcentrationData,
+    recencyFrequencyData,
+    channelAnalysisData,
+    atRiskAlertsData,
+    frequencyDetailData,
+    cohortDetailData,
+    churnDetailData,
+    revenueDetailData,
+    clvDetailData,
+    rfmDetailData,
+    returnsByReasonData,
+    brandAffinityData,
+    returnReasonWaterfallData,
+  ] = await Promise.all([
+    loadCache('cx360_kpis.json'),
+    loadCache('cx360_clv_distribution.json'),
+    loadCache('cx360_rfm_sample.json'),
+    loadCache('cx360_churn_risk.json'),
+    loadCache('cx360_churn_drivers.json'),
+    loadCache('cx360_cohort_retention.json'),
+    loadCache('cx360_basket_distribution.json'),
+    loadCache('cx360_category_by_segment.json'),
+    loadCache('cx360_customer_table.json'),
+    loadCache('dimensions.json'),
+    loadCache('cx360_segment_migration.json'),
+    loadCache('cx360_revenue_concentration.json'),
+    loadCache('cx360_recency_frequency.json'),
+    loadCache('cx360_channel_analysis.json'),
+    loadCache('cx360_at_risk_alerts.json'),
+    loadCache('cx360_frequency_detail.json'),
+    loadCache('cx360_cohort_detail.json'),
+    loadCache('cx360_churn_detail.json'),
+    loadCache('cx360_revenue_detail.json'),
+    loadCache('cx360_clv_detail.json'),
+    loadCache('cx360_rfm_detail.json'),
+    loadCache('cx360_returns_by_reason.json').catch(() => null),
+    loadCache('cx360_brand_affinity.json').catch(() => null),
+    loadCache('cx360_return_reason_waterfall.json').catch(() => null),
+  ]);
 
-export default function CX360Page({ searchParams }: { searchParams: { expand?: string } }) {
+  // Transform Databricks data to expected TypeScript types
+  const kpis = transformKPIs(kpisData);
+  const clvDistribution = transformCLVTiers(clvDistributionData as unknown[]);
+  const rfmSample = transformRFMCustomers(rfmSampleData as unknown[]);
+  const churnRisk = transformChurnRisk(churnRiskData as unknown[]);
+  const churnDrivers = transformChurnDrivers(churnDriversData as unknown[]);
+  const cohortRetention = transformCohortRetention(cohortRetentionData as unknown[]);
+  const basketDistribution = transformBasketDistribution(
+    (basketDistributionData as unknown as Record<string, unknown>).distribution as unknown[] ?? [],
+  );
+  const basketData = transformBasketData(basketDistributionData);
+  const categoryBySegment = transformCategoryBySegment(categoryBySegmentData);
+  const customerTable = transformCustomerRecords(customerTableData as unknown[]);
+  const dimensions = transformDimensions(dimensionsData as unknown[]);
+  const segmentMigration = transformSegmentMigration(segmentMigrationData);
+  const revenueConcentration = transformRevenueConcentration(revenueConcentrationData);
+  const recencyFrequency = transformRecencyFrequency(recencyFrequencyData);
+  const channelAnalysis = transformChannelAnalysis(channelAnalysisData);
+  const atRiskAlerts = transformAtRiskAlerts(atRiskAlertsData);
+  const frequencyData = transformFrequencyData(frequencyDetailData);
+  const cohortDetail = transformCohortDetail(cohortDetailData);
+  const churnDetail = transformChurnDetail(churnDetailData);
+  const revenueDetail = transformRevenueDetail(revenueDetailData);
+  const clvDetail = transformCLVDetail(clvDetailData);
+  const rfmDetail = transformRFMDetail(rfmDetailData);
+
   return (
     <DashboardContent
       expandChart={searchParams.expand}
@@ -102,6 +136,9 @@ export default function CX360Page({ searchParams }: { searchParams: { expand?: s
       revenueDetail={revenueDetail}
       clvDetail={clvDetail}
       rfmDetail={rfmDetail}
+      returnsByReason={returnsByReasonData as unknown as Parameters<typeof DashboardContent>[0]['returnsByReason']}
+      brandAffinity={brandAffinityData as unknown as Parameters<typeof DashboardContent>[0]['brandAffinity']}
+      returnReasonWaterfall={returnReasonWaterfallData as unknown as Parameters<typeof DashboardContent>[0]['returnReasonWaterfall']}
     />
   );
 }

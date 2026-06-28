@@ -9,6 +9,7 @@ import {
 import { X, Download, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { ChurnDetailData, ChurnMigrationFlow } from '@/app/lib/types';
+import { formatMoneyAuto, formatMoneyPlainAuto, getLocaleAuto } from '@/app/lib/format-money';
 
 type TabId = 'overview' | 'matrix' | 'migration' | 'trend' | 'intervention' | 'model';
 
@@ -22,9 +23,7 @@ const TIERS = ['Critical', 'High', 'Medium', 'Low'];
 const TO_COLS = ['Low', 'Medium', 'High', 'Critical', 'Churned'];
 
 function fmtInr(n: number) {
-  if (n >= 10_000_000) return `₹${(n / 10_000_000).toFixed(1)}Cr`;
-  if (n >= 100_000)    return `₹${(n / 100_000).toFixed(1)}L`;
-  return `₹${n.toLocaleString('en-IN')}`;
+  return formatMoneyAuto(n);
 }
 
 interface Props {
@@ -127,12 +126,12 @@ export default function ChurnExpandModal({ data, onClose }: Props) {
       {/* KPI Strip */}
       <div className="grid grid-cols-6 divide-x divide-[var(--border-subtle)] border-b border-[var(--border-default)] bg-[var(--bg-secondary)] flex-shrink-0">
         {[
-          { label: '₹ at Risk (90d)', value: fmtInr(summary.revenue_at_risk_90d), sub: 'Next 90 days' },
+          { label: 'At Risk (90d)', value: fmtInr(summary.revenue_at_risk_90d), sub: 'Next 90 days' },
           { label: 'Churn Rate MoM', value: `+${summary.churn_trend_mom}%`, sub: 'Accelerating' },
           { label: 'Net Movement', value: `-${Math.abs(tier_migration?.net_movement?.net ?? 0).toLocaleString()}`, sub: tier_migration?.net_movement?.direction ?? '' },
           { label: 'Save Rate', value: `${summary.save_rate_last_quarter}%`, sub: 'Last quarter' },
-          { label: 'Intervention ROI', value: `${summary.intervention_roi}x`, sub: `₹21L → ${fmtInr(intervention_results.last_quarter.revenue_retained)}` },
-          { label: 'VIP × Critical', value: '312', sub: '₹28Cr at risk' },
+          { label: 'Intervention ROI', value: `${summary.intervention_roi}x`, sub: `${fmtInr(2100000)} → ${fmtInr(intervention_results.last_quarter.revenue_retained)}` },
+          { label: 'VIP × Critical', value: '312', sub: `${fmtInr(280000000)} at risk` },
         ].map(k => (
           <div key={k.label} className="px-4 py-3">
             <p className="text-xs text-[var(--text-secondary)] mb-0.5">{k.label}</p>
@@ -166,7 +165,7 @@ export default function ChurnExpandModal({ data, onClose }: Props) {
                     <Pie data={donutData} cx="50%" cy="50%" innerRadius={70} outerRadius={100} paddingAngle={2} dataKey="value" nameKey="name">
                       {donutData.map(d => <Cell key={d.name} fill={TIER_COLORS[d.name] ?? '#94a3b8'} />)}
                     </Pie>
-                    <Tooltip formatter={(v: unknown) => [`${(v as number).toLocaleString('en-IN')}`, 'Customers']} />
+                    <Tooltip formatter={(v: unknown) => [`${(v as number).toLocaleString(getLocaleAuto())}`, 'Customers']} />
                     <Legend iconType="circle" iconSize={8} wrapperStyle={{ fontSize: 12 }} />
                   </PieChart>
                 </ResponsiveContainer>
@@ -207,10 +206,10 @@ export default function ChurnExpandModal({ data, onClose }: Props) {
                         <td className="px-3 py-2 font-semibold" style={{ color: TIER_COLORS[t.tier] }}>
                           {t.tier}
                         </td>
-                        <td className="px-3 py-2">{t.customer_count.toLocaleString('en-IN')}</td>
+                        <td className="px-3 py-2">{t.customer_count.toLocaleString(getLocaleAuto())}</td>
                         <td className="px-3 py-2">{t.pct_of_total}%</td>
                         <td className="px-3 py-2 font-medium">{fmtInr(t.revenue_at_risk)}</td>
-                        <td className="px-3 py-2">₹{t.avg_clv.toLocaleString('en-IN')}</td>
+                        <td className="px-3 py-2">{formatMoneyPlainAuto(t.avg_clv)}</td>
                         <td className="px-3 py-2">{t.avg_days_since_purchase}d</td>
                         <td className="px-3 py-2">{t.top_drivers[0]?.driver ?? '—'} ({t.top_drivers[0]?.pct_affected ?? 0}%)</td>
                         <td className="px-3 py-2">{t.recommended_action}</td>
@@ -277,9 +276,9 @@ export default function ChurnExpandModal({ data, onClose }: Props) {
                               {protect && <p className="text-xs font-bold text-green-700 mb-1">PROTECT</p>}
                               {cell ? (
                                 <>
-                                  <p className="font-semibold text-sm">{cell.customers.toLocaleString('en-IN')} customers</p>
+                                  <p className="font-semibold text-sm">{cell.customers.toLocaleString(getLocaleAuto())} customers</p>
                                   <p className="text-xs text-[var(--text-secondary)]">{fmtInr(cell.revenue_at_risk)} at risk</p>
-                                  <p className="text-xs text-[var(--text-tertiary)] mt-1">Avg CLV: ₹{cell.avg_clv.toLocaleString('en-IN')}</p>
+                                  <p className="text-xs text-[var(--text-tertiary)] mt-1">Avg CLV: {formatMoneyPlainAuto(cell.avg_clv)}</p>
                                   <p className="text-xs font-medium mt-1 text-[var(--text-primary)]">{cell.action}</p>
                                 </>
                               ) : <p className="text-xs text-slate-400">—</p>}
@@ -320,7 +319,7 @@ export default function ChurnExpandModal({ data, onClose }: Props) {
                           return (
                             <td key={to} className="px-4 py-3 text-center" style={{ background: cellColor(cell.direction) }}>
                               <span className={`font-medium text-sm ${cellText(cell.direction)}`}>
-                                {cell.count.toLocaleString('en-IN')}{cellArrow(cell.direction)}
+                                {cell.count.toLocaleString(getLocaleAuto())}{cellArrow(cell.direction)}
                               </span>
                             </td>
                           );
@@ -533,7 +532,7 @@ export default function ChurnExpandModal({ data, onClose }: Props) {
                     <tr key={c.customer_id} className="border-t border-[var(--border-subtle)] hover:bg-[var(--bg-secondary)]">
                       <td className="px-3 py-2 font-mono font-medium">{c.customer_id}</td>
                       <td className="px-3 py-2">{c.segment}</td>
-                      <td className="px-3 py-2 font-medium">₹{c.clv.toLocaleString('en-IN')}</td>
+                      <td className="px-3 py-2 font-medium">{formatMoneyPlainAuto(c.clv)}</td>
                       <td className="px-3 py-2">{c.last_purchase}</td>
                       <td className={`px-3 py-2 font-medium ${c.days_since > 60 ? 'text-red-600' : 'text-amber-600'}`}>{c.days_since}d</td>
                       <td className="px-3 py-2">{fmtInr(c.lifetime_spend)}</td>

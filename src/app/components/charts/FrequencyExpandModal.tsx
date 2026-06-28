@@ -9,6 +9,7 @@ import {
 import { X, Download, TrendingUp, RefreshCw, Users, Clock, Globe, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { FrequencyData, FrequencyBucket, FrequencyMigrationFlow } from '@/app/lib/types';
+import { formatMoneyAuto, formatMoneyPlainAuto } from '@/app/lib/format-money';
 
 type TabId = 'distribution' | 'recency' | 'migration' | 'interval' | 'trends';
 
@@ -26,9 +27,7 @@ const MIGRATION_COLS = ['1x', '2-3x', '4-6x', '7-12x', '13-24x', '25-52x', '52x+
 const INTERVAL_COLORS = ['#15803d','#22c55e','#84cc16','#eab308','#f97316','#ef4444','#991b1b'];
 
 function fmtInr(n: number) {
-  if (n >= 10000000) return `₹${(n / 10000000).toFixed(1)}Cr`;
-  if (n >= 100000)   return `₹${(n / 100000).toFixed(1)}L`;
-  return `₹${n.toLocaleString('en-IN')}`;
+  return formatMoneyAuto(n);
 }
 
 function Insight({ text }: { text: string }) {
@@ -183,9 +182,9 @@ export default function FrequencyExpandModal({ data, onClose }: Props) {
                           <td className="px-3 py-2 text-[var(--text-secondary)]">{d.pct}%</td>
                           <td className="px-3 py-2">{fmtInr(d.revenue)}</td>
                           <td className="px-3 py-2 text-[var(--text-secondary)]">{d.pct_revenue}%</td>
-                          <td className="px-3 py-2">₹{d.avg_basket.toLocaleString('en-IN')}</td>
+                          <td className="px-3 py-2">{formatMoneyPlainAuto(d.avg_basket)}</td>
                           <td className={`px-3 py-2 font-semibold ${d.avg_clv >= 3000 ? 'text-blue-600' : d.avg_clv >= 1500 ? 'text-green-600' : 'text-[var(--text-secondary)]'}`}>
-                            ₹{d.avg_clv.toLocaleString('en-IN')}
+                            {formatMoneyPlainAuto(d.avg_clv)}
                           </td>
                         </tr>
                       ))}
@@ -343,7 +342,7 @@ export default function FrequencyExpandModal({ data, onClose }: Props) {
                         <td className="px-3 py-2">
                           <span className="font-semibold text-red-600">+{w.days_overdue}d</span>
                         </td>
-                        <td className="px-3 py-2 text-[var(--text-primary)]">₹{w.clv.toLocaleString('en-IN')}</td>
+                        <td className="px-3 py-2 text-[var(--text-primary)]">{formatMoneyPlainAuto(w.clv)}</td>
                         <td className="px-3 py-2">
                           <span className={`px-1.5 py-0.5 rounded text-[10px] font-semibold ${w.risk === 'high' ? 'bg-red-100 text-red-700' : 'bg-amber-100 text-amber-700'}`}>
                             {w.risk === 'high' ? 'High' : 'Med'}

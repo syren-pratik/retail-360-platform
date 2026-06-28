@@ -272,6 +272,7 @@ export function transformCustomerRecords(raw: unknown[]): CustomerRecord[] {
     geography: (r.geography || r.city || 'Unknown') as string,
     city: (r.city || r.geography || 'Unknown') as string,
     top_category: (r.top_category || 'Unknown') as string,
+    top_brand: (r.top_brand as string | undefined) ?? undefined,
   }));
 }
 

@@ -10,6 +10,7 @@ import { useDashboard } from '@/app/context/DashboardContext';
 import ChartWrapper from './ChartWrapper';
 import { AIInsightButton } from './ChartCard';
 import RevenueExpandModal from './RevenueExpandModal';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface RevenueBySegmentProps {
   data: RevenueBySegmentType[];
@@ -47,7 +48,7 @@ const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
     return (
       <div className="bg-white border border-[var(--border-default)] rounded-lg p-3 shadow-sm">
         <p className="font-medium text-sm mb-1">{d.segment}</p>
-        <p className="text-sm">₹{(d.revenue / 10_000_000).toFixed(1)} Cr</p>
+        <p className="text-sm">{formatMoneyAuto(d.revenue)}</p>
         <p className="text-sm text-[var(--text-secondary)]">{d.revenue_pct.toFixed(1)}% of total</p>
         <p className="text-sm text-[var(--text-secondary)]">{d.customers.toLocaleString('en-IN')} customers</p>
         <p className="text-xs text-[var(--accent-primary)] mt-1">Click to filter</p>
@@ -127,7 +128,7 @@ function RevenueBySegmentCard({ data, selectedSegment, isMounted, onBarClick, on
     paretoCount++;
     if (cumPct >= 80) break;
   }
-  const paretoInsight = `Top ${paretoCount} segment${paretoCount > 1 ? 's' : ''} (${sorted.slice(0, paretoCount).map(s => s.segment).join(', ')}) = ${cumPct.toFixed(0)}% of ₹${(totalRevenue / 10_000_000).toFixed(0)}Cr revenue`;
+  const paretoInsight = `Top ${paretoCount} segment${paretoCount > 1 ? 's' : ''} (${sorted.slice(0, paretoCount).map(s => s.segment).join(', ')}) = ${cumPct.toFixed(0)}% of ${formatMoneyAuto(totalRevenue)} revenue`;
 
   return (
     <div className="card h-full">
@@ -151,13 +152,13 @@ function RevenueBySegmentCard({ data, selectedSegment, isMounted, onBarClick, on
               <BarChart data={data} layout="vertical" margin={{ top: 5, right: 60, left: 0, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" horizontal={false} />
                 <XAxis type="number" tick={{ fontSize: 10, fill: 'var(--text-secondary)' }} tickLine={false}
-                  axisLine={{ stroke: 'var(--border-default)' }} tickFormatter={(v) => `₹${(v / 10_000_000).toFixed(0)}Cr`} />
+                  axisLine={{ stroke: 'var(--border-default)' }} tickFormatter={(v) => formatMoneyAuto(v)} />
                 <YAxis type="category" dataKey="segment" tick={{ fontSize: 10, fill: 'var(--text-secondary)' }}
                   tickLine={false} axisLine={false} width={80} />
                 <Tooltip content={<CustomTooltip />} />
                 <Bar dataKey="revenue" radius={[0, 4, 4, 0]} onClick={(_, index) => onBarClick(data[index])} cursor="pointer"
                   label={{ position: 'right', fontSize: 10, fill: 'var(--text-secondary)',
-                    formatter: (v: unknown) => `₹${((v as number) / 10_000_000).toFixed(0)}Cr` }}>
+                    formatter: (v: unknown) => formatMoneyAuto(v as number) }}>
                   {data.map((entry) => (
                     <Cell key={entry.segment} fill={getColor(entry.segment)}
                       opacity={selectedSegment && selectedSegment !== entry.segment ? 0.3 : 1} />

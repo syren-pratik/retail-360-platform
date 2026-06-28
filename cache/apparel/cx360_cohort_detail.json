@@ -1,0 +1,735 @@
+{
+  "summary": {
+    "weighted_avg_m1": 42.4,
+    "weighted_avg_m6": 17.2,
+    "weighted_avg_m12": 8.4,
+    "best_cohort": {
+      "month": "Aug 2025",
+      "m6_retention": 22.4
+    },
+    "worst_cohort": {
+      "month": "Mar 2025",
+      "m6_retention": 12.1
+    },
+    "m1_trend_mom": 1.2,
+    "pct_cohorts_hitting_target": 42,
+    "target_m6": 20,
+    "avg_payback_months": 5.4
+  },
+  "retention_heatmap": [
+    {
+      "cohort": "Jan 2025",
+      "size": 4757,
+      "m0": 100,
+      "m1": 42,
+      "m2": 35,
+      "m3": 35,
+      "m4": 35,
+      "m5": 30,
+      "m6": 32,
+      "m7": 23,
+      "m8": 20,
+      "m9": 18,
+      "m10": 19,
+      "m11": 14
+    },
+    {
+      "cohort": "Feb 2025",
+      "size": 5233,
+      "m0": 100,
+      "m1": 40,
+      "m2": 36,
+      "m3": 34,
+      "m4": 32,
+      "m5": 30,
+      "m6": 25,
+      "m7": 23,
+      "m8": 21,
+      "m9": 14,
+      "m10": 15,
+      "m11": 11
+    },
+    {
+      "cohort": "Mar 2025",
+      "size": 4565,
+      "m0": 100,
+      "m1": 39,
+      "m2": 38,
+      "m3": 37,
+      "m4": 32,
+      "m5": 26,
+      "m6": 28,
+      "m7": 22,
+      "m8": 20,
+      "m9": 20,
+      "m10": 17,
+      "m11": 12
+    },
+    {
+      "cohort": "Apr 2025",
+      "size": 3966,
+      "m0": 100,
+      "m1": 40,
+      "m2": 34,
+      "m3": 35,
+      "m4": 31,
+      "m5": 31,
+      "m6": 25,
+      "m7": 23,
+      "m8": 21,
+      "m9": 20,
+      "m10": 14,
+      "m11": 13
+    },
+    {
+      "cohort": "May 2025",
+      "size": 4771,
+      "m0": 100,
+      "m1": 40,
+      "m2": 40,
+      "m3": 37,
+      "m4": 29,
+      "m5": 31,
+      "m6": 26,
+      "m7": 25,
+      "m8": 22,
+      "m9": 21,
+      "m10": 11,
+      "m11": 13
+    },
+    {
+      "cohort": "Jun 2025",
+      "size": 4328,
+      "m0": 100,
+      "m1": 41,
+      "m2": 36,
+      "m3": 36,
+      "m4": 30,
+      "m5": 27,
+      "m6": 24,
+      "m7": 26,
+      "m8": 17,
+      "m9": 21,
+      "m10": 17,
+      "m11": 10
+    },
+    {
+      "cohort": "Jul 2025",
+      "size": 5128,
+      "m0": 100,
+      "m1": 43,
+      "m2": 36,
+      "m3": 33,
+      "m4": 31,
+      "m5": 33,
+      "m6": 25,
+      "m7": 25,
+      "m8": 20,
+      "m9": 19,
+      "m10": 19,
+      "m11": 15
+    },
+    {
+      "cohort": "Aug 2025",
+      "size": 4223,
+      "m0": 100,
+      "m1": 37,
+      "m2": 34,
+      "m3": 34,
+      "m4": 32,
+      "m5": 30,
+      "m6": 27,
+      "m7": 21,
+      "m8": 22,
+      "m9": 16,
+      "m10": 14,
+      "m11": 18
+    },
+    {
+      "cohort": "Sep 2025",
+      "size": 4632,
+      "m0": 100,
+      "m1": 43,
+      "m2": 36,
+      "m3": 33,
+      "m4": 29,
+      "m5": 28,
+      "m6": 27,
+      "m7": 26,
+      "m8": 17,
+      "m9": 19,
+      "m10": 15,
+      "m11": 14
+    },
+    {
+      "cohort": "Oct 2025",
+      "size": 4724,
+      "m0": 100,
+      "m1": 37,
+      "m2": 37,
+      "m3": 31,
+      "m4": 30,
+      "m5": 28,
+      "m6": 23,
+      "m7": 24,
+      "m8": 22,
+      "m9": 20,
+      "m10": 18,
+      "m11": 12
+    },
+    {
+      "cohort": "Nov 2025",
+      "size": 3899,
+      "m0": 100,
+      "m1": 42,
+      "m2": 32,
+      "m3": 30,
+      "m4": 30,
+      "m5": 29,
+      "m6": 30,
+      "m7": 24,
+      "m8": 23,
+      "m9": 18,
+      "m10": 15,
+      "m11": 16
+    },
+    {
+      "cohort": "Dec 2025",
+      "size": 4447,
+      "m0": 100,
+      "m1": 40,
+      "m2": 40,
+      "m3": 33,
+      "m4": 30,
+      "m5": 28,
+      "m6": 27,
+      "m7": 27,
+      "m8": 23,
+      "m9": 20,
+      "m10": 16,
+      "m11": 12
+    }
+  ],
+  "revenue_retention": [
+    {
+      "cohort": "Jan 2025",
+      "size_revenue": 3394950,
+      "m0": 100,
+      "m1": 56,
+      "m2": 57,
+      "m3": 49,
+      "m4": 48,
+      "m5": 47,
+      "m6": 47,
+      "m7": 44,
+      "m8": 37,
+      "m9": 37,
+      "m10": 36,
+      "m11": 30
+    },
+    {
+      "cohort": "Feb 2025",
+      "size_revenue": 3414647,
+      "m0": 100,
+      "m1": 57,
+      "m2": 58,
+      "m3": 54,
+      "m4": 55,
+      "m5": 49,
+      "m6": 45,
+      "m7": 47,
+      "m8": 39,
+      "m9": 37,
+      "m10": 37,
+      "m11": 35
+    },
+    {
+      "cohort": "Mar 2025",
+      "size_revenue": 3169138,
+      "m0": 100,
+      "m1": 55,
+      "m2": 55,
+      "m3": 52,
+      "m4": 54,
+      "m5": 48,
+      "m6": 45,
+      "m7": 41,
+      "m8": 39,
+      "m9": 41,
+      "m10": 32,
+      "m11": 32
+    },
+    {
+      "cohort": "Apr 2025",
+      "size_revenue": 2013115,
+      "m0": 100,
+      "m1": 57,
+      "m2": 49,
+      "m3": 53,
+      "m4": 52,
+      "m5": 48,
+      "m6": 47,
+      "m7": 43,
+      "m8": 42,
+      "m9": 41,
+      "m10": 35,
+      "m11": 34
+    },
+    {
+      "cohort": "May 2025",
+      "size_revenue": 2198048,
+      "m0": 100,
+      "m1": 58,
+      "m2": 57,
+      "m3": 54,
+      "m4": 51,
+      "m5": 49,
+      "m6": 46,
+      "m7": 44,
+      "m8": 40,
+      "m9": 37,
+      "m10": 35,
+      "m11": 34
+    },
+    {
+      "cohort": "Jun 2025",
+      "size_revenue": 2083916,
+      "m0": 100,
+      "m1": 57,
+      "m2": 58,
+      "m3": 48,
+      "m4": 49,
+      "m5": 47,
+      "m6": 49,
+      "m7": 43,
+      "m8": 44,
+      "m9": 40,
+      "m10": 37,
+      "m11": 28
+    }
+  ],
+  "cohort_quality": [
+    {
+      "cohort": "Jan 2025",
+      "size": 4557,
+      "paid_pct": 28,
+      "organic_pct": 37,
+      "referral_pct": 21,
+      "avg_cac": 72,
+      "first_aov": 88,
+      "campaign": "Black Friday",
+      "shape": "plateau"
+    },
+    {
+      "cohort": "Feb 2025",
+      "size": 4081,
+      "paid_pct": 22,
+      "organic_pct": 31,
+      "referral_pct": 17,
+      "avg_cac": 28,
+      "first_aov": 77,
+      "campaign": "Memorial Day",
+      "shape": "plateau"
+    },
+    {
+      "cohort": "Mar 2025",
+      "size": 4674,
+      "paid_pct": 31,
+      "organic_pct": 30,
+      "referral_pct": 12,
+      "avg_cac": 58,
+      "first_aov": 103,
+      "campaign": "Black Friday",
+      "shape": "cliff"
+    },
+    {
+      "cohort": "Apr 2025",
+      "size": 3991,
+      "paid_pct": 30,
+      "organic_pct": 24,
+      "referral_pct": 20,
+      "avg_cac": 90,
+      "first_aov": 80,
+      "campaign": "Spring Drop",
+      "shape": "smile"
+    },
+    {
+      "cohort": "May 2025",
+      "size": 4273,
+      "paid_pct": 32,
+      "organic_pct": 36,
+      "referral_pct": 18,
+      "avg_cac": 48,
+      "first_aov": 134,
+      "campaign": "Holiday Hub",
+      "shape": "smile"
+    },
+    {
+      "cohort": "Jun 2025",
+      "size": 4311,
+      "paid_pct": 32,
+      "organic_pct": 36,
+      "referral_pct": 21,
+      "avg_cac": 87,
+      "first_aov": 133,
+      "campaign": "Holiday Hub",
+      "shape": "slow_bleed"
+    },
+    {
+      "cohort": "Jul 2025",
+      "size": 4164,
+      "paid_pct": 40,
+      "organic_pct": 31,
+      "referral_pct": 13,
+      "avg_cac": 52,
+      "first_aov": 92,
+      "campaign": "Black Friday",
+      "shape": "slow_bleed"
+    },
+    {
+      "cohort": "Aug 2025",
+      "size": 4665,
+      "paid_pct": 23,
+      "organic_pct": 36,
+      "referral_pct": 20,
+      "avg_cac": 58,
+      "first_aov": 115,
+      "campaign": "Spring Drop",
+      "shape": "cliff"
+    },
+    {
+      "cohort": "Sep 2025",
+      "size": 3929,
+      "paid_pct": 36,
+      "organic_pct": 31,
+      "referral_pct": 16,
+      "avg_cac": 58,
+      "first_aov": 75,
+      "campaign": "Spring Drop",
+      "shape": "smile"
+    },
+    {
+      "cohort": "Oct 2025",
+      "size": 4139,
+      "paid_pct": 41,
+      "organic_pct": 38,
+      "referral_pct": 12,
+      "avg_cac": 52,
+      "first_aov": 78,
+      "campaign": "Holiday Hub",
+      "shape": "plateau"
+    },
+    {
+      "cohort": "Nov 2025",
+      "size": 4448,
+      "paid_pct": 29,
+      "organic_pct": 31,
+      "referral_pct": 13,
+      "avg_cac": 80,
+      "first_aov": 83,
+      "campaign": "Spring Drop",
+      "shape": "slow_bleed"
+    },
+    {
+      "cohort": "Dec 2025",
+      "size": 4066,
+      "paid_pct": 48,
+      "organic_pct": 24,
+      "referral_pct": 20,
+      "avg_cac": 37,
+      "first_aov": 122,
+      "campaign": "Black Friday",
+      "shape": "smile"
+    }
+  ],
+  "by_channel": {
+    "Paid": [
+      {
+        "cohort": "Jan 2025",
+        "m1": 46,
+        "m3": 21,
+        "m6": 17
+      },
+      {
+        "cohort": "Feb 2025",
+        "m1": 37,
+        "m3": 21,
+        "m6": 14
+      },
+      {
+        "cohort": "Mar 2025",
+        "m1": 46,
+        "m3": 22,
+        "m6": 14
+      },
+      {
+        "cohort": "Apr 2025",
+        "m1": 38,
+        "m3": 22,
+        "m6": 16
+      },
+      {
+        "cohort": "May 2025",
+        "m1": 44,
+        "m3": 26,
+        "m6": 16
+      },
+      {
+        "cohort": "Jun 2025",
+        "m1": 38,
+        "m3": 28,
+        "m6": 16
+      }
+    ],
+    "Organic": [
+      {
+        "cohort": "Jan 2025",
+        "m1": 60,
+        "m3": 31,
+        "m6": 26
+      },
+      {
+        "cohort": "Feb 2025",
+        "m1": 55,
+        "m3": 37,
+        "m6": 22
+      },
+      {
+        "cohort": "Mar 2025",
+        "m1": 47,
+        "m3": 35,
+        "m6": 26
+      },
+      {
+        "cohort": "Apr 2025",
+        "m1": 53,
+        "m3": 38,
+        "m6": 20
+      },
+      {
+        "cohort": "May 2025",
+        "m1": 49,
+        "m3": 33,
+        "m6": 19
+      },
+      {
+        "cohort": "Jun 2025",
+        "m1": 51,
+        "m3": 33,
+        "m6": 20
+      }
+    ],
+    "Referral": [
+      {
+        "cohort": "Jan 2025",
+        "m1": 70,
+        "m3": 41,
+        "m6": 34
+      },
+      {
+        "cohort": "Feb 2025",
+        "m1": 59,
+        "m3": 41,
+        "m6": 31
+      },
+      {
+        "cohort": "Mar 2025",
+        "m1": 67,
+        "m3": 39,
+        "m6": 31
+      },
+      {
+        "cohort": "Apr 2025",
+        "m1": 70,
+        "m3": 45,
+        "m6": 30
+      },
+      {
+        "cohort": "May 2025",
+        "m1": 60,
+        "m3": 38,
+        "m6": 36
+      },
+      {
+        "cohort": "Jun 2025",
+        "m1": 69,
+        "m3": 42,
+        "m6": 36
+      }
+    ]
+  },
+  "cumulative_revenue": [
+    {
+      "cohort": "Jan 2025",
+      "m0": 2439365,
+      "m3": 3902984,
+      "m6": 5366603,
+      "m9": 6342349,
+      "m11": 7074159,
+      "cac_payback_month": 5,
+      "cohort_cac_total": 439086
+    },
+    {
+      "cohort": "Feb 2025",
+      "m0": 2966563,
+      "m3": 4746501,
+      "m6": 6526439,
+      "m9": 7713064,
+      "m11": 8603033,
+      "cac_payback_month": 5,
+      "cohort_cac_total": 533981
+    },
+    {
+      "cohort": "Mar 2025",
+      "m0": 2650623,
+      "m3": 4240997,
+      "m6": 5831371,
+      "m9": 6891620,
+      "m11": 7686807,
+      "cac_payback_month": 5,
+      "cohort_cac_total": 477112
+    },
+    {
+      "cohort": "Apr 2025",
+      "m0": 3081911,
+      "m3": 4931058,
+      "m6": 6780204,
+      "m9": 8012969,
+      "m11": 8937542,
+      "cac_payback_month": 2,
+      "cohort_cac_total": 554744
+    },
+    {
+      "cohort": "May 2025",
+      "m0": 3355679,
+      "m3": 5369086,
+      "m6": 7382494,
+      "m9": 8724765,
+      "m11": 9731469,
+      "cac_payback_month": 6,
+      "cohort_cac_total": 604022
+    },
+    {
+      "cohort": "Jun 2025",
+      "m0": 3018380,
+      "m3": 4829408,
+      "m6": 6640436,
+      "m9": 7847788,
+      "m11": 8753302,
+      "cac_payback_month": 2,
+      "cohort_cac_total": 543308
+    }
+  ],
+  "curve_shapes": {
+    "Jan 2025": {
+      "shape": "slow_bleed",
+      "description": "Linear decline — no retention hook after first season",
+      "action": "Introduce wardrobe-builder bundle nudges"
+    },
+    "Feb 2025": {
+      "shape": "smile",
+      "description": "Drops then recovers at M6 — BTS re-engagement trigger",
+      "action": "Replicate the M5→M6 BTS push to all cohorts"
+    },
+    "Apr 2025": {
+      "shape": "cliff",
+      "description": "Sharp drop at M1 — markdown-acquired one-off buyers",
+      "action": "Reduce first-order discount eligibility"
+    },
+    "Jun 2025": {
+      "shape": "plateau",
+      "description": "Flattens at ~28% by M3 — strong PMF from referral-heavy cohort",
+      "action": "Scale referral programme"
+    },
+    "Sep 2025": {
+      "shape": "plateau",
+      "description": "Organic cohort plateau — high engagement from first touch",
+      "action": "Double organic budget"
+    }
+  },
+  "leading_indicator": {
+    "m1_predicts_m12_r2": 0.82,
+    "predictions": [
+      {
+        "cohort": "Oct 2025",
+        "m1_actual": 38,
+        "m12_predicted": 7.2,
+        "m12_target": 8.5,
+        "status": "at_risk"
+      },
+      {
+        "cohort": "Nov 2025",
+        "m1_actual": 44,
+        "m12_predicted": 9.4,
+        "m12_target": 8.5,
+        "status": "on_track"
+      },
+      {
+        "cohort": "Dec 2025",
+        "m1_actual": 41,
+        "m12_predicted": 8.6,
+        "m12_target": 8.5,
+        "status": "on_track"
+      }
+    ],
+    "historical_scatter": [
+      {
+        "cohort": "Jan 2025",
+        "m1": 48,
+        "m12": 10,
+        "predicted": false
+      },
+      {
+        "cohort": "Feb 2025",
+        "m1": 46,
+        "m12": 7,
+        "predicted": false
+      },
+      {
+        "cohort": "Mar 2025",
+        "m1": 38,
+        "m12": 11,
+        "predicted": false
+      },
+      {
+        "cohort": "Apr 2025",
+        "m1": 35,
+        "m12": 7,
+        "predicted": false
+      },
+      {
+        "cohort": "May 2025",
+        "m1": 34,
+        "m12": 12,
+        "predicted": false
+      },
+      {
+        "cohort": "Jun 2025",
+        "m1": 45,
+        "m12": 11,
+        "predicted": false
+      },
+      {
+        "cohort": "Jul 2025",
+        "m1": 37,
+        "m12": 11,
+        "predicted": false
+      },
+      {
+        "cohort": "Aug 2025",
+        "m1": 48,
+        "m12": 7,
+        "predicted": false
+      }
+    ],
+    "insight": "M1 retention explains 82% of variance in M12. Oct 2025 cohort at-risk — projected to miss M12 target by 1.3pp."
+  },
+  "insights": [
+    "Apr 2025 cohort is your worst — 48% paid acquisition with markdown discounting acquired one-off buyers.",
+    "Referral cohorts retain at 2.4× the rate of paid — scale the referral programme aggressively.",
+    "M1 retention is the canary — invest in onboarding (welcome email series, app install, wardrobe quiz).",
+    "BTS cohorts (Aug) consistently outperform — kids segment drives sticky family-loyalty patterns.",
+    "Holiday cohorts (Nov-Dec) front-load full-price purchases — set expectations early to avoid markdown dependency.",
+    "Plateau-shape cohorts (Sep, organic) have 3.2× LTV vs cliff-shape cohorts (Apr, paid markdown)."
+  ]
+}

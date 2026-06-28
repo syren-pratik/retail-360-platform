@@ -36,6 +36,7 @@ import { CustomerDetail } from '@/app/lib/generate-customer-detail';
 import { useNextBestAction, CustomerData } from '@/app/hooks/useNextBestAction';
 import NextBestAction from '@/app/components/customer/NextBestAction';
 import ActionHistory from '@/app/components/customer/ActionHistory';
+import { useFormatMoney, useFormatMoneyPlain } from '@/app/lib/format-money';
 
 interface CustomerDetailContentProps {
   customer: CustomerDetail;
@@ -71,15 +72,13 @@ const channelColors: Record<string, string> = {
 
 const CATEGORY_COLORS = ['#6366F1', '#3B82F6', '#10B981', '#F59E0B', '#EF4444'];
 
-const formatCurrency = (value: number) => {
-  return `₹${value.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`;
-};
-
 const formatPercent = (value: number) => {
   return `${(value * 100).toFixed(1)}%`;
 };
 
 export default function CustomerDetailContent({ customer }: CustomerDetailContentProps) {
+  const formatCurrency = useFormatMoneyPlain();
+  const fmtMoney = useFormatMoney();
   const [isWatchListed, setIsWatchListed] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
@@ -269,7 +268,7 @@ export default function CustomerDetailContent({ customer }: CustomerDetailConten
                     tick={{ fontSize: 11, fill: 'var(--text-secondary)' }}
                     tickLine={false}
                     axisLine={false}
-                    tickFormatter={(v) => `₹${(v / 1000).toFixed(0)}K`}
+                    tickFormatter={(v) => fmtMoney(v)}
                   />
                   <Tooltip
                     content={({ active, payload }) => {
@@ -318,7 +317,7 @@ export default function CustomerDetailContent({ customer }: CustomerDetailConten
                     tick={{ fontSize: 11, fill: 'var(--text-secondary)' }}
                     tickLine={false}
                     axisLine={false}
-                    tickFormatter={(v) => `₹${(v / 1000).toFixed(0)}K`}
+                    tickFormatter={(v) => fmtMoney(v)}
                   />
                   <YAxis
                     type="category"

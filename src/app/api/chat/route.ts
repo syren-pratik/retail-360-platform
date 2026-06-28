@@ -5,6 +5,18 @@ import { promises as fsp } from 'fs';
 import path from 'path';
 import { dispatchTypedTool, type TypedToolName } from '@/app/lib/dbx-tools';
 import { catalogForModule } from '@/app/lib/dbx-catalog';
+import { TENANT_COOKIE, type Tenant } from '@/app/lib/tenant-constants';
+
+// Parse the rct_tenant cookie out of a raw Cookie header. We read the cookie
+// directly off the request (not next/headers) because this route is invoked
+// outside a typical RSC scope when streaming, and cookies() has burned us
+// before in that mode.
+function getTenantFromRequest(request: NextRequest): Tenant {
+  const cookieHeader = request.headers.get('cookie') ?? '';
+  const match = cookieHeader.split(/;\s*/).find((c) => c.startsWith(`${TENANT_COOKIE}=`));
+  const value = match?.split('=')[1];
+  return value === 'us_apparel' ? 'us_apparel' : 'india_grocery';
+}
 
 // Initialize Anthropic client - supports both direct Anthropic and Azure AI Foundry
 let anthropic: Anthropic | null = null;
@@ -383,7 +395,84 @@ function getSchemaForModule(module: string): string {
 `;
 }
 
-function getAgentSystemPrompt(module: string): string {
+function getApparelCx360SystemPrompt(): string {
+  return `You are an AI customer analytics LEAD for a US omnichannel apparel retailer (think Nike / Levi's / Lululemon scale — 50 stores, full DTC site, mobile app, loyalty program).
+You don't just answer questions — you TAKE ACTIONS on the dashboard using your available tools.
+
+## Domain framing — apparel, US, USD
+
+- ALL currency in $ (USD). NEVER use ₹, INR, lakhs, or crores.
+- Holidays that matter: BFCM (Black Friday / Cyber Monday), Memorial Day, Back-to-School, Labor Day, July 4th, Valentine's Day, Mother's / Father's Day.
+- Apparel-specific KPIs to reach for: size-curve sell-through, color performance, returns by reason (size wrong / fit wrong / color mismatch / quality / changed mind / damaged), brand affinity score, style velocity, full-price vs markdown share, AUR (average unit retail).
+- Customer segments are apparel-flavored: Style Leader, Fashion Forward, Casual, Value Shopper, Markdown Hunter, Athleisure Loyalist, Workwear Pragmatist, Occasional Refresher.
+- Brands the catalogue carries: Nike, Levi's, Lululemon, Adidas, Madewell, Gap, Old Navy, H&M, Zara, Banana Republic, New Balance, Under Armour.
+- Channels: Mobile App, Web, In-Store, Click-and-Collect, Wholesale.
+- Geographies are US metros: NYC, Boston, Chicago, LA, SF, Dallas, Atlanta, Miami, Seattle, Denver, etc.
+
+NEVER use Indian-grocery vocabulary in this mode: no Diwali, no Monsoon, no Tier-2 cities, no ₹, no "lakhs/crores", no Mumbai/Bangalore.
+
+## Your Capabilities (Tools)
+
+LIVE TOOLS (prefer typed):
+0. **cx_lookup** — Customer 360 (segments, churn risk, CLV, cohorts, single customer).
+1. **inventory_status** — Inventory health, stockouts, replenishment, overstock, per-SKU.
+2. **demand_lookup** — Sales rollup, top movers, ML forecasts, seasonal/holiday uplift, SKU trends.
+3. **supplier_health** — Vendor scorecard, underperformers, cost-change events.
+4. **price_intel_lookup** — Pricing recs, elasticity, competitive gaps, promo effectiveness.
+
+FALLBACKS:
+5. **query_data** — Raw SQL escape hatch (fully-qualified table names, LIMIT 500).
+6. **get_dashboard_data** — Precomputed JSON snapshots that match what's on screen RIGHT NOW. Use this for anything on the CX360 dashboard.
+
+ACTION TOOLS:
+7. **propose_chart_options** — Propose 2-3 chart options for the user to choose from
+8. **render_selected_chart** — Render the chart the user selected
+9. **pin_to_dashboard** — Add a chart to the main dashboard
+10. **create_segment** — Build and save a customer segment
+11. **set_alert** — Create a monitoring rule
+12. **run_nba** — Generate next-best-actions
+13. **export_data** — Generate a downloadable CSV
+14. **apply_dashboard_filter** — Change the dashboard's active filters
+
+## Chart Creation Protocol — MANDATORY
+
+NEVER directly render a chart. ALWAYS propose options first (2-3, genuinely different perspectives).
+Format numbers nicely: $ for money, 1 decimal for %.
+
+## Few-shot examples (apparel framing)
+
+Q: Which customer segment has the highest churn risk?
+A: Pulled the segment summary. Markdown Hunter has the highest 90-day churn at 34.2% (4,180 customers, ~$1.2M CLV at risk). They only convert on >30% discount and lapse the moment full-price kicks back in. Value Shopper is next at 28.7%. Style Leader and Athleisure Loyalist are the stickiest at ~8% — Lululemon and Nike affinity drives repeat behavior.
+
+Q: What's our return rate and what's driving it?
+A: Blended return rate is 24.3% — at the high end of US apparel benchmarks (typical 20–25%). Top reason is "size wrong" at 41% of returns, concentrated in Denim (32% return rate) and Activewear Bottom (28%). Recommend: push the fit-quiz on PDP for those two categories before BFCM.
+
+Q: Which brand has the strongest affinity in our Style Leader segment?
+A: Lululemon — 62% of Style Leaders bought Lululemon at least 3x in the last 12 months, with avg basket of $187. Madewell is second at 41%. Gap and Old Navy index very low in this segment, as expected.
+
+Q: Set up an alert for BFCM full-price erosion.
+A: Created alert "BFCM Full-Price Share". Triggers when full-price revenue share drops below 35% of daily revenue during Nov 24 – Dec 1. Frequency: daily check.
+
+## Live Catalog (relevant tables for this module)
+
+${catalogForModule('cx360')}
+
+## Rules
+- Numbers come from tool calls — never from memory.
+- Always use fully qualified table names: hive_metastore.schema.table.
+- LIMIT SQL results to 500 rows max.
+- Use $ for all currency (USD), formatted en-US (e.g. $1,234,567).
+- Be specific with numbers — never vague.
+- Frame everything in US apparel context — brands, segments, holidays, return reasons.
+- When proposing charts, make options genuinely different (not 3 variations of the same chart).
+- ALWAYS provide a short text summary along with any tool actions.
+`;
+}
+
+function getAgentSystemPrompt(module: string, tenant: Tenant = 'india_grocery'): string {
+  if (module === 'cx360' && tenant === 'us_apparel') {
+    return getApparelCx360SystemPrompt();
+  }
   return `You are an AI analytics AGENT for a retail CX360/Demand dashboard (Indian retail company).
 You don't just answer questions — you TAKE ACTIONS on the dashboard using your available tools.
 
@@ -560,7 +649,10 @@ function truncateArrays(value: unknown, maxItems = 40): unknown {
   return value;
 }
 
-async function executeDashboardDataTool(input: { dataset: string; section?: string }): Promise<Record<string, unknown>> {
+async function executeDashboardDataTool(
+  input: { dataset: string; section?: string },
+  tenant: Tenant = 'india_grocery',
+): Promise<Record<string, unknown>> {
   try {
     const dataset = String(input.dataset || '').toLowerCase().replace(/\.json$/, '');
 
@@ -577,9 +669,22 @@ async function executeDashboardDataTool(input: { dataset: string; section?: stri
     }
 
     const isCore = dataset === 'price_intel_core' || dataset === 'merch_demand_core';
-    const filePath = isCore
-      ? path.join(CACHE_ROOT, dataset.replace('_core', ''), 'core.json')
-      : path.join(CACHE_ROOT, `${dataset}.json`);
+    // Tenant-aware path resolution: for plain cx360_*.json files, prefer the
+    // apparel mirror under cache/apparel/ when tenant=us_apparel.
+    let filePath: string;
+    if (isCore) {
+      filePath = path.join(CACHE_ROOT, dataset.replace('_core', ''), 'core.json');
+    } else if (tenant === 'us_apparel') {
+      const apparelPath = path.join(CACHE_ROOT, 'apparel', `${dataset}.json`);
+      try {
+        await fsp.access(apparelPath);
+        filePath = apparelPath;
+      } catch {
+        filePath = path.join(CACHE_ROOT, `${dataset}.json`);
+      }
+    } else {
+      filePath = path.join(CACHE_ROOT, `${dataset}.json`);
+    }
 
     const raw = JSON.parse(await fsp.readFile(filePath, 'utf-8')) as Record<string, unknown>;
 
@@ -610,7 +715,11 @@ async function executeDashboardDataTool(input: { dataset: string; section?: stri
   }
 }
 
-async function executeTool(toolName: string, input: Record<string, unknown>): Promise<Record<string, unknown>> {
+async function executeTool(
+  toolName: string,
+  input: Record<string, unknown>,
+  tenant: Tenant = 'india_grocery',
+): Promise<Record<string, unknown>> {
   switch (toolName) {
     case 'cx_lookup':
     case 'inventory_status':
@@ -621,7 +730,7 @@ async function executeTool(toolName: string, input: Record<string, unknown>): Pr
       return result as unknown as Record<string, unknown>;
     }
     case 'get_dashboard_data':
-      return await executeDashboardDataTool(input as { dataset: string; section?: string });
+      return await executeDashboardDataTool(input as { dataset: string; section?: string }, tenant);
     case 'query_data':
       return await executeQueryTool(input as { sql: string; explanation: string });
     case 'propose_chart_options':
@@ -1275,6 +1384,10 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Message is required' }, { status: 400 });
   }
 
+  // Tenant comes off the cookie (set by Settings → Region toggle). Drives
+  // apparel-vs-grocery system prompt + cache file resolution for get_dashboard_data.
+  const tenant = getTenantFromRequest(request);
+
   // Only stream when the client opted in via Accept: text/event-stream.
   // JSON callers (Scenario Simulator, future integrations) get the final payload as plain JSON.
   const wantsStream = (request.headers.get('accept') ?? '').includes('text/event-stream');
@@ -1314,7 +1427,7 @@ export async function POST(request: NextRequest) {
         let response = await anthropic.messages.create({
           model: modelName,
           max_tokens: 4096,
-          system: getAgentSystemPrompt(currentModule),
+          system: getAgentSystemPrompt(currentModule, tenant),
           tools: TOOLS,
           messages,
         });
@@ -1348,7 +1461,7 @@ export async function POST(request: NextRequest) {
             const input = toolUse.input as Record<string, unknown>;
             send({ type: 'tool_start', tool: toolUse.name, label: toolStartLabel(toolUse.name, input) });
 
-            const result = await executeTool(toolUse.name, input);
+            const result = await executeTool(toolUse.name, input, tenant);
 
             send({ type: 'tool_end', tool: toolUse.name, ok: result.success !== false, summary: toolEndSummary(result) });
 
@@ -1380,7 +1493,7 @@ export async function POST(request: NextRequest) {
             response = await anthropic.messages.create({
               model: modelName,
               max_tokens: 4096,
-              system: getAgentSystemPrompt(currentModule),
+              system: getAgentSystemPrompt(currentModule, tenant),
               tools: TOOLS,
               messages,
             });

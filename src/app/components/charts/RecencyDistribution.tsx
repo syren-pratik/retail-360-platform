@@ -13,6 +13,7 @@ import {
 } from 'recharts';
 import { Maximize2 } from 'lucide-react';
 import { DistributionBucket } from '@/app/lib/types';
+import { getLocaleAuto } from '@/app/lib/format-money';
 import { useDashboard } from '@/app/context/DashboardContext';
 import ChartWrapper from './ChartWrapper';
 import ChartExpandModal from './ChartExpandModal';
@@ -49,7 +50,7 @@ const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
       <div className="bg-white border border-[var(--border-default)] rounded-lg p-3 shadow-sm">
         <p className="font-medium text-sm mb-1">{data.range}</p>
         <p className="text-sm">
-          Customers: <span className="font-medium">{data.count.toLocaleString('en-IN')}</span>
+          Customers: <span className="font-medium">{data.count.toLocaleString(getLocaleAuto())}</span>
         </p>
         <p className="text-sm text-[var(--text-secondary)]">
           {data.pct.toFixed(1)}% of total
@@ -161,7 +162,7 @@ export default function RecencyDistribution({ data, summary }: RecencyDistributi
           rawData={tableData}
           columns={[
             { key: 'range', label: 'Recency Range' },
-            { key: 'customers', label: 'Customers', format: (v) => (v as number).toLocaleString('en-IN') },
+            { key: 'customers', label: 'Customers', format: (v) => (v as number).toLocaleString(getLocaleAuto()) },
             { key: 'percentage', label: 'Percentage' },
           ]}
         >

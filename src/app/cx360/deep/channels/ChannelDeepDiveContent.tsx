@@ -9,6 +9,7 @@ import {
   BarChart, Bar, LineChart, Line, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, ReferenceLine,
 } from 'recharts';
+import { useFormatMoney, useLocale, formatMoneyAuto } from '@/app/lib/format-money';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -64,9 +65,7 @@ const DATE_OPTIONS = ['30d', '90d', 'YTD', '12m'];
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function formatINR(val: number) {
-  if (val >= 10000000) return `₹${(val / 10000000).toFixed(1)} Cr`;
-  if (val >= 100000) return `₹${(val / 100000).toFixed(1)} L`;
-  return `₹${val.toLocaleString('en-IN')}`;
+  return formatMoneyAuto(val);
 }
 
 function SectionHeader({ n, title, subtitle }: { n: number; title: string; subtitle: string }) {
@@ -99,6 +98,8 @@ function Insight({ children }: { children: React.ReactNode }) {
 
 export default function ChannelDeepDiveContent({ data }: { data: unknown }) {
   const d = data as ChannelDeepData;
+  const fmtMoney = useFormatMoney();
+  const locale = useLocale();
   const [isMounted, setIsMounted] = useState(false);
   const [selectedDateRange, setSelectedDateRange] = useState('YTD');
   const [highlightChannel, setHighlightChannel] = useState<string | null>(null);
@@ -184,7 +185,7 @@ export default function ChannelDeepDiveContent({ data }: { data: unknown }) {
         <div>
           <h1 className="text-xl font-semibold text-[var(--text-primary)]">Channel Performance — Deep Dive</h1>
           <p className="text-sm text-[var(--text-secondary)] mt-1">
-            Comprehensive acquisition, cost, quality & geographic analysis · {kpis.total_acquired.toLocaleString('en-IN')} total customers
+            Comprehensive acquisition, cost, quality & geographic analysis · {kpis.total_acquired.toLocaleString(locale)} total customers
           </p>
         </div>
 
@@ -197,11 +198,11 @@ export default function ChannelDeepDiveContent({ data }: { data: unknown }) {
           {/* KPI Strip */}
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
             {[
-              { label: 'Total Acquired', value: kpis.total_acquired.toLocaleString('en-IN'), color: 'text-[var(--text-primary)]' },
+              { label: 'Total Acquired', value: kpis.total_acquired.toLocaleString(locale), color: 'text-[var(--text-primary)]' },
               { label: 'Online Share', value: `${kpis.online_pct}%`, color: 'text-blue-600' },
               { label: 'Offline Share', value: `${kpis.offline_pct}%`, color: 'text-gray-600' },
               { label: 'Omnichannel', value: `${kpis.omni_pct}%`, color: 'text-purple-600' },
-              { label: 'Blended CAC', value: `₹${kpis.blended_cac}`, color: 'text-[var(--text-primary)]' },
+              { label: 'Blended CAC', value: fmtMoney(kpis.blended_cac), color: 'text-[var(--text-primary)]' },
               { label: 'YoY Growth', value: `+${kpis.growth_rate}%`, color: 'text-[var(--positive)]' },
             ].map(kpi => (
               <div key={kpi.label} className="card py-3 px-4">
@@ -241,7 +242,7 @@ export default function ChannelDeepDiveContent({ data }: { data: unknown }) {
                         ))}
                       </Pie>
                       <Tooltip
-                        formatter={(val: unknown) => [(val as number).toLocaleString('en-IN'), 'Customers']}
+                        formatter={(val: unknown) => [(val as number).toLocaleString(locale), 'Customers']}
                       />
                       <Legend wrapperStyle={{ fontSize: '11px', paddingTop: '8px' }} />
                     </PieChart>
@@ -307,9 +308,9 @@ export default function ChannelDeepDiveContent({ data }: { data: unknown }) {
                       margin={{ top: 5, right: 30, left: 10, bottom: 5 }}
                     >
                       <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" horizontal={false} />
-                      <XAxis type="number" tick={{ fontSize: 10, fill: 'var(--text-secondary)' }} tickLine={false} tickFormatter={v => `₹${v}`} />
+                      <XAxis type="number" tick={{ fontSize: 10, fill: 'var(--text-secondary)' }} tickLine={false} tickFormatter={v => fmtMoney(v)} />
                       <YAxis type="category" dataKey="channel" tick={{ fontSize: 11, fill: 'var(--text-secondary)' }} tickLine={false} axisLine={false} width={80} />
-                      <Tooltip formatter={(v: unknown) => [`₹${v as number}`, 'CAC']} />
+                      <Tooltip formatter={(v: unknown) => [fmtMoney(v as number), 'CAC']} />
                       <Bar dataKey="cac" radius={[0, 4, 4, 0]}>
                         {CAC_CHANNELS.map(ch => (
                           <Cell key={ch} fill={COLORS[ch] || '#94A3B8'} />
@@ -331,8 +332,8 @@ export default function ChannelDeepDiveContent({ data }: { data: unknown }) {
                     <LineChart data={cac_trend} margin={{ top: 5, right: 10, left: -10, bottom: 5 }}>
                       <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" vertical={false} />
                       <XAxis dataKey="month" tick={{ fontSize: 10, fill: 'var(--text-secondary)' }} tickLine={false} />
-                      <YAxis tick={{ fontSize: 10, fill: 'var(--text-secondary)' }} tickLine={false} axisLine={false} tickFormatter={v => `₹${v}`} />
-                      <Tooltip formatter={(v: unknown) => [`₹${v as number}`, 'CAC']} contentStyle={{ fontSize: '11px' }} />
+                      <YAxis tick={{ fontSize: 10, fill: 'var(--text-secondary)' }} tickLine={false} axisLine={false} tickFormatter={v => fmtMoney(v)} />
+                      <Tooltip formatter={(v: unknown) => [fmtMoney(v as number), 'CAC']} contentStyle={{ fontSize: '11px' }} />
                       {CAC_CHANNELS.map(ch => (
                         <Line key={ch} type="monotone" dataKey={ch} stroke={COLORS[ch] || '#94A3B8'} strokeWidth={1.8} dot={false} name={ch} />
                       ))}
@@ -376,7 +377,7 @@ export default function ChannelDeepDiveContent({ data }: { data: unknown }) {
               })}
             </div>
             <Insight>
-              Referral Program is 13% over budget — strong signal to increase allocation given its 18.7:1 LTV:CAC. Email/SMS is most cost-efficient at ₹45 CAC.
+              Referral Program is 13% over budget — strong signal to increase allocation given its 18.7:1 LTV:CAC. Email/SMS is the most cost-efficient channel.
             </Insight>
           </div>
         </section>
@@ -415,8 +416,8 @@ export default function ChannelDeepDiveContent({ data }: { data: unknown }) {
                           {row.channel}
                         </div>
                       </td>
-                      <td className="py-2.5 px-3 text-[var(--text-secondary)]">₹{row.ltv.toLocaleString('en-IN')}</td>
-                      <td className="py-2.5 px-3 text-[var(--text-secondary)]">{row.cac === 0 ? '—' : `₹${row.cac}`}</td>
+                      <td className="py-2.5 px-3 text-[var(--text-secondary)]">{fmtMoney(row.ltv)}</td>
+                      <td className="py-2.5 px-3 text-[var(--text-secondary)]">{row.cac === 0 ? '—' : fmtMoney(row.cac)}</td>
                       <td className="py-2.5 px-3">
                         <span className={`px-2 py-0.5 rounded text-xs font-semibold ${ratioBg} ${ratioColor}`}>
                           {ratio === null ? '∞' : `${ratio.toFixed(1)}x`}
@@ -679,8 +680,8 @@ export default function ChannelDeepDiveContent({ data }: { data: unknown }) {
                           {row.channel}
                         </div>
                       </td>
-                      <td className="py-2.5 px-3 text-[var(--text-secondary)]">₹{row.ltv.toLocaleString('en-IN')}</td>
-                      <td className="py-2.5 px-3 text-[var(--text-secondary)]">{row.cac === 0 ? '—' : `₹${row.cac}`}</td>
+                      <td className="py-2.5 px-3 text-[var(--text-secondary)]">{fmtMoney(row.ltv)}</td>
+                      <td className="py-2.5 px-3 text-[var(--text-secondary)]">{row.cac === 0 ? '—' : fmtMoney(row.cac)}</td>
                       <td className="py-2.5 px-3">
                         <span className={`font-semibold ${ratio === null ? 'text-[var(--positive)]' : ratio >= 3 ? 'text-[var(--positive)]' : ratio >= 1 ? 'text-amber-600' : 'text-red-600'}`}>
                           {ratio === null ? '∞' : `${ratio.toFixed(1)}x`}

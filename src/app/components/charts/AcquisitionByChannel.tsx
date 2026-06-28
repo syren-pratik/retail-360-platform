@@ -15,6 +15,7 @@ import { AcquisitionChannel } from '@/app/lib/types';
 import { useDashboard } from '@/app/context/DashboardContext';
 import ChartWrapper from './ChartWrapper';
 import { AIInsightButton } from './ChartCard';
+import { formatMoneyPlainAuto, getLocaleAuto } from '@/app/lib/format-money';
 
 interface AcquisitionByChannelProps {
   data: AcquisitionChannel[];
@@ -45,14 +46,14 @@ const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
       <div className="bg-white border border-[var(--border-default)] rounded-lg p-3 shadow-sm">
         <p className="font-medium text-sm mb-1">{data.channel}</p>
         <p className="text-sm">
-          Customers: <span className="font-medium">{data.customers.toLocaleString('en-IN')}</span>
+          Customers: <span className="font-medium">{data.customers.toLocaleString(getLocaleAuto())}</span>
         </p>
         <p className="text-sm text-[var(--text-secondary)]">
           {data.pct.toFixed(1)}% of acquisitions
         </p>
         {data.cac > 0 && (
           <p className="text-sm text-[var(--text-secondary)]">
-            CAC: ₹{data.cac.toLocaleString('en-IN')}
+            CAC: {formatMoneyPlainAuto(data.cac)}
           </p>
         )}
         {data.ltv_cac_ratio !== null && (

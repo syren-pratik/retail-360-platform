@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Pin, X, Sparkles } from 'lucide-react';
 import { getPinnedCharts, unpinChart, PinnedChart } from '@/app/lib/pinned-charts';
+import { formatMoneyPlainAuto, getLocaleAuto } from '@/app/lib/format-money';
 import {
   BarChart,
   Bar,
@@ -42,10 +43,10 @@ const formatValue = (value: unknown, key?: string): string => {
 
   // Check if it's currency-like
   if (key?.includes('clv') || key?.includes('spend') || key?.includes('revenue') || value > 1000) {
-    return `₹${value.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`;
+    return formatMoneyPlainAuto(value);
   }
 
-  return value.toLocaleString('en-IN');
+  return value.toLocaleString(getLocaleAuto());
 };
 
 // Render chart based on type

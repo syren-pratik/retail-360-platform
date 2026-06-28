@@ -8,6 +8,7 @@ import {
   LineChart, Line, Legend, ReferenceLine,
 } from 'recharts';
 import { CLVDetailData } from '@/app/lib/types';
+import { formatMoneyAuto, formatMoneyPlainAuto, getLocaleAuto } from '@/app/lib/format-money';
 
 interface CLVExpandModalProps {
   data: CLVDetailData;
@@ -24,9 +25,7 @@ const TIER_COLORS: Record<string, string> = {
 };
 
 function fmtInr(n: number) {
-  if (n >= 10_000_000) return `₹${(n / 10_000_000).toFixed(0)}Cr`;
-  if (n >= 100_000) return `₹${(n / 100_000).toFixed(1)}L`;
-  return `₹${n.toLocaleString('en-IN')}`;
+  return formatMoneyAuto(n);
 }
 
 export default function CLVExpandModal({ data, onClose }: CLVExpandModalProps) {
@@ -111,7 +110,7 @@ export default function CLVExpandModal({ data, onClose }: CLVExpandModalProps) {
                       <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" />
                       <XAxis dataKey="tier" tick={{ fontSize: 12 }} />
                       <YAxis tickFormatter={(v) => `${(v / 1000).toFixed(0)}K`} tick={{ fontSize: 11 }} />
-                      <Tooltip formatter={(v: unknown) => [(v as number).toLocaleString('en-IN'), 'Customers']} />
+                      <Tooltip formatter={(v: unknown) => [(v as number).toLocaleString(getLocaleAuto()), 'Customers']} />
                       <Bar dataKey="customer_count" radius={[4, 4, 0, 0]}>
                         {data.tier_economics.map((t) => <Cell key={t.tier} fill={TIER_COLORS[t.tier] ?? '#6366F1'} />)}
                       </Bar>
@@ -174,7 +173,7 @@ export default function CLVExpandModal({ data, onClose }: CLVExpandModalProps) {
                   {data.tier_economics.map((t) => (
                     <tr key={t.tier} className="border-b border-[var(--border-subtle)] hover:bg-[var(--bg-secondary)]">
                       <td className="px-3 py-2 font-medium" style={{ color: TIER_COLORS[t.tier] }}>{t.tier}</td>
-                      <td className="px-3 py-2">{t.customer_count.toLocaleString('en-IN')}</td>
+                      <td className="px-3 py-2">{t.customer_count.toLocaleString(getLocaleAuto())}</td>
                       <td className="px-3 py-2">{fmtInr(t.avg_clv)}</td>
                       <td className="px-3 py-2">{fmtInr(t.total_clv)}</td>
                       <td className="px-3 py-2">{t.margin_pct}%</td>
@@ -244,7 +243,7 @@ export default function CLVExpandModal({ data, onClose }: CLVExpandModalProps) {
                     <tr key={i} className="border-b border-[var(--border-subtle)] hover:bg-[var(--bg-secondary)]">
                       <td className="px-3 py-2 font-medium" style={{ color: TIER_COLORS[f.from] }}>{f.from}</td>
                       <td className="px-3 py-2 font-medium" style={{ color: f.to === 'Churned' ? '#EF4444' : TIER_COLORS[f.to] }}>{f.to}</td>
-                      <td className="px-3 py-2 text-right">{f.count.toLocaleString('en-IN')}</td>
+                      <td className="px-3 py-2 text-right">{f.count.toLocaleString(getLocaleAuto())}</td>
                       <td className="px-3 py-2 text-center text-lg">
                         {f.direction === 'up' ? '↑' : f.direction === 'down' ? '↓' : 'x'}
                       </td>
@@ -276,7 +275,7 @@ export default function CLVExpandModal({ data, onClose }: CLVExpandModalProps) {
                     <span className="text-lg font-bold text-green-600">{fmtInr(opp.revenue_potential)}</span>
                   </div>
                   <div className="flex gap-6 text-sm">
-                    <div><span className="text-[var(--text-tertiary)]">Customers:</span> <span className="font-medium">{opp.customers.toLocaleString('en-IN')}</span></div>
+                    <div><span className="text-[var(--text-tertiary)]">Customers:</span> <span className="font-medium">{opp.customers.toLocaleString(getLocaleAuto())}</span></div>
                     <div><span className="text-[var(--text-tertiary)]">Avg CLV Gap:</span> <span className="font-medium">{fmtInr(opp.gap_avg_clv)}</span></div>
                   </div>
                   <p className="text-sm text-[var(--text-secondary)] mt-2">Action: {opp.action}</p>
@@ -293,7 +292,7 @@ export default function CLVExpandModal({ data, onClose }: CLVExpandModalProps) {
                       <p className="font-semibold" style={{ color: TIER_COLORS[r.tier] }}>{r.tier}</p>
                     </div>
                     <div className="flex-1 grid grid-cols-3 gap-3 text-sm">
-                      <div><span className="text-[var(--text-tertiary)]">At Risk:</span> <span className="font-medium text-red-600">{r.at_risk_count.toLocaleString('en-IN')} customers</span></div>
+                      <div><span className="text-[var(--text-tertiary)]">At Risk:</span> <span className="font-medium text-red-600">{r.at_risk_count.toLocaleString(getLocaleAuto())} customers</span></div>
                       <div><span className="text-[var(--text-tertiary)]">Revenue Risk:</span> <span className="font-medium text-red-600">{fmtInr(r.revenue_at_risk)}</span></div>
                       <div><span className="text-[var(--text-tertiary)]">Days Inactive:</span> <span className="font-medium">{r.avg_days_inactive} days</span></div>
                     </div>

@@ -7,6 +7,8 @@ import { CustomerRecord } from '@/app/lib/types';
 import { exportCSV } from '@/app/lib/export-utils';
 import { TableEmptyState } from '@/app/components/ui/EmptyState';
 import { toast } from 'sonner';
+import { useFormatMoneyPlain } from '@/app/lib/format-money';
+import { useTenant } from '@/app/context/TenantContext';
 
 interface CustomerTableProps {
   data: CustomerRecord[];
@@ -33,16 +35,14 @@ const getRiskBadgeClass = (tier: string) => {
   }
 };
 
-const formatCurrency = (value: number) => {
-  return `₹${value.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`;
-};
-
 const formatPercent = (value: number) => {
   return `${(value * 100).toFixed(1)}%`;
 };
 
 export default function CustomerTable({ data, onResetFilters }: CustomerTableProps) {
   const router = useRouter();
+  const formatCurrency = useFormatMoneyPlain();
+  const { isApparel } = useTenant();
   const [searchQuery, setSearchQuery] = useState('');
   const [sortField, setSortField] = useState<SortField>('clv_12m');
   const [sortDirection, setSortDirection] = useState<SortDirection>('desc');
@@ -150,6 +150,9 @@ export default function CustomerTable({ data, onResetFilters }: CustomerTablePro
   const columns: { key: SortField; label: string; align?: 'left' | 'right'; sticky?: boolean }[] = [
     { key: 'customer_id', label: 'Customer ID', align: 'left', sticky: true },
     { key: 'customer_segment', label: 'Segment', align: 'left' },
+    ...(isApparel
+      ? [{ key: 'top_brand' as SortField, label: 'Top Brand', align: 'left' as const }]
+      : []),
     { key: 'loyalty_tier', label: 'Loyalty', align: 'left' },
     { key: 'total_spend', label: 'Total Spend', align: 'right' },
     { key: 'total_transactions', label: 'Txns', align: 'right' },
@@ -281,6 +284,11 @@ export default function CustomerTable({ data, onResetFilters }: CustomerTablePro
                         {customer.customer_id}
                       </td>
                       <td className="px-3 py-2.5 whitespace-nowrap">{customer.customer_segment}</td>
+                      {isApparel && (
+                        <td className="px-3 py-2.5 whitespace-nowrap font-medium text-[var(--text-primary)]">
+                          {customer.top_brand ?? '—'}
+                        </td>
+                      )}
                       <td className="px-3 py-2.5 whitespace-nowrap">{customer.loyalty_tier}</td>
                       <td className="px-3 py-2.5 text-right font-medium whitespace-nowrap">
                         {formatCurrency(customer.total_spend)}

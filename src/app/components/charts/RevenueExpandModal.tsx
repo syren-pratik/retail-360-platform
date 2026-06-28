@@ -8,6 +8,7 @@ import {
   ReferenceLine, ComposedChart, Area,
 } from 'recharts';
 import { RevenueDetailData } from '@/app/lib/types';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface RevenueExpandModalProps {
   data: RevenueDetailData;
@@ -17,9 +18,7 @@ interface RevenueExpandModalProps {
 const TABS = ['Overview', 'Concentration', 'Quality', 'Health Matrix', 'Migration', 'Drill-Down'];
 
 function fmtInr(n: number) {
-  if (n >= 10_000_000) return `₹${(n / 10_000_000).toFixed(0)}Cr`;
-  if (n >= 100_000) return `₹${(n / 100_000).toFixed(1)}L`;
-  return `₹${n.toLocaleString('en-IN')}`;
+  return formatMoneyAuto(n);
 }
 
 const RISK_COLORS: Record<string, string> = {

@@ -8,6 +8,7 @@ import {
   ChannelAnalysisData,
   AtRiskAlertsData,
 } from './types';
+import { formatMoneyAuto } from './format-money';
 
 export interface Insight {
   id: string;
@@ -414,9 +415,9 @@ function analyzeAtRiskAlerts(data: AtRiskAlertsData): Insight[] {
       id: generateId(),
       type: 'risk',
       severity: 'critical',
-      title: `₹${(revenueAtRisk / 10000000).toFixed(1)} Cr revenue at risk`,
+      title: `${formatMoneyAuto(revenueAtRisk)} revenue at risk`,
       description: `${data.summary.high_priority} high-priority customers need immediate attention.`,
-      metric: `₹${(revenueAtRisk / 10000000).toFixed(1)} Cr`,
+      metric: formatMoneyAuto(revenueAtRisk),
       source: 'at_risk_alerts',
       action: 'Activate high-touch retention for top accounts',
       relatedChart: 'at_risk_alerts',
@@ -589,9 +590,9 @@ function analyzeLostSales(lostSales: DemandInsightData['lostSales']): Insight[] 
       id: generateId(),
       type: 'risk',
       severity: 'critical',
-      title: `₹${(totalLost / 100000).toFixed(1)}L in lost sales`,
+      title: `${formatMoneyAuto(totalLost)} in lost sales`,
       description: `Top driver: ${lostSales.top_skus[0]?.name || 'Unknown'} in ${lostSales.top_skus[0]?.department || 'Unknown'}`,
-      metric: `₹${(totalLost / 100000).toFixed(1)}L`,
+      metric: formatMoneyAuto(totalLost),
       source: 'lost_sales',
       action: 'Review inventory levels for top SKUs',
       relatedChart: 'lost-sales',

@@ -14,7 +14,9 @@
     "gen:merch-demand": "ts-node --project scripts/tsconfig.json scripts/gen-merch-demand.ts",
     "gen:coldstart-data": "ts-node --project scripts/tsconfig.json scripts/gen-coldstart-data.ts",
     "gen:price-intel": "ts-node --project scripts/tsconfig.json scripts/gen-price-intel.ts",
-    "gen:store-opening": "ts-node --project scripts/tsconfig.json scripts/gen-store-opening.ts"
+    "gen:store-opening": "ts-node --project scripts/tsconfig.json scripts/gen-store-opening.ts",
+    "gen:apparel-cx360": "ts-node --project scripts/tsconfig.json scripts/gen-apparel-cx360.ts",
+    "lint:apparel-schema": "ts-node --project scripts/tsconfig.json scripts/lint-apparel-schema.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.82.0",

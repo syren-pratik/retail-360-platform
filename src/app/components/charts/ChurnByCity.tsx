@@ -20,6 +20,7 @@ import { NoDataFallback } from '@/app/components/ui/NoDataFallback';
 import ChartWrapper from './ChartWrapper';
 import ChartExpandModal from './ChartExpandModal';
 import { AIInsightButton } from './ChartCard';
+import { formatMoneyPlainAuto, getLocaleAuto } from '@/app/lib/format-money';
 
 interface ChurnByCityProps {
   data: GeographyByCity[];
@@ -43,7 +44,7 @@ const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
         <p className="font-medium text-sm mb-1">{data.city}</p>
         <p className="text-xs text-[var(--text-tertiary)] mb-2">{data.state}</p>
         <p className="text-sm">
-          Customers: <span className="font-medium">{(data.customers ?? 0).toLocaleString('en-IN')}</span>
+          Customers: <span className="font-medium">{(data.customers ?? 0).toLocaleString(getLocaleAuto())}</span>
         </p>
         <p className="text-sm">
           Churn Rate: <span className={`font-medium ${isHighChurn ? 'text-[var(--status-danger)]' : 'text-[var(--status-success)]'}`}>
@@ -56,7 +57,7 @@ const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
           )}
         </p>
         <p className="text-sm text-[var(--text-secondary)]">
-          Avg CLV: ₹{(data.avg_clv ?? 0).toLocaleString('en-IN')}
+          Avg CLV: {formatMoneyPlainAuto(data.avg_clv ?? 0)}
         </p>
         <p className="text-sm text-[var(--text-secondary)]">
           Stores: {data.stores}
@@ -201,7 +202,7 @@ export default function ChurnByCity({ data }: ChurnByCityProps) {
     state: city.state,
     customers: city.customers,
     avg_churn: `${(city.avg_churn * 100).toFixed(1)}%`,
-    avg_clv: `₹${(city.avg_clv ?? 0).toLocaleString('en-IN')}`,
+    avg_clv: formatMoneyPlainAuto(city.avg_clv ?? 0),
     stores: city.stores,
     status: city.avg_churn > avgChurn ? 'Above Avg' : 'Normal',
   }));
@@ -226,7 +227,7 @@ export default function ChurnByCity({ data }: ChurnByCityProps) {
           columns={[
             { key: 'city', label: 'City' },
             { key: 'state', label: 'State' },
-            { key: 'customers', label: 'Customers', format: (v) => (v as number).toLocaleString('en-IN') },
+            { key: 'customers', label: 'Customers', format: (v) => (v as number).toLocaleString(getLocaleAuto()) },
             { key: 'avg_churn', label: 'Churn Rate' },
             { key: 'avg_clv', label: 'Avg CLV' },
             { key: 'stores', label: 'Stores' },

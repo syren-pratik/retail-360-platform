@@ -18,6 +18,7 @@ import { useDashboard } from '@/app/context/DashboardContext';
 import ChartWrapper from './ChartWrapper';
 import ChartExpandModal from './ChartExpandModal';
 import { AIInsightButton } from './ChartCard';
+import { formatMoneyAuto, formatMoneyPlainAuto, getLocaleAuto } from '@/app/lib/format-money';
 
 interface ChannelPerformanceProps {
   data: ChannelPerformanceType[];
@@ -46,10 +47,10 @@ const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
       <div className="bg-white border border-[var(--border-default)] rounded-lg p-3 shadow-sm">
         <p className="font-medium text-sm mb-2">{label}</p>
         <div className="space-y-1 text-sm">
-          <p>Revenue: <span className="font-medium">₹{(data.revenue / 10000000).toFixed(1)} Cr</span></p>
-          <p>Customers: <span className="font-medium">{data.customers.toLocaleString('en-IN')}</span></p>
-          <p>Orders: <span className="font-medium">{data.orders.toLocaleString('en-IN')}</span></p>
-          <p>AOV: <span className="font-medium">₹{data.avg_order_value.toLocaleString('en-IN')}</span></p>
+          <p>Revenue: <span className="font-medium">{formatMoneyAuto(data.revenue)}</span></p>
+          <p>Customers: <span className="font-medium">{data.customers.toLocaleString(getLocaleAuto())}</span></p>
+          <p>Orders: <span className="font-medium">{data.orders.toLocaleString(getLocaleAuto())}</span></p>
+          <p>AOV: <span className="font-medium">{formatMoneyPlainAuto(data.avg_order_value)}</span></p>
           <p>Retention: <span className="font-medium">{data.retention_rate}%</span></p>
         </div>
         <p className="mt-2 text-xs text-[var(--accent-primary)]">Click to filter by channel</p>
@@ -107,7 +108,7 @@ export default function ChannelPerformance({ data }: ChannelPerformanceProps) {
               tick={{ fontSize: 11, fill: 'var(--text-secondary)' }}
               tickLine={false}
               axisLine={false}
-              tickFormatter={(value) => `₹${(value / 10000000).toFixed(0)}Cr`}
+              tickFormatter={(value) => formatMoneyAuto(value)}
             />
             <YAxis
               yAxisId="right"
@@ -147,10 +148,10 @@ export default function ChannelPerformance({ data }: ChannelPerformanceProps) {
   // Table data for export
   const tableData = data.map(ch => ({
     channel: ch.channel,
-    revenue: `₹${(ch.revenue / 10000000).toFixed(2)} Cr`,
+    revenue: formatMoneyAuto(ch.revenue),
     customers: ch.customers,
     orders: ch.orders,
-    avg_order_value: `₹${ch.avg_order_value.toLocaleString('en-IN')}`,
+    avg_order_value: formatMoneyPlainAuto(ch.avg_order_value),
     retention_rate: `${ch.retention_rate}%`,
   }));
 
@@ -172,8 +173,8 @@ export default function ChannelPerformance({ data }: ChannelPerformanceProps) {
           columns={[
             { key: 'channel', label: 'Channel' },
             { key: 'revenue', label: 'Revenue' },
-            { key: 'customers', label: 'Customers', format: (v) => (v as number).toLocaleString('en-IN') },
-            { key: 'orders', label: 'Orders', format: (v) => (v as number).toLocaleString('en-IN') },
+            { key: 'customers', label: 'Customers', format: (v) => (v as number).toLocaleString(getLocaleAuto()) },
+            { key: 'orders', label: 'Orders', format: (v) => (v as number).toLocaleString(getLocaleAuto()) },
             { key: 'avg_order_value', label: 'AOV' },
             { key: 'retention_rate', label: 'Retention' },
           ]}
@@ -260,7 +261,7 @@ function ChannelPerformanceCard({
                   tick={{ fontSize: 10, fill: 'var(--text-secondary)' }}
                   tickLine={false}
                   axisLine={false}
-                  tickFormatter={(value) => `₹${(value / 10000000).toFixed(0)}Cr`}
+                  tickFormatter={(value) => formatMoneyAuto(value)}
                 />
                 <Tooltip content={<CustomTooltip />} />
                 <Bar

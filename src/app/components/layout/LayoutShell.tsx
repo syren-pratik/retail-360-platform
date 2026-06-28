@@ -6,12 +6,14 @@ import Sidebar from './Sidebar';
 import ChatPanel from './ChatPanel';
 import KeyboardShortcuts from '@/app/components/ui/KeyboardShortcuts';
 import { DashboardProvider } from '@/app/context/DashboardContext';
+import { TenantProvider, type Tenant } from '@/app/context/TenantContext';
 
 interface LayoutShellProps {
   children: React.ReactNode;
+  initialTenant?: Tenant;
 }
 
-export default function LayoutShell({ children }: LayoutShellProps) {
+export default function LayoutShell({ children, initialTenant }: LayoutShellProps) {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [chatOpen, setChatOpen] = useState(true);
 
@@ -27,8 +29,9 @@ export default function LayoutShell({ children }: LayoutShellProps) {
   }, []);
 
   return (
-    <DashboardProvider>
-      <div className="min-h-screen bg-[var(--bg-secondary)]">
+    <TenantProvider initialTenant={initialTenant}>
+      <DashboardProvider>
+        <div className="min-h-screen bg-[var(--bg-secondary)]">
         {/* Keyboard shortcuts handler */}
         <KeyboardShortcuts onExport={handleGlobalExport} />
 
@@ -53,9 +56,10 @@ export default function LayoutShell({ children }: LayoutShellProps) {
           onToggle={() => setChatOpen(!chatOpen)}
         />
 
-        {/* Toast notifications */}
-        <Toaster position="bottom-right" richColors />
-      </div>
-    </DashboardProvider>
+          {/* Toast notifications */}
+          <Toaster position="bottom-right" richColors />
+        </div>
+      </DashboardProvider>
+    </TenantProvider>
   );
 }

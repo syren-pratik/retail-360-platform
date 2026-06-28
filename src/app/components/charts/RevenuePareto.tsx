@@ -13,6 +13,7 @@ import {
   ReferenceLine,
 } from 'recharts';
 import { Maximize2 } from 'lucide-react';
+import { getLocaleAuto } from '@/app/lib/format-money';
 import { ParetoDataPoint } from '@/app/lib/types';
 import { useDashboard } from '@/app/context/DashboardContext';
 import ChartWrapper from './ChartWrapper';
@@ -46,7 +47,7 @@ const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
           Revenue: <span className="font-medium">{data.cumulative_revenue_pct.toFixed(1)}%</span>
         </p>
         <p className="text-sm text-[var(--text-secondary)]">
-          {data.customer_count.toLocaleString('en-IN')} customers
+          {data.customer_count.toLocaleString(getLocaleAuto())} customers
         </p>
       </div>
     );
@@ -163,7 +164,7 @@ export default function RevenuePareto({ data, summary }: RevenueParetoProps) {
           columns={[
             { key: 'percentile', label: 'Customer Percentile' },
             { key: 'cumulative_revenue', label: 'Cumulative Revenue' },
-            { key: 'customers', label: 'Customers', format: (v) => (v as number).toLocaleString('en-IN') },
+            { key: 'customers', label: 'Customers', format: (v) => (v as number).toLocaleString(getLocaleAuto()) },
           ]}
         >
           {renderChart(400)}

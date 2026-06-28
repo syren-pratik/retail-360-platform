@@ -9,6 +9,7 @@ import {
 import { X, Download, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { CohortDetailData, CohortHeatmapRow } from '@/app/lib/types';
+import { formatMoneyAuto, formatMoneyPlainAuto } from '@/app/lib/format-money';
 
 type TabId = 'heatmap' | 'comparison' | 'revenue' | 'channel' | 'leading' | 'shapes';
 type HeatmapMode = 'transaction' | 'revenue';
@@ -28,9 +29,7 @@ const SHAPE_META: Record<string, { label: string; bg: string; border: string }> 
 };
 
 function fmtInr(n: number) {
-  if (n >= 10_000_000) return `₹${(n / 10_000_000).toFixed(1)}Cr`;
-  if (n >= 100_000)    return `₹${(n / 100_000).toFixed(1)}L`;
-  return `₹${n.toLocaleString('en-IN')}`;
+  return formatMoneyAuto(n);
 }
 
 function getHeatColor(v: number, isRevenue = false): string {
@@ -241,8 +240,8 @@ export default function CohortExpandModal({ data, onClose }: Props) {
                           <td className="px-3 py-2">{cq.paid_pct}%</td>
                           <td className="px-3 py-2">{cq.organic_pct}%</td>
                           <td className="px-3 py-2">{cq.referral_pct}%</td>
-                          <td className="px-3 py-2">₹{cq.avg_cac}</td>
-                          <td className="px-3 py-2">₹{cq.first_aov.toLocaleString('en-IN')}</td>
+                          <td className="px-3 py-2">{formatMoneyPlainAuto(cq.avg_cac)}</td>
+                          <td className="px-3 py-2">{formatMoneyPlainAuto(cq.first_aov)}</td>
                           <td className="px-3 py-2">{cq.campaign}</td>
                           <td className={`px-3 py-2 font-medium ${shapeColors[cq.shape] ?? ''}`}>{sm.label}</td>
                         </tr>

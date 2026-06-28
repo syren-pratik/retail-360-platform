@@ -23,10 +23,10 @@ const TIER_COLORS: Record<string, string> = {
 
 const CHART_ID = 'clv_distribution';
 
+import { formatMoneyAuto } from '@/app/lib/format-money';
+
 function fmtInr(n: number) {
-  if (n >= 100_000) return `₹${(n / 100_000).toFixed(1)}L`;
-  if (n >= 1_000) return `₹${(n / 1_000).toFixed(0)}K`;
-  return `₹${n.toLocaleString('en-IN')}`;
+  return formatMoneyAuto(n);
 }
 
 function fmtCount(n: number) {

@@ -10,8 +10,15 @@ import { Maximize2 } from 'lucide-react';
 import { BasketDistribution as BasketDistributionType, BasketData } from '@/app/lib/types';
 import { useDashboard } from '@/app/context/DashboardContext';
 import BasketExpandModal from './BasketExpandModal';
+import { useTenant } from '@/app/context/TenantContext';
 
 const CHART_ID = 'basket_distribution';
+
+/** Apparel uses $ for bucket labels — strip ₹ from cached strings. */
+function localizeRange(s: string, isApparel: boolean): string {
+  if (!isApparel) return s;
+  return s.replace(/₹/g, '$');
+}
 
 interface Props {
   data: BasketDistributionType[];
@@ -44,13 +51,14 @@ function CustomTooltip({ active, payload, label }: { active?: boolean; payload?:
 
 export default function BasketDistribution({ data: legacyData, basketData }: Props) {
   const { expandedChart, setExpandedChart } = useDashboard();
+  const { isApparel } = useTenant();
   const [isMounted, setIsMounted] = useState(false);
   useEffect(() => { setIsMounted(true); }, []);
 
   // Use rich distribution if available, fall back to legacy
   const dist = basketData?.distribution?.length
-    ? basketData.distribution.map(d => ({ range: d.range, customers: d.customer_count, revenue_pct: d.pct_revenue }))
-    : legacyData.map(d => ({ range: d.basket_range, customers: d.customer_count, revenue_pct: 0 }));
+    ? basketData.distribution.map(d => ({ range: localizeRange(d.range, isApparel), customers: d.customer_count, revenue_pct: d.pct_revenue }))
+    : legacyData.map(d => ({ range: localizeRange(d.basket_range, isApparel), customers: d.customer_count, revenue_pct: 0 }));
 
   if (!isMounted) return null;
 

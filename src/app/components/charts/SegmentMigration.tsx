@@ -4,6 +4,7 @@ import { Maximize2, ArrowUpRight, ArrowDownRight, Minus } from 'lucide-react';
 import { SegmentMigrationData, SegmentFlow } from '@/app/lib/types';
 import { useDashboard } from '@/app/context/DashboardContext';
 import ChartExpandModal from './ChartExpandModal';
+import { getLocaleAuto } from '@/app/lib/format-money';
 
 interface SegmentMigrationProps {
   data: SegmentMigrationData;
@@ -135,7 +136,7 @@ export default function SegmentMigration({ data }: SegmentMigrationProps) {
                           }}
                         >
                           <span className="text-xs font-medium" style={{ color }}>
-                            {flow.count.toLocaleString('en-IN')}
+                            {flow.count.toLocaleString(getLocaleAuto())}
                           </span>
                           <span className="text-[10px] text-[var(--text-tertiary)]">
                             {flow.pct.toFixed(1)}%
@@ -148,7 +149,7 @@ export default function SegmentMigration({ data }: SegmentMigrationProps) {
                   );
                 })}
                 <td className="px-3 py-2 text-center text-[var(--text-secondary)] font-medium">
-                  {rowTotal.toLocaleString('en-IN')}
+                  {rowTotal.toLocaleString(getLocaleAuto())}
                 </td>
               </tr>
             );
@@ -176,7 +177,7 @@ export default function SegmentMigration({ data }: SegmentMigrationProps) {
           columns={[
             { key: 'from', label: 'From Segment' },
             { key: 'to', label: 'To Segment' },
-            { key: 'customers', label: 'Customers', format: (v) => (v as number).toLocaleString('en-IN') },
+            { key: 'customers', label: 'Customers', format: (v) => (v as number).toLocaleString(getLocaleAuto()) },
             { key: 'percentage', label: 'Percentage' },
             { key: 'direction', label: 'Direction' },
           ]}
@@ -284,7 +285,7 @@ function SegmentMigrationCard({
                           }}
                         >
                           <span className="text-xs font-medium" style={{ color }}>
-                            {flow.count.toLocaleString('en-IN')}
+                            {flow.count.toLocaleString(getLocaleAuto())}
                           </span>
                           <span className="text-[10px] text-[var(--text-tertiary)]">
                             {flow.pct.toFixed(1)}%
@@ -307,28 +308,28 @@ function SegmentMigrationCard({
         <div className="text-center">
           <div className="flex items-center justify-center gap-1 text-[#10B981]">
             <ArrowUpRight size={14} />
-            <span className="text-lg font-semibold">{data.summary.upgraded.toLocaleString('en-IN')}</span>
+            <span className="text-lg font-semibold">{data.summary.upgraded.toLocaleString(getLocaleAuto())}</span>
           </div>
           <p className="text-xs text-[var(--text-tertiary)]">Upgraded</p>
         </div>
         <div className="text-center">
           <div className="flex items-center justify-center gap-1 text-[var(--text-secondary)]">
             <Minus size={14} />
-            <span className="text-lg font-semibold">{data.summary.stable.toLocaleString('en-IN')}</span>
+            <span className="text-lg font-semibold">{data.summary.stable.toLocaleString(getLocaleAuto())}</span>
           </div>
           <p className="text-xs text-[var(--text-tertiary)]">Stable</p>
         </div>
         <div className="text-center">
           <div className="flex items-center justify-center gap-1 text-[#F59E0B]">
             <ArrowDownRight size={14} />
-            <span className="text-lg font-semibold">{data.summary.downgraded.toLocaleString('en-IN')}</span>
+            <span className="text-lg font-semibold">{data.summary.downgraded.toLocaleString(getLocaleAuto())}</span>
           </div>
           <p className="text-xs text-[var(--text-tertiary)]">Downgraded</p>
         </div>
         <div className="text-center">
           <div className="flex items-center justify-center gap-1 text-[#EF4444]">
             <ArrowDownRight size={14} />
-            <span className="text-lg font-semibold">{data.summary.churned.toLocaleString('en-IN')}</span>
+            <span className="text-lg font-semibold">{data.summary.churned.toLocaleString(getLocaleAuto())}</span>
           </div>
           <p className="text-xs text-[var(--text-tertiary)]">Churned</p>
         </div>

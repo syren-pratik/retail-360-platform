@@ -4,6 +4,7 @@ import { Maximize2 } from 'lucide-react';
 import { RFMCustomer, RFMDetailData } from '@/app/lib/types';
 import { useDashboard } from '@/app/context/DashboardContext';
 import RFMExpandModal from './RFMExpandModal';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface RFMScatterProps {
   data: RFMCustomer[];
@@ -13,9 +14,7 @@ interface RFMScatterProps {
 const CHART_ID = 'rfm_scatter';
 
 function fmtInr(n: number) {
-  if (n >= 10_000_000) return `₹${(n / 10_000_000).toFixed(0)}Cr`;
-  if (n >= 100_000) return `₹${(n / 100_000).toFixed(1)}L`;
-  return `₹${n.toLocaleString('en-IN')}`;
+  return formatMoneyAuto(n);
 }
 
 export default function RFMScatter({ data, rfmDetail }: RFMScatterProps) {

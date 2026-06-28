@@ -18,6 +18,7 @@ import { NoDataFallback } from '@/app/components/ui/NoDataFallback';
 import ChartWrapper from './ChartWrapper';
 import ChartExpandModal from './ChartExpandModal';
 import { AIInsightButton } from './ChartCard';
+import { formatMoneyAuto, formatMoneyPlainAuto, getLocaleAuto } from '@/app/lib/format-money';
 
 interface CustomersByGeographyProps {
   data: GeographyByState[];
@@ -49,10 +50,10 @@ const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
         <p className="font-medium text-sm mb-1">{data.state}</p>
         <p className="text-xs text-[var(--text-tertiary)] mb-2">{data.region} Region</p>
         <p className="text-sm">
-          Customers: <span className="font-medium">{(data.customers ?? 0).toLocaleString('en-IN')}</span>
+          Customers: <span className="font-medium">{(data.customers ?? 0).toLocaleString(getLocaleAuto())}</span>
         </p>
         <p className="text-sm text-[var(--text-secondary)]">
-          Avg CLV: <span className="font-medium">₹{(data.avg_clv ?? 0).toLocaleString('en-IN')}</span>
+          Avg CLV: <span className="font-medium">{formatMoneyPlainAuto(data.avg_clv ?? 0)}</span>
         </p>
         <p className="text-sm text-[var(--text-secondary)]">
           Churn Rate: <span className={`font-medium ${data.avg_churn > 0.15 ? 'text-[var(--status-danger)]' : ''}`}>
@@ -60,7 +61,7 @@ const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
           </span>
         </p>
         <p className="text-sm text-[var(--text-secondary)]">
-          Revenue: ₹{(data.revenue / 10000000).toFixed(1)} Cr
+          Revenue: {formatMoneyAuto(data.revenue)}
         </p>
         <p className="mt-2 text-xs text-[var(--accent-primary)]">Click to filter by state</p>
       </div>
@@ -161,9 +162,9 @@ export default function CustomersByGeography({ data }: CustomersByGeographyProps
     state: state.state,
     region: state.region,
     customers: state.customers,
-    avg_clv: `₹${(state.avg_clv ?? 0).toLocaleString('en-IN')}`,
+    avg_clv: formatMoneyPlainAuto(state.avg_clv ?? 0),
     avg_churn: `${(state.avg_churn * 100).toFixed(1)}%`,
-    revenue: `₹${(state.revenue / 10000000).toFixed(2)} Cr`,
+    revenue: formatMoneyAuto(state.revenue),
   }));
 
   // Render expanded modal
@@ -185,7 +186,7 @@ export default function CustomersByGeography({ data }: CustomersByGeographyProps
           columns={[
             { key: 'state', label: 'State' },
             { key: 'region', label: 'Region' },
-            { key: 'customers', label: 'Customers', format: (v) => (v as number).toLocaleString('en-IN') },
+            { key: 'customers', label: 'Customers', format: (v) => (v as number).toLocaleString(getLocaleAuto()) },
             { key: 'avg_clv', label: 'Avg CLV' },
             { key: 'avg_churn', label: 'Churn Rate' },
             { key: 'revenue', label: 'Revenue' },

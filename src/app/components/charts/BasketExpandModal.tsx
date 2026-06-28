@@ -9,6 +9,7 @@ import {
 import { X, Download, TrendingUp, ShoppingCart, Award, AlertTriangle, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { BasketData, BasketBucket } from '@/app/lib/types';
+import { formatMoneyAuto, formatMoneyPlainAuto, getLocaleAuto } from '@/app/lib/format-money';
 
 type TabId = 'distribution' | 'by-segment' | 'matrix' | 'trends' | 'behavior';
 type SegmentTab = 'segment' | 'channel';
@@ -48,9 +49,7 @@ const QUADRANT_CONFIG: Record<string, { label: string; color: string; bg: string
 
 function fmt(n: number) { return n >= 1000 ? `${(n / 1000).toFixed(0)}K` : String(n); }
 function fmtInr(n: number) {
-  if (n >= 10000000) return `₹${(n / 10000000).toFixed(1)}Cr`;
-  if (n >= 100000)   return `₹${(n / 100000).toFixed(1)}L`;
-  return `₹${n.toLocaleString('en-IN')}`;
+  return formatMoneyAuto(n);
 }
 
 function Insight({ text }: { text: string }) {
@@ -138,9 +137,9 @@ export default function BasketExpandModal({ data, onClose }: Props) {
         {/* ── KPI Strip ──────────────────────────── */}
         <div className="grid grid-cols-4 gap-3 px-6 py-3 bg-[var(--bg-secondary)] border-b border-[var(--border-subtle)] flex-shrink-0">
           {[
-            { icon: <ShoppingCart size={14} className="text-blue-600" />, bg: 'bg-blue-50', label: 'Median Basket', value: `₹${summary.median_basket.toLocaleString('en-IN')}`, sub: `Mean ₹${summary.mean_basket.toLocaleString('en-IN')}` },
+            { icon: <ShoppingCart size={14} className="text-blue-600" />, bg: 'bg-blue-50', label: 'Median Basket', value: formatMoneyPlainAuto(summary.median_basket), sub: `Mean ${formatMoneyPlainAuto(summary.mean_basket)}` },
             { icon: <TrendingUp size={14} className="text-green-600" />, bg: 'bg-green-50', label: 'MoM Trend', value: `+${summary.basket_trend_mom}%`, sub: 'vs last month' },
-            { icon: <Award size={14} className="text-amber-600" />, bg: 'bg-amber-50', label: 'Top 10% Threshold', value: `₹${summary.top_10pct_threshold.toLocaleString('en-IN')}+`, sub: 'basket size qualifier' },
+            { icon: <Award size={14} className="text-amber-600" />, bg: 'bg-amber-50', label: 'Top 10% Threshold', value: `${formatMoneyPlainAuto(summary.top_10pct_threshold)}+`, sub: 'basket size qualifier' },
             { icon: <AlertTriangle size={14} className="text-purple-600" />, bg: 'bg-purple-50', label: 'Pareto', value: `${summary.top_20pct_revenue_share}%`, sub: 'revenue from top 20% baskets' },
           ].map((k, i) => (
             <div key={i} className="flex items-center gap-2">
@@ -218,8 +217,8 @@ export default function BasketExpandModal({ data, onClose }: Props) {
                           <td className="px-3 py-2 text-[var(--text-secondary)]">{d.pct_transactions}%</td>
                           <td className="px-3 py-2 text-[var(--text-primary)]">{fmtInr(d.revenue)}</td>
                           <td className="px-3 py-2 text-[var(--text-secondary)]">{d.pct_revenue}%</td>
-                          <td className="px-3 py-2 text-[var(--text-primary)]">₹{d.avg_value.toLocaleString('en-IN')}</td>
-                          <td className="px-3 py-2 text-[var(--text-secondary)]">₹{d.median_value.toLocaleString('en-IN')}</td>
+                          <td className="px-3 py-2 text-[var(--text-primary)]">{formatMoneyPlainAuto(d.avg_value)}</td>
+                          <td className="px-3 py-2 text-[var(--text-secondary)]">{formatMoneyPlainAuto(d.median_value)}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -351,8 +350,8 @@ export default function BasketExpandModal({ data, onClose }: Props) {
                 <LineChart data={trend} margin={{ top: 5, right: 30, left: 10, bottom: 5 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" />
                   <XAxis dataKey="month" tick={{ fontSize: 11, fill: 'var(--text-secondary)' }} tickLine={false} axisLine={{ stroke: 'var(--border-default)' }} />
-                  <YAxis tick={{ fontSize: 11, fill: 'var(--text-secondary)' }} tickFormatter={v => `₹${(v / 1000).toFixed(1)}K`} tickLine={false} axisLine={false} width={52} />
-                  <Tooltip formatter={(v: unknown) => [`₹${(v as number).toLocaleString("en-IN")}`]} />
+                  <YAxis tick={{ fontSize: 11, fill: 'var(--text-secondary)' }} tickFormatter={v => formatMoneyAuto(v)} tickLine={false} axisLine={false} width={52} />
+                  <Tooltip formatter={(v: unknown) => [formatMoneyPlainAuto(v as number)]} />
                   <Legend wrapperStyle={{ fontSize: 11 }} iconSize={10} />
                   <Line type="monotone" dataKey="mean" name="Mean" stroke="#3b82f6" strokeWidth={2} dot={{ r: 3 }} />
                   <Line type="monotone" dataKey="median" name="Median" stroke="#10b981" strokeWidth={2} dot={{ r: 3 }} />

@@ -5,6 +5,7 @@ import { Maximize2 } from 'lucide-react';
 import { CohortRetentionMatrix, CohortDetailData } from '@/app/lib/types';
 import { useDashboard } from '@/app/context/DashboardContext';
 import CohortExpandModal from './CohortExpandModal';
+import { getLocaleAuto } from '@/app/lib/format-money';
 
 interface CohortRetentionHeatmapProps {
   data: CohortRetentionMatrix[];
@@ -134,7 +135,7 @@ export default function CohortRetentionHeatmap({ data, cohortDetail }: CohortRet
                   className="px-4 py-1.5 text-sm text-right text-[var(--text-secondary)] whitespace-nowrap"
                   style={{ position: 'sticky', left: 140, background: 'white', zIndex: 1 }}
                 >
-                  {cohort.original_customers.toLocaleString('en-IN')}
+                  {cohort.original_customers.toLocaleString(getLocaleAuto())}
                 </td>
                 {/* Retention cells */}
                 {Array.from({ length: maxPeriods }, (_, periodIdx) => {
@@ -273,7 +274,7 @@ function CohortCard({ validData, renderGrid, onExpand, tooltip }: CohortCardProp
             style={{ padding: '8px 12px', minWidth: 200, whiteSpace: 'nowrap' }}
           >
             <div className="font-semibold mb-1">{tooltip.cohort} — Month {tooltip.period}</div>
-            <div>{Math.round(tooltip.rate * 100)}% retained ({tooltip.retained.toLocaleString('en-IN')} of {tooltip.original.toLocaleString('en-IN')})</div>
+            <div>{Math.round(tooltip.rate * 100)}% retained ({tooltip.retained.toLocaleString(getLocaleAuto())} of {tooltip.original.toLocaleString(getLocaleAuto())})</div>
             <div className="text-blue-200 mt-0.5">
               Drop from M0: {tooltip.period === 0 ? '—' : `−${Math.round((1 - tooltip.rate) * 100)} pp`}
             </div>

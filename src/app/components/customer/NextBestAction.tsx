@@ -28,6 +28,7 @@ import {
 } from 'lucide-react';
 import { Action, CustomerData } from '@/app/hooks/useNextBestAction';
 import { logAction, getActionTypeLabel } from '@/app/lib/action-log';
+import { useFormatMoneyPlain } from '@/app/lib/format-money';
 
 interface NextBestActionProps {
   customerId: string;
@@ -377,6 +378,7 @@ export default function NextBestAction({
 }: NextBestActionProps) {
   const [expandedIndex, setExpandedIndex] = useState<number>(0); // First action expanded by default
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const fmtMoneyPlain = useFormatMoneyPlain();
 
   const handleRefresh = async () => {
     setIsRefreshing(true);
@@ -475,7 +477,7 @@ export default function NextBestAction({
         <div>
           <span className="text-[var(--text-tertiary)]">CLV:</span>{' '}
           <span className="font-medium text-[var(--text-primary)]">
-            ₹{Math.round(customerData.clv_12m).toLocaleString('en-IN')}
+            {fmtMoneyPlain(Math.round(customerData.clv_12m))}
           </span>
         </div>
         <div>

@@ -195,6 +195,7 @@ export interface CustomerRecord {
   city?: string;
   geography: string;
   top_category: string;
+  top_brand?: string;
   probability_alive?: number;
   purchase_frequency?: number;
   recency_days?: number;

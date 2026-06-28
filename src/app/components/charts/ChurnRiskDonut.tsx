@@ -7,6 +7,7 @@ import { useDashboard } from '@/app/context/DashboardContext';
 import ChartWrapper from './ChartWrapper';
 import { AIInsightButton } from './ChartCard';
 import ChurnExpandModal from './ChurnExpandModal';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface ChurnRiskDonutProps {
   data: ChurnRiskData[];
@@ -31,9 +32,7 @@ const formatNumber = (num: number) => {
 };
 
 function fmtInr(n: number) {
-  if (n >= 10_000_000) return `₹${(n / 10_000_000).toFixed(0)}Cr`;
-  if (n >= 100_000)    return `₹${(n / 100_000).toFixed(1)}L`;
-  return `₹${n.toLocaleString('en-IN')}`;
+  return formatMoneyAuto(n);
 }
 
 interface CustomTooltipProps {

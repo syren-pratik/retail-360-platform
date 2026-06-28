@@ -11,6 +11,9 @@ import ChurnDrivers from '@/app/components/charts/ChurnDrivers';
 import CohortRetentionHeatmap from '@/app/components/charts/CohortRetentionHeatmap';
 import BasketDistribution from '@/app/components/charts/BasketDistribution';
 import CategoryBySegment from '@/app/components/charts/CategoryBySegment';
+import BrandAffinityHeatmap, { type BrandAffinityData } from '@/app/components/charts/BrandAffinityHeatmap';
+import ReturnsByReason, { type ReturnsByReasonData } from '@/app/components/charts/ReturnsByReason';
+import ReturnReasonWaterfall from '@/app/components/charts/ReturnReasonWaterfall';
 import CustomerTable from '@/app/components/tables/CustomerTable';
 import AtRiskAlerts from '@/app/components/alerts/AtRiskAlerts';
 import SegmentMigration from '@/app/components/charts/SegmentMigration';
@@ -26,6 +29,8 @@ import LastUpdated from '@/app/components/ui/LastUpdated';
 import { useDashboard } from '@/app/context/DashboardContext';
 import { applyFilters, getDateRangeDays } from '@/app/lib/filter-utils';
 import { useAIInsights } from '@/app/hooks/useAIInsights';
+import { useFormatMoney, useLocale } from '@/app/lib/format-money';
+import { useTenant } from '@/app/context/TenantContext';
 import { toast } from 'sonner';
 
 import {
@@ -76,6 +81,14 @@ interface DashboardContentProps {
   revenueDetail: RevenueDetailData;
   clvDetail: CLVDetailData;
   rfmDetail: RFMDetailData;
+  returnsByReason?: ReturnsByReasonData | null;
+  brandAffinity?: BrandAffinityData | null;
+  returnReasonWaterfall?: Array<{
+    customer_id: string;
+    total_returns_12m: number;
+    return_value_usd: number;
+    reasons?: Array<{ reason: string; count: number; pct: number }>;
+  }> | null;
   expandChart?: string;
 }
 
@@ -85,25 +98,15 @@ const calculateChange = (current: number, prior: number) => {
   return ((current - prior) / prior) * 100;
 };
 
-const formatNumber = (num: number) => {
-  if (num >= 100000) return `${(num / 1000).toFixed(0)}K`;
-  if (num >= 1000) return num.toLocaleString('en-IN');
-  return num.toString();
-};
-
-const formatCurrency = (num: number) => {
-  return `₹${num.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`;
-};
-
 // CLV tier order for consistent display
 const CLV_TIER_ORDER = ['Platinum', 'Gold', 'Silver', 'Bronze', 'At-Risk'];
 const CHURN_RISK_ORDER = ['Critical', 'High', 'Medium', 'Low'];
 const BASKET_RANGES = [
-  { range: '₹0-500', min: 0, max: 500 },
-  { range: '₹500-1K', min: 500, max: 1000 },
-  { range: '₹1K-2K', min: 1000, max: 2000 },
-  { range: '₹2K-5K', min: 2000, max: 5000 },
-  { range: '₹5K+', min: 5000, max: Infinity },
+  { range: '0-500', min: 0, max: 500 },
+  { range: '500-1K', min: 500, max: 1000 },
+  { range: '1K-2K', min: 1000, max: 2000 },
+  { range: '2K-5K', min: 2000, max: 5000 },
+  { range: '5K+', min: 5000, max: Infinity },
 ];
 
 export default function DashboardContent({
@@ -129,10 +132,22 @@ export default function DashboardContent({
   revenueDetail,
   clvDetail,
   rfmDetail,
+  returnsByReason,
+  brandAffinity,
+  returnReasonWaterfall,
   expandChart,
 }: DashboardContentProps) {
   const { globalFilters, activeDrilldowns, resetFilters, setExpandedChart } = useDashboard();
+  const { isApparel } = useTenant();
+  const fmtMoney = useFormatMoney();
+  const locale = useLocale();
   const [lastUpdated] = useState(new Date());
+
+  const formatNumber = (num: number) => {
+    if (num >= 100000) return `${(num / 1000).toFixed(0)}K`;
+    if (num >= 1000) return num.toLocaleString(locale);
+    return num.toString();
+  };
 
   useEffect(() => {
     if (expandChart) setExpandedChart(expandChart);
@@ -525,7 +540,7 @@ export default function DashboardContent({
           <div className="animate-fade-slide-up stagger-2">
             <KPICard
               label="Average CLV"
-              value={formatCurrency(dynamicKpis.avg_clv)}
+              value={fmtMoney(dynamicKpis.avg_clv)}
               change={calculateChange(dynamicKpis.avg_clv, dynamicKpis.avg_clv_prior)}
               sparklineData={dynamicKpis.avg_clv_trend}
               filteredCount={hasFilters ? filteredCustomerTable.length : undefined}
@@ -667,8 +682,20 @@ export default function DashboardContent({
         {/* Section 10: Basket & Behavior */}
         <section className="grid grid-cols-2 gap-6">
           <BasketDistribution data={computedBasketDistribution} basketData={basketData} />
-          <CategoryBySegment data={categoryBySegment} />
+          {isApparel && brandAffinity ? (
+            <BrandAffinityHeatmap data={brandAffinity} />
+          ) : (
+            <CategoryBySegment data={categoryBySegment} />
+          )}
         </section>
+
+        {/* Section 10b: Apparel-only Returns analysis */}
+        {isApparel && (returnsByReason || returnReasonWaterfall) && (
+          <section className="grid grid-cols-2 gap-6">
+            {returnsByReason && <ReturnsByReason data={returnsByReason} />}
+            {returnReasonWaterfall && <ReturnReasonWaterfall data={returnReasonWaterfall} />}
+          </section>
+        )}
 
         {/* Pinned Charts - Bottom */}
         <PinnedChartsSection section="bottom" module="cx360" />

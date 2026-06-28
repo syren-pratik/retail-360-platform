@@ -1,0 +1,52 @@
+[
+  {
+    "clv_tier": "Platinum",
+    "customer_count": 198,
+    "pct": 0.2,
+    "avg_clv": 2156,
+    "total_clv": 426894,
+    "avg_frequency": 18.9,
+    "avg_recency": 44,
+    "avg_basket": 251
+  },
+  {
+    "clv_tier": "Gold",
+    "customer_count": 18588,
+    "pct": 23.2,
+    "avg_clv": 1151,
+    "total_clv": 21395370,
+    "avg_frequency": 16.3,
+    "avg_recency": 45,
+    "avg_basket": 203
+  },
+  {
+    "clv_tier": "Silver",
+    "customer_count": 27196,
+    "pct": 34,
+    "avg_clv": 472,
+    "total_clv": 12828915,
+    "avg_frequency": 9.9,
+    "avg_recency": 82,
+    "avg_basket": 167
+  },
+  {
+    "clv_tier": "Bronze",
+    "customer_count": 29542,
+    "pct": 36.9,
+    "avg_clv": 195,
+    "total_clv": 5764078,
+    "avg_frequency": 4.7,
+    "avg_recency": 168,
+    "avg_basket": 163
+  },
+  {
+    "clv_tier": "At-Risk",
+    "customer_count": 4476,
+    "pct": 5.6,
+    "avg_clv": 41,
+    "total_clv": 183068,
+    "avg_frequency": 3.8,
+    "avg_recency": 218,
+    "avg_basket": 63
+  }
+]

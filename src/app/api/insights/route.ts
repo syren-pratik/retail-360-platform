@@ -1,5 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { cookies } from 'next/headers';
+
+function getTenantFromCookie(): 'india_grocery' | 'us_apparel' {
+  try {
+    const raw = cookies().get('rct_tenant')?.value;
+    return raw === 'us_apparel' ? 'us_apparel' : 'india_grocery';
+  } catch {
+    return 'india_grocery';
+  }
+}
 
 // Initialize Anthropic client - supports Azure AI Foundry
 let client: Anthropic | null = null;
@@ -28,6 +38,7 @@ interface InsightCache {
   data: Insight[];
   timestamp: number;
   module: string;
+  tenant: 'india_grocery' | 'us_apparel';
 }
 
 interface Insight {
@@ -47,9 +58,17 @@ const INSIGHT_CACHE_TTL = 30 * 60 * 1000; // 30 minutes
 
 export async function POST(request: NextRequest) {
   const { module, dashboardData, forceRefresh } = await request.json();
+  const cookieTenant = getTenantFromCookie();
 
-  // Check cache (unless force refresh)
-  if (!forceRefresh && insightCache && insightCache.module === module && Date.now() - insightCache.timestamp < INSIGHT_CACHE_TTL) {
+  // Check cache (unless force refresh) — keyed by both module and tenant so apparel/grocery
+  // don't bleed into each other.
+  if (
+    !forceRefresh &&
+    insightCache &&
+    insightCache.module === module &&
+    insightCache.tenant === cookieTenant &&
+    Date.now() - insightCache.timestamp < INSIGHT_CACHE_TTL
+  ) {
     return NextResponse.json({ insights: insightCache.data, source: 'cache' });
   }
 
@@ -58,8 +77,9 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const systemPrompt = getInsightSystemPrompt(module);
-    const userMessage = buildDataSummary(module, dashboardData);
+    const tenant = getTenantFromCookie();
+    const systemPrompt = getInsightSystemPrompt(module, tenant);
+    const userMessage = buildDataSummary(module, dashboardData, tenant);
 
     const response = await client.messages.create({
       model: modelName,
@@ -100,7 +120,7 @@ export async function POST(request: NextRequest) {
     }));
 
     // Cache the result
-    insightCache = { data: insightsWithIds, timestamp: Date.now(), module };
+    insightCache = { data: insightsWithIds, timestamp: Date.now(), module, tenant: cookieTenant };
 
     return NextResponse.json({ insights: insightsWithIds, source: 'claude' });
   } catch (error) {
@@ -113,9 +133,18 @@ export async function POST(request: NextRequest) {
   }
 }
 
-function getInsightSystemPrompt(module: string): string {
+function getInsightSystemPrompt(module: string, tenant: 'india_grocery' | 'us_apparel' = 'india_grocery'): string {
+  const isApparel = tenant === 'us_apparel';
+  const businessContext = isApparel
+    ? 'a US apparel retail company'
+    : 'an Indian retail company';
+  const currencyRule = isApparel
+    ? '- Use $ for currency values. Format large numbers in thousands (K) or millions (M).'
+    : '- Use ₹ for currency values. Format large numbers in lakhs (L) or crores (Cr).';
+  const metricExample = isApparel ? "'34.2%' or '$420K'" : "'34.2%' or '₹4.2L'";
+
   if (module === 'cx360') {
-    return `You are a retail analytics expert analyzing a Customer 360 dashboard for an Indian retail company.
+    return `You are a retail analytics expert analyzing a Customer 360 dashboard for ${businessContext}.
 
 Your job is to identify the most important, actionable insights from the data provided.
 
@@ -124,7 +153,7 @@ RULES:
 - Return exactly 4-6 insights, ranked by business impact.
 - Each insight must have a specific number or metric — never vague.
 - Focus on ACTIONABLE insights — what should the business DO about this?
-- Use ₹ for currency values. Format large numbers in lakhs (L) or crores (Cr).
+${currencyRule}
 - Be specific: name the segments, tiers, categories involved.
 
 JSON format:
@@ -134,7 +163,7 @@ JSON format:
     "severity": "critical" | "warning" | "info" | "positive",
     "title": "Short headline (max 8 words)",
     "description": "1-2 sentence explanation with specific numbers",
-    "metric": "The key number (e.g., '34.2%' or '₹4.2L')",
+    "metric": "The key number (e.g., ${metricExample})",
     "action": "What the business should do about this",
     "relatedChart": "clv-distribution" | "churn-risk" | "cohort-retention" | "segment-migration" | "revenue-pareto" | "channel-analysis" | "basket-distribution" | "at-risk-alerts" | "recency-distribution" | "frequency-distribution"
   }
@@ -148,7 +177,7 @@ Prioritize:
   }
 
   if (module === 'demand') {
-    return `You are a demand planning expert analyzing a Demand Forecasting dashboard for an Indian retail company.
+    return `You are a demand planning expert analyzing a Demand Forecasting dashboard for ${businessContext}.
 
 Your job is to identify forecast accuracy issues, demand anomalies, and optimization opportunities.
 
@@ -157,7 +186,7 @@ RULES:
 - Return exactly 4-6 insights, ranked by business impact.
 - Each insight must reference specific departments, SKUs, or metrics.
 - Focus on ACTIONABLE insights — what should the planning team do?
-- Use ₹ for currency values.
+${currencyRule}
 
 JSON format:
 [
@@ -182,14 +211,15 @@ Prioritize:
   return '';
 }
 
-function buildDataSummary(module: string, data: Record<string, unknown>): string {
+function buildDataSummary(module: string, data: Record<string, unknown>, tenant: 'india_grocery' | 'us_apparel' = 'india_grocery'): string {
+  const cur = tenant === 'us_apparel' ? '$' : '₹';
   if (module === 'cx360') {
     const kpis = data.kpis as Record<string, unknown> | undefined;
     return `Analyze this Customer 360 dashboard data and generate insights:
 
 KPI SUMMARY:
 - Total customers: ${kpis?.total_customers || 'N/A'}
-- Average CLV: ₹${kpis?.avg_clv || 'N/A'}
+- Average CLV: ${cur}${kpis?.avg_clv || 'N/A'}
 - Churn rate (30-day): ${kpis?.churn_rate_pct || 'N/A'}%
 - Active customer rate: ${kpis?.active_rate_pct || 'N/A'}%
 
@@ -231,7 +261,7 @@ KPI SUMMARY:
 - Forecast accuracy: ${(kpis?.forecast_accuracy as Record<string, unknown>)?.value || 'N/A'}%
 - Forecast bias: ${(kpis?.forecast_bias as Record<string, unknown>)?.value || 'N/A'}%
 - Total forecasted demand: ${(kpis?.total_forecast_demand as Record<string, unknown>)?.value || 'N/A'} units
-- Lost sales: ₹${(kpis?.lost_sales as Record<string, unknown>)?.value || 'N/A'}
+- Lost sales: ${cur}${(kpis?.lost_sales as Record<string, unknown>)?.value || 'N/A'}
 
 ACCURACY BY DEPARTMENT:
 ${JSON.stringify(data.accuracyByDept || [], null, 2)}

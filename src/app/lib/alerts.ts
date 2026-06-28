@@ -1,5 +1,7 @@
 'use client';
 
+import { formatMoneyPlainAuto, getLocaleAuto } from './format-money';
+
 // ============================================================================
 // ALERTS STORAGE
 // Stores user-defined monitoring rules that trigger on metric thresholds
@@ -248,8 +250,8 @@ function formatAlertMessage(alert: AlertRule, currentValue: number): string {
   const formattedValue = alert.metric.includes('rate') || alert.metric.includes('probability')
     ? `${(currentValue * 100).toFixed(1)}%`
     : alert.metric.includes('clv') || alert.metric.includes('spend')
-      ? `₹${currentValue.toLocaleString('en-IN')}`
-      : currentValue.toLocaleString('en-IN');
+      ? formatMoneyPlainAuto(currentValue)
+      : currentValue.toLocaleString(getLocaleAuto());
 
   const conditionText = alert.condition === 'above' ? 'exceeded' :
     alert.condition === 'below' ? 'dropped below' : 'changed by';
@@ -257,8 +259,8 @@ function formatAlertMessage(alert: AlertRule, currentValue: number): string {
   const thresholdText = alert.metric.includes('rate') || alert.metric.includes('probability')
     ? `${(alert.threshold * 100).toFixed(1)}%`
     : alert.metric.includes('clv') || alert.metric.includes('spend')
-      ? `₹${alert.threshold.toLocaleString('en-IN')}`
-      : alert.threshold.toLocaleString('en-IN');
+      ? formatMoneyPlainAuto(alert.threshold)
+      : alert.threshold.toLocaleString(getLocaleAuto());
 
   return `${alert.metric} ${conditionText} ${thresholdText}. Current value: ${formattedValue}`;
 }

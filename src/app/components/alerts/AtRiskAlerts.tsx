@@ -5,6 +5,7 @@ import { AlertTriangle, ChevronRight, Users, TrendingDown, Clock, X } from 'luci
 import { useRouter } from 'next/navigation';
 import { AtRiskAlertsData, AtRiskAlert } from '@/app/lib/types';
 import { useDashboard } from '@/app/context/DashboardContext';
+import { useFormatMoney, useFormatMoneyPlain, useLocale } from '@/app/lib/format-money';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -56,6 +57,9 @@ export default function AtRiskAlerts({ data, computedSummary, computedAlerts }: 
   const [selectedAlert, setSelectedAlert] = useState<AtRiskAlert | null>(null);
   const router = useRouter();
   const { triggerChatMessage } = useDashboard();
+  const fmtMoney = useFormatMoney();
+  const fmtMoneyPlain = useFormatMoneyPlain();
+  const locale = useLocale();
 
   const summary: ComputedSummary = computedSummary ?? data.summary;
 
@@ -63,8 +67,6 @@ export default function AtRiskAlerts({ data, computedSummary, computedAlerts }: 
     computedAlerts !== undefined ? computedAlerts : data.alerts;
 
   const displayAlerts = isExpanded ? allAlerts : allAlerts.slice(0, 4);
-
-  const revAtRiskCr = (summary.total_revenue_at_risk / 10000000).toFixed(1);
 
   const handleAlertClick = (alert: AtRiskAlert | ComputedAlert) => {
     if (isComputed(alert)) {
@@ -103,7 +105,7 @@ export default function AtRiskAlerts({ data, computedSummary, computedAlerts }: 
               )}
             </h3>
             <p className="text-sm text-[var(--text-secondary)]">
-              {summary.high_priority.toLocaleString('en-IN')} high priority alerts
+              {summary.high_priority.toLocaleString(locale)} high priority alerts
             </p>
           </div>
         </div>
@@ -112,13 +114,13 @@ export default function AtRiskAlerts({ data, computedSummary, computedAlerts }: 
         <div className="flex items-center gap-6">
           <div className="text-right">
             <p className="text-lg font-semibold text-[#EF4444]">
-              ₹{revAtRiskCr} Cr
+              {fmtMoney(summary.total_revenue_at_risk)}
             </p>
             <p className="text-xs text-[var(--text-tertiary)]">Revenue at Risk</p>
           </div>
           <div className="text-right">
             <p className="text-lg font-semibold text-[var(--text-primary)]">
-              {summary.total_at_risk.toLocaleString('en-IN')}
+              {summary.total_at_risk.toLocaleString(locale)}
             </p>
             <p className="text-xs text-[var(--text-tertiary)]">Total At-Risk</p>
           </div>
@@ -157,7 +159,7 @@ export default function AtRiskAlerts({ data, computedSummary, computedAlerts }: 
                 Customer {alert.customer_id.replace('CUST-', '')}
               </p>
               <p className="text-xs text-[var(--text-tertiary)] mb-2">
-                {alert.segment} · ₹{alert.clv.toLocaleString('en-IN')} CLV
+                {alert.segment} · {fmtMoneyPlain(alert.clv)} CLV
               </p>
 
               <div className="flex items-center justify-between">
@@ -204,7 +206,7 @@ export default function AtRiskAlerts({ data, computedSummary, computedAlerts }: 
                 {alert.customer_name}
               </p>
               <p className="text-xs text-[var(--text-tertiary)] mb-2">
-                {alert.segment} · ₹{alert.clv.toLocaleString('en-IN')} CLV
+                {alert.segment} · {fmtMoneyPlain(alert.clv)} CLV
               </p>
 
               <div className="flex items-center justify-between">
@@ -276,13 +278,13 @@ export default function AtRiskAlerts({ data, computedSummary, computedAlerts }: 
                 <div className="p-3 rounded-lg bg-[var(--bg-secondary)]">
                   <p className="text-xs text-[var(--text-tertiary)]">Revenue at Risk</p>
                   <p className="text-lg font-semibold text-[var(--text-primary)]">
-                    ₹{selectedAlert.potential_revenue_at_risk.toLocaleString('en-IN')}
+                    {fmtMoneyPlain(selectedAlert.potential_revenue_at_risk)}
                   </p>
                 </div>
                 <div className="p-3 rounded-lg bg-[var(--bg-secondary)]">
                   <p className="text-xs text-[var(--text-tertiary)]">Customer CLV</p>
                   <p className="text-lg font-semibold text-[var(--text-primary)]">
-                    ₹{selectedAlert.clv.toLocaleString('en-IN')}
+                    {fmtMoneyPlain(selectedAlert.clv)}
                   </p>
                 </div>
                 <div className="p-3 rounded-lg bg-[var(--bg-secondary)]">

@@ -8,6 +8,7 @@ import {
   ResponsiveContainer, BarChart, Bar, Legend,
 } from 'recharts';
 import { RFMDetailData, RFMCustomer } from '@/app/lib/types';
+import { formatMoneyAuto, formatMoneyPlainAuto } from '@/app/lib/format-money';
 
 interface RFMExpandModalProps {
   data: RFMDetailData;
@@ -26,9 +27,7 @@ const TIER_COLORS: Record<string, string> = {
 };
 
 function fmtInr(n: number) {
-  if (n >= 10_000_000) return `₹${(n / 10_000_000).toFixed(0)}Cr`;
-  if (n >= 100_000) return `₹${(n / 100_000).toFixed(1)}L`;
-  return `₹${n.toLocaleString('en-IN')}`;
+  return formatMoneyAuto(n);
 }
 
 export default function RFMExpandModal({ data, rfmSample, onClose }: RFMExpandModalProps) {
@@ -267,7 +266,7 @@ export default function RFMExpandModal({ data, rfmSample, onClose }: RFMExpandMo
                       <td className="px-3 py-2">{row.channel}</td>
                       <td className="px-3 py-2 text-xs">{row.timing}</td>
                       <td className="px-3 py-2 font-semibold text-green-600">{(row.expected_lift * 100).toFixed(0)}%</td>
-                      <td className="px-3 py-2">₹{row.cost_per_customer}</td>
+                      <td className="px-3 py-2">{formatMoneyPlainAuto(row.cost_per_customer)}</td>
                     </tr>
                   ))}
                 </tbody>

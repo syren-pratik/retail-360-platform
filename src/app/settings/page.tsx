@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { useTenant, type Tenant } from '@/app/context/TenantContext';
 import {
   Database,
   Cpu,
@@ -13,6 +14,7 @@ import {
   Loader2,
   Activity,
   Zap,
+  Globe,
 } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';
@@ -56,6 +58,21 @@ interface QueryStats {
   };
   avgDuration: number;
 }
+
+const TENANT_OPTIONS: { id: Tenant; flag: string; title: string; subtitle: string }[] = [
+  {
+    id: 'india_grocery',
+    flag: '🇮🇳',
+    title: 'India · Grocery',
+    subtitle: 'DMart-style retailer · ₹ amounts · Indian brands and stores',
+  },
+  {
+    id: 'us_apparel',
+    flag: '🇺🇸',
+    title: 'US · Apparel',
+    subtitle: 'US apparel retailer · $ amounts (CX360 module only — other modules stay India)',
+  },
+];
 
 export default function SettingsPage() {
   const [healthStatus, setHealthStatus] = useState<HealthStatus | null>(null);
@@ -222,6 +239,9 @@ export default function SettingsPage() {
         </div>
 
         <div className="space-y-6">
+          {/* Region (Tenant) Section */}
+          <RegionSection />
+
           {/* Data Connection Section */}
           <section className="card">
             <div className="flex items-center gap-2 mb-4">
@@ -558,5 +578,59 @@ export default function SettingsPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+// ─── Region (Tenant) Section ─────────────────────────────────────────────────
+
+function RegionSection() {
+  const { tenant, setTenant } = useTenant();
+
+  return (
+    <section className="card">
+      <div className="flex items-center gap-2 mb-2">
+        <Globe size={20} className="text-[var(--accent-primary)]" />
+        <h2 className="text-lg font-semibold text-[var(--text-primary)]">Region</h2>
+      </div>
+      <p className="text-sm text-[var(--text-secondary)] mb-4">
+        Switches the demo dataset between markets. Currently only CX360 is fully
+        skinned for US apparel — Inventory, Demand, Price Intelligence still
+        render Indian grocery regardless.
+      </p>
+
+      <div className="grid grid-cols-2 gap-3">
+        {TENANT_OPTIONS.map((opt) => {
+          const active = tenant === opt.id;
+          return (
+            <button
+              key={opt.id}
+              onClick={() => {
+                if (!active) setTenant(opt.id);
+              }}
+              className={`text-left rounded-lg border p-4 transition-colors ${
+                active
+                  ? 'border-[var(--accent-primary)] bg-[var(--accent-primary-light)]'
+                  : 'border-[var(--border-default)] hover:border-[var(--accent-primary)] hover:bg-[var(--bg-secondary)]'
+              }`}
+            >
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-2xl leading-none">{opt.flag}</span>
+                <span className="font-semibold text-[var(--text-primary)]">{opt.title}</span>
+                {active && (
+                  <span className="ml-auto inline-flex items-center gap-1 text-xs text-emerald-600">
+                    <CheckCircle2 size={12} /> Active
+                  </span>
+                )}
+              </div>
+              <p className="text-xs text-[var(--text-secondary)] leading-snug">{opt.subtitle}</p>
+            </button>
+          );
+        })}
+      </div>
+
+      <p className="text-xs text-[var(--text-tertiary)] mt-3">
+        Switching regions reloads the page so all charts pull fresh data.
+      </p>
+    </section>
   );
 }
