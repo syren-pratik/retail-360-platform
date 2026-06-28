@@ -94,6 +94,9 @@ export async function runQuery(sql: string): Promise<QueryResult> {
   }
 
   const startTime = Date.now();
+  // Highly visible log so we can see live SQL hitting Databricks
+  const preview = sql.replace(/\s+/g, ' ').slice(0, 140);
+  console.log(`🟣 [Databricks SQL] ${preview}${sql.length > 140 ? '…' : ''}`);
 
   // Normalize host: accept "adb-….net", "https://adb-….net", or trailing slash variants
   let host = config.host.trim().replace(/\/$/, '');

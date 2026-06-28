@@ -3,6 +3,12 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Play, RotateCcw } from 'lucide-react';
+import {
+  topSuppliers,
+  STORES,
+  departmentNames,
+  dcChoices,
+} from '@/app/lib/dbx-fixtures';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -50,6 +56,13 @@ interface ScenarioPreset {
 
 // ─── Presets ──────────────────────────────────────────────────────────────────
 
+// Options resolved from real Databricks data so the cascade analysis uses values
+// that actually exist (supplier_name → gold_supplier_scorecard, etc.).
+const REAL_SUPPLIERS = topSuppliers(10);
+const REAL_DEPARTMENTS = departmentNames();
+const REAL_STORES = STORES.slice(0, 12).map((s) => s.store_name);
+const REAL_DCS = dcChoices();
+
 const SCENARIO_PRESETS: ScenarioPreset[] = [
   {
     id: 'supplier_delay',
@@ -57,10 +70,7 @@ const SCENARIO_PRESETS: ScenarioPreset[] = [
     description: 'What if a key supplier is delayed by X days?',
     icon: '🚚',
     params: [
-      {
-        key: 'supplier', label: 'Supplier', type: 'select',
-        options: ['Hindustan Unilever Ltd', 'Patanjali Ayurved', 'ITC Limited', 'Amul (GCMMF)', 'Nestlé India'],
-      },
+      { key: 'supplier', label: 'Supplier', type: 'select', options: REAL_SUPPLIERS },
       { key: 'delay_days', label: 'Delay (days)', type: 'number', min: 1, max: 30, default: 7 },
     ],
   },
@@ -70,10 +80,7 @@ const SCENARIO_PRESETS: ScenarioPreset[] = [
     description: 'What if demand jumps X% for a category?',
     icon: '📈',
     params: [
-      {
-        key: 'category', label: 'Category', type: 'select',
-        options: ['Grocery & Staples', 'Dairy & Frozen', 'Personal Care', 'Snacks & Beverages'],
-      },
+      { key: 'category', label: 'Category', type: 'select', options: REAL_DEPARTMENTS },
       { key: 'spike_pct', label: 'Spike (%)', type: 'number', min: 10, max: 200, default: 40 },
       { key: 'duration_days', label: 'Duration (days)', type: 'number', min: 1, max: 14, default: 3 },
     ],
@@ -84,10 +91,7 @@ const SCENARIO_PRESETS: ScenarioPreset[] = [
     description: 'What if a store closes for X days?',
     icon: '🏪',
     params: [
-      {
-        key: 'store', label: 'Store', type: 'select',
-        options: ['Delhi NCR Hypermarket 1', 'Delhi NCR Hypermarket 2', 'Mumbai Hypermarket 1', 'Bangalore Hypermarket 1'],
-      },
+      { key: 'store', label: 'Store', type: 'select', options: REAL_STORES },
       { key: 'closure_days', label: 'Closure (days)', type: 'number', min: 1, max: 30, default: 3 },
     ],
   },
@@ -97,37 +101,34 @@ const SCENARIO_PRESETS: ScenarioPreset[] = [
     description: 'What if a distribution centre goes offline?',
     icon: '🏭',
     params: [
-      {
-        key: 'dc', label: 'Distribution Centre', type: 'select',
-        options: ['Mumbai DC', 'Delhi DC'],
-      },
+      { key: 'dc', label: 'Distribution Centre', type: 'select', options: REAL_DCS.map((d) => d.label) },
       { key: 'disruption_hours', label: 'Downtime (hours)', type: 'number', min: 4, max: 72, default: 24 },
     ],
   },
 ];
 
-// ─── Quick Presets ────────────────────────────────────────────────────────────
+// ─── Quick Presets (real values from Databricks) ─────────────────────────────
 
 const QUICK_PRESETS = [
   {
-    label: 'HUL delays 14 days',
+    label: `${REAL_SUPPLIERS[0]} delays 14 days`,
     scenario: 'supplier_delay',
-    params: { supplier: 'Hindustan Unilever Ltd', delay_days: 14 },
+    params: { supplier: REAL_SUPPLIERS[0], delay_days: 14 },
   },
   {
-    label: 'Diwali demand spike +60%',
+    label: `Diwali demand spike +60% (${REAL_DEPARTMENTS[0]})`,
     scenario: 'demand_spike',
-    params: { category: 'Grocery & Staples', spike_pct: 60, duration_days: 5 },
+    params: { category: REAL_DEPARTMENTS[0], spike_pct: 60, duration_days: 5 },
   },
   {
-    label: 'Delhi DC offline 24h',
+    label: `${REAL_DCS[0]?.label ?? 'North Region DC'} offline 24h`,
     scenario: 'dc_disruption',
-    params: { dc: 'Delhi DC', disruption_hours: 24 },
+    params: { dc: REAL_DCS[0]?.label ?? 'North Region DC', disruption_hours: 24 },
   },
   {
-    label: 'Mumbai Hypermarket 1 closes 3 days',
+    label: `${REAL_STORES[0]} closes 3 days`,
     scenario: 'store_closure',
-    params: { store: 'Mumbai Hypermarket 1', closure_days: 3 },
+    params: { store: REAL_STORES[0], closure_days: 3 },
   },
 ];
 
@@ -135,12 +136,9 @@ const QUICK_PRESETS = [
 
 function buildScenarioPrompt(scenario: ScenarioPreset, params: Record<string, unknown>): string {
   const prompts: Record<string, string> = {
-    supplier_delay: `You are a supply chain analyst for a major Indian retail chain (DMart-scale, 20 stores across Delhi NCR, Mumbai, Bangalore, Chennai, Pune).
+    supplier_delay: `You are a supply chain analyst for a large Indian omnichannel retailer (275 active stores across Hypermarket, Supermarket, Express, Dark Store, and Kirana Partner formats spanning South, West, North, and East regions).
 
-Current state:
-- 247 active stockouts, ₹4.2Cr daily revenue at risk
-- ${params.supplier} has an existing OTIF of 64-74% with avg 3-5d delays
-- Network avg days of supply: 21.5 days
+Use the REAL CURRENT STATE block below for baselines — do not invent figures.
 
 SCENARIO: ${params.supplier} announces a ${params.delay_days}-day delay on all current and upcoming orders due to a manufacturing disruption.
 
@@ -154,12 +152,9 @@ Analyse the CASCADE IMPACT:
 Respond in this exact JSON format (no markdown, just raw JSON):
 {"revenue_at_risk_cr":number,"stockout_skus_affected":number,"stores_affected":number,"days_to_resolve":number,"cascade_events":["Day 0: event","Day 1-2: event","Day 3-5: event","Day 7+: event"],"mitigation_actions":[{"action":"string","timing":"Immediate|24h|1 week","expected_impact":"string"}],"confidence":"high|medium|low","summary":"2-sentence executive summary"}`,
 
-    demand_spike: `You are a supply chain analyst for a major Indian retail chain.
+    demand_spike: `You are a supply chain analyst for a large Indian omnichannel retailer.
 
-Current state:
-- Avg days of supply: 21.5 days
-- Current OSA: 91.4% (already strained)
-- ${params.category} current DoS: varies 8-18 days by store
+Use the REAL CURRENT STATE block below for baselines — do not invent figures.
 
 SCENARIO: ${params.category} experiences a sudden ${params.spike_pct}% demand spike lasting ${params.duration_days} days (festival, weather event, or viral trend).
 
@@ -191,7 +186,7 @@ Respond in this exact JSON format (no markdown, just raw JSON):
 
 SCENARIO: ${params.dc} goes offline for ${params.disruption_hours} hours due to a system/operational failure.
 
-${params.dc === 'Delhi DC' ? 'Delhi DC serves 12 North region stores' : 'Mumbai DC serves 11 West and South stores'}
+The REAL CURRENT STATE block below lists network-wide inventory health by region — use it to identify which stores depend on this DC and quantify the cascade.
 
 Analyse the cascade:
 1. Which stores are immediately affected?
@@ -300,9 +295,24 @@ export default function ScenarioSimulatorContent() {
       currentParams[p.key] = getParamValue(p);
     });
 
-    const scenarioDescription = buildScenarioPrompt(selectedScenario, currentParams);
-
     try {
+      // Step 1: fetch real baseline from Databricks so Claude reasons over actual state, not boilerplate
+      const ctxRes = await fetch('/api/scenario-context', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ scenario: selectedScenario.id, params: currentParams }),
+      });
+      const ctxData = await ctxRes.json();
+
+      // Step 2: build a prompt that uses the real baseline numbers
+      const baselineBlock = `## REAL CURRENT STATE (from Databricks, queried ${ctxData.queriedAt}):
+${JSON.stringify(ctxData.baseline, null, 2)}
+
+Use these EXACT numbers as the baseline for your cascade analysis. Do not invent figures.`;
+
+      const scenarioDescription = `${buildScenarioPrompt(selectedScenario, currentParams)}\n\n${baselineBlock}`;
+
+      // Step 3: ask Claude to model the cascade on top of the real state
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -310,16 +320,7 @@ export default function ScenarioSimulatorContent() {
           message: scenarioDescription,
           history: [],
           module: 'inventory',
-          context: {
-            current_state: {
-              total_stockouts: 247,
-              revenue_at_risk_cr: 4.2,
-              supplier_otif_pct: 78.3,
-              avg_dos: 21.5,
-              stores: 20,
-              cities: ['Delhi NCR', 'Mumbai', 'Bangalore', 'Chennai', 'Pune'],
-            },
-          },
+          context: { baseline: ctxData.baseline, baselineSource: ctxData.source },
         }),
       });
 

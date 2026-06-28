@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Loader2, AlertTriangle, CheckCircle, TrendingUp } from 'lucide-react';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
 import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { TOP_SKUS, RFM_SEGMENTS } from '@/app/lib/dbx-fixtures';
 
 interface Props {
   core: PriceIntelCore;
@@ -23,8 +24,8 @@ interface FormState {
   sku_id: string;
   discount_pct: number;
   duration_weeks: '1' | '2' | '4';
-  mechanic: 'pct_off' | 'bogo' | 'bundle' | 'multipack' | 'cashback';
-  segment: 'all' | 'premium' | 'mid' | 'value';
+  mechanic: 'flat_off' | 'pct_off' | 'combo' | 'bogo' | 'cashback';
+  segment: string;
 }
 
 const DURATION_OPTIONS: { label: string; value: FormState['duration_weeks'] }[] = [
@@ -34,18 +35,16 @@ const DURATION_OPTIONS: { label: string; value: FormState['duration_weeks'] }[] 
 ];
 
 const MECHANIC_OPTIONS: { label: string; value: FormState['mechanic'] }[] = [
-  { label: '% Off', value: 'pct_off' },
+  { label: 'Flat Off', value: 'flat_off' },
+  { label: 'Percentage Off', value: 'pct_off' },
+  { label: 'Combo Deal', value: 'combo' },
   { label: 'BOGO', value: 'bogo' },
-  { label: 'Bundle', value: 'bundle' },
-  { label: 'Multipack', value: 'multipack' },
   { label: 'Cashback', value: 'cashback' },
 ];
 
-const SEGMENT_OPTIONS: { label: string; value: FormState['segment'] }[] = [
+const SEGMENT_OPTIONS: { label: string; value: string }[] = [
   { label: 'All Customers', value: 'all' },
-  { label: 'Premium', value: 'premium' },
-  { label: 'Mid-tier', value: 'mid' },
-  { label: 'Value', value: 'value' },
+  ...RFM_SEGMENTS.map((s) => ({ label: s, value: s })),
 ];
 
 function MetricCard({
@@ -78,11 +77,12 @@ function MetricCard({
   );
 }
 
-export default function PromoScenarioAgent({ core }: Props) {
-  const skuList = core.skus.slice(0, 30);
+export default function PromoScenarioAgent({ core: _core }: Props) {
+  void _core;
+  const skuList = TOP_SKUS;
 
   const [form, setForm] = useState<FormState>({
-    sku_id: skuList[0]?.sku_id ?? '',
+    sku_id: skuList[0]?.product_id ?? '',
     discount_pct: 15,
     duration_weeks: '2',
     mechanic: 'pct_off',
@@ -92,7 +92,7 @@ export default function PromoScenarioAgent({ core }: Props) {
   const [result, setResult] = useState<PromoScenarioResult | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const skuData = core.skus.find((s) => s.sku_id === form.sku_id);
+  const skuData = skuList.find((s) => s.product_id === form.sku_id);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -146,8 +146,8 @@ export default function PromoScenarioAgent({ core }: Props) {
             className="w-full text-sm bg-[var(--bg-secondary)] border border-[var(--border-default)] rounded-md px-3 py-2 text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] focus:ring-opacity-40"
           >
             {skuList.map((sku) => (
-              <option key={sku.sku_id} value={sku.sku_id}>
-                {sku.product_name}
+              <option key={sku.product_id} value={sku.product_id}>
+                {sku.product_id} · {sku.category_l1} (₹{(sku.revenue_inr_7d / 100000).toFixed(1)}L last 7d)
               </option>
             ))}
           </select>
@@ -224,7 +224,7 @@ export default function PromoScenarioAgent({ core }: Props) {
             <select
               value={form.segment}
               onChange={(e) =>
-                setForm((f) => ({ ...f, segment: e.target.value as FormState['segment'] }))
+                setForm((f) => ({ ...f, segment: e.target.value }))
               }
               className="text-sm bg-[var(--bg-secondary)] border border-[var(--border-default)] rounded-md px-3 py-2 text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] focus:ring-opacity-40"
             >

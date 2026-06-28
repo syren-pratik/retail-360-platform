@@ -9,6 +9,7 @@ import {
   AlertTriangle,
 } from 'lucide-react';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
+import { TOP_SKUS, CATEGORIES } from '@/app/lib/dbx-fixtures';
 
 interface Props {
   core: PriceIntelCore;
@@ -37,10 +38,14 @@ const THREAT_BADGE: Record<KotlerAnalysis['threat_level'], { cls: string; label:
   critical: { cls: 'bg-rose-600 text-white',           label: 'Critical Threat' },
 };
 
+// Real competitor-response prompts built from live top-SKU / category data.
+const _topSku = TOP_SKUS[0]?.product_id ?? 'PRD-000001';
+const _topCat = CATEGORIES[0]?.category_l1 ?? 'Spices';
+const _topDept = CATEGORIES[1]?.department ?? 'Grocery & Staples';
 const SUGGESTION_CHIPS = [
-  'Competitor dropped price 15% on basics',
-  'New entrant with 20% lower price',
-  'Competitor bundling premium + value',
+  `Zepto cut ${_topSku} by 15% — should we respond?`,
+  `Blinkit launched a flash sale on ${_topCat} — what's our move?`,
+  `BigBasket is bundling ${_topDept} products — analyse the threat`,
 ];
 
 function ThreatBadge({ level }: { level: KotlerAnalysis['threat_level'] }) {

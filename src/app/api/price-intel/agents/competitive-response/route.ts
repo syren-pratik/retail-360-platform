@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { priceIntelLookup } from '@/app/lib/dbx-tools';
 
 let client: Anthropic | null = null;
 let modelName = 'claude-sonnet-4-5-20250514';
@@ -99,11 +100,23 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(computeFallback(body));
   }
 
+  // Fetch live competitive gap data from Databricks to ground reasoning.
+  // Degrades gracefully on failure.
+  let dbxContext = '';
+  try {
+    const gaps = await priceIntelLookup({ scope: 'competitive_gaps', limit: 30 });
+    if (gaps.success && gaps.data?.length) {
+      dbxContext = `\n\nReal current competitive gaps from Databricks (our_price vs competitor_price, gaps >5%):\n${JSON.stringify(gaps.data, null, 2)}\n\nReason over these actual competitor prices when assessing threat and recommending response.`;
+    }
+  } catch (err) {
+    console.warn('competitive-response: dbx context fetch failed, continuing without:', err);
+  }
+
   try {
     const response = await client.messages.create({
       model: modelName,
       max_tokens: 1500,
-      system: `You are a competitive pricing strategist using the Kotler framework for Indian retail. When the user describes a competitor pricing move, respond conversationally AND include a JSON analysis block at the end of your response wrapped in <analysis> tags. The analysis should follow this schema: { "competitive_position": "<string>", "threat_level": "low|medium|high|critical", "recommended_response": "<string>", "price_adjustment_pct": <number>, "supporting_actions": ["<string>"], "market_share_risk_pct": <number> }. Keep response text brief (2-3 sentences) before the analysis block.`,
+      system: `You are a competitive pricing strategist using the Kotler framework for Indian retail. When the user describes a competitor pricing move, respond conversationally AND include a JSON analysis block at the end of your response wrapped in <analysis> tags. The analysis should follow this schema: { "competitive_position": "<string>", "threat_level": "low|medium|high|critical", "recommended_response": "<string>", "price_adjustment_pct": <number>, "supporting_actions": ["<string>"], "market_share_risk_pct": <number> }. Keep response text brief (2-3 sentences) before the analysis block.${dbxContext}`,
       messages: body.messages,
     });
 

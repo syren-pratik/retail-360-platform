@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { priceIntelLookup, supplierHealth, inventoryStatus } from '@/app/lib/dbx-tools';
 
 let client: Anthropic | null = null;
 let modelName = 'claude-sonnet-4-5-20250514';
@@ -69,7 +70,9 @@ function resolvePriority(item: ActionQueueItem): ActionPriority {
 }
 
 function computeFallback(body: WeeklyBriefingBody): WeeklyBriefingResult {
-  const { kpis, action_queue, headline } = body;
+  const kpis = body.kpis ?? {};
+  const action_queue = body.action_queue ?? [];
+  const headline = body.headline;
 
   // Headline from headline.sentence
   const headlineText =
@@ -156,13 +159,34 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(result);
   }
 
-  const prompt = `Generate a weekly pricing intelligence brief for Indian retail leadership. Return ONLY valid JSON — no markdown, no extra text.
+  // Fan out live Databricks queries for real KPIs. Degrades gracefully on per-call failure.
+  let dbxContext = '';
+  try {
+    const [recs, gaps, suppliers, invHealth] = await Promise.all([
+      priceIntelLookup({ scope: 'recommendations', limit: 10 }),
+      priceIntelLookup({ scope: 'competitive_gaps', limit: 10 }),
+      supplierHealth({ scope: 'underperformers', filter: { max_on_time_pct: 80 } }),
+      inventoryStatus({ scope: 'health_summary' }),
+    ]);
+    const ctx: Record<string, unknown> = {};
+    if (recs.success && recs.data?.length) ctx.top_price_recommendations = recs.data;
+    if (gaps.success && gaps.data?.length) ctx.competitive_gaps = gaps.data;
+    if (suppliers.success && suppliers.data?.length) ctx.underperforming_suppliers = suppliers.data;
+    if (invHealth.success && invHealth.data?.length) ctx.inventory_health_by_department = invHealth.data;
+    if (Object.keys(ctx).length) {
+      dbxContext = `Real current state from Databricks (live this week):\n${JSON.stringify(ctx, null, 2)}\n\nGround the brief in these actual numbers — cite specific SKUs, suppliers, and departments where relevant.\n\n`;
+    }
+  } catch (err) {
+    console.warn('weekly-briefing: dbx context fetch failed, continuing without:', err);
+  }
 
-KPIs this week: ${JSON.stringify(body.kpis)}
-Active campaigns: ${JSON.stringify(body.campaigns)}
-Action queue (${body.action_queue.length} items): ${JSON.stringify(body.action_queue.slice(0, 15))}
-Forecast data: ${JSON.stringify(body.forecast)}
-Headline context: ${JSON.stringify(body.headline)}
+  const prompt = `${dbxContext}Generate a weekly pricing intelligence brief for Indian retail leadership. Return ONLY valid JSON — no markdown, no extra text.
+
+KPIs this week: ${JSON.stringify(body.kpis ?? {})}
+Active campaigns: ${JSON.stringify(body.campaigns ?? [])}
+Action queue (${(body.action_queue ?? []).length} items): ${JSON.stringify((body.action_queue ?? []).slice(0, 15))}
+Forecast data: ${JSON.stringify(body.forecast ?? [])}
+Headline context: ${JSON.stringify(body.headline ?? {})}
 
 Return JSON schema:
 {

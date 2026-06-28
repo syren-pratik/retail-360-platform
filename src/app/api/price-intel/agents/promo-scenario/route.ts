@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { priceIntelLookup } from '@/app/lib/dbx-tools';
 
 let client: Anthropic | null = null;
 let modelName = 'claude-sonnet-4-5-20250514';
@@ -107,7 +108,25 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(result);
   }
 
-  const prompt = `Analyse this Indian retail promotional scenario and return ONLY valid JSON matching the exact schema — no markdown, no extra text.
+  // Fetch live Databricks context: SKU pricing + elasticity for the target SKU.
+  // If queries fail we degrade gracefully — Claude still gets the request payload.
+  let dbxContext = '';
+  try {
+    const [skuPricing, elasticity] = await Promise.all([
+      priceIntelLookup({ scope: 'sku_pricing', filter: { product_id: body.sku_id } }),
+      priceIntelLookup({ scope: 'elasticity', filter: { product_id: body.sku_id }, limit: 5 }),
+    ]);
+    const ctx: Record<string, unknown> = {};
+    if (skuPricing.success && skuPricing.data?.length) ctx.sku_pricing = skuPricing.data;
+    if (elasticity.success && elasticity.data?.length) ctx.elasticity = elasticity.data;
+    if (Object.keys(ctx).length) {
+      dbxContext = `Real current state from Databricks:\n${JSON.stringify(ctx, null, 2)}\n\nGround the promo model in these actual current price, cost, and elasticity numbers.\n\n`;
+    }
+  } catch (err) {
+    console.warn('promo-scenario: dbx context fetch failed, continuing without:', err);
+  }
+
+  const prompt = `${dbxContext}Analyse this Indian retail promotional scenario and return ONLY valid JSON matching the exact schema — no markdown, no extra text.
 
 SKU ID: ${body.sku_id}
 Discount %: ${body.discount_pct}

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { inventoryStatus } from '@/app/lib/dbx-tools';
 
 let client: Anthropic | null = null;
 let modelName = 'claude-sonnet-4-5-20250514';
@@ -64,8 +65,23 @@ function resolveUrgency(days_remaining: number): UrgencyLevel {
   return 'monitor';
 }
 
-function computeFallback(body: MarkdownTimingBody): MarkdownTimingResult {
-  const { markdown_items, season_end_weeks, goal } = body;
+function computeFallback(body: MarkdownTimingBody, dbxOverstock?: Record<string, unknown>[]): MarkdownTimingResult {
+  const goal = body.goal ?? 'Clear overstock before season-end';
+  const season_end_weeks = body.season_end_weeks ?? 8;
+  let markdown_items = body.markdown_items;
+
+  // If the caller didn't pass items, seed from Databricks overstock data
+  if ((!markdown_items || markdown_items.length === 0) && dbxOverstock?.length) {
+    markdown_items = dbxOverstock.slice(0, 20).map((row) => ({
+      sku_id: row.product_id as string,
+      product_name: (row.product_id as string) || 'unknown SKU',
+      days_remaining: Math.max(7, Math.round((row.dos as number) ?? 30)),
+      recommended_depth_pct: 25,
+      revenue_at_risk_inr: Math.round(((row.closing_stock_qty as number) ?? 100) * 200),
+      current_stock_units: row.closing_stock_qty as number,
+    }));
+  }
+  markdown_items = markdown_items ?? [];
 
   const schedule: ScheduleItem[] = markdown_items.map((item, i) => {
     const days = item.days_remaining ?? season_end_weeks * 7;
@@ -82,7 +98,7 @@ function computeFallback(body: MarkdownTimingBody): MarkdownTimingResult {
         : 60;
 
     return {
-      sku_id: item.sku_id ?? body.sku_ids[i] ?? `SKU-${i + 1}`,
+      sku_id: item.sku_id ?? body.sku_ids?.[i] ?? `SKU-${i + 1}`,
       product_name: item.product_name ?? `Product ${i + 1}`,
       recommended_week: Math.max(1, Math.ceil(days / 7)),
       depth_pct: depth,
@@ -125,17 +141,29 @@ function computeFallback(body: MarkdownTimingBody): MarkdownTimingResult {
 export async function POST(request: NextRequest) {
   const body: MarkdownTimingBody = await request.json();
 
-  if (!client) {
-    const result = computeFallback(body);
-    return NextResponse.json(result);
+  // Fetch live overstock data from Databricks ONCE — used both as Claude context and fallback seed.
+  let dbxOverstock: Record<string, unknown>[] | undefined;
+  let dbxContext = '';
+  try {
+    const overstock = await inventoryStatus({ scope: 'overstock', limit: 50 });
+    if (overstock.success && overstock.data?.length) {
+      dbxOverstock = overstock.data;
+      dbxContext = `Real overstocked SKUs from Databricks (with current days-of-stock):\n${JSON.stringify(overstock.data, null, 2)}\n\nUse these actual overstock positions when scheduling markdowns.\n\n`;
+    }
+  } catch (err) {
+    console.warn('markdown-timing: dbx context fetch failed, continuing without:', err);
   }
 
-  const prompt = `Create an optimised markdown timing schedule for Indian retail end-of-season clearance. Return ONLY valid JSON — no markdown formatting, no extra text.
+  if (!client) {
+    return NextResponse.json(computeFallback(body, dbxOverstock));
+  }
+
+  const prompt = `${dbxContext}Create an optimised markdown timing schedule for Indian retail end-of-season clearance. Return ONLY valid JSON — no markdown formatting, no extra text.
 
 Goal: ${body.goal}
 Season end (weeks from now): ${body.season_end_weeks}
-SKU IDs: ${body.sku_ids.join(', ')}
-Markdown items: ${JSON.stringify(body.markdown_items)}
+SKU IDs: ${(body.sku_ids ?? []).join(', ') || '(none — use Databricks overstock above)'}
+Markdown items: ${JSON.stringify(body.markdown_items ?? [])}
 
 Return JSON schema:
 {
@@ -173,7 +201,6 @@ Return JSON schema:
     return NextResponse.json(result);
   } catch (err) {
     console.error('markdown-timing agent error:', err);
-    const result = computeFallback(body);
-    return NextResponse.json(result);
+    return NextResponse.json(computeFallback(body, dbxOverstock));
   }
 }

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { priceIntelLookup } from '@/app/lib/dbx-tools';
 
 let client: Anthropic | null = null;
 let modelName = 'claude-sonnet-4-5-20250514';
@@ -162,7 +163,25 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(result);
   }
 
-  const prompt = `Build a price strategy recommendation for an Indian retail category and return ONLY valid JSON. No markdown, no commentary.
+  // Fetch live recommendations + elasticity for this category from Databricks.
+  // Degrades gracefully on failure — Claude still gets the supplied skus_in_category.
+  let dbxContext = '';
+  try {
+    const [recs, elasticity] = await Promise.all([
+      priceIntelLookup({ scope: 'recommendations', filter: { category_l1: body.category }, limit: 20 }),
+      priceIntelLookup({ scope: 'elasticity', filter: { category_l1: body.category }, limit: 20 }),
+    ]);
+    const ctx: Record<string, unknown> = {};
+    if (recs.success && recs.data?.length) ctx.recommendations = recs.data;
+    if (elasticity.success && elasticity.data?.length) ctx.elasticity = elasticity.data;
+    if (Object.keys(ctx).length) {
+      dbxContext = `Real current state from Databricks for category "${body.category}":\n${JSON.stringify(ctx, null, 2)}\n\nGround your strategy in these actual recommended prices and elasticity coefficients.\n\n`;
+    }
+  } catch (err) {
+    console.warn('price-strategy: dbx context fetch failed, continuing without:', err);
+  }
+
+  const prompt = `${dbxContext}Build a price strategy recommendation for an Indian retail category and return ONLY valid JSON. No markdown, no commentary.
 
 Category: ${body.category}
 Planning horizon: ${body.horizon}

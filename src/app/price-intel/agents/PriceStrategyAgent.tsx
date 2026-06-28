@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
 import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { CATEGORIES } from '@/app/lib/dbx-fixtures';
 
 interface Props {
   core: PriceIntelCore;
@@ -85,9 +86,15 @@ function ActionBadge({ action }: { action: 'raise' | 'hold' | 'lower' }) {
 }
 
 export default function PriceStrategyAgent({ core }: Props) {
-  const categories = Array.from(new Set(core.skus.map(s => s.category)));
+  // Group real Databricks categories by department for the dropdown.
+  const categoriesByDept = CATEGORIES.reduce<Record<string, typeof CATEGORIES>>((acc, c) => {
+    if (!acc[c.department]) acc[c.department] = [];
+    acc[c.department].push(c);
+    return acc;
+  }, {});
+  const deptOrder = Object.keys(categoriesByDept);
 
-  const [category, setCategory] = useState<string>(categories[0] ?? '');
+  const [category, setCategory] = useState<string>(CATEGORIES[0]?.category_l1 ?? '');
   const [horizon, setHorizon] = useState<Horizon>('4 weeks');
   const [objective, setObjective] = useState<Objective>('maximize_margin');
   const [competitiveIntensity, setCompetitiveIntensity] = useState<CompetitiveIntensity>('medium');
@@ -101,7 +108,8 @@ export default function PriceStrategyAgent({ core }: Props) {
     setError(null);
     setResult(null);
     try {
-      const deptData = core.departments.find(d => d.categories.includes(category));
+      const catRow = CATEGORIES.find(c => c.category_l1 === category);
+      const deptData = core.departments.find(d => d.name === catRow?.department) ?? null;
       const skusInCategory = core.skus.filter(s => s.category === category).slice(0, 10);
       const res = await fetch('/api/price-intel/agents/price-strategy', {
         method: 'POST',
@@ -144,8 +152,14 @@ export default function PriceStrategyAgent({ core }: Props) {
                 onChange={e => setCategory(e.target.value)}
                 className="w-full appearance-none rounded-md border border-[var(--border-default)] bg-[var(--bg-primary)] text-[var(--text-primary)] text-sm px-3 py-2 pr-8 focus:outline-none focus:ring-1 focus:ring-[var(--accent-primary)]"
               >
-                {categories.map(cat => (
-                  <option key={cat} value={cat}>{cat}</option>
+                {deptOrder.map(dept => (
+                  <optgroup key={dept} label={dept}>
+                    {categoriesByDept[dept].map(c => (
+                      <option key={`${dept}-${c.category_l1}`} value={c.category_l1}>
+                        {c.category_l1} ({c.sku_count} SKUs)
+                      </option>
+                    ))}
+                  </optgroup>
                 ))}
               </select>
               <ChevronDown size={14} className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-[var(--text-tertiary)]" />

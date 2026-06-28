@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
 import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { OVERSTOCK_SKUS } from '@/app/lib/dbx-fixtures';
 
 interface Props {
   core: PriceIntelCore;
@@ -59,10 +60,9 @@ function UrgencyBadge({ urgency }: { urgency: ScheduleItem['urgency'] }) {
   );
 }
 
-export default function MarkdownTimingAgent({ core }: Props) {
-  const pendingItems = core.markdown_queue
-    .filter(i => i.status === 'pending')
-    .slice(0, 15);
+export default function MarkdownTimingAgent({ core: _core }: Props) {
+  void _core;
+  const pendingItems = OVERSTOCK_SKUS.slice(0, 15);
 
   const [selectedSKUs, setSelectedSKUs] = useState<Set<string>>(new Set());
   const [goal, setGoal] = useState<OptimizationGoal>('balanced');
@@ -84,7 +84,7 @@ export default function MarkdownTimingAgent({ core }: Props) {
   }
 
   function selectAll() {
-    setSelectedSKUs(new Set(pendingItems.map(i => i.sku_id)));
+    setSelectedSKUs(new Set(pendingItems.map(i => i.product_id)));
   }
 
   function clearAll() {
@@ -99,7 +99,16 @@ export default function MarkdownTimingAgent({ core }: Props) {
     setResult(null);
     try {
       const skuIds = Array.from(selectedSKUs);
-      const markdownItems = core.markdown_queue.filter(i => selectedSKUs.has(i.sku_id));
+      const markdownItems = pendingItems
+        .filter(i => selectedSKUs.has(i.product_id))
+        .map(i => ({
+          sku_id: i.product_id,
+          product_name: i.product_id,
+          days_remaining: Math.max(7, Math.round(i.dos)),
+          recommended_depth_pct: 25,
+          revenue_at_risk_inr: Math.round(i.closing_stock_qty * 200),
+          current_stock_units: i.closing_stock_qty,
+        }));
       const res = await fetch('/api/price-intel/agents/markdown-timing', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -160,33 +169,33 @@ export default function MarkdownTimingAgent({ core }: Props) {
             ) : (
               <div className="rounded-lg border border-[var(--border-default)] divide-y divide-[var(--border-default)] max-h-64 overflow-y-auto">
                 {pendingItems.map(item => {
-                  const checked = selectedSKUs.has(item.sku_id);
-                  const urgencyScore = item.urgency_score;
+                  const checked = selectedSKUs.has(item.product_id);
+                  const dos = item.dos;
                   const urgencyColor =
-                    urgencyScore >= 8
+                    dos <= 30
                       ? 'bg-rose-100 text-rose-700'
-                      : urgencyScore >= 5
+                      : dos <= 60
                       ? 'bg-amber-100 text-amber-700'
                       : 'bg-slate-100 text-slate-600';
 
                   return (
                     <label
-                      key={item.sku_id}
+                      key={`${item.product_id}-${item.store_id}`}
                       className="flex items-center gap-3 px-3 py-2.5 cursor-pointer hover:bg-[var(--bg-secondary)] transition-colors"
                     >
                       <button
                         type="button"
-                        onClick={() => toggleSKU(item.sku_id)}
+                        onClick={() => toggleSKU(item.product_id)}
                         className="shrink-0 text-[var(--accent-primary)]"
                         aria-label={checked ? 'Deselect' : 'Select'}
                       >
                         {checked ? <CheckSquare size={15} /> : <Square size={15} className="text-[var(--text-tertiary)]" />}
                       </button>
                       <span className="flex-1 text-sm text-[var(--text-primary)] truncate">
-                        {item.product_name}
+                        {item.product_id} · {item.city} · {item.department} · {item.dos.toFixed(1)}d stock · {item.closing_stock_qty} units
                       </span>
                       <span className={`shrink-0 px-1.5 py-0.5 rounded text-xs font-medium ${urgencyColor}`}>
-                        {urgencyScore.toFixed(0)}
+                        {dos.toFixed(0)}d
                       </span>
                     </label>
                   );

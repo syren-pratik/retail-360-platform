@@ -3,6 +3,8 @@ import Anthropic from '@anthropic-ai/sdk';
 import { executeQuery } from '@/app/lib/data-source';
 import { promises as fsp } from 'fs';
 import path from 'path';
+import { dispatchTypedTool, type TypedToolName } from '@/app/lib/dbx-tools';
+import { catalogForModule } from '@/app/lib/dbx-catalog';
 
 // Initialize Anthropic client - supports both direct Anthropic and Azure AI Foundry
 let anthropic: Anthropic | null = null;
@@ -51,13 +53,125 @@ const TOOLS: Anthropic.Tool[] = [
       required: ['dataset'],
     },
   },
+  // ── Typed Databricks tools (PREFERRED over raw query_data) ──────────────
   {
-    name: 'query_data',
-    description: 'Run a SQL query against the retail database to fetch customer, sales, or forecast data. Use this when the user asks a question that requires data lookup.',
+    name: 'cx_lookup',
+    description: 'Look up customer 360 data: RFM segments, churn risk, top-CLV customers, cohort retention, or a single customer\'s 360 record. Live Databricks query against genome_customer_360. Use this for ANY customer question.',
     input_schema: {
       type: 'object' as const,
       properties: {
-        sql: { type: 'string', description: 'The SQL query to execute. Use fully qualified table names (hive_metastore.schema.table).' },
+        scope: { type: 'string', enum: ['segment_summary', 'churn_risk', 'top_value', 'cohort', 'customer'], description: 'segment_summary=aggregate by RFM; churn_risk=top at-risk; top_value=highest CLV; cohort=retention curves; customer=full single-customer record (needs customer_id)' },
+        filter: {
+          type: 'object',
+          properties: {
+            rfm_segment: { type: 'string' },
+            churn_risk_tier: { type: 'string', enum: ['Very High', 'High', 'Medium', 'Low'] },
+            clv_tier: { type: 'string', enum: ['Platinum', 'Gold', 'Silver', 'Bronze'] },
+            city: { type: 'string' },
+            customer_id: { type: 'string' },
+          },
+        },
+        limit: { type: 'number', description: 'Max rows (default 50, capped at 500)' },
+      },
+      required: ['scope'],
+    },
+  },
+  {
+    name: 'inventory_status',
+    description: 'Live inventory state from Databricks: today\'s stockouts, replenishment recommendations, overstock, health by department, or per-SKU detail. Always pulls latest date_id automatically.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        scope: { type: 'string', enum: ['health_summary', 'stockouts_now', 'replenishment_needed', 'overstock', 'sku_lookup'] },
+        filter: {
+          type: 'object',
+          properties: {
+            city: { type: 'string' },
+            store_type: { type: 'string' },
+            department: { type: 'string' },
+            abc_class: { type: 'string', enum: ['A', 'B', 'C'] },
+            product_id: { type: 'string' },
+          },
+        },
+        limit: { type: 'number', description: 'Max rows (default 50, capped at 500)' },
+      },
+      required: ['scope'],
+    },
+  },
+  {
+    name: 'demand_lookup',
+    description: 'Live demand and forecast from Databricks: rolled-up sales, top-moving SKUs, ML forecasts with CIs, festival uplift, or a SKU\'s daily trend.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        scope: { type: 'string', enum: ['sales_summary', 'top_movers', 'forecast', 'festival_uplift', 'sku_trend'] },
+        filter: {
+          type: 'object',
+          properties: {
+            department: { type: 'string' },
+            category_l1: { type: 'string' },
+            city: { type: 'string' },
+            state: { type: 'string' },
+            abc_class: { type: 'string', enum: ['A', 'B', 'C'] },
+            product_id: { type: 'string' },
+            festival_name: { type: 'string' },
+            window_days: { type: 'number', description: 'Lookback window (default 7)' },
+          },
+        },
+        limit: { type: 'number', description: 'Max rows (default 50, capped at 500)' },
+      },
+      required: ['scope'],
+    },
+  },
+  {
+    name: 'supplier_health',
+    description: 'Live supplier scorecard from Databricks: full OTIF table, underperformers (OTIF < X%), recent cost-change events, or one supplier\'s detail.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        scope: { type: 'string', enum: ['scorecard', 'underperformers', 'cost_changes', 'supplier_lookup'] },
+        filter: {
+          type: 'object',
+          properties: {
+            supplier_id: { type: 'string' },
+            supplier_name: { type: 'string' },
+            max_on_time_pct: { type: 'number', description: 'For underperformers — threshold (default 75)' },
+          },
+        },
+        limit: { type: 'number' },
+      },
+      required: ['scope'],
+    },
+  },
+  {
+    name: 'price_intel_lookup',
+    description: 'Live pricing from Databricks: ML pricing recommendations ranked by revenue impact, elasticity ranking, competitive gaps (vs Blinkit/Zepto/etc.), promo effectiveness, or one SKU\'s full pricing picture.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        scope: { type: 'string', enum: ['recommendations', 'elasticity', 'competitive_gaps', 'promo_effectiveness', 'sku_pricing'] },
+        filter: {
+          type: 'object',
+          properties: {
+            category_l1: { type: 'string' },
+            abc_class: { type: 'string', enum: ['A', 'B', 'C'] },
+            product_id: { type: 'string' },
+            promo_id: { type: 'string' },
+            min_revenue_impact: { type: 'number', description: 'Absolute INR impact threshold' },
+          },
+        },
+        limit: { type: 'number' },
+      },
+      required: ['scope'],
+    },
+  },
+  {
+    name: 'query_data',
+    description: 'ESCAPE HATCH — raw SQL against Databricks. Use ONLY when none of the typed tools (cx_lookup, inventory_status, demand_lookup, supplier_health, price_intel_lookup) fit. Always use fully qualified table names (hive_metastore.schema.table). Always LIMIT 500.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        sql: { type: 'string', description: 'The SQL query. ALWAYS qualify tables with hive_metastore.schema.table. ALWAYS LIMIT 500.' },
         explanation: { type: 'string', description: 'Brief explanation of what this query does' },
       },
       required: ['sql', 'explanation'],
@@ -275,16 +389,26 @@ You don't just answer questions — you TAKE ACTIONS on the dashboard using your
 
 ## Your Capabilities (Tools)
 
-0. **get_dashboard_data** — Fetch the EXACT JSON behind the dashboards (PREFERRED for any on-screen question)
-1. **query_data** — Run SQL against the retail database
-2. **propose_chart_options** — Propose 2-3 chart options for the user to choose from
-3. **render_selected_chart** — Render the chart the user selected
-4. **pin_to_dashboard** — Add a chart to the main dashboard permanently
-5. **create_segment** — Build and save a customer segment
-6. **set_alert** — Create a monitoring rule (e.g., "alert if churn > 30%")
-7. **run_nba** — Generate next-best-actions for a customer or segment
-8. **export_data** — Generate a downloadable CSV
-9. **apply_dashboard_filter** — Change the dashboard's active filters
+LIVE DATABRICKS TOOLS (PREFER THESE):
+0. **cx_lookup** — Customer 360 (segments, churn risk, CLV, cohorts, single customer). Live SQL.
+1. **inventory_status** — Inventory health, stockouts, replenishment, overstock, per-SKU. Live SQL.
+2. **demand_lookup** — Sales rollup, top movers, ML forecasts, festival uplift, SKU trends. Live SQL.
+3. **supplier_health** — OTIF scorecard, underperformers, cost-change events. Live SQL.
+4. **price_intel_lookup** — Pricing recs, elasticity, competitive gaps, promo effectiveness. Live SQL.
+
+FALLBACKS (only when typed tools don't fit):
+5. **query_data** — Raw SQL escape hatch.
+6. **get_dashboard_data** — Precomputed JSON snapshots (use only for forecast snapshots not in Databricks).
+
+ACTION TOOLS:
+7. **propose_chart_options** — Propose 2-3 chart options for the user to choose from
+8. **render_selected_chart** — Render the chart the user selected
+9. **pin_to_dashboard** — Add a chart to the main dashboard
+10. **create_segment** — Build and save a customer segment
+11. **set_alert** — Create a monitoring rule
+12. **run_nba** — Generate next-best-actions
+13. **export_data** — Generate a downloadable CSV
+14. **apply_dashboard_filter** — Change the dashboard's active filters
 
 ## Chart Creation Protocol — MANDATORY
 
@@ -325,22 +449,27 @@ WHEN DATA IS TWO NUMERIC VARIABLES:
 EXCEPTION: If the user EXPLICITLY requests a specific chart type ("show me a bar chart of X"), still propose options but make their requested type Option A.
 EXCEPTION: If the user says "just show me a table" or "give me the raw data", skip options and render the table directly.
 
-## Data Source Selection — IMPORTANT
+## Data Source Selection — CRITICAL
 
-The dashboards render from precomputed JSON datasets, NOT from SQL. For any question about what's on screen, use get_dashboard_data FIRST:
-- Price Intelligence (margin leakage, promos, ROI, markdowns, sell-through, forecast, departments, SKU pricing) → dataset="price_intel_core" with section: kpis | action_queue | promo | markdown | forecast | departments | skus
-- Demand Planning → dataset="merch_demand_core" (no section → lists available sections)
-- Customer 360 KPIs/charts → cx360_kpis, cx360_churn_risk, cx360_clv_distribution, cx360_segment_migration, cx360_cohort_retention, cx360_at_risk_alerts, etc.
-- Inventory → inventory_kpis, inventory_alerts, inventory_health_matrix, inventory_stockout_trend, etc.
-- Supply chain → supply_kpis, supply_supplier_otif, supply_reorder_intelligence, etc.
-- Not sure of the name? Call get_dashboard_data with dataset="list" first.
-NEVER answer "I don't have access to that data" before trying get_dashboard_data. Numbers from these datasets match the user's screen exactly — cite them confidently.
-Use query_data only for ad-hoc customer-level SQL exploration that no dataset covers.
+**Source of truth is LIVE Databricks.** Numbers MUST come from a tool call, never from memory.
+
+Decision tree for every question:
+1. Does it map to a typed tool? Use it.
+   - Customer / churn / CLV / segment → **cx_lookup**
+   - Stockout / replenishment / overstock / inventory health → **inventory_status**
+   - Sales / forecast / festival / top movers → **demand_lookup**
+   - Supplier / OTIF / cost change → **supplier_health**
+   - Pricing rec / elasticity / competitor / promo ROI → **price_intel_lookup**
+2. Novel question that doesn't fit? Use **query_data** with raw SQL — fully-qualified table names, LIMIT 500.
+3. Only if both fail or the user asks about a precomputed FORECAST SNAPSHOT (e.g. price_intel_core's headline) → use get_dashboard_data.
+
+NEVER answer "I don't have access" before trying a tool. Live data is reachable.
+NEVER make up numbers — every number in your reply must be traceable to a tool result in this turn or the previous one.
 
 ## How to Behave
 
-- When the user asks about anything visible on a dashboard → use get_dashboard_data, then answer with the real numbers (and propose_chart_options if a visual helps)
-- When the user asks a data question → use query_data, then propose_chart_options
+- When the user asks about data → pick the right typed tool, get the numbers, answer with them
+- When a chart would help → after getting data, call propose_chart_options
 - When the user selects a chart option → use render_selected_chart
 - When the user says "pin this" or "add to dashboard" → use pin_to_dashboard
 - When the user describes a customer group → use create_segment
@@ -357,13 +486,15 @@ You can chain tools. Examples:
 - When user says "Option A" → render_selected_chart
 - If user then says "pin it" → pin_to_dashboard
 
-## Database Schema
+## Live Databricks Catalog (relevant tables for this module)
 
-${getSchemaForModule(module)}
+${catalogForModule(module)}
 
 ## Rules
+- Numbers come from tool calls — never from memory
 - Always use fully qualified table names: hive_metastore.schema.table
 - LIMIT SQL results to 500 rows max
+- date_id is YYYYMMDD bigint, NOT a date string
 - Use ₹ for all currency values (Indian Rupees)
 - Be specific with numbers — never vague
 - When proposing charts, make options genuinely different (not 3 variations of the same chart)
@@ -481,6 +612,14 @@ async function executeDashboardDataTool(input: { dataset: string; section?: stri
 
 async function executeTool(toolName: string, input: Record<string, unknown>): Promise<Record<string, unknown>> {
   switch (toolName) {
+    case 'cx_lookup':
+    case 'inventory_status':
+    case 'demand_lookup':
+    case 'supplier_health':
+    case 'price_intel_lookup': {
+      const result = await dispatchTypedTool(toolName as TypedToolName, input);
+      return result as unknown as Record<string, unknown>;
+    }
     case 'get_dashboard_data':
       return await executeDashboardDataTool(input as { dataset: string; section?: string });
     case 'query_data':
@@ -1075,7 +1214,18 @@ The file will download automatically.`,
 // ============================================================================
 
 function toolStartLabel(name: string, input: Record<string, unknown>): string {
+  const scope = input.scope as string | undefined;
   switch (name) {
+    case 'cx_lookup':
+      return `Reading customer 360 · ${scope ?? '…'}`;
+    case 'inventory_status':
+      return `Querying live inventory · ${scope ?? '…'}`;
+    case 'demand_lookup':
+      return `Pulling demand data · ${scope ?? '…'}`;
+    case 'supplier_health':
+      return `Checking suppliers · ${scope ?? '…'}`;
+    case 'price_intel_lookup':
+      return `Reading pricing data · ${scope ?? '…'}`;
     case 'get_dashboard_data':
       return input.dataset === 'list'
         ? 'Discovering available datasets'
