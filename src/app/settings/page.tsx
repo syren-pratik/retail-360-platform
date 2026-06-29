@@ -571,7 +571,9 @@ export default function SettingsPage() {
               </div>
               <div>
                 <p className="text-xs text-[var(--text-tertiary)]">Build Date</p>
-                <p className="font-medium text-[var(--text-primary)]">{new Date().toLocaleDateString()}</p>
+                <p className="font-medium text-[var(--text-primary)]" suppressHydrationWarning>
+                  {new Date().toLocaleDateString('en-US')}
+                </p>
               </div>
             </div>
           </section>

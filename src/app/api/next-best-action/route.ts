@@ -1,5 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { TENANT_COOKIE, type Tenant } from '@/app/lib/tenant-constants';
+
+// Read tenant from request cookie so currency/labels match the active demo skin
+function getTenantFromRequest(request: NextRequest): Tenant {
+  const cookieHeader = request.headers.get('cookie') ?? '';
+  const match = cookieHeader.split(/;\s*/).find((c) => c.startsWith(`${TENANT_COOKIE}=`));
+  return match?.split('=')[1] === 'us_apparel' ? 'us_apparel' : 'india_grocery';
+}
+
+// Tenant-aware money formatter — $1,234 for apparel, ₹1,234 for grocery
+function money(n: number, tenant: Tenant): string {
+  const rounded = Math.round(n);
+  if (tenant === 'us_apparel') {
+    return `$${rounded.toLocaleString('en-US')}`;
+  }
+  return `₹${rounded.toLocaleString('en-IN')}`;
+}
 
 // Initialize Anthropic client - supports Azure AI Foundry
 let client: Anthropic | null = null;
@@ -46,10 +63,12 @@ const NBA_CACHE_TTL = 60 * 60 * 1000; // 1 hour
 
 export async function POST(request: NextRequest) {
   const { customerId, customerData, forceRefresh } = await request.json();
+  const tenant = getTenantFromRequest(request);
 
-  // Check cache
+  // Cache key includes tenant so apparel/grocery don't collide for the same customer id
+  const cacheKey = `${tenant}::${customerId}`;
   if (!forceRefresh) {
-    const cached = nbaCache.get(customerId);
+    const cached = nbaCache.get(cacheKey);
     if (cached && Date.now() - cached.timestamp < NBA_CACHE_TTL) {
       return NextResponse.json({ actions: cached.actions, source: 'cache' });
     }
@@ -57,7 +76,7 @@ export async function POST(request: NextRequest) {
 
   if (!process.env.ANTHROPIC_API_KEY || !client) {
     return NextResponse.json({
-      actions: generateRuleBasedActions(customerData),
+      actions: generateRuleBasedActions(customerData, tenant),
       source: 'rules',
     });
   }
@@ -66,8 +85,8 @@ export async function POST(request: NextRequest) {
     const response = await client.messages.create({
       model: modelName,
       max_tokens: 1000,
-      system: NBA_SYSTEM_PROMPT,
-      messages: [{ role: 'user', content: buildCustomerContext(customerData) }],
+      system: nbaSystemPrompt(tenant),
+      messages: [{ role: 'user', content: buildCustomerContext(customerData, tenant) }],
     });
 
     const text = response.content
@@ -93,20 +112,37 @@ export async function POST(request: NextRequest) {
 
     const actions: Action[] = JSON.parse(cleanJson);
 
-    // Cache
-    nbaCache.set(customerId, { actions, timestamp: Date.now() });
+    // Cache (key already includes tenant from above)
+    nbaCache.set(cacheKey, { actions, timestamp: Date.now() });
 
     return NextResponse.json({ actions, source: 'claude' });
   } catch (error) {
     console.error('NBA generation failed:', error);
     return NextResponse.json({
-      actions: generateRuleBasedActions(customerData),
+      actions: generateRuleBasedActions(customerData, tenant),
       source: 'rules',
     });
   }
 }
 
-const NBA_SYSTEM_PROMPT = `You are a retail CX strategist for an Indian retail company.
+function nbaSystemPrompt(tenant: Tenant): string {
+  const isApparel = tenant === 'us_apparel';
+  const company = isApparel
+    ? 'a US omnichannel apparel retailer (Nike / Levi\'s / Lululemon scale)'
+    : 'an Indian retail company';
+  const currency = isApparel ? '$' : '₹';
+  const offerExample = isApparel
+    ? "'15% off Women\\'s Tops' or 'Free shipping on next order'"
+    : "'15% off Dairy products' or 'Free delivery for 30 days'";
+  const offerSpecificExample = isApparel ? '"15% off Athletic Footwear"' : '"15% off Dairy"';
+  const channels = isApparel
+    ? '"email" | "sms" | "push" | "in_store" | "phone_call"'
+    : '"email" | "sms" | "whatsapp" | "push" | "in_store" | "phone_call"';
+  const impactExample = isApparel
+    ? "'Retain $320 annual CLV' or 'Increase basket by $25'"
+    : "'Retain ₹3,200 annual CLV' or 'Increase basket by ₹200'";
+
+  return `You are a retail CX strategist for ${company}.
 Given a customer's profile data, recommend exactly 3 prioritized actions.
 
 Return ONLY a valid JSON array. No markdown, no backticks.
@@ -121,11 +157,11 @@ Each action must be specific, measurable, and immediately executable:
     "description": "2-3 sentences explaining WHY this action, with specific data points from the customer's profile. Reference actual numbers.",
     "offer": {
       "type": "discount" | "free_delivery" | "bundle" | "points" | "exclusive_access" | "personal_call" | "none",
-      "detail": "Specific offer (e.g., '15% off Dairy products' or 'Free delivery for 30 days')"
+      "detail": "Specific offer (e.g., ${offerExample})"
     },
-    "channel": "email" | "sms" | "whatsapp" | "push" | "in_store" | "phone_call",
+    "channel": ${channels},
     "urgency": "immediate" | "this_week" | "this_month",
-    "expected_impact": "Specific expected outcome (e.g., 'Retain ₹3,200 annual CLV' or 'Increase basket by ₹200')",
+    "expected_impact": "Specific expected outcome (e.g., ${impactExample})",
     "confidence": "high" | "medium" | "low"
   }
 ]
@@ -137,9 +173,10 @@ RULES:
 - For low-churn high-CLV: focus on upsell/cross-sell
 - For dormant customers: focus on win-back
 - For new customers with growing baskets: focus on rewards/loyalty
-- Be specific with offers — "15% off Dairy" not "send a discount"
-- Use ₹ for all monetary values
+- Be specific with offers — ${offerSpecificExample} not "send a discount"
+- Use ${currency} for all monetary values
 - If the customer is healthy and active, action 3 can be "no_action" with monitoring recommendation`;
+}
 
 interface CustomerData {
   customer_id: string;
@@ -162,7 +199,7 @@ interface CustomerData {
   price_sensitivity?: string;
 }
 
-function buildCustomerContext(data: CustomerData): string {
+function buildCustomerContext(data: CustomerData, tenant: Tenant): string {
   const churnPct = typeof data.churn_prob_90d === 'number'
     ? (data.churn_prob_90d * 100).toFixed(1)
     : 'N/A';
@@ -179,11 +216,11 @@ CUSTOMER PROFILE:
 - Member Since: ${data.member_since || 'Unknown'}
 
 VALUE METRICS:
-- CLV (12-month): ₹${Math.round(data.clv_12m).toLocaleString('en-IN')}
+- CLV (12-month): ${money(data.clv_12m, tenant)}
 - CLV Tier: ${data.clv_tier}
-- Total Lifetime Spend: ₹${Math.round(data.total_spend).toLocaleString('en-IN')}
+- Total Lifetime Spend: ${money(data.total_spend, tenant)}
 - Total Transactions: ${data.total_transactions}
-- Average Basket Value: ₹${Math.round(data.avg_basket).toLocaleString('en-IN')}
+- Average Basket Value: ${money(data.avg_basket, tenant)}
 
 BEHAVIOR:
 - Days Since Last Purchase: ${data.days_since_last_purchase}
@@ -203,9 +240,13 @@ TRENDS (if available):
 Return exactly 3 actions as a JSON array.`;
 }
 
-function generateRuleBasedActions(data: CustomerData): Action[] {
+function generateRuleBasedActions(data: CustomerData, tenant: Tenant): Action[] {
   const actions: Action[] = [];
   const churnProb = typeof data.churn_prob_90d === 'number' ? data.churn_prob_90d : 0;
+  // Apparel CLVs are ~order of magnitude lower in $ — adjust the upsell threshold
+  const upsellThreshold = tenant === 'us_apparel' ? 600 : 50000;
+  // WhatsApp is India-centric; apparel uses email for win-back
+  const winBackChannel = tenant === 'us_apparel' ? 'email' : 'whatsapp';
 
   // Rule 1: High churn → Retention
   if (churnProb > 0.5) {
@@ -213,11 +254,11 @@ function generateRuleBasedActions(data: CustomerData): Action[] {
       priority: 1,
       action_type: 'retain',
       title: 'Urgent retention needed',
-      description: `Churn probability is ${(churnProb * 100).toFixed(0)}%. Customer hasn't purchased in ${data.days_since_last_purchase} days. CLV at risk: ₹${Math.round(data.clv_12m).toLocaleString('en-IN')}.`,
+      description: `Churn probability is ${(churnProb * 100).toFixed(0)}%. Customer hasn't purchased in ${data.days_since_last_purchase} days. CLV at risk: ${money(data.clv_12m, tenant)}.`,
       offer: { type: 'discount', detail: `15% off ${data.top_category || 'next purchase'}` },
       channel: data.preferred_channel === 'Online' ? 'email' : 'sms',
       urgency: 'immediate',
-      expected_impact: `Retain ₹${Math.round(data.clv_12m).toLocaleString('en-IN')} annual CLV`,
+      expected_impact: `Retain ${money(data.clv_12m, tenant)} annual CLV`,
       confidence: 'medium',
     });
   } else if (data.days_since_last_purchase > 60) {
@@ -226,22 +267,22 @@ function generateRuleBasedActions(data: CustomerData): Action[] {
       priority: 1,
       action_type: 'win_back',
       title: 'Win-back campaign needed',
-      description: `Customer dormant for ${data.days_since_last_purchase} days. Previously spent ₹${Math.round(data.total_spend).toLocaleString('en-IN')} across ${data.total_transactions} orders.`,
+      description: `Customer dormant for ${data.days_since_last_purchase} days. Previously spent ${money(data.total_spend, tenant)} across ${data.total_transactions} orders.`,
       offer: { type: 'free_delivery', detail: 'Free delivery on next 3 orders' },
-      channel: 'whatsapp',
+      channel: winBackChannel,
       urgency: 'this_week',
-      expected_impact: `Re-activate customer worth ₹${Math.round(data.clv_12m).toLocaleString('en-IN')}/year`,
+      expected_impact: `Re-activate customer worth ${money(data.clv_12m, tenant)}/year`,
       confidence: 'medium',
     });
   }
 
   // Rule 2: High CLV, low churn → Upsell
-  if (data.clv_12m > 50000 && churnProb < 0.3) {
+  if (data.clv_12m > upsellThreshold && churnProb < 0.3) {
     actions.push({
       priority: actions.length + 1,
       action_type: 'upsell',
       title: 'Premium upsell opportunity',
-      description: `High-value customer with ₹${Math.round(data.clv_12m).toLocaleString('en-IN')} CLV and low churn risk (${(churnProb * 100).toFixed(0)}%). Average basket: ₹${Math.round(data.avg_basket).toLocaleString('en-IN')}.`,
+      description: `High-value customer with ${money(data.clv_12m, tenant)} CLV and low churn risk (${(churnProb * 100).toFixed(0)}%). Average basket: ${money(data.avg_basket, tenant)}.`,
       offer: { type: 'bundle', detail: `Premium bundle in ${data.top_category || 'top category'}` },
       channel: 'email',
       urgency: 'this_week',
