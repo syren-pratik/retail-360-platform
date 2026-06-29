@@ -1,0 +1,322 @@
+[
+  {
+    "department": "Women's Tops",
+    "abc_class": "A",
+    "sku_count": "19796",
+    "avg_dos": "16.7",
+    "avg_stock": "62",
+    "above_safety": "16727",
+    "below_safety": "3069",
+    "coverage_pct": "84.5"
+  },
+  {
+    "department": "Women's Tops",
+    "abc_class": "B",
+    "sku_count": "10913",
+    "avg_dos": "23.9",
+    "avg_stock": "33",
+    "above_safety": "8603",
+    "below_safety": "2310",
+    "coverage_pct": "78.8"
+  },
+  {
+    "department": "Women's Tops",
+    "abc_class": "C",
+    "sku_count": "14226",
+    "avg_dos": "40.9",
+    "avg_stock": "109",
+    "above_safety": "14023",
+    "below_safety": "203",
+    "coverage_pct": "98.6"
+  },
+  {
+    "department": "Women's Tops",
+    "abc_class": "C",
+    "sku_count": "16672",
+    "avg_dos": "80.6",
+    "avg_stock": "114",
+    "above_safety": "13694",
+    "below_safety": "2978",
+    "coverage_pct": "82.1"
+  },
+  {
+    "department": "Women's Bottoms",
+    "abc_class": "A",
+    "sku_count": "17203",
+    "avg_dos": "12.6",
+    "avg_stock": "115",
+    "above_safety": "12628",
+    "below_safety": "4575",
+    "coverage_pct": "73.4"
+  },
+  {
+    "department": "Women's Bottoms",
+    "abc_class": "B",
+    "sku_count": "27907",
+    "avg_dos": "23.6",
+    "avg_stock": "73",
+    "above_safety": "21549",
+    "below_safety": "6358",
+    "coverage_pct": "77.2"
+  },
+  {
+    "department": "Women's Bottoms",
+    "abc_class": "C",
+    "sku_count": "23819",
+    "avg_dos": "41.9",
+    "avg_stock": "74",
+    "above_safety": "23198",
+    "below_safety": "621",
+    "coverage_pct": "97.4"
+  },
+  {
+    "department": "Women's Bottoms",
+    "abc_class": "C",
+    "sku_count": "27939",
+    "avg_dos": "82.9",
+    "avg_stock": "54",
+    "above_safety": "23593",
+    "below_safety": "4346",
+    "coverage_pct": "84.4"
+  },
+  {
+    "department": "Women's Dresses",
+    "abc_class": "A",
+    "sku_count": "22134",
+    "avg_dos": "21.8",
+    "avg_stock": "39",
+    "above_safety": "15490",
+    "below_safety": "6644",
+    "coverage_pct": "70"
+  },
+  {
+    "department": "Women's Dresses",
+    "abc_class": "B",
+    "sku_count": "23168",
+    "avg_dos": "24.4",
+    "avg_stock": "55",
+    "above_safety": "19612",
+    "below_safety": "3556",
+    "coverage_pct": "84.7"
+  },
+  {
+    "department": "Women's Dresses",
+    "abc_class": "C",
+    "sku_count": "16138",
+    "avg_dos": "43.5",
+    "avg_stock": "100",
+    "above_safety": "15000",
+    "below_safety": "1138",
+    "coverage_pct": "92.9"
+  },
+  {
+    "department": "Women's Dresses",
+    "abc_class": "C",
+    "sku_count": "17038",
+    "avg_dos": "82.4",
+    "avg_stock": "32",
+    "above_safety": "12800",
+    "below_safety": "4238",
+    "coverage_pct": "75.1"
+  },
+  {
+    "department": "Men's Tops",
+    "abc_class": "A",
+    "sku_count": "17953",
+    "avg_dos": "22.8",
+    "avg_stock": "107",
+    "above_safety": "13100",
+    "below_safety": "4853",
+    "coverage_pct": "73"
+  },
+  {
+    "department": "Men's Tops",
+    "abc_class": "B",
+    "sku_count": "14760",
+    "avg_dos": "31.3",
+    "avg_stock": "37",
+    "above_safety": "13574",
+    "below_safety": "1186",
+    "coverage_pct": "92"
+  },
+  {
+    "department": "Men's Tops",
+    "abc_class": "C",
+    "sku_count": "22473",
+    "avg_dos": "48",
+    "avg_stock": "39",
+    "above_safety": "19363",
+    "below_safety": "3110",
+    "coverage_pct": "86.2"
+  },
+  {
+    "department": "Men's Tops",
+    "abc_class": "C",
+    "sku_count": "22983",
+    "avg_dos": "85.5",
+    "avg_stock": "54",
+    "above_safety": "19088",
+    "below_safety": "3895",
+    "coverage_pct": "83.1"
+  },
+  {
+    "department": "Men's Bottoms",
+    "abc_class": "A",
+    "sku_count": "26255",
+    "avg_dos": "17.9",
+    "avg_stock": "117",
+    "above_safety": "19939",
+    "below_safety": "6316",
+    "coverage_pct": "75.9"
+  },
+  {
+    "department": "Men's Bottoms",
+    "abc_class": "B",
+    "sku_count": "26663",
+    "avg_dos": "26.4",
+    "avg_stock": "57",
+    "above_safety": "25268",
+    "below_safety": "1395",
+    "coverage_pct": "94.8"
+  },
+  {
+    "department": "Men's Bottoms",
+    "abc_class": "C",
+    "sku_count": "20446",
+    "avg_dos": "35.6",
+    "avg_stock": "60",
+    "above_safety": "17710",
+    "below_safety": "2736",
+    "coverage_pct": "86.6"
+  },
+  {
+    "department": "Men's Bottoms",
+    "abc_class": "C",
+    "sku_count": "11877",
+    "avg_dos": "83.9",
+    "avg_stock": "109",
+    "above_safety": "9569",
+    "below_safety": "2308",
+    "coverage_pct": "80.6"
+  },
+  {
+    "department": "Kids'",
+    "abc_class": "A",
+    "sku_count": "26704",
+    "avg_dos": "17.7",
+    "avg_stock": "54",
+    "above_safety": "18496",
+    "below_safety": "8208",
+    "coverage_pct": "69.3"
+  },
+  {
+    "department": "Kids'",
+    "abc_class": "B",
+    "sku_count": "22509",
+    "avg_dos": "24.4",
+    "avg_stock": "49",
+    "above_safety": "17177",
+    "below_safety": "5332",
+    "coverage_pct": "76.3"
+  },
+  {
+    "department": "Kids'",
+    "abc_class": "C",
+    "sku_count": "15595",
+    "avg_dos": "44.2",
+    "avg_stock": "117",
+    "above_safety": "14824",
+    "below_safety": "771",
+    "coverage_pct": "95.1"
+  },
+  {
+    "department": "Kids'",
+    "abc_class": "C",
+    "sku_count": "17614",
+    "avg_dos": "84.4",
+    "avg_stock": "104",
+    "above_safety": "14218",
+    "below_safety": "3396",
+    "coverage_pct": "80.7"
+  },
+  {
+    "department": "Footwear",
+    "abc_class": "A",
+    "sku_count": "8148",
+    "avg_dos": "20.1",
+    "avg_stock": "117",
+    "above_safety": "5833",
+    "below_safety": "2315",
+    "coverage_pct": "71.6"
+  },
+  {
+    "department": "Footwear",
+    "abc_class": "B",
+    "sku_count": "14403",
+    "avg_dos": "26.5",
+    "avg_stock": "41",
+    "above_safety": "13306",
+    "below_safety": "1097",
+    "coverage_pct": "92.4"
+  },
+  {
+    "department": "Footwear",
+    "abc_class": "C",
+    "sku_count": "19341",
+    "avg_dos": "43",
+    "avg_stock": "84",
+    "above_safety": "18531",
+    "below_safety": "810",
+    "coverage_pct": "95.8"
+  },
+  {
+    "department": "Footwear",
+    "abc_class": "C",
+    "sku_count": "11798",
+    "avg_dos": "83.1",
+    "avg_stock": "49",
+    "above_safety": "9574",
+    "below_safety": "2224",
+    "coverage_pct": "81.1"
+  },
+  {
+    "department": "Accessories",
+    "abc_class": "A",
+    "sku_count": "9278",
+    "avg_dos": "24.2",
+    "avg_stock": "64",
+    "above_safety": "6566",
+    "below_safety": "2712",
+    "coverage_pct": "70.8"
+  },
+  {
+    "department": "Accessories",
+    "abc_class": "B",
+    "sku_count": "25471",
+    "avg_dos": "30.6",
+    "avg_stock": "79",
+    "above_safety": "20565",
+    "below_safety": "4906",
+    "coverage_pct": "80.7"
+  },
+  {
+    "department": "Accessories",
+    "abc_class": "C",
+    "sku_count": "16629",
+    "avg_dos": "45.6",
+    "avg_stock": "99",
+    "above_safety": "15806",
+    "below_safety": "823",
+    "coverage_pct": "95.1"
+  },
+  {
+    "department": "Accessories",
+    "abc_class": "C",
+    "sku_count": "11635",
+    "avg_dos": "85.3",
+    "avg_stock": "57",
+    "above_safety": "9688",
+    "below_safety": "1947",
+    "coverage_pct": "83.3"
+  }
+]

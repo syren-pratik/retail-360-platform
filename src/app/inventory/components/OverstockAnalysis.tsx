@@ -1,5 +1,7 @@
 'use client';
 
+
+import { formatCrOrUsdMAuto } from '@/app/lib/format-money';
 import { useState } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
@@ -32,9 +34,9 @@ export default function OverstockAnalysis({ data }: Props) {
           <h3 className="text-sm font-semibold text-[var(--text-primary)]">Overstock Analysis</h3>
           {summary && (
             <p className="text-xs text-[var(--text-secondary)] mt-0.5">
-              ₹{summary.overstock_value_cr.toFixed(1)}Cr overstock
+              {formatCrOrUsdMAuto(summary.overstock_value_cr.toFixed(1))} overstock
               {' · '}
-              ₹{summary.dead_stock_value_cr.toFixed(1)}Cr dead stock
+              {formatCrOrUsdMAuto(summary.dead_stock_value_cr.toFixed(1))} dead stock
               {' · '}
               <span className="text-amber-600 font-medium">{summary.markdown_risk_skus} markdown-risk SKUs</span>
             </p>
@@ -88,10 +90,10 @@ export default function OverstockAnalysis({ data }: Props) {
                 textAnchor="end"
                 interval={0}
               />
-              <YAxis tick={{ fontSize: 10 }} tickFormatter={v => `₹${v}Cr`} />
+              <YAxis tick={{ fontSize: 10 }} tickFormatter={v => `${formatCrOrUsdMAuto(v)}`} />
               <Tooltip
                 formatter={(v: unknown, name: unknown) => [
-                  `₹${(v as number).toFixed(2)}Cr`,
+                  `${formatCrOrUsdMAuto((v as number).toFixed(2))}`,
                   name === 'slow_moving_cr' ? 'Slow Moving' : 'Dead Stock',
                 ]}
               />
@@ -134,7 +136,7 @@ export default function OverstockAnalysis({ data }: Props) {
                 <span className={`text-xs font-medium w-16 text-right ${
                   isNeg ? 'text-red-600' : isResult ? 'text-blue-600' : isTotal ? 'text-indigo-600' : 'text-emerald-600'
                 }`}>
-                  {isNeg ? '-' : ''}₹{Math.abs(stage.value_cr).toFixed(1)}Cr
+                  {isNeg ? '-' : ''}{formatCrOrUsdMAuto(Math.abs(stage.value_cr).toFixed(1))}
                 </span>
               </div>
             );
@@ -148,9 +150,9 @@ export default function OverstockAnalysis({ data }: Props) {
             <ComposedChart data={trend} margin={{ top: 4, right: 8, bottom: 4, left: 4 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" />
               <XAxis dataKey="month" tick={{ fontSize: 10 }} />
-              <YAxis tick={{ fontSize: 10 }} tickFormatter={v => `₹${v}Cr`} />
+              <YAxis tick={{ fontSize: 10 }} tickFormatter={v => `${formatCrOrUsdMAuto(v)}`} />
               <Tooltip formatter={(v: unknown, name: unknown) => [
-                `₹${(v as number).toFixed(1)}Cr`,
+                `${formatCrOrUsdMAuto((v as number).toFixed(1))}`,
                 name === 'overstock_cr' ? 'Overstock' : 'Purchase Volume',
               ]} />
               <Bar dataKey="purchase_volume_cr" name="purchase_volume_cr" fill="#E0E7FF" radius={[3, 3, 0, 0]} />

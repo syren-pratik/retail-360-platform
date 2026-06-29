@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
-
+import { loadCache } from '@/app/lib/cache-loader';
 // Generate mock sparkline data
 function generateSparkline(baseValue: number, count: number = 7): number[] {
   return Array.from({ length: count }, () =>
@@ -9,11 +7,12 @@ function generateSparkline(baseValue: number, count: number = 7): number[] {
   );
 }
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), 'cache', 'inventory_kpis.json');
-    const data = await fs.readFile(filePath, 'utf-8');
-    const parsed = JSON.parse(data);
+    const data = await loadCache('inventory_kpis.json');
+    const parsed = data;
     // Return the first item if array, or the object itself
     const kpis = Array.isArray(parsed) ? parsed[0] : parsed;
 

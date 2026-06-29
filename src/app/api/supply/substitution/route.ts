@@ -1,8 +1,13 @@
 import { NextResponse } from 'next/server';
-import data from '../../../../../cache/supply_substitution.json';
+import { loadCache } from '@/app/lib/cache-loader';
 
 export const dynamic = 'force-dynamic';
 
-export function GET() {
-  return NextResponse.json(data);
+export async function GET() {
+  try {
+    const data = await loadCache('supply_substitution.json');
+    return NextResponse.json(data);
+  } catch {
+    return NextResponse.json({ error: 'Failed to load data' }, { status: 500 });
+  }
 }

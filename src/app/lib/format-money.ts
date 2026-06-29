@@ -66,3 +66,61 @@ export function useLocale() {
   const { tenant } = useTenant();
   return getLocaleForTenant(tenant);
 }
+
+/**
+ * Format a number that is already in crores (₹Cr) for the grocery tenant.
+ * For the apparel tenant, treat the same number as USD millions ($M).
+ * Used for the Inventory/Supply cache fields named `*_cr` which carry
+ * apparel-USD-millions when tenant=us_apparel.
+ */
+export function formatCrOrUsdM(n: number | string | null | undefined, tenant: Tenant): string {
+  const v = typeof n === 'string' ? Number(n) || 0 : n ?? 0;
+  if (tenant === 'us_apparel') {
+    if (Math.abs(v) >= 1000) return `$${(v / 1000).toFixed(1)}B`;
+    return `$${v.toFixed(1)}M`;
+  }
+  if (Math.abs(v) >= 1000) return `₹${(v / 100).toFixed(1)}KCr`;
+  return `₹${v.toFixed(1)}Cr`;
+}
+
+export function formatCrOrUsdMAuto(n: number | string | null | undefined): string {
+  return formatCrOrUsdM(n, getRuntimeTenant());
+}
+
+export function useFormatCrOrUsdM() {
+  const { tenant } = useTenant();
+  return (n: number | string | null | undefined) => formatCrOrUsdM(n, tenant);
+}
+
+/**
+ * Format a number that is already in lakhs for grocery (₹L), as USD thousands ($K)
+ * for apparel. Used for finer-grain cache fields.
+ */
+export function formatLOrUsdK(n: number | string | null | undefined, tenant: Tenant): string {
+  const v = typeof n === 'string' ? Number(n) || 0 : n ?? 0;
+  if (tenant === 'us_apparel') return `$${v.toFixed(0)}K`;
+  return `₹${v.toFixed(1)}L`;
+}
+
+export function formatLOrUsdKAuto(n: number | string | null | undefined): string {
+  return formatLOrUsdK(n, getRuntimeTenant());
+}
+
+/**
+ * Convert a "days" value into the tenant's preferred horizon unit.
+ * Grocery: "Xd". Apparel: "Yw" (weeks = days/7, rounded).
+ */
+export function formatDaysOrWeeks(n: number | null | undefined, tenant: Tenant): string {
+  const v = n ?? 0;
+  if (tenant === 'us_apparel') return `${Math.round(v / 7)}w`;
+  return `${v.toFixed(0)}d`;
+}
+
+export function formatDaysOrWeeksAuto(n: number | null | undefined): string {
+  return formatDaysOrWeeks(n, getRuntimeTenant());
+}
+
+export function useFormatDaysOrWeeks() {
+  const { tenant } = useTenant();
+  return (n: number | null | undefined) => formatDaysOrWeeks(n, tenant);
+}

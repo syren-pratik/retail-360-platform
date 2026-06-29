@@ -1,5 +1,7 @@
 'use client';
 
+
+import { formatCrOrUsdMAuto } from '@/app/lib/format-money';
 import Link from 'next/link';
 import { ArrowLeft, Download, TrendingDown, TrendingUp, Minus } from 'lucide-react';
 import {
@@ -207,7 +209,7 @@ export default function SupplierDetailContent({ profile }: { profile: SupplierPr
             </div>
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">Order Value</p>
-              <p className="text-lg font-semibold text-[var(--text-primary)]">₹{profile.order_value_cr}Cr</p>
+              <p className="text-lg font-semibold text-[var(--text-primary)]">{formatCrOrUsdMAuto(profile.order_value_cr)}</p>
             </div>
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">Stockouts Caused</p>
@@ -292,7 +294,7 @@ export default function SupplierDetailContent({ profile }: { profile: SupplierPr
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-[var(--border-default)] bg-[var(--bg-secondary)]">
-                {['Category', 'OTIF %', 'Fill Rate', 'Avg Delay', 'Order ₹Cr', 'Stockouts'].map(h => (
+                {['Category', 'OTIF %', 'Fill Rate', 'Avg Delay', 'Order ($)', 'Stockouts'].map(h => (
                   <th key={h} className="text-left py-2 px-3 text-xs font-semibold text-[var(--text-secondary)]">{h}</th>
                 ))}
               </tr>
@@ -306,7 +308,7 @@ export default function SupplierDetailContent({ profile }: { profile: SupplierPr
                   </td>
                   <td className="py-2.5 px-3 text-[var(--text-secondary)]">{cat.fill_rate_pct}%</td>
                   <td className="py-2.5 px-3 text-[var(--text-secondary)]">{cat.avg_delay_days}d</td>
-                  <td className="py-2.5 px-3 text-[var(--text-secondary)]">₹{cat.order_value_cr}Cr</td>
+                  <td className="py-2.5 px-3 text-[var(--text-secondary)]">{formatCrOrUsdMAuto(cat.order_value_cr)}</td>
                   <td className="py-2.5 px-3 text-[var(--text-secondary)]">{cat.stockouts_caused}</td>
                 </tr>
               ))}
@@ -333,7 +335,7 @@ export default function SupplierDetailContent({ profile }: { profile: SupplierPr
                     <td className="py-2 px-2 font-medium text-[var(--text-primary)] text-xs">{s.store_name}</td>
                     <td className="py-2 px-2 text-[var(--text-secondary)] text-xs">{s.city}</td>
                     <td className="py-2 px-2 text-[var(--text-secondary)] text-xs">{s.stockouts_caused}</td>
-                    <td className="py-2 px-2 text-red-600 text-xs font-medium">₹{s.rev_at_risk_cr}Cr</td>
+                    <td className="py-2 px-2 text-red-600 text-xs font-medium">{formatCrOrUsdMAuto(s.rev_at_risk_cr)}</td>
                     <td className="py-2 px-2">
                       <span className={`text-[10px] px-1.5 py-0.5 rounded border ${statusBadge(s.last_delivery_status)}`}>
                         {s.last_delivery_status.replace('_', ' ')}
@@ -362,7 +364,7 @@ export default function SupplierDetailContent({ profile }: { profile: SupplierPr
                     <td className="py-2 px-2 font-mono text-[var(--text-tertiary)] text-[10px]">{po.po_id}</td>
                     <td className="py-2 px-2 text-[var(--text-secondary)] text-xs">{po.category}</td>
                     <td className="py-2 px-2 text-[var(--text-secondary)] text-xs">{po.store_name}</td>
-                    <td className="py-2 px-2 text-[var(--text-secondary)] text-xs">₹{po.value_cr}Cr</td>
+                    <td className="py-2 px-2 text-[var(--text-secondary)] text-xs">{formatCrOrUsdMAuto(po.value_cr)}</td>
                     <td className="py-2 px-2 text-[var(--text-secondary)] text-xs">{po.expected_date}</td>
                     <td className="py-2 px-2">
                       <span className={`text-[10px] px-1.5 py-0.5 rounded border ${statusBadge(po.status)}`}>
@@ -406,7 +408,7 @@ export default function SupplierDetailContent({ profile }: { profile: SupplierPr
                     </span>
                   </td>
                   <td className="py-2.5 px-3 text-[var(--text-secondary)]">{sku.stockout_events_90d}</td>
-                  <td className="py-2.5 px-3 text-red-600 font-medium">₹{sku.rev_at_risk_cr}Cr</td>
+                  <td className="py-2.5 px-3 text-red-600 font-medium">{formatCrOrUsdMAuto(sku.rev_at_risk_cr)}</td>
                 </tr>
               ))}
             </tbody>

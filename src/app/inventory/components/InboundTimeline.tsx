@@ -1,5 +1,7 @@
 'use client';
 
+
+import { getLocaleAuto } from '@/app/lib/format-money';
 import {
   BarChart,
   Bar,
@@ -35,7 +37,7 @@ function CustomTooltip({ active, payload, label }: {
   if (!active || !payload?.length) return null;
 
   const total = (payload ?? []).reduce((sum, p) => sum + (p.value ?? 0), 0);
-  const formattedDate = new Date(label || '').toLocaleDateString('en-IN', {
+  const formattedDate = new Date(label || '').toLocaleDateString(getLocaleAuto(), {
     weekday: 'short',
     day: 'numeric',
     month: 'short',
@@ -73,7 +75,7 @@ export default function InboundTimeline({ data }: InboundTimelineProps) {
   // Transform data for stacked bar
   const chartData = (data ?? []).map(d => ({
     date: d.date ?? '',
-    displayDate: new Date(d.date ?? '').toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }),
+    displayDate: new Date(d.date ?? '').toLocaleDateString(getLocaleAuto(), { day: 'numeric', month: 'short' }),
     on_time: d.status_breakdown?.on_time ?? 0,
     at_risk: d.status_breakdown?.at_risk ?? 0,
     delayed: d.status_breakdown?.delayed ?? 0,

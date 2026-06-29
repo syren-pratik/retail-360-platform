@@ -1,18 +1,21 @@
 export const dynamic = 'force-dynamic';
 
-import allocationData from '../../../../../cache/supply_allocation.json';
-import transferData from '../../../../../cache/supply_transfers.json';
 import AllocationDeepDiveContent from './AllocationDeepDiveContent';
+import { loadCache } from '@/app/lib/cache-loader';
 
 export const metadata = {
   title: 'Stock Allocation | Supply Intelligence',
 };
 
-export default function AllocationPage() {
+export default async function AllocationPage() {
+  const [allocationData, transferData] = await Promise.all([
+    loadCache('supply_allocation.json'),
+    loadCache('supply_transfers.json'),
+  ]);
   return (
     <AllocationDeepDiveContent
-      allocation={allocationData as unknown}
-      transfers={transferData as unknown}
+      allocation={allocationData as unknown as never}
+      transfers={transferData as unknown as never}
     />
   );
 }

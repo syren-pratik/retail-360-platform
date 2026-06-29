@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-
+import { loadCache } from '@/app/lib/cache-loader';
 interface SafetyStockRow {
   department: string;
   abc_class: string;
@@ -13,10 +11,11 @@ interface SafetyStockRow {
   coverage_pct: string | number;
 }
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), 'cache', 'inventory_safety_stock.json');
-    const data: SafetyStockRow[] = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    const data: SafetyStockRow[]  = await loadCache('inventory_safety_stock.json');
 
     // Group by department
     const deptMap = new Map<string, { coverage_pct: number; gap_skus: number; count: number }>();

@@ -1,5 +1,7 @@
 'use client';
 
+
+import { formatCrOrUsdMAuto, formatMoneyPlainAuto } from '@/app/lib/format-money';
 import { useState, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -297,7 +299,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
       <div className="bg-white border border-gray-200 rounded-lg px-3 py-2 text-xs shadow-md">
         <p className="font-semibold text-gray-800 mb-1">{s.name}</p>
         <p className="text-gray-600">OTIF: <span className="font-medium">{s.otif_pct}%</span></p>
-        <p className="text-gray-600">Order Value: <span className="font-medium">₹{s.order_value_cr}Cr</span></p>
+        <p className="text-gray-600">Order Value: <span className="font-medium">{formatCrOrUsdMAuto(s.order_value_cr)}</span></p>
         <p className="text-gray-600">Stockouts: <span className="font-medium">{s.stockouts_caused}</span></p>
       </div>
     );
@@ -470,7 +472,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
                   </th>
                   <th className="text-left py-2 px-3 text-xs font-semibold text-[var(--text-secondary)]">Fill Rate %</th>
                   <th className="text-left py-2 px-3 text-xs font-semibold text-[var(--text-secondary)]">Avg Delay</th>
-                  <th className="text-left py-2 px-3 text-xs font-semibold text-[var(--text-secondary)]">Order ₹Cr</th>
+                  <th className="text-left py-2 px-3 text-xs font-semibold text-[var(--text-secondary)]">Order ($)</th>
                   <th className="text-left py-2 px-3 text-xs font-semibold text-[var(--text-secondary)]">Stockouts</th>
                   <th className="text-left py-2 px-3 text-xs font-semibold text-[var(--text-secondary)]">Trend</th>
                   <th className="py-2 px-3 text-xs font-semibold text-[var(--text-secondary)]"></th>
@@ -493,7 +495,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
                     </td>
                     <td className="py-2.5 px-3 text-[var(--text-secondary)]">{s.fill_rate_pct}%</td>
                     <td className="py-2.5 px-3 text-[var(--text-secondary)]">{s.avg_delay_days}d</td>
-                    <td className="py-2.5 px-3 text-[var(--text-secondary)]">₹{s.order_value_cr}Cr</td>
+                    <td className="py-2.5 px-3 text-[var(--text-secondary)]">{formatCrOrUsdMAuto(s.order_value_cr)}</td>
                     <td className="py-2.5 px-3 text-[var(--text-secondary)]">{s.stockouts_caused}</td>
                     <td className="py-2.5 px-3 text-base">
                       {s.trend === 'improving' ? <span className="text-green-600">↑</span>
@@ -527,10 +529,10 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
                           type="number"
                           dataKey="order_value_cr"
                           domain={[0, 50]}
-                          tickFormatter={v => `₹${v}Cr`}
+                          tickFormatter={v => `${formatCrOrUsdMAuto(v)}`}
                           tick={{ fontSize: 9, fill: 'var(--text-secondary)' }}
                           tickLine={false}
-                          label={{ value: 'Order Value (₹Cr)', position: 'insideBottom', offset: -10, fontSize: 10, fill: 'var(--text-secondary)' }}
+                          label={{ value: 'Order Value (($))', position: 'insideBottom', offset: -10, fontSize: 10, fill: 'var(--text-secondary)' }}
                         />
                         <YAxis
                           type="number"
@@ -545,7 +547,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
                         <ReferenceLine y={80} yAxisId={0} stroke="#EF4444" strokeDasharray="4 3"
                           label={{ value: '80% threshold', position: 'right', fontSize: 9, fill: '#EF4444' }} />
                         <ReferenceLine x={20} stroke="#6B7280" strokeDasharray="4 3"
-                          label={{ value: '₹20Cr', position: 'top', fontSize: 9, fill: '#6B7280' }} />
+                          label={{ value: '{formatCrOrUsdMAuto(20)}', position: 'top', fontSize: 9, fill: '#6B7280' }} />
                         <Tooltip content={<ScatterTooltip />} />
                       </BarChart>
                     </ResponsiveContainer>
@@ -584,7 +586,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
                                 height: radius * 2,
                                 background: color,
                               }}
-                              title={`${s.name}: OTIF ${s.otif_pct}% · ₹${s.order_value_cr}Cr · ${s.stockouts_caused} stockouts`}
+                              title={`${s.name}: OTIF ${s.otif_pct}% · ${formatCrOrUsdMAuto(s.order_value_cr)} · ${s.stockouts_caused} stockouts`}
                             />
                           );
                         })}
@@ -781,7 +783,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
             </div>
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">Urgent Pending</p>
-              <p className="text-lg font-semibold text-amber-600">₹{replenishment.summary.urgent_pending_cr}Cr</p>
+              <p className="text-lg font-semibold text-amber-600">{formatCrOrUsdMAuto(replenishment.summary.urgent_pending_cr)}</p>
             </div>
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">Avg Lead Time</p>
@@ -920,7 +922,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
                       <span className="text-red-600 font-medium">{store.skus_below_safety}</span> SKUs below safety
                     </p>
                     <p className="text-[10px] text-[var(--text-secondary)]">
-                      ₹<span className="text-amber-600 font-medium">{store.urgent_pending_cr}</span>Cr urgent pending
+                      <span className="text-amber-600 font-medium">{formatCrOrUsdMAuto(store.urgent_pending_cr)}</span> urgent pending
                     </p>
                   </div>
                 </div>
@@ -946,22 +948,22 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
             <div className="grid grid-cols-4 gap-3">
               <div className="card py-3 px-4">
                 <p className="text-xs text-[var(--text-tertiary)] mb-1">Excess Inventory</p>
-                <p className="text-lg font-semibold text-amber-600">₹{safetyStockIntel.working_capital_impact.current_excess_inventory_cr}Cr</p>
+                <p className="text-lg font-semibold text-amber-600">{formatCrOrUsdMAuto(safetyStockIntel.working_capital_impact.current_excess_inventory_cr)}</p>
                 <p className="text-xs text-[var(--text-secondary)]">above optimal buffer</p>
               </div>
               <div className="card py-3 px-4">
                 <p className="text-xs text-[var(--text-tertiary)] mb-1">Optimisation Savings</p>
-                <p className="text-lg font-semibold text-green-600">₹{safetyStockIntel.working_capital_impact.if_optimised_savings_cr}Cr</p>
+                <p className="text-lg font-semibold text-green-600">{formatCrOrUsdMAuto(safetyStockIntel.working_capital_impact.if_optimised_savings_cr)}</p>
                 <p className="text-xs text-[var(--text-secondary)]">working capital release</p>
               </div>
               <div className="card py-3 px-4">
                 <p className="text-xs text-[var(--text-tertiary)] mb-1">Gap-Fill Cost</p>
-                <p className="text-lg font-semibold text-[var(--text-primary)]">₹{safetyStockIntel.working_capital_impact.if_gaps_filled_cost_cr}Cr</p>
+                <p className="text-lg font-semibold text-[var(--text-primary)]">{formatCrOrUsdMAuto(safetyStockIntel.working_capital_impact.if_gaps_filled_cost_cr)}</p>
                 <p className="text-xs text-[var(--text-secondary)]">to cover under-stocked SKUs</p>
               </div>
               <div className="card py-3 px-4">
                 <p className="text-xs text-[var(--text-tertiary)] mb-1">Net Benefit</p>
-                <p className="text-lg font-semibold text-green-600">₹{safetyStockIntel.working_capital_impact.net_optimisation_benefit_cr}Cr</p>
+                <p className="text-lg font-semibold text-green-600">{formatCrOrUsdMAuto(safetyStockIntel.working_capital_impact.net_optimisation_benefit_cr)}</p>
                 <p className="text-xs text-[var(--text-secondary)]">net optimisation gain</p>
               </div>
             </div>
@@ -1057,7 +1059,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">In Transit</p>
               <p className="text-lg font-semibold text-[var(--text-primary)]">{inbound.summary.in_transit.count} shipments</p>
-              <p className="text-xs text-[var(--text-secondary)]">₹{inbound.summary.in_transit.value_cr}Cr</p>
+              <p className="text-xs text-[var(--text-secondary)]">{formatCrOrUsdMAuto(inbound.summary.in_transit.value_cr)}</p>
             </div>
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">Delayed</p>
@@ -1067,7 +1069,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">Due This Week</p>
               <p className="text-lg font-semibold text-[var(--text-primary)]">{inbound.summary.due_this_week.count}</p>
-              <p className="text-xs text-[var(--text-secondary)]">₹{inbound.summary.due_this_week.value_cr}Cr</p>
+              <p className="text-xs text-[var(--text-secondary)]">{formatCrOrUsdMAuto(inbound.summary.due_this_week.value_cr)}</p>
             </div>
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">On-Time Probability</p>
@@ -1101,7 +1103,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
                       <td className="py-2 px-3 text-[var(--text-secondary)]">{ship.category}</td>
                       <td className="py-2 px-3 text-[var(--text-secondary)]">{ship.store_name}</td>
                       <td className="py-2 px-3 text-[var(--text-secondary)]">{ship.expected_date}</td>
-                      <td className="py-2 px-3 text-[var(--text-secondary)]">₹{ship.value_cr}Cr</td>
+                      <td className="py-2 px-3 text-[var(--text-secondary)]">{formatCrOrUsdMAuto(ship.value_cr)}</td>
                       <td className="py-2 px-3">
                         <span className={`px-2 py-0.5 rounded text-xs font-medium ${ganttColor(ship.status)} ${ganttTextColor(ship.status)}`}>
                           {ship.status.replace('_', ' ')}
@@ -1152,7 +1154,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
                       <td className="py-2 px-2 text-red-600 font-medium">{row.delay_days}d</td>
                       <td className="py-2 px-2 text-[var(--text-secondary)]">{row.skus_affected}</td>
                       <td className="py-2 px-2 text-[var(--text-secondary)]">{row.stores_affected}</td>
-                      <td className="py-2 px-2 text-red-600 font-semibold">₹{row.rev_at_risk_cr}Cr</td>
+                      <td className="py-2 px-2 text-red-600 font-semibold">{formatCrOrUsdMAuto(row.rev_at_risk_cr)}</td>
                       <td className="py-2 px-2">
                         <span className="text-xs px-2 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200 whitespace-nowrap">
                           {row.action_required}
@@ -1255,7 +1257,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
           </div>
 
           <Insight>
-            Delhi NCR has lowest reliability at 63.8% on-time with avg 3.9d delays. 4 shipments currently delayed representing ₹1.98Cr in revenue at risk.
+            Delhi NCR has lowest reliability at 63.8% on-time with avg 3.9d delays. 4 shipments currently delayed representing {formatCrOrUsdMAuto(1.98)} in revenue at risk.
           </Insight>
         </section>
 
@@ -1287,7 +1289,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
               </div>
               <div className="card py-3 px-4">
                 <p className="text-xs text-[var(--text-tertiary)] mb-1">Potential Savings</p>
-                <p className="text-lg font-semibold text-green-600">₹{reorderIntel.summary.potential_savings_cr}Cr</p>
+                <p className="text-lg font-semibold text-green-600">{formatCrOrUsdMAuto(reorderIntel.summary.potential_savings_cr)}</p>
                 <p className="text-xs text-[var(--text-secondary)]">from EOQ adoption</p>
               </div>
             </div>
@@ -1299,7 +1301,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
                 <p className="text-sm font-mono text-indigo-900">EOQ = √(2DS / H)</p>
                 <div className="mt-2 space-y-0.5 text-xs text-indigo-600">
                   <p>D = Annual demand (units)</p>
-                  <p>S = ₹850 per order (setup cost)</p>
+                  <p>S = {formatMoneyPlainAuto(850)} per order (setup cost)</p>
                   <p>H = 18% holding cost rate</p>
                 </div>
               </div>
@@ -1354,7 +1356,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
                           <td className="px-3 py-2 text-right font-medium text-[var(--text-primary)]">{sku.recommended_reorder_point}</td>
                           <td className="px-3 py-2 text-right text-[var(--text-secondary)]">{sku.current_order_qty}</td>
                           <td className="px-3 py-2 text-right font-medium text-indigo-600">{sku.eoq}</td>
-                          <td className="px-3 py-2 text-right text-green-600 font-medium">₹{sku.savings_cr}Cr</td>
+                          <td className="px-3 py-2 text-right text-green-600 font-medium">{formatCrOrUsdMAuto(sku.savings_cr)}</td>
                           <td className="px-3 py-2 text-center">
                             <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium ${
                               sku.status === 'stockout' ? 'bg-red-50 text-red-700' :
@@ -1372,7 +1374,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
             </div>
 
             <Insight>
-              147 SKUs are below their reorder point right now. Dove Body Wash is in stockout with ROP set at 100 vs recommended 282 — Personal Care&apos;s 4.8-day lead time demands a much larger buffer. Switching all mis-sized orders to EOQ would save ₹12.4Cr annually.
+              147 SKUs are below their reorder point right now. Dove Body Wash is in stockout with ROP set at 100 vs recommended 282 — Personal Care&apos;s 4.8-day lead time demands a much larger buffer. Switching all mis-sized orders to EOQ would save {formatCrOrUsdMAuto(12.4)} annually.
             </Insight>
           </section>
         )}
@@ -1390,17 +1392,17 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
             <div className="grid grid-cols-5 gap-3">
               <div className="card py-3 px-4">
                 <p className="text-xs text-[var(--text-tertiary)] mb-1">Total Network</p>
-                <p className="text-lg font-semibold text-[var(--text-primary)]">₹{echelon.network_summary.total_inventory_cr}Cr</p>
+                <p className="text-lg font-semibold text-[var(--text-primary)]">{formatCrOrUsdMAuto(echelon.network_summary.total_inventory_cr)}</p>
                 <p className="text-xs text-[var(--text-secondary)]">across all echelons</p>
               </div>
               <div className="card py-3 px-4">
                 <p className="text-xs text-[var(--text-tertiary)] mb-1">At DCs</p>
-                <p className="text-lg font-semibold text-[var(--text-primary)]">₹{echelon.network_summary.dc_inventory_cr}Cr</p>
+                <p className="text-lg font-semibold text-[var(--text-primary)]">{formatCrOrUsdMAuto(echelon.network_summary.dc_inventory_cr)}</p>
                 <p className="text-xs text-[var(--text-secondary)]">{Math.round(echelon.network_summary.dc_inventory_cr / echelon.network_summary.total_inventory_cr * 100)}% of total</p>
               </div>
               <div className="card py-3 px-4">
                 <p className="text-xs text-[var(--text-tertiary)] mb-1">At Regions</p>
-                <p className="text-lg font-semibold text-[var(--text-primary)]">₹{echelon.network_summary.regional_inventory_cr}Cr</p>
+                <p className="text-lg font-semibold text-[var(--text-primary)]">{formatCrOrUsdMAuto(echelon.network_summary.regional_inventory_cr)}</p>
                 <p className="text-xs text-[var(--text-secondary)]">{Math.round(echelon.network_summary.regional_inventory_cr / echelon.network_summary.total_inventory_cr * 100)}% of total</p>
               </div>
               <div className="card py-3 px-4">
@@ -1410,7 +1412,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
               </div>
               <div className="card py-3 px-4">
                 <p className="text-xs text-[var(--text-tertiary)] mb-1">Imbalance Value</p>
-                <p className="text-lg font-semibold text-red-600">₹{echelon.network_summary.imbalance_opportunity_cr}Cr</p>
+                <p className="text-lg font-semibold text-red-600">{formatCrOrUsdMAuto(echelon.network_summary.imbalance_opportunity_cr)}</p>
                 <p className="text-xs text-[var(--text-secondary)]">rebalancing opportunity</p>
               </div>
             </div>
@@ -1443,7 +1445,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
                     </div>
                     <div className="flex justify-between text-xs mt-1">
                       <span className="text-[var(--text-secondary)]">Inventory value</span>
-                      <span className="font-medium text-[var(--text-primary)]">₹{dc.inventory_cr}Cr</span>
+                      <span className="font-medium text-[var(--text-primary)]">{formatCrOrUsdMAuto(dc.inventory_cr)}</span>
                     </div>
                     <div className="flex justify-between text-xs">
                       <span className="text-[var(--text-secondary)]">Avg replenishment</span>
@@ -1464,11 +1466,11 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
                   <tr className="bg-[var(--bg-secondary)]">
                     <th className="text-left px-4 py-2.5 font-medium text-[var(--text-secondary)]">Region</th>
                     <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Stores</th>
-                    <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Regional ₹Cr</th>
-                    <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Store ₹Cr</th>
-                    <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">In Transit ₹Cr</th>
+                    <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Regional ($)</th>
+                    <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Store ($)</th>
+                    <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">In Transit ($)</th>
                     <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Avg DOS</th>
-                    <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Imbalance ₹Cr</th>
+                    <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Imbalance ($)</th>
                     <th className="text-center px-4 py-2.5 font-medium text-[var(--text-secondary)]">Health</th>
                   </tr>
                 </thead>
@@ -1477,12 +1479,12 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
                     <tr key={r.region} className="hover:bg-[var(--bg-secondary)]">
                       <td className="px-4 py-2.5 font-medium text-[var(--text-primary)]">{r.region}</td>
                       <td className="px-4 py-2.5 text-right text-[var(--text-secondary)]">{r.stores}</td>
-                      <td className="px-4 py-2.5 text-right text-[var(--text-primary)]">₹{r.regional_inventory_cr}</td>
-                      <td className="px-4 py-2.5 text-right text-[var(--text-primary)]">₹{r.store_inventory_cr}</td>
-                      <td className="px-4 py-2.5 text-right text-[var(--text-secondary)]">₹{r.in_transit_cr}</td>
+                      <td className="px-4 py-2.5 text-right text-[var(--text-primary)]">{formatCrOrUsdMAuto(r.regional_inventory_cr)}</td>
+                      <td className="px-4 py-2.5 text-right text-[var(--text-primary)]">{formatCrOrUsdMAuto(r.store_inventory_cr)}</td>
+                      <td className="px-4 py-2.5 text-right text-[var(--text-secondary)]">{formatCrOrUsdMAuto(r.in_transit_cr)}</td>
                       <td className="px-4 py-2.5 text-right text-[var(--text-primary)]">{r.avg_dos}d</td>
                       <td className={`px-4 py-2.5 text-right font-medium ${r.imbalance_cr > 30 ? 'text-red-600' : r.imbalance_cr > 15 ? 'text-amber-600' : 'text-green-600'}`}>
-                        ₹{r.imbalance_cr}
+                        {formatCrOrUsdMAuto(r.imbalance_cr)}
                       </td>
                       <td className="px-4 py-2.5 text-center">
                         <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium ${
@@ -1508,7 +1510,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
                       <th className="text-left px-4 py-2.5 font-medium text-[var(--text-secondary)]">From</th>
                       <th className="text-left px-4 py-2.5 font-medium text-[var(--text-secondary)]">To</th>
                       <th className="text-left px-4 py-2.5 font-medium text-[var(--text-secondary)]">Category</th>
-                      <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Value ₹Cr</th>
+                      <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Value ($)</th>
                       <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Units</th>
                       <th className="text-left px-4 py-2.5 font-medium text-[var(--text-secondary)]">Benefit</th>
                       <th className="text-center px-4 py-2.5 font-medium text-[var(--text-secondary)]">Urgency</th>
@@ -1520,7 +1522,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
                         <td className="px-4 py-2.5 font-medium text-[var(--text-primary)]">{op.from_region}</td>
                         <td className="px-4 py-2.5 text-[var(--text-secondary)]">{op.to_region}</td>
                         <td className="px-4 py-2.5 text-[var(--text-secondary)]">{op.category}</td>
-                        <td className="px-4 py-2.5 text-right font-medium text-[var(--text-primary)]">₹{op.transfer_value_cr}</td>
+                        <td className="px-4 py-2.5 text-right font-medium text-[var(--text-primary)]">{formatCrOrUsdMAuto(op.transfer_value_cr)}</td>
                         <td className="px-4 py-2.5 text-right text-[var(--text-secondary)]">{op.units.toLocaleString()}</td>
                         <td className="px-4 py-2.5 text-[var(--text-secondary)]">{op.benefit}</td>
                         <td className="px-4 py-2.5 text-center">
@@ -1536,7 +1538,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
             )}
 
             <Insight>
-              Delhi DC is at 94% capacity — near-full. North Region carries ₹42Cr in imbalance vs West (₹18Cr). Transferring 2,800 units of Personal Care from West to North (₹8.4Cr) would reduce North&apos;s stockout risk by 3 days while Delhi DC replenishment arrives.
+              Delhi DC is at 94% capacity — near-full. North Region carries {formatCrOrUsdMAuto(42)} in imbalance vs West ({formatCrOrUsdMAuto(18)}). Transferring 2,800 units of Personal Care from West to North ({formatCrOrUsdMAuto(8.4)}) would reduce North&apos;s stockout risk by 3 days while Delhi DC replenishment arrives.
             </Insight>
           </section>
         )}

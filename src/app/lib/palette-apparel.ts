@@ -85,3 +85,58 @@ export function getApparelColor(map: Record<string, string>, key: string | null 
   if (!key) return DEFAULT_APPAREL_COLOR;
   return map[key] ?? DEFAULT_APPAREL_COLOR;
 }
+
+// ── Inventory / Supply additions (Phase D sweep) ──────────────────────────
+
+/** Apparel lifecycle stage colors — Intro → Core → Markdown → Clearance. */
+export const LIFECYCLE_STAGE_COLORS: Record<string, string> = {
+  Intro:       '#06B6D4',
+  Core:        '#10B981',
+  'Markdown 1':'#FBBF24',
+  'Markdown 2':'#F59E0B',
+  'Markdown 3':'#F97316',
+  Clearance:   '#DC2626',
+};
+
+/** ABCD velocity classes — A (fastest) → D (slowest). */
+export const VELOCITY_ABCD_COLORS: Record<string, string> = {
+  A: '#16A34A',
+  B: '#3B82F6',
+  C: '#F59E0B',
+  D: '#DC2626',
+};
+
+/** Apparel season tags. */
+export const SEASON_TAG_COLORS: Record<string, string> = {
+  'Spring/Summer': '#FBBF24',
+  'Fall/Winter':   '#1E40AF',
+  Holiday:         '#DC2626',
+  'Back-to-School':'#7C3AED',
+  Resort:          '#06B6D4',
+  Core:            '#64748B',
+};
+
+/** Apparel department colors keyed on full apparel dept names from
+ *  dimensions-apparel.json. Covers all Phase C generator outputs. */
+export const APPAREL_DEPT_COLORS: Record<string, string> = {
+  "Women's Tops":       '#EC4899',
+  "Women's Bottoms":    '#DB2777',
+  "Women's Dresses":    '#BE185D',
+  "Women's Outerwear":  '#9D174D',
+  "Men's Tops":         '#1E40AF',
+  "Men's Bottoms":      '#1D4ED8',
+  "Men's Denim":        '#1E3A8A',
+  "Men's Outerwear":    '#312E81',
+  "Kids' Apparel":      '#14B8A6',
+  "Kids' Footwear":     '#0D9488',
+  "Athletic Apparel":   '#3B82F6',
+  "Athletic Footwear":  '#2563EB',
+  Footwear:             '#F97316',
+  Accessories:          '#A855F7',
+  Outerwear:            '#0EA5E9',
+  Dresses:              '#DB2777',
+  Denim:                '#1E3A8A',
+  Activewear:           '#3B82F6',
+  Intimates:            '#F472B6',
+  Sleepwear:            '#A78BFA',
+};

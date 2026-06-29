@@ -1,5 +1,7 @@
 'use client';
 
+
+import { formatLOrUsdKAuto } from '@/app/lib/format-money';
 import { Truck, AlertCircle, PackageCheck } from 'lucide-react';
 import { NoDataFallback } from '@/app/components/ui/NoDataFallback';
 
@@ -22,7 +24,7 @@ export default function InboundSummary({ data }: InboundSummaryProps) {
     {
       title: 'In Transit',
       value: data.in_transit?.count ?? 0,
-      subValue: `₹${((data.in_transit?.value ?? 0) / 100000).toFixed(1)}L`,
+      subValue: `${formatLOrUsdKAuto(((data.in_transit?.value ?? 0) / 100000).toFixed(1))}`,
       icon: Truck,
       iconBg: 'bg-blue-100',
       iconColor: 'text-blue-600',
@@ -39,7 +41,7 @@ export default function InboundSummary({ data }: InboundSummaryProps) {
     {
       title: 'Received This Week',
       value: data.received_this_week?.count ?? 0,
-      subValue: `₹${((data.received_this_week?.value ?? 0) / 100000).toFixed(1)}L`,
+      subValue: `${formatLOrUsdKAuto(((data.received_this_week?.value ?? 0) / 100000).toFixed(1))}`,
       icon: PackageCheck,
       iconBg: 'bg-green-100',
       iconColor: 'text-green-600',

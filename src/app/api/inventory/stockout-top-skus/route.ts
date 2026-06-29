@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-
+import { loadCache } from '@/app/lib/cache-loader';
 interface StockoutSKURow {
   product_id: string;
   product_name: string;
@@ -11,10 +9,11 @@ interface StockoutSKURow {
   stockout_instances: string | number;
 }
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), 'cache', 'inventory_stockout_top_skus.json');
-    const data: StockoutSKURow[] = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    const data: StockoutSKURow[]  = await loadCache('inventory_stockout_top_skus.json');
 
     // Transform to expected format
     const stockoutTopSKUs = data.map(item => ({

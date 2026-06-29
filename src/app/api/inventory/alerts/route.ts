@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
-
+import { loadCache } from '@/app/lib/cache-loader';
 interface AlertRow {
   product_id: string;
   product_name: string;
@@ -14,11 +12,11 @@ interface AlertRow {
   current_stock: string | number;
 }
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), 'cache', 'inventory_alerts.json');
-    const data = await fs.readFile(filePath, 'utf-8');
-    const parsed: AlertRow[] = JSON.parse(data);
+    const parsed: AlertRow[]  = await loadCache('inventory_alerts.json');
 
     // Transform to expected format
     const alerts = (parsed ?? []).slice(0, 10).map(item => ({

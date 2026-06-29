@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import SupplierDetailContent from './SupplierDetailContent';
 import type { SupplierProfile } from './SupplierDetailContent';
-import profiles from '../../../../../cache/supply_supplier_profiles.json';
+import { loadCache } from '@/app/lib/cache-loader';
 
 export const dynamic = 'force-dynamic';
 
@@ -9,9 +9,9 @@ interface PageProps {
   params: { id: string };
 }
 
-export default function SupplierDetailPage({ params }: PageProps) {
-  const profilesMap = profiles as Record<string, SupplierProfile>;
-  const profile = profilesMap[params.id];
+export default async function SupplierDetailPage({ params }: PageProps) {
+  const profiles = await loadCache<Record<string, SupplierProfile>>('supply_supplier_profiles.json');
+  const profile = profiles[params.id];
 
   if (!profile) {
     notFound();

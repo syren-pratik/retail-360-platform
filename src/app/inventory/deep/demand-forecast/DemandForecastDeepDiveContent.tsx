@@ -1,5 +1,7 @@
 'use client';
 
+
+import { formatCrOrUsdMAuto, getLocaleAuto } from '@/app/lib/format-money';
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import {
@@ -49,7 +51,7 @@ function Insight({ children }: { children: React.ReactNode }) {
 
 function fmtDayMonth(dateStr: string): string {
   const d = new Date(dateStr);
-  return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+  return d.toLocaleDateString(getLocaleAuto(), { day: 'numeric', month: 'short' });
 }
 
 // ─── Main Component ───────────────────────────────────────────────────────────
@@ -257,7 +259,7 @@ export default function DemandForecastDeepDiveContent({ forecast, isStandalonePa
             {/* Lost Sales from Miss */}
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">Lost Sales from Miss</p>
-              <p className="text-lg font-semibold text-red-600">₹{fkpis.lost_sales_from_miss_cr}Cr</p>
+              <p className="text-lg font-semibold text-red-600">{formatCrOrUsdMAuto(fkpis.lost_sales_from_miss_cr)}</p>
               <p className="text-xs text-[var(--text-secondary)] mt-0.5">Under-forecast revenue</p>
             </div>
 
@@ -725,12 +727,12 @@ export default function DemandForecastDeepDiveContent({ forecast, isStandalonePa
           <div className="grid grid-cols-3 gap-4">
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">Lost Sales from Under-Forecast</p>
-              <p className="text-2xl font-semibold text-red-600">₹{fkpis.lost_sales_from_miss_cr}Cr</p>
+              <p className="text-2xl font-semibold text-red-600">{formatCrOrUsdMAuto(fkpis.lost_sales_from_miss_cr)}</p>
               <p className="text-xs text-[var(--text-secondary)] mt-0.5">Current period</p>
             </div>
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">Prior Period</p>
-              <p className="text-2xl font-semibold text-[var(--text-secondary)]">₹{fkpis.lost_sales_prior_cr}Cr</p>
+              <p className="text-2xl font-semibold text-[var(--text-secondary)]">{formatCrOrUsdMAuto(fkpis.lost_sales_prior_cr)}</p>
               <p className="text-xs text-[var(--text-secondary)] mt-0.5">Previous period baseline</p>
             </div>
             <div className="card py-3 px-4">

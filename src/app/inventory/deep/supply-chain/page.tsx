@@ -1,23 +1,26 @@
 export const dynamic = 'force-dynamic';
 
-import supplierOTIFData from '../../../../../cache/supply_supplier_otif.json';
-import replenishmentData from '../../../../../cache/supply_replenishment.json';
-import inboundData from '../../../../../cache/supply_inbound.json';
-import kpisData from '../../../../../cache/supply_kpis.json';
 import SupplyChainDeepDiveContent from './SupplyChainDeepDiveContent';
+import { loadCache } from '@/app/lib/cache-loader';
 import type { SupplyKPIs, SupplierOTIFData, ReplenishmentData, InboundData } from '../../components/InventoryDashboardContent';
 
 export const metadata = {
   title: 'Supply Chain Analysis | Supply Intelligence',
 };
 
-export default function SupplyChainPage() {
+export default async function SupplyChainPage() {
+  const [kpisData, supplierOTIFData, replenishmentData, inboundData] = await Promise.all([
+    loadCache<SupplyKPIs>('supply_kpis.json'),
+    loadCache<SupplierOTIFData>('supply_supplier_otif.json'),
+    loadCache<ReplenishmentData>('supply_replenishment.json'),
+    loadCache<InboundData>('supply_inbound.json'),
+  ]);
   return (
     <SupplyChainDeepDiveContent
-      kpis={kpisData as unknown as SupplyKPIs}
-      supplierOTIF={supplierOTIFData as unknown as SupplierOTIFData}
-      replenishment={replenishmentData as unknown as ReplenishmentData}
-      inbound={inboundData as unknown as InboundData}
+      kpis={kpisData}
+      supplierOTIF={supplierOTIFData}
+      replenishment={replenishmentData}
+      inbound={inboundData}
     />
   );
 }

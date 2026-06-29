@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-
+import { loadCache } from '@/app/lib/cache-loader';
 interface StockoutRow {
   month: string;
   stockout_count: string | number;
@@ -9,10 +7,11 @@ interface StockoutRow {
   stockout_pct: string | number;
 }
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), 'cache', 'inventory_stockout_trend.json');
-    const data: StockoutRow[] = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    const data: StockoutRow[]  = await loadCache('inventory_stockout_trend.json');
 
     // Transform to expected format
     const stockoutTrend = data.map(item => ({

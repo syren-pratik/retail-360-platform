@@ -1,5 +1,7 @@
 'use client';
 
+
+import { formatCrOrUsdMAuto, formatLOrUsdKAuto, formatMoneyPlainAuto } from '@/app/lib/format-money';
 import KPICard from '@/app/components/kpi/KPICard';
 import { safeNumber, safeArray } from '@/app/lib/safe-data';
 import { ChartEmptyState } from '@/app/components/ui/ChartEmptyState';
@@ -37,12 +39,12 @@ interface InventoryKPICardsProps {
 function formatValue(value: number, unit: string): string {
   if (unit === '₹') {
     if (value >= 10000000) {
-      return `₹${(value / 10000000).toFixed(1)}Cr`;
+      return `${formatCrOrUsdMAuto((value / 10000000).toFixed(1))}`;
     }
     if (value >= 100000) {
-      return `₹${(value / 100000).toFixed(1)}L`;
+      return `${formatLOrUsdKAuto((value / 100000).toFixed(1))}`;
     }
-    return `₹${(value ?? 0).toLocaleString()}`;
+    return formatMoneyPlainAuto(value ?? 0);
   }
   if (unit === '%') {
     return `${(value ?? 0).toFixed(1)}%`;

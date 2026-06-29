@@ -1,14 +1,13 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+import { loadCache } from '@/app/lib/cache-loader';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const supplierId = searchParams.get('id');
-    const filePath = path.join(process.cwd(), 'cache', 'supply_supplier_profiles.json');
-    const data = await fs.readFile(filePath, 'utf-8');
-    const profiles = JSON.parse(data);
+    const profiles = (await loadCache('supply_supplier_profiles.json')) as Record<string, unknown>;
     if (supplierId) {
       const profile = profiles[supplierId];
       if (!profile) return NextResponse.json({ error: 'Supplier not found' }, { status: 404 });

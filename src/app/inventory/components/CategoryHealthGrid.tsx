@@ -1,5 +1,7 @@
 'use client';
 
+
+import { formatCrOrUsdMAuto } from '@/app/lib/format-money';
 import { useMemo, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import type { CategoryHealthData, CategoryHealthItem } from './InventoryDashboardContent';
@@ -60,7 +62,7 @@ export default function CategoryHealthGrid({ data }: Props) {
               {' · '}
               <span className="text-amber-600 font-medium">{summary.at_risk} at risk</span>
               {' · '}
-              ₹{summary.total_rev_at_risk_cr.toFixed(1)}Cr revenue at risk
+              {formatCrOrUsdMAuto(summary.total_rev_at_risk_cr.toFixed(1))} revenue at risk
             </p>
           )}
         </div>
@@ -99,7 +101,7 @@ export default function CategoryHealthGrid({ data }: Props) {
             >
               <span className="text-xs font-medium text-[var(--text-primary)] truncate">{cat.name}</span>
               <span className="text-xs text-right font-medium text-[var(--text-primary)]">
-                ₹{cat.rev_at_risk_cr.toFixed(1)}Cr
+                {formatCrOrUsdMAuto(cat.rev_at_risk_cr.toFixed(1))}
               </span>
               <span className={`text-xs text-right font-medium ${cat.osa_pct >= 95 ? 'text-emerald-600' : cat.osa_pct >= 88 ? 'text-amber-600' : 'text-red-600'}`}>
                 {cat.osa_pct.toFixed(1)}%
@@ -117,11 +119,11 @@ export default function CategoryHealthGrid({ data }: Props) {
         <div className="h-64">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={chartData} layout="vertical" margin={{ top: 0, right: 8, bottom: 0, left: 4 }}>
-              <XAxis type="number" tick={{ fontSize: 10 }} tickFormatter={v => `₹${v}Cr`} />
+              <XAxis type="number" tick={{ fontSize: 10 }} tickFormatter={v => `${formatCrOrUsdMAuto(v)}`} />
               <YAxis type="category" dataKey="name" tick={{ fontSize: 10 }} width={80} />
               <Tooltip
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                formatter={(v: any) => [`₹${Number(v).toFixed(2)}Cr`, 'Rev at Risk']}
+                formatter={(v: any) => [`${formatCrOrUsdMAuto(Number(v).toFixed(2))}`, 'Rev at Risk']}
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 labelFormatter={(_: any, payload: readonly any[]) =>
                   payload?.[0]?.payload?.fullName ?? ''

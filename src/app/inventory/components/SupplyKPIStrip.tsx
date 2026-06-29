@@ -1,5 +1,7 @@
 'use client';
 
+
+import { formatCrOrUsdMAuto } from '@/app/lib/format-money';
 import Link from 'next/link';
 import { LineChart, Line, ResponsiveContainer } from 'recharts';
 import { TrendingUp, TrendingDown, Minus, ArrowRight } from 'lucide-react';
@@ -21,11 +23,11 @@ type KpiKey = keyof typeof DEEP_DIVE_URLS;
 // ── Helpers ───────────────────────────────────────────────────────────────
 
 function fmtValue(key: KpiKey, v: number, unit: string): string {
-  if (unit === 'cr') return `₹${v.toFixed(1)}Cr`;
+  if (unit === 'cr') return `${formatCrOrUsdMAuto(v.toFixed(1))}`;
   if (unit === '%') return `${v.toFixed(1)}%`;
   if (unit === 'days') return `${v.toFixed(1)}d`;
   if (key === 'stockout_count') return v.toLocaleString();
-  if (v >= 1000) return `₹${v.toLocaleString()}Cr`;
+  if (v >= 1000) return `${formatCrOrUsdMAuto(v.toLocaleString())}`;
   return `${v}`;
 }
 
@@ -75,13 +77,13 @@ function contextLine(key: KpiKey, kpi: SupplyKPIMetric): string {
     case 'revenue_at_risk':
       return `${kpi.stores_affected} stores · ${kpi.skus_affected} SKUs`;
     case 'inventory_value':
-      return `₹${kpi.overstock_value}Cr overstock`;
+      return `${formatCrOrUsdMAuto(kpi.overstock_value)} overstock`;
     case 'osa':
-      return `Target ${kpi.target}% · -₹${kpi.daily_impact_cr}Cr/day`;
+      return `Target ${kpi.target}% · -${formatCrOrUsdMAuto(kpi.daily_impact_cr)}/day`;
     case 'avg_dos':
       return `${kpi.below_7_days_pct}% SKUs below 7d`;
     case 'stockout_count':
-      return `₹${kpi.rev_impact_today}Cr lost today`;
+      return `${formatCrOrUsdMAuto(kpi.rev_impact_today)} lost today`;
     case 'supplier_otif':
       return `${kpi.suppliers_below_threshold} suppliers below 80%`;
   }

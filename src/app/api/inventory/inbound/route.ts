@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-
+import { loadCache } from '@/app/lib/cache-loader';
 interface InboundRow {
   product_id: string;
   product_name: string;
@@ -13,10 +11,11 @@ interface InboundRow {
   status: string;
 }
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), 'cache', 'inventory_inbound.json');
-    const data: InboundRow[] = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    const data: InboundRow[]  = await loadCache('inventory_inbound.json');
 
     // Calculate summary stats
     const inTransit = data.filter(d => d.status === 'in_transit');

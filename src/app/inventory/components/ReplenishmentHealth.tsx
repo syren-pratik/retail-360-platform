@@ -1,5 +1,7 @@
 'use client';
 
+
+import { formatCrOrUsdMAuto } from '@/app/lib/format-money';
 import { useState } from 'react';
 import type { ReplenishmentData, StoreHealthScore } from './InventoryDashboardContent';
 import { AIInsightButton } from '@/app/components/charts/ChartCard';
@@ -47,7 +49,7 @@ export default function ReplenishmentHealth({ data }: Props) {
           <AIInsightButton id="inventory-replenishment-health" title="Replenishment Health" data={stores as unknown as Record<string, unknown>[]} />
           {summary && (
             <div className="text-right">
-              <p className="text-xs font-semibold text-amber-600">₹{summary.urgent_pending_cr.toFixed(1)}Cr</p>
+              <p className="text-xs font-semibold text-amber-600">{formatCrOrUsdMAuto(summary.urgent_pending_cr.toFixed(1))}</p>
               <p className="text-[10px] text-[var(--text-tertiary)]">urgent pending</p>
             </div>
           )}
@@ -84,9 +86,9 @@ export default function ReplenishmentHealth({ data }: Props) {
             <span className="text-[10px] text-[var(--text-tertiary)] font-medium uppercase tracking-wide text-right">SKUs↓</span>
             <span className="text-[10px] text-[var(--text-tertiary)] font-medium uppercase tracking-wide text-center">Status</span>
           </div>
-          {stores.slice(0, 12).map((s: StoreHealthScore) => (
+          {stores.slice(0, 12).map((s: StoreHealthScore, i: number) => (
             <div
-              key={s.store_id}
+              key={`${s.store_id}-${i}`}
               className="grid grid-cols-[1fr_80px_72px_64px] gap-2 items-center px-2 py-1.5 rounded hover:bg-[var(--bg-secondary)] transition-colors"
             >
               <div>

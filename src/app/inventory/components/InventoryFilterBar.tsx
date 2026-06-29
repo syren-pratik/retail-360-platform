@@ -1,9 +1,10 @@
 'use client';
 
 import { useInventory } from '@/app/context/InventoryContext';
+import { useTenant } from '@/app/context/TenantContext';
 import { X } from 'lucide-react';
 
-const VIEW_AS_OPTIONS = [
+const VIEW_AS_OPTIONS_GROCERY = [
   { value: 'all',           label: 'All India'             },
   { value: 'north',         label: 'North — Delhi NCR'     },
   { value: 'west',          label: 'West — Mumbai/Pune'    },
@@ -15,9 +16,28 @@ const VIEW_AS_OPTIONS = [
   { value: 'custom',        label: 'Custom'                },
 ];
 
-const DEPARTMENTS = [
+const VIEW_AS_OPTIONS_APPAREL = [
+  { value: 'all',           label: 'All Stores'                  },
+  { value: 'north',         label: 'Northeast — Allentown DC'    },
+  { value: 'west',          label: 'West — Reno DC'              },
+  { value: 'south',         label: 'Southeast — Atlanta DC'      },
+  { value: 'grocery',       label: "Women's"                     },
+  { value: 'personal_care', label: "Men's"                       },
+  { value: 'electronics',   label: 'Footwear'                    },
+  { value: 'supply_chain',  label: 'Supply Chain'                },
+  { value: 'custom',        label: 'Custom'                      },
+];
+
+const DEPARTMENTS_GROCERY = [
   'Dairy', 'Grocery', 'Beverages', 'Snacks',
   'Personal Care', 'Household', 'Baby Care', 'Frozen Foods',
+];
+
+const DEPARTMENTS_APPAREL = [
+  "Women's Tops", "Women's Bottoms", "Women's Dresses",
+  "Men's Tops", "Men's Bottoms", "Men's Denim",
+  "Kids' Apparel", "Athletic Apparel", "Athletic Footwear",
+  'Footwear', 'Accessories', 'Outerwear',
 ];
 
 const ABC_CLASSES = ['A', 'B', 'C'];
@@ -36,8 +56,11 @@ const TIME_PERIODS = ['30d', '90d', '6m', '12m'];
 
 export default function InventoryFilterBar() {
   const { filters, setFilters, resetFilters, setRole } = useInventory();
+  const { isApparel } = useTenant();
   const selectedRole = filters.selectedRole;
   const timePeriod = filters.timePeriod ?? '90d';
+  const VIEW_AS_OPTIONS = isApparel ? VIEW_AS_OPTIONS_APPAREL : VIEW_AS_OPTIONS_GROCERY;
+  const DEPARTMENTS = isApparel ? DEPARTMENTS_APPAREL : DEPARTMENTS_GROCERY;
 
   const hasActiveFilters =
     (filters.departments ?? []).length > 0 ||

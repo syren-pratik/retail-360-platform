@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
-
+import { loadCache } from '@/app/lib/cache-loader';
 interface HealthRow {
   product_id: string;
   product_name: string;
@@ -16,11 +14,11 @@ interface HealthRow {
   is_perishable: boolean;
 }
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), 'cache', 'inventory_health_matrix.json');
-    const data = await fs.readFile(filePath, 'utf-8');
-    const parsed: HealthRow[] = JSON.parse(data);
+    const parsed: HealthRow[]  = await loadCache('inventory_health_matrix.json');
 
     // Transform to expected format
     const healthMatrix = parsed.map(item => {

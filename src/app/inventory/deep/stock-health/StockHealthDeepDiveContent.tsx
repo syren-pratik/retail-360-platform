@@ -1,5 +1,7 @@
 'use client';
 
+
+import { formatCrOrUsdMAuto } from '@/app/lib/format-money';
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Download } from 'lucide-react';
@@ -113,7 +115,7 @@ function StoreRiskTooltip({ active, payload }: { active?: boolean; payload?: Sto
   return (
     <div className="bg-white border border-gray-200 rounded-lg shadow-lg px-3 py-2 text-xs space-y-0.5">
       <p className="font-semibold text-gray-800 mb-1">{d.store_name}</p>
-      <p className="text-gray-600">Revenue at Risk: <span className="font-medium text-red-600">₹{d.rev_at_risk_cr}Cr</span></p>
+      <p className="text-gray-600">Revenue at Risk: <span className="font-medium text-red-600">{formatCrOrUsdMAuto(d.rev_at_risk_cr)}</span></p>
       <p className="text-gray-600">% Daily Rev: <span className="font-medium">{d.pct_daily_rev}%</span></p>
       <p className="text-gray-600">Stockout SKUs: <span className="font-medium">{d.stockout_skus}</span></p>
       <p className="text-gray-600">Avg Duration: <span className="font-medium">{d.avg_duration_days}d</span></p>
@@ -138,9 +140,9 @@ function OverstockTooltip({ active, payload }: { active?: boolean; payload?: Ove
   return (
     <div className="bg-white border border-gray-200 rounded-lg shadow-lg px-3 py-2 text-xs space-y-0.5">
       <p className="font-semibold text-gray-800 mb-1">{d.category}</p>
-      <p className="text-gray-600">Slow Moving (45-90d): <span className="font-medium text-amber-600">₹{d.slow_moving_cr}Cr</span></p>
-      <p className="text-gray-600">Dead Stock (90d+): <span className="font-medium text-red-600">₹{d.dead_stock_cr}Cr</span></p>
-      <p className="text-gray-600">Total: <span className="font-medium">₹{d.total_cr}Cr</span></p>
+      <p className="text-gray-600">Slow Moving (45-90d): <span className="font-medium text-amber-600">{formatCrOrUsdMAuto(d.slow_moving_cr)}</span></p>
+      <p className="text-gray-600">Dead Stock (90d+): <span className="font-medium text-red-600">{formatCrOrUsdMAuto(d.dead_stock_cr)}</span></p>
+      <p className="text-gray-600">Total: <span className="font-medium">{formatCrOrUsdMAuto(d.total_cr)}</span></p>
       <p className="text-gray-600">Markdown Risk SKUs: <span className="font-medium">{d.markdown_risk_skus}</span></p>
     </div>
   );
@@ -336,7 +338,7 @@ export default function StockHealthDeepDiveContent({
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">Total at Risk</p>
-              <p className="text-lg font-semibold text-red-600">₹{totalAtRisk.toFixed(2)}Cr</p>
+              <p className="text-lg font-semibold text-red-600">{formatCrOrUsdMAuto(totalAtRisk.toFixed(2))}</p>
             </div>
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">Stores Critical</p>
@@ -383,7 +385,7 @@ export default function StockHealthDeepDiveContent({
                         type="number"
                         tick={{ fontSize: 10, fill: 'var(--text-secondary)' }}
                         tickLine={false}
-                        tickFormatter={v => `₹${v}Cr`}
+                        tickFormatter={v => `${formatCrOrUsdMAuto(v)}`}
                       />
                       <YAxis
                         type="category"
@@ -436,7 +438,7 @@ export default function StockHealthDeepDiveContent({
                     >
                       <p className="text-xs font-semibold leading-tight">{cat.category}</p>
                       <div>
-                        <p className="text-sm font-bold">₹{cat.rev_at_risk_cr}Cr</p>
+                        <p className="text-sm font-bold">{formatCrOrUsdMAuto(cat.rev_at_risk_cr)}</p>
                         <p className="text-[10px]">{cat.days_running}d · {cat.stores_affected} stores</p>
                       </div>
                     </div>
@@ -486,7 +488,7 @@ export default function StockHealthDeepDiveContent({
                         tick={{ fontSize: 10, fill: 'var(--text-secondary)' }}
                         tickLine={false}
                         axisLine={false}
-                        tickFormatter={v => `₹${v}Cr`}
+                        tickFormatter={v => `${formatCrOrUsdMAuto(v)}`}
                       />
                       <YAxis
                         yAxisId="right"
@@ -499,8 +501,8 @@ export default function StockHealthDeepDiveContent({
                       />
                       <Tooltip contentStyle={{ fontSize: '11px' }} />
                       <Legend wrapperStyle={{ fontSize: '11px' }} />
-                      <Bar yAxisId="left" dataKey="lost_cr" name="Lost (₹Cr)" fill="#FCA5A5" />
-                      <Bar yAxisId="left" dataKey="recovered_cr" name="Recovered (₹Cr)" fill="#6EE7B7" />
+                      <Bar yAxisId="left" dataKey="lost_cr" name="Lost (($))" fill="#FCA5A5" />
+                      <Bar yAxisId="left" dataKey="recovered_cr" name="Recovered (($))" fill="#6EE7B7" />
                       <Line
                         yAxisId="right"
                         type="monotone"
@@ -545,11 +547,11 @@ export default function StockHealthDeepDiveContent({
                         tick={{ fontSize: 10, fill: 'var(--text-secondary)' }}
                         tickLine={false}
                         axisLine={false}
-                        tickFormatter={v => `₹${v}Cr`}
+                        tickFormatter={v => `${formatCrOrUsdMAuto(v)}`}
                       />
                       <Tooltip
                         contentStyle={{ fontSize: '11px' }}
-                        formatter={(v: unknown) => [`₹${(v as number).toFixed(2)}Cr`]}
+                        formatter={(v: unknown) => [`${formatCrOrUsdMAuto((v as number).toFixed(2))}`]}
                       />
                       <ReferenceLine x={todayISO} stroke="#94A3B8" strokeDasharray="3 3" label={{ value: 'Today', fontSize: 10, fill: '#64748B' }} />
                       <Line
@@ -612,7 +614,7 @@ export default function StockHealthDeepDiveContent({
                       { key: 'osa_pct' as keyof CategoryHealthItem, label: 'OSA %' },
                       { key: 'avg_dos' as keyof CategoryHealthItem, label: 'DoS (days)' },
                       { key: 'stockout_skus' as keyof CategoryHealthItem, label: 'Stockout SKUs' },
-                      { key: 'overstock_value_cr' as keyof CategoryHealthItem, label: 'Overstock ₹Cr' },
+                      { key: 'overstock_value_cr' as keyof CategoryHealthItem, label: 'Overstock ($)' },
                       { key: 'turn_rate' as keyof CategoryHealthItem, label: 'Turn Rate' },
                     ] as { key: keyof CategoryHealthItem; label: string }[]
                   ).map(col => (
@@ -662,7 +664,7 @@ export default function StockHealthDeepDiveContent({
                       <td className={`py-2.5 px-3 ${osaCls}`}>{cat.osa_pct}%</td>
                       <td className={`py-2.5 px-3 ${dosCls}`}>{cat.avg_dos}d</td>
                       <td className="py-2.5 px-3 text-[var(--text-secondary)]">{cat.stockout_skus}</td>
-                      <td className="py-2.5 px-3 text-[var(--text-secondary)]">₹{cat.overstock_value_cr}Cr</td>
+                      <td className="py-2.5 px-3 text-[var(--text-secondary)]">{formatCrOrUsdMAuto(cat.overstock_value_cr)}</td>
                       <td className="py-2.5 px-3 text-[var(--text-secondary)]">{cat.turn_rate}x</td>
                     </tr>
                   );
@@ -720,11 +722,11 @@ export default function StockHealthDeepDiveContent({
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">Total Overstock</p>
-              <p className="text-lg font-semibold text-[var(--text-primary)]">₹{overstock.summary.overstock_value_cr}Cr</p>
+              <p className="text-lg font-semibold text-[var(--text-primary)]">{formatCrOrUsdMAuto(overstock.summary.overstock_value_cr)}</p>
             </div>
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">Dead Stock</p>
-              <p className="text-lg font-semibold text-red-600">₹{overstock.summary.dead_stock_value_cr}Cr</p>
+              <p className="text-lg font-semibold text-red-600">{formatCrOrUsdMAuto(overstock.summary.dead_stock_value_cr)}</p>
             </div>
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">Markdown Risk SKUs</p>
@@ -761,7 +763,7 @@ export default function StockHealthDeepDiveContent({
                         type="number"
                         tick={{ fontSize: 10, fill: 'var(--text-secondary)' }}
                         tickLine={false}
-                        tickFormatter={v => `₹${v}Cr`}
+                        tickFormatter={v => `${formatCrOrUsdMAuto(v)}`}
                       />
                       <YAxis
                         type="category"
@@ -807,11 +809,11 @@ export default function StockHealthDeepDiveContent({
                         tick={{ fontSize: 10, fill: 'var(--text-secondary)' }}
                         tickLine={false}
                         axisLine={false}
-                        tickFormatter={v => `₹${v}Cr`}
+                        tickFormatter={v => `${formatCrOrUsdMAuto(v)}`}
                       />
                       <Tooltip
                         contentStyle={{ fontSize: '11px' }}
-                        formatter={(v: unknown, name: unknown) => name === 'base' ? null : [`₹${v as number}Cr`, 'Value']}
+                        formatter={(v: unknown, name: unknown) => name === 'base' ? null : [`${formatCrOrUsdMAuto(v as number)}`, 'Value']}
                       />
                       <Bar dataKey="base" stackId="wf" fill="transparent" legendType="none" />
                       <Bar dataKey="barValue" stackId="wf" radius={[4, 4, 0, 0]}>
@@ -856,9 +858,9 @@ export default function StockHealthDeepDiveContent({
                       tick={{ fontSize: 10, fill: 'var(--text-secondary)' }}
                       tickLine={false}
                       axisLine={false}
-                      tickFormatter={v => `₹${v}Cr`}
+                      tickFormatter={v => `${formatCrOrUsdMAuto(v)}`}
                     />
-                    <Tooltip contentStyle={{ fontSize: '11px' }} formatter={(v: unknown) => [`₹${v as number}Cr`]} />
+                    <Tooltip contentStyle={{ fontSize: '11px' }} formatter={(v: unknown) => [`${formatCrOrUsdMAuto(v as number)}`]} />
                     <Legend wrapperStyle={{ fontSize: '11px' }} />
                     <Bar dataKey="purchase_volume_cr" name="Purchase Volume" fill="#DBEAFE" />
                     <Line
@@ -874,7 +876,7 @@ export default function StockHealthDeepDiveContent({
               )}
             </div>
             <Insight>
-              ₹{overstock.summary.dead_stock_value_cr}Cr in dead stock — Apparel and Electronics account for {appElecPct}% of that exposure. Purchasing volumes have grown {Math.round(((overstock.trend_vs_purchasing[overstock.trend_vs_purchasing.length - 1].purchase_volume_cr / overstock.trend_vs_purchasing[0].purchase_volume_cr) - 1) * 100)}% while overstock grew {Math.round(((overstock.trend_vs_purchasing[overstock.trend_vs_purchasing.length - 1].overstock_cr / overstock.trend_vs_purchasing[0].overstock_cr) - 1) * 100)}% — recommend a markdown clearance event and purchasing plan review for Apparel and Electronics.
+              {formatCrOrUsdMAuto(overstock.summary.dead_stock_value_cr)} in dead stock — Apparel and Electronics account for {appElecPct}% of that exposure. Purchasing volumes have grown {Math.round(((overstock.trend_vs_purchasing[overstock.trend_vs_purchasing.length - 1].purchase_volume_cr / overstock.trend_vs_purchasing[0].purchase_volume_cr) - 1) * 100)}% while overstock grew {Math.round(((overstock.trend_vs_purchasing[overstock.trend_vs_purchasing.length - 1].overstock_cr / overstock.trend_vs_purchasing[0].overstock_cr) - 1) * 100)}% — recommend a markdown clearance event and purchasing plan review for Apparel and Electronics.
             </Insight>
           </div>
         </section>
@@ -893,14 +895,14 @@ export default function StockHealthDeepDiveContent({
                     <thead>
                       <tr className="bg-[var(--bg-secondary)]">
                         <th className="text-left px-4 py-2.5 font-medium text-[var(--text-secondary)]">Category</th>
-                        <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Overstock ₹Cr</th>
+                        <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Overstock ($)</th>
                         <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Days in Stock</th>
                         <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Markdown %</th>
                         <th className="text-left px-4 py-2.5 font-medium text-[var(--text-secondary)]">Timing</th>
                         <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Sell-Through %</th>
-                        <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Recovery ₹Cr</th>
-                        <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Margin Impact ₹Cr</th>
-                        <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Net vs Write-Off ₹Cr</th>
+                        <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Recovery ($)</th>
+                        <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Margin Impact ($)</th>
+                        <th className="text-right px-4 py-2.5 font-medium text-[var(--text-secondary)]">Net vs Write-Off ($)</th>
                         <th className="text-center px-4 py-2.5 font-medium text-[var(--text-secondary)]">Urgency</th>
                       </tr>
                     </thead>
@@ -908,7 +910,7 @@ export default function StockHealthDeepDiveContent({
                       {(overstock.markdown_recommendations as MarkdownRecommendation[]).map(rec => (
                         <tr key={rec.category} className="hover:bg-[var(--bg-secondary)]">
                           <td className="px-4 py-2.5 font-medium text-[var(--text-primary)]">{rec.category}</td>
-                          <td className="px-4 py-2.5 text-right text-[var(--text-primary)]">₹{rec.overstock_cr}</td>
+                          <td className="px-4 py-2.5 text-right text-[var(--text-primary)]">{formatCrOrUsdMAuto(rec.overstock_cr)}</td>
                           <td className="px-4 py-2.5 text-right text-[var(--text-secondary)]">{rec.days_in_overstock_avg}d</td>
                           <td className={`px-4 py-2.5 text-right font-medium ${rec.recommended_markdown_pct === 0 ? 'text-green-600' : rec.recommended_markdown_pct >= 25 ? 'text-red-600' : 'text-amber-600'}`}>
                             {rec.recommended_markdown_pct > 0 ? `${rec.recommended_markdown_pct}%` : '—'}
@@ -917,11 +919,11 @@ export default function StockHealthDeepDiveContent({
                             <p className="truncate">{rec.recommended_timing}</p>
                           </td>
                           <td className="px-4 py-2.5 text-right text-[var(--text-primary)]">{rec.expected_sell_through_pct}%</td>
-                          <td className="px-4 py-2.5 text-right text-green-600 font-medium">₹{rec.revenue_recovery_cr}</td>
+                          <td className="px-4 py-2.5 text-right text-green-600 font-medium">{formatCrOrUsdMAuto(rec.revenue_recovery_cr)}</td>
                           <td className={`px-4 py-2.5 text-right font-medium ${rec.margin_impact_cr < 0 ? 'text-red-600' : 'text-[var(--text-primary)]'}`}>
-                            {rec.margin_impact_cr !== 0 ? `₹${rec.margin_impact_cr}` : '—'}
+                            {rec.margin_impact_cr !== 0 ? formatCrOrUsdMAuto(rec.margin_impact_cr) : '—'}
                           </td>
-                          <td className="px-4 py-2.5 text-right text-green-600 font-medium">₹{rec.net_benefit_vs_writeoff_cr}</td>
+                          <td className="px-4 py-2.5 text-right text-green-600 font-medium">{formatCrOrUsdMAuto(rec.net_benefit_vs_writeoff_cr)}</td>
                           <td className="px-4 py-2.5 text-center">
                             {rec.urgency !== 'none' ? (
                               <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium ${
@@ -941,7 +943,7 @@ export default function StockHealthDeepDiveContent({
                 </div>
               </div>
               <Insight>
-                Dairy &amp; Frozen needs markdown TODAY — perishables expire within 3–5 days. Apparel at 30% markdown can recover ₹28.4Cr with 78% sell-through. Grocery &amp; Staples requires no markdown — high-velocity stock clears in 2–3 weeks at full price.
+                Dairy &amp; Frozen needs markdown TODAY — perishables expire within 3–5 days. Apparel at 30% markdown can recover {formatCrOrUsdMAuto(28.4)} with 78% sell-through. Grocery &amp; Staples requires no markdown — high-velocity stock clears in 2–3 weeks at full price.
               </Insight>
             </section>
           </>
@@ -969,7 +971,7 @@ export default function StockHealthDeepDiveContent({
                 </div>
                 <div className="card py-3 px-4">
                   <p className="text-xs text-[var(--text-tertiary)] mb-1">Preservation Opportunity</p>
-                  <p className="text-lg font-semibold text-green-600">₹{substitution.summary.revenue_preservation_opportunity_cr}Cr</p>
+                  <p className="text-lg font-semibold text-green-600">{formatCrOrUsdMAuto(substitution.summary.revenue_preservation_opportunity_cr)}</p>
                   <p className="text-xs text-[var(--text-secondary)]">revenue recoverable</p>
                 </div>
                 <div className="card py-3 px-4">
@@ -999,7 +1001,7 @@ export default function StockHealthDeepDiveContent({
                       </div>
                       <div className="text-right">
                         <p className="text-xs font-medium text-red-600">{item.stockout_stores} stores affected</p>
-                        <p className="text-xs text-red-500">₹{item.daily_revenue_lost_cr}Cr/day lost</p>
+                        <p className="text-xs text-red-500">{formatCrOrUsdMAuto(item.daily_revenue_lost_cr)}/day lost</p>
                       </div>
                     </div>
 
@@ -1092,7 +1094,7 @@ export default function StockHealthDeepDiveContent({
                 const totalMonthlyAtRisk = substitution.substitutions.reduce((s, item) => s + item.daily_revenue_lost_cr * 30, 0);
                 return (
                   <Insight>
-                    If all primary substitutes are actively recommended to customers via store staff training and shelf signage, an estimated ₹{(totalPrimaryPreservation * 30).toFixed(1)}Cr of the ₹{totalMonthlyAtRisk.toFixed(1)}Cr monthly revenue at risk can be preserved. Dairy substitutes show the highest acceptance rate (88%) — train staff to recommend Mother Dairy as the default Amul alternative.
+                    If all primary substitutes are actively recommended to customers via store staff training and shelf signage, an estimated {formatCrOrUsdMAuto((totalPrimaryPreservation * 30).toFixed(1))} of the {formatCrOrUsdMAuto(totalMonthlyAtRisk.toFixed(1))} monthly revenue at risk can be preserved. The top category substitutes show the highest acceptance rate (88%) — train staff to recommend the closest in-stock alternative.
                   </Insight>
                 );
               })()}

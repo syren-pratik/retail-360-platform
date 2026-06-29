@@ -1,5 +1,7 @@
 'use client';
 
+
+import { formatCrOrUsdMAuto, getLocaleAuto } from '@/app/lib/format-money';
 import { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, ReferenceLine } from 'recharts';
 import type { InboundData, InboundShipment } from './InventoryDashboardContent';
@@ -39,7 +41,7 @@ export default function InboundPipeline({ data }: Props) {
           <h3 className="text-sm font-semibold text-[var(--text-primary)]">Inbound Pipeline</h3>
           {summary && (
             <p className="text-xs text-[var(--text-secondary)] mt-0.5">
-              <span className="font-medium text-[var(--text-primary)]">{summary.in_transit.count}</span> in transit (₹{summary.in_transit.value_cr.toFixed(1)}Cr)
+              <span className="font-medium text-[var(--text-primary)]">{summary.in_transit.count}</span> in transit ({formatCrOrUsdMAuto(summary.in_transit.value_cr.toFixed(1))})
               {' · '}
               <span className="text-red-600 font-medium">{summary.delayed.count} delayed</span>
               {' · '}
@@ -108,9 +110,9 @@ export default function InboundPipeline({ data }: Props) {
                 </div>
                 <p className="text-[10px] text-[var(--text-tertiary)] pl-3">{s.category} · {s.store_name}</p>
               </div>
-              <span className="text-xs font-medium text-right text-[var(--text-primary)]">₹{s.value_cr.toFixed(2)}Cr</span>
+              <span className="text-xs font-medium text-right text-[var(--text-primary)]">{formatCrOrUsdMAuto(s.value_cr.toFixed(2))}</span>
               <span className="text-xs text-right text-[var(--text-secondary)]">
-                {new Date(s.expected_date).toLocaleDateString('en-IN', { month: 'short', day: 'numeric' })}
+                {new Date(s.expected_date).toLocaleDateString(getLocaleAuto(), { month: 'short', day: 'numeric' })}
               </span>
               <div className="flex justify-center">
                 <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border ${STATUS_STYLES[s.status] ?? STATUS_STYLES.scheduled}`}>
@@ -138,14 +140,14 @@ export default function InboundPipeline({ data }: Props) {
                     </p>
                   </div>
                   <div className="text-right shrink-0">
-                    <p className="text-xs font-bold text-red-700">₹{d.rev_at_risk_cr.toFixed(1)}Cr</p>
+                    <p className="text-xs font-bold text-red-700">{formatCrOrUsdMAuto(d.rev_at_risk_cr.toFixed(1))}</p>
                     <p className="text-[10px] text-red-500">rev at risk</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-1 text-[10px] text-red-600">
-                  <span>Original ETA: {new Date(d.original_eta).toLocaleDateString('en-IN', { month: 'short', day: 'numeric' })}</span>
+                  <span>Original ETA: {new Date(d.original_eta).toLocaleDateString(getLocaleAuto(), { month: 'short', day: 'numeric' })}</span>
                   <span>→</span>
-                  <span className="font-semibold">New ETA: {new Date(d.new_eta).toLocaleDateString('en-IN', { month: 'short', day: 'numeric' })}</span>
+                  <span className="font-semibold">New ETA: {new Date(d.new_eta).toLocaleDateString(getLocaleAuto(), { month: 'short', day: 'numeric' })}</span>
                 </div>
                 {d.action_required && (
                   <p className="text-[10px] text-red-800 font-medium border-t border-red-200 pt-1.5">
@@ -166,7 +168,7 @@ export default function InboundPipeline({ data }: Props) {
               <XAxis
                 dataKey="date"
                 tick={{ fontSize: 9 }}
-                tickFormatter={v => new Date(v).toLocaleDateString('en-IN', { month: 'short', day: 'numeric' })}
+                tickFormatter={v => new Date(v).toLocaleDateString(getLocaleAuto(), { month: 'short', day: 'numeric' })}
                 angle={-35}
                 textAnchor="end"
                 interval={1}
@@ -177,7 +179,7 @@ export default function InboundPipeline({ data }: Props) {
                   `${(v as number).toLocaleString()} pallets`,
                   name === 'inbound_pallets' ? 'Inbound' : 'Capacity',
                 ]}
-                labelFormatter={(l: unknown) => new Date(String(l)).toLocaleDateString('en-IN', { month: 'short', day: 'numeric' })}
+                labelFormatter={(l: unknown) => new Date(String(l)).toLocaleDateString(getLocaleAuto(), { month: 'short', day: 'numeric' })}
               />
               <ReferenceLine y={capacity[0]?.capacity_pallets} stroke="#EF4444" strokeDasharray="4 2" label={{ value: 'Capacity', position: 'right', style: { fontSize: 9, fill: '#EF4444' } }} />
               <Bar dataKey="inbound_pallets" name="inbound_pallets" radius={[3, 3, 0, 0]}>

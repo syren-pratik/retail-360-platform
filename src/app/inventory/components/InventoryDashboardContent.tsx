@@ -1,5 +1,7 @@
 'use client';
 
+
+import { formatCrOrUsdMAuto } from '@/app/lib/format-money';
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
@@ -11,6 +13,14 @@ import OverstockAnalysis from './OverstockAnalysis';
 import ReplenishmentHealth from './ReplenishmentHealth';
 import InboundPipeline from './InboundPipeline';
 import SupplierOTIF from './SupplierOTIF';
+import { useTenant } from '@/app/context/TenantContext';
+import SizeCurveSellThrough, { type SizeCurveData } from '@/app/components/charts/SizeCurveSellThrough';
+import ReturnsByReasonInventory, { type ReturnsByReasonInventoryData } from '@/app/components/charts/ReturnsByReasonInventory';
+import StyleVelocity, { type StyleVelocityData } from '@/app/components/charts/StyleVelocity';
+import AgedInventoryMatrix, { type AgedInventoryData } from '@/app/components/charts/AgedInventoryMatrix';
+import ColorPerformanceHeatmap, { type ColorPerformanceData } from '@/app/components/charts/ColorPerformanceHeatmap';
+import MarkdownLifecycleWaterfall, { type MarkdownLifecycleData } from '@/app/components/charts/MarkdownLifecycleWaterfall';
+import BrandedVsPrivateLabel, { type BrandedVsPLData } from '@/app/components/charts/BrandedVsPrivateLabel';
 
 // ── Types matching cache schemas ─────────────────────────────────────────────
 
@@ -382,8 +392,27 @@ export interface OverstockData {
 
 // ── Component ────────────────────────────────────────────────────────────────
 
-export default function InventoryDashboardContent() {
+interface InventoryDashboardContentProps {
+  apparelSizeCurve?: SizeCurveData | null;
+  apparelReturnsByReason?: ReturnsByReasonInventoryData | null;
+  apparelStyleVelocity?: StyleVelocityData | null;
+  apparelAgedInventory?: AgedInventoryData | null;
+  apparelColorPerformance?: ColorPerformanceData | null;
+  apparelMarkdownLifecycle?: MarkdownLifecycleData | null;
+  apparelBrandedVsPL?: BrandedVsPLData | null;
+}
+
+export default function InventoryDashboardContent({
+  apparelSizeCurve = null,
+  apparelReturnsByReason = null,
+  apparelStyleVelocity = null,
+  apparelAgedInventory = null,
+  apparelColorPerformance = null,
+  apparelMarkdownLifecycle = null,
+  apparelBrandedVsPL = null,
+}: InventoryDashboardContentProps = {}) {
   const { filters, resetFilters } = useInventory();
+  const { isApparel } = useTenant();
 
   const [kpis, setKpis] = useState<SupplyKPIs | null>(null);
   const [revenueAtRisk, setRevenueAtRisk] = useState<RevenueAtRiskData | null>(null);
@@ -607,8 +636,17 @@ export default function InventoryDashboardContent() {
       <div className="px-6 space-y-3">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <CategoryHealthGrid data={filteredCategoryHealth} />
-          <OverstockAnalysis data={filteredOverstock} />
+          {isApparel ? (
+            <ReturnsByReasonInventory data={apparelReturnsByReason} />
+          ) : (
+            <OverstockAnalysis data={filteredOverstock} />
+          )}
         </div>
+
+        {/* Apparel-only: Size Curve full width after Category Health */}
+        {isApparel && <SizeCurveSellThrough data={apparelSizeCurve} />}
+        {/* Overstock Analysis hidden in apparel — Markdown Lifecycle Waterfall covers
+            the same concept with apparel-native cadence (25→40→60→80). */}
         <div className="flex justify-end">
           <Link
             href="/inventory/deep/stock-health"
@@ -626,6 +664,12 @@ export default function InventoryDashboardContent() {
           <ReplenishmentHealth data={filteredReplenishment} />
           <InboundPipeline data={filteredInbound} />
         </div>
+
+        {/* Apparel: Style Velocity below Replenishment / Inbound */}
+        {isApparel && <StyleVelocity data={apparelStyleVelocity} />}
+
+        {/* Apparel: Aged Inventory Matrix below Inbound */}
+        {isApparel && <AgedInventoryMatrix data={apparelAgedInventory} />}
         <div className="flex justify-end">
           <Link
             href="/inventory/deep/supply-chain"
@@ -643,7 +687,7 @@ export default function InventoryDashboardContent() {
           <div>
             <p className="text-sm font-medium text-[var(--text-primary)]">Stock Allocation Intelligence</p>
             <p className="text-xs text-[var(--text-secondary)] mt-0.5">
-              ₹18.4Cr revenue gap from misallocation · 8 stores under-allocated · 4 transfers recommended today
+              {formatCrOrUsdMAuto(18.4)} revenue gap from misallocation · 8 stores under-allocated · 4 transfers recommended today
             </p>
           </div>
           <Link
@@ -656,10 +700,25 @@ export default function InventoryDashboardContent() {
         </div>
       </div>
 
+      {/* Apparel: Color Performance + Markdown Lifecycle side-by-side above Supplier Performance */}
+      {isApparel && (
+        <div className="px-6 grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <ColorPerformanceHeatmap data={apparelColorPerformance} />
+          <MarkdownLifecycleWaterfall data={apparelMarkdownLifecycle} />
+        </div>
+      )}
+
       {/* Section 4: Supplier Performance */}
       <div className="px-6">
         <SupplierOTIF data={filteredSupplierOTIF} />
       </div>
+
+      {/* Apparel: Branded vs Private-Label above scenario footer */}
+      {isApparel && (
+        <div className="px-6">
+          <BrandedVsPrivateLabel data={apparelBrandedVsPL} />
+        </div>
+      )}
 
       {/* Scenario Simulator card */}
       <div className="px-6 pb-6">

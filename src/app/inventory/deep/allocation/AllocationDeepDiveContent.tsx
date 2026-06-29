@@ -1,5 +1,7 @@
 'use client';
 
+
+import { formatCrOrUsdMAuto, formatLOrUsdKAuto } from '@/app/lib/format-money';
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
@@ -138,11 +140,11 @@ function StoreGapTooltip({ active, payload }: any) {
     <div className="bg-white border border-gray-200 rounded-lg px-3 py-2 text-xs shadow-md space-y-0.5">
       <p className="font-semibold text-gray-800 mb-1">{d.store_name}</p>
       <p className="text-gray-600">City: <span className="font-medium">{d.city}</span></p>
-      <p className="text-gray-600">Current: <span className="font-medium">₹{d.current_allocation_cr}Cr</span></p>
-      <p className="text-gray-600">Optimal: <span className="font-medium">₹{d.revenue_optimal_allocation_cr}Cr</span></p>
-      <p className="text-gray-600">Gap: <span className={`font-medium ${d.gap_cr < 0 ? 'text-red-600' : 'text-blue-600'}`}>₹{d.gap_cr}Cr</span></p>
+      <p className="text-gray-600">Current: <span className="font-medium">{formatCrOrUsdMAuto(d.current_allocation_cr)}</span></p>
+      <p className="text-gray-600">Optimal: <span className="font-medium">{formatCrOrUsdMAuto(d.revenue_optimal_allocation_cr)}</span></p>
+      <p className="text-gray-600">Gap: <span className={`font-medium ${d.gap_cr < 0 ? 'text-red-600' : 'text-blue-600'}`}>{formatCrOrUsdMAuto(d.gap_cr)}</span></p>
       {d.revenue_lost_daily_cr > 0 && (
-        <p className="text-red-600 font-medium">-₹{d.revenue_lost_daily_cr}Cr/day lost</p>
+        <p className="text-red-600 font-medium">-{formatCrOrUsdMAuto(d.revenue_lost_daily_cr)}/day lost</p>
       )}
     </div>
   );
@@ -156,13 +158,13 @@ function CategoryGapTooltip({ active, payload }: any) {
   return (
     <div className="bg-white border border-gray-200 rounded-lg px-3 py-2 text-xs shadow-md space-y-0.5">
       <p className="font-semibold text-gray-800 mb-1">{d.category}</p>
-      <p className="text-gray-600">Current: <span className="font-medium">₹{d.total_current_allocation_cr}Cr</span></p>
-      <p className="text-gray-600">Optimal: <span className="font-medium">₹{d.total_optimal_allocation_cr}Cr</span></p>
-      <p className="text-gray-600">Gap: <span className={`font-medium ${d.gap_cr < 0 ? 'text-red-600' : 'text-blue-600'}`}>₹{d.gap_cr}Cr</span></p>
+      <p className="text-gray-600">Current: <span className="font-medium">{formatCrOrUsdMAuto(d.total_current_allocation_cr)}</span></p>
+      <p className="text-gray-600">Optimal: <span className="font-medium">{formatCrOrUsdMAuto(d.total_optimal_allocation_cr)}</span></p>
+      <p className="text-gray-600">Gap: <span className={`font-medium ${d.gap_cr < 0 ? 'text-red-600' : 'text-blue-600'}`}>{formatCrOrUsdMAuto(d.gap_cr)}</span></p>
       <p className="text-gray-600">Under-allocated stores: <span className="font-medium">{d.stores_under}</span></p>
       <p className="text-gray-600">Over-allocated stores: <span className="font-medium">{d.stores_over}</span></p>
       {d.revenue_opportunity_cr > 0 && (
-        <p className="text-green-600 font-medium">+₹{d.revenue_opportunity_cr}Cr opportunity</p>
+        <p className="text-green-600 font-medium">+{formatCrOrUsdMAuto(d.revenue_opportunity_cr)} opportunity</p>
       )}
     </div>
   );
@@ -324,7 +326,7 @@ export default function AllocationDeepDiveContent({ allocation: allocationRaw, t
           <div className="grid grid-cols-4 gap-3">
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">Revenue Gap (daily)</p>
-              <p className="text-lg font-semibold text-red-600">₹{totalDailyRevenueLost}Cr/day</p>
+              <p className="text-lg font-semibold text-red-600">{formatCrOrUsdMAuto(totalDailyRevenueLost)}/day</p>
               <p className="text-xs text-[var(--text-secondary)]">from misallocation</p>
             </div>
             <div className="card py-3 px-4">
@@ -339,7 +341,7 @@ export default function AllocationDeepDiveContent({ allocation: allocationRaw, t
             </div>
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">Reallocation Opportunity</p>
-              <p className="text-lg font-semibold text-green-600">₹{allocation.summary.reallocation_opportunity_cr}Cr</p>
+              <p className="text-lg font-semibold text-green-600">{formatCrOrUsdMAuto(allocation.summary.reallocation_opportunity_cr)}</p>
               <p className="text-xs text-[var(--text-secondary)]">no new procurement needed</p>
             </div>
           </div>
@@ -349,7 +351,7 @@ export default function AllocationDeepDiveContent({ allocation: allocationRaw, t
 
             {/* Store gap chart */}
             <div className="card px-4 pt-4 pb-2">
-              <p className="text-sm font-medium text-[var(--text-primary)] mb-1">Allocation Gap by Store (₹Cr)</p>
+              <p className="text-sm font-medium text-[var(--text-primary)] mb-1">Allocation Gap by Store (($))</p>
               <p className="text-xs text-[var(--text-secondary)] mb-4">
                 <span className="inline-block w-2.5 h-2.5 rounded-sm bg-red-500 mr-1" />Under-allocated
                 <span className="inline-block w-2.5 h-2.5 rounded-sm bg-blue-500 mx-1 ml-3" />Over-allocated
@@ -357,7 +359,7 @@ export default function AllocationDeepDiveContent({ allocation: allocationRaw, t
               <ResponsiveContainer width="100%" height={260}>
                 <BarChart data={sortedStores} layout="vertical" margin={{ left: 10, right: 50, top: 0, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="var(--border-subtle)" />
-                  <XAxis type="number" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={v => `₹${v}`} />
+                  <XAxis type="number" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={v => formatCrOrUsdMAuto(v)} />
                   <YAxis
                     dataKey="store_name"
                     type="category"
@@ -380,7 +382,7 @@ export default function AllocationDeepDiveContent({ allocation: allocationRaw, t
 
             {/* Category gap chart */}
             <div className="card px-4 pt-4 pb-2">
-              <p className="text-sm font-medium text-[var(--text-primary)] mb-1">Allocation Gap by Category (₹Cr)</p>
+              <p className="text-sm font-medium text-[var(--text-primary)] mb-1">Allocation Gap by Category (($))</p>
               <p className="text-xs text-[var(--text-secondary)] mb-4">
                 <span className="inline-block w-2.5 h-2.5 rounded-sm bg-red-500 mr-1" />Revenue risk
                 <span className="inline-block w-2.5 h-2.5 rounded-sm bg-blue-500 mx-1 ml-3" />Capital waste
@@ -388,7 +390,7 @@ export default function AllocationDeepDiveContent({ allocation: allocationRaw, t
               <ResponsiveContainer width="100%" height={260}>
                 <BarChart data={sortedCategories} layout="vertical" margin={{ left: 10, right: 50, top: 0, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="var(--border-subtle)" />
-                  <XAxis type="number" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={v => `₹${v}`} />
+                  <XAxis type="number" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={v => formatCrOrUsdMAuto(v)} />
                   <YAxis
                     dataKey="category"
                     type="category"
@@ -410,7 +412,7 @@ export default function AllocationDeepDiveContent({ allocation: allocationRaw, t
           </div>
 
           <Insight>
-            Delhi NCR stores are under-allocated by ₹{delhiUnderTotal}Cr while Mumbai stores carry ₹{mumbaiOverTotal}Cr in excess inventory. A lateral rebalance would preserve ₹{transfers.summary.estimated_revenue_preserved_cr}Cr in daily revenue without any new procurement.
+            Delhi NCR stores are under-allocated by {formatCrOrUsdMAuto(delhiUnderTotal)} while Mumbai stores carry {formatCrOrUsdMAuto(mumbaiOverTotal)} in excess inventory. A lateral rebalance would preserve {formatCrOrUsdMAuto(transfers.summary.estimated_revenue_preserved_cr)} in daily revenue without any new procurement.
           </Insight>
         </section>
 
@@ -440,12 +442,12 @@ export default function AllocationDeepDiveContent({ allocation: allocationRaw, t
             </div>
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">Total Value to Move</p>
-              <p className="text-lg font-semibold text-[var(--text-primary)]">₹{transfers.summary.total_value_cr}Cr</p>
+              <p className="text-lg font-semibold text-[var(--text-primary)]">{formatCrOrUsdMAuto(transfers.summary.total_value_cr)}</p>
               <p className="text-xs text-[var(--text-secondary)]">stock to redistribute</p>
             </div>
             <div className="card py-3 px-4">
               <p className="text-xs text-[var(--text-tertiary)] mb-1">Revenue Preserved</p>
-              <p className="text-lg font-semibold text-green-600">₹{transfers.summary.estimated_revenue_preserved_cr}Cr</p>
+              <p className="text-lg font-semibold text-green-600">{formatCrOrUsdMAuto(transfers.summary.estimated_revenue_preserved_cr)}</p>
               <p className="text-xs text-[var(--text-secondary)]">from approved transfers</p>
             </div>
           </div>
@@ -472,7 +474,7 @@ export default function AllocationDeepDiveContent({ allocation: allocationRaw, t
                       ))}
                     </div>
                     <p className="text-[10px] text-[var(--text-tertiary)] mt-1">
-                      Total out: ₹{store.totalOut.toFixed(2)}Cr
+                      Total out: {formatCrOrUsdMAuto(store.totalOut.toFixed(2))}
                     </p>
                   </div>
                 ))}
@@ -493,11 +495,11 @@ export default function AllocationDeepDiveContent({ allocation: allocationRaw, t
                       <UrgencyBadge urgency={t.urgency} />
                     </div>
                     <p className="text-xs font-medium text-[var(--text-primary)]">{t.category}</p>
-                    <p className="text-[10px] text-[var(--text-secondary)]">{t.transfer_qty.toLocaleString()} units · ₹{t.transfer_value_cr}Cr</p>
+                    <p className="text-[10px] text-[var(--text-secondary)]">{t.transfer_qty.toLocaleString()} units · {formatCrOrUsdMAuto(t.transfer_value_cr)}</p>
                     <p className="text-[10px] text-[var(--text-tertiary)]">
-                      {t.logistics_days}d transit · ₹{(t.logistics_cost_cr * 100).toFixed(0)}L cost
+                      {t.logistics_days}d transit · {formatLOrUsdKAuto((t.logistics_cost_cr * 100).toFixed(0))} cost
                     </p>
-                    <p className="text-[10px] text-green-600 font-medium mt-1">Net: ₹{t.net_benefit_cr}Cr</p>
+                    <p className="text-[10px] text-green-600 font-medium mt-1">Net: {formatCrOrUsdMAuto(t.net_benefit_cr)}</p>
                     <p className="text-[10px] text-[var(--text-tertiary)] mt-0.5">→ {t.from_store.split(' ').slice(0, 2).join(' ')}</p>
                   </div>
                 ))}
@@ -523,7 +525,7 @@ export default function AllocationDeepDiveContent({ allocation: allocationRaw, t
                       ))}
                     </div>
                     <p className="text-[10px] text-green-600 font-medium mt-1">
-                      Revenue preserved: ₹{store.totalPreserved.toFixed(2)}Cr
+                      Revenue preserved: {formatCrOrUsdMAuto(store.totalPreserved.toFixed(2))}
                     </p>
                   </div>
                 ))}
@@ -546,11 +548,11 @@ export default function AllocationDeepDiveContent({ allocation: allocationRaw, t
                     <th className="text-left px-3 py-2.5 font-medium text-[var(--text-secondary)]">Category</th>
                     <th className="text-left px-3 py-2.5 font-medium text-[var(--text-secondary)]">SKUs</th>
                     <th className="text-right px-3 py-2.5 font-medium text-[var(--text-secondary)]">Qty</th>
-                    <th className="text-right px-3 py-2.5 font-medium text-[var(--text-secondary)]">Value ₹Cr</th>
+                    <th className="text-right px-3 py-2.5 font-medium text-[var(--text-secondary)]">Value ($)</th>
                     <th className="text-left px-3 py-2.5 font-medium text-[var(--text-secondary)]">DoS Impact</th>
-                    <th className="text-right px-3 py-2.5 font-medium text-[var(--text-secondary)]">Revenue ₹Cr</th>
+                    <th className="text-right px-3 py-2.5 font-medium text-[var(--text-secondary)]">Revenue ($)</th>
                     <th className="text-center px-3 py-2.5 font-medium text-[var(--text-secondary)]">Logistics</th>
-                    <th className="text-right px-3 py-2.5 font-medium text-[var(--text-secondary)]">Net ₹Cr</th>
+                    <th className="text-right px-3 py-2.5 font-medium text-[var(--text-secondary)]">Net ($)</th>
                     <th className="text-center px-3 py-2.5 font-medium text-[var(--text-secondary)]">Urgency</th>
                     <th className="text-center px-3 py-2.5 font-medium text-[var(--text-secondary)]">Action</th>
                   </tr>
@@ -573,16 +575,16 @@ export default function AllocationDeepDiveContent({ allocation: allocationRaw, t
                         )}
                       </td>
                       <td className="px-3 py-2.5 text-right text-[var(--text-secondary)]">{t.transfer_qty.toLocaleString()}</td>
-                      <td className="px-3 py-2.5 text-right font-medium text-[var(--text-primary)]">₹{t.transfer_value_cr}</td>
+                      <td className="px-3 py-2.5 text-right font-medium text-[var(--text-primary)]">{formatCrOrUsdMAuto(t.transfer_value_cr)}</td>
                       <td className="px-3 py-2.5">
                         <p className="text-blue-600">From: {t.from_current_dos}d → {t.from_post_transfer_dos}d</p>
                         <p className="text-green-600">To: {t.to_current_dos}d → {t.to_post_transfer_dos}d</p>
                       </td>
-                      <td className="px-3 py-2.5 text-right text-green-600 font-medium">₹{t.revenue_preserved_cr}</td>
+                      <td className="px-3 py-2.5 text-right text-green-600 font-medium">{formatCrOrUsdMAuto(t.revenue_preserved_cr)}</td>
                       <td className="px-3 py-2.5 text-center text-[var(--text-secondary)]">
-                        {t.logistics_days}d · ₹{(t.logistics_cost_cr * 100).toFixed(0)}L
+                        {t.logistics_days}d · {formatLOrUsdKAuto((t.logistics_cost_cr * 100).toFixed(0))}
                       </td>
-                      <td className="px-3 py-2.5 text-right font-semibold text-green-600">₹{t.net_benefit_cr}</td>
+                      <td className="px-3 py-2.5 text-right font-semibold text-green-600">{formatCrOrUsdMAuto(t.net_benefit_cr)}</td>
                       <td className="px-3 py-2.5 text-center"><UrgencyBadge urgency={t.urgency} /></td>
                       <td className="px-3 py-2.5 text-center">
                         {approvedTransfers.has(t.transfer_id) ? (
@@ -604,7 +606,7 @@ export default function AllocationDeepDiveContent({ allocation: allocationRaw, t
           </div>
 
           <Insight>
-            {transfers.summary.immediate_action_count} transfers totalling ₹{criticalTransferValue}Cr are urgently needed today. Delhi NCR stockouts in Personal Care can be resolved in 2 days by moving excess Mumbai stock — preserving ₹{criticalRevenuePreserved}Cr while waiting for the next supplier delivery.
+            {transfers.summary.immediate_action_count} transfers totalling {formatCrOrUsdMAuto(criticalTransferValue)} are urgently needed today. Delhi NCR stockouts in Personal Care can be resolved in 2 days by moving excess Mumbai stock — preserving {formatCrOrUsdMAuto(criticalRevenuePreserved)} while waiting for the next supplier delivery.
           </Insight>
         </section>
 

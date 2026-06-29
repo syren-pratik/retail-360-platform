@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-
+import { loadCache } from '@/app/lib/cache-loader';
 interface ReplenishmentRow {
   product_id: string;
   product_name: string;
@@ -15,10 +13,11 @@ interface ReplenishmentRow {
   is_perishable: boolean;
 }
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), 'cache', 'inventory_replenishment.json');
-    const data: ReplenishmentRow[] = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    const data: ReplenishmentRow[]  = await loadCache('inventory_replenishment.json');
 
     // Transform to expected format
     const replenishment = data.map((item, index) => {

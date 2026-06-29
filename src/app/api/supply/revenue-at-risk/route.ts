@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+import { loadCache } from '@/app/lib/cache-loader';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), 'cache', 'supply_revenue_at_risk.json');
-    const data = await fs.readFile(filePath, 'utf-8');
-    return NextResponse.json(JSON.parse(data));
+    const data = await loadCache('supply_revenue_at_risk.json');
+    return NextResponse.json(data);
   } catch {
     return NextResponse.json({ error: 'Failed to load data' }, { status: 500 });
   }

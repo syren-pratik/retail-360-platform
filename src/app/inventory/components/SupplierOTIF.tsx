@@ -1,5 +1,7 @@
 'use client';
 
+
+import { formatCrOrUsdMAuto } from '@/app/lib/format-money';
 import { useState, useMemo } from 'react';
 import {
   ComposedChart, Bar, Line, XAxis, YAxis, Tooltip,
@@ -156,7 +158,7 @@ export default function SupplierOTIF({ data }: Props) {
                   <td className={`px-3 py-2 text-right font-medium ${s.avg_delay_days <= 1 ? 'text-emerald-600' : s.avg_delay_days <= 3 ? 'text-amber-600' : 'text-red-600'}`}>
                     {s.avg_delay_days.toFixed(1)}d
                   </td>
-                  <td className="px-3 py-2 text-right text-[var(--text-secondary)]">₹{s.order_value_cr.toFixed(1)}Cr</td>
+                  <td className="px-3 py-2 text-right text-[var(--text-secondary)]">{formatCrOrUsdMAuto(s.order_value_cr.toFixed(1))}</td>
                   <td className={`px-3 py-2 text-right font-medium ${s.stockouts_caused === 0 ? 'text-emerald-600' : s.stockouts_caused <= 5 ? 'text-amber-600' : 'text-red-600'}`}>
                     {s.stockouts_caused}
                   </td>
@@ -184,7 +186,7 @@ export default function SupplierOTIF({ data }: Props) {
                   name="Order Value"
                   type="number"
                   tick={{ fontSize: 10 }}
-                  label={{ value: 'Order Value (₹Cr)', position: 'insideBottom', offset: -10, style: { fontSize: 10, fill: '#9CA3AF' } }}
+                  label={{ value: 'Order Value (($))', position: 'insideBottom', offset: -10, style: { fontSize: 10, fill: '#9CA3AF' } }}
                 />
                 <YAxis
                   dataKey="y"
@@ -207,7 +209,7 @@ export default function SupplierOTIF({ data }: Props) {
                         <p className="font-semibold text-[var(--text-primary)]">{d.name}</p>
                         <p className="text-[var(--text-secondary)]">{d.category}</p>
                         <p>OTIF: <span className="font-medium" style={{ color: otifColor(d.otif) }}>{d.otif.toFixed(1)}%</span></p>
-                        <p>Order Value: ₹{d.x.toFixed(1)}Cr</p>
+                        <p>Order Value: {formatCrOrUsdMAuto(d.x.toFixed(1))}</p>
                         <p>Stockouts caused: {d.stockouts}</p>
                       </div>
                     );

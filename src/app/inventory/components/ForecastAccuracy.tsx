@@ -1,5 +1,7 @@
 'use client';
 
+
+import { formatCrOrUsdMAuto, getLocaleAuto } from '@/app/lib/format-money';
 import { useState } from 'react';
 import {
   ComposedChart, Line, Bar, Area, XAxis, YAxis, Tooltip,
@@ -48,7 +50,7 @@ export default function ForecastAccuracy({ data }: Props) {
               {' · '}
               Bias {kpis.bias_pct > 0 ? '+' : ''}{kpis.bias_pct.toFixed(1)}% ({kpis.bias_direction})
               {' · '}
-              <span className="text-red-600 font-medium">₹{kpis.lost_sales_from_miss_cr.toFixed(1)}Cr lost sales</span>
+              <span className="text-red-600 font-medium">{formatCrOrUsdMAuto(kpis.lost_sales_from_miss_cr.toFixed(1))} lost sales</span>
             </p>
           )}
         </div>
@@ -111,7 +113,7 @@ export default function ForecastAccuracy({ data }: Props) {
                     v === null || v === undefined ? 'N/A' : Number(v).toFixed(0),
                     name === 'forecast' ? 'Forecast' : name === 'actual' ? 'Actual' : String(name),
                   ]}
-                  labelFormatter={(l: unknown) => new Date(String(l)).toLocaleDateString('en-IN', { month: 'short', day: 'numeric' })}
+                  labelFormatter={(l: unknown) => new Date(String(l)).toLocaleDateString(getLocaleAuto(), { month: 'short', day: 'numeric' })}
                 />
                 <Area
                   dataKey="upper_bound"
@@ -272,7 +274,7 @@ export default function ForecastAccuracy({ data }: Props) {
               <YAxis tick={{ fontSize: 10 }} />
               <Tooltip
                 formatter={(v: unknown, name: unknown) => [(v as number).toFixed(0), String(name)]}
-                labelFormatter={(l: unknown) => new Date(String(l)).toLocaleDateString('en-IN', { month: 'short', day: 'numeric' })}
+                labelFormatter={(l: unknown) => new Date(String(l)).toLocaleDateString(getLocaleAuto(), { month: 'short', day: 'numeric' })}
               />
               <Bar dataKey="baseline" name="baseline" stackId="a" fill="#E0E7FF" />
               <Bar dataKey="trend" name="trend" stackId="a" fill="#818CF8" />

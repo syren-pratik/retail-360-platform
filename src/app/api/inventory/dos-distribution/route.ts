@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
-
+import { loadCache } from '@/app/lib/cache-loader';
 interface DOSRow {
   dos_bucket: string;
   sku_count: string | number;
@@ -17,11 +15,11 @@ const BUCKET_COLORS: Record<string, string> = {
   'Overstock (30+)': '#8B5CF6',
 };
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), 'cache', 'inventory_dos_distribution.json');
-    const data = await fs.readFile(filePath, 'utf-8');
-    const parsed: DOSRow[] = JSON.parse(data);
+    const parsed: DOSRow[]  = await loadCache('inventory_dos_distribution.json');
 
     // Calculate total for percentages
     const total = parsed.reduce((sum, item) => sum + Number(item.sku_count), 0);

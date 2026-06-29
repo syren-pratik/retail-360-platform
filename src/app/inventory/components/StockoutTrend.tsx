@@ -1,5 +1,7 @@
 'use client';
 
+
+import { formatCrOrUsdMAuto, formatLOrUsdKAuto, getLocaleAuto } from '@/app/lib/format-money';
 import { useState, useMemo } from 'react';
 import {
   AreaChart,
@@ -33,7 +35,7 @@ function CustomTooltip({ active, payload }: {
   if (!active || !payload?.length) return null;
 
   const data = payload[0].payload;
-  const formattedDate = new Date(data.date ?? '').toLocaleDateString('en-IN', {
+  const formattedDate = new Date(data.date ?? '').toLocaleDateString(getLocaleAuto(), {
     day: 'numeric',
     month: 'short',
   });
@@ -48,7 +50,7 @@ function CustomTooltip({ active, payload }: {
         </div>
         <div className="flex justify-between gap-4 text-sm">
           <span className="text-[var(--text-secondary)]">Lost Sales:</span>
-          <span className="font-medium text-red-600">₹{((data.lost_sales ?? 0) / 1000).toFixed(0)}K</span>
+          <span className="font-medium text-red-600">{formatCrOrUsdMAuto(((data.lost_sales ?? 0) / 1000).toFixed(0))}K</span>
         </div>
       </div>
     </div>
@@ -79,7 +81,7 @@ export default function StockoutTrend({ data }: StockoutTrendProps) {
   const chartData = useMemo(() => {
     return (data ?? []).map(d => ({
       ...d,
-      displayDate: new Date(d.date ?? '').toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }),
+      displayDate: new Date(d.date ?? '').toLocaleDateString(getLocaleAuto(), { day: 'numeric', month: 'short' }),
     }));
   }, [data]);
 
@@ -91,7 +93,7 @@ export default function StockoutTrend({ data }: StockoutTrendProps) {
   const dataKey = viewMode === 'count' ? 'stockout_count' : 'lost_sales';
   const yAxisFormatter = viewMode === 'count'
     ? (val: number) => val.toString()
-    : (val: number) => `₹${(val / 100000).toFixed(0)}L`;
+    : (val: number) => `${formatLOrUsdKAuto((val / 100000).toFixed(0))}`;
 
   return (
     <ChartCard
@@ -124,7 +126,7 @@ export default function StockoutTrend({ data }: StockoutTrendProps) {
                   : 'bg-white text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]'
               }`}
             >
-              Lost Sales ₹
+              Lost Sales
             </button>
           </div>
 
