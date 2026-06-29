@@ -22,7 +22,7 @@ import {
 import DeepDiveHeader from '@/app/merchandise/demand/deep-dive/shared/DeepDiveHeader';
 import DeepDiveTabs from '@/app/merchandise/demand/deep-dive/shared/DeepDiveTabs';
 import DeepDiveKPIStrip from '@/app/merchandise/demand/deep-dive/shared/DeepDiveKPIStrip';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 import type { PriceIntelCore, PriceIntelCampaign } from '@/app/lib/price-intel-types';
 
 interface Props {
@@ -110,7 +110,7 @@ function TrendTab({ core }: { core: PriceIntelCore }) {
           <YAxis
             yAxisId="spend"
             orientation="right"
-            tickFormatter={(v: number) => formatLakhsCrores(v)}
+            tickFormatter={(v: number) => formatMoneyAuto(v)}
             tick={{ fontSize: 11, fill: '#111827' }}
             label={{ value: 'Spend', angle: 90, position: 'insideRight', offset: 8, style: { fontSize: 11 } }}
           />
@@ -122,8 +122,8 @@ function TrendTab({ core }: { core: PriceIntelCore }) {
                 <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-3 text-sm">
                   <p className="font-semibold text-gray-900 mb-2">{label}</p>
                   <p className="text-gray-600">ROI: <span className="font-medium text-gray-900">{point?.roi.toFixed(2)}×</span></p>
-                  <p className="text-gray-600">Spend: <span className="font-medium text-gray-900">{formatLakhsCrores(point?.spend_inr ?? 0)}</span></p>
-                  <p className="text-gray-600">Incremental Rev: <span className="font-medium text-gray-900">{formatLakhsCrores(point?.incremental_revenue_inr ?? 0)}</span></p>
+                  <p className="text-gray-600">Spend: <span className="font-medium text-gray-900">{formatMoneyAuto(point?.spend_inr ?? 0)}</span></p>
+                  <p className="text-gray-600">Incremental Rev: <span className="font-medium text-gray-900">{formatMoneyAuto(point?.incremental_revenue_inr ?? 0)}</span></p>
                   {point?.active_campaign_name && (
                     <p className="text-blue-600 mt-1 text-xs">Campaign: {point.active_campaign_name}</p>
                   )}
@@ -206,7 +206,7 @@ function ByCampaignTab({ core }: { core: PriceIntelCore }) {
             type="number"
             dataKey="x"
             name="Spend"
-            tickFormatter={(v: number) => formatLakhsCrores(v)}
+            tickFormatter={(v: number) => formatMoneyAuto(v)}
             label={{ value: 'Total Spend', position: 'insideBottom', offset: -12, style: { fontSize: 11 } }}
             tick={{ fontSize: 11, fill: '#111827' }}
           />
@@ -228,7 +228,7 @@ function ByCampaignTab({ core }: { core: PriceIntelCore }) {
                 <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-3 text-sm">
                   <p className="font-semibold text-gray-900 mb-2">{d.name}</p>
                   <p className="text-gray-600">Mechanic: <span className="font-medium">{d.mechanic}</span></p>
-                  <p className="text-gray-600">Spend: <span className="font-medium">{formatLakhsCrores(d.x)}</span></p>
+                  <p className="text-gray-600">Spend: <span className="font-medium">{formatMoneyAuto(d.x)}</span></p>
                   <p className="text-gray-600">ROI: <span className="font-medium">{d.y.toFixed(2)}×</span></p>
                   <p className="text-gray-600">Free-rider: <span className="font-medium">{d.freeRider.toFixed(1)}%</span></p>
                 </div>
@@ -271,8 +271,8 @@ function ByCampaignTab({ core }: { core: PriceIntelCore }) {
                 <td className="px-3 py-2 font-medium text-[var(--text-primary)] max-w-[200px] truncate">{c.campaign_name}</td>
                 <td className="px-3 py-2 text-[var(--text-secondary)]">{mechanicLabel(c.mechanic)}</td>
                 <td className="px-3 py-2 tabular-nums font-semibold" style={{ color: roiColor(c.roi) }}>{c.roi.toFixed(2)}×</td>
-                <td className="px-3 py-2 tabular-nums text-[var(--text-secondary)]">{formatLakhsCrores(c.spend_to_date_inr)}</td>
-                <td className="px-3 py-2 tabular-nums text-[var(--text-secondary)]">{formatLakhsCrores(c.incremental_revenue_inr)}</td>
+                <td className="px-3 py-2 tabular-nums text-[var(--text-secondary)]">{formatMoneyAuto(c.spend_to_date_inr)}</td>
+                <td className="px-3 py-2 tabular-nums text-[var(--text-secondary)]">{formatMoneyAuto(c.incremental_revenue_inr)}</td>
                 <td className="px-3 py-2 tabular-nums" style={{ color: c.free_rider_ratio_pct > 50 ? '#f43f5e' : '#10b981' }}>{c.free_rider_ratio_pct.toFixed(1)}%</td>
                 <td className="px-3 py-2">
                   <span className={`inline-flex px-2 py-0.5 rounded-full text-xs font-medium ${
@@ -325,8 +325,8 @@ function ByMechanicTab({ core }: { core: PriceIntelCore }) {
                 <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-3 text-sm">
                   <p className="font-semibold text-gray-900 mb-2">{label}</p>
                   <p className="text-gray-600">Avg ROI: <span className="font-medium">{d?.avgROI.toFixed(2)}×</span></p>
-                  <p className="text-gray-600">Total Spend: <span className="font-medium">{formatLakhsCrores(d?.totalSpend ?? 0)}</span></p>
-                  <p className="text-gray-600">Total Incremental: <span className="font-medium">{formatLakhsCrores(d?.totalIncremental ?? 0)}</span></p>
+                  <p className="text-gray-600">Total Spend: <span className="font-medium">{formatMoneyAuto(d?.totalSpend ?? 0)}</span></p>
+                  <p className="text-gray-600">Total Incremental: <span className="font-medium">{formatMoneyAuto(d?.totalIncremental ?? 0)}</span></p>
                   <p className="text-gray-600">Campaigns: <span className="font-medium">{d?.count}</span></p>
                 </div>
               );
@@ -361,8 +361,8 @@ function ByMechanicTab({ core }: { core: PriceIntelCore }) {
                 <td className="px-3 py-2 font-medium text-[var(--text-primary)]">{a.mechanic}</td>
                 <td className="px-3 py-2 tabular-nums text-[var(--text-secondary)]">{a.count}</td>
                 <td className="px-3 py-2 tabular-nums font-semibold" style={{ color: roiColor(a.avgROI) }}>{a.avgROI.toFixed(2)}×</td>
-                <td className="px-3 py-2 tabular-nums text-[var(--text-secondary)]">{formatLakhsCrores(a.totalSpend)}</td>
-                <td className="px-3 py-2 tabular-nums text-[var(--text-secondary)]">{formatLakhsCrores(a.totalIncremental)}</td>
+                <td className="px-3 py-2 tabular-nums text-[var(--text-secondary)]">{formatMoneyAuto(a.totalSpend)}</td>
+                <td className="px-3 py-2 tabular-nums text-[var(--text-secondary)]">{formatMoneyAuto(a.totalIncremental)}</td>
                 <td className="px-3 py-2 text-xs">
                   <span className={`inline-flex px-2 py-0.5 rounded-full font-medium ${
                     a.avgROI >= 3.0 ? 'bg-emerald-100 text-emerald-700' :
@@ -489,7 +489,7 @@ function CounterfactualTab({ core }: { core: PriceIntelCore }) {
         <ComposedChart data={cfData} margin={{ top: 16, right: 40, left: 0, bottom: 8 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
           <XAxis dataKey="week_label" tick={{ fontSize: 11, fill: '#111827' }} />
-          <YAxis tickFormatter={(v: number) => formatLakhsCrores(v)} tick={{ fontSize: 11, fill: '#111827' }} />
+          <YAxis tickFormatter={(v: number) => formatMoneyAuto(v)} tick={{ fontSize: 11, fill: '#111827' }} />
           <Tooltip
             content={({ active, payload, label }) => {
               if (!active || !payload?.length) return null;
@@ -497,10 +497,10 @@ function CounterfactualTab({ core }: { core: PriceIntelCore }) {
               return (
                 <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-3 text-sm">
                   <p className="font-semibold text-gray-900 mb-2">{label}</p>
-                  <p className="text-gray-600">Actual Incremental: <span className="font-medium">{formatLakhsCrores(d?.actual ?? 0)}</span></p>
-                  <p className="text-gray-600">Baseline (2× spend): <span className="font-medium">{formatLakhsCrores(d?.baseline ?? 0)}</span></p>
+                  <p className="text-gray-600">Actual Incremental: <span className="font-medium">{formatMoneyAuto(d?.actual ?? 0)}</span></p>
+                  <p className="text-gray-600">Baseline (2× spend): <span className="font-medium">{formatMoneyAuto(d?.baseline ?? 0)}</span></p>
                   <p style={{ color: (d?.actual ?? 0) >= (d?.baseline ?? 0) ? '#10b981' : '#f43f5e' }}>
-                    Delta: {formatLakhsCrores((d?.actual ?? 0) - (d?.baseline ?? 0))}
+                    Delta: {formatMoneyAuto((d?.actual ?? 0) - (d?.baseline ?? 0))}
                   </p>
                 </div>
               );
@@ -514,8 +514,8 @@ function CounterfactualTab({ core }: { core: PriceIntelCore }) {
 
       <div className="grid grid-cols-3 gap-4 mt-6">
         {[
-          { label: 'Total Promo Spend', value: formatLakhsCrores(totalSpend), subtext: 'across 14 weeks' },
-          { label: 'Total Incremental Revenue', value: formatLakhsCrores(totalIncremental), subtext: 'vs baseline' },
+          { label: 'Total Promo Spend', value: formatMoneyAuto(totalSpend), subtext: 'across 14 weeks' },
+          { label: 'Total Incremental Revenue', value: formatMoneyAuto(totalIncremental), subtext: 'vs baseline' },
           { label: 'Net ROI', value: `${netROI.toFixed(2)}×`, subtext: 'incremental ÷ spend' },
         ].map((item) => (
           <div key={item.label} className="bg-[var(--bg-secondary)] rounded-lg p-4">

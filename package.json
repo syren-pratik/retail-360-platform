@@ -17,6 +17,7 @@
     "gen:store-opening": "ts-node --project scripts/tsconfig.json scripts/gen-store-opening.ts",
     "gen:apparel-cx360": "ts-node --project scripts/tsconfig.json scripts/gen-apparel-cx360.ts",
     "gen:apparel-inventory": "ts-node --project scripts/tsconfig.json scripts/gen-apparel-inventory.ts",
+    "gen:apparel-price-intel": "ts-node --project scripts/tsconfig.json scripts/gen-apparel-price-intel.ts",
     "lint:apparel-schema": "ts-node --project scripts/tsconfig.json scripts/lint-apparel-schema.ts"
   },
   "dependencies": {

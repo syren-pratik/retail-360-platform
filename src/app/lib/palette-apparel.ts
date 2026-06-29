@@ -116,6 +116,72 @@ export const SEASON_TAG_COLORS: Record<string, string> = {
   Core:            '#64748B',
 };
 
+// ── Price-Intel additions (Phase D sweep) ──────────────────────────
+
+/** Apparel markdown cadence step colors per Price Intel spec §1.2 / §5.2. */
+export const APPAREL_MARKDOWN_STEP_COLORS: Record<string, string> = {
+  full_price: '#10B981', // emerald
+  md25:       '#84CC16', // lime
+  md40:       '#EAB308', // yellow
+  md60:       '#F97316', // orange
+  md80:       '#EF4444', // red
+  clearance:  '#94A3B8', // slate
+  // Display-label aliases (used by some chart components)
+  'Full Price': '#10B981',
+  '25% off':    '#84CC16',
+  '40% off':    '#EAB308',
+  '60% off':    '#F97316',
+  '80% off':    '#EF4444',
+  Clearance:    '#94A3B8',
+};
+
+/** Apparel promo mechanic colors per Price Intel spec §1.3 / §5.2. */
+export const APPAREL_PROMO_MECHANIC_COLORS: Record<string, string> = {
+  bogo_50:     '#3B82F6',
+  b2g1_half:   '#6366F1',
+  pct_off:     '#10B981',
+  dollar_off:  '#F59E0B',
+  bundle:      '#A855F7',
+  gwp:         '#EC4899',
+  tiered:      '#06B6D4',
+  free_ship:   '#84CC16',
+  member_excl: '#F43F5E',
+  // Label aliases
+  'BOGO 50%':         '#3B82F6',
+  'B2G1 Half':        '#6366F1',
+  '% Off':            '#10B981',
+  '$ Off':            '#F59E0B',
+  Bundle:             '#A855F7',
+  GWP:                '#EC4899',
+  Tiered:             '#06B6D4',
+  'Free Ship':        '#84CC16',
+  'Member Exclusive': '#F43F5E',
+};
+
+/** US apparel competitor colors per Price Intel spec §1.4 / §5.2. */
+export const APPAREL_COMPETITOR_COLORS: Record<string, string> = {
+  AMZN:  '#FF9900',
+  TGT:   '#CC0000',
+  WMT:   '#0071CE',
+  MACYS: '#E21A2C',
+  NORD:  '#000000',
+  OLDN:  '#0033A0',
+  HM:    '#E50010',
+  UNQ:   '#FF0000',
+  ASOS:  '#1A1A1A',
+  SHEIN: '#2A2A2A',
+  // Name aliases
+  Amazon:    '#FF9900',
+  Target:    '#CC0000',
+  Walmart:   '#0071CE',
+  "Macy's":  '#E21A2C',
+  Nordstrom: '#000000',
+  'Old Navy':'#0033A0',
+  'H&M':     '#E50010',
+  Uniqlo:    '#FF0000',
+  Shein:     '#2A2A2A',
+};
+
 /** Apparel department colors keyed on full apparel dept names from
  *  dimensions-apparel.json. Covers all Phase C generator outputs. */
 export const APPAREL_DEPT_COLORS: Record<string, string> = {

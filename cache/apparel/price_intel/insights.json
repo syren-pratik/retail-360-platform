@@ -1,0 +1,83 @@
+{
+  "generated_at": "2026-06-29T00:00:00.000Z",
+  "insights": [
+    {
+      "type": "opportunity",
+      "severity": "amber",
+      "title": "Levi's 511 indigo 32×32 nearing markdown trigger",
+      "description": "56% sell-through at Week 6 — promote to Wk 8 markdown queue at -25%.",
+      "metric": "sell_through_pct",
+      "action": "Queue for md25",
+      "relatedChart": "markdown_queue",
+      "id": "INS-A001",
+      "source": "rule_engine"
+    },
+    {
+      "type": "risk",
+      "severity": "red",
+      "title": "BFCM Outerwear Doorbuster overlaps 4 active markdown styles",
+      "description": "W Puffers — pre-clear by Nov 15 to protect margin.",
+      "metric": "markdown_overlap_flag",
+      "action": "Pre-clear overlap",
+      "relatedChart": "campaigns_table",
+      "id": "INS-A002",
+      "source": "rule_engine"
+    },
+    {
+      "type": "competitive",
+      "severity": "amber",
+      "title": "Nordstrom dropped Lululemon Align HR 25\" black by 12%",
+      "description": "Competitive index now 108 (was 96). Match within 48h.",
+      "metric": "competitive_index",
+      "action": "Match price",
+      "relatedChart": "competitive_index",
+      "id": "INS-A003",
+      "source": "rule_engine"
+    },
+    {
+      "type": "returns",
+      "severity": "red",
+      "title": "Women's Bottoms RAGM collapsing",
+      "description": "14 styles below 30% RAGM due to 28% return rate. Fit-guide intervention recommended.",
+      "metric": "ragm_pct",
+      "action": "Add fit guide",
+      "relatedChart": "margin_distribution",
+      "id": "INS-A004",
+      "source": "rule_engine"
+    },
+    {
+      "type": "opportunity",
+      "severity": "green",
+      "title": "BTS Kids Tops volume +24% WoW",
+      "description": "Reallocate $240K from H&M Linen capsule to BTS Kids Tops — projected 2.6x ROI.",
+      "metric": "campaign_roi",
+      "action": "Reallocate budget",
+      "relatedChart": "ai_suggestions",
+      "id": "INS-A005",
+      "source": "rule_engine"
+    },
+    {
+      "type": "cadence",
+      "severity": "amber",
+      "title": "11 styles stuck at -40% beyond target",
+      "description": "Advance worst 6 directly to -60% Friday; recover $1.44M.",
+      "metric": "stuck_styles",
+      "action": "Advance to md60",
+      "relatedChart": "markdown_cadence",
+      "id": "INS-A006",
+      "source": "rule_engine"
+    },
+    {
+      "type": "pricing",
+      "severity": "blue",
+      "title": "Cotton spot price up 6.2%",
+      "description": "Pass through 70%+ on denim PO cycle Aug 4 to protect margin.",
+      "metric": "cost_change_pct",
+      "action": "Reset price column",
+      "relatedChart": "cost_passthrough",
+      "id": "INS-A007",
+      "source": "rule_engine"
+    }
+  ],
+  "source": "rule_engine"
+}

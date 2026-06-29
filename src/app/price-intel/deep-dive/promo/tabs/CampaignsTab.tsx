@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import type { PriceIntelCore, PriceIntelCampaign } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface Props { core: PriceIntelCore }
 
@@ -85,8 +85,8 @@ export default function CampaignsTab({ core }: Props) {
                     <td className="px-4 py-3 font-semibold text-[var(--text-primary)]">{c.roi.toFixed(2)}×</td>
                     <td className={`px-4 py-3 font-medium ${c.free_rider_ratio_pct > 50 ? 'text-rose-600' : 'text-amber-600'}`}>{c.free_rider_ratio_pct}%</td>
                     <td className="px-4 py-3 text-emerald-600">+{c.lift_pct.toFixed(1)}%</td>
-                    <td className="px-4 py-3 text-[var(--text-secondary)]">{formatLakhsCrores(c.spend_to_date_inr)}</td>
-                    <td className="px-4 py-3 text-emerald-600">{formatLakhsCrores(c.incremental_revenue_inr)}</td>
+                    <td className="px-4 py-3 text-[var(--text-secondary)]">{formatMoneyAuto(c.spend_to_date_inr)}</td>
+                    <td className="px-4 py-3 text-emerald-600">{formatMoneyAuto(c.incremental_revenue_inr)}</td>
                     <td className={`px-4 py-3 ${c.post_promo_dip_pct < -6 ? 'text-rose-600' : 'text-[var(--text-secondary)]'}`}>{c.post_promo_dip_pct}%</td>
                   </tr>
                 ))}
@@ -106,13 +106,13 @@ export default function CampaignsTab({ core }: Props) {
                 { label: 'Mechanic', value: selected.mechanic.replace(/_/g, ' '), color: null },
                 { label: 'Department', value: selected.department, color: null },
                 { label: 'Dates', value: `${selected.start_date} – ${selected.end_date}`, color: null },
-                { label: 'Budget', value: formatLakhsCrores(selected.budget_inr), color: null },
-                { label: 'Spend to date', value: formatLakhsCrores(selected.spend_to_date_inr), color: null },
-                { label: 'Incremental Rev.', value: formatLakhsCrores(selected.incremental_revenue_inr), color: 'text-emerald-600' },
+                { label: 'Budget', value: formatMoneyAuto(selected.budget_inr), color: null },
+                { label: 'Spend to date', value: formatMoneyAuto(selected.spend_to_date_inr), color: null },
+                { label: 'Incremental Rev.', value: formatMoneyAuto(selected.incremental_revenue_inr), color: 'text-emerald-600' },
                 { label: 'ROI', value: `${selected.roi.toFixed(2)}×`, color: selected.roi >= 3 ? 'text-emerald-600' : 'text-amber-600' },
                 { label: 'Free-rider ratio', value: `${selected.free_rider_ratio_pct}%`, color: 'text-rose-600' },
                 { label: 'Post-promo dip', value: `${selected.post_promo_dip_pct}%`, color: selected.post_promo_dip_pct < -6 ? 'text-rose-600' : '' },
-                { label: 'Net incremental', value: formatLakhsCrores(selected.net_incremental_inr), color: 'text-indigo-600' },
+                { label: 'Net incremental', value: formatMoneyAuto(selected.net_incremental_inr), color: 'text-indigo-600' },
               ].map((row) => (
                 <div key={row.label} className="flex justify-between items-center border-b border-[var(--border-default)] pb-2 last:border-0">
                   <span className="text-xs text-[var(--text-tertiary)]">{row.label}</span>

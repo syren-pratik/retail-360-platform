@@ -13,7 +13,7 @@ import {
   LabelList,
 } from 'recharts';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface Props {
   core: PriceIntelCore;
@@ -51,7 +51,7 @@ export default function MarginLeakageTab({ core }: Props) {
       <div className="card p-6 mb-6">
         <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-1">Weekly Margin Leakage Waterfall</h3>
         <p className="text-xs text-[var(--text-secondary)] mb-4">
-          Total margin leakage: <span className="font-semibold text-rose-600">{formatLakhsCrores(total)}/week</span>
+          Total margin leakage: <span className="font-semibold text-rose-600">{formatMoneyAuto(total)}/week</span>
         </p>
         <div style={{ height: 560 }}>
           <ResponsiveContainer width="100%" height="100%">
@@ -59,14 +59,14 @@ export default function MarginLeakageTab({ core }: Props) {
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border-default)" vertical={false} />
               <XAxis dataKey="label" tick={{ fontSize: 11, fill: '#111827' }} stroke="#D1D5DB" />
               <YAxis
-                tickFormatter={(v: number) => formatLakhsCrores(v)}
+                tickFormatter={(v: number) => formatMoneyAuto(v)}
                 tick={{ fontSize: 11, fill: '#111827' }}
                 stroke="#D1D5DB"
               />
               <Tooltip
                 contentStyle={{ fontSize: 12, background: 'var(--bg-primary)', border: '1px solid var(--border-default)' }}
                 formatter={(value: unknown, _name: unknown, props: { payload?: { label?: string; amount?: number } }): [string, string] => [
-                  formatLakhsCrores(props?.payload?.amount ?? (value as number)),
+                  formatMoneyAuto(props?.payload?.amount ?? (value as number)),
                   props?.payload?.label ?? '',
                 ]}
                 cursor={{ fill: 'var(--bg-secondary)' }}
@@ -81,7 +81,7 @@ export default function MarginLeakageTab({ core }: Props) {
                 <LabelList
                   dataKey="amount"
                   position="top"
-                  formatter={(v: unknown) => formatLakhsCrores(v as number)}
+                  formatter={(v: unknown) => formatMoneyAuto(v as number)}
                   style={{ fontSize: 11, fill: 'var(--text-secondary)' }}
                 />
               </Bar>
@@ -123,7 +123,7 @@ export default function MarginLeakageTab({ core }: Props) {
                       <span className="font-medium text-[var(--text-primary)]">{meta?.label ?? row.label}</span>
                     </div>
                   </td>
-                  <td className="px-6 py-4 font-semibold text-rose-600">{formatLakhsCrores(Math.abs(row.value_inr))}</td>
+                  <td className="px-6 py-4 font-semibold text-rose-600">{formatMoneyAuto(Math.abs(row.value_inr))}</td>
                   <td className="px-6 py-4 text-[var(--text-secondary)]">
                     <div className="flex items-center gap-2">
                       <div className="h-1.5 rounded-full bg-rose-100" style={{ width: 80 }}>

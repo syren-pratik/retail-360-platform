@@ -2,11 +2,15 @@
 
 import { useRouter } from 'next/navigation';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 import PriceIntelActionQueue from '../components/PriceIntelActionQueue';
 import PriceIntelLiveActivity from '../components/PriceIntelLiveActivity';
 import PriceIntelMarginWaterfall from '../components/PriceIntelMarginWaterfall';
 import PriceIntelChannelChart from '../components/PriceIntelChannelChart';
+import PriceIntelMarkdownCadenceLadder from '../components/PriceIntelMarkdownCadenceLadder';
+import PriceIntelBrandVsPLGap from '../components/PriceIntelBrandVsPLGap';
+import PriceIntelReturnsMarginOverlay from '../components/PriceIntelReturnsMarginOverlay';
+import { useTenant } from '@/app/context/TenantContext';
 
 type Persona = 'category_manager' | 'pricing_analyst' | 'vp_commercial';
 
@@ -32,6 +36,7 @@ function DeepDiveButton({ onClick }: { onClick: () => void }) {
 
 export default function OverviewTab({ core, onSKUSelect, persona }: Props) {
   const router = useRouter();
+  const { isApparel } = useTenant();
 
   if (persona === 'vp_commercial') {
     return (
@@ -47,7 +52,7 @@ export default function OverviewTab({ core, onSKUSelect, persona }: Props) {
           {[
             {
               label: 'Margin Leakage',
-              value: formatLakhsCrores(core.kpis.total_margin_leakage_inr),
+              value: formatMoneyAuto(core.kpis.total_margin_leakage_inr),
               color: 'text-rose-600',
               sub: 'this week',
             },
@@ -126,6 +131,24 @@ export default function OverviewTab({ core, onSKUSelect, persona }: Props) {
         <div>
           <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-3">Live Activity</h3>
           <PriceIntelLiveActivity items={core.live_activity} />
+        </div>
+      )}
+
+      {isApparel && core.markdown_cadence_ladder && core.brand_vs_pl_gap && core.returns_margin_overlay && (
+        <div>
+          <div className="flex items-center justify-between mb-3">
+            <div>
+              <h3 className="text-sm font-semibold text-[var(--text-primary)]">Apparel Lifecycle & Brand Mix</h3>
+              <p className="text-xs text-[var(--text-secondary)]">Markdown ladder · brand vs PL · returns-adjusted margin</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <PriceIntelMarkdownCadenceLadder steps={core.markdown_cadence_ladder} />
+            <PriceIntelBrandVsPLGap rows={core.brand_vs_pl_gap} />
+          </div>
+          <div className="mt-4">
+            <PriceIntelReturnsMarginOverlay overlay={core.returns_margin_overlay} />
+          </div>
         </div>
       )}
     </div>

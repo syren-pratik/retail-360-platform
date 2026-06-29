@@ -1,7 +1,7 @@
 'use client';
 
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto, getLocaleAuto } from '@/app/lib/format-money';
 
 interface Props {
   core: PriceIntelCore;
@@ -17,8 +17,8 @@ function AgingTile({
         <p className="text-xs font-medium text-[var(--text-secondary)]">{label}</p>
         {flag && <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-rose-100 text-rose-700">⚠ At risk</span>}
       </div>
-      <p className="text-xl font-semibold text-[var(--text-primary)]">{units.toLocaleString('en-IN')}</p>
-      <p className="text-xs text-[var(--text-secondary)] mt-0.5">units · {formatLakhsCrores(value)}</p>
+      <p className="text-xl font-semibold text-[var(--text-primary)]">{units.toLocaleString(getLocaleAuto())}</p>
+      <p className="text-xs text-[var(--text-secondary)] mt-0.5">units · {formatMoneyAuto(value)}</p>
       <div className="mt-2 h-1.5 bg-[var(--border-default)] rounded-full overflow-hidden">
         <div className={`h-full rounded-full ${flag ? 'bg-rose-400' : 'bg-indigo-400'}`} style={{ width: `${pct}%` }} />
       </div>
@@ -89,7 +89,7 @@ export default function AgingTab({ core, onSKUSelect }: Props) {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-[var(--border-default)] bg-[var(--bg-secondary)]">
-                {['SKU', 'Category', 'Age bucket', 'Weeks of supply', 'Sell-through %', 'Value ₹', 'Recommended action'].map((h) => (
+                {['SKU', 'Category', 'Age bucket', 'Weeks of supply', 'Sell-through %', 'Value', 'Recommended action'].map((h) => (
                   <th key={h} className="text-left px-4 py-3 text-xs font-medium text-[var(--text-tertiary)] uppercase tracking-wide whitespace-nowrap">
                     {h}
                   </th>
@@ -130,7 +130,7 @@ export default function AgingTab({ core, onSKUSelect }: Props) {
                     </div>
                   </td>
                   <td className="px-4 py-3 text-[var(--text-secondary)]">
-                    {formatLakhsCrores(sku.current_price_inr * sku.weeks_of_supply * 100)}
+                    {formatMoneyAuto(sku.current_price_inr * sku.weeks_of_supply * 100)}
                   </td>
                   <td className="px-4 py-3 text-xs text-[var(--text-secondary)]">
                     {sku.recommendation_priority === 'High'

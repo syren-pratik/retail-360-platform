@@ -12,7 +12,7 @@ import {
 } from 'recharts';
 import PriceIntelChartCard from './PriceIntelChartCard';
 import type { PriceIntelWaterfallBar } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface Props {
   bars: PriceIntelWaterfallBar[];
@@ -37,7 +37,7 @@ const CustomTooltip = ({
     <div className="bg-white border border-[var(--border-default)] rounded-lg p-3 shadow-lg text-xs">
       <p className="font-medium text-[var(--text-primary)] mb-1">{d.label}</p>
       <p className={d.color_type === 'leak' ? 'text-rose-600' : 'text-[var(--text-secondary)]'}>
-        {d.color_type === 'leak' ? '−' : ''}{formatLakhsCrores(Math.abs(d.value_inr))}
+        {d.color_type === 'leak' ? '−' : ''}{formatMoneyAuto(Math.abs(d.value_inr))}
       </p>
     </div>
   );
@@ -88,7 +88,7 @@ export default function PriceIntelMarginWaterfall({ bars }: Props) {
             height={48}
           />
           <YAxis
-            tickFormatter={(v: number) => formatLakhsCrores(v)}
+            tickFormatter={(v: number) => formatMoneyAuto(v)}
             tick={{ fontSize: 10, fill: '#111827' }}
             axisLine={false}
             tickLine={false}

@@ -21,7 +21,7 @@ import DeepDiveHeader from '@/app/merchandise/demand/deep-dive/shared/DeepDiveHe
 import DeepDiveTabs from '@/app/merchandise/demand/deep-dive/shared/DeepDiveTabs';
 import DeepDiveKPIStrip from '@/app/merchandise/demand/deep-dive/shared/DeepDiveKPIStrip';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface Props {
   core: PriceIntelCore;
@@ -97,7 +97,7 @@ function ForecastTab({ core }: { core: PriceIntelCore }) {
           <YAxis
             yAxisId="rev"
             orientation="left"
-            tickFormatter={(v: unknown) => formatLakhsCrores(v as number)}
+            tickFormatter={(v: unknown) => formatMoneyAuto(v as number)}
             tick={{ fontSize: 11, fill: '#111827' }}
             label={{
               value: 'Revenue / Margin',
@@ -119,15 +119,15 @@ function ForecastTab({ core }: { core: PriceIntelCore }) {
                   )}
                   <p className="text-gray-600">
                     Revenue:{' '}
-                    <span className="font-medium">{formatLakhsCrores(w?.forecast_revenue_inr ?? 0)}</span>
+                    <span className="font-medium">{formatMoneyAuto(w?.forecast_revenue_inr ?? 0)}</span>
                   </p>
                   <p className="text-gray-600">
                     Margin:{' '}
-                    <span className="font-medium">{formatLakhsCrores(w?.forecast_margin_inr ?? 0)}</span>
+                    <span className="font-medium">{formatMoneyAuto(w?.forecast_margin_inr ?? 0)}</span>
                   </p>
                   <p className="text-gray-500 text-xs mt-1">
-                    CI: {formatLakhsCrores(w?.lower_ci_inr ?? 0)} –{' '}
-                    {formatLakhsCrores(w?.upper_ci_inr ?? 0)}
+                    CI: {formatMoneyAuto(w?.lower_ci_inr ?? 0)} –{' '}
+                    {formatMoneyAuto(w?.upper_ci_inr ?? 0)}
                   </p>
                 </div>
               );
@@ -355,7 +355,7 @@ function ScenarioMiniChart({
         <div>
           <p className="text-[10px] text-[var(--text-tertiary)] uppercase">14W Revenue</p>
           <p className="text-sm font-semibold tabular-nums" style={{ color: scenario.color }}>
-            {formatLakhsCrores(
+            {formatMoneyAuto(
               core.forecast_14w.reduce(
                 (s, w) => s + w.forecast_revenue_inr * scenario.multiplier,
                 0
@@ -446,7 +446,7 @@ function SeasonalityTab({ core }: { core: PriceIntelCore }) {
           <YAxis
             yAxisId="rev"
             orientation="right"
-            tickFormatter={(v: unknown) => formatLakhsCrores(v as number)}
+            tickFormatter={(v: unknown) => formatMoneyAuto(v as number)}
             tick={{ fontSize: 11, fill: '#111827' }}
             label={{
               value: 'Revenue',
@@ -473,7 +473,7 @@ function SeasonalityTab({ core }: { core: PriceIntelCore }) {
                   <p className="text-gray-600">
                     Revenue:{' '}
                     <span className="font-medium">
-                      {formatLakhsCrores(w?.forecast_revenue_inr ?? 0)}
+                      {formatMoneyAuto(w?.forecast_revenue_inr ?? 0)}
                     </span>
                   </p>
                 </div>
@@ -585,12 +585,12 @@ function DriversTab({ core }: { core: PriceIntelCore }) {
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
           <XAxis dataKey="week_label" tick={{ fontSize: 11, fill: '#111827' }} />
           <YAxis
-            tickFormatter={(v: unknown) => formatLakhsCrores(v as number)}
+            tickFormatter={(v: unknown) => formatMoneyAuto(v as number)}
             tick={{ fontSize: 11, fill: '#111827' }}
           />
           <Tooltip
             formatter={(v: unknown, name: unknown) =>
-              [formatLakhsCrores(v as number), name as string] as [string, string]
+              [formatMoneyAuto(v as number), name as string] as [string, string]
             }
           />
           <Bar dataKey="base_trend" name="Base Trend" stackId="d" fill="#94a3b8" />
@@ -649,11 +649,11 @@ export default function ForecastExpansion({ core }: Props) {
   const kpiTiles = [
     {
       label: '14W Projected Revenue',
-      value: formatLakhsCrores(totalRevenue),
+      value: formatMoneyAuto(totalRevenue),
     },
     {
       label: '14W Projected Margin',
-      value: formatLakhsCrores(totalMargin),
+      value: formatMoneyAuto(totalMargin),
     },
     {
       label: 'Avg CI Width',

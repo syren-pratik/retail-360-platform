@@ -10,11 +10,18 @@ interface InsightCardProps {
 }
 
 const severityColors: Record<string, { border: string; bg: string; text: string }> = {
+  // Canonical severity levels (grocery + general use)
   critical: { border: 'border-l-[#EF4444]', bg: 'bg-[#FEF2F2]', text: 'text-[#DC2626]' },
   warning: { border: 'border-l-[#F59E0B]', bg: 'bg-[#FFFBEB]', text: 'text-[#D97706]' },
   info: { border: 'border-l-[#3B82F6]', bg: 'bg-[#EFF6FF]', text: 'text-[#2563EB]' },
   positive: { border: 'border-l-[#10B981]', bg: 'bg-[#ECFDF5]', text: 'text-[#059669]' },
+  // Color-name aliases (apparel insights generator emits these; same semantics)
+  red: { border: 'border-l-[#EF4444]', bg: 'bg-[#FEF2F2]', text: 'text-[#DC2626]' },
+  amber: { border: 'border-l-[#F59E0B]', bg: 'bg-[#FFFBEB]', text: 'text-[#D97706]' },
+  blue: { border: 'border-l-[#3B82F6]', bg: 'bg-[#EFF6FF]', text: 'text-[#2563EB]' },
+  green: { border: 'border-l-[#10B981]', bg: 'bg-[#ECFDF5]', text: 'text-[#059669]' },
 };
+const SEVERITY_FALLBACK = severityColors.info;
 
 const typeIcons: Record<string, React.ReactNode> = {
   trend: <TrendingDown size={14} />,
@@ -24,7 +31,7 @@ const typeIcons: Record<string, React.ReactNode> = {
 };
 
 export default function InsightCard({ insight, onViewClick, compact = false }: InsightCardProps) {
-  const colors = severityColors[insight.severity];
+  const colors = severityColors[insight.severity] ?? SEVERITY_FALLBACK;
 
   if (compact) {
     return (

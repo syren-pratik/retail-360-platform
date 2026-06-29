@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import type { PriceIntelCampaign } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores, formatPercent } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
+import { formatPercent } from '@/app/lib/merch-format';
 
 interface Props {
   campaigns: PriceIntelCampaign[];
@@ -79,7 +80,7 @@ export default function PromoCampaignsTable({ campaigns }: Props) {
                   {c.roi.toFixed(2)}×
                 </td>
                 <td className="py-1.5 px-2 text-right font-mono text-[var(--text-primary)]">
-                  {formatLakhsCrores(c.incremental_revenue_inr)}
+                  {formatMoneyAuto(c.incremental_revenue_inr)}
                 </td>
                 <td className={`py-1.5 px-2 text-right font-mono ${c.free_rider_ratio_pct > 30 ? 'text-rose-600' : 'text-[var(--text-secondary)]'}`}>
                   {formatPercent(c.free_rider_ratio_pct)}

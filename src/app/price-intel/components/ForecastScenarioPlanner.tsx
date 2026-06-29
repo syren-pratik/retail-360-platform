@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import PriceIntelChartCard from './PriceIntelChartCard';
 import type { PriceIntelForecastPoint } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores, formatPercentSigned } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
+import { formatPercentSigned } from '@/app/lib/merch-format';
 
 interface Props {
   forecast: PriceIntelForecastPoint[];
@@ -101,14 +102,14 @@ export default function ForecastScenarioPlanner({ forecast }: Props) {
         <div className="grid grid-cols-2 gap-3 mt-1">
           <div className="card p-3 bg-[var(--bg-secondary)]">
             <p className="text-[10px] text-[var(--text-tertiary)] mb-1">14W Revenue</p>
-            <p className="text-base font-bold text-[var(--text-primary)]">{formatLakhsCrores(totalRevenue)}</p>
+            <p className="text-base font-bold text-[var(--text-primary)]">{formatMoneyAuto(totalRevenue)}</p>
             <p className={`text-xs font-medium mt-0.5 ${revDelta >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
               {formatPercentSigned((revDelta / baseRevenue) * 100)} vs base
             </p>
           </div>
           <div className="card p-3 bg-[var(--bg-secondary)]">
             <p className="text-[10px] text-[var(--text-tertiary)] mb-1">14W Margin</p>
-            <p className="text-base font-bold text-[var(--text-primary)]">{formatLakhsCrores(totalMargin)}</p>
+            <p className="text-base font-bold text-[var(--text-primary)]">{formatMoneyAuto(totalMargin)}</p>
             <p className={`text-xs font-medium mt-0.5 ${marginDelta >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
               {formatPercentSigned((marginDelta / baseMargin) * 100)} vs base
             </p>

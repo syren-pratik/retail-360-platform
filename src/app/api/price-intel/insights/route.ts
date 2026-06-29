@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
 import fs from 'fs';
 import path from 'path';
+import { getTenantFromCookie } from '@/app/lib/cache-loader';
+
+export const dynamic = 'force-dynamic';
 
 let client: Anthropic | null = null;
 let modelName = 'claude-sonnet-4-5-20250514';
@@ -22,9 +25,21 @@ try {
   console.warn('Failed to initialize Anthropic client for price-intel insights');
 }
 
-const CACHE_PATH = path.join(process.cwd(), 'cache', 'price_intel', 'insights.json');
-const CORE_PATH = path.join(process.cwd(), 'cache', 'price_intel', 'core.json');
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
+
+function getCachePath(tenant: string): string {
+  if (tenant === 'us_apparel') {
+    return path.join(process.cwd(), 'cache', 'apparel', 'price_intel', 'insights.json');
+  }
+  return path.join(process.cwd(), 'cache', 'price_intel', 'insights.json');
+}
+
+function getCorePath(tenant: string): string {
+  if (tenant === 'us_apparel') {
+    return path.join(process.cwd(), 'cache', 'apparel', 'price_intel', 'core.json');
+  }
+  return path.join(process.cwd(), 'cache', 'price_intel', 'core.json');
+}
 
 interface Insight {
   id: string;
@@ -44,9 +59,9 @@ interface InsightCacheFile {
   source: 'claude' | 'fallback';
 }
 
-function readCache(): InsightCacheFile | null {
+function readCache(tenant: string): InsightCacheFile | null {
   try {
-    const raw = fs.readFileSync(CACHE_PATH, 'utf-8');
+    const raw = fs.readFileSync(getCachePath(tenant), 'utf-8');
     const parsed: InsightCacheFile = JSON.parse(raw);
     const age = Date.now() - new Date(parsed.generated_at).getTime();
     if (age < CACHE_TTL_MS) return parsed;
@@ -56,9 +71,9 @@ function readCache(): InsightCacheFile | null {
   return null;
 }
 
-function writeCache(data: InsightCacheFile): void {
+function writeCache(data: InsightCacheFile, tenant: string): void {
   try {
-    fs.writeFileSync(CACHE_PATH, JSON.stringify(data, null, 2), 'utf-8');
+    fs.writeFileSync(getCachePath(tenant), JSON.stringify(data, null, 2), 'utf-8');
   } catch {
     console.warn('Failed to write price-intel insights cache');
   }
@@ -210,9 +225,10 @@ function buildFallbackInsights(core: CoreData): Insight[] {
 
 export async function GET(request: NextRequest) {
   const refresh = request.nextUrl.searchParams.get('refresh') === 'true';
+  const tenant = getTenantFromCookie();
 
   if (!refresh) {
-    const cached = readCache();
+    const cached = readCache(tenant);
     if (cached) {
       return NextResponse.json({ insights: cached.insights, source: 'cache' });
     }
@@ -220,7 +236,7 @@ export async function GET(request: NextRequest) {
 
   let core: CoreData;
   try {
-    core = JSON.parse(fs.readFileSync(CORE_PATH, 'utf-8')) as CoreData;
+    core = JSON.parse(fs.readFileSync(getCorePath(tenant), 'utf-8')) as CoreData;
   } catch {
     return NextResponse.json(
       { insights: [], source: 'error', error: 'Price intel core data unavailable. Run: npm run gen:price-intel' },
@@ -235,7 +251,7 @@ export async function GET(request: NextRequest) {
       insights: fallback,
       source: 'fallback',
     };
-    writeCache(cacheData);
+    writeCache(cacheData, tenant);
     return NextResponse.json({ insights: fallback, source: 'fallback' });
   }
 
@@ -302,7 +318,7 @@ Generate exactly 4 insights. Return ONLY the JSON array.`;
       insights,
       source: 'claude',
     };
-    writeCache(cacheData);
+    writeCache(cacheData, tenant);
 
     return NextResponse.json({ insights, source: 'claude' });
   } catch (err) {

@@ -12,7 +12,8 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
+import { useTenant } from '@/app/context/TenantContext';
 
 interface Props { core: PriceIntelCore }
 
@@ -32,43 +33,83 @@ const STORE_COLORS: Record<string, string> = {
   Convenience: '#F59E0B',
 };
 
-// TPO Pyramid layers
-const TPO_LAYERS = [
-  {
-    id: 'planning',
-    label: 'Layer 4 · Promo Planning',
-    sublabel: 'Strategy, budgeting, calendar',
-    color: '#E0E7FF',
-    border: '#4F46E5',
-    content: 'Active campaigns: 7 live · Budget utilization: 84% · Planned spend W6: ₹18.4L',
-  },
-  {
-    id: 'optimization',
-    label: 'Layer 3 · Promo Optimization',
-    sublabel: 'Targeting, mechanics, depth',
-    color: '#D1FAE5',
-    border: '#10B981',
-    content: 'Best mechanic: Cashback (3.8× ROI) · Recommended depth: 12–15% · Top segment: Elastic switchers',
-  },
-  {
-    id: 'impact',
-    label: 'Layer 2 · Promo ROI & Impact',
-    sublabel: 'Realized ROI, incremental revenue, free-rider',
-    color: '#FEF3C7',
-    border: '#F59E0B',
-    content: 'Blended ROI: 3.52× · Incremental Rev: ₹71.2L (14W) · Free-rider waste: ₹9.8L/week',
-  },
-  {
-    id: 'attribution',
-    label: 'Layer 1 · Sales Attribution',
-    sublabel: 'Baseline vs incremental decomposition',
-    color: '#FFE4E6',
-    border: '#F43F5E',
-    content: 'Baseline revenue: ₹4.2Cr/week · Incremental from promos: ₹42.8L · Cannibalization: -₹8.1L',
-  },
-] as const;
+// TPO Pyramid layers — tenant-aware content
+function getTpoLayers(isApparel: boolean) {
+  if (isApparel) {
+    return [
+      {
+        id: 'planning',
+        label: 'Layer 4 · Promo Planning',
+        sublabel: 'Strategy, budgeting, calendar',
+        color: '#E0E7FF',
+        border: '#4F46E5',
+        content: 'Active campaigns: 7 live · Budget utilization: 84% · Planned spend W6: $1.84M',
+      },
+      {
+        id: 'optimization',
+        label: 'Layer 3 · Promo Optimization',
+        sublabel: 'Targeting, mechanics, depth',
+        color: '#D1FAE5',
+        border: '#10B981',
+        content: 'Best mechanic: Member Exclusive (3.4× ROI) · Recommended depth: 25–40% · Top segment: VIP',
+      },
+      {
+        id: 'impact',
+        label: 'Layer 2 · Promo ROI & Impact',
+        sublabel: 'Realized ROI, incremental revenue, free-rider',
+        color: '#FEF3C7',
+        border: '#F59E0B',
+        content: 'Blended ROI: 2.32× · Incremental Rev: $7.12M (14W) · Free-rider waste: $980K/week',
+      },
+      {
+        id: 'attribution',
+        label: 'Layer 1 · Sales Attribution',
+        sublabel: 'Baseline vs incremental decomposition',
+        color: '#FFE4E6',
+        border: '#F43F5E',
+        content: 'Baseline revenue: $4.2M/week · Incremental from promos: $4.28M · Cannibalization: -$810K',
+      },
+    ] as const;
+  }
+  return [
+    {
+      id: 'planning',
+      label: 'Layer 4 · Promo Planning',
+      sublabel: 'Strategy, budgeting, calendar',
+      color: '#E0E7FF',
+      border: '#4F46E5',
+      content: 'Active campaigns: 7 live · Budget utilization: 84% · Planned spend W6: ₹18.4L',
+    },
+    {
+      id: 'optimization',
+      label: 'Layer 3 · Promo Optimization',
+      sublabel: 'Targeting, mechanics, depth',
+      color: '#D1FAE5',
+      border: '#10B981',
+      content: 'Best mechanic: Cashback (3.8× ROI) · Recommended depth: 12–15% · Top segment: Elastic switchers',
+    },
+    {
+      id: 'impact',
+      label: 'Layer 2 · Promo ROI & Impact',
+      sublabel: 'Realized ROI, incremental revenue, free-rider',
+      color: '#FEF3C7',
+      border: '#F59E0B',
+      content: 'Blended ROI: 3.52× · Incremental Rev: ₹71.2L (14W) · Free-rider waste: ₹9.8L/week',
+    },
+    {
+      id: 'attribution',
+      label: 'Layer 1 · Sales Attribution',
+      sublabel: 'Baseline vs incremental decomposition',
+      color: '#FFE4E6',
+      border: '#F43F5E',
+      content: 'Baseline revenue: ₹4.2Cr/week · Incremental from promos: ₹42.8L · Cannibalization: -₹8.1L',
+    },
+  ] as const;
+}
 
 export default function MechanicsTab({ core }: Props) {
+  const { isApparel } = useTenant();
+  const TPO_LAYERS = getTpoLayers(isApparel);
   const [expandedLayer, setExpandedLayer] = useState<string | null>(null);
 
   const groupedData = core.mechanic_roi.map((m) => {
@@ -148,7 +189,7 @@ export default function MechanicsTab({ core }: Props) {
         <div className="grid grid-cols-4 gap-3 border-t border-[var(--border-default)] pt-4">
           {[
             { label: 'Blended ROI', value: `${core.promo_roi_trend[core.promo_roi_trend.length - 1]?.roi.toFixed(2)}×`, color: 'text-indigo-600' },
-            { label: 'Free-rider waste', value: formatLakhsCrores(core.kpis.margin_leakage_breakdown.promo_free_rider_inr), color: 'text-rose-600' },
+            { label: 'Free-rider waste', value: formatMoneyAuto(core.kpis.margin_leakage_breakdown.promo_free_rider_inr), color: 'text-rose-600' },
             { label: 'Best mechanic', value: core.mechanic_roi.sort((a, b) => b.roi - a.roi)[0]?.mechanic ?? '—', color: 'text-emerald-600' },
             { label: 'Active campaigns', value: String(core.campaigns.filter((c) => c.status === 'live').length), color: 'text-[var(--text-primary)]' },
           ].map((kpi) => (

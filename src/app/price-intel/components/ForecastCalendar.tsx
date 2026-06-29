@@ -2,7 +2,7 @@
 
 import PriceIntelChartCard from './PriceIntelChartCard';
 import type { PriceIntelForecastPoint } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface Props {
   forecast: PriceIntelForecastPoint[];
@@ -61,10 +61,10 @@ export default function ForecastCalendar({ forecast }: Props) {
                     </span>
                   </td>
                   <td className="py-1.5 px-2 text-right font-mono text-[var(--text-primary)]">
-                    {formatLakhsCrores(p.forecast_revenue_inr)}
+                    {formatMoneyAuto(p.forecast_revenue_inr)}
                   </td>
                   <td className="py-1.5 px-2 text-right font-mono text-emerald-600">
-                    {formatLakhsCrores(p.forecast_margin_inr)}
+                    {formatMoneyAuto(p.forecast_margin_inr)}
                   </td>
                 </tr>
               );

@@ -8,6 +8,10 @@ import MarkdownQueue from '../components/MarkdownQueue';
 import MarkdownCadenceChart from '../components/MarkdownCadenceChart';
 import MarkdownSellThrough from '../components/MarkdownSellThrough';
 import MarkdownAgingBuckets from '../components/MarkdownAgingBuckets';
+import PriceIntelMarkdownCadenceLadder from '../components/PriceIntelMarkdownCadenceLadder';
+import PriceIntelSizeColorPriceGrid from '../components/PriceIntelSizeColorPriceGrid';
+import { getLocaleAuto } from '@/app/lib/format-money';
+import { useTenant } from '@/app/context/TenantContext';
 
 type Persona = 'category_manager' | 'pricing_analyst' | 'vp_commercial';
 
@@ -33,6 +37,7 @@ function DeepDiveButton({ onClick }: { onClick: () => void }) {
 
 export default function MarkdownTab({ core, onSKUSelect, persona }: Props) {
   const router = useRouter();
+  const { isApparel } = useTenant();
 
   const pendingItems = core.markdown_queue.filter((i) => i.status === 'pending');
   const totalUnitsAtRisk = pendingItems.reduce((s, i) => s + i.units_at_risk, 0);
@@ -65,7 +70,7 @@ export default function MarkdownTab({ core, onSKUSelect, persona }: Props) {
           <div className="card p-6">
             <p className="text-xs text-[var(--text-secondary)] mb-2">Units at Risk</p>
             <p className="text-3xl font-semibold text-amber-600">
-              {totalUnitsAtRisk.toLocaleString('en-IN')}
+              {totalUnitsAtRisk.toLocaleString(getLocaleAuto())}
             </p>
             <p className="text-xs text-[var(--text-tertiary)] mt-1">{pendingItems.length} SKUs pending markdown</p>
           </div>
@@ -92,6 +97,13 @@ export default function MarkdownTab({ core, onSKUSelect, persona }: Props) {
 
   return (
     <div className="space-y-4">
+      {isApparel && core.markdown_cadence_ladder && core.size_color_price_grid && (
+        <div className="grid grid-cols-2 gap-4">
+          <PriceIntelMarkdownCadenceLadder steps={core.markdown_cadence_ladder} />
+          <PriceIntelSizeColorPriceGrid grid={core.size_color_price_grid} />
+        </div>
+      )}
+
       {/* Sell-through heatmap */}
       <div>
         <div className="flex items-center justify-between mb-3">

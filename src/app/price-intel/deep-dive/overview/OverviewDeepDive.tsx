@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { TrendingDown, Layers, List, Lightbulb } from 'lucide-react';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 import DeepDiveHeader from '@/app/merchandise/demand/deep-dive/shared/DeepDiveHeader';
 import DeepDiveKPIStrip from '@/app/merchandise/demand/deep-dive/shared/DeepDiveKPIStrip';
 import DeepDiveTabs from '@/app/merchandise/demand/deep-dive/shared/DeepDiveTabs';
@@ -42,7 +42,7 @@ export default function OverviewDeepDive({ core, onSKUSelect }: Props) {
   const kpiTiles = [
     {
       label: 'Total Margin Leakage',
-      value: formatLakhsCrores(core.kpis.total_margin_leakage_inr),
+      value: formatMoneyAuto(core.kpis.total_margin_leakage_inr),
       subtext: 'per week',
       color: 'negative' as const,
     },
@@ -61,7 +61,7 @@ export default function OverviewDeepDive({ core, onSKUSelect }: Props) {
     {
       label: 'Free-rider Ratio',
       value: `${core.kpis.free_rider_ratio_pct}%`,
-      subtext: `${formatLakhsCrores(lb.promo_free_rider_inr)} waste`,
+      subtext: `${formatMoneyAuto(lb.promo_free_rider_inr)} waste`,
       color: 'negative' as const,
     },
   ];

@@ -16,6 +16,12 @@ import {
 } from 'recharts';
 import { fetchPriceIntelSKUDetail } from '@/app/lib/price-intel-loader';
 import type { PriceIntelSKU, PriceIntelSKUDetail } from '@/app/lib/price-intel-types';
+import { useTenant } from '@/app/context/TenantContext';
+import { formatMoneyAuto, formatMoneyPlainAuto, getLocaleAuto } from '@/app/lib/format-money';
+
+function moneySymbol(isApparel: boolean): string {
+  return isApparel ? '$' : '₹';
+}
 
 interface WhatIfResult {
   demand_change_pct: number;
@@ -30,10 +36,7 @@ interface Props {
 }
 
 function fmt(n: number): string {
-  if (Math.abs(n) >= 10_000_000) return `₹${(n / 10_000_000).toFixed(1)}Cr`;
-  if (Math.abs(n) >= 100_000) return `₹${(n / 100_000).toFixed(1)}L`;
-  if (Math.abs(n) >= 1_000) return `₹${(n / 1_000).toFixed(1)}K`;
-  return `₹${Math.round(n)}`;
+  return formatMoneyAuto(n);
 }
 
 const VEL_COLORS: Record<string, string> = {
@@ -55,6 +58,8 @@ const PRI_COLORS: Record<string, string> = {
 };
 
 export default function PriceIntelSKUDrawer({ skuId, sku, onClose }: Props) {
+  const { isApparel } = useTenant();
+  const sym = moneySymbol(isApparel);
   const [detail, setDetail] = useState<PriceIntelSKUDetail | null>(null);
   const [notAvailable, setNotAvailable] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -164,6 +169,11 @@ export default function PriceIntelSKUDrawer({ skuId, sku, onClose }: Props) {
       <div className="sticky top-0 z-10 bg-[var(--bg-primary)] border-b border-[var(--border-default)] px-5 py-4">
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0">
+            {isApparel && (sku as PriceIntelSKU & { brand?: string }).brand && (
+              <p className="text-[10px] font-semibold text-indigo-700 uppercase tracking-wide mb-0.5">
+                {(sku as PriceIntelSKU & { brand?: string }).brand}
+              </p>
+            )}
             <p className="text-base font-semibold text-[var(--text-primary)] truncate">{detail.product_name}</p>
             <p className="text-[11px] font-mono text-[var(--text-tertiary)] mt-0.5">
               {sku.sku_id} · {sku.department} › {sku.category}
@@ -178,6 +188,46 @@ export default function PriceIntelSKUDrawer({ skuId, sku, onClose }: Props) {
               <span className={`px-1.5 py-0.5 rounded text-[10px] font-medium ${PRI_COLORS[sku.recommendation_priority] ?? ''}`}>
                 {sku.recommendation_priority} priority
               </span>
+              {isApparel && (() => {
+                const ap = sku as PriceIntelSKU & {
+                  markdown_step?: string;
+                  days_in_step?: number;
+                  lifecycle_stage?: string;
+                  season_tag?: string;
+                  competitive_index?: number;
+                  size_breadth?: number;
+                  color_breadth?: number;
+                };
+                return (
+                  <>
+                    {ap.lifecycle_stage && (
+                      <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-slate-100 text-slate-700">
+                        {ap.lifecycle_stage}
+                      </span>
+                    )}
+                    {ap.markdown_step && (
+                      <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-amber-100 text-amber-700">
+                        {ap.markdown_step}{ap.days_in_step !== undefined ? ` · ${ap.days_in_step}d` : ''}
+                      </span>
+                    )}
+                    {ap.season_tag && (
+                      <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-cyan-50 text-cyan-700">
+                        {ap.season_tag}
+                      </span>
+                    )}
+                    {ap.competitive_index !== undefined && (
+                      <span className={`px-1.5 py-0.5 rounded text-[10px] font-medium ${ap.competitive_index > 105 ? 'bg-rose-100 text-rose-700' : ap.competitive_index < 95 ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-700'}`}>
+                        CI {ap.competitive_index}
+                      </span>
+                    )}
+                    {(ap.size_breadth !== undefined || ap.color_breadth !== undefined) && (
+                      <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-slate-50 text-slate-600">
+                        {ap.size_breadth ?? '?'} sizes · {ap.color_breadth ?? '?'} colors
+                      </span>
+                    )}
+                  </>
+                );
+              })()}
             </div>
           </div>
           <button
@@ -218,7 +268,7 @@ export default function PriceIntelSKUDrawer({ skuId, sku, onClose }: Props) {
                 />
                 <YAxis
                   tick={{ fontSize: 9, fill: '#111827' }}
-                  tickFormatter={(v: number) => `₹${v}`}
+                  tickFormatter={(v: number) => `${sym}${v}`}
                   width={40}
                   stroke="#D1D5DB"
                 />
@@ -226,9 +276,9 @@ export default function PriceIntelSKUDrawer({ skuId, sku, onClose }: Props) {
                   contentStyle={{ fontSize: 11, background: 'var(--bg-primary)', border: '1px solid var(--border-default)' }}
                   formatter={(value: unknown, name: unknown): [string, string] => {
                     const v = value as number;
-                    if (name === 'price_inr') return [`₹${v}`, 'Price'];
-                    if (name === 'mrp_inr') return [`₹${v}`, 'MRP'];
-                    if (name === 'cost_inr') return [`₹${v}`, 'Cost'];
+                    if (name === 'price_inr') return [`${sym}${v}`, 'Price'];
+                    if (name === 'mrp_inr') return [`${sym}${v}`, isApparel ? 'MSRP' : 'MRP'];
+                    if (name === 'cost_inr') return [`${sym}${v}`, 'Cost'];
                     return [String(v), String(name)];
                   }}
                 />
@@ -257,13 +307,13 @@ export default function PriceIntelSKUDrawer({ skuId, sku, onClose }: Props) {
                 <XAxis
                   dataKey="price_inr"
                   tick={{ fontSize: 9, fill: '#111827' }}
-                  tickFormatter={(v: number) => `₹${Math.round(v)}`}
+                  tickFormatter={(v: number) => `${sym}${Math.round(v)}`}
                   stroke="#D1D5DB"
                 />
                 <YAxis
                   dataKey="revenue_inr"
                   tick={{ fontSize: 9, fill: '#111827' }}
-                  tickFormatter={(v: number) => `₹${Math.round(v / 1000)}K`}
+                  tickFormatter={(v: number) => `${sym}${Math.round(v / 1000)}K`}
                   width={44}
                   stroke="#D1D5DB"
                 />
@@ -271,7 +321,7 @@ export default function PriceIntelSKUDrawer({ skuId, sku, onClose }: Props) {
                   contentStyle={{ fontSize: 11, background: 'var(--bg-primary)', border: '1px solid var(--border-default)' }}
                   formatter={(v: unknown, name: unknown): [string, string] => {
                     const n = v as number;
-                    if (name === 'revenue_inr') return [`₹${n.toLocaleString('en-IN')}`, 'Revenue'];
+                    if (name === 'revenue_inr') return [`${sym}${n.toLocaleString(getLocaleAuto())}`, 'Revenue'];
                     return [String(n), String(name)];
                   }}
                 />
@@ -304,7 +354,7 @@ export default function PriceIntelSKUDrawer({ skuId, sku, onClose }: Props) {
             ].map((item) => (
               <div key={item.label} className={`rounded p-2 ${item.color}`}>
                 <p className="text-[10px] leading-tight mb-0.5">{item.label}</p>
-                <p className="text-xs font-semibold tabular-nums">₹{Math.round(item.value)}</p>
+                <p className="text-xs font-semibold tabular-nums">{sym}{Math.round(item.value)}</p>
               </div>
             ))}
           </div>
@@ -333,7 +383,7 @@ export default function PriceIntelSKUDrawer({ skuId, sku, onClose }: Props) {
             </div>
 
             <div className="text-center mb-4">
-              <span className="text-2xl font-semibold text-[var(--text-primary)]">₹{whatIfPrice}</span>
+              <span className="text-2xl font-semibold text-[var(--text-primary)]">{sym}{whatIfPrice}</span>
               <span className="text-sm text-[var(--text-secondary)] ml-2">
                 {changeFromCurrent > 0 ? '+' : ''}{changeFromCurrent.toFixed(1)}% from current
               </span>
@@ -381,7 +431,7 @@ export default function PriceIntelSKUDrawer({ skuId, sku, onClose }: Props) {
             <div className="grid grid-cols-3 gap-2 mt-3 text-center text-[10px]">
               <div>
                 <p className="text-[var(--text-tertiary)]">Recommended price</p>
-                <p className="font-semibold text-emerald-600">₹{detail.recommendation.recommended_price_inr}</p>
+                <p className="font-semibold text-emerald-600">{sym}{detail.recommendation.recommended_price_inr}</p>
               </div>
               <div>
                 <p className="text-[var(--text-tertiary)]">Volume change</p>

@@ -12,6 +12,8 @@ import {
   Sparkles,
 } from 'lucide-react';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
+import { useTenant } from '@/app/context/TenantContext';
+import { AlertTriangle } from 'lucide-react';
 import PromoScenarioAgent from '../agents/PromoScenarioAgent';
 import PriceStrategyAgent from '../agents/PriceStrategyAgent';
 import MarkdownTimingAgent from '../agents/MarkdownTimingAgent';
@@ -139,8 +141,21 @@ function AgentCard({ agent, core }: { agent: AgentConfig; core: PriceIntelCore }
 }
 
 export default function AgentsTab({ core }: Props) {
+  const { isApparel } = useTenant();
   return (
     <div>
+      {/* Apparel-mode deferred-notice banner (Price Intel spec §4.3) */}
+      {isApparel && (
+        <div className="rounded-lg p-3 mb-4 bg-amber-50 border border-amber-200 flex items-start gap-2">
+          <span className="flex-shrink-0 text-amber-600 mt-0.5">
+            <AlertTriangle size={16} />
+          </span>
+          <p className="text-sm text-amber-800 leading-relaxed">
+            AI Agents are in grocery mode — apparel agent skins coming in a future sprint.
+          </p>
+        </div>
+      )}
+
       {/* Banner */}
       <div className="rounded-lg p-4 mb-6 bg-violet-50 border border-violet-200 flex items-start gap-3">
         <span className="flex-shrink-0 text-violet-600 mt-0.5">

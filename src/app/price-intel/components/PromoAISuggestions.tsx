@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Sparkles } from 'lucide-react';
 import type { PriceIntelAISuggestion } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface Props {
   suggestions: PriceIntelAISuggestion[];
@@ -52,7 +52,7 @@ export default function PromoAISuggestions({ suggestions }: Props) {
               <p className="text-[11px] text-[var(--text-secondary)] leading-tight line-clamp-2 mb-2">{s.explanation}</p>
               <div className="flex items-center justify-between mb-2">
                 <span className="text-[11px] text-[var(--text-tertiary)]">{s.sku_or_category}</span>
-                <span className="text-[11px] font-medium text-emerald-600">{formatLakhsCrores(s.financial_impact_inr)}</span>
+                <span className="text-[11px] font-medium text-emerald-600">{formatMoneyAuto(s.financial_impact_inr)}</span>
               </div>
               <button
                 disabled={isApplied}

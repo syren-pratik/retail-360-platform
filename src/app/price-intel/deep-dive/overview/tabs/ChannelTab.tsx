@@ -12,7 +12,7 @@ import {
   Cell,
 } from 'recharts';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface Props {
   core: PriceIntelCore;
@@ -61,14 +61,14 @@ export default function ChannelTab({ core }: Props) {
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border-default)" horizontal={false} />
               <XAxis
                 type="number"
-                tickFormatter={(v: number) => formatLakhsCrores(v)}
+                tickFormatter={(v: number) => formatMoneyAuto(v)}
                 tick={{ fontSize: 11, fill: '#111827' }}
                 stroke="#D1D5DB"
               />
               <YAxis dataKey="channel" type="category" tick={{ fontSize: 12, fill: '#111827' }} width={110} stroke="#D1D5DB" />
               <Tooltip
                 contentStyle={{ fontSize: 12, background: 'var(--bg-primary)', border: '1px solid var(--border-default)' }}
-                formatter={(v: unknown): [string, string] => [formatLakhsCrores(v as number), 'Revenue']}
+                formatter={(v: unknown): [string, string] => [formatMoneyAuto(v as number), 'Revenue']}
               />
               <Bar dataKey="revenue_inr" radius={[0, 4, 4, 0]}>
                 {channelData.map((entry) => (

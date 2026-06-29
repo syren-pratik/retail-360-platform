@@ -18,7 +18,7 @@ import {
 import DeepDiveHeader from '@/app/merchandise/demand/deep-dive/shared/DeepDiveHeader';
 import DeepDiveTabs from '@/app/merchandise/demand/deep-dive/shared/DeepDiveTabs';
 import DeepDiveKPIStrip from '@/app/merchandise/demand/deep-dive/shared/DeepDiveKPIStrip';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 import type { PriceIntelCore, PriceIntelActionItem } from '@/app/lib/price-intel-types';
 
 interface Props {
@@ -76,7 +76,7 @@ function TrendTab({ core }: { core: PriceIntelCore }) {
                 <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-3 text-sm">
                   <p className="font-semibold text-gray-900 mb-1 max-w-[200px] truncate">{label}</p>
                   <p className="text-gray-600">Free-rider ratio: <span className="font-medium">{d?.freeRiderPct.toFixed(1)}%</span></p>
-                  <p className="text-gray-600">Waste cost: <span className="font-medium text-rose-600">{formatLakhsCrores(d?.wasteCost ?? 0)}</span></p>
+                  <p className="text-gray-600">Waste cost: <span className="font-medium text-rose-600">{formatMoneyAuto(d?.wasteCost ?? 0)}</span></p>
                 </div>
               );
             }}
@@ -116,7 +116,7 @@ function TrendTab({ core }: { core: PriceIntelCore }) {
         <div className="bg-[var(--bg-secondary)] rounded-lg p-4">
           <p className="text-xs text-[var(--text-tertiary)] uppercase tracking-wide mb-1">Total Waste Estimate</p>
           <p className="text-lg font-semibold text-rose-600">
-            {formatLakhsCrores(core.campaigns.reduce((s, c) => s + (c.spend_to_date_inr * c.free_rider_ratio_pct) / 100, 0))}
+            {formatMoneyAuto(core.campaigns.reduce((s, c) => s + (c.spend_to_date_inr * c.free_rider_ratio_pct) / 100, 0))}
           </p>
           <p className="text-xs text-[var(--text-secondary)] mt-0.5">free-rider promo cost</p>
         </div>
@@ -240,9 +240,9 @@ function BySkuTab({ core }: { core: PriceIntelCore }) {
       <ResponsiveContainer width="100%" height={200}>
         <BarChart data={chartData} layout="vertical" margin={{ top: 4, right: 60, left: 140, bottom: 4 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" horizontal={false} />
-          <XAxis type="number" tickFormatter={(v: number) => formatLakhsCrores(v)} tick={{ fontSize: 10, fill: '#111827' }} />
+          <XAxis type="number" tickFormatter={(v: number) => formatMoneyAuto(v)} tick={{ fontSize: 10, fill: '#111827' }} />
           <YAxis type="category" dataKey="name" tick={{ fontSize: 10, fill: '#111827' }} width={130} />
-          <Tooltip formatter={(v: unknown) => [formatLakhsCrores(v as number), 'Financial Impact']} />
+          <Tooltip formatter={(v: unknown) => [formatMoneyAuto(v as number), 'Financial Impact']} />
           <Bar dataKey="impact" radius={[0, 3, 3, 0]}>
             {chartData.map((entry, i) => (
               <Cell key={i} fill={priorityColor(entry.priority)} />
@@ -277,7 +277,7 @@ function BySkuTab({ core }: { core: PriceIntelCore }) {
                   }`}>{item.priority}</span>
                   <p className="mt-1 text-[var(--text-secondary)] truncate">{item.headline}</p>
                 </td>
-                <td className="px-3 py-2 tabular-nums text-rose-600 font-medium">{formatLakhsCrores(item.financial_impact_inr)}</td>
+                <td className="px-3 py-2 tabular-nums text-rose-600 font-medium">{formatMoneyAuto(item.financial_impact_inr)}</td>
                 <td className="px-3 py-2 text-xs text-[var(--text-secondary)] max-w-[200px]">{item.recommended_action}</td>
               </tr>
             ))}
@@ -327,7 +327,7 @@ function WasteWaterfallTab({ core }: { core: PriceIntelCore }) {
         <BarChart data={barData} layout="horizontal" margin={{ top: 16, right: 40, left: 0, bottom: 8 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
           <XAxis dataKey="label" tick={{ fontSize: 11, fill: '#111827' }} />
-          <YAxis tickFormatter={(v: number) => formatLakhsCrores(v)} tick={{ fontSize: 11, fill: '#111827' }} />
+          <YAxis tickFormatter={(v: number) => formatMoneyAuto(v)} tick={{ fontSize: 11, fill: '#111827' }} />
           <Tooltip
             content={({ active, payload, label }) => {
               if (!active || !payload?.length) return null;
@@ -335,7 +335,7 @@ function WasteWaterfallTab({ core }: { core: PriceIntelCore }) {
               return (
                 <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-3 text-sm">
                   <p className="font-semibold text-gray-900 mb-1">{label}</p>
-                  <p style={{ color: barColor(d?.type ?? '') }}>{formatLakhsCrores(d?.value ?? 0)}</p>
+                  <p style={{ color: barColor(d?.type ?? '') }}>{formatMoneyAuto(d?.value ?? 0)}</p>
                   {d?.type === 'leak' && <p className="text-xs text-gray-500 mt-0.5">{currentRatio.toFixed(1)}% of total spend</p>}
                 </div>
               );
@@ -369,18 +369,18 @@ function WasteWaterfallTab({ core }: { core: PriceIntelCore }) {
           If the free-rider ratio dropped from{' '}
           <span className="font-semibold">{currentRatio.toFixed(1)}%</span> to{' '}
           <span className="font-semibold">30%</span>, estimated waste would fall from{' '}
-          <span className="font-semibold">{formatLakhsCrores(freeRiderWaste)}</span> to{' '}
-          <span className="font-semibold">{formatLakhsCrores(optimizedWaste)}</span>, recovering{' '}
-          <span className="font-semibold text-emerald-700">{formatLakhsCrores(saving)}</span> in promo budget — redeployable to high-efficiency campaigns.
+          <span className="font-semibold">{formatMoneyAuto(freeRiderWaste)}</span> to{' '}
+          <span className="font-semibold">{formatMoneyAuto(optimizedWaste)}</span>, recovering{' '}
+          <span className="font-semibold text-emerald-700">{formatMoneyAuto(saving)}</span> in promo budget — redeployable to high-efficiency campaigns.
         </p>
       </div>
 
       <div className="grid grid-cols-4 gap-3 mt-4">
         {[
-          { label: 'Total Spend', value: formatLakhsCrores(totalSpend), sub: 'across all campaigns' },
-          { label: 'Waste (Free-riders)', value: formatLakhsCrores(freeRiderWaste), sub: `${currentRatio.toFixed(1)}% of spend`, color: 'text-rose-600' },
-          { label: 'Genuine Promo Spend', value: formatLakhsCrores(genuineSpend), sub: `${(100 - currentRatio).toFixed(1)}% effective`, color: 'text-blue-600' },
-          { label: 'Total Incremental Revenue', value: formatLakhsCrores(totalIncremental), sub: 'net of cannibalization', color: 'text-emerald-600' },
+          { label: 'Total Spend', value: formatMoneyAuto(totalSpend), sub: 'across all campaigns' },
+          { label: 'Waste (Free-riders)', value: formatMoneyAuto(freeRiderWaste), sub: `${currentRatio.toFixed(1)}% of spend`, color: 'text-rose-600' },
+          { label: 'Genuine Promo Spend', value: formatMoneyAuto(genuineSpend), sub: `${(100 - currentRatio).toFixed(1)}% effective`, color: 'text-blue-600' },
+          { label: 'Total Incremental Revenue', value: formatMoneyAuto(totalIncremental), sub: 'net of cannibalization', color: 'text-emerald-600' },
         ].map((item) => (
           <div key={item.label} className="bg-[var(--bg-secondary)] rounded-lg p-4">
             <p className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wide mb-1">{item.label}</p>
@@ -416,7 +416,7 @@ export default function FreeRiderExpansion({ core }: Props) {
     },
     {
       label: 'Waste This Week',
-      value: formatLakhsCrores(core.kpis.margin_leakage_breakdown.promo_free_rider_inr),
+      value: formatMoneyAuto(core.kpis.margin_leakage_breakdown.promo_free_rider_inr),
       color: 'negative' as const,
     },
     {

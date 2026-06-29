@@ -1,0 +1,130 @@
+{
+  "current": [
+    {
+      "range": "<5%",
+      "count": 0,
+      "avg_revenue": 0
+    },
+    {
+      "range": "5-10%",
+      "count": 0,
+      "avg_revenue": 0
+    },
+    {
+      "range": "10-15%",
+      "count": 0,
+      "avg_revenue": 0
+    },
+    {
+      "range": "15-20%",
+      "count": 0,
+      "avg_revenue": 0
+    },
+    {
+      "range": "20-25%",
+      "count": 0,
+      "avg_revenue": 0
+    },
+    {
+      "range": "25%+",
+      "count": 200,
+      "avg_revenue": 1477694
+    }
+  ],
+  "projected": [
+    {
+      "range": "<5%",
+      "count": 0,
+      "avg_revenue": 0
+    },
+    {
+      "range": "5-10%",
+      "count": 0,
+      "avg_revenue": 0
+    },
+    {
+      "range": "10-15%",
+      "count": 0,
+      "avg_revenue": 0
+    },
+    {
+      "range": "15-20%",
+      "count": 0,
+      "avg_revenue": 0
+    },
+    {
+      "range": "20-25%",
+      "count": 0,
+      "avg_revenue": 0
+    },
+    {
+      "range": "25%+",
+      "count": 200,
+      "avg_revenue": 1477694
+    }
+  ],
+  "current_ragm": [
+    {
+      "range": "<10%",
+      "count": 0,
+      "avg_revenue": 0
+    },
+    {
+      "range": "10-20%",
+      "count": 0,
+      "avg_revenue": 0
+    },
+    {
+      "range": "20-30%",
+      "count": 2,
+      "avg_revenue": 958425
+    },
+    {
+      "range": "30-40%",
+      "count": 46,
+      "avg_revenue": 1725039
+    },
+    {
+      "range": "40-50%",
+      "count": 114,
+      "avg_revenue": 1410373
+    },
+    {
+      "range": "50%+",
+      "count": 38,
+      "avg_revenue": 1407571
+    }
+  ],
+  "projected_ragm": [
+    {
+      "range": "<10%",
+      "count": 0,
+      "avg_revenue": 0
+    },
+    {
+      "range": "10-20%",
+      "count": 0,
+      "avg_revenue": 0
+    },
+    {
+      "range": "20-30%",
+      "count": 0,
+      "avg_revenue": 0
+    },
+    {
+      "range": "30-40%",
+      "count": 25,
+      "avg_revenue": 1618751
+    },
+    {
+      "range": "40-50%",
+      "count": 108,
+      "avg_revenue": 1437122
+    },
+    {
+      "range": "50%+",
+      "count": 67,
+      "avg_revenue": 1490460
+    }
+  ]
+}

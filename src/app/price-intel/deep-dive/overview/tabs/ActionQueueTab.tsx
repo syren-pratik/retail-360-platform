@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import type { PriceIntelCore, PriceIntelActionItem } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface Props {
   core: PriceIntelCore;
@@ -159,7 +159,7 @@ export default function ActionQueueTab({ core, onSKUSelect }: Props) {
                     <p className="line-clamp-2">{item.headline}</p>
                   </td>
                   <td className="px-4 py-3 font-semibold text-emerald-600 whitespace-nowrap">
-                    {formatLakhsCrores(item.financial_impact_inr)}
+                    {formatMoneyAuto(item.financial_impact_inr)}
                   </td>
                   <td className="px-4 py-3 text-xs text-[var(--text-secondary)] capitalize">{item.confidence}</td>
                   <td className="px-4 py-3 text-xs text-[var(--text-secondary)] whitespace-nowrap">{item.action_window}</td>

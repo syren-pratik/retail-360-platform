@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface Props { core: PriceIntelCore }
 
@@ -118,7 +118,7 @@ export default function CalendarTab({ core }: Props) {
                     { label: 'Mechanic', value: selectedCell.campaign.mechanic.replace(/_/g, ' '), color: '' },
                     { label: 'Status', value: selectedCell.campaign.status, color: '' },
                     { label: 'ROI', value: `${selectedCell.campaign.roi.toFixed(2)}×`, color: selectedCell.campaign.roi >= 3 ? 'text-emerald-600' : 'text-amber-600' },
-                    { label: 'Budget', value: formatLakhsCrores(selectedCell.campaign.budget), color: '' },
+                    { label: 'Budget', value: formatMoneyAuto(selectedCell.campaign.budget), color: '' },
                   ].map((row) => (
                     <div key={row.label} className="flex justify-between border-b border-[var(--border-default)] pb-2">
                       <span className="text-[var(--text-tertiary)]">{row.label}</span>
@@ -138,7 +138,7 @@ export default function CalendarTab({ core }: Props) {
                   </div>
                   <div>
                     <p className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wide mb-1">Recommended budget</p>
-                    <p className="text-sm font-medium text-[var(--text-primary)]">{formatLakhsCrores(selectedCell.event ? 1800000 : 1200000)}</p>
+                    <p className="text-sm font-medium text-[var(--text-primary)]">{formatMoneyAuto(selectedCell.event ? 1800000 : 1200000)}</p>
                   </div>
                   <div>
                     <p className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wide mb-1">Projected ROI</p>

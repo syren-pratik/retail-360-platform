@@ -20,7 +20,7 @@ import DeepDiveHeader from '@/app/merchandise/demand/deep-dive/shared/DeepDiveHe
 import DeepDiveTabs from '@/app/merchandise/demand/deep-dive/shared/DeepDiveTabs';
 import DeepDiveKPIStrip from '@/app/merchandise/demand/deep-dive/shared/DeepDiveKPIStrip';
 import type { PriceIntelCore, PriceIntelActionItem } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface Props {
   core: PriceIntelCore;
@@ -77,7 +77,7 @@ function WaterfallTab({ core }: { core: PriceIntelCore }) {
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
           <XAxis dataKey="label" tick={{ fontSize: 11, fill: '#111827' }} />
           <YAxis
-            tickFormatter={(v: unknown) => formatLakhsCrores(v as number)}
+            tickFormatter={(v: unknown) => formatMoneyAuto(v as number)}
             tick={{ fontSize: 11, fill: '#111827' }}
           />
           <Tooltip
@@ -89,7 +89,7 @@ function WaterfallTab({ core }: { core: PriceIntelCore }) {
                   <p className="font-semibold text-gray-900 mb-1">{label}</p>
                   <p className="text-gray-600">
                     Value:{' '}
-                    <span className="font-medium">{formatLakhsCrores(d?.value ?? 0)}</span>
+                    <span className="font-medium">{formatMoneyAuto(d?.value ?? 0)}</span>
                   </p>
                   <p className="text-gray-600">
                     % of theoretical max:{' '}
@@ -101,7 +101,7 @@ function WaterfallTab({ core }: { core: PriceIntelCore }) {
           />
           <Bar
             dataKey="value"
-            name="₹ Value"
+            name="Value"
             radius={[4, 4, 0, 0]}
             cursor="pointer"
             onClick={(data: unknown) => {
@@ -130,7 +130,7 @@ function WaterfallTab({ core }: { core: PriceIntelCore }) {
               className="text-xs font-semibold tabular-nums"
               style={{ color: bar.color }}
             >
-              {formatLakhsCrores(bar.value)}
+              {formatMoneyAuto(bar.value)}
             </p>
             <p className="text-[10px] text-[var(--text-tertiary)]">{bar.pct}%</p>
           </div>
@@ -163,7 +163,7 @@ function WaterfallTab({ core }: { core: PriceIntelCore }) {
                     </p>
                   </div>
                   <span className="text-xs font-semibold text-rose-600 tabular-nums whitespace-nowrap ml-3">
-                    {formatLakhsCrores(item.financial_impact_inr)}
+                    {formatMoneyAuto(item.financial_impact_inr)}
                   </span>
                 </div>
               ))}
@@ -209,12 +209,12 @@ function TrendTab({ core }: { core: PriceIntelCore }) {
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
           <XAxis dataKey="week" tick={{ fontSize: 11, fill: '#111827' }} />
           <YAxis
-            tickFormatter={(v: unknown) => formatLakhsCrores(v as number)}
+            tickFormatter={(v: unknown) => formatMoneyAuto(v as number)}
             tick={{ fontSize: 11, fill: '#111827' }}
           />
           <Tooltip
             formatter={(v: unknown, name: unknown) =>
-              [formatLakhsCrores(v as number), name as string] as [string, string]
+              [formatMoneyAuto(v as number), name as string] as [string, string]
             }
           />
           <Legend wrapperStyle={{ fontSize: 12 }} />
@@ -316,12 +316,12 @@ function ByDepartmentTab({ core }: { core: PriceIntelCore }) {
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
           <XAxis dataKey="dept" tick={{ fontSize: 10, fill: '#111827' }} interval={0} />
           <YAxis
-            tickFormatter={(v: unknown) => formatLakhsCrores(v as number)}
+            tickFormatter={(v: unknown) => formatMoneyAuto(v as number)}
             tick={{ fontSize: 11, fill: '#111827' }}
           />
           <Tooltip
             formatter={(v: unknown, name: unknown) =>
-              [formatLakhsCrores(v as number), name as string] as [string, string]
+              [formatMoneyAuto(v as number), name as string] as [string, string]
             }
           />
           <Legend wrapperStyle={{ fontSize: 12 }} />
@@ -368,7 +368,7 @@ function SKUDrillTab({ core }: { core: PriceIntelCore }) {
       {/* Recovery call-out */}
       <div className="mb-5 px-5 py-3 bg-emerald-50 border border-emerald-200 rounded-xl text-sm text-emerald-800">
         Fix these <span className="font-semibold">5 SKUs</span> to recover{' '}
-        <span className="font-semibold">{formatLakhsCrores(top5sum)}</span> —{' '}
+        <span className="font-semibold">{formatMoneyAuto(top5sum)}</span> —{' '}
         <span className="font-semibold">{top5pct}%</span> of total leakage
       </div>
 
@@ -389,7 +389,7 @@ function SKUDrillTab({ core }: { core: PriceIntelCore }) {
             </p>
             <p className="text-xs text-[var(--text-secondary)]">{item.department}</p>
             <p className="text-base font-bold text-rose-600 tabular-nums mt-auto">
-              {formatLakhsCrores(item.financial_impact_inr)}
+              {formatMoneyAuto(item.financial_impact_inr)}
             </p>
             <p className="text-[10px] text-[var(--text-tertiary)]">impact</p>
           </div>
@@ -411,7 +411,7 @@ function SKUDrillTab({ core }: { core: PriceIntelCore }) {
                 Alert Type
               </th>
               <th className="text-left px-3 py-2 text-xs font-medium text-[var(--text-tertiary)] uppercase tracking-wide">
-                Impact ₹
+                Impact
               </th>
               <th className="text-left px-3 py-2 text-xs font-medium text-[var(--text-tertiary)] uppercase tracking-wide">
                 Root Cause
@@ -436,7 +436,7 @@ function SKUDrillTab({ core }: { core: PriceIntelCore }) {
                   </span>
                 </td>
                 <td className="px-3 py-2 tabular-nums font-semibold text-rose-600 whitespace-nowrap">
-                  {formatLakhsCrores(item.financial_impact_inr)}
+                  {formatMoneyAuto(item.financial_impact_inr)}
                 </td>
                 <td className="px-3 py-2 text-[var(--text-secondary)] text-xs max-w-[200px] truncate">
                   {item.headline}
@@ -472,17 +472,17 @@ export default function MarginLeakageExpansion({ core }: Props) {
   const kpiTiles = [
     {
       label: 'Total Leakage',
-      value: formatLakhsCrores(total_margin_leakage_inr),
+      value: formatMoneyAuto(total_margin_leakage_inr),
       color: 'negative' as const,
     },
     {
       label: 'Free-rider Waste',
-      value: formatLakhsCrores(bd.promo_free_rider_inr),
+      value: formatMoneyAuto(bd.promo_free_rider_inr),
       color: 'negative' as const,
     },
     {
       label: 'Cost Passthrough Gap',
-      value: formatLakhsCrores(bd.cost_passthrough_gap_inr),
+      value: formatMoneyAuto(bd.cost_passthrough_gap_inr),
       color: 'negative' as const,
     },
     {

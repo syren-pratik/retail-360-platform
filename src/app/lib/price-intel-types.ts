@@ -282,6 +282,38 @@ export interface PriceIntelCore {
   margin_waterfall: PriceIntelWaterfallBar[];
   forecast_14w: PriceIntelForecastPoint[];
   model_card: PriceIntelModelCard;
+  markdown_cadence_ladder?: PriceIntelMarkdownCadenceStep[];
+  size_color_price_grid?: PriceIntelSizeColorGrid;
+  brand_vs_pl_gap?: PriceIntelBrandVsPLRow[];
+  returns_margin_overlay?: PriceIntelReturnsMarginOverlay;
+}
+
+export interface PriceIntelMarkdownCadenceStep {
+  step: 'full_price'|'md25'|'md40'|'md60'|'md80'|'clearance';
+  label: string;
+  units_remaining: number;
+  units_sold_in_step: number;
+  target_days_in_step: number;
+  actual_days_in_step: number;
+  is_stuck: boolean;
+  margin_pct: number;
+  revenue_usd: number;
+}
+export interface PriceIntelSizeColorCell {
+  size: string; color: string; price_usd: number; margin_pct: number; units_sold: number;
+}
+export interface PriceIntelSizeColorGrid {
+  style_id: string; style_name: string; sizes: string[]; colors: string[];
+  cells: PriceIntelSizeColorCell[];
+}
+export interface PriceIntelBrandVsPLRow {
+  department: string; brand_margin_pct: number; pl_margin_pct: number;
+  margin_gap_pp: number; brand_revenue_usd: number; pl_revenue_usd: number;
+  pl_penetration_pct: number;
+}
+export interface PriceIntelReturnsMarginOverlay {
+  gross_margin_pct: number; returns_rate_pct: number; returns_cost_pct: number; ragm_pct: number;
+  by_department: { department: string; gross_margin_pct: number; returns_rate_pct: number; ragm_pct: number; }[];
 }
 
 // ─── Precomputed ───────────────────────────────────────────────────────────────

@@ -2,7 +2,8 @@
 
 import { TrendingUp, TrendingDown, AlertTriangle, ShoppingCart } from 'lucide-react';
 import type { PriceIntelKPIs } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores, formatPercentSigned } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
+import { formatPercentSigned } from '@/app/lib/merch-format';
 
 interface Props {
   kpis: PriceIntelKPIs;
@@ -62,7 +63,7 @@ export default function PriceIntelKPIStrip({ kpis }: Props) {
       />
       <KPITile
         label="Margin Leakage"
-        value={formatLakhsCrores(kpis.total_margin_leakage_inr)}
+        value={formatMoneyAuto(kpis.total_margin_leakage_inr)}
         sub="this week"
         color="negative"
         icon={<TrendingDown size={14} />}

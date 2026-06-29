@@ -11,7 +11,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface Props { core: PriceIntelCore }
 
@@ -51,10 +51,10 @@ export default function CadenceTab({}: Props) {
             <BarChart data={CADENCE_DATA} margin={{ top: 16, right: 24, bottom: 8, left: 16 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border-default)" />
               <XAxis dataKey="week" tick={{ fontSize: 11, fill: '#111827' }} stroke="#D1D5DB" />
-              <YAxis tickFormatter={(v: number) => formatLakhsCrores(v)} tick={{ fontSize: 11, fill: '#111827' }} stroke="#D1D5DB" />
+              <YAxis tickFormatter={(v: number) => formatMoneyAuto(v)} tick={{ fontSize: 11, fill: '#111827' }} stroke="#D1D5DB" />
               <Tooltip
                 contentStyle={{ fontSize: 12, background: 'var(--bg-primary)', border: '1px solid var(--border-default)' }}
-                formatter={(v: unknown, name: unknown): [string, string] => [formatLakhsCrores(v as number), String(name)]}
+                formatter={(v: unknown, name: unknown): [string, string] => [formatMoneyAuto(v as number), String(name)]}
               />
               <Legend wrapperStyle={{ fontSize: 12 }} />
               <Bar dataKey="plan_10" name="Plan 10%" fill="#C7D2FE" stackId="plan" />
@@ -88,17 +88,17 @@ export default function CadenceTab({}: Props) {
               {WEEK_TABLE.map((row) => (
                 <tr key={row.week} className="border-b border-[var(--border-default)] last:border-0 hover:bg-[var(--bg-secondary)]">
                   <td className="px-4 py-3 font-medium text-[var(--text-primary)]">{row.week}</td>
-                  <td className="px-4 py-3 text-right text-[var(--text-secondary)]">{formatLakhsCrores(row.planned_total)}</td>
-                  <td className="px-4 py-3 text-right font-medium text-[var(--text-primary)]">{formatLakhsCrores(row.actual_total)}</td>
+                  <td className="px-4 py-3 text-right text-[var(--text-secondary)]">{formatMoneyAuto(row.planned_total)}</td>
+                  <td className="px-4 py-3 text-right font-medium text-[var(--text-primary)]">{formatMoneyAuto(row.actual_total)}</td>
                   <td className={`px-4 py-3 text-right font-semibold ${row.variance >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
-                    {row.variance >= 0 ? '+' : ''}{formatLakhsCrores(row.variance)}
+                    {row.variance >= 0 ? '+' : ''}{formatMoneyAuto(row.variance)}
                   </td>
-                  <td className="px-4 py-3 text-right text-[var(--text-secondary)]">{formatLakhsCrores(row.plan_10)}</td>
-                  <td className="px-4 py-3 text-right text-[var(--text-primary)]">{formatLakhsCrores(row.actual_10)}</td>
-                  <td className="px-4 py-3 text-right text-[var(--text-secondary)]">{formatLakhsCrores(row.plan_20)}</td>
-                  <td className="px-4 py-3 text-right text-[var(--text-primary)]">{formatLakhsCrores(row.actual_20)}</td>
-                  <td className="px-4 py-3 text-right text-[var(--text-secondary)]">{formatLakhsCrores(row.plan_30)}</td>
-                  <td className="px-4 py-3 text-right text-[var(--text-primary)]">{formatLakhsCrores(row.actual_30)}</td>
+                  <td className="px-4 py-3 text-right text-[var(--text-secondary)]">{formatMoneyAuto(row.plan_10)}</td>
+                  <td className="px-4 py-3 text-right text-[var(--text-primary)]">{formatMoneyAuto(row.actual_10)}</td>
+                  <td className="px-4 py-3 text-right text-[var(--text-secondary)]">{formatMoneyAuto(row.plan_20)}</td>
+                  <td className="px-4 py-3 text-right text-[var(--text-primary)]">{formatMoneyAuto(row.actual_20)}</td>
+                  <td className="px-4 py-3 text-right text-[var(--text-secondary)]">{formatMoneyAuto(row.plan_30)}</td>
+                  <td className="px-4 py-3 text-right text-[var(--text-primary)]">{formatMoneyAuto(row.actual_30)}</td>
                 </tr>
               ))}
             </tbody>

@@ -2,7 +2,8 @@
 
 import PriceIntelChartCard from './PriceIntelChartCard';
 import type { PriceIntelChannelPerformance } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores, formatPercentSigned } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
+import { formatPercentSigned } from '@/app/lib/merch-format';
 
 interface Props {
   channels: PriceIntelChannelPerformance[];
@@ -24,7 +25,7 @@ export default function PriceIntelChannelChart({ channels }: Props) {
             <div className="flex items-center justify-between mb-1">
               <span className="text-xs font-medium text-[var(--text-primary)]">{ch.channel}</span>
               <div className="flex items-center gap-3">
-                <span className="text-xs text-[var(--text-secondary)]">{formatLakhsCrores(ch.revenue_inr)}</span>
+                <span className="text-xs text-[var(--text-secondary)]">{formatMoneyAuto(ch.revenue_inr)}</span>
                 <span className={`text-xs font-medium tabular-nums ${ch.revenue_lift_pct >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
                   {formatPercentSigned(ch.revenue_lift_pct)} lift
                 </span>

@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 import PromoROITrend from '../components/PromoROITrend';
 import PromoMechanicROI from '../components/PromoMechanicROI';
 import PromoAISuggestions from '../components/PromoAISuggestions';
@@ -57,7 +57,7 @@ export default function PromoTab({ core, persona }: Props) {
                 </div>
                 <div className="text-right shrink-0">
                   <p className="text-sm font-bold text-emerald-600">{c.roi.toFixed(2)}×</p>
-                  <p className="text-[10px] text-[var(--text-tertiary)]">{formatLakhsCrores(c.incremental_revenue_inr)} incr.</p>
+                  <p className="text-[10px] text-[var(--text-tertiary)]">{formatMoneyAuto(c.incremental_revenue_inr)} incr.</p>
                 </div>
               </div>
             ))}

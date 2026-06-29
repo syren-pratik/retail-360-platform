@@ -14,7 +14,7 @@ import {
   ReferenceLine,
 } from 'recharts';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface Props { core: PriceIntelCore }
 
@@ -91,15 +91,15 @@ export default function ForecastTab({ core }: Props) {
             <ComposedChart data={chartData} margin={{ top: 16, right: 24, bottom: 8, left: 16 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#D1D5DB" />
               <XAxis dataKey="week_label" tick={{ fontSize: 11, fill: '#111827' }} stroke="#D1D5DB" />
-              <YAxis yAxisId="rev" tickFormatter={(v: number) => formatLakhsCrores(v)} tick={{ fontSize: 11, fill: '#111827' }} stroke="#D1D5DB" />
+              <YAxis yAxisId="rev" tickFormatter={(v: number) => formatMoneyAuto(v)} tick={{ fontSize: 11, fill: '#111827' }} stroke="#D1D5DB" />
               <Tooltip
                 contentStyle={{ fontSize: 12, background: 'var(--bg-primary)', border: '1px solid var(--border-default)' }}
                 formatter={(v: unknown, name: unknown): [string, string] => {
                   const num = v as number;
-                  if (name === 'forecast_revenue_inr') return [formatLakhsCrores(num), 'Revenue'];
-                  if (name === 'forecast_margin_inr') return [formatLakhsCrores(num), 'Margin'];
-                  if (name === 'lower_ci_inr') return [formatLakhsCrores(num), 'Lower CI'];
-                  if (name === 'upper_ci_inr') return [formatLakhsCrores(num), 'Upper CI'];
+                  if (name === 'forecast_revenue_inr') return [formatMoneyAuto(num), 'Revenue'];
+                  if (name === 'forecast_margin_inr') return [formatMoneyAuto(num), 'Margin'];
+                  if (name === 'lower_ci_inr') return [formatMoneyAuto(num), 'Lower CI'];
+                  if (name === 'upper_ci_inr') return [formatMoneyAuto(num), 'Upper CI'];
                   return [String(num), String(name)];
                 }}
               />
@@ -121,7 +121,7 @@ export default function ForecastTab({ core }: Props) {
         <div className="px-6 py-4 border-b border-[var(--border-default)]">
           <h3 className="text-sm font-semibold text-[var(--text-primary)]">14-Week Forecast Table</h3>
           <p className="text-xs text-[var(--text-secondary)] mt-0.5">
-            14W total revenue: {formatLakhsCrores(totalRevenue)} · margin: {formatLakhsCrores(totalMargin)}
+            14W total revenue: {formatMoneyAuto(totalRevenue)} · margin: {formatMoneyAuto(totalMargin)}
           </p>
         </div>
         <div className="overflow-x-auto">
@@ -137,10 +137,10 @@ export default function ForecastTab({ core }: Props) {
               {core.forecast_14w.map((d) => (
                 <tr key={d.week} className="border-b border-[var(--border-default)] last:border-0 hover:bg-[var(--bg-secondary)]">
                   <td className="px-4 py-2.5 font-medium text-[var(--text-primary)]">{d.week_label}</td>
-                  <td className="px-4 py-2.5 text-right text-[var(--text-primary)]">{formatLakhsCrores(d.forecast_revenue_inr)}</td>
-                  <td className="px-4 py-2.5 text-right text-emerald-600">{formatLakhsCrores(d.forecast_margin_inr)}</td>
-                  <td className="px-4 py-2.5 text-right text-[var(--text-secondary)]">{formatLakhsCrores(d.lower_ci_inr)}</td>
-                  <td className="px-4 py-2.5 text-right text-[var(--text-secondary)]">{formatLakhsCrores(d.upper_ci_inr)}</td>
+                  <td className="px-4 py-2.5 text-right text-[var(--text-primary)]">{formatMoneyAuto(d.forecast_revenue_inr)}</td>
+                  <td className="px-4 py-2.5 text-right text-emerald-600">{formatMoneyAuto(d.forecast_margin_inr)}</td>
+                  <td className="px-4 py-2.5 text-right text-[var(--text-secondary)]">{formatMoneyAuto(d.lower_ci_inr)}</td>
+                  <td className="px-4 py-2.5 text-right text-[var(--text-secondary)]">{formatMoneyAuto(d.upper_ci_inr)}</td>
                   <td className="px-4 py-2.5 text-right text-[var(--text-secondary)]">{d.seasonality_index.toFixed(2)}</td>
                   <td className="px-4 py-2.5 text-right">
                     {d.event_label ? (

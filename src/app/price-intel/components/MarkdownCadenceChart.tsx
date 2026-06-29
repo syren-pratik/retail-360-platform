@@ -11,6 +11,7 @@ import {
 } from 'recharts';
 import PriceIntelChartCard from './PriceIntelChartCard';
 import type { PriceIntelMarkdownQueueItem } from '@/app/lib/price-intel-types';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface Props {
   items: PriceIntelMarkdownQueueItem[];
@@ -44,7 +45,8 @@ function buildCadenceData(items: PriceIntelMarkdownQueueItem[]): CadenceBucket[]
   return Object.entries(buckets).map(([label, arr]) => ({
     label,
     count: arr.length,
-    revenueAtRisk: arr.reduce((s, i) => s + i.revenue_at_risk_inr, 0) / 100_000,
+    // Keep raw money (USD or INR units depending on tenant); formatter handles scaling.
+    revenueAtRisk: arr.reduce((s, i) => s + i.revenue_at_risk_inr, 0),
     avgDepth: arr.length > 0 ? arr.reduce((s, i) => s + i.recommended_depth_pct, 0) / arr.length : 0,
   }));
 }
@@ -65,7 +67,7 @@ const CustomTooltip = ({
     <div className="bg-white border border-[var(--border-default)] rounded-lg p-3 shadow-lg text-xs">
       <p className="font-medium text-[var(--text-primary)] mb-1">{label}</p>
       {count && <p className="text-[var(--text-secondary)]">{count.value} SKUs</p>}
-      {rev && <p className="text-rose-600">₹{rev.value.toFixed(1)}L at risk</p>}
+      {rev && <p className="text-rose-600">{formatMoneyAuto(rev.value)} at risk</p>}
     </div>
   );
 };
@@ -105,7 +107,7 @@ export default function MarkdownCadenceChart({ items }: Props) {
           <YAxis
             yAxisId="rev"
             orientation="right"
-            tickFormatter={(v: number) => `₹${v.toFixed(0)}L`}
+            tickFormatter={(v: number) => formatMoneyAuto(v)}
             tick={{ fontSize: 10, fill: '#111827' }}
             axisLine={false}
             tickLine={false}

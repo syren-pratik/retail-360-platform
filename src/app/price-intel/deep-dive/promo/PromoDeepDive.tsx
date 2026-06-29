@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { TrendingUp, UserX, BarChart2, Users, Settings } from 'lucide-react';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 import DeepDiveHeader from '@/app/merchandise/demand/deep-dive/shared/DeepDiveHeader';
 import DeepDiveKPIStrip from '@/app/merchandise/demand/deep-dive/shared/DeepDiveKPIStrip';
 import DeepDiveTabs from '@/app/merchandise/demand/deep-dive/shared/DeepDiveTabs';
@@ -52,12 +52,12 @@ export default function PromoDeepDive({ core, onSKUSelect }: Props) {
     },
     {
       label: 'Incremental Revenue (14W)',
-      value: formatLakhsCrores(totalIncremental),
+      value: formatMoneyAuto(totalIncremental),
       color: 'positive' as const,
     },
     {
       label: 'Free-rider Waste',
-      value: formatLakhsCrores(core.kpis.margin_leakage_breakdown.promo_free_rider_inr),
+      value: formatMoneyAuto(core.kpis.margin_leakage_breakdown.promo_free_rider_inr),
       subtext: `${core.kpis.free_rider_ratio_pct}% ratio`,
       color: 'negative' as const,
     },

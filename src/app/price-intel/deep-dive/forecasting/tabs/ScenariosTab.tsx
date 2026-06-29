@@ -10,7 +10,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface Props { core: PriceIntelCore }
 
@@ -65,7 +65,7 @@ export default function ScenariosTab({ core }: Props) {
                   <YAxis hide domain={['auto', 'auto']} />
                   <Tooltip
                     contentStyle={{ fontSize: 11, background: 'var(--bg-primary)', border: '1px solid var(--border-default)' }}
-                    formatter={(v: unknown, name: unknown): [string, string] => [formatLakhsCrores(v as number), name === 'revenue' ? 'Revenue' : 'Margin']}
+                    formatter={(v: unknown, name: unknown): [string, string] => [formatMoneyAuto(v as number), name === 'revenue' ? 'Revenue' : 'Margin']}
                   />
                   <Line dataKey="revenue" stroke={s.color} strokeWidth={2} dot={false} />
                   <Line dataKey="margin" stroke={s.color} strokeWidth={1.5} strokeDasharray="4 2" dot={false} />
@@ -75,10 +75,10 @@ export default function ScenariosTab({ core }: Props) {
 
             <div className="px-5 py-4 space-y-2.5">
               {[
-                { label: '14W Revenue', value: formatLakhsCrores(s.totalRevenue), color: 'text-[var(--text-primary)]' },
-                { label: '14W Margin', value: formatLakhsCrores(s.totalMargin), color: 'text-emerald-600' },
+                { label: '14W Revenue', value: formatMoneyAuto(s.totalRevenue), color: 'text-[var(--text-primary)]' },
+                { label: '14W Margin', value: formatMoneyAuto(s.totalMargin), color: 'text-emerald-600' },
                 { label: 'Avg Margin %', value: `${s.avgMarginPct}%`, color: s.key === 'upside' ? 'text-emerald-600' : s.key === 'downside' ? 'text-rose-600' : 'text-[var(--text-primary)]' },
-                { label: 'vs Base Revenue', value: s.key === 'base' ? '—' : `${s.key === 'upside' ? '+' : ''}${formatLakhsCrores(s.totalRevenue - base14WRevenue)}`, color: s.key === 'upside' ? 'text-emerald-600' : 'text-rose-600' },
+                { label: 'vs Base Revenue', value: s.key === 'base' ? '—' : `${s.key === 'upside' ? '+' : ''}${formatMoneyAuto(s.totalRevenue - base14WRevenue)}`, color: s.key === 'upside' ? 'text-emerald-600' : 'text-rose-600' },
                 { label: 'Active campaigns', value: String(s.activeCampaigns), color: 'text-[var(--text-primary)]' },
                 { label: 'Promo ROI', value: `${s.key === 'upside' ? '4.1' : s.key === 'downside' ? '2.4' : '3.5'}×`, color: 'text-[var(--text-primary)]' },
               ].map((row) => (

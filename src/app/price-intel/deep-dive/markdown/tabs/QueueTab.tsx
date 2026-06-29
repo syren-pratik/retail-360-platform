@@ -7,7 +7,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import type { PriceIntelCore, PriceIntelMarkdownQueueItem } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto, getLocaleAuto } from '@/app/lib/format-money';
 
 interface Props { core: PriceIntelCore }
 
@@ -44,7 +44,7 @@ export default function QueueTab({ core }: Props) {
       <div className="flex items-center justify-between mb-4">
         <div>
           <h3 className="text-sm font-semibold text-[var(--text-primary)]">Markdown Queue</h3>
-          <p className="text-xs text-[var(--text-secondary)] mt-0.5">{queue.length} items pending · Total revenue at risk: {formatLakhsCrores(queue.reduce((s, i) => s + i.revenue_at_risk_inr, 0))}</p>
+          <p className="text-xs text-[var(--text-secondary)] mt-0.5">{queue.length} items pending · Total revenue at risk: {formatMoneyAuto(queue.reduce((s, i) => s + i.revenue_at_risk_inr, 0))}</p>
         </div>
         <button
           onClick={approveAll}
@@ -85,7 +85,7 @@ export default function QueueTab({ core }: Props) {
                       { label: 'Target ST', value: `${item.target_sell_through_pct}%`, bad: false },
                       { label: 'Days left', value: `${item.days_remaining}d`, bad: item.days_remaining < 21 },
                       { label: 'Weeks of supply', value: `${item.weeks_of_supply}W`, bad: item.weeks_of_supply > 10 },
-                      { label: 'Units at risk', value: item.units_at_risk.toLocaleString('en-IN'), bad: true },
+                      { label: 'Units at risk', value: item.units_at_risk.toLocaleString(getLocaleAuto()), bad: true },
                     ].map((kpi) => (
                       <div key={kpi.label} className="bg-[var(--bg-secondary)] rounded p-2">
                         <p className="text-[9px] text-[var(--text-tertiary)] uppercase">{kpi.label}</p>
@@ -99,13 +99,13 @@ export default function QueueTab({ core }: Props) {
                       <span className="text-[var(--text-secondary)]">Recommended: </span>
                       <span className="font-semibold text-rose-600">{item.recommended_depth_pct}% markdown</span>
                       <span className="text-[var(--text-secondary)] ml-1">→</span>
-                      <span className="font-semibold text-[var(--text-primary)] ml-1">₹{item.recommended_price_inr}</span>
+                      <span className="font-semibold text-[var(--text-primary)] ml-1">{formatMoneyAuto(item.recommended_price_inr)}</span>
                     </div>
                     <div className="text-sm text-[var(--text-secondary)]">
-                      Rev. at risk: <span className="font-semibold text-rose-600">{formatLakhsCrores(item.revenue_at_risk_inr)}</span>
+                      Rev. at risk: <span className="font-semibold text-rose-600">{formatMoneyAuto(item.revenue_at_risk_inr)}</span>
                     </div>
                     <div className="text-sm text-[var(--text-secondary)]">
-                      Proj. clear: <span className="font-semibold text-emerald-600">{projectedClearUnits.toLocaleString('en-IN')} units</span>
+                      Proj. clear: <span className="font-semibold text-emerald-600">{projectedClearUnits.toLocaleString(getLocaleAuto())} units</span>
                     </div>
                   </div>
                 </div>

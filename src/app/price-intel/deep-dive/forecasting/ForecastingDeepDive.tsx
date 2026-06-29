@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { TrendingUp, GitBranch, Calendar } from 'lucide-react';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 import DeepDiveHeader from '@/app/merchandise/demand/deep-dive/shared/DeepDiveHeader';
 import DeepDiveKPIStrip from '@/app/merchandise/demand/deep-dive/shared/DeepDiveKPIStrip';
 import DeepDiveTabs from '@/app/merchandise/demand/deep-dive/shared/DeepDiveTabs';
@@ -43,12 +43,12 @@ export default function ForecastingDeepDive({ core }: Props) {
   const kpiTiles = [
     {
       label: '14W Projected Revenue',
-      value: formatLakhsCrores(totalRevenue),
+      value: formatMoneyAuto(totalRevenue),
       color: 'positive' as const,
     },
     {
       label: '14W Projected Margin',
-      value: formatLakhsCrores(totalMargin),
+      value: formatMoneyAuto(totalMargin),
       subtext: `${((totalMargin / totalRevenue) * 100).toFixed(1)}% margin`,
       color: 'positive' as const,
     },

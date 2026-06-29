@@ -8,7 +8,8 @@ interface Props {
 
 function renderWithHighlight(text: string): React.ReactNode[] {
   const parts: React.ReactNode[] = [];
-  const regex = /₹[\d,.]+(?:L|Cr)?/g;
+  // Highlight money tokens for both grocery (₹1.2L / ₹4.5Cr) and apparel ($1.2M / $400K).
+  const regex = /(?:₹[\d,.]+(?:L|Cr)?|\$[\d,.]+(?:K|M|B)?)/g;
   let lastIndex = 0;
   let match;
   let key = 0;

@@ -14,7 +14,7 @@ import {
   ReferenceLine,
 } from 'recharts';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface Props {
   core: PriceIntelCore;
@@ -98,7 +98,7 @@ export default function FreeRiderTab({ core, onSKUSelect }: Props) {
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-[var(--border-default)] bg-[var(--bg-secondary)]">
-              {['SKU', 'Category', 'Free-rider %', 'Est. Waste ₹', 'Recommendation'].map((h) => (
+              {['SKU', 'Category', 'Free-rider %', 'Est. Waste', 'Recommendation'].map((h) => (
                 <th key={h} className="text-left px-6 py-3 text-xs font-medium text-[var(--text-tertiary)] uppercase tracking-wide">{h}</th>
               ))}
             </tr>
@@ -117,7 +117,7 @@ export default function FreeRiderTab({ core, onSKUSelect }: Props) {
                 <td className="px-6 py-3 text-[var(--text-secondary)]">{sku.category}</td>
                 <td className="px-6 py-3 text-rose-600 font-semibold">{(sku.promo_frequency_pct * 100).toFixed(0)}%</td>
                 <td className="px-6 py-3 font-semibold text-rose-600">
-                  {formatLakhsCrores(Math.abs(sku.revenue_impact_inr) * sku.promo_frequency_pct * 0.5)}
+                  {formatMoneyAuto(Math.abs(sku.revenue_impact_inr) * sku.promo_frequency_pct * 0.5)}
                 </td>
                 <td className="px-6 py-3 text-xs text-[var(--text-secondary)]">
                   Gate to lapsed + new-to-brand segments only

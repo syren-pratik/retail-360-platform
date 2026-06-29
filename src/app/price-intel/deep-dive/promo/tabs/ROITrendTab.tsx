@@ -14,7 +14,7 @@ import {
   ReferenceLine,
 } from 'recharts';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface Props { core: PriceIntelCore }
 
@@ -74,14 +74,14 @@ export default function ROITrendTab({ core }: Props) {
               <XAxis dataKey="week_label" tick={{ fontSize: 11, fill: '#111827' }} stroke="#D1D5DB" />
               <YAxis yAxisId="roi" orientation="left" tick={{ fontSize: 11, fill: '#111827' }} stroke="#D1D5DB" label={{ value: 'ROI ×', angle: -90, position: 'insideLeft', fontSize: 11 }} />
               {showSpend && (
-                <YAxis yAxisId="spend" orientation="right" tickFormatter={(v: number) => formatLakhsCrores(v)} tick={{ fontSize: 11, fill: '#111827' }} stroke="#D1D5DB" />
+                <YAxis yAxisId="spend" orientation="right" tickFormatter={(v: number) => formatMoneyAuto(v)} tick={{ fontSize: 11, fill: '#111827' }} stroke="#D1D5DB" />
               )}
               <Tooltip
                 contentStyle={{ fontSize: 12, background: 'var(--bg-primary)', border: '1px solid var(--border-default)' }}
                 formatter={(value: unknown, name: unknown): [string, string] => {
                   const v = value as number;
                   if (name === 'roi') return [`${v.toFixed(2)}×`, 'Blended ROI'];
-                  if (name === 'spend_inr') return [formatLakhsCrores(v), 'Promo Spend'];
+                  if (name === 'spend_inr') return [formatMoneyAuto(v), 'Promo Spend'];
                   return [String(v), String(name)];
                 }}
               />
@@ -110,23 +110,23 @@ export default function ROITrendTab({ core }: Props) {
         <div className="grid grid-cols-3 gap-4 mb-4">
           <div className="bg-[var(--bg-secondary)] rounded-lg p-4 text-center">
             <p className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wide mb-1">Incremental Revenue Generated</p>
-            <p className="text-lg font-semibold text-emerald-600">{formatLakhsCrores(totalIncremental)}</p>
+            <p className="text-lg font-semibold text-emerald-600">{formatMoneyAuto(totalIncremental)}</p>
           </div>
           <div className="bg-[var(--bg-secondary)] rounded-lg p-4 text-center">
             <p className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wide mb-1">Total Promo Spend</p>
-            <p className="text-lg font-semibold text-[var(--text-primary)]">{formatLakhsCrores(totalSpend)}</p>
+            <p className="text-lg font-semibold text-[var(--text-primary)]">{formatMoneyAuto(totalSpend)}</p>
           </div>
           <div className="bg-[var(--bg-secondary)] rounded-lg p-4 text-center">
             <p className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wide mb-1">Net Incremental</p>
-            <p className="text-lg font-semibold text-indigo-600">{formatLakhsCrores(totalIncremental - totalSpend)}</p>
+            <p className="text-lg font-semibold text-indigo-600">{formatMoneyAuto(totalIncremental - totalSpend)}</p>
           </div>
         </div>
         <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
           Without promo activity over this period, estimated revenue would have been{' '}
-          <span className="font-semibold text-rose-600">{formatLakhsCrores(counterfactualLoss)} lower</span>.
+          <span className="font-semibold text-rose-600">{formatMoneyAuto(counterfactualLoss)} lower</span>.
           However, {((core.kpis.free_rider_ratio_pct / 100) * totalSpend / totalSpend * 100).toFixed(0)}% of spend went to free-riders.
           Targeting non-incremental buyers would recover approximately{' '}
-          <span className="font-semibold text-emerald-600">{formatLakhsCrores(core.kpis.margin_leakage_breakdown.promo_free_rider_inr)}/week</span>.
+          <span className="font-semibold text-emerald-600">{formatMoneyAuto(core.kpis.margin_leakage_breakdown.promo_free_rider_inr)}/week</span>.
         </p>
       </div>
     </div>

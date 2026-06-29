@@ -2,7 +2,7 @@
 
 import PriceIntelChartCard from './PriceIntelChartCard';
 import type { PriceIntelInventoryAging } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto, getLocaleAuto } from '@/app/lib/format-money';
 
 interface Props {
   aging: PriceIntelInventoryAging;
@@ -78,8 +78,8 @@ export default function MarkdownAgingBuckets({ aging }: Props) {
                 )}
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-xs text-[var(--text-tertiary)]">{b.units.toLocaleString('en-IN')} units</span>
-                <span className="text-xs font-medium text-[var(--text-primary)]">{formatLakhsCrores(b.value_inr)}</span>
+                <span className="text-xs text-[var(--text-tertiary)]">{b.units.toLocaleString(getLocaleAuto())} units</span>
+                <span className="text-xs font-medium text-[var(--text-primary)]">{formatMoneyAuto(b.value_inr)}</span>
               </div>
             </div>
             <div className="relative h-2 bg-[var(--bg-secondary)] rounded-full overflow-hidden">
@@ -92,7 +92,7 @@ export default function MarkdownAgingBuckets({ aging }: Props) {
         ))}
         <div className="flex justify-between text-xs text-[var(--text-tertiary)] pt-1 border-t border-[var(--border-default)]">
           <span>Total inventory value</span>
-          <span className="font-medium text-[var(--text-primary)]">{formatLakhsCrores(totalValue)}</span>
+          <span className="font-medium text-[var(--text-primary)]">{formatMoneyAuto(totalValue)}</span>
         </div>
       </div>
     </PriceIntelChartCard>

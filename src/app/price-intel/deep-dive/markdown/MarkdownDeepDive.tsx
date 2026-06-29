@@ -11,6 +11,7 @@ import HeatmapTab from './tabs/HeatmapTab';
 import QueueTab from './tabs/QueueTab';
 import CadenceTab from './tabs/CadenceTab';
 import AgingTab from './tabs/AgingTab';
+import { getLocaleAuto } from '@/app/lib/format-money';
 
 const TABS = [
   { id: 'heatmap', label: 'Heatmap',  icon: <Grid size={14} /> },
@@ -65,7 +66,7 @@ export default function MarkdownDeepDive({ core, onSKUSelect }: Props) {
     },
     {
       label: 'Units at Clearance Risk',
-      value: totalUnitsAtRisk.toLocaleString('en-IN'),
+      value: totalUnitsAtRisk.toLocaleString(getLocaleAuto()),
       color: 'negative' as const,
     },
     {

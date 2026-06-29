@@ -12,7 +12,7 @@ import {
 } from 'recharts';
 import PriceIntelChartCard from './PriceIntelChartCard';
 import type { PriceIntelForecastPoint } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface Props {
   forecast: PriceIntelForecastPoint[];
@@ -39,11 +39,11 @@ const CustomTooltip = ({
   return (
     <div className="bg-white border border-[var(--border-default)] rounded-lg p-3 shadow-lg text-xs">
       <p className="font-medium text-[var(--text-primary)] mb-1">{label}</p>
-      {rev && <p className="text-[var(--text-secondary)]">Revenue: <span className="font-medium">{formatLakhsCrores(rev.value)}</span></p>}
-      {margin && <p className="text-emerald-600">Margin: {formatLakhsCrores(margin.value)}</p>}
+      {rev && <p className="text-[var(--text-secondary)]">Revenue: <span className="font-medium">{formatMoneyAuto(rev.value)}</span></p>}
+      {margin && <p className="text-emerald-600">Margin: {formatMoneyAuto(margin.value)}</p>}
       {entry && (
         <p className="text-[var(--text-tertiary)] mt-1">
-          CI: {formatLakhsCrores(entry.lower_ci_inr)} – {formatLakhsCrores(entry.upper_ci_inr)}
+          CI: {formatMoneyAuto(entry.lower_ci_inr)} – {formatMoneyAuto(entry.upper_ci_inr)}
         </p>
       )}
       {entry?.event_label && (
@@ -88,7 +88,7 @@ export default function ForecastChart({ forecast }: Props) {
             interval={1}
           />
           <YAxis
-            tickFormatter={(v: number) => formatLakhsCrores(v)}
+            tickFormatter={(v: number) => formatMoneyAuto(v)}
             tick={{ fontSize: 10, fill: '#111827' }}
             axisLine={false}
             tickLine={false}

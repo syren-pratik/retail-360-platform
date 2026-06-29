@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { AlertCircle, Info, CheckCircle, ChevronRight, Check, BellOff } from 'lucide-react';
 import type { PriceIntelActionItem } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
 
 interface Props {
   items: PriceIntelActionItem[];
@@ -112,7 +112,7 @@ export default function PriceIntelActionQueue({ items, onSKUSelect }: Props) {
                         </span>
                       )}
                       <span className="text-[10px] text-rose-600 font-medium">
-                        {formatLakhsCrores(item.financial_impact_inr)} at stake
+                        {formatMoneyAuto(item.financial_impact_inr)} at stake
                       </span>
                     </div>
                   </div>

@@ -3,7 +3,8 @@
 import { useState } from 'react';
 
 import type { PriceIntelMarkdownQueueItem } from '@/app/lib/price-intel-types';
-import { formatLakhsCrores, formatPercent } from '@/app/lib/merch-format';
+import { formatMoneyAuto } from '@/app/lib/format-money';
+import { formatPercent } from '@/app/lib/merch-format';
 
 interface Props {
   items: PriceIntelMarkdownQueueItem[];
@@ -92,7 +93,7 @@ export default function MarkdownQueue({ items, onSKUSelect }: Props) {
                     −{formatPercent(item.recommended_depth_pct, 0)}
                   </td>
                   <td className="py-1.5 px-2 text-right font-mono text-rose-600 font-medium">
-                    {formatLakhsCrores(item.revenue_at_risk_inr)}
+                    {formatMoneyAuto(item.revenue_at_risk_inr)}
                   </td>
                   <td className="py-1.5 px-2 text-right">
                     <span className={`px-1.5 py-0.5 rounded text-[10px] font-medium ${urg.bg} ${urg.text}`}>

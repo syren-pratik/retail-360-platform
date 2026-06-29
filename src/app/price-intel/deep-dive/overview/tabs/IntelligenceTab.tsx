@@ -11,12 +11,13 @@ import {
 } from 'recharts';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
 import DeepDiveInsights from '@/app/merchandise/demand/deep-dive/shared/DeepDiveInsights';
+import { useTenant } from '@/app/context/TenantContext';
 
 interface Props {
   core: PriceIntelCore;
 }
 
-const INSIGHTS = [
+const GROCERY_INSIGHTS = [
   {
     headline: 'Free-rider waste accelerating in Beverages',
     detail:
@@ -43,6 +44,33 @@ const INSIGHTS = [
   },
 ];
 
+const APPAREL_INSIGHTS = [
+  {
+    headline: 'Free-rider waste accelerating in Women’s Dresses',
+    detail:
+      "Women's Dresses promo free-rider ratio hit 58% this week — $420K of promo spend non-incremental. Recommend switching to Member Exclusive mechanic on Madewell and J.Crew styles.",
+    severity: 'negative' as const,
+  },
+  {
+    headline: "Elasticity opportunity in Men's Basics",
+    detail:
+      "Levi's 501 indigo elasticity -0.62 (brand-loyal). A 5% price reset projects $84K incremental margin with < 3% volume impact.",
+    severity: 'positive' as const,
+  },
+  {
+    headline: 'Returns-margin loss widening on Web channel',
+    detail:
+      "6 W Bottoms styles have web return rates above 28%. RAGM collapsed to 18% vs 52% gross. Recommend pausing web promo and adding fit-guide module — $184K weekly RAGM recovery.",
+    severity: 'warning' as const,
+  },
+  {
+    headline: 'Promo ROI trending up 4 consecutive weeks',
+    detail:
+      'Blended ROI reached 2.32× this week — highest since Memorial Day. BOGO 50% on denim driving the improvement.',
+    severity: 'positive' as const,
+  },
+];
+
 const SPARKLINE_CONFIG = [
   { key: 'margin_realization_pct', label: 'Margin Realization', unit: '%', color: '#4F46E5', suffix: '%' },
   { key: 'promo_roi', label: 'Promo ROI', unit: '×', color: '#10B981', suffix: '×' },
@@ -50,6 +78,8 @@ const SPARKLINE_CONFIG = [
 ] as const;
 
 export default function IntelligenceTab({ core }: Props) {
+  const { isApparel } = useTenant();
+  const INSIGHTS = isApparel ? APPAREL_INSIGHTS : GROCERY_INSIGHTS;
   const trendData = core.kpis.trend_12w;
 
   return (
