@@ -372,6 +372,7 @@ const TOOLS: Anthropic.Tool[] = [
 // AGENT SYSTEM PROMPT
 // ============================================================================
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function getSchemaForModule(module: string): string {
   if (module === 'demand') {
     return `

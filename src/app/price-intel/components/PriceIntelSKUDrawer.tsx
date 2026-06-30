@@ -17,7 +17,7 @@ import {
 import { fetchPriceIntelSKUDetail } from '@/app/lib/price-intel-loader';
 import type { PriceIntelSKU, PriceIntelSKUDetail } from '@/app/lib/price-intel-types';
 import { useTenant } from '@/app/context/TenantContext';
-import { formatMoneyAuto, formatMoneyPlainAuto, getLocaleAuto } from '@/app/lib/format-money';
+import { formatMoneyAuto, getLocaleAuto } from '@/app/lib/format-money';
 
 function moneySymbol(isApparel: boolean): string {
   return isApparel ? '$' : '₹';

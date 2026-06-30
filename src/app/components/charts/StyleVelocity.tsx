@@ -83,6 +83,7 @@ export default function StyleVelocity({ data }: Props) {
       })
       .sort((a, b) => b.total - a.total)
       .slice(0, 18)
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .map(({ total: _t, ...rest }) => rest);
   }, [data]);
 

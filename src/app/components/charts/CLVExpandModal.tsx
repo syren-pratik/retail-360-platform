@@ -8,7 +8,7 @@ import {
   LineChart, Line, Legend, ReferenceLine,
 } from 'recharts';
 import { CLVDetailData } from '@/app/lib/types';
-import { formatMoneyAuto, formatMoneyPlainAuto, getLocaleAuto } from '@/app/lib/format-money';
+import { formatMoneyAuto, getLocaleAuto } from '@/app/lib/format-money';
 
 interface CLVExpandModalProps {
   data: CLVDetailData;

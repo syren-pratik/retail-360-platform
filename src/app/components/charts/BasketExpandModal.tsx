@@ -9,7 +9,7 @@ import {
 import { X, Download, TrendingUp, ShoppingCart, Award, AlertTriangle, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { BasketData, BasketBucket } from '@/app/lib/types';
-import { formatMoneyAuto, formatMoneyPlainAuto, getLocaleAuto } from '@/app/lib/format-money';
+import { formatMoneyAuto, formatMoneyPlainAuto } from '@/app/lib/format-money';
 
 type TabId = 'distribution' | 'by-segment' | 'matrix' | 'trends' | 'behavior';
 type SegmentTab = 'segment' | 'channel';
