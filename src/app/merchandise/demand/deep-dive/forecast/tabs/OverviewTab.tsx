@@ -5,6 +5,7 @@ import type { MerchDemandFullPayload, MerchDemandPrecomputedHorizon } from '@/ap
 import MerchCategoryTimeline from '@/app/merchandise/demand/components/MerchCategoryTimeline';
 import DeepDiveInsights from '../../shared/DeepDiveInsights';
 import { AIInsightButton } from '@/app/components/charts/ChartCard';
+import { getLocaleAuto } from '@/app/lib/format-money';
 
 const HORIZONS = [7, 14, 28, 60] as const;
 type Zoom = '30d' | '90d' | '6m' | 'Full';
@@ -208,7 +209,7 @@ export default function OverviewTab({ core, precomputed }: Props) {
         {showPlanLine && planLevel && (
           <div className="mb-2 flex items-center gap-2 text-xs text-[var(--text-tertiary)]">
             <span className="inline-block w-6 border-t-2 border-dashed border-amber-400" />
-            <span>Plan reference: ~{planLevel.toLocaleString('en-IN')} units/day</span>
+            <span>Plan reference: ~{planLevel.toLocaleString(getLocaleAuto())} units/day</span>
           </div>
         )}
 
@@ -252,13 +253,13 @@ export default function OverviewTab({ core, precomputed }: Props) {
                   >
                     <td className="px-5 py-2.5 font-medium text-[var(--text-primary)]">{r.sub}</td>
                     <td className="px-4 py-2.5 text-right tabular-nums text-[var(--text-secondary)]">
-                      {Math.round(r.avgActual).toLocaleString('en-IN')}
+                      {Math.round(r.avgActual).toLocaleString(getLocaleAuto())}
                     </td>
                     <td className="px-4 py-2.5 text-right tabular-nums text-[var(--text-secondary)]">
-                      {Math.round(r.peakForecast).toLocaleString('en-IN')}
+                      {Math.round(r.peakForecast).toLocaleString(getLocaleAuto())}
                     </td>
                     <td className="px-4 py-2.5 text-right tabular-nums font-medium text-[var(--text-primary)]">
-                      {Math.round(r.totalForecast).toLocaleString('en-IN')}
+                      {Math.round(r.totalForecast).toLocaleString(getLocaleAuto())}
                     </td>
                     <td className={`px-4 py-2.5 text-right tabular-nums font-semibold ${r.vsLast >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
                       {r.vsLast >= 0 ? '+' : ''}{r.vsLast.toFixed(1)}%

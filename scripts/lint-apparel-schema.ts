@@ -106,6 +106,33 @@ const APPAREL_ADDITIVE_WHITELIST = new Set<string>([
   'revenue_usd', 'sizes', 'colors', 'cells', 'price_usd', 'units_sold',
   'brand_margin_pct', 'pl_margin_pct', 'margin_gap_pp', 'brand_revenue_usd', 'pl_revenue_usd',
   'pl_penetration_pct', 'returns_rate_pct', 'returns_cost_pct', 'by_department',
+  // Merch Demand apparel-additive fields (Phase C)
+  'brand_tier', 'color_mix_top3', 'weather_sensitivity',
+  'gross_forecast_units_14d', 'net_forecast_units_14d',
+  'life_stage', 'life_stage_history', 'cold_start',
+  'lookalike_sku_id', 'attribute_prior_units', 'blend_weight', 'dc_assignment',
+  'gross_units', 'net_units', 'weather_adjustment_pct', 'weather_adj_pct', 'event_lift_pct',
+  'net_vs_gross_demand_delta_pct', 'size_curve_health_pct',
+  'cold_start_skus_count', 'weather_adjusted_skus_count', 'bts_window_lift_pct',
+  'wape_overall_pct', 'bias_overall_pct', 'service_level_pct',
+  'by_life_stage', 'by_brand_tier',
+  'size_curve_grid', 'weather_overlay_strip',
+  'brand_vs_pl_forecast_mix', 'returns_adjusted_sell_through',
+  'size_curve_actual', 'size_curve_forecast', 'cold_start_blend',
+  'donor_weight', 'attribute_weight', 'actual_weight',
+  'brand_share_pct', 'pl_share_pct', 'gross_st_pct', 'net_st_pct', 'delta_pp',
+  'pl_pen_target_pct', 'pl_pen_actual_pct',
+  'broken_size_flags', 'forecast_units_per_size', 'actual_units_per_size',
+  'temp_anom_f', 'precip_anom_in', 'demand_adj_pct',
+  'replan_history', 'competitor_actions',
+  'brand_mix', 'weather_sensitive', 'net_to_gross_ratio', 'size_curve_health',
+  'market', 'weeks', 'share_pct',
+  'applies_to_brand_tier', 'department',
+  // Apparel event ids/names (events array divergence — grocery has Diwali/Holi, apparel has BTS/BFCM)
+  'eid-al-adha-2026', 'memorial-2026', 'bts-2026',
+  // Merch Demand top-level apparel-additive
+  'anchor_date', 'in_stock_rate_pct', 'forecast_skus_count', 'active_alerts', 'trend_12w',
+  'generated_at',
 ]);
 
 /**
@@ -283,11 +310,14 @@ async function main() {
     }
   }
 
-  // Nested price_intel files
+  // Nested price_intel + merch_demand files
   const nested = [
     'price_intel/core.json',
     'price_intel/precomputed.json',
     'price_intel/insights.json',
+    'merch_demand/core.json',
+    'merch_demand/precomputed.json',
+    'merch_demand/insights.json',
   ];
   for (const rel of nested) {
     const apparelPath = path.join(APPAREL_DIR, rel);

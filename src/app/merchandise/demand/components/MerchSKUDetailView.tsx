@@ -15,6 +15,7 @@ import MerchSKUForecastChart from './MerchSKUForecastChart';
 import MerchSKUDriversPanel from './MerchSKUDriversPanel';
 import MerchWhatIfSimulator from './MerchWhatIfSimulator';
 import MerchSKUMetaChips from './MerchSKUMetaChips';
+import { formatMoneyPlainAuto } from '@/app/lib/format-money';
 
 const VELOCITY_LABEL: Record<'A' | 'B' | 'C', string> = {
   A: 'Velocity A',
@@ -98,10 +99,10 @@ export default function MerchSKUDetailView({ sku, payload, filters, onBack }: Pr
       {/* ── Pricing summary ── */}
       <div className="flex items-center gap-4 text-[10px]">
         <span className="text-[var(--text-tertiary)]">
-          Price <span className="font-semibold text-[var(--text-primary)]">₹{sku.price_inr.toFixed(0)}</span>
+          Price <span className="font-semibold text-[var(--text-primary)]">{formatMoneyPlainAuto(sku.price_inr)}</span>
         </span>
         <span className="text-[var(--text-tertiary)]">
-          MRP <span className="font-semibold text-[var(--text-primary)]">₹{sku.mrp_inr.toFixed(0)}</span>
+          MRP <span className="font-semibold text-[var(--text-primary)]">{formatMoneyPlainAuto(sku.mrp_inr)}</span>
         </span>
         <span className="text-[var(--text-tertiary)]">
           Margin <span className="font-semibold text-[var(--text-primary)]">{sku.margin_pct.toFixed(1)}%</span>

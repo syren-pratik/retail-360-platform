@@ -20,6 +20,7 @@ import {
 import type { SKUForecastPoint, WhatIfParams } from '../lib/forecast-aggregation';
 import type { MerchDemandSKU } from '@/app/lib/merch-demand-types';
 import { AIInsightButton } from '@/app/components/charts/ChartCard';
+import { getLocaleAuto } from '@/app/lib/format-money';
 
 interface TooltipEntry {
   name: string;
@@ -52,7 +53,7 @@ function SKUTooltip({
             <span className="text-[var(--text-secondary)]">{p.name}</span>
           </span>
           <span className="font-medium text-[var(--text-primary)] tabular-nums">
-            {Math.round(p.value!).toLocaleString('en-IN')} units
+            {Math.round(p.value!).toLocaleString(getLocaleAuto())} units
           </span>
         </div>
       ))}

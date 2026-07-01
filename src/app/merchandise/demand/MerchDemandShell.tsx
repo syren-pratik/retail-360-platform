@@ -13,14 +13,49 @@ import MerchForecastExplorer from './components/MerchForecastExplorer';
 import MerchEventIntelligence from './components/MerchEventIntelligence';
 import MerchPlanVsActual from './components/MerchPlanVsActual';
 import MerchAccuracyDashboard from './components/MerchAccuracyDashboard';
+import MerchSizeCurveForecast from './components/MerchSizeCurveForecast';
+import MerchWeatherDrivenDemand from './components/MerchWeatherDrivenDemand';
+import MerchBrandVsPLForecastMix from './components/MerchBrandVsPLForecastMix';
+import MerchReturnsAdjustedSellThrough from './components/MerchReturnsAdjustedSellThrough';
 import LastUpdated from '@/app/components/ui/LastUpdated';
+import { useTenant } from '@/app/context/TenantContext';
 
 type State =
   | { status: 'loading' }
   | { status: 'error'; message: string }
   | { status: 'ready'; payload: MerchDemandFullPayload };
 
+interface ApparelPrecomputed {
+  size_curve_grid?: {
+    style_id: string;
+    style_name: string;
+    sizes: string[];
+    forecast_units_per_size: number[];
+    actual_units_per_size: number[];
+    broken_size_flags: boolean[];
+  }[];
+  weather_overlay_strip?: {
+    date: string;
+    temp_anom_f: number;
+    precip_anom_in: number;
+    demand_adj_pct: number;
+  }[];
+  brand_vs_pl_forecast_mix?: {
+    department: string;
+    weeks: number[];
+    brand_share_pct: number[];
+    pl_share_pct: number[];
+  }[];
+  returns_adjusted_sell_through?: {
+    department: string;
+    gross_st_pct: number[];
+    net_st_pct: number[];
+    delta_pp: number[];
+  }[];
+}
+
 export default function MerchDemandShell() {
+  const { isApparel } = useTenant();
   const [state, setState] = useState<State>({ status: 'loading' });
 
   const load = () => {
@@ -79,7 +114,7 @@ export default function MerchDemandShell() {
                 Merchandise Demand
               </h1>
               <p className="text-sm text-[var(--text-secondary)] mt-1">
-                Category-level demand intelligence · India · {payload.skus.length} SKUs · {payload.stores.length} stores
+                Category-level demand intelligence · {isApparel ? 'US Apparel' : 'India'} · {payload.skus.length} SKUs · {payload.stores.length} stores
               </p>
             </div>
             <LastUpdated timestamp={new Date(payload.generated_at)} />
@@ -97,6 +132,29 @@ export default function MerchDemandShell() {
 
           {/* Layer 3: Model Intelligence */}
           <MerchAccuracyDashboard core={payload} />
+
+          {isApparel && precomputed && (() => {
+            const ap = precomputed as unknown as ApparelPrecomputed;
+            if (!ap.size_curve_grid?.length && !ap.brand_vs_pl_forecast_mix?.length) return null;
+            return (
+              <div className="space-y-4">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <h2 className="text-sm font-semibold text-[var(--text-primary)]">Apparel Demand Signals</h2>
+                    <p className="text-xs text-[var(--text-secondary)]">Size-curve · weather overlay · brand vs PL · returns-adjusted</p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  {ap.size_curve_grid?.[0] && <MerchSizeCurveForecast grid={ap.size_curve_grid[0]} />}
+                  {ap.weather_overlay_strip && <MerchWeatherDrivenDemand strip={ap.weather_overlay_strip} />}
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  {ap.brand_vs_pl_forecast_mix && <MerchBrandVsPLForecastMix rows={ap.brand_vs_pl_forecast_mix} />}
+                  {ap.returns_adjusted_sell_through && <MerchReturnsAdjustedSellThrough rows={ap.returns_adjusted_sell_through} />}
+                </div>
+              </div>
+            );
+          })()}
         </div>
       </div>
     </MerchFilterProvider>

@@ -15,6 +15,7 @@ import {
 } from 'recharts';
 import type { MerchDemandPrecomputedHorizon } from '@/app/lib/merch-demand-types';
 import { AIInsightButton } from '@/app/components/charts/ChartCard';
+import { getLocaleAuto } from '@/app/lib/format-money';
 
 const PALETTE = [
   'var(--chart-blue)',
@@ -73,14 +74,14 @@ function ChartTooltip({
               </span>
             </span>
             <span className="font-medium text-[var(--text-primary)] tabular-nums flex-shrink-0">
-              {Math.round(p.value ?? 0).toLocaleString('en-IN')}
+              {Math.round(p.value ?? 0).toLocaleString(getLocaleAuto())}
             </span>
           </div>
         ))}
       <div className="flex justify-between mt-2 pt-1.5 border-t border-[var(--border-default)]">
         <span className="text-[var(--text-tertiary)]">Total</span>
         <span className="font-semibold text-[var(--text-primary)] tabular-nums">
-          {Math.round(total).toLocaleString('en-IN')} units
+          {Math.round(total).toLocaleString(getLocaleAuto())} units
         </span>
       </div>
     </div>

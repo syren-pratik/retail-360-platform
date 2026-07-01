@@ -1,13 +1,21 @@
 // Formatting utilities for the Merchandising Demand module.
-// All functions are pure — no side effects, no imports.
+
+import { getRuntimeTenant } from './tenant-runtime';
+import { getLocaleAuto } from './format-money';
 
 export function formatINR(n: number): string {
-  return `₹${Math.round(n).toLocaleString('en-IN')}`;
+  const symbol = getRuntimeTenant() === 'us_apparel' ? '$' : '₹';
+  return `${symbol}${Math.round(n).toLocaleString(getLocaleAuto())}`;
 }
 
 export function formatLakhsCrores(n: number): string {
   const sign = n < 0 ? '-' : '';
   const abs = Math.abs(n);
+  if (getRuntimeTenant() === 'us_apparel') {
+    if (abs >= 1_000_000) return `${sign}$${(abs / 1_000_000).toFixed(1)}M`;
+    if (abs >= 1_000)     return `${sign}$${(abs / 1_000).toFixed(1)}K`;
+    return `${sign}$${abs.toFixed(0)}`;
+  }
   if (abs >= 10_000_000) return `${sign}₹${(abs / 10_000_000).toFixed(1)}Cr`;
   if (abs >= 100_000)    return `${sign}₹${(abs / 100_000).toFixed(1)}L`;
   if (abs >= 1_000)      return `${sign}₹${(abs / 1_000).toFixed(1)}K`;

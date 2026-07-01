@@ -5,6 +5,7 @@ import type { MerchDemandFullPayload } from '@/app/lib/merch-demand-types';
 import { formatLakhsCrores } from '@/app/lib/merch-format';
 import DeepDiveInsights from '../../shared/DeepDiveInsights';
 import { AIInsightButton } from '@/app/components/charts/ChartCard';
+import { getLocaleAuto } from '@/app/lib/format-money';
 
 function seededNoise(seed: number): number {
   const x = Math.sin(seed) * 10000;
@@ -171,14 +172,14 @@ export default function RampStatusTab({ core }: Props) {
                       {sku?.category ?? '—'}
                     </td>
                     <td className="py-2 px-3 text-right text-[var(--text-primary)]">
-                      {currentStock.toLocaleString('en-IN')}
+                      {currentStock.toLocaleString(getLocaleAuto())}
                     </td>
                     <td className="py-2 px-3 text-right text-[var(--text-primary)]">
-                      {recommendedStock.toLocaleString('en-IN')}
+                      {recommendedStock.toLocaleString(getLocaleAuto())}
                     </td>
                     <td className="py-2 px-3 text-right">
                       <span className={gap > 0 ? 'text-rose-600 font-medium' : 'text-emerald-600'}>
-                        {gap > 0 ? `+${gap.toLocaleString('en-IN')}` : '0'}
+                        {gap > 0 ? `+${gap.toLocaleString(getLocaleAuto())}` : '0'}
                       </span>
                     </td>
                     <td className="py-2 px-3 text-right">

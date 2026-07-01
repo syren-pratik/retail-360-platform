@@ -8,6 +8,7 @@ import {
 import type { MerchDemandFullPayload } from '@/app/lib/merch-demand-types';
 import DeepDiveInsights from '../../shared/DeepDiveInsights';
 import { AIInsightButton } from '@/app/components/charts/ChartCard';
+import { getLocaleAuto } from '@/app/lib/format-money';
 
 const ANCHOR = '2026-05-17';
 
@@ -211,7 +212,7 @@ export default function YoYTab({ core, precomputed }: Props) {
 
               <Tooltip
                 formatter={(v: unknown, name: unknown) => [
-                  Math.round(Number(v)).toLocaleString('en-IN') + ' units',
+                  Math.round(Number(v)).toLocaleString(getLocaleAuto()) + ' units',
                   String(name),
                 ]}
                 contentStyle={{ fontSize: 11 }}

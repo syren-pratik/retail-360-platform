@@ -15,6 +15,7 @@ import MerchSKUDriversPanel from '@/app/merchandise/demand/components/MerchSKUDr
 import MerchWhatIfSimulator from '@/app/merchandise/demand/components/MerchWhatIfSimulator';
 import MerchSKUMetaChips from '@/app/merchandise/demand/components/MerchSKUMetaChips';
 import DeepDiveInsights from '../../shared/DeepDiveInsights';
+import { formatMoneyPlainAuto } from '@/app/lib/format-money';
 
 const ANCHOR = '2026-05-17';
 const PAGE_SIZE = 20;
@@ -241,7 +242,7 @@ export default function SKUDetailTab({ core, selectedSKUId, onSKUSelect }: Props
                     </div>
                   </div>
                   <div className="flex flex-col items-end gap-1 ml-4 flex-shrink-0">
-                    <span className="text-xs text-[var(--text-tertiary)]">₹{selectedSKU.price_inr.toFixed(0)} / unit</span>
+                    <span className="text-xs text-[var(--text-tertiary)]">{formatMoneyPlainAuto(selectedSKU.price_inr)} / unit</span>
                     <span className="text-xs text-[var(--text-tertiary)]">Margin {selectedSKU.margin_pct.toFixed(1)}%</span>
                   </div>
                 </div>

@@ -5,6 +5,7 @@ import type { MerchDemandFullPayload } from '@/app/lib/merch-demand-types';
 import { formatLakhsCrores } from '@/app/lib/merch-format';
 import DeepDiveInsights from '../../shared/DeepDiveInsights';
 import { AIInsightButton } from '@/app/components/charts/ChartCard';
+import { formatMoneyPlainAuto, getLocaleAuto } from '@/app/lib/format-money';
 
 function seededNoise(seed: number): number {
   const x = Math.sin(seed) * 10000;
@@ -149,7 +150,7 @@ export default function CostOfUnreadinessTab({ core }: Props) {
                         {sku?.category ?? '—'}
                       </td>
                       <td className="py-2 px-3 text-right text-[var(--text-primary)]">
-                        {gapUnits.toLocaleString('en-IN')}
+                        {gapUnits.toLocaleString(getLocaleAuto())}
                       </td>
                       <td className="py-2 px-3 text-right text-[var(--text-primary)]">
                         {formatLakhsCrores(gapInr)}
@@ -305,7 +306,7 @@ export default function CostOfUnreadinessTab({ core }: Props) {
                 Net savings from acting: {formatLakhsCrores(totals.costOfInaction - totals.investmentNeeded)}
               </p>
               <p className="text-[10px] text-emerald-700 mt-0.5">
-                Every ₹1 invested saves ₹{roi.toFixed(1)} in avoided losses
+                Every {formatMoneyPlainAuto(1)} invested saves {formatMoneyPlainAuto(roi)} in avoided losses
               </p>
             </div>
           </div>

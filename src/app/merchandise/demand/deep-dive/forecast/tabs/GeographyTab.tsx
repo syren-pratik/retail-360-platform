@@ -7,6 +7,7 @@ import {
 import type { MerchDemandFullPayload } from '@/app/lib/merch-demand-types';
 import DeepDiveInsights from '../../shared/DeepDiveInsights';
 import { AIInsightButton } from '@/app/components/charts/ChartCard';
+import { getLocaleAuto } from '@/app/lib/format-money';
 
 type Region = 'North' | 'South' | 'East' | 'West';
 
@@ -242,8 +243,8 @@ export default function GeographyTab({ core }: Props) {
                   <td className="px-5 py-2.5 font-medium text-[var(--text-primary)] truncate max-w-[160px]">{r.store.store_name}</td>
                   <td className="px-4 py-2.5 text-[var(--text-secondary)]">{r.store.city}</td>
                   <td className="px-4 py-2.5 text-[var(--text-secondary)]">{r.store.store_type}</td>
-                  <td className="px-4 py-2.5 text-right tabular-nums text-[var(--text-secondary)]">{r.forecast.toLocaleString('en-IN')}</td>
-                  <td className="px-4 py-2.5 text-right tabular-nums text-[var(--text-primary)] font-medium">{r.actual.toLocaleString('en-IN')}</td>
+                  <td className="px-4 py-2.5 text-right tabular-nums text-[var(--text-secondary)]">{r.forecast.toLocaleString(getLocaleAuto())}</td>
+                  <td className="px-4 py-2.5 text-right tabular-nums text-[var(--text-primary)] font-medium">{r.actual.toLocaleString(getLocaleAuto())}</td>
                   <td className="px-4 py-2.5 text-right tabular-nums text-[var(--text-secondary)]">{r.mape.toFixed(1)}%</td>
                   <td className={`px-4 py-2.5 text-right tabular-nums font-semibold ${r.variance >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
                     {r.variance >= 0 ? '+' : ''}{r.variance.toFixed(1)}%

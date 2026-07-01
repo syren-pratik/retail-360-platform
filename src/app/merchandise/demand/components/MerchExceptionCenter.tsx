@@ -185,7 +185,7 @@ export default function MerchExceptionCenter({ core }: Props) {
         <div>
           <h2 className="text-base font-semibold text-[var(--text-primary)]">Exception Center</h2>
           <p className="text-sm text-[var(--text-secondary)] mt-0.5">
-            {filteredItems.length} items need attention · ranked by ₹ impact
+            {filteredItems.length} items need attention · ranked by revenue impact
           </p>
         </div>
         <div className="flex items-center gap-2 flex-wrap">

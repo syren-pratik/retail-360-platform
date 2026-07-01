@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
 import fs from 'fs';
 import path from 'path';
+import { loadCache, getTenantFromCookie } from '@/app/lib/cache-loader';
+
+export const dynamic = 'force-dynamic';
 
 let client: Anthropic | null = null;
 let modelName = 'claude-sonnet-4-5-20250514';
@@ -185,6 +188,18 @@ Generate exactly 4 insights. Return ONLY the JSON array.`;
 
 export async function GET(request: NextRequest) {
   const refresh = request.nextUrl.searchParams.get('refresh') === 'true';
+  const tenant = getTenantFromCookie();
+  const isApparel = tenant === 'us_apparel';
+
+  // Apparel: always serve the pre-baked insights fixture; no regen/write-back.
+  if (isApparel) {
+    try {
+      const cached = await loadCache<InsightCacheFile>('merch_demand/insights.json');
+      return NextResponse.json({ insights: cached.insights, source: 'cache' });
+    } catch {
+      return NextResponse.json({ insights: [], source: 'error', error: 'Apparel insights unavailable' }, { status: 500 });
+    }
+  }
 
   if (!refresh) {
     const cached = readCache();

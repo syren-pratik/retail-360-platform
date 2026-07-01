@@ -8,6 +8,7 @@ import {
 import type { MerchDemandFullPayload, MerchDemandAnomaly } from '@/app/lib/merch-demand-types';
 import DeepDiveInsights from '../../shared/DeepDiveInsights';
 import { AIInsightButton } from '@/app/components/charts/ChartCard';
+import { getLocaleAuto } from '@/app/lib/format-money';
 
 const ANCHOR = '2026-05-17';
 
@@ -134,7 +135,7 @@ export default function AnomaliesTab({ core, precomputed }: Props) {
                 axisLine={false}
                 width={36}
               />
-              <Tooltip formatter={(v: unknown) => [Math.round(Number(v)).toLocaleString('en-IN'), 'Total demand']} contentStyle={{ fontSize: 11 }} cursor={{ stroke: '#E2E8F0' }} />
+              <Tooltip formatter={(v: unknown) => [Math.round(Number(v)).toLocaleString(getLocaleAuto()), 'Total demand']} contentStyle={{ fontSize: 11 }} cursor={{ stroke: '#E2E8F0' }} />
               <Line
                 dataKey="total"
                 stroke="var(--chart-slate)"

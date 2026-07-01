@@ -130,7 +130,7 @@ export default function MerchSKUDrillPanel({
         <div>
           <p className="text-xs font-medium text-[var(--text-primary)]">Top SKUs by Forecast Revenue</p>
           <p className="text-xs text-[var(--text-tertiary)] mt-0.5">
-            {horizon}d horizon · ranked by ₹ forecast · click to inspect
+            {horizon}d horizon · ranked by revenue forecast · click to inspect
           </p>
         </div>
         <AIInsightButton id="merch-top-skus-forecast-revenue" title="Top SKUs by Forecast Revenue" data={rows as unknown as Record<string, unknown>[]} />

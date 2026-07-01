@@ -12,6 +12,7 @@ import BySKUTab from './tabs/BySKUTab';
 import ByDimensionTab from './tabs/ByDimensionTab';
 import BiasAnalysisTab from './tabs/BiasAnalysisTab';
 import FeatureDeepDiveTab from './tabs/FeatureDeepDiveTab';
+import { getLocaleAuto } from '@/app/lib/format-money';
 
 const TABS = [
   { id: 'overview',      label: 'Accuracy Overview', icon: <BarChart2 size={14} /> },
@@ -66,7 +67,7 @@ export default function AccuracyDeepDive({ core }: Props) {
     },
     {
       label: 'Training rows',
-      value: trainingRows.toLocaleString('en-IN'),
+      value: trainingRows.toLocaleString(getLocaleAuto()),
       subtext: `${nFeatures} features`,
     },
   ];
@@ -77,7 +78,7 @@ export default function AccuracyDeepDive({ core }: Props) {
       ['Overall MAPE', `${overallMape.toFixed(1)}%`],
       ['Test MAPE', `${testMape.toFixed(1)}%`],
       ['Bias', `${testBias.toFixed(2)}%`],
-      ['Training Rows', trainingRows.toLocaleString('en-IN')],
+      ['Training Rows', trainingRows.toLocaleString(getLocaleAuto())],
       ['Features', nFeatures.toString()],
     ];
     const csv = rows.map((r) => r.join(',')).join('\n');
