@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { agentTenant, agentSystemPrefix, agentCurrencySymbol, agentMarket } from '@/app/lib/agent-tenant';
 import { priceIntelLookup, supplierHealth, inventoryStatus } from '@/app/lib/dbx-tools';
 
