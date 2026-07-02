@@ -400,7 +400,7 @@ export default function ColdstartWeatherSensitivity({
             <div>
               <h3 className="text-sm font-semibold text-[var(--text-primary)]">Store-Level Weather Risk</h3>
               <p className="text-[11px] text-[var(--text-tertiary)]">
-                12 Lucknow stores · 5 weather risk axes · resilience score derived
+                12 target city stores · 5 weather risk axes · resilience score derived
               </p>
             </div>
           </div>

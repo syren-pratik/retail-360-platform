@@ -12,6 +12,7 @@ import {
 } from 'recharts';
 import ChartCard from '@/app/components/charts/ChartCard';
 import type { ColdstartCostOfMAPE } from '@/app/lib/coldstart-types';
+import { formatMoneyPlainAuto, getLocaleAuto } from '@/app/lib/format-money';
 
 interface Props {
   data: ColdstartCostOfMAPE;
@@ -20,7 +21,7 @@ interface Props {
 function formatINR(n: number): string {
   if (n >= 1e7) return `₹${(n / 1e7).toFixed(1)}Cr`;
   if (n >= 1e5) return `₹${(n / 1e5).toFixed(1)}L`;
-  return `₹${n.toLocaleString('en-IN')}`;
+  return `₹${n.toLocaleString(getLocaleAuto())}`;
 }
 
 function formatUSD(n: number, rate: number): string {
@@ -96,7 +97,7 @@ export default function ColdstartCostOfMAPE({ data }: Props) {
         <ChartCard
           id="coldstart-cost-of-mape-table"
           title="Cost of MAPE — 90-Day Holdout"
-          subtitle="Estimated inventory loss cost from forecast error · 42 SKUs · Lucknow launch"
+          subtitle="Estimated inventory loss cost from forecast error · 42 SKUs · {payload.target_city.name} launch"
           height={220}
           exportFilename="coldstart_cost_mape_table"
           data={rows as unknown as Record<string, unknown>[]}
@@ -245,7 +246,7 @@ export default function ColdstartCostOfMAPE({ data }: Props) {
               </div>
               <div className="flex justify-between items-center py-1.5">
                 <span className="text-[var(--text-secondary)]">Exchange rate</span>
-                <span className="font-mono text-[var(--text-primary)]">₹{rate}=$1</span>
+                <span className="font-mono text-[var(--text-primary)]">{formatMoneyPlainAuto(rate)}=$1</span>
               </div>
             </div>
 

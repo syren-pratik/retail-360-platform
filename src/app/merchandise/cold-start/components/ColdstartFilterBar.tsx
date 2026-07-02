@@ -121,7 +121,7 @@ export default function ColdstartFilterBar({ onRefresh }: { onRefresh: () => voi
             <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
             Mock Data
           </span>
-          <span className="text-xs text-[var(--text-secondary)]">Lucknow · 90-day holdout · Jan 2024</span>
+          <span className="text-xs text-[var(--text-secondary)]">target city · 90-day holdout · Jan 2024</span>
           <button
             onClick={handleRefresh}
             className="btn-secondary flex items-center gap-1.5 text-sm"

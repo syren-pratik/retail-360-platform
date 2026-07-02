@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { agentTenant, agentSystemPrefix, agentCurrencySymbol, agentMarket } from '@/app/lib/agent-tenant';
 import { priceIntelLookup, supplierHealth, inventoryStatus } from '@/app/lib/dbx-tools';
 
 let client: Anthropic | null = null;
@@ -180,7 +181,7 @@ export async function POST(request: NextRequest) {
     console.warn('weekly-briefing: dbx context fetch failed, continuing without:', err);
   }
 
-  const prompt = `${dbxContext}Generate a weekly pricing intelligence brief for Indian retail leadership. Return ONLY valid JSON — no markdown, no extra text.
+  const prompt = `${dbxContext}Generate a weekly pricing intelligence brief for ${agentMarket(agentTenant())} retail leadership. Return ONLY valid JSON — no markdown, no extra text.
 
 KPIs this week: ${JSON.stringify(body.kpis ?? {})}
 Active campaigns: ${JSON.stringify(body.campaigns ?? [])}

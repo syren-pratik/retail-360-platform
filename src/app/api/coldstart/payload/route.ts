@@ -1,15 +1,12 @@
 import { NextResponse } from 'next/server';
-import * as fs from 'fs/promises';
-import * as path from 'path';
 import type { ColdstartPayload } from '@/app/lib/coldstart-types';
+import { loadCache } from '@/app/lib/cache-loader';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), 'cache', 'coldstart.json');
-    const raw = await fs.readFile(filePath, 'utf-8');
-    const payload: ColdstartPayload = JSON.parse(raw);
+    const payload = await loadCache<ColdstartPayload>('coldstart.json');
     return NextResponse.json(payload);
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Unknown error';

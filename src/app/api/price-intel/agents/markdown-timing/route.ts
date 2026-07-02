@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { agentTenant, agentSystemPrefix, agentCurrencySymbol, agentMarket } from '@/app/lib/agent-tenant';
 import { inventoryStatus } from '@/app/lib/dbx-tools';
 
 let client: Anthropic | null = null;
@@ -158,7 +159,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(computeFallback(body, dbxOverstock));
   }
 
-  const prompt = `${dbxContext}Create an optimised markdown timing schedule for Indian retail end-of-season clearance. Return ONLY valid JSON — no markdown formatting, no extra text.
+  const prompt = `${dbxContext}Create an optimised markdown timing schedule for ${agentMarket(agentTenant())} retail end-of-season clearance. Return ONLY valid JSON — no markdown formatting, no extra text.
 
 Goal: ${body.goal}
 Season end (weeks from now): ${body.season_end_weeks}

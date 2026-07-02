@@ -45,9 +45,9 @@ export default function StoreOpeningDepartmentForecast({ departments }: Props) {
               <tr>
                 <th className="text-left py-2">Department</th>
                 <th className="text-right py-2">Mix</th>
-                <th className="text-right py-2">Year-1 Net (₹)</th>
+                <th className="text-right py-2">Year-1 Net</th>
                 <th className="text-center py-2">Conf.</th>
-                <th className="text-right py-2">Opening Buy (₹)</th>
+                <th className="text-right py-2">Opening Buy</th>
                 <th className="text-center py-2">Status</th>
               </tr>
             </thead>

@@ -54,7 +54,7 @@ export default function ColdstartKPIStrip({ kpis }: Props) {
           totalCount={kpis.total_skus}
         />
         <p className="text-xs text-[var(--text-tertiary)] mt-1 px-1">
-          Lucknow launch cohort
+          target city launch cohort
         </p>
       </div>
 

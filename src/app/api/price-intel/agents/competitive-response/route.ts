@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { agentTenant, agentSystemPrefix, agentCurrencySymbol, agentMarket } from '@/app/lib/agent-tenant';
 import { priceIntelLookup } from '@/app/lib/dbx-tools';
 
 let client: Anthropic | null = null;
@@ -116,7 +117,7 @@ export async function POST(request: NextRequest) {
     const response = await client.messages.create({
       model: modelName,
       max_tokens: 1500,
-      system: `You are a competitive pricing strategist using the Kotler framework for Indian retail. When the user describes a competitor pricing move, respond conversationally AND include a JSON analysis block at the end of your response wrapped in <analysis> tags. The analysis should follow this schema: { "competitive_position": "<string>", "threat_level": "low|medium|high|critical", "recommended_response": "<string>", "price_adjustment_pct": <number>, "supporting_actions": ["<string>"], "market_share_risk_pct": <number> }. Keep response text brief (2-3 sentences) before the analysis block.${dbxContext}`,
+      system: `You are a competitive pricing strategist using the Kotler framework for ${agentMarket(agentTenant())} retail. When the user describes a competitor pricing move, respond conversationally AND include a JSON analysis block at the end of your response wrapped in <analysis> tags. The analysis should follow this schema: { "competitive_position": "<string>", "threat_level": "low|medium|high|critical", "recommended_response": "<string>", "price_adjustment_pct": <number>, "supporting_actions": ["<string>"], "market_share_risk_pct": <number> }. Keep response text brief (2-3 sentences) before the analysis block.${dbxContext}`,
       messages: body.messages,
     });
 

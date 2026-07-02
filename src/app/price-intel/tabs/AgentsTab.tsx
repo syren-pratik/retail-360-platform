@@ -13,7 +13,6 @@ import {
 } from 'lucide-react';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
 import { useTenant } from '@/app/context/TenantContext';
-import { AlertTriangle } from 'lucide-react';
 import PromoScenarioAgent from '../agents/PromoScenarioAgent';
 import PriceStrategyAgent from '../agents/PriceStrategyAgent';
 import MarkdownTimingAgent from '../agents/MarkdownTimingAgent';
@@ -144,14 +143,15 @@ export default function AgentsTab({ core }: Props) {
   const { isApparel } = useTenant();
   return (
     <div>
-      {/* Apparel-mode deferred-notice banner (Price Intel spec §4.3) */}
+      {/* Apparel-mode enablement banner */}
       {isApparel && (
-        <div className="rounded-lg p-3 mb-4 bg-amber-50 border border-amber-200 flex items-start gap-2">
-          <span className="flex-shrink-0 text-amber-600 mt-0.5">
-            <AlertTriangle size={16} />
+        <div className="rounded-lg p-3 mb-4 bg-emerald-50 border border-emerald-200 flex items-start gap-2">
+          <span className="flex-shrink-0 text-emerald-600 mt-0.5">
+            <Sparkles size={16} />
           </span>
-          <p className="text-sm text-amber-800 leading-relaxed">
-            AI Agents are in grocery mode — apparel agent skins coming in a future sprint.
+          <p className="text-sm text-emerald-800 leading-relaxed">
+            <span className="font-semibold">Apparel AI Agents enabled.</span> All 5 agents now
+            use US-apparel context (BTS, BFCM, brand mix, size runs) and USD pricing.
           </p>
         </div>
       )}

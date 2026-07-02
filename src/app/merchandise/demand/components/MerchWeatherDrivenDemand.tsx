@@ -45,7 +45,7 @@ export default function MerchWeatherDrivenDemand({ strip }: Props) {
                   <div className="bg-white border border-[var(--border-default)] rounded-lg p-2 shadow-md text-xs">
                     <p className="font-medium">{d.date}</p>
                     <p className="text-[var(--text-secondary)]">Temp anom: {d.temp_anom_f > 0 ? '+' : ''}{d.temp_anom_f}°F</p>
-                    <p className="text-[var(--text-secondary)]">Precip anom: +{d.precip_anom_in}"</p>
+                    <p className="text-[var(--text-secondary)]">Precip anom: +{d.precip_anom_in}&quot;</p>
                     <p className={d.demand_adj_pct >= 0 ? 'text-emerald-600 font-medium' : 'text-rose-600 font-medium'}>
                       Demand: {d.demand_adj_pct >= 0 ? '+' : ''}{d.demand_adj_pct}%
                     </p>

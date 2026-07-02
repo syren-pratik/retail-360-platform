@@ -84,7 +84,7 @@ export default function ColdstartAnalogCityMap({ analogs, target }: Props) {
       <ChartCard
         id="coldstart-analog-scatter"
         title="Analog City Feature Space"
-        subtitle="GDP/capita vs population — Lucknow crosshairs show target position"
+        subtitle="GDP/capita vs population — {payload.target_city.name} crosshairs show target position"
         height={300}
         exportFilename="coldstart_analog_cities"
         data={scatterData as unknown as Record<string, unknown>[]}
@@ -116,7 +116,7 @@ export default function ColdstartAnalogCityMap({ analogs, target }: Props) {
             />
             <Tooltip content={<CustomTooltip />} />
 
-            {/* Lucknow crosshairs */}
+            {/* {payload.target_city.name} crosshairs */}
             <ReferenceLine x={target.gdp_per_capita_usd} stroke="#3b82f6" strokeDasharray="4 3" strokeWidth={1} />
             <ReferenceLine y={target.population_m}       stroke="#3b82f6" strokeDasharray="4 3" strokeWidth={1} />
 
@@ -137,7 +137,7 @@ export default function ColdstartAnalogCityMap({ analogs, target }: Props) {
         <div className="flex gap-3 mt-0 px-2 flex-wrap">
           <span className="flex items-center gap-1 text-xs">
             <span className="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block" />
-            <span className="text-[var(--text-secondary)]">Lucknow (target)</span>
+            <span className="text-[var(--text-secondary)]">target city</span>
           </span>
           {top3.map((a, i) => (
             <span key={a.city} className="flex items-center gap-1 text-xs">

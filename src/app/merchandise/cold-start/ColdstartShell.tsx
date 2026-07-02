@@ -23,14 +23,23 @@ import ColdstartMethodology from './components/ColdstartMethodology';
 import ColdstartCostOfMAPE from './components/ColdstartCostOfMAPE';
 import ColdstartExternalSignals from './components/ColdstartExternalSignals';
 import ColdstartWeatherSensitivity from './components/ColdstartWeatherSensitivity';
+import ColdstartAnalogCitySimilarity from './components/ColdstartAnalogCitySimilarity';
+import ColdstartBrandPenetrationRamp from './components/ColdstartBrandPenetrationRamp';
 import LastUpdated from '@/app/components/ui/LastUpdated';
+import { useTenant } from '@/app/context/TenantContext';
 
 type State =
   | { status: 'loading' }
   | { status: 'error'; message: string }
   | { status: 'ready'; payload: ColdstartPayload };
 
+interface ApparelExtras {
+  analog_similarity_radar?: { city: string; climate: number; demographics: number; competitor_density: number; apparel_spend: number }[];
+  brand_pl_penetration_ramp?: { day: number; brand_share_pct: number; pl_share_pct: number; dallas_baseline_pl_pct: number }[];
+}
+
 export default function ColdstartShell() {
+  const { isApparel } = useTenant();
   const [state, setState] = useState<State>({ status: 'loading' });
   const [showTechnicals, setShowTechnicals] = useState(false);
 
@@ -88,7 +97,7 @@ export default function ColdstartShell() {
               Cold-Start Demand Forecasting
             </h1>
             <p className="text-sm text-[var(--text-secondary)] mt-0.5">
-              Lucknow new-store launch · {payload.target_city.tier} · 90-day holdout window · Jan 2024
+              {payload.target_city.name} new-store launch · {payload.target_city.tier} · 90-day holdout window · Jan 2024
             </p>
           </div>
           <LastUpdated timestamp={new Date(payload.generated_at)} />
@@ -158,6 +167,22 @@ export default function ColdstartShell() {
           storeRisk={payload.weather_store_risk}
           signalInputs={payload.weather_signal_inputs}
         />
+
+        {isApparel && (() => {
+          const ap = payload as unknown as ApparelExtras;
+          if (!ap.analog_similarity_radar && !ap.brand_pl_penetration_ramp) return null;
+          return (
+            <div>
+              <h2 className="text-sm font-semibold text-[var(--text-primary)] mb-3 uppercase tracking-wide">
+                Apparel Cold-Start Signals
+              </h2>
+              <div className="grid grid-cols-2 gap-4">
+                {ap.analog_similarity_radar && <ColdstartAnalogCitySimilarity data={ap.analog_similarity_radar} />}
+                {ap.brand_pl_penetration_ramp && <ColdstartBrandPenetrationRamp data={ap.brand_pl_penetration_ramp} />}
+              </div>
+            </div>
+          );
+        })()}
 
         {/* Section: External Signals */}
         <div>

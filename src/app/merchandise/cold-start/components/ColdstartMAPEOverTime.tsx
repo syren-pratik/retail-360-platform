@@ -100,7 +100,7 @@ export default function ColdstartMAPEOverTime({ data, convergenceDay }: Props) {
     ? MODEL_LABELS[filters.model] ?? filters.model
     : 'All models';
 
-  const subtitle = `${selectedLabel} · 90-day Lucknow holdout${filters.horizon !== 'full' ? ` · ${filters.horizon}` : ''}`;
+  const subtitle = `${selectedLabel} · 90-day {payload.target_city.name} holdout${filters.horizon !== 'full' ? ` · ${filters.horizon}` : ''}`;
 
   return (
     <ChartCard

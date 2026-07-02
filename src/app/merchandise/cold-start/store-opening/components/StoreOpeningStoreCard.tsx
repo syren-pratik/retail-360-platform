@@ -13,7 +13,7 @@ export default function StoreOpeningStoreCard({ header }: Props) {
             5
           </div>
           <div>
-            <div className="text-sm font-semibold">Hazratganj — Lucknow, UP</div>
+            <div className="text-sm font-semibold">{header.store_name}</div>
             <div className="text-[11px] text-slate-300">{header.trade_area_label}</div>
           </div>
         </div>

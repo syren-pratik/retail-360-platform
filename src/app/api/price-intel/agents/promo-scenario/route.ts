@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { agentTenant, agentSystemPrefix, agentCurrencySymbol, agentMarket } from '@/app/lib/agent-tenant';
 import { priceIntelLookup } from '@/app/lib/dbx-tools';
 
 let client: Anthropic | null = null;
@@ -126,7 +127,7 @@ export async function POST(request: NextRequest) {
     console.warn('promo-scenario: dbx context fetch failed, continuing without:', err);
   }
 
-  const prompt = `${dbxContext}Analyse this Indian retail promotional scenario and return ONLY valid JSON matching the exact schema — no markdown, no extra text.
+  const prompt = `${dbxContext}Analyse this ${agentMarket(agentTenant())} promotional scenario and return ONLY valid JSON matching the exact schema — no markdown, no extra text.
 
 SKU ID: ${body.sku_id}
 Discount %: ${body.discount_pct}
@@ -155,7 +156,7 @@ Return JSON schema:
       model: modelName,
       max_tokens: 1500,
       system:
-        'You are a promo ROI simulation expert for Indian retail. Return ONLY valid JSON matching the exact schema provided. Use ₹ values in INR.',
+        agentSystemPrefix(agentTenant()) + ' \'You are a promo ROI simulation expert for ${agentMarket(agentTenant())} retail. Return ONLY valid JSON matching the exact schema provided. Use ₹ values in INR.\'',
       messages: [{ role: 'user', content: prompt }],
     });
 

@@ -37,7 +37,7 @@ const INSIGHTS: Insight[] = [
     type: 'anomaly',
     severity: 'info',
     title: 'Jaipur drives 38.8% of forecast',
-    description: 'Highest analog weight at 0.6481 similarity score — 25.9pp above Ahmedabad (rank 2). Semi-arid climate and comparable GDP per capita make Jaipur the dominant prior for Lucknow.',
+    description: 'Highest analog weight at 0.6481 similarity score — 25.9pp above Ahmedabad (rank 2). Semi-arid climate and comparable GDP per capita make Jaipur the dominant prior for {payload.target_city.name}.',
     source: 'coldstart',
     relatedChart: 'coldstart-analog-city-map',
   },
