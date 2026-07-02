@@ -9,7 +9,7 @@
   },
   "nine_box": [
     {
-      "r_band": "Recent (≤45d)",
+      "r_band": "Recent (1-3)",
       "f_band": "Low (1)",
       "label": "Potential Loyalists",
       "r_score": 3,
@@ -23,8 +23,8 @@
       "color": "#60A5FA"
     },
     {
-      "r_band": "Recent (≤45d)",
-      "f_band": "Medium (2-3)",
+      "r_band": "Recent (1-3)",
+      "f_band": "Medium (2)",
       "label": "Loyal Customers",
       "r_score": 3,
       "f_score": 2,
@@ -37,8 +37,8 @@
       "color": "#34D399"
     },
     {
-      "r_band": "Recent (≤45d)",
-      "f_band": "Frequent (4+)",
+      "r_band": "Recent (1-3)",
+      "f_band": "Frequent (3)",
       "label": "Champions",
       "r_score": 3,
       "f_score": 3,
@@ -51,7 +51,7 @@
       "color": "#10B981"
     },
     {
-      "r_band": "Mid (46-120d)",
+      "r_band": "Mid (2)",
       "f_band": "Low (1)",
       "label": "About to Sleep",
       "r_score": 2,
@@ -65,8 +65,8 @@
       "color": "#FB923C"
     },
     {
-      "r_band": "Mid (46-120d)",
-      "f_band": "Medium (2-3)",
+      "r_band": "Mid (2)",
+      "f_band": "Medium (2)",
       "label": "Needs Attention",
       "r_score": 2,
       "f_score": 2,
@@ -79,8 +79,8 @@
       "color": "#FCD34D"
     },
     {
-      "r_band": "Mid (46-120d)",
-      "f_band": "Frequent (4+)",
+      "r_band": "Mid (2)",
+      "f_band": "Frequent (3)",
       "label": "At Risk",
       "r_score": 2,
       "f_score": 3,
@@ -93,7 +93,7 @@
       "color": "#F59E0B"
     },
     {
-      "r_band": "Lapsed (>120d)",
+      "r_band": "Lapsed (1)",
       "f_band": "Low (1)",
       "label": "Lost",
       "r_score": 1,
@@ -107,8 +107,8 @@
       "color": "#6B7280"
     },
     {
-      "r_band": "Lapsed (>120d)",
-      "f_band": "Medium (2-3)",
+      "r_band": "Lapsed (1)",
+      "f_band": "Medium (2)",
       "label": "Hibernating",
       "r_score": 1,
       "f_score": 2,
@@ -121,8 +121,8 @@
       "color": "#94A3B8"
     },
     {
-      "r_band": "Lapsed (>120d)",
-      "f_band": "Frequent (4+)",
+      "r_band": "Lapsed (1)",
+      "f_band": "Frequent (3)",
       "label": "Can't Lose Them",
       "r_score": 1,
       "f_score": 3,

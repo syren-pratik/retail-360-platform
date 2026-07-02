@@ -1144,8 +1144,8 @@ function genRfmDetail() {
         return rs === r_score && fs === f_score;
       });
       nineBox.push({
-        r_band: r_score === 3 ? 'Recent (≤45d)' : r_score === 2 ? 'Mid (46-120d)' : 'Lapsed (>120d)',
-        f_band: f_score === 3 ? 'Frequent (4+)' : f_score === 2 ? 'Medium (2-3)' : 'Low (1)',
+        r_band: r_score === 3 ? 'Recent (1-3)' : r_score === 2 ? 'Mid (2)' : 'Lapsed (1)',
+        f_band: f_score === 3 ? 'Frequent (3)' : f_score === 2 ? 'Medium (2)' : 'Low (1)',
         label, r_score, f_score,
         customer_count: rows.length,
         avg_clv: Math.round(mean(rows.map(c => c.clv_12m)) || 0),
