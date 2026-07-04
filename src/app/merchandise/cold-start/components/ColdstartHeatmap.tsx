@@ -4,17 +4,20 @@ import React, { useMemo } from 'react';
 import ChartCard from '@/app/components/charts/ChartCard';
 import type { ColdstartHeatmapCell } from '@/app/lib/coldstart-types';
 import { useColdstartFilters } from '../ColdstartFilterContext';
+import { useTenant } from '@/app/context/TenantContext';
 
 interface Props {
   cells: ColdstartHeatmapCell[];
 }
 
-const ALL_CATEGORIES = [
+const ALL_CATEGORIES_GROCERY = [
   'Coffee', 'Dal & Pulses', 'Chips & Namkeen', 'Paneer', 'Edible Oil',
   'Curd & Yogurt', 'Butter & Ghee', 'Energy Drinks', 'Tea', 'Rice',
 ];
+const ALL_CATEGORIES_APPAREL = ['Mens', 'Womens', 'Kids', 'Footwear', 'Accessories'];
 
-const ALL_STORE_TYPES = ['Express', 'Dark Store', 'Hypermarket', 'Supermarket'];
+const ALL_STORE_TYPES_GROCERY = ['Express', 'Dark Store', 'Hypermarket', 'Supermarket'];
+const ALL_STORE_TYPES_APPAREL = ['Flagship', 'Mall', 'Outlet', 'Urban'];
 
 const MODEL_LABELS: Record<string, string> = {
   naive_baseline:  'Naive Baseline',
@@ -39,6 +42,9 @@ function mapeToTextColor(mape: number): string {
 }
 
 export default function ColdstartHeatmap({ cells }: Props) {
+  const { isApparel } = useTenant();
+  const ALL_CATEGORIES = isApparel ? ALL_CATEGORIES_APPAREL : ALL_CATEGORIES_GROCERY;
+  const ALL_STORE_TYPES = isApparel ? ALL_STORE_TYPES_APPAREL : ALL_STORE_TYPES_GROCERY;
   const { filters } = useColdstartFilters();
 
   // Default to fix2_blending when model=all or an unrecognised id

@@ -17,6 +17,7 @@ import {
   ReferenceArea,
 } from 'recharts';
 import ChartCard from '@/app/components/charts/ChartCard';
+import { useTenant } from '@/app/context/TenantContext';
 import type {
   WeatherTemperatureElasticity,
   WeatherMonsoonImpact,
@@ -111,6 +112,7 @@ export default function ColdstartWeatherSensitivity({
   storeRisk,
   signalInputs,
 }: Props) {
+  const { isApparel } = useTenant();
   // Panel A — sorted by abs(elasticity) descending
   const tempChartData = useMemo(() =>
     [...temperatureElasticity]
@@ -202,8 +204,11 @@ export default function ColdstartWeatherSensitivity({
             </BarChart>
           </ResponsiveContainer>
           <p className="text-[10px] text-[var(--text-tertiary)] mt-2 px-1 leading-relaxed">
-            Highest sensitivity: <strong>Butter & Ghee</strong> — every degree above 28°C drives +6.5% demand (chilled dairy proxy).
-            Lowest: Edible Oil at 0%. Source: gold_weather_impact (4,380 obs/category).
+            {isApparel ? (
+              <>Highest sensitivity: <strong>Outerwear</strong> — every degree below 50°F drives +12% demand. Lowest: Accessories at 0%. Source: gold_weather_impact (3,200 obs/category).</>
+            ) : (
+              <>Highest sensitivity: <strong>Butter & Ghee</strong> — every degree above 28°C drives +6.5% demand (chilled dairy proxy). Lowest: Edible Oil at 0%. Source: gold_weather_impact (4,380 obs/category).</>
+            )}
           </p>
         </ChartCard>
 

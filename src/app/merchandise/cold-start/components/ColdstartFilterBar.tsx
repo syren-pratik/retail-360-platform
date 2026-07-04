@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { RefreshCw, X } from 'lucide-react';
 import { useColdstartFilters, ModelFilter, HorizonFilter, StoreTypeFilter } from '../ColdstartFilterContext';
+import { useTenant } from '@/app/context/TenantContext';
 
 const MODEL_OPTIONS: { value: ModelFilter; label: string }[] = [
   { value: 'all',            label: 'All Models' },
@@ -22,22 +23,33 @@ const HORIZON_OPTIONS: { value: HorizonFilter; label: string }[] = [
   { value: 'month3', label: 'Month 3' },
 ];
 
-const CATEGORY_OPTIONS = [
+const CATEGORY_OPTIONS_GROCERY = [
   'all',
   'Coffee', 'Dal & Pulses', 'Chips & Namkeen', 'Paneer', 'Edible Oil',
   'Curd & Yogurt', 'Butter & Ghee', 'Energy Drinks', 'Tea', 'Rice',
 ];
+const CATEGORY_OPTIONS_APPAREL = ['all', 'Mens', 'Womens', 'Kids', 'Footwear', 'Accessories'];
 
-const STORE_TYPE_OPTIONS: { value: StoreTypeFilter; label: string }[] = [
+const STORE_TYPE_OPTIONS_GROCERY: { value: StoreTypeFilter; label: string }[] = [
   { value: 'all',          label: 'All Store Types' },
   { value: 'Express',      label: 'Express' },
   { value: 'Dark Store',   label: 'Dark Store' },
   { value: 'Hypermarket',  label: 'Hypermarket' },
   { value: 'Supermarket',  label: 'Supermarket' },
 ];
+const STORE_TYPE_OPTIONS_APPAREL: { value: StoreTypeFilter; label: string }[] = [
+  { value: 'all',       label: 'All Store Types' },
+  { value: 'Flagship',  label: 'Flagship' },
+  { value: 'Mall',      label: 'Mall' },
+  { value: 'Outlet',    label: 'Outlet' },
+  { value: 'Urban',     label: 'Urban' },
+];
 
 export default function ColdstartFilterBar({ onRefresh }: { onRefresh: () => void }) {
   const { filters, dispatch, activeChips } = useColdstartFilters();
+  const { isApparel } = useTenant();
+  const CATEGORY_OPTIONS = isApparel ? CATEGORY_OPTIONS_APPAREL : CATEGORY_OPTIONS_GROCERY;
+  const STORE_TYPE_OPTIONS = isApparel ? STORE_TYPE_OPTIONS_APPAREL : STORE_TYPE_OPTIONS_GROCERY;
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   function handleRefresh() {

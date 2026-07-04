@@ -4,6 +4,38 @@ import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { ChevronDown, RefreshCw, Search, X, RotateCcw } from 'lucide-react';
 import { useMerchFilters, type MerchFilterState } from '../MerchFilterContext';
 import { INDIA_V1 } from '@/app/lib/market-config';
+import { useTenant } from '@/app/context/TenantContext';
+
+const APPAREL_DEPARTMENTS = [
+  { name: 'Mens',        categories: [
+    { name: 'Tees',            subcategories: ['Crew', 'V-Neck', 'Henley', 'Graphic'] },
+    { name: 'Denim',           subcategories: ['Straight', 'Slim', 'Bootcut'] },
+    { name: 'Outerwear',       subcategories: ['Light Jacket', 'Puffer', 'Vest'] },
+    { name: 'Activewear',      subcategories: ['Performance Tee', 'Compression'] },
+  ] },
+  { name: 'Womens',      categories: [
+    { name: 'Tops',      subcategories: ['Tank', 'Tee', 'Blouse'] },
+    { name: 'Dresses',   subcategories: ['Casual', 'Sundress', 'Maxi'] },
+    { name: 'Bottoms',   subcategories: ['Skinny Denim', 'Legging', 'Skirt'] },
+    { name: 'Outerwear', subcategories: ['Trench', 'Puffer', 'Wool Coat'] },
+  ] },
+  { name: 'Kids',        categories: [
+    { name: 'Boys Tops',    subcategories: ['Crew', 'Polo'] },
+    { name: 'Girls Dresses',subcategories: ['Everyday', 'Occasion'] },
+    { name: 'Baby',         subcategories: ['Bodysuit', 'Sleeper'] },
+    { name: 'School Uniform',subcategories: ['Polo', 'Pant', 'Skort'] },
+  ] },
+  { name: 'Footwear',    categories: [
+    { name: 'Mens Sneaker',   subcategories: ['Running', 'Lifestyle'] },
+    { name: 'Womens Sneaker', subcategories: ['Running', 'Lifestyle'] },
+    { name: 'Sandal',         subcategories: ['Mens', 'Womens'] },
+  ] },
+  { name: 'Accessories', categories: [
+    { name: 'Handbag',   subcategories: ['Tote', 'Crossbody', 'Clutch'] },
+    { name: 'Belt',      subcategories: ['Casual', 'Dress'] },
+    { name: 'Sock',      subcategories: ['Athletic', 'Dress'] },
+  ] },
+];
 import type { MerchDemandStore } from '@/app/lib/merch-demand-types';
 
 interface MerchTopFilterBarProps {
@@ -26,7 +58,8 @@ export default function MerchTopFilterBar({ stores, generatedAt }: MerchTopFilte
   const subPanelRef = useRef<HTMLDivElement>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const departments = INDIA_V1.departments;
+  const { isApparel } = useTenant();
+  const departments = isApparel ? APPAREL_DEPARTMENTS : INDIA_V1.departments;
   const selectedDept = departments.find(d => d.name === state.department);
   const categories = selectedDept?.categories ?? [];
   const selectedCat = categories.find(c => c.name === state.category);
