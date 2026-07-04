@@ -44,6 +44,7 @@ const MECHANIC_OPTIONS: { label: string; value: FormState['mechanic'] }[] = [
   { label: 'Cashback', value: 'cashback' },
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SEGMENT_OPTIONS: { label: string; value: string }[] = [
   { label: 'All Customers', value: 'all' },
   ...RFM_SEGMENTS.map((s) => ({ label: s, value: s })),
