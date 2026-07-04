@@ -183,8 +183,9 @@ const kpis = {
 };
 
 const prediction_decomposition: any[] = [];
+const SNAP_DAYS = [1, 15, 30, 45, 60, 90];
 for (const sku of hero_skus.slice(0, 5)) {
-  for (let d = 1; d <= 10; d++) {
+  for (const d of SNAP_DAYS) {
     prediction_decomposition.push({
       sku_id: sku.sku_id,
       day_num: d,
