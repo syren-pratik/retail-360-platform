@@ -86,8 +86,17 @@ const MODEL_LABELS: Record<string, string> = {
 
 const ColdstartFilterContext = createContext<ColdstartFilterContextValue | null>(null);
 
-export function ColdstartFilterProvider({ children }: { children: React.ReactNode }) {
-  const [filters, dispatch] = useReducer(reducer, defaultFilters);
+export function ColdstartFilterProvider({
+  children,
+  defaultSkuId,
+}: {
+  children: React.ReactNode;
+  defaultSkuId?: string;
+}) {
+  const [filters, dispatch] = useReducer(reducer, {
+    ...defaultFilters,
+    selected_sku_id: defaultSkuId ?? defaultFilters.selected_sku_id,
+  });
 
   const activeChips = useMemo<ActiveChip[]>(() => {
     const chips: ActiveChip[] = [];

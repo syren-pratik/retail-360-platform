@@ -27,10 +27,10 @@ const ITERATION_STEPS: {
   mape: number;
   isChampion: boolean;
 }[] = [
-  { id: 'naive_baseline',  step: 'Baseline',     description: 'National avg scaled to {payload.target_city.name} population',                          mape: 0.442, isChampion: false },
+  { id: 'naive_baseline',  step: 'Baseline',     description: 'National avg scaled to target city population',                          mape: 0.442, isChampion: false },
   { id: 'original_analog', step: 'Analog (raw)', description: 'Direct transfer from analog cities — uncalibrated',                  mape: 0.540, isChampion: false },
   { id: 'fix1_store_type', step: 'Fix 1',        description: 'Analog weighted by store format (Express / Dark Store / Hypermarket)',mape: 0.541, isChampion: false },
-  { id: 'fix2_blending',   step: 'Fix 2',        description: 'Progressive blend: analog prior + live {payload.target_city.name} data (alpha = d/90)',    mape: 0.277, isChampion: true  },
+  { id: 'fix2_blending',   step: 'Fix 2',        description: 'Progressive blend: analog prior + live target city data (alpha = d/90)',    mape: 0.277, isChampion: true  },
   { id: 'fix3_festival',   step: 'Fix 3',        description: 'Festival calendar uplift — reduces MAPE vs raw analog',              mape: 0.544, isChampion: false },
   { id: 'all_3_combined',  step: 'All 3',        description: 'Store type + blending + festival combined',                          mape: 0.312, isChampion: false },
 ];

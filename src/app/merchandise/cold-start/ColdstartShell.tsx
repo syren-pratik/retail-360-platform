@@ -86,7 +86,7 @@ export default function ColdstartShell() {
   const { payload } = state;
 
   return (
-    <ColdstartFilterProvider>
+    <ColdstartFilterProvider defaultSkuId={payload.hero_skus?.[0]?.sku_id}>
       <ColdstartFilterBar onRefresh={load} />
 
       <div className="px-6 py-6 space-y-6">

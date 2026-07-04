@@ -52,7 +52,9 @@ const CustomTooltip = ({
 
 export default function ColdstartFestivalRamp({ patterns }: Props) {
   const pairs = buildPairs(patterns);
-  const [selectedKey, setSelectedKey] = useState('Diwali||Frozen Foods');
+  const [selectedKey, setSelectedKey] = useState(
+    pairs.length > 0 ? `${pairs[0].festival_name}||${pairs[0].category}` : 'Diwali||Frozen Foods'
+  );
 
   const [selFest, selCat] = selectedKey.split('||');
   const chartData = patterns

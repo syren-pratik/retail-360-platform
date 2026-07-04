@@ -84,7 +84,7 @@ export default function ColdstartAnalogCityMap({ analogs, target }: Props) {
       <ChartCard
         id="coldstart-analog-scatter"
         title="Analog City Feature Space"
-        subtitle="GDP/capita vs population — {payload.target_city.name} crosshairs show target position"
+        subtitle="GDP/capita vs population — target city crosshairs show target position"
         height={300}
         exportFilename="coldstart_analog_cities"
         data={scatterData as unknown as Record<string, unknown>[]}
@@ -116,7 +116,7 @@ export default function ColdstartAnalogCityMap({ analogs, target }: Props) {
             />
             <Tooltip content={<CustomTooltip />} />
 
-            {/* {payload.target_city.name} crosshairs */}
+            {/* target city crosshairs */}
             <ReferenceLine x={target.gdp_per_capita_usd} stroke="#3b82f6" strokeDasharray="4 3" strokeWidth={1} />
             <ReferenceLine y={target.population_m}       stroke="#3b82f6" strokeDasharray="4 3" strokeWidth={1} />
 

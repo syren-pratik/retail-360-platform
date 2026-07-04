@@ -13,39 +13,52 @@ import {
 import ChartCard from '@/app/components/charts/ChartCard';
 import type { ColdstartPredDecompPoint } from '@/app/lib/coldstart-types';
 import { useColdstartFilters } from '../ColdstartFilterContext';
+import { useTenant } from '@/app/context/TenantContext';
 
 interface Props {
   data: ColdstartPredDecompPoint[];
 }
 
-const STACK_COLORS: Record<string, string> = {
+const STACK_COLORS_GROCERY: Record<string, string> = {
   jaipur_contribution:    '#f59e0b',
   ahmedabad_contribution: '#6366f1',
   kolkata_contribution:   '#10b981',
   festival_uplift:        '#f97316',
   local_blend:            '#3b82f6',
 };
-
-const STACK_LABELS: Record<string, string> = {
+const STACK_LABELS_GROCERY: Record<string, string> = {
   jaipur_contribution:    'Jaipur (38.8%)',
   ahmedabad_contribution: 'Ahmedabad (30.8%)',
   kolkata_contribution:   'Kolkata (30.4%)',
   festival_uplift:        'Festival uplift',
   local_blend:            'Local blend (α)',
 };
+const STACK_KEYS_GROCERY = ['jaipur_contribution', 'ahmedabad_contribution', 'kolkata_contribution', 'festival_uplift', 'local_blend'];
 
-const STACK_KEYS = [
-  'jaipur_contribution',
-  'ahmedabad_contribution',
-  'kolkata_contribution',
-  'festival_uplift',
-  'local_blend',
-];
+const STACK_COLORS_APPAREL: Record<string, string> = {
+  dallas_contribution:  '#f59e0b',
+  houston_contribution: '#6366f1',
+  atlanta_contribution: '#10b981',
+  festival_uplift:      '#f97316',
+  local_blend:          '#3b82f6',
+};
+const STACK_LABELS_APPAREL: Record<string, string> = {
+  dallas_contribution:  'Dallas (34%)',
+  houston_contribution: 'Houston (26%)',
+  atlanta_contribution: 'Atlanta (18%)',
+  festival_uplift:      'BTS uplift',
+  local_blend:          'Local blend (α)',
+};
+const STACK_KEYS_APPAREL = ['dallas_contribution', 'houston_contribution', 'atlanta_contribution', 'festival_uplift', 'local_blend'];
 
 const SNAP_DAYS = [1, 15, 30, 60, 90];
 
 export default function ColdstartPredictionDecomposition({ data }: Props) {
   const { filters } = useColdstartFilters();
+  const { isApparel } = useTenant();
+  const STACK_COLORS = isApparel ? STACK_COLORS_APPAREL : STACK_COLORS_GROCERY;
+  const STACK_LABELS = isApparel ? STACK_LABELS_APPAREL : STACK_LABELS_GROCERY;
+  const STACK_KEYS = isApparel ? STACK_KEYS_APPAREL : STACK_KEYS_GROCERY;
   const skuData = data.filter((d) => d.sku_id === filters.selected_sku_id);
 
   // For selected day: find closest snap day

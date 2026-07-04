@@ -97,7 +97,7 @@ export default function ColdstartCostOfMAPE({ data }: Props) {
         <ChartCard
           id="coldstart-cost-of-mape-table"
           title="Cost of MAPE — 90-Day Holdout"
-          subtitle="Estimated inventory loss cost from forecast error · 42 SKUs · {payload.target_city.name} launch"
+          subtitle="Estimated inventory loss cost from forecast error · 42 SKUs · target city launch"
           height={220}
           exportFilename="coldstart_cost_mape_table"
           data={rows as unknown as Record<string, unknown>[]}

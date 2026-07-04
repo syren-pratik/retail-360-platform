@@ -13,6 +13,7 @@ import {
   Legend,
 } from 'recharts';
 import ChartCard from '@/app/components/charts/ChartCard';
+import { useTenant } from '@/app/context/TenantContext';
 import type { ColdstartMAPEPoint } from '@/app/lib/coldstart-types';
 import { useColdstartFilters } from '../ColdstartFilterContext';
 
@@ -46,9 +47,14 @@ const ALL_MODEL_KEYS = [
 
 type ModelKey = typeof ALL_MODEL_KEYS[number];
 
-const FESTIVAL_MARKERS = [
+const FESTIVAL_MARKERS_GROCERY = [
   { day: 35, label: 'Onam start' },
   { day: 75, label: 'Diwali start' },
+];
+
+const FESTIVAL_MARKERS_APPAREL = [
+  { day: 20, label: 'BTS peak' },
+  { day: 60, label: 'BFCM' },
 ];
 
 const CustomTooltip = ({
@@ -79,6 +85,8 @@ const CustomTooltip = ({
 };
 
 export default function ColdstartMAPEOverTime({ data, convergenceDay }: Props) {
+  const { isApparel } = useTenant();
+  const FESTIVAL_MARKERS = isApparel ? FESTIVAL_MARKERS_APPAREL : FESTIVAL_MARKERS_GROCERY;
   const { filters } = useColdstartFilters();
 
   const filteredData = useMemo(() => {
@@ -100,7 +108,7 @@ export default function ColdstartMAPEOverTime({ data, convergenceDay }: Props) {
     ? MODEL_LABELS[filters.model] ?? filters.model
     : 'All models';
 
-  const subtitle = `${selectedLabel} · 90-day {payload.target_city.name} holdout${filters.horizon !== 'full' ? ` · ${filters.horizon}` : ''}`;
+  const subtitle = `${selectedLabel} · 90-day target city holdout${filters.horizon !== 'full' ? ` · ${filters.horizon}` : ''}`;
 
   return (
     <ChartCard
