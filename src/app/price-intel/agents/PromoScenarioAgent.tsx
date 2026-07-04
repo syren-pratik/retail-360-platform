@@ -4,7 +4,9 @@ import { useState } from 'react';
 import { Loader2, AlertTriangle, CheckCircle, TrendingUp } from 'lucide-react';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
 import { formatLakhsCrores } from '@/app/lib/merch-format';
-import { TOP_SKUS, RFM_SEGMENTS } from '@/app/lib/dbx-fixtures';
+import { RFM_SEGMENTS } from '@/app/lib/dbx-fixtures';
+import { useTenant } from '@/app/context/TenantContext';
+import { buildAgentSKUContext } from './agent-skus';
 
 interface Props {
   core: PriceIntelCore;
@@ -77,9 +79,15 @@ function MetricCard({
   );
 }
 
-export default function PromoScenarioAgent({ core: _core }: Props) {
-  void _core;
-  const skuList = TOP_SKUS;
+export default function PromoScenarioAgent({ core }: Props) {
+  const { isApparel } = useTenant();
+  const ctx = buildAgentSKUContext(core, isApparel);
+  const skuList = ctx.skus;
+  const { currency, unitLabel, unitDivisor, segments } = ctx;
+  const SEGMENT_OPTIONS_DYNAMIC = [
+    { label: 'All Customers', value: 'all' },
+    ...segments.map((s) => ({ label: s, value: s })),
+  ];
 
   const [form, setForm] = useState<FormState>({
     sku_id: skuList[0]?.product_id ?? '',
@@ -147,7 +155,7 @@ export default function PromoScenarioAgent({ core: _core }: Props) {
           >
             {skuList.map((sku) => (
               <option key={sku.product_id} value={sku.product_id}>
-                {sku.product_id} · {sku.category_l1} (₹{(sku.revenue_inr_7d / 100000).toFixed(1)}L last 7d)
+                {sku.product_id} · {sku.category_l1} ({currency}{(sku.revenue_inr_7d / unitDivisor).toFixed(1)}{unitLabel} last 7d)
               </option>
             ))}
           </select>
@@ -228,7 +236,7 @@ export default function PromoScenarioAgent({ core: _core }: Props) {
               }
               className="text-sm bg-[var(--bg-secondary)] border border-[var(--border-default)] rounded-md px-3 py-2 text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] focus:ring-opacity-40"
             >
-              {SEGMENT_OPTIONS.map((o) => (
+              {SEGMENT_OPTIONS_DYNAMIC.map((o) => (
                 <option key={o.value} value={o.value}>
                   {o.label}
                 </option>
