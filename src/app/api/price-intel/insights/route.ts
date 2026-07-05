@@ -258,14 +258,23 @@ export async function GET(request: NextRequest) {
   const ctx = buildContext(core);
 
   try {
-    const systemPrompt = `You are a retail pricing analyst for an Indian supermarket chain. Based on this pricing data snapshot, generate exactly 4 concise actionable insights for a Category Manager.
+    const isApparel = tenant === 'us_apparel';
+    const marketPreamble = isApparel
+      ? 'You are a retail pricing analyst for a US apparel retailer (Mens/Womens/Kids/Footwear/Accessories; brands Nike/Levi/Lululemon/VF Corp/PVH/Adidas/Gap/etc.; events BTS, BFCM, Holiday, MLK/Presidents/Memorial/July4).'
+      : 'You are a retail pricing analyst for an Indian supermarket chain.';
+    const currencyRule = isApparel
+      ? '- Use $ for all currency values (US format: K = thousands, M = millions). NEVER use ₹, L, Cr, or lakhs/crores.'
+      : '- Use ₹ for currency values in Indian format (L = lakhs, Cr = crores).';
+    const metricExample = isApparel ? "'$22.3K' or '3.52×'" : "'₹22.3L' or '3.52×'";
+
+    const systemPrompt = `${marketPreamble} Based on this pricing data snapshot, generate exactly 4 concise actionable insights for a Category Manager.
 
 RULES:
 - Return ONLY a valid JSON array. No markdown, no backticks, no explanation outside the JSON.
 - Return exactly 4 insights, ranked by business impact.
-- Each insight must reference specific departments, SKUs, or ₹ values from the data.
+- Each insight must reference specific departments, SKUs, or currency values from the data.
 - Focus on ACTIONABLE insights — what should the category manager do?
-- Use ₹ for currency values in Indian format (L = lakhs, Cr = crores).
+${currencyRule}
 
 JSON format:
 [
@@ -274,7 +283,7 @@ JSON format:
     "severity": "critical" | "warning" | "info" | "positive",
     "title": "Short headline (max 8 words)",
     "description": "1-2 sentence explanation with specific numbers from the data",
-    "metric": "The key number (e.g., '₹22.3L' or '3.52×')",
+    "metric": "The key number (e.g., ${metricExample})",
     "action": "What the category manager should do",
     "relatedChart": "price-intel-overview"
   }
