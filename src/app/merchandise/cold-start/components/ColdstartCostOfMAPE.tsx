@@ -44,11 +44,13 @@ const CustomTooltip = ({
   payload,
   label,
   rate,
+  isApparel,
 }: {
   active?: boolean;
   payload?: Array<{ name: string; value: number; color: string }>;
   label?: number;
   rate: number;
+  isApparel: boolean;
 }) => {
   if (!active || !payload?.length) return null;
   return (
@@ -58,7 +60,10 @@ const CustomTooltip = ({
         <div key={i} className="flex justify-between gap-4 mb-0.5">
           <span style={{ color: p.color }}>{p.name === 'naive_cumulative_cost_inr' ? 'Naive' : 'Champion'}</span>
           <span className="font-mono font-medium">
-            {formatINR(p.value)} <span className="text-[var(--text-tertiary)]">({formatUSD(p.value, rate)})</span>
+            {isApparel
+              ? formatUSD(p.value, rate)
+              : <>{formatINR(p.value)} <span className="text-[var(--text-tertiary)]">({formatUSD(p.value, rate)})</span></>
+            }
           </span>
         </div>
       ))}
@@ -172,9 +177,16 @@ export default function ColdstartCostOfMAPE({ data }: Props) {
                 axisLine={false}
                 tickLine={false}
                 width={40}
-                tickFormatter={(v: number) => formatINR(v)}
+                tickFormatter={(v: number) => {
+                  if (isApparel) {
+                    if (v >= 1e6) return `$${(v / 1e6).toFixed(1)}M`;
+                    if (v >= 1e3) return `$${(v / 1e3).toFixed(0)}K`;
+                    return `$${v.toFixed(0)}`;
+                  }
+                  return formatINR(v);
+                }}
               />
-              <Tooltip content={<CustomTooltip rate={rate} />} />
+              <Tooltip content={<CustomTooltip rate={rate} isApparel={isApparel} />} />
               <Area
                 type="monotone"
                 dataKey="naive_cumulative_cost_inr"
