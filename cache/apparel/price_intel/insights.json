@@ -1,50 +1,83 @@
 {
-  "generated_at": "2026-07-02T03:55:46.274Z",
+  "generated_at": "2026-06-29T00:00:00.000Z",
   "insights": [
     {
+      "type": "opportunity",
+      "severity": "amber",
+      "title": "Levi's 511 indigo 32×32 nearing markdown trigger",
+      "description": "56% sell-through at Week 6 — promote to Wk 8 markdown queue at -25%.",
+      "metric": "sell_through_pct",
+      "action": "Queue for md25",
+      "relatedChart": "markdown_queue",
+      "id": "INS-A001",
+      "source": "rule_engine"
+    },
+    {
       "type": "risk",
-      "severity": "critical",
-      "title": "₹7.8L Weekly Promo Free-Rider Waste Detected",
-      "description": "43.6% free-rider ratio is costing ₹7.8L/week in unnecessary discounts to shoppers who would buy at full price. Men's Tops (North Face Tees) and Women's Tops (Calvin Klein Tanks) show highest waste with competitive indices of 106.6 and 113.5.",
-      "metric": "₹7.8L/week",
-      "action": "Implement targeted promo codes with purchase-history gating for repeat buyers; shift to threshold-based offers (e.g., ₹500+ baskets) for top 2 urgent SKUs to cut free-rider by 15-20pp.",
-      "relatedChart": "price-intel-overview",
-      "id": "price-insight-1782964546274-0",
-      "source": "claude"
+      "severity": "red",
+      "title": "BFCM Outerwear Doorbuster overlaps 4 active markdown styles",
+      "description": "W Puffers — pre-clear by Nov 15 to protect margin.",
+      "metric": "markdown_overlap_flag",
+      "action": "Pre-clear overlap",
+      "relatedChart": "campaigns_table",
+      "id": "INS-A002",
+      "source": "rule_engine"
+    },
+    {
+      "type": "competitive",
+      "severity": "amber",
+      "title": "Nordstrom dropped Lululemon Align HR 25\" black by 12%",
+      "description": "Competitive index now 108 (was 96). Match within 48h.",
+      "metric": "competitive_index",
+      "action": "Match price",
+      "relatedChart": "competitive_index",
+      "id": "INS-A003",
+      "source": "rule_engine"
+    },
+    {
+      "type": "returns",
+      "severity": "red",
+      "title": "Women's Bottoms RAGM collapsing",
+      "description": "14 styles below 30% RAGM due to 28% return rate. Fit-guide intervention recommended.",
+      "metric": "ragm_pct",
+      "action": "Add fit guide",
+      "relatedChart": "margin_distribution",
+      "id": "INS-A004",
+      "source": "rule_engine"
     },
     {
       "type": "opportunity",
-      "severity": "positive",
-      "title": "July 4 Women's Dresses 4.16× ROI Ready",
-      "description": "Scheduled Women's Maxi Dresses campaign projects ₹32.2L net incremental revenue on ₹8.4L budget (4.16× ROI, 270% lift). However, 39.8% free-rider ratio and markdown overlap flag signal execution risk.",
-      "metric": "4.16× ROI",
-      "action": "Launch campaign but add new-customer-only first 48hrs; delay markdown overlap SKUs by 5 days post-promo to minimize ₹2.1L cannibalization and -13.3% post-dip.",
-      "relatedChart": "price-intel-overview",
-      "id": "price-insight-1782964546274-1",
-      "source": "claude"
+      "severity": "green",
+      "title": "BTS Kids Tops volume +24% WoW",
+      "description": "Reallocate $240K from H&M Linen capsule to BTS Kids Tops — projected 2.6x ROI.",
+      "metric": "campaign_roi",
+      "action": "Reallocate budget",
+      "relatedChart": "ai_suggestions",
+      "id": "INS-A005",
+      "source": "rule_engine"
     },
     {
-      "type": "anomaly",
-      "severity": "warning",
-      "title": "Kids' Returns Bleeding ₹35K on Converse",
-      "description": "Converse Tops Slim (Kids') shows 11.4% return rate crushing RAGM to 44.8% vs 51.6% gross margin—a 6.8pp margin leak worth ₹35K weekly. Web promo amplifying fit/quality issues.",
-      "metric": "6.8pp RAGM loss",
-      "action": "Immediately pause web promotions; add size-fit guide and product Q&A module; pilot pre-purchase SMS sizing assistant to target 8-12pp returns reduction within 2 weeks.",
-      "relatedChart": "price-intel-overview",
-      "id": "price-insight-1782964546274-2",
-      "source": "claude"
+      "type": "cadence",
+      "severity": "amber",
+      "title": "11 styles stuck at -40% beyond target",
+      "description": "Advance worst 6 directly to -60% Friday; recover $1.44M.",
+      "metric": "stuck_styles",
+      "action": "Advance to md60",
+      "relatedChart": "markdown_cadence",
+      "id": "INS-A006",
+      "source": "rule_engine"
     },
     {
-      "type": "trend",
-      "severity": "warning",
-      "title": "Promo ROI Declining Despite 11% Weekly Gain",
-      "description": "Promo ROI improved from 2.17 to 2.41 week-over-week, but overall index at 65.2 with margin realization down -0.4pp to 85.8%. Premature markdowns wasting ₹4.2L and ₹12.2L at-risk inventory signals weak sell-through (62.9%, -2.1pp vs target).",
-      "metric": "₹12.2L at risk",
-      "action": "Audit markdown calendar for next 14 days; delay non-seasonal markdowns until sell-through hits 70%+ threshold; reallocate ₹3-4L markdown budget to targeted digital ads for slow-movers.",
-      "relatedChart": "price-intel-overview",
-      "id": "price-insight-1782964546274-3",
-      "source": "claude"
+      "type": "pricing",
+      "severity": "blue",
+      "title": "Cotton spot price up 6.2%",
+      "description": "Pass through 70%+ on denim PO cycle Aug 4 to protect margin.",
+      "metric": "cost_change_pct",
+      "action": "Reset price column",
+      "relatedChart": "cost_passthrough",
+      "id": "INS-A007",
+      "source": "rule_engine"
     }
   ],
-  "source": "claude"
+  "source": "rule_engine"
 }

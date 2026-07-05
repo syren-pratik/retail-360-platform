@@ -3,19 +3,19 @@
     "page": "cx360",
     "tenant": "apparel",
     "url": "/cx360",
-    "pageErrors": [
-      "NAVIGATION: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://rct-app.azurewebsites.net/cx360\", waiting until \"networkidle\"\u001b[22m\n"
-    ],
+    "pageErrors": [],
     "consoleErrors": [],
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 0,
-    "dollars": 0,
+    "contentLen": 9897,
+    "dollars": 110,
     "rupees": 0,
-    "apparelWords": 0,
+    "apparelWords": 4,
     "accordionsExpanded": 0,
-    "screenshots": []
+    "screenshots": [
+      "/Users/pratikbharuka/Desktop/cx360-app/e2e-audit/apparel-cx360-before.png"
+    ]
   },
   {
     "page": "inventory",
@@ -82,12 +82,7 @@
     "url": "/inventory/deep/demand-forecast",
     "pageErrors": [],
     "consoleErrors": [],
-    "groceryLeaks": [
-      {
-        "pattern": "Holi",
-        "count": 1
-      }
-    ],
+    "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
     "contentLen": 4444,
@@ -108,9 +103,9 @@
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 5429,
+    "contentLen": 5481,
     "dollars": 40,
-    "rupees": 5,
+    "rupees": 6,
     "apparelWords": 7,
     "accordionsExpanded": 0,
     "screenshots": [
@@ -126,9 +121,9 @@
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 3823,
+    "contentLen": 3875,
     "dollars": 26,
-    "rupees": 5,
+    "rupees": 6,
     "apparelWords": 4,
     "accordionsExpanded": 0,
     "screenshots": [
@@ -144,9 +139,9 @@
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 6421,
+    "contentLen": 6473,
     "dollars": 66,
-    "rupees": 5,
+    "rupees": 6,
     "apparelWords": 5,
     "accordionsExpanded": 0,
     "screenshots": [
@@ -162,9 +157,9 @@
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 2870,
+    "contentLen": 2922,
     "dollars": 43,
-    "rupees": 5,
+    "rupees": 6,
     "apparelWords": 4,
     "accordionsExpanded": 0,
     "screenshots": [
@@ -180,9 +175,9 @@
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 2277,
+    "contentLen": 2329,
     "dollars": 7,
-    "rupees": 5,
+    "rupees": 6,
     "apparelWords": 4,
     "accordionsExpanded": 5,
     "screenshots": [
@@ -196,19 +191,10 @@
     "url": "/merchandise/demand",
     "pageErrors": [],
     "consoleErrors": [],
-    "groceryLeaks": [
-      {
-        "pattern": "Holi",
-        "count": 1
-      },
-      {
-        "pattern": "Grocery & Staples",
-        "count": 1
-      }
-    ],
+    "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 9554,
+    "contentLen": 9543,
     "dollars": 54,
     "rupees": 0,
     "apparelWords": 8,
@@ -223,15 +209,10 @@
     "url": "/merchandise/cold-start",
     "pageErrors": [],
     "consoleErrors": [],
-    "groceryLeaks": [
-      {
-        "pattern": "Lucknow",
-        "count": 1
-      }
-    ],
+    "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 10369,
+    "contentLen": 10422,
     "dollars": 15,
     "rupees": 15,
     "apparelWords": 11,
@@ -246,19 +227,10 @@
     "url": "/merchandise/cold-start/store-opening",
     "pageErrors": [],
     "consoleErrors": [],
-    "groceryLeaks": [
-      {
-        "pattern": "Lucknow",
-        "count": 1
-      },
-      {
-        "pattern": "Holi",
-        "count": 1
-      }
-    ],
+    "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 3867,
+    "contentLen": 3919,
     "dollars": 27,
     "rupees": 0,
     "apparelWords": 10,
@@ -273,12 +245,7 @@
     "url": "/demand",
     "pageErrors": [],
     "consoleErrors": [],
-    "groceryLeaks": [
-      {
-        "pattern": "Holi",
-        "count": 1
-      }
-    ],
+    "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
     "contentLen": 4444,
@@ -299,9 +266,9 @@
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 8622,
+    "contentLen": 8291,
     "dollars": 0,
-    "rupees": 108,
+    "rupees": 106,
     "apparelWords": 0,
     "accordionsExpanded": 0,
     "screenshots": [
@@ -335,7 +302,7 @@
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 4929,
+    "contentLen": 4917,
     "dollars": 0,
     "rupees": 37,
     "apparelWords": 0,
@@ -353,9 +320,9 @@
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 10135,
+    "contentLen": 10131,
     "dollars": 0,
-    "rupees": 55,
+    "rupees": 57,
     "apparelWords": 0,
     "accordionsExpanded": 0,
     "screenshots": [
@@ -371,7 +338,7 @@
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 10683,
+    "contentLen": 10604,
     "dollars": 14,
     "rupees": 16,
     "apparelWords": 0,

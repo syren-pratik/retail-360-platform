@@ -37,7 +37,7 @@ const PAGES = [
 // Grocery-text patterns that MUST NOT appear on apparel pages
 const GROCERY_LEAK_PATTERNS = [
   'Lucknow', 'Jaipur', 'Ahmedabad', 'Kolkata', 'Mumbai', 'Hazratganj',
-  'Diwali', 'Onam', 'Holi', 'Eid',
+  'Diwali', 'Onam', '\\bHoli\\b', 'Eid',
   'PRD-0', 'LKO-SKU', 'STR-LKO',
   'Edible Oil', 'Frozen Foods', 'Wheat Atta', 'Basmati',
   'Grocery & Staples',

@@ -2,6 +2,7 @@
 
 
 import { formatCrOrUsdMAuto } from '@/app/lib/format-money';
+import { useTenant } from '@/app/context/TenantContext';
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Download } from 'lucide-react';
@@ -155,6 +156,7 @@ export default function StockHealthDeepDiveContent({
   categoryHealth,
   overstock,
 }: Props) {
+  const { isApparel } = useTenant();
   const [isMounted, setIsMounted] = useState(false);
   const [selectedDateRange, setSelectedDateRange] = useState('90d');
   const [sortKey, setSortKey] = useState<keyof CategoryHealthItem>('osa_pct');
@@ -943,7 +945,10 @@ export default function StockHealthDeepDiveContent({
                 </div>
               </div>
               <Insight>
-                Dairy &amp; Frozen needs markdown TODAY — perishables expire within 3–5 days. Apparel at 30% markdown can recover {formatCrOrUsdMAuto(28.4)} with 78% sell-through. Grocery &amp; Staples requires no markdown — high-velocity stock clears in 2–3 weeks at full price.
+                {isApparel
+                  ? <>Women&apos;s Dresses need markdown TODAY — end-of-season clears within 3–5 weeks. Athletic Apparel at 30% markdown can recover {formatCrOrUsdMAuto(28.4)} with 78% sell-through. Core Basics require no markdown — replenishment velocity keeps stock clearing at full price.</>
+                  : <>Dairy &amp; Frozen needs markdown TODAY — perishables expire within 3–5 days. Apparel at 30% markdown can recover {formatCrOrUsdMAuto(28.4)} with 78% sell-through. Grocery &amp; Staples requires no markdown — high-velocity stock clears in 2–3 weeks at full price.</>
+                }
               </Insight>
             </section>
           </>

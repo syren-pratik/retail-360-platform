@@ -13,12 +13,20 @@ import {
 import ChartCard from '@/app/components/charts/ChartCard';
 import type { ColdstartCostOfMAPE } from '@/app/lib/coldstart-types';
 import { formatMoneyPlainAuto, getLocaleAuto } from '@/app/lib/format-money';
+import { getRuntimeTenant } from '@/app/lib/tenant-runtime';
+import { useTenant } from '@/app/context/TenantContext';
 
 interface Props {
   data: ColdstartCostOfMAPE;
 }
 
 function formatINR(n: number): string {
+  const isApparel = getRuntimeTenant() === 'us_apparel';
+  if (isApparel) {
+    if (n >= 1e6) return `$${(n / 1e6).toFixed(2)}M`;
+    if (n >= 1e3) return `$${(n / 1e3).toFixed(1)}K`;
+    return `$${n.toLocaleString(getLocaleAuto())}`;
+  }
   if (n >= 1e7) return `₹${(n / 1e7).toFixed(1)}Cr`;
   if (n >= 1e5) return `₹${(n / 1e5).toFixed(1)}L`;
   return `₹${n.toLocaleString(getLocaleAuto())}`;
@@ -59,6 +67,7 @@ const CustomTooltip = ({
 };
 
 export default function ColdstartCostOfMAPE({ data }: Props) {
+  const { isApparel } = useTenant();
   const { naive_costs, champion_costs, savings, pr_projection, weekly_breakdown } = data;
   const rate = pr_projection.exchange_rate_inr_per_usd;
 
@@ -108,8 +117,8 @@ export default function ColdstartCostOfMAPE({ data }: Props) {
                 <tr className="bg-[var(--bg-secondary)] border-b border-[var(--border-default)]">
                   <th className="text-left px-3 py-2 text-[var(--text-secondary)] font-medium">Model</th>
                   <th className="text-right px-3 py-2 text-[var(--text-secondary)] font-medium">MAPE</th>
-                  <th className="text-right px-3 py-2 text-[var(--text-secondary)] font-medium">Cost (INR)</th>
-                  <th className="text-right px-3 py-2 text-[var(--text-secondary)] font-medium">Cost (USD)</th>
+                  <th className="text-right px-3 py-2 text-[var(--text-secondary)] font-medium">{isApparel ? 'Cost' : 'Cost (INR)'}</th>
+                  {!isApparel && <th className="text-right px-3 py-2 text-[var(--text-secondary)] font-medium">Cost (USD)</th>}
                 </tr>
               </thead>
               <tbody>
@@ -128,9 +137,11 @@ export default function ColdstartCostOfMAPE({ data }: Props) {
                     <td className={`px-3 py-2.5 text-right font-mono font-semibold ${row.colorClass}`}>
                       {formatINR(row.inr)}
                     </td>
-                    <td className="px-3 py-2.5 text-right font-mono text-[var(--text-secondary)]">
-                      {formatUSD(row.inr, rate)}
-                    </td>
+                    {!isApparel && (
+                      <td className="px-3 py-2.5 text-right font-mono text-[var(--text-secondary)]">
+                        {formatUSD(row.inr, rate)}
+                      </td>
+                    )}
                   </tr>
                 ))}
               </tbody>
@@ -199,7 +210,7 @@ export default function ColdstartCostOfMAPE({ data }: Props) {
         <ChartCard
           id="coldstart-cost-of-mape-projection"
           title="PR Projection"
-          subtitle={`Extrapolated to ₹100Cr revenue · @₹${rate}=$1`}
+          subtitle={isApparel ? 'Extrapolated to $1B revenue' : `Extrapolated to ₹100Cr revenue · @₹${rate}=$1`}
           height={470}
           exportFilename="coldstart_cost_mape_projection"
         >
@@ -211,7 +222,7 @@ export default function ColdstartCostOfMAPE({ data }: Props) {
                 ${(pr_projection.projected_savings_usd / 1000).toFixed(0)}K
               </p>
               <p className="text-emerald-600 text-[11px] mt-0.5">
-                {formatINR(pr_projection.projected_savings_inr)} USD
+                {formatINR(pr_projection.projected_savings_inr)}{!isApparel && ' USD'}
               </p>
             </div>
 
