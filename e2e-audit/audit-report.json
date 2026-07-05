@@ -3,19 +3,19 @@
     "page": "cx360",
     "tenant": "apparel",
     "url": "/cx360",
-    "pageErrors": [],
+    "pageErrors": [
+      "NAVIGATION: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://rct-app.azurewebsites.net/cx360\", waiting until \"networkidle\"\u001b[22m\n"
+    ],
     "consoleErrors": [],
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 9579,
-    "dollars": 108,
+    "contentLen": 0,
+    "dollars": 0,
     "rupees": 0,
-    "apparelWords": 4,
+    "apparelWords": 0,
     "accordionsExpanded": 0,
-    "screenshots": [
-      "/Users/pratikbharuka/Desktop/cx360-app/e2e-audit/apparel-cx360-before.png"
-    ]
+    "screenshots": []
   },
   {
     "page": "inventory",
@@ -67,7 +67,7 @@
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 17050,
+    "contentLen": 17049,
     "dollars": 158,
     "rupees": 0,
     "apparelWords": 6,
@@ -108,9 +108,9 @@
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 5425,
+    "contentLen": 5429,
     "dollars": 40,
-    "rupees": 3,
+    "rupees": 5,
     "apparelWords": 7,
     "accordionsExpanded": 0,
     "screenshots": [
@@ -126,9 +126,9 @@
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 3819,
+    "contentLen": 3823,
     "dollars": 26,
-    "rupees": 3,
+    "rupees": 5,
     "apparelWords": 4,
     "accordionsExpanded": 0,
     "screenshots": [
@@ -144,9 +144,9 @@
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 6417,
+    "contentLen": 6421,
     "dollars": 66,
-    "rupees": 3,
+    "rupees": 5,
     "apparelWords": 5,
     "accordionsExpanded": 0,
     "screenshots": [
@@ -162,9 +162,9 @@
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 2866,
+    "contentLen": 2870,
     "dollars": 43,
-    "rupees": 3,
+    "rupees": 5,
     "apparelWords": 4,
     "accordionsExpanded": 0,
     "screenshots": [
@@ -180,9 +180,9 @@
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 2273,
+    "contentLen": 2277,
     "dollars": 7,
-    "rupees": 3,
+    "rupees": 5,
     "apparelWords": 4,
     "accordionsExpanded": 5,
     "screenshots": [
@@ -203,12 +203,12 @@
       },
       {
         "pattern": "Grocery & Staples",
-        "count": 2
+        "count": 1
       }
     ],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 9591,
+    "contentLen": 9554,
     "dollars": 54,
     "rupees": 0,
     "apparelWords": 8,
@@ -227,15 +227,11 @@
       {
         "pattern": "Lucknow",
         "count": 1
-      },
-      {
-        "pattern": "Edible Oil",
-        "count": 2
       }
     ],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 10478,
+    "contentLen": 10369,
     "dollars": 15,
     "rupees": 15,
     "apparelWords": 11,
@@ -298,19 +294,19 @@
     "page": "cx360",
     "tenant": "grocery",
     "url": "/cx360",
-    "pageErrors": [
-      "NAVIGATION: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://rct-app.azurewebsites.net/cx360\", waiting until \"networkidle\"\u001b[22m\n"
-    ],
+    "pageErrors": [],
     "consoleErrors": [],
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 0,
+    "contentLen": 8622,
     "dollars": 0,
-    "rupees": 0,
+    "rupees": 108,
     "apparelWords": 0,
     "accordionsExpanded": 0,
-    "screenshots": []
+    "screenshots": [
+      "/Users/pratikbharuka/Desktop/cx360-app/e2e-audit/grocery-cx360-before.png"
+    ]
   },
   {
     "page": "inventory",
@@ -339,9 +335,9 @@
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 4910,
+    "contentLen": 4929,
     "dollars": 0,
-    "rupees": 35,
+    "rupees": 37,
     "apparelWords": 0,
     "accordionsExpanded": 0,
     "screenshots": [
@@ -357,9 +353,9 @@
     "groceryLeaks": [],
     "emptyStates": [],
     "brokenTemplates": [],
-    "contentLen": 10121,
+    "contentLen": 10135,
     "dollars": 0,
-    "rupees": 57,
+    "rupees": 55,
     "apparelWords": 0,
     "accordionsExpanded": 0,
     "screenshots": [

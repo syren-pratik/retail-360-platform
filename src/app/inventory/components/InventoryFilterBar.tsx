@@ -87,15 +87,15 @@ export default function InventoryFilterBar() {
         break;
       case 'grocery':
         setRole('grocery');
-        setFilters({ departments: ['Grocery & Staples', 'Dairy & Frozen'], cities: [] });
+        setFilters({ departments: isApparel ? ["Women's Tops", "Women's Dresses"] : ['Grocery & Staples', 'Dairy & Frozen'], cities: [] });
         break;
       case 'personal_care':
         setRole('personal_care');
-        setFilters({ departments: ['Personal Care'], cities: [] });
+        setFilters({ departments: isApparel ? ["Men's Tops", "Men's Bottoms"] : ['Personal Care'], cities: [] });
         break;
       case 'electronics':
         setRole('electronics');
-        setFilters({ departments: ['Electronics'], cities: [] });
+        setFilters({ departments: isApparel ? ['Footwear'] : ['Electronics'], cities: [] });
         break;
       case 'supply_chain':
         resetFilters();

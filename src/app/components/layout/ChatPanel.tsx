@@ -7,6 +7,7 @@ import ChatMessage from '../chat/ChatMessage';
 import ChatInput from '../chat/ChatInput';
 import { UIComponentType } from '@/app/lib/types';
 import { useDashboard } from '@/app/context/DashboardContext';
+import { useTenant } from '@/app/context/TenantContext';
 import { ChartOptionData } from '../chat/ChartOptionsSelector';
 import type { PinnedChart } from '@/app/lib/pinned-charts';
 
@@ -211,6 +212,13 @@ const COLDSTART_WELCOME: Message = {
   timestamp: new Date(),
 };
 
+const COLDSTART_WELCOME_APPAREL: Message = {
+  id: 'welcome-coldstart-apparel',
+  role: 'assistant',
+  content: "Hi! I'm your Cold-Start Forecasting analyst for the Austin new-store launch.\n\n- Drill into individual SKU accuracy — predicted vs actual with 95% CI bands\n- Understand how attribute + analog blending evolves as local data accumulates (α curve)\n- Identify which event × category pairs (BTS, BFCM) drive the largest demand spikes\n- Compare analog city contributions (Dallas / Houston / Atlanta) in the prediction decomposition\n- Find the worst-forecasting SKUs in the 90-day holdout set\n\nTry asking \"at what α does the blended model stabilise?\" or \"which SKU has the widest CI on Day 1?\"",
+  timestamp: new Date(),
+};
+
 const COLDSTART_DEFAULT_PROMPTS = [
   'Which hero SKU has the highest analog MAPE vs champion MAPE gap?',
   'At what day does the confidence interval narrow below 20% of predicted?',
@@ -219,9 +227,18 @@ const COLDSTART_DEFAULT_PROMPTS = [
   'Which SKU holdout rows have error > 40% and why?',
 ];
 
+const COLDSTART_DEFAULT_PROMPTS_APPAREL = [
+  'Which hero SKU has the highest analog MAPE vs champion MAPE gap?',
+  'At what day does the confidence interval narrow below 20% of predicted?',
+  'Which event × department pair shows the sharpest demand ramp?',
+  'How does the blended prediction decompose on Day 45 for Womens Denim?',
+  'Which SKU holdout rows have error > 40% and why?',
+];
+
 export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
   const pathname = usePathname();
   const params = useParams();
+  const { isApparel } = useTenant();
   const currentModule: ModuleType =
     pathname.startsWith('/merchandise/cold-start') ? 'coldstart' :
     pathname.startsWith('/merchandise') ? 'merchandise' :
@@ -230,7 +247,7 @@ export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
   const [lastModule, setLastModule] = useState<ModuleType>(currentModule);
 
   const welcomeMessage =
-    currentModule === 'coldstart' ? COLDSTART_WELCOME :
+    currentModule === 'coldstart' ? (isApparel ? COLDSTART_WELCOME_APPAREL : COLDSTART_WELCOME) :
     currentModule === 'merchandise' ? MERCHANDISE_WELCOME :
     currentModule === 'demand' ? DEMAND_WELCOME :
     currentModule === 'inventory' ? INVENTORY_WELCOME : CX360_WELCOME;
@@ -267,13 +284,13 @@ export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
   // Context-aware prompts based on active state
   const examplePrompts = useMemo(() => {
     if (currentModule === 'coldstart') {
-      return COLDSTART_DEFAULT_PROMPTS;
+      return isApparel ? COLDSTART_DEFAULT_PROMPTS_APPAREL : COLDSTART_DEFAULT_PROMPTS;
     }
     if (currentModule === 'merchandise') {
       return [
         'Which SKUs are not ramped for the next event?',
         'Show me under-performing promos',
-        "What's the forecast accuracy for Grocery & Staples?",
+        isApparel ? "What's the forecast accuracy for Womens?" : "What's the forecast accuracy for Grocery & Staples?",
         'Which categories will miss their Q2 plan?',
       ];
     }
@@ -317,6 +334,7 @@ export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
   useEffect(() => {
     if (currentModule !== lastModule) {
       const newWelcome =
+        currentModule === 'coldstart' ? (isApparel ? COLDSTART_WELCOME_APPAREL : COLDSTART_WELCOME) :
         currentModule === 'merchandise' ? MERCHANDISE_WELCOME :
         currentModule === 'demand' ? DEMAND_WELCOME :
         currentModule === 'inventory' ? INVENTORY_WELCOME : CX360_WELCOME;
