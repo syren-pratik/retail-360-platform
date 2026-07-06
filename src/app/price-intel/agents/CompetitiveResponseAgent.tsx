@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
 import { TOP_SKUS, CATEGORIES } from '@/app/lib/dbx-fixtures';
+import { useTenant } from '@/app/context/TenantContext';
 
 interface Props {
   core: PriceIntelCore;
@@ -42,11 +43,22 @@ const THREAT_BADGE: Record<KotlerAnalysis['threat_level'], { cls: string; label:
 const _topSku = TOP_SKUS[0]?.product_id ?? 'PRD-000001';
 const _topCat = CATEGORIES[0]?.category_l1 ?? 'Spices';
 const _topDept = CATEGORIES[1]?.department ?? 'Grocery & Staples';
-const SUGGESTION_CHIPS = [
+const GROCERY_CHIPS = [
   `Zepto cut ${_topSku} by 15% — should we respond?`,
   `Blinkit launched a flash sale on ${_topCat} — what's our move?`,
   `BigBasket is bundling ${_topDept} products — analyse the threat`,
 ];
+
+function buildApparelChips(core: PriceIntelCore): string[] {
+  const topSku = core.skus?.[0]?.sku_id ?? 'APR-WT-0001';
+  const topCat = core.skus?.[0]?.category ?? 'Womens Dresses';
+  const topDept = core.skus?.[1]?.department ?? 'Womens';
+  return [
+    `Nordstrom cut ${topSku} by 15% — should we respond?`,
+    `Macy's launched a flash sale on ${topCat} — what's our move?`,
+    `Amazon Fashion is bundling ${topDept} products — analyse the threat`,
+  ];
+}
 
 function ThreatBadge({ level }: { level: KotlerAnalysis['threat_level'] }) {
   const { cls, label } = THREAT_BADGE[level];
@@ -114,6 +126,8 @@ function formatTime(date: Date): string {
 }
 
 export default function CompetitiveResponseAgent({ core }: Props) {
+  const { isApparel } = useTenant();
+  const SUGGESTION_CHIPS = isApparel ? buildApparelChips(core) : GROCERY_CHIPS;
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
