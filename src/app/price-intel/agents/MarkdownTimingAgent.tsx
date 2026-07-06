@@ -13,6 +13,7 @@ import {
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
 import { formatLakhsCrores } from '@/app/lib/merch-format';
 import { OVERSTOCK_SKUS } from '@/app/lib/dbx-fixtures';
+import { useTenant } from '@/app/context/TenantContext';
 
 interface Props {
   core: PriceIntelCore;
@@ -60,9 +61,18 @@ function UrgencyBadge({ urgency }: { urgency: ScheduleItem['urgency'] }) {
   );
 }
 
-export default function MarkdownTimingAgent({ core: _core }: Props) {
-  void _core;
-  const pendingItems = OVERSTOCK_SKUS.slice(0, 15);
+export default function MarkdownTimingAgent({ core }: Props) {
+  const { isApparel } = useTenant();
+  const pendingItems = isApparel
+    ? core.skus.slice(0, 15).map((s) => ({
+        product_id: s.sku_id,
+        store_id: 'ALL',
+        department: s.department,
+        city: 'Network',
+        closing_stock_qty: s.weeks_of_supply ? Math.round(s.weeks_of_supply * 30) : 120,
+        dos: s.weeks_of_supply ?? 8,
+      }))
+    : OVERSTOCK_SKUS.slice(0, 15);
 
   const [selectedSKUs, setSelectedSKUs] = useState<Set<string>>(new Set());
   const [goal, setGoal] = useState<OptimizationGoal>('balanced');

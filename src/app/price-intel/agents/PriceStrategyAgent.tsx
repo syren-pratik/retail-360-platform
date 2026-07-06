@@ -14,6 +14,26 @@ import {
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
 import { formatLakhsCrores } from '@/app/lib/merch-format';
 import { CATEGORIES } from '@/app/lib/dbx-fixtures';
+import { useTenant } from '@/app/context/TenantContext';
+
+const APPAREL_CATEGORIES = [
+  { department: 'Mens',        category_l1: 'Tees',           sku_count: 42 },
+  { department: 'Mens',        category_l1: 'Denim',          sku_count: 38 },
+  { department: 'Mens',        category_l1: 'Outerwear',      sku_count: 22 },
+  { department: 'Mens',        category_l1: 'Activewear',     sku_count: 18 },
+  { department: 'Womens',      category_l1: 'Tops',           sku_count: 48 },
+  { department: 'Womens',      category_l1: 'Dresses',        sku_count: 36 },
+  { department: 'Womens',      category_l1: 'Bottoms',        sku_count: 44 },
+  { department: 'Womens',      category_l1: 'Outerwear',      sku_count: 26 },
+  { department: 'Kids',        category_l1: 'Boys Tops',      sku_count: 20 },
+  { department: 'Kids',        category_l1: 'Girls Dresses',  sku_count: 22 },
+  { department: 'Kids',        category_l1: 'Baby',           sku_count: 18 },
+  { department: 'Footwear',    category_l1: 'Mens Sneaker',   sku_count: 28 },
+  { department: 'Footwear',    category_l1: 'Womens Sneaker', sku_count: 30 },
+  { department: 'Footwear',    category_l1: 'Sandal',         sku_count: 14 },
+  { department: 'Accessories', category_l1: 'Handbag',        sku_count: 16 },
+  { department: 'Accessories', category_l1: 'Belt',           sku_count: 8  },
+];
 
 interface Props {
   core: PriceIntelCore;
@@ -86,15 +106,17 @@ function ActionBadge({ action }: { action: 'raise' | 'hold' | 'lower' }) {
 }
 
 export default function PriceStrategyAgent({ core }: Props) {
+  const { isApparel } = useTenant();
+  const categoryList = isApparel ? APPAREL_CATEGORIES : CATEGORIES;
   // Group real Databricks categories by department for the dropdown.
-  const categoriesByDept = CATEGORIES.reduce<Record<string, typeof CATEGORIES>>((acc, c) => {
+  const categoriesByDept = categoryList.reduce<Record<string, typeof categoryList>>((acc, c) => {
     if (!acc[c.department]) acc[c.department] = [];
     acc[c.department].push(c);
     return acc;
   }, {});
   const deptOrder = Object.keys(categoriesByDept);
 
-  const [category, setCategory] = useState<string>(CATEGORIES[0]?.category_l1 ?? '');
+  const [category, setCategory] = useState<string>(categoryList[0]?.category_l1 ?? '');
   const [horizon, setHorizon] = useState<Horizon>('4 weeks');
   const [objective, setObjective] = useState<Objective>('maximize_margin');
   const [competitiveIntensity, setCompetitiveIntensity] = useState<CompetitiveIntensity>('medium');
@@ -108,7 +130,7 @@ export default function PriceStrategyAgent({ core }: Props) {
     setError(null);
     setResult(null);
     try {
-      const catRow = CATEGORIES.find(c => c.category_l1 === category);
+      const catRow = categoryList.find(c => c.category_l1 === category);
       const deptData = core.departments.find(d => d.name === catRow?.department) ?? null;
       const skusInCategory = core.skus.filter(s => s.category === category).slice(0, 10);
       const res = await fetch('/api/price-intel/agents/price-strategy', {
