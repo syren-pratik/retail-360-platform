@@ -43,3 +43,8 @@ cache/merch_demand_*.json
 .playwright-mcp/
 deploy.zip
 *-E
+
+# E2E artifacts
+e2e-audit/
+*.png
+!public/**/*.png
