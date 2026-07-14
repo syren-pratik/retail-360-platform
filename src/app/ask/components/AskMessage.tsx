@@ -1,5 +1,6 @@
 'use client';
 
+import { Bot } from 'lucide-react';
 import type { UIComponentType } from '@/app/lib/types';
 import AskCanvas from './AskCanvas';
 import AskSuggestions, { getSuggestionsForResponse } from './AskSuggestions';
@@ -10,7 +11,9 @@ interface AskMessageProps {
   components?: UIComponentType[];
   isStreaming?: boolean;
   timestamp?: Date;
+  agentName?: string;
   onFollowUp?: (text: string) => void;
+  onAgent?: (agentId: string) => void;
 }
 
 function formatTime(d: Date): string {
@@ -26,7 +29,9 @@ export default function AskMessage({
   components,
   isStreaming = false,
   timestamp,
+  agentName,
   onFollowUp,
+  onAgent,
 }: AskMessageProps) {
   if (role === 'user') {
     return (
@@ -44,12 +49,23 @@ export default function AskMessage({
     );
   }
 
-  // Assistant message — no bubble, raw prose with label
+  // Assistant message — no bubble, raw prose with label.
+  // Agent-produced messages get an attribution badge + accent border.
+  const isAgentMessage = Boolean(agentName);
+
   return (
-    <div>
+    <div className={isAgentMessage ? 'border-l-2 border-[var(--accent-primary)] pl-3 -ml-3' : undefined}>
       <div className="flex items-center gap-1.5 mb-1.5">
         <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-primary)]" />
-        <span className="text-xs font-medium text-[var(--text-secondary)]">Retail 360</span>
+        <span className="text-xs font-medium text-[var(--text-secondary)]">
+          {isAgentMessage ? 'Claude' : 'Retail 360'}
+        </span>
+        {isAgentMessage && (
+          <span className="flex items-center gap-1 text-[10px] px-1.5 py-0.5 rounded-full bg-[var(--accent-primary-light)] text-[var(--accent-primary)] font-medium">
+            <Bot size={10} />
+            {agentName} agent
+          </span>
+        )}
         {timestamp && !isStreaming && (
           <span className="text-[10px] text-[var(--text-tertiary)]">· {formatTime(timestamp)}</span>
         )}
@@ -66,10 +82,11 @@ export default function AskMessage({
         <AskCanvas components={components} />
       )}
 
-      {!isStreaming && onFollowUp && content && (
+      {!isStreaming && onFollowUp && onAgent && content && (
         <AskSuggestions
           suggestions={getSuggestionsForResponse(content)}
           onAsk={onFollowUp}
+          onAgent={onAgent}
         />
       )}
     </div>

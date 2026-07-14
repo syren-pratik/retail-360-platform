@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import type { UIComponentType } from '@/app/lib/types';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { agentTenant, agentSystemPrefix, agentCurrencySymbol, agentMarket } from '@/app/lib/agent-tenant';
 import { priceIntelLookup } from '@/app/lib/dbx-tools';
@@ -95,11 +96,29 @@ function computeFallback(body: CompetitiveResponseBody): CompetitiveResponseResu
   };
 }
 
+
+// Backward-compat: flat fields stay for AgentsTab; components[] for the canvas.
+function deriveComponents(result: CompetitiveResponseResult): UIComponentType[] {
+  const a = result.analysis;
+  if (!a) return [];
+  return [
+    { type: 'kpi_card', label: 'Threat Level', value: a.threat_level.toUpperCase(), direction: a.threat_level === 'low' ? 'up' : 'down' },
+    { type: 'kpi_card', label: 'Price Adjustment', value: `${a.price_adjustment_pct > 0 ? '+' : ''}${a.price_adjustment_pct}%`, direction: a.price_adjustment_pct >= 0 ? 'up' : 'down' },
+    { type: 'kpi_card', label: 'Market Share Risk', value: `${a.market_share_risk_pct}%`, direction: a.market_share_risk_pct > 5 ? 'down' : 'up' },
+    {
+      type: 'data_table',
+      title: 'Supporting Actions',
+      columns: ['action'],
+      data: (a.supporting_actions ?? []).map((s) => ({ action: s })),
+    },
+  ];
+}
+
 export async function POST(request: NextRequest) {
   const body: CompetitiveResponseBody = await request.json();
 
   if (!client) {
-    return NextResponse.json(computeFallback(body));
+    { const result = computeFallback(body); return NextResponse.json({ ...result, components: deriveComponents(result) }); }
   }
 
   // Fetch live competitive gap data from Databricks to ground reasoning.
@@ -142,9 +161,9 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    return NextResponse.json({ reply, analysis, source: 'claude' });
+    { const result: CompetitiveResponseResult = { reply, analysis, source: 'claude' }; return NextResponse.json({ ...result, components: deriveComponents(result) }); }
   } catch (err) {
     console.error('competitive-response agent error:', err);
-    return NextResponse.json(computeFallback(body));
+    { const result = computeFallback(body); return NextResponse.json({ ...result, components: deriveComponents(result) }); }
   }
 }

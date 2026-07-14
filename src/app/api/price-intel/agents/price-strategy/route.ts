@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import type { UIComponentType } from '@/app/lib/types';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { agentTenant, agentSystemPrefix, agentCurrencySymbol, agentMarket } from '@/app/lib/agent-tenant';
 import { priceIntelLookup } from '@/app/lib/dbx-tools';
@@ -157,12 +158,32 @@ function computeFallback(body: PriceStrategyBody): PriceStrategyResult {
   };
 }
 
+
+// Backward-compat: flat fields stay for AgentsTab; components[] for the canvas.
+function deriveComponents(result: PriceStrategyResult): UIComponentType[] {
+  const sym = agentCurrencySymbol(agentTenant());
+  const comps: UIComponentType[] = [
+    { type: 'kpi_card', label: 'Margin Impact', value: `${result.expected_margin_impact_pp >= 0 ? '+' : ''}${result.expected_margin_impact_pp.toFixed(2)}pp`, direction: result.expected_margin_impact_pp >= 0 ? 'up' : 'down' },
+    { type: 'kpi_card', label: 'Revenue Impact', value: `${sym}${Math.round(result.expected_revenue_impact_inr).toLocaleString()}`, direction: result.expected_revenue_impact_inr >= 0 ? 'up' : 'down' },
+    { type: 'kpi_card', label: 'Confidence', value: result.confidence.toUpperCase(), direction: result.confidence === 'high' ? 'up' : 'down' },
+  ];
+  if (result.sku_recommendations?.length) {
+    comps.push({
+      type: 'data_table',
+      title: 'SKU Recommendations',
+      columns: ['sku_id', 'action', 'price_change_pct', 'rationale'],
+      data: result.sku_recommendations.slice(0, 8) as unknown as Record<string, unknown>[],
+    });
+  }
+  return comps;
+}
+
 export async function POST(request: NextRequest) {
   const body: PriceStrategyBody = await request.json();
 
   if (!client) {
     const result = computeFallback(body);
-    return NextResponse.json(result);
+    return NextResponse.json({ ...result, components: deriveComponents(result) });
   }
 
   // Fetch live recommendations + elasticity for this category from Databricks.
@@ -219,10 +240,10 @@ Return JSON schema:
     const cleaned = raw.replace(/```json\s*/gi, '').replace(/```/g, '').trim();
     const result: PriceStrategyResult = JSON.parse(cleaned);
 
-    return NextResponse.json(result);
+    return NextResponse.json({ ...result, components: deriveComponents(result) });
   } catch (err) {
     console.error('price-strategy agent error:', err);
     const result = computeFallback(body);
-    return NextResponse.json(result);
+    return NextResponse.json({ ...result, components: deriveComponents(result) });
   }
 }

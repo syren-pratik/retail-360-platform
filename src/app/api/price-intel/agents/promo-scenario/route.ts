@@ -3,6 +3,7 @@ import Anthropic from '@anthropic-ai/sdk';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { agentTenant, agentSystemPrefix, agentCurrencySymbol, agentMarket } from '@/app/lib/agent-tenant';
 import { priceIntelLookup } from '@/app/lib/dbx-tools';
+import type { UIComponentType } from '@/app/lib/types';
 
 let client: Anthropic | null = null;
 let modelName = 'claude-sonnet-4-5-20250514';
@@ -102,12 +103,31 @@ function computeFallback(body: PromoScenarioBody): PromoScenarioResult {
   };
 }
 
+// Derive generative-canvas components from the flat result (backward compat:
+// flat fields stay for AgentsTab; new consumers read components[]).
+function deriveComponents(result: PromoScenarioResult): UIComponentType[] {
+  const sym = agentCurrencySymbol(agentTenant());
+  return [
+    { type: 'kpi_card', label: 'Net ROI', value: `${result.net_roi.toFixed(2)}×`, direction: result.net_roi >= 2.5 ? 'up' : 'down' },
+    { type: 'kpi_card', label: 'Incremental Revenue', value: `${sym}${Math.round(result.incremental_revenue_inr).toLocaleString()}`, direction: 'up' },
+    { type: 'kpi_card', label: 'Free-Rider Estimate', value: `${result.free_rider_estimate_pct}%`, direction: result.free_rider_estimate_pct > 45 ? 'down' : 'up' },
+    { type: 'kpi_card', label: 'Margin Impact', value: `${result.margin_impact_pp.toFixed(2)}pp`, direction: 'down' },
+    {
+      type: 'comparison',
+      items: result.scenario_comparison.map((s) => ({
+        label: s.label,
+        metrics: { roi: `${s.roi.toFixed(2)}×`, margin_impact: `${s.margin_pp.toFixed(2)}pp` },
+      })),
+    },
+  ];
+}
+
 export async function POST(request: NextRequest) {
   const body: PromoScenarioBody = await request.json();
 
   if (!client) {
     const result = computeFallback(body);
-    return NextResponse.json(result);
+    return NextResponse.json({ ...result, components: deriveComponents(result) });
   }
 
   // Fetch live Databricks context: SKU pricing + elasticity for the target SKU.
@@ -166,10 +186,10 @@ Return JSON schema:
     const cleaned = raw.replace(/```json\s*/gi, '').replace(/```/g, '').trim();
     const result: PromoScenarioResult = JSON.parse(cleaned);
 
-    return NextResponse.json(result);
+    return NextResponse.json({ ...result, components: deriveComponents(result) });
   } catch (err) {
     console.error('promo-scenario agent error:', err);
     const result = computeFallback(body);
-    return NextResponse.json(result);
+    return NextResponse.json({ ...result, components: deriveComponents(result) });
   }
 }

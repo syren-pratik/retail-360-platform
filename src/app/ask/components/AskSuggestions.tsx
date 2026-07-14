@@ -16,7 +16,7 @@ export interface AskSuggestion {
 interface AskSuggestionsProps {
   suggestions: AskSuggestion[];
   onAsk: (prompt: string) => void;
-  onAgent?: (agentId: string) => void;
+  onAgent: (agentId: string) => void;
 }
 
 const ICONS: Record<string, LucideIcon> = {
@@ -76,8 +76,7 @@ export default function AskSuggestions({ suggestions, onAsk, onAgent }: AskSugge
         return (
           <button
             key={s.label}
-            onClick={() => (s.action === 'ask' ? onAsk(s.prompt!) : onAgent?.(s.agentId!))}
-            title={isAgent && !onAgent ? 'Agent runs coming in the next update' : undefined}
+            onClick={() => (s.action === 'ask' ? onAsk(s.prompt!) : onAgent(s.agentId!))}
             className="flex items-center gap-1.5 px-3 py-1.5 text-xs border border-[var(--border-default)] rounded-full bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:border-[var(--border-hover)] hover:text-[var(--accent-primary)] transition-colors"
           >
             <Icon size={12} />

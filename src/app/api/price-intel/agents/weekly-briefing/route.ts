@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import type { UIComponentType } from '@/app/lib/types';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { agentTenant, agentSystemPrefix, agentCurrencySymbol, agentMarket } from '@/app/lib/agent-tenant';
 import { priceIntelLookup, supplierHealth, inventoryStatus } from '@/app/lib/dbx-tools';
@@ -153,12 +154,31 @@ function computeFallback(body: WeeklyBriefingBody): WeeklyBriefingResult {
   };
 }
 
+
+// Backward-compat: flat fields stay for AgentsTab; components[] for the canvas.
+function deriveComponents(result: WeeklyBriefingResult): UIComponentType[] {
+  const comps: UIComponentType[] = [
+    { type: 'kpi_card', label: 'Actions This Week', value: String(result.top_actions?.length ?? 0), direction: 'up' },
+    { type: 'kpi_card', label: 'Risks Flagged', value: String(result.risks?.length ?? 0), direction: 'down' },
+    { type: 'kpi_card', label: 'Opportunities', value: String(result.opportunities?.length ?? 0), direction: 'up' },
+  ];
+  if (result.top_actions?.length) {
+    comps.push({
+      type: 'data_table',
+      title: 'Top Actions',
+      columns: ['title', 'impact', 'priority'],
+      data: result.top_actions.slice(0, 6) as unknown as Record<string, unknown>[],
+    });
+  }
+  return comps;
+}
+
 export async function POST(request: NextRequest) {
   const body: WeeklyBriefingBody = await request.json();
 
   if (!client) {
     const result = computeFallback(body);
-    return NextResponse.json(result);
+    return NextResponse.json({ ...result, components: deriveComponents(result) });
   }
 
   // Fan out live Databricks queries for real KPIs. Degrades gracefully on per-call failure.
@@ -218,10 +238,10 @@ Include 3-5 top_actions, 2-4 risks, 2-4 opportunities. Be specific and data-driv
     const cleaned = raw.replace(/```json\s*/gi, '').replace(/```/g, '').trim();
     const result: WeeklyBriefingResult = JSON.parse(cleaned);
 
-    return NextResponse.json(result);
+    return NextResponse.json({ ...result, components: deriveComponents(result) });
   } catch (err) {
     console.error('weekly-briefing agent error:', err);
     const result = computeFallback(body);
-    return NextResponse.json(result);
+    return NextResponse.json({ ...result, components: deriveComponents(result) });
   }
 }

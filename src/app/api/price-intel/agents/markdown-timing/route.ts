@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import type { UIComponentType } from '@/app/lib/types';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { agentTenant, agentSystemPrefix, agentCurrencySymbol, agentMarket } from '@/app/lib/agent-tenant';
 import { inventoryStatus } from '@/app/lib/dbx-tools';
@@ -140,6 +141,26 @@ function computeFallback(body: MarkdownTimingBody, dbxOverstock?: Record<string,
   };
 }
 
+
+// Backward-compat: flat fields stay for AgentsTab; components[] for the canvas.
+function deriveComponents(result: MarkdownTimingResult): UIComponentType[] {
+  const sym = agentCurrencySymbol(agentTenant());
+  const comps: UIComponentType[] = [
+    { type: 'kpi_card', label: 'Total Recovery', value: `${sym}${Math.round(result.total_recovery_inr).toLocaleString()}`, direction: 'up' },
+    { type: 'kpi_card', label: 'Avg Depth', value: `${result.avg_depth_pct.toFixed(0)}%`, direction: 'down' },
+    { type: 'kpi_card', label: 'SKUs Scheduled', value: String(result.schedule?.length ?? 0), direction: 'up' },
+  ];
+  if (result.schedule?.length) {
+    comps.push({
+      type: 'data_table',
+      title: 'Markdown Schedule',
+      columns: ['sku_id', 'product_name', 'recommended_week', 'depth_pct', 'urgency'],
+      data: result.schedule.slice(0, 10) as unknown as Record<string, unknown>[],
+    });
+  }
+  return comps;
+}
+
 export async function POST(request: NextRequest) {
   const body: MarkdownTimingBody = await request.json();
 
@@ -200,7 +221,7 @@ Return JSON schema:
     const cleaned = raw.replace(/```json\s*/gi, '').replace(/```/g, '').trim();
     const result: MarkdownTimingResult = JSON.parse(cleaned);
 
-    return NextResponse.json(result);
+    return NextResponse.json({ ...result, components: deriveComponents(result) });
   } catch (err) {
     console.error('markdown-timing agent error:', err);
     return NextResponse.json(computeFallback(body, dbxOverstock));
