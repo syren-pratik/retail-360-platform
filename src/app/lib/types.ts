@@ -253,7 +253,8 @@ export interface SQLGenerationResponse {
 
 export interface ChatResponse {
   answer: string;
-  ui_component: UIComponentType;
+  ui_component?: UIComponentType;    // kept — ChatPanel still reads this
+  components?: UIComponentType[];    // new — AskShell reads this
 }
 
 // Segment Migration Types

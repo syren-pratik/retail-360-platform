@@ -4,6 +4,7 @@ import {
   BarChart3, Package2, DollarSign, TrendingUp, TrendingDown,
   Settings, ChevronLeft, ChevronRight, ShoppingBag, Snowflake,
   ChevronDown, Tag, LineChart, Bot, BarChart2, Building2,
+  MessageSquare,
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -56,6 +57,16 @@ const navItems: NavItem[] = [
       { name: 'AI Agents',           href: '/price-intel?tab=agents',     icon: Bot,          enabled: true },
     ],
   },
+  {
+    name: 'Intelligence',
+    href: '/ask',
+    icon: MessageSquare,
+    enabled: true,
+    children: [
+      { name: 'Ask anything', href: '/ask',    icon: MessageSquare, enabled: true },
+      { name: 'Agent hub',    href: '/agents', icon: Bot,           enabled: false },
+    ],
+  },
 ];
 
 export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
@@ -64,6 +75,7 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
   const [expanded, setExpanded] = useState<Record<string, boolean>>(() => ({
     'Demand Planning': pathname.startsWith('/merchandise'),
     'Price Intelligence': pathname === '/price-intel' || pathname.startsWith('/price-intel/'),
+    'Intelligence': pathname === '/ask' || pathname.startsWith('/ask/') || pathname.startsWith('/agents'),
   }));
 
   function toggleGroup(name: string) {
@@ -136,6 +148,19 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
                         );
                         const childActive = !siblingMoreSpecific && (pathname === child.href || pathname.startsWith(child.href + '/'));
                         const ChildIcon = child.icon;
+                        if (!child.enabled) {
+                          return (
+                            <li key={child.name} className="relative">
+                              <div className="flex items-center gap-2 px-3 py-2 rounded-md text-xs font-medium text-[var(--text-tertiary)] cursor-not-allowed">
+                                <ChildIcon size={14} />
+                                <span>{child.name}</span>
+                                <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--accent-primary-light)] text-[var(--accent-primary)] ml-auto">
+                                  Soon
+                                </span>
+                              </div>
+                            </li>
+                          );
+                        }
                         return (
                           <li key={child.name} className="relative">
                             {childActive && (
