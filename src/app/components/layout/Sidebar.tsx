@@ -64,7 +64,7 @@ const navItems: NavItem[] = [
     enabled: true,
     children: [
       { name: 'Ask anything', href: '/ask',    icon: MessageSquare, enabled: true },
-      { name: 'Agent hub',    href: '/agents', icon: Bot,           enabled: false },
+      { name: 'Agent hub',    href: '/agents', icon: Bot,           enabled: true },
     ],
   },
 ];
