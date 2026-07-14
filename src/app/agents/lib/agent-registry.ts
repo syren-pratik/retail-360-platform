@@ -46,7 +46,7 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     input_type: 'form',
     icon: '📊',
     color: 'bg-blue-50',
-    avg_seconds: 8,
+    avg_seconds: 30,
     api_route: '/api/agents/run',
     params: [
       {
@@ -119,7 +119,7 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     input_type: 'form',
     icon: '🎯',
     color: 'bg-emerald-50',
-    avg_seconds: 10,
+    avg_seconds: 35,
     api_route: '/api/agents/run',
     params: [
       {
@@ -168,7 +168,7 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     input_type: 'chat',
     icon: '🔔',
     color: 'bg-rose-50',
-    avg_seconds: 6,
+    avg_seconds: 25,
     api_route: '/api/agents/run',
     chat_placeholder: "Describe the competitor's move...",
     example_prompt: 'BigBazaar dropped Saffola Gold 5L from ₹890 to ₹799 this week',
@@ -183,7 +183,7 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     input_type: 'oneclick',
     icon: '🔍',
     color: 'bg-amber-50',
-    avg_seconds: 9,
+    avg_seconds: 30,
     api_route: '/api/agents/run',
   },
 
@@ -197,7 +197,7 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     input_type: 'form',
     icon: '📉',
     color: 'bg-orange-50',
-    avg_seconds: 8,
+    avg_seconds: 30,
     api_route: '/api/agents/run',
     params: [
       {
@@ -230,7 +230,7 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     input_type: 'oneclick',
     icon: '📋',
     color: 'bg-violet-50',
-    avg_seconds: 12,
+    avg_seconds: 40,
     api_route: '/api/agents/run',
   },
 
@@ -244,7 +244,7 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     input_type: 'oneclick',
     icon: '🎉',
     color: 'bg-teal-50',
-    avg_seconds: 9,
+    avg_seconds: 30,
     api_route: '/api/agents/run',
   },
 
@@ -257,7 +257,7 @@ export const AGENT_REGISTRY: AgentDefinition[] = [
     input_type: 'chat',
     icon: '📦',
     color: 'bg-indigo-50',
-    avg_seconds: 7,
+    avg_seconds: 25,
     api_route: '/api/agents/run',
     chat_placeholder: 'Describe what you observed...',
     example_prompt: 'Beverages sales jumped 34% this week — is this real demand or a data issue?',

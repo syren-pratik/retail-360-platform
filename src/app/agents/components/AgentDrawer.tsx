@@ -6,6 +6,7 @@ import type { AgentDefinition } from '@/app/agents/lib/agent-registry';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
 import type { UIComponentType } from '@/app/lib/types';
 import AgentMiniForm from '@/app/ask/components/AgentMiniForm';
+import { renderMarkdown } from '@/app/ask/lib/render-markdown';
 import HubCanvas from './HubCanvas';
 import type { RunHistoryItem } from './RunHistory';
 
@@ -103,6 +104,8 @@ export default function AgentDrawer({
                 answer_preview: answer.slice(0, 80),
                 components_count: components.length,
                 success: true,
+                full_answer: answer,
+                components,
               });
             }
           } catch { /* skip malformed */ }
@@ -175,12 +178,9 @@ export default function AgentDrawer({
         {shown && !loading && (
           <div>
             {shown.answer && (
-              <p className="text-sm text-[var(--text-primary)] leading-relaxed mb-4 whitespace-pre-wrap">
-                {shown.answer.slice(0, 300)}
-                {shown.answer.length > 300 && (
-                  <span className="text-[var(--text-secondary)]">...</span>
-                )}
-              </p>
+              <div className="text-sm text-[var(--text-primary)] space-y-0.5 mb-4">
+                {renderMarkdown(shown.answer)}
+              </div>
             )}
 
             <HubCanvas components={shown.components} />
@@ -219,7 +219,7 @@ export default function AgentDrawer({
             }
           </button>
           <p className="text-center text-[10px] text-[var(--text-secondary)] mt-2">
-            ~{agent.avg_seconds}s · powered by Claude
+            ~{agent.avg_seconds}s · Claude Sonnet
           </p>
         </div>
       )}

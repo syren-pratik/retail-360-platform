@@ -1,9 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import type { UIComponentType } from '@/app/lib/types';
 
 const STORAGE_KEY = 'agent_hub_run_history';
 const MAX_ITEMS = 5;
+const MAX_BYTES = 450_000;
 
 export interface RunHistoryItem {
   id: string;
@@ -14,6 +16,8 @@ export interface RunHistoryItem {
   answer_preview: string;    // first 80 chars of answer
   components_count: number;
   success: boolean;
+  full_answer?: string;
+  components?: UIComponentType[];
 }
 
 /** sessionStorage-backed run history — resets on tab close. */
@@ -29,9 +33,14 @@ export function useRunHistory() {
 
   function addRun(run: RunHistoryItem) {
     setHistory((prev) => {
-      const next = [run, ...prev].slice(0, MAX_ITEMS);
+      let next = [run, ...prev].slice(0, MAX_ITEMS);
       try {
-        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+        let serialized = JSON.stringify(next);
+        if (serialized.length > MAX_BYTES) {
+          next = next.slice(0, 3);
+          serialized = JSON.stringify(next);
+        }
+        sessionStorage.setItem(STORAGE_KEY, serialized);
       } catch { /* quota/unavailable — keep in-memory only */ }
       return next;
     });

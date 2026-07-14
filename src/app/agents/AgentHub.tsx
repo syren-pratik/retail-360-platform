@@ -33,8 +33,8 @@ export default function AgentHub() {
     if (agent) {
       setSelectedAgent(agent);
       setReplayResult({
-        answer: run.answer_preview,
-        components: [], // previews don't store full components
+        answer: run.full_answer ?? run.answer_preview,
+        components: run.components ?? [],
       });
     }
   }

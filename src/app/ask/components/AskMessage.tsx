@@ -4,6 +4,7 @@ import { Bot } from 'lucide-react';
 import type { UIComponentType } from '@/app/lib/types';
 import AskCanvas from './AskCanvas';
 import AskSuggestions, { getSuggestionsForResponse } from './AskSuggestions';
+import { renderMarkdown } from '../lib/render-markdown';
 
 interface AskMessageProps {
   role: 'user' | 'assistant';
@@ -71,8 +72,8 @@ export default function AskMessage({
         )}
       </div>
 
-      <div className="text-sm text-[var(--text-primary)] whitespace-pre-wrap" style={{ lineHeight: 1.7 }}>
-        {content}
+      <div className="text-sm text-[var(--text-primary)] space-y-0.5">
+        {renderMarkdown(content)}
         {isStreaming && (
           <span className="inline-block w-0.5 h-4 bg-current animate-pulse ml-0.5 align-middle" />
         )}
