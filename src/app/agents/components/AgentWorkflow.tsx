@@ -1,0 +1,114 @@
+'use client';
+
+import type {
+  ERPConnectionResult,
+  ProposalItem,
+  ExecutionStep,
+  ArtifactResult,
+  DatabricksOperation,
+} from '@/app/agents/lib/action-types';
+import StepSystemCheck from './workflow/StepSystemCheck';
+import StepProposal from './workflow/StepProposal';
+import StepExecution from './workflow/StepExecution';
+
+export type AgentWorkflowPhase = 'idle' | 'checking' | 'proposing' | 'approved' | 'executing' | 'done';
+
+interface Props {
+  agentId: string;
+  agentName: string;
+  agentIcon: string;
+  initialTrigger: string;
+  phase: AgentWorkflowPhase;
+  erpResults: ERPConnectionResult[];
+  proposals: ProposalItem[];
+  executionSteps: ExecutionStep[];
+  artifacts: ArtifactResult[];
+  databricksOps: DatabricksOperation[];
+  referenceNumber?: string;
+  nextSteps?: string[];
+  onStart: () => void;
+  onProposalChange: (proposals: ProposalItem[]) => void;
+  onApprove: (selected: ProposalItem[]) => void;
+  onDismiss: () => void;
+}
+
+const PHASE_ORDER: Record<AgentWorkflowPhase, number> = {
+  idle: 0,
+  checking: 1,
+  proposing: 2,
+  approved: 3,
+  executing: 4,
+  done: 5,
+};
+
+export default function AgentWorkflow({
+  agentIcon,
+  agentName,
+  initialTrigger,
+  phase,
+  erpResults,
+  proposals,
+  executionSteps,
+  artifacts,
+  databricksOps,
+  referenceNumber,
+  nextSteps,
+  onStart,
+  onProposalChange,
+  onApprove,
+  onDismiss,
+}: Props) {
+  const p = PHASE_ORDER[phase];
+
+  if (phase === 'idle') {
+    return (
+      <div className="border border-[var(--border-default)] rounded-xl bg-white p-6">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-xl">
+            {agentIcon}
+          </div>
+          <div className="flex-1">
+            <h3 className="text-sm font-medium text-[var(--text-primary)]">{agentName}</h3>
+            <p className="text-xs text-[var(--text-secondary)] mt-0.5">{initialTrigger}</p>
+          </div>
+        </div>
+        <button
+          onClick={onStart}
+          className="px-4 py-2 text-sm rounded-md bg-[var(--accent-primary)] text-white"
+        >
+          Run agent →
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <div className="mb-3 text-xs text-[var(--text-secondary)]">{initialTrigger}</div>
+      <StepSystemCheck results={erpResults} isChecking={phase === 'checking'} stepNumber={1} />
+
+      {p >= PHASE_ORDER.approved && (
+        <StepProposal
+          proposals={proposals}
+          onProposalChange={onProposalChange}
+          onApprove={onApprove}
+          onDismiss={onDismiss}
+          readonly={p >= PHASE_ORDER.executing}
+          stepNumber={2}
+        />
+      )}
+
+      {p >= PHASE_ORDER.executing && (
+        <StepExecution
+          steps={executionSteps}
+          artifacts={artifacts}
+          databricksOps={databricksOps}
+          isExecuting={phase === 'executing'}
+          referenceNumber={referenceNumber}
+          nextSteps={nextSteps}
+          stepNumber={3}
+        />
+      )}
+    </div>
+  );
+}
