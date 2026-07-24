@@ -4,6 +4,8 @@ import { Bot } from 'lucide-react';
 import type { UIComponentType } from '@/app/lib/types';
 import AskCanvas from './AskCanvas';
 import AskSuggestions, { getSuggestionsForResponse } from './AskSuggestions';
+import ActionExecutionLog, { type ActionToolCall } from './ActionExecutionLog';
+import ActionArtifacts, { type SerializedArtifact } from './ActionArtifacts';
 import { renderMarkdown } from '../lib/render-markdown';
 
 interface AskMessageProps {
@@ -13,6 +15,9 @@ interface AskMessageProps {
   isStreaming?: boolean;
   timestamp?: Date;
   agentName?: string;
+  toolCalls?: ActionToolCall[];
+  actionResults?: Array<{ tool: string; result: unknown }>;
+  artifacts?: SerializedArtifact[];
   onFollowUp?: (text: string) => void;
   onAgent?: (agentId: string) => void;
 }
@@ -31,6 +36,8 @@ export default function AskMessage({
   isStreaming = false,
   timestamp,
   agentName,
+  toolCalls,
+  artifacts,
   onFollowUp,
   onAgent,
 }: AskMessageProps) {
@@ -79,9 +86,13 @@ export default function AskMessage({
         )}
       </div>
 
+      <ActionExecutionLog toolCalls={toolCalls} />
+
       {components && components.length > 0 && (
         <AskCanvas components={components} />
       )}
+
+      <ActionArtifacts artifacts={artifacts} />
 
       {!isStreaming && onFollowUp && onAgent && content && (
         <AskSuggestions

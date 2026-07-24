@@ -11,7 +11,7 @@ import StepSystemCheck from './workflow/StepSystemCheck';
 import StepProposal from './workflow/StepProposal';
 import StepExecution from './workflow/StepExecution';
 
-export type AgentWorkflowPhase = 'idle' | 'checking' | 'proposing' | 'approved' | 'executing' | 'done';
+export type AgentWorkflowPhase = 'idle' | 'checking' | 'thinking' | 'proposing' | 'approved' | 'executing' | 'done' | 'error';
 
 interface Props {
   agentId: string;
@@ -35,10 +35,12 @@ interface Props {
 const PHASE_ORDER: Record<AgentWorkflowPhase, number> = {
   idle: 0,
   checking: 1,
+  thinking: 2,
   proposing: 2,
   approved: 3,
   executing: 4,
   done: 5,
+  error: 0,
 };
 
 export default function AgentWorkflow({

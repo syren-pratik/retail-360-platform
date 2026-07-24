@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { Loader2, Database, AlertCircle } from 'lucide-react';
 import type { PriceIntelCore, PriceIntelSKU } from '@/app/lib/price-intel-types';
 import type {
   ERPConnectionResult,
@@ -10,6 +11,7 @@ import type {
   DatabricksOperation,
 } from '@/app/agents/lib/action-types';
 import AgentWorkflow, { type AgentWorkflowPhase } from '../components/AgentWorkflow';
+import StepSystemCheck from '../components/workflow/StepSystemCheck';
 import { checkERPConnections } from '../lib/erp-connector';
 import {
   generateRFQSpreadsheet,
@@ -104,6 +106,101 @@ export default function RFQGeneratorAgent({ core }: Props) {
   const [databricksOps, setDatabricksOps] = useState<DatabricksOperation[]>([]);
   const [referenceNumber, setReferenceNumber] = useState<string | undefined>();
   const [nextSteps, setNextSteps] = useState<string[]>([]);
+  const [thinkingText, setThinkingText] = useState<string>('');
+  const [toolCalls, setToolCalls] = useState<string[]>([]);
+  const [apiError, setApiError] = useState<string | null>(null);
+
+  function buildProposalsFromServer(data: { items: Array<Record<string, unknown>> }) {
+    const items = (data.items ?? []).map((raw, i) => {
+      const item = raw as {
+        sku_id: string;
+        product_name: string;
+        department: string;
+        current_margin_pct: number;
+        target_margin_pct: number;
+        current_cost_inr: number;
+        target_cost_reduction_pct: number;
+        annual_impact_lakhs: number;
+        priority: 'high' | 'medium' | 'low';
+      };
+      return {
+        id: item.sku_id ?? `rfq-${i}`,
+        sku_id: item.sku_id,
+        product_name: item.product_name,
+        department: item.department,
+        metric_label: 'Margin vs floor',
+        metric_value: `${item.current_margin_pct.toFixed(1)}% / ${item.target_margin_pct}% target`,
+        metric_urgent: true,
+        action_label: 'Request better terms',
+        value_inr: item.annual_impact_lakhs,
+        priority: item.priority,
+        selected: true,
+        metadata: {
+          current_margin: item.current_margin_pct,
+          target_margin: item.target_margin_pct,
+          cost_inr: item.current_cost_inr,
+          target_cost_reduction_pct: item.target_cost_reduction_pct,
+        },
+      } as ProposalItem;
+    });
+    setProposals(items);
+  }
+
+  async function fetchProposals() {
+    setPhase('thinking');
+    setThinkingText('');
+    setToolCalls([]);
+    setApiError(null);
+    try {
+      const res = await fetch('/api/agents/action/rfq-generator', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tenant: 'india_grocery' }),
+      });
+      if (!res.ok || !res.body) throw new Error(`HTTP ${res.status}`);
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buf = '';
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buf += decoder.decode(value, { stream: true });
+        const parts = buf.split('\n\n');
+        buf = parts.pop() ?? '';
+        for (const part of parts) {
+          const line = part.trim();
+          if (!line.startsWith('data:')) continue;
+          try {
+            const data = JSON.parse(line.slice(5).trim());
+            switch (data.type) {
+              case 'status':
+              case 'thinking':
+                setThinkingText((prev) => prev + (data.text ?? ''));
+                break;
+              case 'tool_call':
+                setToolCalls((prev) => (prev.includes(data.tool) ? prev : [...prev, data.tool]));
+                setThinkingText((prev) => prev + `\n→ Querying ${data.tool}...`);
+                break;
+              case 'tool_result':
+                setThinkingText((prev) => prev + `\n✓ ${data.summary ?? data.tool + ' returned data'}`);
+                break;
+              case 'proposals':
+                buildProposalsFromServer(data.data);
+                setPhase('approved');
+                break;
+              case 'error':
+                setApiError(data.text);
+                setPhase('error');
+                break;
+            }
+          } catch { /* skip malformed */ }
+        }
+      }
+    } catch (err) {
+      setApiError(err instanceof Error ? err.message : String(err));
+      setPhase('error');
+    }
+  }
 
   const initialTrigger = `${rfqSkus.length} SKUs where supplier costs are compressing margin · ₹${totalImpactL.toFixed(1)}L annual impact`;
 
@@ -125,7 +222,7 @@ export default function RFQGeneratorAgent({ core }: Props) {
         return [...prev, r];
       });
     });
-    setPhase('approved');
+    await fetchProposals();
   }
 
   async function handleApprove(selected: ProposalItem[]) {
@@ -197,6 +294,50 @@ export default function RFQGeneratorAgent({ core }: Props) {
     setNextSteps([]);
     setExecutionSteps((prev) => prev.map((s) => ({ ...s, status: 'pending' })));
     setProposals(initialProposals);
+  }
+
+  if (phase === 'thinking' || phase === 'error') {
+    return (
+      <div>
+        <div className="mb-3 text-xs text-[var(--text-secondary)]">{initialTrigger}</div>
+        <StepSystemCheck results={erpResults} isChecking={false} stepNumber={1} />
+        {phase === 'thinking' && (
+          <div className="border border-[var(--border-default)] rounded-lg bg-white p-4 mb-3">
+            <div className="flex items-center gap-3 mb-3">
+              <Loader2 size={16} className="animate-spin text-blue-600" />
+              <h3 className="text-sm font-medium text-[var(--text-primary)]">Analyzing with Claude...</h3>
+            </div>
+            {toolCalls.length > 0 && (
+              <div className="ml-6 mb-3 flex flex-wrap gap-2">
+                {toolCalls.map((t) => (
+                  <span key={t} className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] bg-blue-50 text-blue-700 border border-blue-100">
+                    <Database size={10} /> {t}
+                  </span>
+                ))}
+              </div>
+            )}
+            {thinkingText && (
+              <pre className="ml-6 text-xs text-[var(--text-secondary)] whitespace-pre-wrap font-mono">{thinkingText}</pre>
+            )}
+          </div>
+        )}
+        {phase === 'error' && (
+          <div className="border border-rose-200 bg-rose-50 rounded-lg p-4 mb-3">
+            <div className="flex items-center gap-2 mb-2">
+              <AlertCircle size={16} className="text-rose-600" />
+              <h3 className="text-sm font-medium text-rose-800">Agent error</h3>
+            </div>
+            <p className="ml-6 text-xs text-rose-700 mb-3">{apiError}</p>
+            <button
+              onClick={handleDismiss}
+              className="ml-6 px-3 py-1.5 text-xs rounded-md border border-rose-300 bg-white text-rose-700 hover:bg-rose-100"
+            >
+              Try again
+            </button>
+          </div>
+        )}
+      </div>
+    );
   }
 
   return (

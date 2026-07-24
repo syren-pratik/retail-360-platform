@@ -10,6 +10,8 @@ import { useTenant } from '@/app/context/TenantContext';
 import AskMessage from './components/AskMessage';
 import AskInput from './components/AskInput';
 import AgentsPanel from './components/AgentsPanel';
+import type { ActionToolCall } from './components/ActionExecutionLog';
+import type { SerializedArtifact } from './components/ActionArtifacts';
 
 interface AskMessageItem {
   id: string;
@@ -19,6 +21,9 @@ interface AskMessageItem {
   timestamp?: Date;
   agentId?: string;
   agentName?: string;
+  toolCalls?: ActionToolCall[];
+  actionResults?: Array<{ tool: string; result: unknown }>;
+  artifacts?: SerializedArtifact[];
 }
 
 const STARTER_QUESTIONS_GROCERY = [
@@ -44,6 +49,9 @@ export default function AskShell() {
   const [streamingContent, setStreamingContent] = useState('');
   const [streamingComponents, setStreamingComponents] = useState<UIComponentType[]>([]);
   const [streamingAgentName, setStreamingAgentName] = useState<string | undefined>(undefined);
+  const [streamingToolCalls, setStreamingToolCalls] = useState<ActionToolCall[]>([]);
+  const [streamingActionResults, setStreamingActionResults] = useState<Array<{ tool: string; result: unknown }>>([]);
+  const [streamingArtifacts, setStreamingArtifacts] = useState<SerializedArtifact[]>([]);
   const [core, setCore] = useState<PriceIntelCore | null>(null);
   const [selectedAgentId, setSelectedAgentId] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -70,6 +78,13 @@ export default function AskShell() {
     setStreamingContent('');
     setStreamingComponents([]);
     setStreamingAgentName(meta?.agentName);
+    setStreamingToolCalls([]);
+    setStreamingActionResults([]);
+    setStreamingArtifacts([]);
+
+    const localToolCalls: ActionToolCall[] = [];
+    const localActionResults: Array<{ tool: string; result: unknown }> = [];
+    const localArtifacts: SerializedArtifact[] = [];
 
     try {
       const res = await fetch(url, {
@@ -103,6 +118,33 @@ export default function AskShell() {
               accumulated += parsed.content;
               setStreamingContent(accumulated);
               scrollToBottom();
+            } else if (parsed.type === 'tool_call') {
+              localToolCalls.push({
+                tool: String(parsed.tool ?? ''),
+                label: String(parsed.label ?? parsed.tool ?? ''),
+                progress: [],
+                done: false,
+              });
+              setStreamingToolCalls([...localToolCalls]);
+              scrollToBottom();
+            } else if (parsed.type === 'tool_progress') {
+              const tc = [...localToolCalls].reverse().find((t) => t.tool === parsed.tool && !t.done);
+              if (tc && typeof parsed.text === 'string') {
+                tc.progress.push(parsed.text);
+                setStreamingToolCalls([...localToolCalls]);
+              }
+            } else if (parsed.type === 'action_result') {
+              const tc = [...localToolCalls].reverse().find((t) => t.tool === parsed.tool && !t.done);
+              if (tc) tc.done = true;
+              localActionResults.push({ tool: String(parsed.tool ?? ''), result: parsed.result });
+              const result = parsed.result as { artifacts?: SerializedArtifact[] } | undefined;
+              if (result?.artifacts && Array.isArray(result.artifacts)) {
+                for (const a of result.artifacts) localArtifacts.push(a);
+              }
+              setStreamingToolCalls([...localToolCalls]);
+              setStreamingActionResults([...localActionResults]);
+              setStreamingArtifacts([...localArtifacts]);
+              scrollToBottom();
             } else if (parsed.type === 'done') {
               setMessages((prev) => [...prev, {
                 id: crypto.randomUUID(),
@@ -112,11 +154,17 @@ export default function AskShell() {
                 timestamp: new Date(),
                 agentId: meta?.agentId,
                 agentName: meta?.agentName,
+                toolCalls: localToolCalls.length ? [...localToolCalls] : undefined,
+                actionResults: localActionResults.length ? [...localActionResults] : undefined,
+                artifacts: localArtifacts.length ? [...localArtifacts] : undefined,
               }]);
               setIsStreaming(false);
               setStreamingContent('');
               setStreamingComponents([]);
               setStreamingAgentName(undefined);
+              setStreamingToolCalls([]);
+              setStreamingActionResults([]);
+              setStreamingArtifacts([]);
             }
           } catch { /* skip malformed */ }
         }
@@ -125,6 +173,9 @@ export default function AskShell() {
       setIsStreaming(false);
       setStreamingContent('');
       setStreamingAgentName(undefined);
+      setStreamingToolCalls([]);
+      setStreamingActionResults([]);
+      setStreamingArtifacts([]);
       setMessages((prev) => [...prev, {
         id: crypto.randomUUID(),
         role: 'assistant',
@@ -256,6 +307,9 @@ export default function AskShell() {
                 components={msg.components}
                 timestamp={msg.timestamp}
                 agentName={msg.agentName}
+                toolCalls={msg.toolCalls}
+                actionResults={msg.actionResults}
+                artifacts={msg.artifacts}
                 onFollowUp={handleSend}
                 onAgent={handleAgentFromPill}
               />
@@ -267,6 +321,9 @@ export default function AskShell() {
                 content={streamingContent || '…'}
                 components={streamingComponents}
                 agentName={streamingAgentName}
+                toolCalls={streamingToolCalls}
+                actionResults={streamingActionResults}
+                artifacts={streamingArtifacts}
                 isStreaming={true}
               />
             )}

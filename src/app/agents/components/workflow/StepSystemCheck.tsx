@@ -1,6 +1,6 @@
 'use client';
 
-import { Loader2, Check, X } from 'lucide-react';
+import { Loader2, Check } from 'lucide-react';
 import type { ERPConnectionResult, ERPSystem } from '@/app/agents/lib/action-types';
 
 const SYSTEM_BG: Record<ERPSystem, string> = {

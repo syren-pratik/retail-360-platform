@@ -2,8 +2,15 @@ import { NextRequest } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
 import { TENANT_COOKIE, type Tenant } from '@/app/lib/tenant-constants';
 import type { UIComponentType } from '@/app/lib/types';
+import {
+  ASK_ACTION_TOOLS,
+  executeAskTool,
+  getToolLabel,
+  toolResultToString,
+} from './action-tools';
 
 export const dynamic = 'force-dynamic';
+export const maxDuration = 60;
 
 // Parse the rct_tenant cookie out of a raw Cookie header. Same pattern as
 // /api/chat — cookies() from next/headers has burned us in streaming scope.
@@ -55,6 +62,25 @@ Rules for components:
 - bar_chart/line_chart: data array must have at least 3 points
 - Component data must reference real numbers from the conversation context`;
 
+const ACTION_CAPABILITIES = `
+
+You also have ACTION TOOLS available. Use them when the user asks you to DO something
+(not just analyze) — raise a PO, pause a campaign, execute a markdown, generate an RFQ,
+or set a reminder. Rules:
+
+- BEFORE using any write tool (raise_purchase_order, pause_campaign, execute_markdown,
+  generate_rfq), first call check_erp_connection so the user sees the honest ERP state.
+- BEFORE generating artifacts, use query_live_data to preview the affected SKUs /
+  campaigns and share a short summary with the user.
+- ALWAYS ask the user to confirm before running raise_purchase_order, pause_campaign,
+  execute_markdown, or generate_rfq. Do not silently execute.
+- After a write tool succeeds, briefly summarise what was produced (files, email
+  recipient, Databricks reference). The UI renders the artifacts inline — do not paste
+  raw JSON.
+- set_reminder is safe to run without ERP checks.
+
+When just answering an analytical question, do not use action tools.`;
+
 const ASK_SYSTEM_PROMPT_GROCERY = `You are an AI analyst for an Indian supermarket retail
 intelligence platform called Retail 360. You have access to real pricing, demand,
 and customer data from the retailer's Databricks warehouse.
@@ -75,7 +101,8 @@ You know the following about this retailer's current state:
 - Next event: Eid al-Adha in ~20 days
 
 Be concise, specific, and action-oriented. Reference real ₹ values from the data above.
-When asked about a specific SKU or category, draw on the context you know.`;
+When asked about a specific SKU or category, draw on the context you know.
+${ACTION_CAPABILITIES}`;
 
 const ASK_SYSTEM_PROMPT_APPAREL = `You are an AI analyst for a US apparel retail
 intelligence platform called Retail 360. You have access to real pricing, demand,
@@ -98,7 +125,8 @@ You know the following about this retailer's current state:
 - Next event: Back-to-School peak in ~26 days; BFCM after
 
 Be concise, specific, and action-oriented. Reference real $ values from the data above.
-When asked about a specific SKU or category, draw on the context you know.`;
+When asked about a specific SKU or category, draw on the context you know.
+${ACTION_CAPABILITIES}`;
 
 const VALID_COMPONENT_TYPES = [
   'bar_chart', 'line_chart', 'donut_chart', 'data_table', 'kpi_card', 'comparison', 'text_only',
@@ -131,6 +159,8 @@ interface AskRequestBody {
   tenant?: string;
 }
 
+const MAX_ROUNDS = 8;
+
 export async function POST(request: NextRequest) {
   const body: AskRequestBody = await request.json();
   const tenant = getTenantFromRequest(request);
@@ -141,7 +171,9 @@ export async function POST(request: NextRequest) {
   const stream = new ReadableStream({
     async start(controller) {
       const send = (obj: unknown) => {
-        controller.enqueue(encoder.encode(`data: ${JSON.stringify(obj)}\n\n`));
+        try {
+          controller.enqueue(encoder.encode(`data: ${JSON.stringify(obj)}\n\n`));
+        } catch { /* closed */ }
       };
 
       try {
@@ -164,49 +196,83 @@ export async function POST(request: NextRequest) {
           return;
         }
 
-        const anthropicMessages = (body.messages ?? [])
+        const anthropicMessages: Anthropic.MessageParam[] = (body.messages ?? [])
           .filter((m) => m.role === 'user' || m.role === 'assistant')
           .map((m) => ({ role: m.role, content: m.content }));
 
-        const messageStream = anthropic.messages.stream({
-          model: modelName,
-          max_tokens: 2000,
-          temperature: 0,
-          system: systemPrompt,
-          messages: anthropicMessages,
-        });
-
         let fullText = '';
-        let insideComponents = false;
-        let pending = '';
 
-        for await (const event of messageStream) {
-          if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
-            const chunk = event.delta.text;
-            fullText += chunk;
+        // ── Tool-use loop ────────────────────────────────────────────────
+        for (let round = 0; round < MAX_ROUNDS; round++) {
+          const response: Anthropic.Message = await anthropic.messages.create({
+            model: modelName,
+            max_tokens: 2000,
+            temperature: 0,
+            system: systemPrompt,
+            messages: anthropicMessages,
+            tools: ASK_ACTION_TOOLS,
+          });
 
-            // Suppress streaming of the ```components block so raw JSON
-            // never flashes on screen; it is parsed at the end instead.
-            if (!insideComponents) {
-              pending += chunk;
-              const openIdx = pending.indexOf('```components');
-              if (openIdx !== -1) {
-                const before = pending.slice(0, openIdx);
-                if (before) send({ type: 'text', content: before });
-                insideComponents = true;
-                pending = '';
-              } else if (pending.length > 24) {
-                // Flush all but a tail long enough to hold a split marker.
-                const flushLen = pending.length - 16;
-                send({ type: 'text', content: pending.slice(0, flushLen) });
-                pending = pending.slice(flushLen);
-              }
+          // Stream text blocks in this round, and dispatch any tool_use blocks.
+          for (const block of response.content) {
+            if (block.type === 'text') {
+              fullText += block.text;
+              // Strip the components block from what we stream to the client;
+              // it'll be parsed at the end.
+              const cleaned = block.text.replace(/```components\n[\s\S]*?```/g, '');
+              if (cleaned) send({ type: 'text', content: cleaned });
             }
           }
-        }
 
-        if (!insideComponents && pending) {
-          send({ type: 'text', content: pending });
+          const toolUseBlocks = response.content.filter(
+            (b): b is Anthropic.ToolUseBlock => b.type === 'tool_use'
+          );
+
+          if (response.stop_reason === 'end_turn' || toolUseBlocks.length === 0) {
+            break;
+          }
+
+          // Append the assistant's turn (contains the tool_use blocks).
+          anthropicMessages.push({ role: 'assistant', content: response.content });
+
+          // Execute each tool and collect tool_result blocks for the next turn.
+          const toolResultContent: Anthropic.ToolResultBlockParam[] = [];
+          for (const tuBlock of toolUseBlocks) {
+            const toolName = tuBlock.name;
+            const toolInput = (tuBlock.input ?? {}) as Record<string, unknown>;
+            const label = getToolLabel(toolName);
+            send({ type: 'tool_call', tool: toolName, label });
+
+            const result = await executeAskTool(toolName, toolInput, (text) => {
+              send({ type: 'tool_progress', tool: toolName, text });
+            });
+
+            // Emit the visible action_result event (artifacts, erp results, etc.)
+            send({
+              type: 'action_result',
+              tool: toolName,
+              result: {
+                success: result.success,
+                summary: result.summary,
+                artifacts: result.artifacts ?? [],
+                erp_results: result.erp_results,
+                available_actions: result.available_actions,
+                databricks_ref: result.databricks_ref,
+                rows_affected: result.rows_affected,
+                preview: result.preview,
+                reminder: result.reminder,
+              },
+            });
+
+            toolResultContent.push({
+              type: 'tool_result',
+              tool_use_id: tuBlock.id,
+              content: toolResultToString(result),
+              is_error: !result.success,
+            });
+          }
+
+          anthropicMessages.push({ role: 'user', content: toolResultContent });
         }
 
         const components = extractComponents(fullText);
