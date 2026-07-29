@@ -6,13 +6,20 @@ import { TENANT_COOKIE, type Tenant } from '@/app/lib/tenant-constants';
 function getTenantFromRequest(request: NextRequest): Tenant {
   const cookieHeader = request.headers.get('cookie') ?? '';
   const match = cookieHeader.split(/;\s*/).find((c) => c.startsWith(`${TENANT_COOKIE}=`));
-  return match?.split('=')[1] === 'us_apparel' ? 'us_apparel' : 'india_grocery';
+  const value = match?.split('=')[1];
+  if (value === 'us_apparel') return 'us_apparel';
+  if (value === 'us_retail') return 'us_retail';
+  return 'india_grocery';
 }
 
-// Tenant-aware money formatter — $1,234 for apparel, ₹1,234 for grocery
+function isUSD(tenant: Tenant): boolean {
+  return tenant === 'us_apparel' || tenant === 'us_retail';
+}
+
+// Tenant-aware money formatter — $1,234 for USD tenants, ₹1,234 for grocery
 function money(n: number, tenant: Tenant): string {
   const rounded = Math.round(n);
-  if (tenant === 'us_apparel') {
+  if (isUSD(tenant)) {
     return `$${rounded.toLocaleString('en-US')}`;
   }
   return `₹${rounded.toLocaleString('en-IN')}`;
@@ -126,19 +133,27 @@ export async function POST(request: NextRequest) {
 }
 
 function nbaSystemPrompt(tenant: Tenant): string {
-  const isApparel = tenant === 'us_apparel';
-  const company = isApparel
-    ? 'a US omnichannel apparel retailer (Nike / Levi\'s / Lululemon scale)'
-    : 'an Indian retail company';
-  const currency = isApparel ? '$' : '₹';
-  const offerExample = isApparel
-    ? "'15% off Women\\'s Tops' or 'Free shipping on next order'"
-    : "'15% off Dairy products' or 'Free delivery for 30 days'";
-  const offerSpecificExample = isApparel ? '"15% off Athletic Footwear"' : '"15% off Dairy"';
-  const channels = isApparel
+  const usd = isUSD(tenant);
+  const company = tenant === 'us_retail'
+    ? 'Meridian Retail, a US general-merchandise chain (85 stores; Electronics, Apparel & Shoes, Home & Garden, Sports & Outdoor, Beauty & Personal, Grocery & Snacks, Toys & Games)'
+    : tenant === 'us_apparel'
+      ? 'a US omnichannel apparel retailer (Nike / Levi\'s / Lululemon scale)'
+      : 'an Indian retail company';
+  const currency = usd ? '$' : '₹';
+  const offerExample = tenant === 'us_retail'
+    ? "'15% off Electronics accessories' or 'Free shipping on next order'"
+    : tenant === 'us_apparel'
+      ? "'15% off Women\\'s Tops' or 'Free shipping on next order'"
+      : "'15% off Dairy products' or 'Free delivery for 30 days'";
+  const offerSpecificExample = tenant === 'us_retail'
+    ? '"15% off Home & Garden"'
+    : tenant === 'us_apparel'
+      ? '"15% off Athletic Footwear"'
+      : '"15% off Dairy"';
+  const channels = usd
     ? '"email" | "sms" | "push" | "in_store" | "phone_call"'
     : '"email" | "sms" | "whatsapp" | "push" | "in_store" | "phone_call"';
-  const impactExample = isApparel
+  const impactExample = usd
     ? "'Retain $320 annual CLV' or 'Increase basket by $25'"
     : "'Retain ₹3,200 annual CLV' or 'Increase basket by ₹200'";
 
@@ -243,10 +258,10 @@ Return exactly 3 actions as a JSON array.`;
 function generateRuleBasedActions(data: CustomerData, tenant: Tenant): Action[] {
   const actions: Action[] = [];
   const churnProb = typeof data.churn_prob_90d === 'number' ? data.churn_prob_90d : 0;
-  // Apparel CLVs are ~order of magnitude lower in $ — adjust the upsell threshold
-  const upsellThreshold = tenant === 'us_apparel' ? 600 : 50000;
-  // WhatsApp is India-centric; apparel uses email for win-back
-  const winBackChannel = tenant === 'us_apparel' ? 'email' : 'whatsapp';
+  // USD CLVs are ~order of magnitude lower in $ — adjust the upsell threshold
+  const upsellThreshold = isUSD(tenant) ? 600 : 50000;
+  // WhatsApp is India-centric; USD tenants use email for win-back
+  const winBackChannel = isUSD(tenant) ? 'email' : 'whatsapp';
 
   // Rule 1: High churn → Retention
   if (churnProb > 0.5) {

@@ -36,7 +36,7 @@ export default async function CustomerDetailPage({ params }: CustomerDetailPageP
       : undefined,
   };
 
-  const customerDetail = tenant === 'us_apparel'
+  const customerDetail = (tenant === 'us_apparel' || tenant === 'us_retail')
     ? generateApparelCustomerDetail(enriched)
     : generateCustomerDetail(enriched);
 

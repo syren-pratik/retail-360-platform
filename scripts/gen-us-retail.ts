@@ -1250,20 +1250,18 @@ function main() {
     writeJson(path.join(MD_SKU_DIR, `${s.product_id}.json`), genMerchShard(s));
   }
 
-  // cx360 + inventory
+  // cx360 + inventory — only the files whose bespoke shape matches apparel.
+  // The other 5 (cx360_customer_table, cx360_churn_risk, inventory_kpis,
+  // inventory_alerts, inventory_sku_table) are shape-mismatched with the
+  // apparel schema the app expects, so we let mirrorApparelFlats() handle
+  // them (see below).
   writeJson(path.join(OUT_DIR, 'cx360_kpis.json'), genCx360Kpis());
-  writeJson(path.join(OUT_DIR, 'cx360_customer_table.json'), genCx360CustomerTable());
-  writeJson(path.join(OUT_DIR, 'cx360_churn_risk.json'), genCx360ChurnRisk());
-  writeJson(path.join(OUT_DIR, 'cx360_at_risk_alerts.json'), genCx360AtRiskAlerts());
-  writeJson(path.join(OUT_DIR, 'inventory_kpis.json'), genInventoryKpis());
-  writeJson(path.join(OUT_DIR, 'inventory_alerts.json'), genInventoryAlerts());
-  writeJson(path.join(OUT_DIR, 'inventory_sku_table.json'), genInventorySkuTable(skus));
 
   // Mirror all apparel flat files into us_retail (with dept/SKU/segment
   // rewrites) so every apparel-shaped page renders under us_retail too.
   const mirrored = mirrorApparelFlats();
 
-  const total = 3 + skus.length + 3 + 30 + 4 + 3 + mirrored;
+  const total = 3 + skus.length + 3 + 30 + 1 + mirrored;
   const ms = Date.now() - t0;
   console.log(`us_retail: ${total} files written (${skus.length} price sku shards, 30 merch sku shards, ${mirrored} mirrored from apparel) in ${ms}ms`);
   console.log(`  price_intel/core.json kpis: leakage=${core.kpis.total_margin_leakage_inr} margin_realization=${core.kpis.margin_realization_pct}`);

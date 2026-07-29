@@ -1,8 +1,9 @@
-export const dynamic = 'force-dynamic';
-
-import categoryData from '../../../../../cache/cx360_category_by_segment.json';
+import { loadCache } from '@/app/lib/cache-loader';
 import CategoryDeepDiveContent from './CategoryDeepDiveContent';
 
-export default function CategoryDeepDivePage() {
-  return <CategoryDeepDiveContent data={categoryData as unknown} />;
+export const dynamic = 'force-dynamic';
+
+export default async function CategoryDeepDivePage() {
+  const data = await loadCache<unknown>('cx360_category_by_segment.json');
+  return <CategoryDeepDiveContent data={data} />;
 }

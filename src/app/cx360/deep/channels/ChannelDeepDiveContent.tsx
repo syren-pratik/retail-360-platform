@@ -605,7 +605,16 @@ export default function ChannelDeepDiveContent({ data }: { data: unknown }) {
               )}
             </div>
             <Insight>
-              Mumbai leads on Organic (2,800) — strong SEO presence. Delhi NCR is most Paid Ads-heavy. Bangalore shows highest Referral (1,100) — strong word-of-mouth community. Expand Referral incentives in Bangalore.
+              {(() => {
+                const topFor = (ch: 'Organic' | 'Paid' | 'Referral') => {
+                  const sorted = [...city_channel_split].sort((a, b) => (b[ch] as number) - (a[ch] as number));
+                  return { city: sorted[0]?.city ?? '—', value: (sorted[0]?.[ch] as number) ?? 0 };
+                };
+                const org = topFor('Organic');
+                const paid = topFor('Paid');
+                const ref = topFor('Referral');
+                return `${org.city} leads on Organic (${org.value.toLocaleString()}) — strong SEO presence. ${paid.city} is most Paid-Ads-heavy. ${ref.city} shows highest Referral (${ref.value.toLocaleString()}) — strong word-of-mouth community. Expand referral incentives in ${ref.city}.`;
+              })()}
             </Insight>
           </div>
         </section>

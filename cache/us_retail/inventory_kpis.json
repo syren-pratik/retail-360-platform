@@ -1,15 +1,9 @@
-{
-  "total_skus": 200,
-  "healthy_pct": 68.4,
-  "stockout_pct": 6.2,
-  "overstock_pct": 12.4,
-  "weeks_of_supply_avg": 7.4,
-  "active_alerts": 18,
-  "inventory_value_inr": 12400000,
-  "days_sales_of_inventory": 52,
-  "total_skus_prior": 200,
-  "healthy_pct_prior": 66.8,
-  "healthy_pct_trend": 1.6,
-  "active_alerts_prior": 22,
-  "active_alerts_trend": -4
-}
+[
+  {
+    "total_skus": "200",
+    "avg_dos": "40",
+    "stockout_pct": "1",
+    "overstock_pct": "14.2",
+    "total_stock_qty": "114924"
+  }
+]
