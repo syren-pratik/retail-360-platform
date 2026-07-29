@@ -406,9 +406,21 @@ function rfqSkusToProposals(items: RFQSkuInput[]): ProposalItem[] {
 export async function executeAskTool(
   toolName: string,
   input: Record<string, unknown>,
-  onProgress?: OnProgress
+  onProgress?: OnProgress,
+  tenant: string = 'india_grocery'
 ): Promise<AskToolResult> {
+  const isUSD = tenant === 'us_apparel' || tenant === 'us_retail';
   try {
+    // USD tenants (us_retail, us_apparel) have no live Databricks connection —
+    // fail query_live_data gracefully so Claude falls back to reasoning from
+    // the dashboard context provided in the system prompt.
+    if (isUSD && toolName === 'query_live_data') {
+      return {
+        success: false,
+        summary: `Live Databricks query is not available for tenant "${tenant}" — the assistant should reason from the dashboard context already in the system prompt.`,
+        error: 'no_live_data_for_usd_tenant',
+      };
+    }
     switch (toolName) {
       case 'check_erp_connection': {
         onProgress?.('Checking ERP systems…');
@@ -454,11 +466,11 @@ export async function executeAskTool(
         }
         onProgress?.('Generating PO spreadsheet…');
         const proposals = poSkusToProposals(skus);
-        const xlsxBlob = generatePOSpreadsheet(proposals, eventName, anchorDate);
+        const xlsxBlob = generatePOSpreadsheet(proposals, eventName, anchorDate, isUSD);
         const xlsxBuf = await blobToBuffer(xlsxBlob);
         const filename = `PO-${eventName.replace(/\s+/g, '_')}-${anchorDate}.xlsx`;
         const download_id = storeBlob(xlsxBuf, filename, XLSX_MIME);
-        const mailtoHref = generateSupplierEmailHref(proposals, eventName);
+        const mailtoHref = generateSupplierEmailHref(proposals, eventName, isUSD);
         onProgress?.('Writing Databricks reference…');
         const ref = generateActionRef();
         return {
@@ -498,11 +510,11 @@ export async function executeAskTool(
         }
         onProgress?.('Generating pause memo…');
         const proposals = campaignsToProposals(campaigns);
-        const xlsxBlob = generateCampaignMemoXlsx(proposals);
+        const xlsxBlob = generateCampaignMemoXlsx(proposals, isUSD);
         const xlsxBuf = await blobToBuffer(xlsxBlob);
         const filename = `Campaign-Pause-Memo-${new Date().toISOString().slice(0, 10)}.xlsx`;
         const download_id = storeBlob(xlsxBuf, filename, XLSX_MIME);
-        const mailtoHref = generatePromoTeamEmailHref(proposals);
+        const mailtoHref = generatePromoTeamEmailHref(proposals, isUSD);
         onProgress?.('Writing Databricks reference…');
         const ref = generateActionRef();
         return {
@@ -542,11 +554,11 @@ export async function executeAskTool(
         }
         onProgress?.('Generating markdown instructions…');
         const proposals = markdownSkusToProposals(skus);
-        const xlsxBlob = generateMarkdownInstructionXlsx(proposals);
+        const xlsxBlob = generateMarkdownInstructionXlsx(proposals, isUSD);
         const xlsxBuf = await blobToBuffer(xlsxBlob);
         const filename = `Markdown-Instructions-${new Date().toISOString().slice(0, 10)}.xlsx`;
         const download_id = storeBlob(xlsxBuf, filename, XLSX_MIME);
-        const mailtoHref = generateStoreManagerEmailHref(proposals);
+        const mailtoHref = generateStoreManagerEmailHref(proposals, isUSD);
         onProgress?.('Writing Databricks reference…');
         const ref = generateActionRef();
         return {
@@ -586,11 +598,11 @@ export async function executeAskTool(
         }
         onProgress?.('Generating RFQ document…');
         const proposals = rfqSkusToProposals(skus);
-        const { blob: xlsxBlob, reference, deadlineISO } = generateRFQSpreadsheet(proposals);
+        const { blob: xlsxBlob, reference, deadlineISO } = generateRFQSpreadsheet(proposals, isUSD);
         const xlsxBuf = await blobToBuffer(xlsxBlob);
         const filename = `${reference}.xlsx`;
         const download_id = storeBlob(xlsxBuf, filename, XLSX_MIME);
-        const mailtoHref = generateSupplierNegotiationEmailHref(proposals, reference, deadlineISO);
+        const mailtoHref = generateSupplierNegotiationEmailHref(proposals, reference, deadlineISO, isUSD);
         onProgress?.('Writing Databricks reference…');
         const skuIds = skus.map((s) => s.sku_id);
         return {

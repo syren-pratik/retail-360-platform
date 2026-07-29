@@ -1,0 +1,100 @@
+{
+  "revenue_impact": {
+    "value": 13735582,
+    "prior": 12911447,
+    "unit": "$",
+    "label": "Revenue Impact"
+  },
+  "avg_margin_current": {
+    "value": 56.7,
+    "prior": 56.1,
+    "unit": "%",
+    "label": "Current Margin"
+  },
+  "avg_margin_projected": {
+    "value": 59.5,
+    "prior": 56.3,
+    "unit": "%",
+    "label": "Projected Margin"
+  },
+  "promo_roi": {
+    "value": 2.3,
+    "prior": 2,
+    "unit": "x",
+    "label": "Promo ROI"
+  },
+  "competitive_index": {
+    "value": 101.1,
+    "prior": 102.9,
+    "unit": "",
+    "label": "Competitive Index"
+  },
+  "sparklines": {
+    "revenue_impact": [
+      11800000,
+      12400000,
+      12800000,
+      13200000,
+      13400000,
+      13800000,
+      13735582
+    ],
+    "margin_current": [
+      54.1,
+      54.4,
+      54.8,
+      55.3,
+      55.7,
+      56.3,
+      56.7
+    ],
+    "margin_projected": [
+      57.4,
+      57.7,
+      58.2,
+      58.7,
+      59.2,
+      59.6,
+      59.5
+    ],
+    "promo_roi": [
+      2,
+      2.1,
+      2.3,
+      2.2,
+      2.4,
+      2.6,
+      2.3
+    ],
+    "competitive_index": [
+      103.4,
+      103,
+      102.8,
+      102.4,
+      101.9,
+      101.5,
+      101.1
+    ],
+    "ragm_current": [
+      39.1,
+      39.3,
+      39.6,
+      39.9,
+      40.1,
+      40.4,
+      40.4
+    ]
+  },
+  "ragm_current": {
+    "value": 40.4,
+    "prior": 39.8,
+    "unit": "%",
+    "label": "RAGM (Returns-Adj)"
+  },
+  "markdown_active_styles": {
+    "value": 108,
+    "prior": 96,
+    "unit": "",
+    "label": "Active Markdown Styles"
+  }
+}

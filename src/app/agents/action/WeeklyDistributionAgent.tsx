@@ -1,8 +1,10 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useTenant } from '@/app/context/TenantContext';
 import { Check, Loader2, Database, AlertCircle } from 'lucide-react';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
+import type { UIComponentType } from '@/app/lib/types';
 import type {
   ExecutionStep,
   ArtifactResult,
@@ -10,6 +12,7 @@ import type {
   ERPConnectionResult,
 } from '@/app/agents/lib/action-types';
 import StepSystemCheck from '../components/workflow/StepSystemCheck';
+import HubCanvas from '../components/HubCanvas';
 import StepExecution from '../components/workflow/StepExecution';
 import {
   checkCommsConnections,
@@ -47,6 +50,8 @@ interface WhatsComing {
 }
 
 export default function WeeklyDistributionAgent({ core }: Props) {
+  const { tenant, isRetail, isApparel } = useTenant();
+  const isUSD = isRetail || isApparel;
   const k = core.kpis;
 
   const weekOf = useMemo(
@@ -64,7 +69,6 @@ export default function WeeklyDistributionAgent({ core }: Props) {
   const urgentCount = (core.action_queue ?? []).filter((a) => a.priority === 'urgent').length;
   const roi = k.promo_roi_index ?? 0;
   const stPct = k.sell_through_pct ?? 0;
-  const stColor = stPct >= 70 ? 'text-emerald-700' : stPct >= 55 ? 'text-amber-700' : 'text-rose-700';
 
   const initialTrigger = `Weekly pricing brief — week of ${weekOf} · ${alerts} alerts · ₹${leakageL}L leakage`;
 
@@ -83,6 +87,8 @@ export default function WeeklyDistributionAgent({ core }: Props) {
   const [thinkingText, setThinkingText] = useState<string>('');
   const [toolCalls, setToolCalls] = useState<string[]>([]);
   const [apiError, setApiError] = useState<string | null>(null);
+  const [agentComponents, setAgentComponents] = useState<UIComponentType[]>([]);
+  const [userInstructions, setUserInstructions] = useState('');
   const [briefSummary, setBriefSummary] = useState<BriefSummary | null>(null);
   const [topDecisions, setTopDecisions] = useState<TopDecision[]>([]);
   const [whatsComing, setWhatsComing] = useState<WhatsComing[]>([]);
@@ -105,7 +111,7 @@ export default function WeeklyDistributionAgent({ core }: Props) {
       const res = await fetch('/api/agents/action/weekly-distribution', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tenant: 'india_grocery' }),
+        body: JSON.stringify({ tenant, user_instructions: userInstructions }),
       });
       if (!res.ok || !res.body) throw new Error(`HTTP ${res.status}`);
       const reader = res.body.getReader();
@@ -137,6 +143,9 @@ export default function WeeklyDistributionAgent({ core }: Props) {
               case 'proposals':
                 buildProposalsFromServer(data.data);
                 setPhase('preview');
+                break;
+              case 'components':
+                setAgentComponents(data.data as UIComponentType[]);
                 break;
               case 'error':
                 setApiError(data.text);
@@ -178,7 +187,7 @@ export default function WeeklyDistributionAgent({ core }: Props) {
 
     updateStep('xlsx', 'running');
     await new Promise((r) => setTimeout(r, 700));
-    const blob = generateWeeklyBriefXlsx(core);
+    const blob = generateWeeklyBriefXlsx(core, isUSD);
     const dateISO = new Date().toISOString().slice(0, 10);
     setArtifacts((prev) => [
       ...prev,
@@ -194,7 +203,7 @@ export default function WeeklyDistributionAgent({ core }: Props) {
 
     updateStep('email', 'running');
     await new Promise((r) => setTimeout(r, 400));
-    const href = generateWeeklyBriefEmailHref(core, weekOf);
+    const href = generateWeeklyBriefEmailHref(core, weekOf, isUSD);
     setArtifacts((prev) => [
       ...prev,
       {
@@ -209,7 +218,7 @@ export default function WeeklyDistributionAgent({ core }: Props) {
 
     updateStep('whatsapp', 'running');
     await new Promise((r) => setTimeout(r, 400));
-    const vpSummary = generateVPSummary(core);
+    const vpSummary = generateVPSummary(core, isUSD);
     setArtifacts((prev) => [
       ...prev,
       {
@@ -271,6 +280,21 @@ export default function WeeklyDistributionAgent({ core }: Props) {
             <p className="text-xs text-[var(--text-secondary)] mt-0.5">{initialTrigger}</p>
           </div>
         </div>
+        <div className="mb-4 space-y-1.5">
+          <p className="text-xs text-[var(--text-secondary)]">
+            Any specific instructions? (optional)
+          </p>
+          <input
+            type="text"
+            value={userInstructions}
+            onChange={(e) => setUserInstructions(e.target.value)}
+            placeholder="e.g. emphasize Q4 planning, skip campaign section..."
+            className="w-full text-sm px-3 py-2 border border-[var(--border-default)] rounded-lg bg-white text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] outline-none focus:border-[var(--border-hover)]"
+          />
+          <p className="text-[11px] text-[var(--text-secondary)]">
+            Claude will adjust the brief based on your instructions
+          </p>
+        </div>
         <button
           onClick={startWorkflow}
           className="px-4 py-2 text-sm rounded-md bg-[var(--accent-primary)] text-white"
@@ -297,6 +321,12 @@ export default function WeeklyDistributionAgent({ core }: Props) {
   return (
     <div>
       <div className="mb-3 text-xs text-[var(--text-secondary)]">{initialTrigger}</div>
+
+      {agentComponents.length > 0 && (
+        <div className="mb-4">
+          <HubCanvas components={agentComponents} />
+        </div>
+      )}
 
       <StepSystemCheck
         results={commsAsErp}

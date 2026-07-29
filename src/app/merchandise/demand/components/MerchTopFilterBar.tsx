@@ -58,7 +58,7 @@ export default function MerchTopFilterBar({ stores, generatedAt }: MerchTopFilte
   const subPanelRef = useRef<HTMLDivElement>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const { isApparel } = useTenant();
+  const { isApparel, isRetail } = useTenant();
   const departments = isApparel ? APPAREL_DEPARTMENTS : INDIA_V1.departments;
   const selectedDept = departments.find(d => d.name === state.department);
   const categories = selectedDept?.categories ?? [];

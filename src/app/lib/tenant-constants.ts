@@ -3,7 +3,7 @@
 // client modules return module shims, so the constants there came through as
 // empty objects on the server. This module is plain TS so server imports work.
 
-export type Tenant = 'india_grocery' | 'us_apparel';
+export type Tenant = 'india_grocery' | 'us_apparel' | 'us_retail';
 
 export const TENANT_COOKIE = 'rct_tenant';
 export const TENANT_LS_KEY = 'rct_tenant';

@@ -1,0 +1,38 @@
+{
+  "recency_distribution": [
+    {
+      "recency_band": "0-30",
+      "customer_count": 21000
+    },
+    {
+      "recency_band": "31-60",
+      "customer_count": 9500
+    },
+    {
+      "recency_band": "61-90",
+      "customer_count": 6500
+    },
+    {
+      "recency_band": "90+",
+      "customer_count": 13000
+    }
+  ],
+  "frequency_distribution": [
+    {
+      "frequency_band": "1x",
+      "customer_count": 3500
+    },
+    {
+      "frequency_band": "2-5x",
+      "customer_count": 9600
+    },
+    {
+      "frequency_band": "6-10x",
+      "customer_count": 10400
+    },
+    {
+      "frequency_band": "10+x",
+      "customer_count": 26500
+    }
+  ]
+}

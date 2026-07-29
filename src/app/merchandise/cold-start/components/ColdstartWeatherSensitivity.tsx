@@ -112,7 +112,7 @@ export default function ColdstartWeatherSensitivity({
   storeRisk,
   signalInputs,
 }: Props) {
-  const { isApparel } = useTenant();
+  const { isApparel, isRetail } = useTenant();
   // Panel A — sorted by abs(elasticity) descending
   const tempChartData = useMemo(() =>
     [...temperatureElasticity]

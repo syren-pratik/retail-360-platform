@@ -1,8 +1,10 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useTenant } from '@/app/context/TenantContext';
 import { Loader2, Database, AlertCircle } from 'lucide-react';
 import type { PriceIntelCore, PriceIntelSKU } from '@/app/lib/price-intel-types';
+import type { UIComponentType } from '@/app/lib/types';
 import type {
   ERPConnectionResult,
   ProposalItem,
@@ -12,6 +14,7 @@ import type {
 } from '@/app/agents/lib/action-types';
 import AgentWorkflow, { type AgentWorkflowPhase } from '../components/AgentWorkflow';
 import StepSystemCheck from '../components/workflow/StepSystemCheck';
+import HubCanvas from '../components/HubCanvas';
 import { checkERPConnections } from '../lib/erp-connector';
 import {
   generateRFQSpreadsheet,
@@ -30,6 +33,8 @@ function priorityFor(impact: number): 'high' | 'medium' | 'low' {
 }
 
 export default function RFQGeneratorAgent({ core }: Props) {
+  const { tenant, isRetail, isApparel } = useTenant();
+  const isUSD = isRetail || isApparel;
   const skuMap = useMemo(() => {
     const m = new Map<string, PriceIntelSKU>();
     core.skus.forEach((s) => m.set(s.sku_id, s));
@@ -109,6 +114,8 @@ export default function RFQGeneratorAgent({ core }: Props) {
   const [thinkingText, setThinkingText] = useState<string>('');
   const [toolCalls, setToolCalls] = useState<string[]>([]);
   const [apiError, setApiError] = useState<string | null>(null);
+  const [agentComponents, setAgentComponents] = useState<UIComponentType[]>([]);
+  const [userInstructions, setUserInstructions] = useState('');
 
   function buildProposalsFromServer(data: { items: Array<Record<string, unknown>> }) {
     const items = (data.items ?? []).map((raw, i) => {
@@ -155,7 +162,7 @@ export default function RFQGeneratorAgent({ core }: Props) {
       const res = await fetch('/api/agents/action/rfq-generator', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tenant: 'india_grocery' }),
+        body: JSON.stringify({ tenant, user_instructions: userInstructions }),
       });
       if (!res.ok || !res.body) throw new Error(`HTTP ${res.status}`);
       const reader = res.body.getReader();
@@ -187,6 +194,9 @@ export default function RFQGeneratorAgent({ core }: Props) {
               case 'proposals':
                 buildProposalsFromServer(data.data);
                 setPhase('approved');
+                break;
+              case 'components':
+                setAgentComponents(data.data as UIComponentType[]);
                 break;
               case 'error':
                 setApiError(data.text);
@@ -230,7 +240,7 @@ export default function RFQGeneratorAgent({ core }: Props) {
 
     updateStep('rfq', 'running');
     await new Promise((r) => setTimeout(r, 700));
-    const { blob, reference, deadlineISO } = generateRFQSpreadsheet(selected);
+    const { blob, reference, deadlineISO } = generateRFQSpreadsheet(selected, isUSD);
     const dateISO = new Date().toISOString().slice(0, 10);
     setArtifacts((prev) => [
       ...prev,
@@ -246,7 +256,7 @@ export default function RFQGeneratorAgent({ core }: Props) {
 
     updateStep('email', 'running');
     await new Promise((r) => setTimeout(r, 400));
-    const href = generateSupplierNegotiationEmailHref(selected, reference, deadlineISO);
+    const href = generateSupplierNegotiationEmailHref(selected, reference, deadlineISO, isUSD);
     setArtifacts((prev) => [
       ...prev,
       {
@@ -341,7 +351,13 @@ export default function RFQGeneratorAgent({ core }: Props) {
   }
 
   return (
-    <AgentWorkflow
+    <>
+      {agentComponents.length > 0 && (
+        <div className="mb-4">
+          <HubCanvas components={agentComponents} />
+        </div>
+      )}
+      <AgentWorkflow
       agentId="rfq-generator"
       agentName="RFQ generator"
       agentIcon="📄"
@@ -357,7 +373,10 @@ export default function RFQGeneratorAgent({ core }: Props) {
       onStart={startWorkflow}
       onProposalChange={setProposals}
       onApprove={handleApprove}
+      userInstructions={userInstructions}
+      onUserInstructionsChange={setUserInstructions}
       onDismiss={handleDismiss}
     />
+    </>
   );
 }

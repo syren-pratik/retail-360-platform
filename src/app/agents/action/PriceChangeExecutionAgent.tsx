@@ -1,8 +1,10 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useTenant } from '@/app/context/TenantContext';
 import { Loader2, Database, AlertCircle } from 'lucide-react';
 import type { PriceIntelCore, PriceIntelSKU } from '@/app/lib/price-intel-types';
+import type { UIComponentType } from '@/app/lib/types';
 import type {
   ERPConnectionResult,
   ProposalItem,
@@ -12,6 +14,7 @@ import type {
 } from '@/app/agents/lib/action-types';
 import AgentWorkflow, { type AgentWorkflowPhase } from '../components/AgentWorkflow';
 import StepSystemCheck from '../components/workflow/StepSystemCheck';
+import HubCanvas from '../components/HubCanvas';
 import { checkERPConnections } from '../lib/erp-connector';
 import {
   generatePriceChangeCSV,
@@ -31,6 +34,8 @@ function priorityFor(revImpactL: number): 'high' | 'medium' | 'low' {
 }
 
 export default function PriceChangeExecutionAgent({ core }: Props) {
+  const { tenant, isRetail, isApparel } = useTenant();
+  const isUSD = isRetail || isApparel;
   const candidates = useMemo<PriceIntelSKU[]>(
     () =>
       core.skus
@@ -86,6 +91,8 @@ export default function PriceChangeExecutionAgent({ core }: Props) {
   const [thinkingText, setThinkingText] = useState<string>('');
   const [toolCalls, setToolCalls] = useState<string[]>([]);
   const [apiError, setApiError] = useState<string | null>(null);
+  const [agentComponents, setAgentComponents] = useState<UIComponentType[]>([]);
+  const [userInstructions, setUserInstructions] = useState('');
 
   function buildProposalsFromServer(data: { items: Array<Record<string, unknown>> }) {
     const items = (data.items ?? []).map((raw, i) => {
@@ -132,7 +139,7 @@ export default function PriceChangeExecutionAgent({ core }: Props) {
       const res = await fetch('/api/agents/action/price-change', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tenant: 'india_grocery' }),
+        body: JSON.stringify({ tenant, user_instructions: userInstructions }),
       });
       if (!res.ok || !res.body) throw new Error(`HTTP ${res.status}`);
       const reader = res.body.getReader();
@@ -164,6 +171,9 @@ export default function PriceChangeExecutionAgent({ core }: Props) {
               case 'proposals':
                 buildProposalsFromServer(data.data);
                 setPhase('approved');
+                break;
+              case 'components':
+                setAgentComponents(data.data as UIComponentType[]);
                 break;
               case 'error':
                 setApiError(data.text);
@@ -209,7 +219,7 @@ export default function PriceChangeExecutionAgent({ core }: Props) {
 
     updateStep('xlsx', 'running');
     await new Promise((r) => setTimeout(r, 600));
-    const blob = generatePriceChangeCSV(selected);
+    const blob = generatePriceChangeCSV(selected, isUSD);
     setArtifacts((prev) => [
       ...prev,
       {
@@ -224,7 +234,7 @@ export default function PriceChangeExecutionAgent({ core }: Props) {
 
     updateStep('email', 'running');
     await new Promise((r) => setTimeout(r, 400));
-    const href = generateStoreOpsEmailHref(selected);
+    const href = generateStoreOpsEmailHref(selected, isUSD);
     setArtifacts((prev) => [
       ...prev,
       {
@@ -320,7 +330,13 @@ export default function PriceChangeExecutionAgent({ core }: Props) {
   }
 
   return (
-    <AgentWorkflow
+    <>
+      {agentComponents.length > 0 && (
+        <div className="mb-4">
+          <HubCanvas components={agentComponents} />
+        </div>
+      )}
+      <AgentWorkflow
       agentId="price-change-execution"
       agentName="Price change execution"
       agentIcon="⚡"
@@ -336,7 +352,10 @@ export default function PriceChangeExecutionAgent({ core }: Props) {
       onStart={startWorkflow}
       onProposalChange={setProposals}
       onApprove={handleApprove}
+      userInstructions={userInstructions}
+      onUserInstructionsChange={setUserInstructions}
       onDismiss={handleDismiss}
     />
+    </>
   );
 }

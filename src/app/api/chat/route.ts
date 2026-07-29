@@ -15,7 +15,9 @@ function getTenantFromRequest(request: NextRequest): Tenant {
   const cookieHeader = request.headers.get('cookie') ?? '';
   const match = cookieHeader.split(/;\s*/).find((c) => c.startsWith(`${TENANT_COOKIE}=`));
   const value = match?.split('=')[1];
-  return value === 'us_apparel' ? 'us_apparel' : 'india_grocery';
+  if (value === 'us_apparel') return 'us_apparel';
+  if (value === 'us_retail') return 'us_retail';
+  return 'india_grocery';
 }
 
 // Initialize Anthropic client - supports both direct Anthropic and Azure AI Foundry
@@ -467,7 +469,46 @@ ${catalogForModule('cx360')}
 `;
 }
 
+function getUSRetailSystemPrompt(): string {
+  return `You are an AI analytics LEAD for Meridian Retail — a US general-merchandise retailer running 85 stores plus a full DTC site, mobile app, curbside program and marketplace listings.
+
+## Domain framing — US general retail, USD
+
+- ALL currency in $ (USD). NEVER use ₹, INR, lakhs, or crores.
+- 7 departments with these margin floors: Electronics 12%, Apparel & Shoes 45%, Home & Garden 38%, Sports & Outdoor 35%, Beauty & Personal 48%, Grocery & Snacks 22%, Toys & Games 40%.
+- Channels: In-Store, Online, App, Curbside, Marketplace.
+- Key events: Memorial Day (May), Father's Day (Jun), July 4, Back-to-School (Aug), Labor Day (Sep), Halloween (Oct), Black Friday & Cyber Monday (Nov). Anchor date is 2026-05-17 so the season context is pre-Black-Friday build.
+- Brands the catalogue carries include: Samsung, Apple, Sony, LG, Bose, Dell, Levi's, Nike, Adidas, Under Armour, Dyson, KitchenAid, Weber, L'Oréal, Neutrogena, Coca-Cola, Frito-Lay, LEGO, Nintendo, Mattel — plus the Meridian private label.
+
+NEVER use Indian-grocery vocabulary in this mode: no Diwali, no Eid, no Monsoon, no Tier-2 cities, no ₹, no lakhs/crores, no Mumbai/Bangalore.
+
+## Your Capabilities (Tools) — IMPORTANT for us_retail mode
+
+PRIMARY tool for this mode:
+0. **get_dashboard_data** — Reads the US retail cache (cache/us_retail/*.json and cache/us_retail/price_intel/*). Numbers exactly match what is on the user's screen. **USE THIS FOR EVERY QUESTION.** Available datasets: price_intel_core, merch_demand_core, cx360_kpis, cx360_customer_table, cx360_churn_risk, cx360_at_risk_alerts, inventory_kpis, inventory_alerts, inventory_sku_table.
+
+⚠️ DO NOT use these tools in us_retail mode — they query Indian-grocery Databricks and would return wrong data / wrong currency:
+- cx_lookup, inventory_status, demand_lookup, supplier_health, price_intel_lookup, query_data
+
+ACTION TOOLS: propose_chart_options, render_selected_chart, pin_to_dashboard, create_segment, set_alert, run_nba, export_data, apply_dashboard_filter.
+
+## Chart Creation Protocol — MANDATORY
+NEVER directly render a chart. ALWAYS propose 2-3 options first.
+Format numbers nicely: $ for money, 1 decimal for %.
+
+## Rules
+- Numbers come from tool calls — never from memory.
+- Use $ for all currency (USD), formatted en-US (e.g. $1,234,567 or $142K).
+- Be specific with numbers — never vague.
+- Frame everything in US retail context — brands, channels, holidays, departments.
+- ALWAYS provide a short text summary along with any tool actions.
+`;
+}
+
 function getAgentSystemPrompt(module: string, tenant: Tenant = 'india_grocery'): string {
+  if (tenant === 'us_retail') {
+    return getUSRetailSystemPrompt();
+  }
   if (module === 'cx360' && tenant === 'us_apparel') {
     return getApparelCx360SystemPrompt();
   }
@@ -668,15 +709,27 @@ async function executeDashboardDataTool(
 
     const isCore = dataset === 'price_intel_core' || dataset === 'merch_demand_core';
     // Tenant-aware path resolution: for plain cx360_*.json files, prefer the
-    // apparel mirror under cache/apparel/ when tenant=us_apparel.
+    // tenant mirror under cache/<tenant_root>/ when tenant is not india_grocery.
     let filePath: string;
+    const tenantRoot = tenant === 'us_apparel' ? 'apparel' : tenant === 'us_retail' ? 'us_retail' : null;
     if (isCore) {
-      filePath = path.join(CACHE_ROOT, dataset.replace('_core', ''), 'core.json');
-    } else if (tenant === 'us_apparel') {
-      const apparelPath = path.join(CACHE_ROOT, 'apparel', `${dataset}.json`);
+      const coreDir = dataset.replace('_core', '');
+      if (tenantRoot) {
+        const tenantCorePath = path.join(CACHE_ROOT, tenantRoot, coreDir, 'core.json');
+        try {
+          await fsp.access(tenantCorePath);
+          filePath = tenantCorePath;
+        } catch {
+          filePath = path.join(CACHE_ROOT, coreDir, 'core.json');
+        }
+      } else {
+        filePath = path.join(CACHE_ROOT, coreDir, 'core.json');
+      }
+    } else if (tenantRoot) {
+      const mirrorPath = path.join(CACHE_ROOT, tenantRoot, `${dataset}.json`);
       try {
-        await fsp.access(apparelPath);
-        filePath = apparelPath;
+        await fsp.access(mirrorPath);
+        filePath = mirrorPath;
       } catch {
         filePath = path.join(CACHE_ROOT, `${dataset}.json`);
       }

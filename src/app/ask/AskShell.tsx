@@ -43,7 +43,7 @@ const STARTER_QUESTIONS_APPAREL = [
 ];
 
 export default function AskShell() {
-  const { isApparel } = useTenant();
+  const { isApparel, isRetail } = useTenant();
   const [messages, setMessages] = useState<AskMessageItem[]>([]);
   const [isStreaming, setIsStreaming] = useState(false);
   const [streamingContent, setStreamingContent] = useState('');
@@ -56,7 +56,7 @@ export default function AskShell() {
   const [selectedAgentId, setSelectedAgentId] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const starters = isApparel ? STARTER_QUESTIONS_APPAREL : STARTER_QUESTIONS_GROCERY;
+  const starters = (isApparel || isRetail) ? STARTER_QUESTIONS_APPAREL : STARTER_QUESTIONS_GROCERY;
 
   useEffect(() => {
     fetchPriceIntelCore().then(setCore).catch(console.error);
@@ -260,7 +260,7 @@ export default function AskShell() {
           <div>
             <h1 className="text-base font-medium text-[var(--text-primary)]">Ask anything</h1>
             <p className="text-xs text-[var(--text-secondary)] mt-0.5">
-              Connected to Databricks · Retail 360 · {isApparel ? 'US apparel' : 'India grocery'}
+              Connected to Databricks · Retail 360 · {isRetail ? 'US retail' : isApparel ? 'US apparel' : 'India grocery'}
             </p>
           </div>
           <div className="flex items-center gap-1.5 text-xs text-[var(--positive)]">

@@ -39,7 +39,7 @@ interface ApparelExtras {
 }
 
 export default function ColdstartShell() {
-  const { isApparel } = useTenant();
+  const { isApparel, isRetail } = useTenant();
   const [state, setState] = useState<State>({ status: 'loading' });
   const [showTechnicals, setShowTechnicals] = useState(false);
 

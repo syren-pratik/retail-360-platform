@@ -20,18 +20,18 @@ export type Currency = 'INR' | 'USD';
 /** Scaled (K / L / Cr / M) money formatter, tenant-aware. */
 export function formatMoneyForTenant(n: number | null | undefined, tenant: Tenant): string {
   const v = n ?? 0;
-  return tenant === 'us_apparel' ? formatUsd(v) : formatLakhsCrores(v);
+  return (tenant === 'us_apparel' || tenant === 'us_retail') ? formatUsd(v) : formatLakhsCrores(v);
 }
 
 /** Plain (no scaling, full commas) money formatter, tenant-aware. */
 export function formatMoneyPlainForTenant(n: number | null | undefined, tenant: Tenant): string {
   const v = n ?? 0;
-  return tenant === 'us_apparel' ? formatUsdPlain(v) : formatINR(v);
+  return (tenant === 'us_apparel' || tenant === 'us_retail') ? formatUsdPlain(v) : formatINR(v);
 }
 
 /** Locale string for `toLocaleString` / `toLocaleDateString` calls. */
 export function getLocaleForTenant(tenant: Tenant): string {
-  return tenant === 'us_apparel' ? 'en-US' : 'en-IN';
+  return (tenant === 'us_apparel' || tenant === 'us_retail') ? 'en-US' : 'en-IN';
 }
 
 /**
@@ -75,7 +75,7 @@ export function useLocale() {
  */
 export function formatCrOrUsdM(n: number | string | null | undefined, tenant: Tenant): string {
   const v = typeof n === 'string' ? Number(n) || 0 : n ?? 0;
-  if (tenant === 'us_apparel') {
+  if ((tenant === 'us_apparel' || tenant === 'us_retail')) {
     if (Math.abs(v) >= 1000) return `$${(v / 1000).toFixed(1)}B`;
     return `$${v.toFixed(1)}M`;
   }
@@ -98,7 +98,7 @@ export function useFormatCrOrUsdM() {
  */
 export function formatLOrUsdK(n: number | string | null | undefined, tenant: Tenant): string {
   const v = typeof n === 'string' ? Number(n) || 0 : n ?? 0;
-  if (tenant === 'us_apparel') return `$${v.toFixed(0)}K`;
+  if ((tenant === 'us_apparel' || tenant === 'us_retail')) return `$${v.toFixed(0)}K`;
   return `₹${v.toFixed(1)}L`;
 }
 
@@ -112,7 +112,7 @@ export function formatLOrUsdKAuto(n: number | string | null | undefined): string
  */
 export function formatDaysOrWeeks(n: number | null | undefined, tenant: Tenant): string {
   const v = n ?? 0;
-  if (tenant === 'us_apparel') return `${Math.round(v / 7)}w`;
+  if ((tenant === 'us_apparel' || tenant === 'us_retail')) return `${Math.round(v / 7)}w`;
   return `${v.toFixed(0)}d`;
 }
 

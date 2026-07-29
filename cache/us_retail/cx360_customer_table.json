@@ -1,0 +1,405 @@
+{
+  "generated_at": "2026-05-17T00:00:00.000Z",
+  "customers": [
+    {
+      "customer_id": "CUS-000001",
+      "name": "Customer 1",
+      "city": "Phoenix",
+      "rfm_segment": "VIP",
+      "clv_inr": 1998,
+      "last_order_date": "2026-03-25",
+      "total_orders": 20,
+      "churn_risk": "Medium"
+    },
+    {
+      "customer_id": "CUS-000002",
+      "name": "Customer 2",
+      "city": "Atlanta",
+      "rfm_segment": "At-Risk",
+      "clv_inr": 1411,
+      "last_order_date": "2026-02-23",
+      "total_orders": 34,
+      "churn_risk": "Medium"
+    },
+    {
+      "customer_id": "CUS-000003",
+      "name": "Customer 3",
+      "city": "Atlanta",
+      "rfm_segment": "Regular",
+      "clv_inr": 639,
+      "last_order_date": "2026-05-16",
+      "total_orders": 38,
+      "churn_risk": "Medium"
+    },
+    {
+      "customer_id": "CUS-000004",
+      "name": "Customer 4",
+      "city": "Phoenix",
+      "rfm_segment": "New",
+      "clv_inr": 1344,
+      "last_order_date": "2026-02-27",
+      "total_orders": 8,
+      "churn_risk": "High"
+    },
+    {
+      "customer_id": "CUS-000005",
+      "name": "Customer 5",
+      "city": "Chicago",
+      "rfm_segment": "Occasional",
+      "clv_inr": 1940,
+      "last_order_date": "2026-02-25",
+      "total_orders": 3,
+      "churn_risk": "Low"
+    },
+    {
+      "customer_id": "CUS-000006",
+      "name": "Customer 6",
+      "city": "Phoenix",
+      "rfm_segment": "Regular",
+      "clv_inr": 666,
+      "last_order_date": "2026-04-29",
+      "total_orders": 8,
+      "churn_risk": "Very High"
+    },
+    {
+      "customer_id": "CUS-000007",
+      "name": "Customer 7",
+      "city": "Boston",
+      "rfm_segment": "New",
+      "clv_inr": 2018,
+      "last_order_date": "2026-05-07",
+      "total_orders": 24,
+      "churn_risk": "Low"
+    },
+    {
+      "customer_id": "CUS-000008",
+      "name": "Customer 8",
+      "city": "Dallas",
+      "rfm_segment": "Regular",
+      "clv_inr": 1163,
+      "last_order_date": "2026-04-23",
+      "total_orders": 33,
+      "churn_risk": "High"
+    },
+    {
+      "customer_id": "CUS-000009",
+      "name": "Customer 9",
+      "city": "Denver",
+      "rfm_segment": "VIP",
+      "clv_inr": 556,
+      "last_order_date": "2026-04-23",
+      "total_orders": 19,
+      "churn_risk": "High"
+    },
+    {
+      "customer_id": "CUS-000010",
+      "name": "Customer 10",
+      "city": "Dallas",
+      "rfm_segment": "VIP",
+      "clv_inr": 2252,
+      "last_order_date": "2026-02-19",
+      "total_orders": 30,
+      "churn_risk": "Low"
+    },
+    {
+      "customer_id": "CUS-000011",
+      "name": "Customer 11",
+      "city": "Phoenix",
+      "rfm_segment": "Loyal",
+      "clv_inr": 614,
+      "last_order_date": "2026-04-05",
+      "total_orders": 18,
+      "churn_risk": "Low"
+    },
+    {
+      "customer_id": "CUS-000012",
+      "name": "Customer 12",
+      "city": "Denver",
+      "rfm_segment": "New",
+      "clv_inr": 2260,
+      "last_order_date": "2026-05-06",
+      "total_orders": 13,
+      "churn_risk": "Very High"
+    },
+    {
+      "customer_id": "CUS-000013",
+      "name": "Customer 13",
+      "city": "Atlanta",
+      "rfm_segment": "VIP",
+      "clv_inr": 1071,
+      "last_order_date": "2026-04-21",
+      "total_orders": 33,
+      "churn_risk": "High"
+    },
+    {
+      "customer_id": "CUS-000014",
+      "name": "Customer 14",
+      "city": "Miami",
+      "rfm_segment": "Loyal",
+      "clv_inr": 941,
+      "last_order_date": "2026-04-29",
+      "total_orders": 12,
+      "churn_risk": "Low"
+    },
+    {
+      "customer_id": "CUS-000015",
+      "name": "Customer 15",
+      "city": "Boston",
+      "rfm_segment": "VIP",
+      "clv_inr": 733,
+      "last_order_date": "2026-04-25",
+      "total_orders": 16,
+      "churn_risk": "Medium"
+    },
+    {
+      "customer_id": "CUS-000016",
+      "name": "Customer 16",
+      "city": "Phoenix",
+      "rfm_segment": "At-Risk",
+      "clv_inr": 231,
+      "last_order_date": "2026-03-09",
+      "total_orders": 9,
+      "churn_risk": "Low"
+    },
+    {
+      "customer_id": "CUS-000017",
+      "name": "Customer 17",
+      "city": "Boston",
+      "rfm_segment": "Occasional",
+      "clv_inr": 584,
+      "last_order_date": "2026-04-28",
+      "total_orders": 36,
+      "churn_risk": "Low"
+    },
+    {
+      "customer_id": "CUS-000018",
+      "name": "Customer 18",
+      "city": "Chicago",
+      "rfm_segment": "VIP",
+      "clv_inr": 1724,
+      "last_order_date": "2026-04-23",
+      "total_orders": 11,
+      "churn_risk": "Low"
+    },
+    {
+      "customer_id": "CUS-000019",
+      "name": "Customer 19",
+      "city": "Dallas",
+      "rfm_segment": "New",
+      "clv_inr": 639,
+      "last_order_date": "2026-03-14",
+      "total_orders": 16,
+      "churn_risk": "Very High"
+    },
+    {
+      "customer_id": "CUS-000020",
+      "name": "Customer 20",
+      "city": "Denver",
+      "rfm_segment": "Regular",
+      "clv_inr": 612,
+      "last_order_date": "2026-04-23",
+      "total_orders": 6,
+      "churn_risk": "Medium"
+    },
+    {
+      "customer_id": "CUS-000021",
+      "name": "Customer 21",
+      "city": "Dallas",
+      "rfm_segment": "Occasional",
+      "clv_inr": 1157,
+      "last_order_date": "2026-03-22",
+      "total_orders": 26,
+      "churn_risk": "Medium"
+    },
+    {
+      "customer_id": "CUS-000022",
+      "name": "Customer 22",
+      "city": "Seattle",
+      "rfm_segment": "New",
+      "clv_inr": 1281,
+      "last_order_date": "2026-02-16",
+      "total_orders": 7,
+      "churn_risk": "Medium"
+    },
+    {
+      "customer_id": "CUS-000023",
+      "name": "Customer 23",
+      "city": "Miami",
+      "rfm_segment": "Loyal",
+      "clv_inr": 543,
+      "last_order_date": "2026-04-10",
+      "total_orders": 32,
+      "churn_risk": "High"
+    },
+    {
+      "customer_id": "CUS-000024",
+      "name": "Customer 24",
+      "city": "Chicago",
+      "rfm_segment": "VIP",
+      "clv_inr": 901,
+      "last_order_date": "2026-03-05",
+      "total_orders": 29,
+      "churn_risk": "Very High"
+    },
+    {
+      "customer_id": "CUS-000025",
+      "name": "Customer 25",
+      "city": "Seattle",
+      "rfm_segment": "Regular",
+      "clv_inr": 2386,
+      "last_order_date": "2026-02-26",
+      "total_orders": 33,
+      "churn_risk": "Medium"
+    },
+    {
+      "customer_id": "CUS-000026",
+      "name": "Customer 26",
+      "city": "Chicago",
+      "rfm_segment": "Occasional",
+      "clv_inr": 1378,
+      "last_order_date": "2026-04-17",
+      "total_orders": 13,
+      "churn_risk": "High"
+    },
+    {
+      "customer_id": "CUS-000027",
+      "name": "Customer 27",
+      "city": "Denver",
+      "rfm_segment": "At-Risk",
+      "clv_inr": 2219,
+      "last_order_date": "2026-04-06",
+      "total_orders": 23,
+      "churn_risk": "Low"
+    },
+    {
+      "customer_id": "CUS-000028",
+      "name": "Customer 28",
+      "city": "Miami",
+      "rfm_segment": "Regular",
+      "clv_inr": 1373,
+      "last_order_date": "2026-05-12",
+      "total_orders": 19,
+      "churn_risk": "Very High"
+    },
+    {
+      "customer_id": "CUS-000029",
+      "name": "Customer 29",
+      "city": "Atlanta",
+      "rfm_segment": "At-Risk",
+      "clv_inr": 1822,
+      "last_order_date": "2026-04-05",
+      "total_orders": 23,
+      "churn_risk": "High"
+    },
+    {
+      "customer_id": "CUS-000030",
+      "name": "Customer 30",
+      "city": "Chicago",
+      "rfm_segment": "New",
+      "clv_inr": 1864,
+      "last_order_date": "2026-03-02",
+      "total_orders": 3,
+      "churn_risk": "Very High"
+    },
+    {
+      "customer_id": "CUS-000031",
+      "name": "Customer 31",
+      "city": "Seattle",
+      "rfm_segment": "Regular",
+      "clv_inr": 1264,
+      "last_order_date": "2026-03-27",
+      "total_orders": 24,
+      "churn_risk": "Medium"
+    },
+    {
+      "customer_id": "CUS-000032",
+      "name": "Customer 32",
+      "city": "Seattle",
+      "rfm_segment": "Loyal",
+      "clv_inr": 1266,
+      "last_order_date": "2026-04-27",
+      "total_orders": 3,
+      "churn_risk": "Medium"
+    },
+    {
+      "customer_id": "CUS-000033",
+      "name": "Customer 33",
+      "city": "Chicago",
+      "rfm_segment": "At-Risk",
+      "clv_inr": 913,
+      "last_order_date": "2026-04-19",
+      "total_orders": 7,
+      "churn_risk": "Very High"
+    },
+    {
+      "customer_id": "CUS-000034",
+      "name": "Customer 34",
+      "city": "Dallas",
+      "rfm_segment": "Loyal",
+      "clv_inr": 1198,
+      "last_order_date": "2026-05-16",
+      "total_orders": 33,
+      "churn_risk": "High"
+    },
+    {
+      "customer_id": "CUS-000035",
+      "name": "Customer 35",
+      "city": "Chicago",
+      "rfm_segment": "VIP",
+      "clv_inr": 1080,
+      "last_order_date": "2026-04-03",
+      "total_orders": 22,
+      "churn_risk": "Medium"
+    },
+    {
+      "customer_id": "CUS-000036",
+      "name": "Customer 36",
+      "city": "Dallas",
+      "rfm_segment": "New",
+      "clv_inr": 976,
+      "last_order_date": "2026-03-02",
+      "total_orders": 38,
+      "churn_risk": "Low"
+    },
+    {
+      "customer_id": "CUS-000037",
+      "name": "Customer 37",
+      "city": "Seattle",
+      "rfm_segment": "Occasional",
+      "clv_inr": 1334,
+      "last_order_date": "2026-04-24",
+      "total_orders": 35,
+      "churn_risk": "High"
+    },
+    {
+      "customer_id": "CUS-000038",
+      "name": "Customer 38",
+      "city": "Atlanta",
+      "rfm_segment": "Regular",
+      "clv_inr": 1344,
+      "last_order_date": "2026-03-05",
+      "total_orders": 37,
+      "churn_risk": "Low"
+    },
+    {
+      "customer_id": "CUS-000039",
+      "name": "Customer 39",
+      "city": "Miami",
+      "rfm_segment": "Loyal",
+      "clv_inr": 1346,
+      "last_order_date": "2026-03-22",
+      "total_orders": 16,
+      "churn_risk": "High"
+    },
+    {
+      "customer_id": "CUS-000040",
+      "name": "Customer 40",
+      "city": "Atlanta",
+      "rfm_segment": "New",
+      "clv_inr": 704,
+      "last_order_date": "2026-03-18",
+      "total_orders": 16,
+      "churn_risk": "Medium"
+    }
+  ]
+}

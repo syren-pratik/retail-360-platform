@@ -106,7 +106,7 @@ function ActionBadge({ action }: { action: 'raise' | 'hold' | 'lower' }) {
 }
 
 export default function PriceStrategyAgent({ core }: Props) {
-  const { isApparel } = useTenant();
+  const { isApparel, isRetail } = useTenant();
   const categoryList = isApparel ? APPAREL_CATEGORIES : CATEGORIES;
   // Group real Databricks categories by department for the dropdown.
   const categoriesByDept = categoryList.reduce<Record<string, typeof categoryList>>((acc, c) => {

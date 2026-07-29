@@ -18,7 +18,9 @@ function getTenantFromRequest(request: NextRequest): Tenant {
   const cookieHeader = request.headers.get('cookie') ?? '';
   const match = cookieHeader.split(/;\s*/).find((c) => c.startsWith(`${TENANT_COOKIE}=`));
   const value = match?.split('=')[1];
-  return value === 'us_apparel' ? 'us_apparel' : 'india_grocery';
+  if (value === 'us_apparel') return 'us_apparel';
+  if (value === 'us_retail') return 'us_retail';
+  return 'india_grocery';
 }
 
 // Initialize Anthropic client - supports both direct Anthropic and Azure AI Foundry
@@ -128,6 +130,31 @@ Be concise, specific, and action-oriented. Reference real $ values from the data
 When asked about a specific SKU or category, draw on the context you know.
 ${ACTION_CAPABILITIES}`;
 
+const ASK_SYSTEM_PROMPT_RETAIL = `You are an AI analyst for Meridian Retail — a US general
+merchandise retailer (85 stores plus DTC/App/Curbside/Marketplace). You have access to
+pricing, demand, inventory, and customer data from the cached warehouse.
+
+${COMPONENTS_SPEC}
+- Use $ values in US format (thousands/millions): $22.3K, $1.2M
+- All numbers in USD. NEVER use ₹, lakhs, or crores.
+
+You know the following about this retailer's current state:
+- 200 SKUs across 7 departments: Electronics (12% floor), Apparel & Shoes (45%),
+  Home & Garden (38%), Sports & Outdoor (35%), Beauty & Personal (48%),
+  Grocery & Snacks (22%), Toys & Games (40%)
+- Channels: In-Store $1.2M, Online $890K, App $340K, Curbside $180K, Marketplace $95K
+- Total margin leakage: $142K/week ($58K free-rider Electronics, $34K missed cost
+  passthroughs, $28K premature markdowns, $12K elasticity gap, $10K returns)
+- Margin realization: 81.4%; sell-through 74.2%; promo ROI index 71.2; free-rider 38.5%
+- 14 active alerts
+- Anchor date: 2026-05-17
+- Season: Pre-Black Friday build · 187 days to Black Friday · Back to School winding down
+- Brands include Samsung, Apple, Sony, LG, Levi's, Nike, Adidas, Dyson, KitchenAid,
+  L'Oréal, Coca-Cola, LEGO, Nintendo, plus the Meridian private label
+
+Be concise, specific, and action-oriented. Reference real $ values from the data above.
+${ACTION_CAPABILITIES}`;
+
 const VALID_COMPONENT_TYPES = [
   'bar_chart', 'line_chart', 'donut_chart', 'data_table', 'kpi_card', 'comparison', 'text_only',
 ];
@@ -164,7 +191,10 @@ const MAX_ROUNDS = 8;
 export async function POST(request: NextRequest) {
   const body: AskRequestBody = await request.json();
   const tenant = getTenantFromRequest(request);
-  const systemPrompt = tenant === 'us_apparel' ? ASK_SYSTEM_PROMPT_APPAREL : ASK_SYSTEM_PROMPT_GROCERY;
+  const systemPrompt =
+    tenant === 'us_retail' ? ASK_SYSTEM_PROMPT_RETAIL :
+    tenant === 'us_apparel' ? ASK_SYSTEM_PROMPT_APPAREL :
+    ASK_SYSTEM_PROMPT_GROCERY;
 
   const encoder = new TextEncoder();
 
@@ -186,7 +216,9 @@ export async function POST(request: NextRequest) {
           send({
             type: 'done',
             components: [
-              tenant === 'us_apparel'
+              tenant === 'us_retail'
+                ? { type: 'kpi_card', label: 'Margin Leakage', value: '$142K/wk', change: '-0.4pp', direction: 'down' }
+                : tenant === 'us_apparel'
                 ? { type: 'kpi_card', label: 'Margin Leakage', value: '$1.82M/wk', change: '-0.4pp', direction: 'down' }
                 : { type: 'kpi_card', label: 'Margin Leakage', value: '₹22.3L/wk', change: '-0.4pp', direction: 'down' },
             ] satisfies UIComponentType[],
@@ -245,7 +277,7 @@ export async function POST(request: NextRequest) {
 
             const result = await executeAskTool(toolName, toolInput, (text) => {
               send({ type: 'tool_progress', tool: toolName, text });
-            });
+            }, tenant);
 
             // Emit the visible action_result event (artifacts, erp results, etc.)
             send({

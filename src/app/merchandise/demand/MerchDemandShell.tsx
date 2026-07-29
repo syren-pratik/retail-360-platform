@@ -55,7 +55,7 @@ interface ApparelPrecomputed {
 }
 
 export default function MerchDemandShell() {
-  const { isApparel } = useTenant();
+  const { isApparel, isRetail } = useTenant();
   const [state, setState] = useState<State>({ status: 'loading' });
 
   const load = () => {
@@ -114,7 +114,7 @@ export default function MerchDemandShell() {
                 Merchandise Demand
               </h1>
               <p className="text-sm text-[var(--text-secondary)] mt-1">
-                Category-level demand intelligence · {isApparel ? 'US Apparel' : 'India'} · {payload.skus.length} SKUs · {payload.stores.length} stores
+                Category-level demand intelligence · {isRetail ? 'US Retail' : isApparel ? 'US Apparel' : 'India'} · {payload.skus.length} SKUs · {payload.stores.length} stores
               </p>
             </div>
             <LastUpdated timestamp={new Date(payload.generated_at)} />

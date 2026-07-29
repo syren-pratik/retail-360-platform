@@ -47,7 +47,7 @@ const STORE_TYPE_OPTIONS_APPAREL: { value: StoreTypeFilter; label: string }[] = 
 
 export default function ColdstartFilterBar({ onRefresh }: { onRefresh: () => void }) {
   const { filters, dispatch, activeChips } = useColdstartFilters();
-  const { isApparel } = useTenant();
+  const { isApparel, isRetail } = useTenant();
   const CATEGORY_OPTIONS = isApparel ? CATEGORY_OPTIONS_APPAREL : CATEGORY_OPTIONS_GROCERY;
   const STORE_TYPE_OPTIONS = isApparel ? STORE_TYPE_OPTIONS_APPAREL : STORE_TYPE_OPTIONS_GROCERY;
   const [isRefreshing, setIsRefreshing] = useState(false);

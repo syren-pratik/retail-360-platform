@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 // PRD-000001 to PRD-999999 (grocery) OR APR-XX-NNNN (apparel) — allow both.
 function isValidSkuId(id: string): boolean {
-  return /^PRD-\d{6}$/.test(id) || /^APR-[A-Z]+-\d{4}$/.test(id);
+  return /^PRD-\d{6}$/.test(id) || /^APR-[A-Z]+-\d{4}$/.test(id) || /^USR-[A-Z]+-\d{4}$/.test(id);
 }
 
 export async function GET(req: Request) {
@@ -25,6 +25,8 @@ export async function GET(req: Request) {
       const root =
         tenant === 'us_apparel'
           ? path.join(process.cwd(), 'cache', 'apparel', 'price_intel', 'sku_detail')
+          : tenant === 'us_retail'
+          ? path.join(process.cwd(), 'cache', 'us_retail', 'price_intel', 'sku_detail')
           : path.join(process.cwd(), 'cache', 'price_intel', 'sku_detail');
       const filePath = path.join(root, `${skuId}.json`);
       const resolved = path.resolve(filePath);
@@ -36,7 +38,7 @@ export async function GET(req: Request) {
         return NextResponse.json(data, { headers: { 'Cache-Control': 'private, max-age=300' } });
       } catch {
         // try grocery fallback if apparel shard missing
-        if (tenant === 'us_apparel') {
+        if (tenant === 'us_apparel' || tenant === 'us_retail') {
           try {
             const fallback = path.join(
               process.cwd(),

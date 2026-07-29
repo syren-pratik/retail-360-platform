@@ -108,7 +108,7 @@ function getTpoLayers(isApparel: boolean) {
 }
 
 export default function MechanicsTab({ core }: Props) {
-  const { isApparel } = useTenant();
+  const { isApparel, isRetail } = useTenant();
   const TPO_LAYERS = getTpoLayers(isApparel);
   const [expandedLayer, setExpandedLayer] = useState<string | null>(null);
 

@@ -30,7 +30,7 @@ After tool calls, output a short paragraph followed by a JSON block fenced with 
     {"priority":1,"headline":"...","action":"...","impact_lakhs":4.2,"deadline":"Thursday"}
   ],
   "whats_coming": [
-    "Eid al-Adha in 20 days — inventory check needed"
+    "Next major demand event and days remaining (derived from your query, e.g. 'Independence Day sale in 12 days — inventory check needed')"
   ]
 }
 \`\`\`

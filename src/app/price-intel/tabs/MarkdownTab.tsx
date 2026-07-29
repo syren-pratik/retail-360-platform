@@ -37,7 +37,7 @@ function DeepDiveButton({ onClick }: { onClick: () => void }) {
 
 export default function MarkdownTab({ core, onSKUSelect, persona }: Props) {
   const router = useRouter();
-  const { isApparel } = useTenant();
+  const { isApparel, isRetail } = useTenant();
 
   const pendingItems = core.markdown_queue.filter((i) => i.status === 'pending');
   const totalUnitsAtRisk = pendingItems.reduce((s, i) => s + i.units_at_risk, 0);

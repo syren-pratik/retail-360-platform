@@ -31,6 +31,7 @@ interface TenantContextValue {
   setTenant: (next: Tenant) => void;
   isApparel: boolean;
   isGrocery: boolean;
+  isRetail: boolean;
 }
 
 const TenantContext = createContext<TenantContextValue | null>(null);
@@ -49,7 +50,7 @@ function writeCookie(name: string, value: string): void {
 }
 
 function isValidTenant(v: string | null): v is Tenant {
-  return v === 'india_grocery' || v === 'us_apparel';
+  return v === 'india_grocery' || v === 'us_apparel' || v === 'us_retail';
 }
 
 export function TenantProvider({
@@ -105,6 +106,7 @@ export function TenantProvider({
     setTenant,
     isApparel: tenant === 'us_apparel',
     isGrocery: tenant === 'india_grocery',
+    isRetail: tenant === 'us_retail',
   };
 
   return <TenantContext.Provider value={value}>{children}</TenantContext.Provider>;

@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-05-17T00:00:00.000Z",
+  "alerts": [
+    {
+      "alert_id": "AR-001",
+      "severity": "warning",
+      "message": "Segment VIP churn risk up 9% WoW",
+      "impact_inr": 26721
+    },
+    {
+      "alert_id": "AR-002",
+      "severity": "warning",
+      "message": "Segment At-Risk churn risk up 3% WoW",
+      "impact_inr": 4129
+    },
+    {
+      "alert_id": "AR-003",
+      "severity": "warning",
+      "message": "Segment Loyal churn risk up 5% WoW",
+      "impact_inr": 8688
+    },
+    {
+      "alert_id": "AR-004",
+      "severity": "warning",
+      "message": "Segment At-Risk churn risk up 12% WoW",
+      "impact_inr": 19577
+    },
+    {
+      "alert_id": "AR-005",
+      "severity": "info",
+      "message": "Segment VIP churn risk up 11% WoW",
+      "impact_inr": 35781
+    },
+    {
+      "alert_id": "AR-006",
+      "severity": "critical",
+      "message": "Segment Loyal churn risk up 12% WoW",
+      "impact_inr": 35248
+    },
+    {
+      "alert_id": "AR-007",
+      "severity": "warning",
+      "message": "Segment At-Risk churn risk up 12% WoW",
+      "impact_inr": 41093
+    },
+    {
+      "alert_id": "AR-008",
+      "severity": "info",
+      "message": "Segment At-Risk churn risk up 4% WoW",
+      "impact_inr": 18899
+    },
+    {
+      "alert_id": "AR-009",
+      "severity": "critical",
+      "message": "Segment At-Risk churn risk up 6% WoW",
+      "impact_inr": 32043
+    },
+    {
+      "alert_id": "AR-010",
+      "severity": "info",
+      "message": "Segment Loyal churn risk up 4% WoW",
+      "impact_inr": 19397
+    }
+  ]
+}

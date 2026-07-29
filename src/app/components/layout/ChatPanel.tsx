@@ -238,7 +238,7 @@ const COLDSTART_DEFAULT_PROMPTS_APPAREL = [
 export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
   const pathname = usePathname();
   const params = useParams();
-  const { isApparel } = useTenant();
+  const { isApparel, isRetail } = useTenant();
   const currentModule: ModuleType =
     pathname.startsWith('/merchandise/cold-start') ? 'coldstart' :
     pathname.startsWith('/merchandise') ? 'merchandise' :

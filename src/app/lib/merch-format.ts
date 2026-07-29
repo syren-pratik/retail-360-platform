@@ -3,15 +3,20 @@
 import { getRuntimeTenant } from './tenant-runtime';
 import { getLocaleAuto } from './format-money';
 
+function isRuntimeUSD(): boolean {
+  const t = getRuntimeTenant();
+  return t === 'us_apparel' || t === 'us_retail';
+}
+
 export function formatINR(n: number): string {
-  const symbol = getRuntimeTenant() === 'us_apparel' ? '$' : '₹';
+  const symbol = isRuntimeUSD() ? '$' : '₹';
   return `${symbol}${Math.round(n).toLocaleString(getLocaleAuto())}`;
 }
 
 export function formatLakhsCrores(n: number): string {
   const sign = n < 0 ? '-' : '';
   const abs = Math.abs(n);
-  if (getRuntimeTenant() === 'us_apparel') {
+  if (isRuntimeUSD()) {
     if (abs >= 1_000_000) return `${sign}$${(abs / 1_000_000).toFixed(1)}M`;
     if (abs >= 1_000)     return `${sign}$${(abs / 1_000).toFixed(1)}K`;
     return `${sign}$${abs.toFixed(0)}`;

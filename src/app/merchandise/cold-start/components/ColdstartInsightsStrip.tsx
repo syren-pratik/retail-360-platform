@@ -84,7 +84,7 @@ const APPAREL_INSIGHTS: Insight[] = [
 ];
 
 export default function ColdstartInsightsStrip() {
-  const { isApparel } = useTenant();
+  const { isApparel, isRetail } = useTenant();
   const insights = isApparel ? APPAREL_INSIGHTS : GROCERY_INSIGHTS;
   return (
     <InsightStrip

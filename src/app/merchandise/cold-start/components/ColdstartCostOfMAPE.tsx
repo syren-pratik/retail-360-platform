@@ -72,7 +72,7 @@ const CustomTooltip = ({
 };
 
 export default function ColdstartCostOfMAPE({ data }: Props) {
-  const { isApparel } = useTenant();
+  const { isApparel, isRetail } = useTenant();
   const { naive_costs, champion_costs, savings, pr_projection, weekly_breakdown } = data;
   const rate = pr_projection.exchange_rate_inr_per_usd;
 

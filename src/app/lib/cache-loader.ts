@@ -17,6 +17,7 @@ import { TENANT_COOKIE, DEFAULT_TENANT, type Tenant } from '@/app/lib/tenant-con
 
 const CACHE_ROOT = path.join(process.cwd(), 'cache');
 const APPAREL_ROOT = path.join(CACHE_ROOT, 'apparel');
+const US_RETAIL_ROOT = path.join(CACHE_ROOT, 'us_retail');
 
 interface MemEntry {
   data: unknown;
@@ -30,7 +31,7 @@ const MEM_TTL_MS = 5 * 60 * 1000; // 5 min — survives hot-reload of one dev se
 export function getTenantFromCookie(): Tenant {
   try {
     const raw = cookies().get(TENANT_COOKIE)?.value;
-    if (raw === 'us_apparel' || raw === 'india_grocery') return raw;
+    if (raw === 'us_apparel' || raw === 'india_grocery' || raw === 'us_retail') return raw;
   } catch {
     // cookies() throws if called outside a request scope — caller may pass explicit tenant
   }
@@ -71,6 +72,15 @@ async function resolvePath(filename: string, tenant: Tenant): Promise<string> {
       return apparel;
     } catch {
       // apparel mirror not generated yet for this file — fall through to grocery
+    }
+  }
+  if (tenant === 'us_retail') {
+    const retail = path.join(US_RETAIL_ROOT, filename);
+    try {
+      await fsp.access(retail);
+      return retail;
+    } catch {
+      // us_retail mirror missing — fall through to grocery
     }
   }
   return path.join(CACHE_ROOT, filename);

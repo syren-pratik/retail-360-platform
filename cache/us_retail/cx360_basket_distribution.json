@@ -1,0 +1,314 @@
+{
+  "summary": {
+    "total_customers": 80000,
+    "total_transactions": 733343,
+    "total_revenue": 119608008,
+    "mean_basket": 168,
+    "median_basket": 148,
+    "top_10pct_threshold": 180,
+    "top_20pct_revenue_share": 58.6,
+    "basket_trend_mom": 2.4
+  },
+  "distribution": [
+    {
+      "range": "$0-30",
+      "min": 0,
+      "max": 30,
+      "customer_count": 2849,
+      "pct_customers": 3.6,
+      "transactions": 26416,
+      "pct_transactions": 3.6,
+      "revenue": 451771,
+      "pct_revenue": 0.4,
+      "avg_value": 25,
+      "median_value": 25
+    },
+    {
+      "range": "$30-60",
+      "min": 30,
+      "max": 60,
+      "customer_count": 6772,
+      "pct_customers": 8.5,
+      "transactions": 77634,
+      "pct_transactions": 10.6,
+      "revenue": 3594812,
+      "pct_revenue": 3,
+      "avg_value": 46,
+      "median_value": 46
+    },
+    {
+      "range": "$60-120",
+      "min": 60,
+      "max": 120,
+      "customer_count": 19235,
+      "pct_customers": 24,
+      "transactions": 225154,
+      "pct_transactions": 30.7,
+      "revenue": 20117540,
+      "pct_revenue": 16.8,
+      "avg_value": 90,
+      "median_value": 90
+    },
+    {
+      "range": "$120-250",
+      "min": 120,
+      "max": 250,
+      "customer_count": 27896,
+      "pct_customers": 34.9,
+      "transactions": 278888,
+      "pct_transactions": 38,
+      "revenue": 48036308,
+      "pct_revenue": 40.2,
+      "avg_value": 176,
+      "median_value": 176
+    },
+    {
+      "range": "$250+",
+      "min": 250,
+      "max": 9999,
+      "customer_count": 23248,
+      "pct_customers": 29.1,
+      "transactions": 125251,
+      "pct_transactions": 17.1,
+      "revenue": 47407577,
+      "pct_revenue": 39.6,
+      "avg_value": 277,
+      "median_value": 277
+    }
+  ],
+  "by_segment": [
+    {
+      "range": "$0-30",
+      "Premium Loyalist": 89,
+      "Deal Seeker": 96,
+      "Occasional Buyer": 765,
+      "Omnichannel Shopper": 175,
+      "High Returner": 524,
+      "Lapsed": 653,
+      "New Customer": 441,
+      "New": 106
+    },
+    {
+      "range": "$30-60",
+      "Premium Loyalist": 296,
+      "Deal Seeker": 489,
+      "Occasional Buyer": 2548,
+      "Omnichannel Shopper": 491,
+      "High Returner": 1114,
+      "Lapsed": 525,
+      "New Customer": 718,
+      "New": 591
+    },
+    {
+      "range": "$60-120",
+      "Premium Loyalist": 1620,
+      "Deal Seeker": 2566,
+      "Occasional Buyer": 6187,
+      "Omnichannel Shopper": 2065,
+      "High Returner": 2055,
+      "Lapsed": 1010,
+      "New Customer": 2221,
+      "New": 1511
+    },
+    {
+      "range": "$120-250",
+      "Premium Loyalist": 3033,
+      "Deal Seeker": 4829,
+      "Occasional Buyer": 6150,
+      "Omnichannel Shopper": 3855,
+      "High Returner": 1503,
+      "Lapsed": 3038,
+      "New Customer": 4148,
+      "New": 1340
+    },
+    {
+      "range": "$250+",
+      "Premium Loyalist": 2118,
+      "Deal Seeker": 3132,
+      "Occasional Buyer": 2005,
+      "Omnichannel Shopper": 2852,
+      "High Returner": 386,
+      "Lapsed": 9122,
+      "New Customer": 3221,
+      "New": 412
+    }
+  ],
+  "by_channel": [
+    {
+      "range": "$0-30",
+      "In-Store": 1464,
+      "Web": 636,
+      "App": 484,
+      "Curbside": 94,
+      "Marketplace": 171
+    },
+    {
+      "range": "$30-60",
+      "In-Store": 2957,
+      "Web": 1557,
+      "App": 1537,
+      "Curbside": 224,
+      "Marketplace": 497
+    },
+    {
+      "range": "$60-120",
+      "In-Store": 8213,
+      "Web": 4426,
+      "App": 4656,
+      "Curbside": 628,
+      "Marketplace": 1312
+    },
+    {
+      "range": "$120-250",
+      "In-Store": 12733,
+      "Web": 5933,
+      "App": 6637,
+      "Curbside": 890,
+      "Marketplace": 1703
+    },
+    {
+      "range": "$250+",
+      "In-Store": 12721,
+      "Web": 4283,
+      "App": 4355,
+      "Curbside": 598,
+      "Marketplace": 1291
+    }
+  ],
+  "basket_frequency_matrix": [
+    {
+      "basket_range": "<$30",
+      "frequency_range": "1-2x/year",
+      "customers": 12400,
+      "label": "Infrequent small",
+      "quadrant": "let_go"
+    },
+    {
+      "basket_range": "$30-120",
+      "frequency_range": "3-5x/year",
+      "customers": 28600,
+      "label": "Frequent medium",
+      "quadrant": "grow"
+    },
+    {
+      "basket_range": "$120-250",
+      "frequency_range": "3-5x/year",
+      "customers": 14200,
+      "label": "Frequent large",
+      "quadrant": "protect"
+    },
+    {
+      "basket_range": "$250+",
+      "frequency_range": "6x+/year",
+      "customers": 4800,
+      "label": "Power shoppers",
+      "quadrant": "vip"
+    }
+  ],
+  "trend": [
+    {
+      "month": "Jan 2026",
+      "mean": 158,
+      "median": 148,
+      "p75": 269,
+      "p90": 403
+    },
+    {
+      "month": "Feb 2026",
+      "mean": 160,
+      "median": 148,
+      "p75": 269,
+      "p90": 403
+    },
+    {
+      "month": "Mar 2026",
+      "mean": 162,
+      "median": 148,
+      "p75": 269,
+      "p90": 403
+    },
+    {
+      "month": "Apr 2026",
+      "mean": 164,
+      "median": 148,
+      "p75": 269,
+      "p90": 403
+    },
+    {
+      "month": "May 2026",
+      "mean": 166,
+      "median": 148,
+      "p75": 269,
+      "p90": 403
+    },
+    {
+      "month": "Jun 2026",
+      "mean": 168,
+      "median": 148,
+      "p75": 269,
+      "p90": 403
+    }
+  ],
+  "category_by_basket": {
+    "<$30": {
+      "Tops": 48,
+      "Beauty & Personal": 22,
+      "Bottoms": 18,
+      "Sports & Outdoor": 8,
+      "Other": 4
+    },
+    "$30-120": {
+      "Tops": 32,
+      "Bottoms": 28,
+      "Beauty & Personal": 18,
+      "Sports & Outdoor": 14,
+      "Outerwear": 8
+    },
+    "$120-250": {
+      "Bottoms": 28,
+      "Outerwear": 22,
+      "Sports & Outdoor": 22,
+      "Tops": 16,
+      "Beauty & Personal": 12
+    },
+    "$250+": {
+      "Outerwear": 35,
+      "Sports & Outdoor": 24,
+      "Beauty & Personal": 22,
+      "Bottoms": 12,
+      "Tops": 7
+    }
+  },
+  "discount_dependency": [
+    {
+      "range": "$0-30",
+      "promo_pct": 72,
+      "full_price_pct": 28
+    },
+    {
+      "range": "$30-60",
+      "promo_pct": 58,
+      "full_price_pct": 42
+    },
+    {
+      "range": "$60-120",
+      "promo_pct": 44,
+      "full_price_pct": 56
+    },
+    {
+      "range": "$120-250",
+      "promo_pct": 32,
+      "full_price_pct": 68
+    },
+    {
+      "range": "$250+",
+      "promo_pct": 18,
+      "full_price_pct": 82
+    }
+  ],
+  "insights": [
+    "Power shoppers ($250+, 6x+ year) are 6% of customers but 28% of revenue — apparel's long tail of accessories and outerwear.",
+    "58% of revenue comes from $60-250 basket — the sweet spot for wardrobe-builder bundle promotions.",
+    "Markdown dependency is highest in <$30 buckets — Occasional Buyer segment concentrates here."
+  ]
+}

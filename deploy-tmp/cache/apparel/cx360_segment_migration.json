@@ -1,0 +1,140 @@
+{
+  "period": "Q1 2026 → Q2 2026",
+  "flows": [
+    {
+      "from": "Fashion Forward",
+      "to": "Fashion Forward",
+      "count": 4421
+    },
+    {
+      "from": "Fashion Forward",
+      "to": "Athletic Enthusiast",
+      "count": 285
+    },
+    {
+      "from": "Fashion Forward",
+      "to": "Value Shopper",
+      "count": 509
+    },
+    {
+      "from": "Fashion Forward",
+      "to": "Brand Loyalist",
+      "count": 563
+    },
+    {
+      "from": "Fashion Forward",
+      "to": "Returner",
+      "count": 398
+    },
+    {
+      "from": "Fashion Forward",
+      "to": "Lapsed",
+      "count": 128
+    },
+    {
+      "from": "Fashion Forward",
+      "to": "Casual",
+      "count": 308
+    },
+    {
+      "from": "Fashion Forward",
+      "to": "New",
+      "count": 275
+    },
+    {
+      "from": "Athletic Enthusiast",
+      "to": "Athletic Enthusiast",
+      "count": 6212
+    },
+    {
+      "from": "Athletic Enthusiast",
+      "to": "Fashion Forward",
+      "count": 607
+    },
+    {
+      "from": "Athletic Enthusiast",
+      "to": "Value Shopper",
+      "count": 705
+    },
+    {
+      "from": "Athletic Enthusiast",
+      "to": "Brand Loyalist",
+      "count": 758
+    },
+    {
+      "from": "Athletic Enthusiast",
+      "to": "Returner",
+      "count": 260
+    },
+    {
+      "from": "Athletic Enthusiast",
+      "to": "Lapsed",
+      "count": 781
+    },
+    {
+      "from": "Athletic Enthusiast",
+      "to": "Casual",
+      "count": 666
+    },
+    {
+      "from": "Athletic Enthusiast",
+      "to": "New",
+      "count": 725
+    },
+    {
+      "from": "Value Shopper",
+      "to": "Value Shopper",
+      "count": 10972
+    },
+    {
+      "from": "Value Shopper",
+      "to": "Fashion Forward",
+      "count": 623
+    },
+    {
+      "from": "Value Shopper",
+      "to": "Athletic Enthusiast",
+      "count": 1050
+    },
+    {
+      "from": "Value Shopper",
+      "to": "Brand Loyalist",
+      "count": 656
+    },
+    {
+      "from": "Value Shopper",
+      "to": "Returner",
+      "count": 709
+    },
+    {
+      "from": "Value Shopper",
+      "to": "Lapsed",
+      "count": 374
+    },
+    {
+      "from": "Value Shopper",
+      "to": "Casual",
+      "count": 735
+    },
+    {
+      "from": "Value Shopper",
+      "to": "New",
+      "count": 1157
+    },
+    {
+      "from": "Brand Loyalist",
+      "to": "Brand Loyalist",
+      "count": 6663
+    },
+    {
+      "from": "Brand Loyalist",
+      "to": "Fashion Forward",
+      "count": 705
+    },
+    {
+      "from": "Brand Loyalist",
+      "to": "Athletic Enthusiast",
+      "count": 330
+    }
+  ]
+}

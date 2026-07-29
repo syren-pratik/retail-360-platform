@@ -1,8 +1,10 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useTenant } from '@/app/context/TenantContext';
 import { Loader2, Database, AlertCircle } from 'lucide-react';
 import type { PriceIntelCore, PriceIntelSKU } from '@/app/lib/price-intel-types';
+import type { UIComponentType } from '@/app/lib/types';
 import type {
   ERPConnectionResult,
   ProposalItem,
@@ -12,6 +14,7 @@ import type {
 } from '@/app/agents/lib/action-types';
 import AgentWorkflow, { type AgentWorkflowPhase } from '../components/AgentWorkflow';
 import StepSystemCheck from '../components/workflow/StepSystemCheck';
+import HubCanvas from '../components/HubCanvas';
 import { checkERPConnections } from '../lib/erp-connector';
 import {
   generatePOSpreadsheet,
@@ -23,8 +26,8 @@ interface Props {
   core: PriceIntelCore;
 }
 
-const EVENT_NAME = 'Eid al-Adha';
-const DAYS_TO_EVENT = 20;
+const DEFAULT_EVENT_NAME = 'upcoming demand';
+const DEFAULT_DAYS_TO_EVENT = 30;
 
 function priorityFor(wos: number): 'high' | 'medium' | 'low' {
   if (wos < 1.5) return 'high';
@@ -33,6 +36,8 @@ function priorityFor(wos: number): 'high' | 'medium' | 'low' {
 }
 
 export default function InventoryReplenishmentAgent({ core }: Props) {
+  const { tenant, isRetail, isApparel } = useTenant();
+  const isUSD = isRetail || isApparel;
   const atRiskSkus = useMemo<PriceIntelSKU[]>(
     () =>
       core.skus
@@ -47,7 +52,7 @@ export default function InventoryReplenishmentAgent({ core }: Props) {
       const weeklyDemand = Math.round(800 + Math.random() * 400);
       const qty = Math.max(
         0,
-        Math.round((DAYS_TO_EVENT / 7) * weeklyDemand * 1.45) -
+        Math.round((DEFAULT_DAYS_TO_EVENT / 7) * weeklyDemand * 1.45) -
           Math.round(sku.weeks_of_supply * weeklyDemand)
       );
       const valueL = parseFloat(((qty * (sku.cost_inr ?? 50)) / 100000).toFixed(1));
@@ -89,10 +94,26 @@ export default function InventoryReplenishmentAgent({ core }: Props) {
   const [thinkingText, setThinkingText] = useState<string>('');
   const [toolCalls, setToolCalls] = useState<string[]>([]);
   const [apiError, setApiError] = useState<string | null>(null);
+  const [agentComponents, setAgentComponents] = useState<UIComponentType[]>([]);
+  const [userInstructions, setUserInstructions] = useState('');
+  const [eventName, setEventName] = useState<string>(DEFAULT_EVENT_NAME);
+  const [daysToEvent, setDaysToEvent] = useState<number>(DEFAULT_DAYS_TO_EVENT);
+  const [initialTrigger, setInitialTrigger] = useState<string>(
+    `${atRiskSkus.length} SKUs at stockout risk · ${DEFAULT_EVENT_NAME} in ${DEFAULT_DAYS_TO_EVENT} days`
+  );
 
-  const initialTrigger = `${atRiskSkus.length} SKUs at stockout risk · ${EVENT_NAME} in ${DAYS_TO_EVENT} days`;
-
-  function buildProposalsFromServer(data: { items: Array<Record<string, unknown>> }) {
+  function buildProposalsFromServer(data: {
+    items: Array<Record<string, unknown>>;
+    event_name?: string;
+    days_to_event?: number;
+  }) {
+    const serverEvent = data.event_name?.trim() || DEFAULT_EVENT_NAME;
+    const serverDays = typeof data.days_to_event === 'number' ? data.days_to_event : DEFAULT_DAYS_TO_EVENT;
+    setEventName(serverEvent);
+    setDaysToEvent(serverDays);
+    setInitialTrigger(
+      `${data.items?.length ?? 0} SKUs at risk · ${serverEvent} in ${serverDays} days`
+    );
     const items = (data.items ?? []).map((raw, i) => {
       const item = raw as {
         sku_id: string;
@@ -134,7 +155,7 @@ export default function InventoryReplenishmentAgent({ core }: Props) {
       const res = await fetch('/api/agents/action/inventory-replenishment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tenant: 'india_grocery' }),
+        body: JSON.stringify({ tenant, user_instructions: userInstructions }),
       });
       if (!res.ok || !res.body) throw new Error(`HTTP ${res.status}`);
       const reader = res.body.getReader();
@@ -166,6 +187,9 @@ export default function InventoryReplenishmentAgent({ core }: Props) {
               case 'proposals':
                 buildProposalsFromServer(data.data);
                 setPhase('approved');
+                break;
+              case 'components':
+                setAgentComponents(data.data as UIComponentType[]);
                 break;
               case 'error':
                 setApiError(data.text);
@@ -210,13 +234,13 @@ export default function InventoryReplenishmentAgent({ core }: Props) {
     // xlsx
     updateStep('xlsx', 'running');
     await new Promise((r) => setTimeout(r, 600));
-    const blob = generatePOSpreadsheet(selected, EVENT_NAME, anchorDate);
+    const blob = generatePOSpreadsheet(selected, eventName, anchorDate, isUSD);
     setArtifacts((prev) => [
       ...prev,
       {
         id: 'po-xlsx',
         type: 'xlsx',
-        filename: `PO_${EVENT_NAME.replace(/\s+/g, '_')}_${anchorDate}.xlsx`,
+        filename: `PO_${eventName.replace(/\s+/g, '_')}_${anchorDate}.xlsx`,
         description: `${selected.length} SKUs · Purchase Orders + Instructions`,
         blob,
       },
@@ -226,7 +250,7 @@ export default function InventoryReplenishmentAgent({ core }: Props) {
     // email
     updateStep('email', 'running');
     await new Promise((r) => setTimeout(r, 400));
-    const href = generateSupplierEmailHref(selected, EVENT_NAME);
+    const href = generateSupplierEmailHref(selected, eventName, isUSD);
     setArtifacts((prev) => [
       ...prev,
       {
@@ -262,7 +286,7 @@ export default function InventoryReplenishmentAgent({ core }: Props) {
     setNextSteps([
       'Send PO spreadsheet to procurement@retailer.com',
       'Confirm supplier acknowledgement within 24h',
-      `Re-check stock status 7 days before ${EVENT_NAME}`,
+      `Re-check stock status ${Math.max(1, Math.round(daysToEvent / 3))} days before ${eventName}`,
       'Databricks flags will clear when POs are received',
     ]);
     setPhase('done');
@@ -324,7 +348,13 @@ export default function InventoryReplenishmentAgent({ core }: Props) {
   }
 
   return (
-    <AgentWorkflow
+    <>
+      {agentComponents.length > 0 && (
+        <div className="mb-4">
+          <HubCanvas components={agentComponents} />
+        </div>
+      )}
+      <AgentWorkflow
       agentId="inventory-replenishment"
       agentName="Inventory replenishment"
       agentIcon="📦"
@@ -340,7 +370,10 @@ export default function InventoryReplenishmentAgent({ core }: Props) {
       onStart={startWorkflow}
       onProposalChange={setProposals}
       onApprove={handleApprove}
+      userInstructions={userInstructions}
+      onUserInstructionsChange={setUserInstructions}
       onDismiss={handleDismiss}
     />
+    </>
   );
 }

@@ -1,0 +1,89 @@
+{
+  "generated_at": "2026-05-17T00:00:00.000Z",
+  "alerts": [
+    {
+      "alert_id": "INV-001",
+      "severity": "warning",
+      "category": "Electronics",
+      "message": "Stockout risk within 3 days",
+      "impact_inr": 30196
+    },
+    {
+      "alert_id": "INV-002",
+      "severity": "critical",
+      "category": "Home & Garden",
+      "message": "Replenishment overdue",
+      "impact_inr": 4849
+    },
+    {
+      "alert_id": "INV-003",
+      "severity": "warning",
+      "category": "Apparel & Shoes",
+      "message": "Overstock — 22 weeks of supply",
+      "impact_inr": 17466
+    },
+    {
+      "alert_id": "INV-004",
+      "severity": "critical",
+      "category": "Grocery & Snacks",
+      "message": "Replenishment overdue",
+      "impact_inr": 40730
+    },
+    {
+      "alert_id": "INV-005",
+      "severity": "critical",
+      "category": "Grocery & Snacks",
+      "message": "Replenishment overdue",
+      "impact_inr": 9642
+    },
+    {
+      "alert_id": "INV-006",
+      "severity": "info",
+      "category": "Beauty & Personal",
+      "message": "Stockout risk within 3 days",
+      "impact_inr": 20236
+    },
+    {
+      "alert_id": "INV-007",
+      "severity": "warning",
+      "category": "Electronics",
+      "message": "Safety stock breached",
+      "impact_inr": 26567
+    },
+    {
+      "alert_id": "INV-008",
+      "severity": "warning",
+      "category": "Toys & Games",
+      "message": "Safety stock breached",
+      "impact_inr": 22443
+    },
+    {
+      "alert_id": "INV-009",
+      "severity": "warning",
+      "category": "Apparel & Shoes",
+      "message": "Overstock — 22 weeks of supply",
+      "impact_inr": 35848
+    },
+    {
+      "alert_id": "INV-010",
+      "severity": "warning",
+      "category": "Electronics",
+      "message": "Stockout risk within 3 days",
+      "impact_inr": 13192
+    },
+    {
+      "alert_id": "INV-011",
+      "severity": "warning",
+      "category": "Beauty & Personal",
+      "message": "Stockout risk within 3 days",
+      "impact_inr": 30870
+    },
+    {
+      "alert_id": "INV-012",
+      "severity": "critical",
+      "category": "Electronics",
+      "message": "Overstock — 22 weeks of supply",
+      "impact_inr": 18665
+    }
+  ]
+}

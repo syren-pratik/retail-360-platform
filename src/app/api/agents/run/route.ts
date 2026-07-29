@@ -10,7 +10,9 @@ function getTenantFromRequest(request: NextRequest): Tenant {
   const cookieHeader = request.headers.get('cookie') ?? '';
   const match = cookieHeader.split(/;\s*/).find((c) => c.startsWith(`${TENANT_COOKIE}=`));
   const value = match?.split('=')[1];
-  return value === 'us_apparel' ? 'us_apparel' : 'india_grocery';
+  if (value === 'us_apparel') return 'us_apparel';
+  if (value === 'us_retail') return 'us_retail';
+  return 'india_grocery';
 }
 
 // Initialize Anthropic client - supports both direct Anthropic and Azure AI Foundry
@@ -34,14 +36,22 @@ try {
 }
 
 function agentSystemPrompt(tenant: Tenant): string {
-  const market = tenant === 'us_apparel'
+  const isUSD = tenant === 'us_apparel' || tenant === 'us_retail';
+  const market = tenant === 'us_retail'
+    ? 'Meridian Retail — a US general merchandise retailer (85 stores + Online/App/Curbside/Marketplace; 7 depts including Electronics, Apparel & Shoes, Home & Garden, Sports & Outdoor, Beauty & Personal, Grocery & Snacks, Toys & Games; events Memorial Day, July 4, Back to School, Labor Day, Halloween, Black Friday, Cyber Monday)'
+    : tenant === 'us_apparel'
     ? 'a US apparel retailer (departments Mens/Womens/Kids/Footwear/Accessories; events BTS, BFCM, Holiday)'
     : 'an Indian supermarket chain';
-  const currencyRule = tenant === 'us_apparel'
+  const currencyRule = isUSD
     ? '- Use $ values: $9.8K (thousands), $1.2M (millions). NEVER use ₹, lakhs, or crores.'
     : '- Use ₹ values: ₹9.8L (lakhs), ₹1.2Cr (crores)';
+  const tenantPrefix = tenant === 'us_retail'
+    ? `## Tenant context — Meridian Retail\nAll currency USD. 7 departments, 5 channels. Anchor date 2026-05-17. Pre-Black-Friday build window. There is NO Databricks connection for this tenant — reason from the context provided in the user prompt.\n\n`
+    : tenant === 'us_apparel'
+    ? `## Tenant context — US apparel\nAll currency USD. No Databricks connection for this tenant.\n\n`
+    : '';
 
-  return `You are a specialized retail pricing AI agent for ${market}. You analyze specific requests and return structured insights.
+  return `${tenantPrefix}You are a specialized retail pricing AI agent for ${market}. You analyze specific requests and return structured insights.
 
 Return your analysis as text followed by a JSON block of UI components.
 At the end of your response, include:
@@ -340,7 +350,9 @@ export async function POST(request: NextRequest) {
             type: 'done',
             answer: fallbackText,
             components: [
-              tenant === 'us_apparel'
+              tenant === 'us_retail'
+                ? { type: 'kpi_card', label: 'Margin Leakage', value: '$142K/wk', change: '-0.4pp', direction: 'down' }
+                : tenant === 'us_apparel'
                 ? { type: 'kpi_card', label: 'Margin Leakage', value: '$1.82M/wk', change: '-0.4pp', direction: 'down' }
                 : { type: 'kpi_card', label: 'Margin Leakage', value: '₹22.3L/wk', change: '-0.4pp', direction: 'down' },
             ] satisfies UIComponentType[],

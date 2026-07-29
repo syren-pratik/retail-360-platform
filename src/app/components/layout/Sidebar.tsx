@@ -9,6 +9,7 @@ import {
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import { useTenant } from '@/app/context/TenantContext';
 
 interface SidebarProps {
   collapsed: boolean;
@@ -71,6 +72,17 @@ const navItems: NavItem[] = [
 
 export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
   const pathname = usePathname();
+  const { isRetail } = useTenant();
+
+  // us_retail: hide Cold-start + Store Opening children (no coldstart cache for us_retail).
+  const filteredNavItems = navItems.map((item) => {
+    if (!item.children) return item;
+    if (!isRetail) return item;
+    const children = item.children.filter(
+      (c) => c.href !== '/merchandise/cold-start' && c.href !== '/merchandise/cold-start/store-opening',
+    );
+    return { ...item, children };
+  });
 
   const [expanded, setExpanded] = useState<Record<string, boolean>>(() => ({
     'Demand Planning': pathname.startsWith('/merchandise'),
@@ -104,7 +116,7 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
       {/* Navigation */}
       <nav className="flex-1 py-4 overflow-y-auto">
         <ul className="space-y-1">
-          {navItems.map((item) => {
+          {filteredNavItems.map((item) => {
             const hasChildren = !!item.children?.length;
             const isActive    = !hasChildren && (pathname === item.href || pathname.startsWith(item.href + '/'));
             const isParentActive = hasChildren && (pathname === item.href || pathname.startsWith(item.href + '/'));

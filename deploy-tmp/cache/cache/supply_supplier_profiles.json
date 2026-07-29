@@ -1,0 +1,3267 @@
+{
+  "SUP-001": {
+    "supplier_id": "SUP-001",
+    "name": "Hindustan Unilever Ltd",
+    "short_name": "HUL",
+    "category": "Personal Care",
+    "categories_supplied": [
+      "Personal Care",
+      "Household"
+    ],
+    "headquarters": "Mumbai",
+    "account_manager": "Rajesh Sharma",
+    "contract_expiry": "2027-03-31",
+    "relationship_years": 8,
+    "overall_score": 42,
+    "score_trend": "declining",
+    "otif_pct": 64.2,
+    "fill_rate_pct": 71.3,
+    "avg_delay_days": 4.8,
+    "order_value_cr": 28.4,
+    "stockouts_caused": 38,
+    "trend": "declining",
+    "otif_12m": [
+      {
+        "month": "May 2025",
+        "otif_pct": 74.2,
+        "target": 90
+      },
+      {
+        "month": "Jun 2025",
+        "otif_pct": 72.8,
+        "target": 90
+      },
+      {
+        "month": "Jul 2025",
+        "otif_pct": 71.4,
+        "target": 90
+      },
+      {
+        "month": "Aug 2025",
+        "otif_pct": 70.1,
+        "target": 90
+      },
+      {
+        "month": "Sep 2025",
+        "otif_pct": 69.8,
+        "target": 90
+      },
+      {
+        "month": "Oct 2025",
+        "otif_pct": 68.4,
+        "target": 90
+      },
+      {
+        "month": "Nov 2025",
+        "otif_pct": 67.2,
+        "target": 90
+      },
+      {
+        "month": "Dec 2025",
+        "otif_pct": 68.8,
+        "target": 90
+      },
+      {
+        "month": "Jan 2026",
+        "otif_pct": 66.4,
+        "target": 90
+      },
+      {
+        "month": "Feb 2026",
+        "otif_pct": 65.1,
+        "target": 90
+      },
+      {
+        "month": "Mar 2026",
+        "otif_pct": 64.8,
+        "target": 90
+      },
+      {
+        "month": "Apr 2026",
+        "otif_pct": 64.2,
+        "target": 90
+      }
+    ],
+    "delay_reasons": {
+      "manufacturing_pct": 48,
+      "logistics_pct": 22,
+      "quality_pct": 18,
+      "documentation_pct": 6,
+      "no_reason_pct": 6
+    },
+    "category_performance": [
+      {
+        "category": "Personal Care",
+        "otif_pct": 62.4,
+        "fill_rate_pct": 69.8,
+        "avg_delay_days": 5.2,
+        "order_value_cr": 22.1,
+        "stockouts_caused": 31
+      },
+      {
+        "category": "Household",
+        "otif_pct": 68.4,
+        "fill_rate_pct": 74.2,
+        "avg_delay_days": 3.8,
+        "order_value_cr": 6.3,
+        "stockouts_caused": 7
+      }
+    ],
+    "store_impact": [
+      {
+        "store_id": "STR-001",
+        "store_name": "Delhi NCR Hypermarket 1",
+        "city": "Delhi NCR",
+        "stockouts_caused": 8,
+        "rev_at_risk_cr": 0.42,
+        "last_delivery_status": "delayed"
+      },
+      {
+        "store_id": "STR-002",
+        "store_name": "Delhi NCR Hypermarket 2",
+        "city": "Delhi NCR",
+        "stockouts_caused": 7,
+        "rev_at_risk_cr": 0.38,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-003",
+        "store_name": "Delhi NCR Hypermarket 3",
+        "city": "Delhi NCR",
+        "stockouts_caused": 6,
+        "rev_at_risk_cr": 0.31,
+        "last_delivery_status": "at_risk"
+      },
+      {
+        "store_id": "STR-009",
+        "store_name": "Mumbai Hypermarket 1",
+        "city": "Mumbai",
+        "stockouts_caused": 5,
+        "rev_at_risk_cr": 0.28,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-013",
+        "store_name": "Bangalore Hypermarket 1",
+        "city": "Bangalore",
+        "stockouts_caused": 4,
+        "rev_at_risk_cr": 0.22,
+        "last_delivery_status": "scheduled"
+      },
+      {
+        "store_id": "STR-016",
+        "store_name": "Chennai Hypermarket 1",
+        "city": "Chennai",
+        "stockouts_caused": 4,
+        "rev_at_risk_cr": 0.19,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-018",
+        "store_name": "Pune Hypermarket 1",
+        "city": "Pune",
+        "stockouts_caused": 4,
+        "rev_at_risk_cr": 0.18,
+        "last_delivery_status": "scheduled"
+      }
+    ],
+    "open_pos": [
+      {
+        "po_id": "PO-HUL-2841",
+        "category": "Personal Care",
+        "store_name": "Mumbai Hypermarket 2",
+        "qty": 240,
+        "value_cr": 0.87,
+        "expected_date": "2026-05-08",
+        "status": "scheduled"
+      },
+      {
+        "po_id": "PO-HUL-2856",
+        "category": "Personal Care",
+        "store_name": "Chennai Hypermarket 2",
+        "qty": 180,
+        "value_cr": 0.95,
+        "expected_date": "2026-05-05",
+        "status": "on_track"
+      },
+      {
+        "po_id": "PO-HUL-2871",
+        "category": "Household",
+        "store_name": "Delhi NCR Hypermarket 2",
+        "qty": 120,
+        "value_cr": 0.28,
+        "expected_date": "2026-05-04",
+        "status": "at_risk"
+      }
+    ],
+    "top_skus": [
+      {
+        "product_id": "PRD-HUL-001",
+        "product_name": "Dove Body Wash 250ml",
+        "category": "Personal Care",
+        "avg_daily_demand": 48,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 6,
+        "rev_at_risk_cr": 0.14
+      },
+      {
+        "product_id": "PRD-HUL-002",
+        "product_name": "Surf Excel Matic 3kg",
+        "category": "Household",
+        "avg_daily_demand": 36,
+        "current_stock": 42,
+        "days_of_supply": 1.2,
+        "status": "critical",
+        "stockout_events_90d": 4,
+        "rev_at_risk_cr": 0.11
+      },
+      {
+        "product_id": "PRD-HUL-003",
+        "product_name": "Lux Soap 100g Pack of 4",
+        "category": "Personal Care",
+        "avg_daily_demand": 64,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 8,
+        "rev_at_risk_cr": 0.19
+      },
+      {
+        "product_id": "PRD-HUL-004",
+        "product_name": "Lifebuoy Hand Sanitizer 500ml",
+        "category": "Personal Care",
+        "avg_daily_demand": 52,
+        "current_stock": 180,
+        "days_of_supply": 3.5,
+        "status": "low",
+        "stockout_events_90d": 3,
+        "rev_at_risk_cr": 0.08
+      },
+      {
+        "product_id": "PRD-HUL-005",
+        "product_name": "Vaseline Body Lotion 400ml",
+        "category": "Personal Care",
+        "avg_daily_demand": 38,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 5,
+        "rev_at_risk_cr": 0.12
+      }
+    ],
+    "peer_comparison": [
+      {
+        "supplier_id": "SUP-006",
+        "name": "Marico Ltd",
+        "category": "Personal Care",
+        "otif_pct": 68.9,
+        "order_value_cr": 12.4
+      },
+      {
+        "supplier_id": "SUP-007",
+        "name": "Godrej Consumer",
+        "category": "Personal Care",
+        "otif_pct": 72.4,
+        "order_value_cr": 9.8
+      },
+      {
+        "supplier_id": "SUP-008",
+        "name": "Dabur India",
+        "category": "Personal Care",
+        "otif_pct": 76.8,
+        "order_value_cr": 8.2
+      }
+    ],
+    "ai_recommendations": [
+      {
+        "priority": "critical",
+        "action": "Escalate manufacturing delays",
+        "detail": "48% of HUL delays are manufacturing-side. Request factory capacity plan for Q2 and establish weekly status call with HUL supply team.",
+        "expected_impact": "Reduce delay frequency by ~30%"
+      },
+      {
+        "priority": "high",
+        "action": "Dual-source top 5 stockout SKUs",
+        "detail": "Dove Body Wash, Lux Soap and Vaseline Lotion have 5-8 stockout events in 90 days. Onboard Marico or P&G as alternate suppliers for these specific SKUs.",
+        "expected_impact": "₹0.45Cr annual revenue preservation"
+      },
+      {
+        "priority": "medium",
+        "action": "Renegotiate SLA to 90% OTIF",
+        "detail": "Current contract has no OTIF penalty clause. At renewal (Mar 2027), include 90% OTIF minimum with penalty of 2% order value per point below threshold.",
+        "expected_impact": "Creates financial incentive for improvement"
+      }
+    ]
+  },
+  "SUP-002": {
+    "supplier_id": "SUP-002",
+    "name": "ITC Limited",
+    "short_name": "ITC",
+    "category": "Snacks & Beverages",
+    "categories_supplied": [
+      "Snacks & Beverages",
+      "Grocery & Staples"
+    ],
+    "headquarters": "Kolkata",
+    "account_manager": "Priya Menon",
+    "contract_expiry": "2026-12-31",
+    "relationship_years": 11,
+    "overall_score": 52,
+    "score_trend": "stable",
+    "otif_pct": 71.8,
+    "fill_rate_pct": 76.4,
+    "avg_delay_days": 3.2,
+    "order_value_cr": 22.1,
+    "stockouts_caused": 29,
+    "trend": "stable",
+    "otif_12m": [
+      {
+        "month": "May 2025",
+        "otif_pct": 73.4,
+        "target": 90
+      },
+      {
+        "month": "Jun 2025",
+        "otif_pct": 72.1,
+        "target": 90
+      },
+      {
+        "month": "Jul 2025",
+        "otif_pct": 71.8,
+        "target": 90
+      },
+      {
+        "month": "Aug 2025",
+        "otif_pct": 72.4,
+        "target": 90
+      },
+      {
+        "month": "Sep 2025",
+        "otif_pct": 71.2,
+        "target": 90
+      },
+      {
+        "month": "Oct 2025",
+        "otif_pct": 70.8,
+        "target": 90
+      },
+      {
+        "month": "Nov 2025",
+        "otif_pct": 72.1,
+        "target": 90
+      },
+      {
+        "month": "Dec 2025",
+        "otif_pct": 73.2,
+        "target": 90
+      },
+      {
+        "month": "Jan 2026",
+        "otif_pct": 71.9,
+        "target": 90
+      },
+      {
+        "month": "Feb 2026",
+        "otif_pct": 72.4,
+        "target": 90
+      },
+      {
+        "month": "Mar 2026",
+        "otif_pct": 71.6,
+        "target": 90
+      },
+      {
+        "month": "Apr 2026",
+        "otif_pct": 71.8,
+        "target": 90
+      }
+    ],
+    "delay_reasons": {
+      "manufacturing_pct": 12,
+      "logistics_pct": 58,
+      "quality_pct": 8,
+      "documentation_pct": 14,
+      "no_reason_pct": 8
+    },
+    "category_performance": [
+      {
+        "category": "Snacks & Beverages",
+        "otif_pct": 70.2,
+        "fill_rate_pct": 74.8,
+        "avg_delay_days": 3.4,
+        "order_value_cr": 16.8,
+        "stockouts_caused": 22
+      },
+      {
+        "category": "Grocery & Staples",
+        "otif_pct": 75.1,
+        "fill_rate_pct": 79.4,
+        "avg_delay_days": 2.6,
+        "order_value_cr": 5.3,
+        "stockouts_caused": 7
+      }
+    ],
+    "store_impact": [
+      {
+        "store_id": "STR-001",
+        "store_name": "Delhi NCR Hypermarket 1",
+        "city": "Delhi NCR",
+        "stockouts_caused": 7,
+        "rev_at_risk_cr": 0.34,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-002",
+        "store_name": "Delhi NCR Hypermarket 2",
+        "city": "Delhi NCR",
+        "stockouts_caused": 5,
+        "rev_at_risk_cr": 0.28,
+        "last_delivery_status": "at_risk"
+      },
+      {
+        "store_id": "STR-009",
+        "store_name": "Mumbai Hypermarket 1",
+        "city": "Mumbai",
+        "stockouts_caused": 4,
+        "rev_at_risk_cr": 0.21,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-013",
+        "store_name": "Bangalore Hypermarket 1",
+        "city": "Bangalore",
+        "stockouts_caused": 4,
+        "rev_at_risk_cr": 0.18,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-016",
+        "store_name": "Chennai Hypermarket 1",
+        "city": "Chennai",
+        "stockouts_caused": 3,
+        "rev_at_risk_cr": 0.16,
+        "last_delivery_status": "scheduled"
+      }
+    ],
+    "open_pos": [
+      {
+        "po_id": "PO-ITC-1124",
+        "category": "Snacks & Beverages",
+        "store_name": "Bangalore Hypermarket 3",
+        "qty": 320,
+        "value_cr": 0.52,
+        "expected_date": "2026-04-30",
+        "status": "on_track"
+      },
+      {
+        "po_id": "PO-ITC-1138",
+        "category": "Snacks & Beverages",
+        "store_name": "Pune Hypermarket 3",
+        "qty": 280,
+        "value_cr": 0.7,
+        "expected_date": "2026-05-10",
+        "status": "on_track"
+      },
+      {
+        "po_id": "PO-ITC-1152",
+        "category": "Snacks & Beverages",
+        "store_name": "Mumbai Hypermarket 3",
+        "qty": 210,
+        "value_cr": 0.79,
+        "expected_date": "2026-05-10",
+        "status": "at_risk"
+      }
+    ],
+    "top_skus": [
+      {
+        "product_id": "PRD-ITC-001",
+        "product_name": "Bingo Mad Angles 160g",
+        "category": "Snacks & Beverages",
+        "avg_daily_demand": 72,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 5,
+        "rev_at_risk_cr": 0.09
+      },
+      {
+        "product_id": "PRD-ITC-002",
+        "product_name": "Sunfeast Dark Fantasy 300g",
+        "category": "Snacks & Beverages",
+        "avg_daily_demand": 58,
+        "current_stock": 84,
+        "days_of_supply": 1.4,
+        "status": "critical",
+        "stockout_events_90d": 4,
+        "rev_at_risk_cr": 0.08
+      },
+      {
+        "product_id": "PRD-ITC-003",
+        "product_name": "Aashirvaad Atta 10kg",
+        "category": "Grocery & Staples",
+        "avg_daily_demand": 44,
+        "current_stock": 120,
+        "days_of_supply": 2.7,
+        "status": "low",
+        "stockout_events_90d": 3,
+        "rev_at_risk_cr": 0.11
+      },
+      {
+        "product_id": "PRD-ITC-004",
+        "product_name": "Bingo Tedhe Medhe 160g",
+        "category": "Snacks & Beverages",
+        "avg_daily_demand": 66,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 6,
+        "rev_at_risk_cr": 0.08
+      },
+      {
+        "product_id": "PRD-ITC-005",
+        "product_name": "Classmate Notebook 200pg",
+        "category": "Snacks & Beverages",
+        "avg_daily_demand": 38,
+        "current_stock": 210,
+        "days_of_supply": 5.5,
+        "status": "low",
+        "stockout_events_90d": 2,
+        "rev_at_risk_cr": 0.05
+      }
+    ],
+    "peer_comparison": [
+      {
+        "supplier_id": "SUP-010",
+        "name": "Parle Products",
+        "category": "Snacks & Beverages",
+        "otif_pct": 88.4,
+        "order_value_cr": 15.6
+      },
+      {
+        "supplier_id": "SUP-011",
+        "name": "Britannia Industries",
+        "category": "Snacks & Beverages",
+        "otif_pct": 86.2,
+        "order_value_cr": 14.2
+      },
+      {
+        "supplier_id": "SUP-003",
+        "name": "Nestlé India",
+        "category": "Snacks & Beverages",
+        "otif_pct": 74.3,
+        "order_value_cr": 18.7
+      }
+    ],
+    "ai_recommendations": [
+      {
+        "priority": "high",
+        "action": "Audit logistics partner performance",
+        "detail": "58% of ITC delays are logistics-side — highest in portfolio. Review carrier SLAs and consider switching to a 3PL with direct DC access.",
+        "expected_impact": "Reduce avg delay from 3.2d to under 2d"
+      },
+      {
+        "priority": "high",
+        "action": "Improve documentation process",
+        "detail": "14% documentation delays suggest invoice/PO mismatch issues. Implement EDI integration to eliminate manual document handoffs.",
+        "expected_impact": "Reduce documentation delays to <5%"
+      },
+      {
+        "priority": "medium",
+        "action": "Set 80% OTIF improvement milestone",
+        "detail": "ITC is stable but 18pp below target. Set a 6-month improvement roadmap with monthly check-ins targeting 80% OTIF by Oct 2026.",
+        "expected_impact": "Reduce stockouts caused from 29 to ~18"
+      }
+    ]
+  },
+  "SUP-003": {
+    "supplier_id": "SUP-003",
+    "name": "Nestlé India",
+    "short_name": "Nestlé",
+    "category": "Snacks & Beverages",
+    "categories_supplied": [
+      "Snacks & Beverages",
+      "Dairy & Frozen"
+    ],
+    "headquarters": "Gurgaon",
+    "account_manager": "Ananya Krishnan",
+    "contract_expiry": "2027-06-30",
+    "relationship_years": 9,
+    "overall_score": 58,
+    "score_trend": "improving",
+    "otif_pct": 74.3,
+    "fill_rate_pct": 79.8,
+    "avg_delay_days": 2.9,
+    "order_value_cr": 18.7,
+    "stockouts_caused": 22,
+    "trend": "improving",
+    "otif_12m": [
+      {
+        "month": "May 2025",
+        "otif_pct": 69.8,
+        "target": 90
+      },
+      {
+        "month": "Jun 2025",
+        "otif_pct": 70.4,
+        "target": 90
+      },
+      {
+        "month": "Jul 2025",
+        "otif_pct": 71.2,
+        "target": 90
+      },
+      {
+        "month": "Aug 2025",
+        "otif_pct": 71.8,
+        "target": 90
+      },
+      {
+        "month": "Sep 2025",
+        "otif_pct": 72.4,
+        "target": 90
+      },
+      {
+        "month": "Oct 2025",
+        "otif_pct": 72.1,
+        "target": 90
+      },
+      {
+        "month": "Nov 2025",
+        "otif_pct": 73.2,
+        "target": 90
+      },
+      {
+        "month": "Dec 2025",
+        "otif_pct": 73.8,
+        "target": 90
+      },
+      {
+        "month": "Jan 2026",
+        "otif_pct": 73.4,
+        "target": 90
+      },
+      {
+        "month": "Feb 2026",
+        "otif_pct": 74.1,
+        "target": 90
+      },
+      {
+        "month": "Mar 2026",
+        "otif_pct": 74.0,
+        "target": 90
+      },
+      {
+        "month": "Apr 2026",
+        "otif_pct": 74.3,
+        "target": 90
+      }
+    ],
+    "delay_reasons": {
+      "manufacturing_pct": 24,
+      "logistics_pct": 41,
+      "quality_pct": 22,
+      "documentation_pct": 8,
+      "no_reason_pct": 5
+    },
+    "category_performance": [
+      {
+        "category": "Snacks & Beverages",
+        "otif_pct": 73.2,
+        "fill_rate_pct": 78.4,
+        "avg_delay_days": 3.1,
+        "order_value_cr": 13.4,
+        "stockouts_caused": 16
+      },
+      {
+        "category": "Dairy & Frozen",
+        "otif_pct": 77.1,
+        "fill_rate_pct": 83.2,
+        "avg_delay_days": 2.4,
+        "order_value_cr": 5.3,
+        "stockouts_caused": 6
+      }
+    ],
+    "store_impact": [
+      {
+        "store_id": "STR-001",
+        "store_name": "Delhi NCR Hypermarket 1",
+        "city": "Delhi NCR",
+        "stockouts_caused": 6,
+        "rev_at_risk_cr": 0.28,
+        "last_delivery_status": "delayed"
+      },
+      {
+        "store_id": "STR-016",
+        "store_name": "Chennai Hypermarket 1",
+        "city": "Chennai",
+        "stockouts_caused": 4,
+        "rev_at_risk_cr": 0.18,
+        "last_delivery_status": "delayed"
+      },
+      {
+        "store_id": "STR-009",
+        "store_name": "Mumbai Hypermarket 1",
+        "city": "Mumbai",
+        "stockouts_caused": 4,
+        "rev_at_risk_cr": 0.16,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-013",
+        "store_name": "Bangalore Hypermarket 1",
+        "city": "Bangalore",
+        "stockouts_caused": 3,
+        "rev_at_risk_cr": 0.12,
+        "last_delivery_status": "scheduled"
+      },
+      {
+        "store_id": "STR-018",
+        "store_name": "Pune Hypermarket 1",
+        "city": "Pune",
+        "stockouts_caused": 3,
+        "rev_at_risk_cr": 0.1,
+        "last_delivery_status": "on_track"
+      }
+    ],
+    "open_pos": [
+      {
+        "po_id": "PO-NES-0841",
+        "category": "Snacks & Beverages",
+        "store_name": "Chennai Hypermarket 1",
+        "qty": 180,
+        "value_cr": 0.77,
+        "expected_date": "2026-05-02",
+        "status": "delayed"
+      },
+      {
+        "po_id": "PO-NES-0856",
+        "category": "Snacks & Beverages",
+        "store_name": "Delhi NCR Hypermarket 1",
+        "qty": 140,
+        "value_cr": 0.27,
+        "expected_date": "2026-05-04",
+        "status": "scheduled"
+      },
+      {
+        "po_id": "PO-NES-0871",
+        "category": "Dairy & Frozen",
+        "store_name": "Bangalore Hypermarket 1",
+        "qty": 200,
+        "value_cr": 1.19,
+        "expected_date": "2026-05-10",
+        "status": "scheduled"
+      }
+    ],
+    "top_skus": [
+      {
+        "product_id": "PRD-NES-001",
+        "product_name": "Maggi Noodles 2-Minute 12pk",
+        "category": "Snacks & Beverages",
+        "avg_daily_demand": 96,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 4,
+        "rev_at_risk_cr": 0.11
+      },
+      {
+        "product_id": "PRD-NES-002",
+        "product_name": "KitKat 4-Finger 42g 24pk",
+        "category": "Snacks & Beverages",
+        "avg_daily_demand": 72,
+        "current_stock": 144,
+        "days_of_supply": 2.0,
+        "status": "low",
+        "stockout_events_90d": 2,
+        "rev_at_risk_cr": 0.08
+      },
+      {
+        "product_id": "PRD-NES-003",
+        "product_name": "Munch 18g Box of 40",
+        "category": "Snacks & Beverages",
+        "avg_daily_demand": 84,
+        "current_stock": 168,
+        "days_of_supply": 2.0,
+        "status": "low",
+        "stockout_events_90d": 3,
+        "rev_at_risk_cr": 0.07
+      },
+      {
+        "product_id": "PRD-NES-004",
+        "product_name": "Nestlé Milkmaid 400g",
+        "category": "Dairy & Frozen",
+        "avg_daily_demand": 48,
+        "current_stock": 240,
+        "days_of_supply": 5.0,
+        "status": "low",
+        "stockout_events_90d": 2,
+        "rev_at_risk_cr": 0.06
+      },
+      {
+        "product_id": "PRD-NES-005",
+        "product_name": "Nescafé Classic 200g",
+        "category": "Snacks & Beverages",
+        "avg_daily_demand": 42,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 3,
+        "rev_at_risk_cr": 0.09
+      }
+    ],
+    "peer_comparison": [
+      {
+        "supplier_id": "SUP-010",
+        "name": "Parle Products",
+        "category": "Snacks & Beverages",
+        "otif_pct": 88.4,
+        "order_value_cr": 15.6
+      },
+      {
+        "supplier_id": "SUP-011",
+        "name": "Britannia Industries",
+        "category": "Snacks & Beverages",
+        "otif_pct": 86.2,
+        "order_value_cr": 14.2
+      },
+      {
+        "supplier_id": "SUP-002",
+        "name": "ITC Limited",
+        "category": "Snacks & Beverages",
+        "otif_pct": 71.8,
+        "order_value_cr": 22.1
+      }
+    ],
+    "ai_recommendations": [
+      {
+        "priority": "medium",
+        "action": "Maintain improving trajectory",
+        "detail": "Nestlé has improved OTIF from 69.8% to 74.3% over 12 months — the best improvement trend in the portfolio. Acknowledge progress and set next milestone of 80% by Dec 2026.",
+        "expected_impact": "Reduce stockouts caused from 22 to ~14"
+      },
+      {
+        "priority": "medium",
+        "action": "Resolve quality hold delays",
+        "detail": "22% of delays are quality-related — higher than portfolio average. Request quality audit report and agree on sampling protocol to reduce holds.",
+        "expected_impact": "Cut quality-related delays by 50%"
+      },
+      {
+        "priority": "low",
+        "action": "Increase Dairy & Frozen order share",
+        "detail": "Nestlé's Dairy & Frozen OTIF (77.1%) is better than Snacks. Consider shifting incremental volume from Dairy category to Nestlé.",
+        "expected_impact": "₹0.8Cr additional order value at better OTIF"
+      }
+    ]
+  },
+  "SUP-004": {
+    "supplier_id": "SUP-004",
+    "name": "Amul (GCMMF)",
+    "short_name": "Amul",
+    "category": "Dairy & Frozen",
+    "categories_supplied": [
+      "Dairy & Frozen",
+      "Grocery & Staples"
+    ],
+    "headquarters": "Anand, Gujarat",
+    "account_manager": "Vikram Patel",
+    "contract_expiry": "2027-09-30",
+    "relationship_years": 14,
+    "overall_score": 68,
+    "score_trend": "stable",
+    "otif_pct": 81.2,
+    "fill_rate_pct": 84.3,
+    "avg_delay_days": 1.8,
+    "order_value_cr": 34.2,
+    "stockouts_caused": 18,
+    "trend": "stable",
+    "otif_12m": [
+      {
+        "month": "May 2025",
+        "otif_pct": 82.4,
+        "target": 90
+      },
+      {
+        "month": "Jun 2025",
+        "otif_pct": 81.8,
+        "target": 90
+      },
+      {
+        "month": "Jul 2025",
+        "otif_pct": 80.4,
+        "target": 90
+      },
+      {
+        "month": "Aug 2025",
+        "otif_pct": 81.2,
+        "target": 90
+      },
+      {
+        "month": "Sep 2025",
+        "otif_pct": 82.1,
+        "target": 90
+      },
+      {
+        "month": "Oct 2025",
+        "otif_pct": 80.8,
+        "target": 90
+      },
+      {
+        "month": "Nov 2025",
+        "otif_pct": 82.4,
+        "target": 90
+      },
+      {
+        "month": "Dec 2025",
+        "otif_pct": 83.1,
+        "target": 90
+      },
+      {
+        "month": "Jan 2026",
+        "otif_pct": 81.4,
+        "target": 90
+      },
+      {
+        "month": "Feb 2026",
+        "otif_pct": 80.9,
+        "target": 90
+      },
+      {
+        "month": "Mar 2026",
+        "otif_pct": 81.8,
+        "target": 90
+      },
+      {
+        "month": "Apr 2026",
+        "otif_pct": 81.2,
+        "target": 90
+      }
+    ],
+    "delay_reasons": {
+      "manufacturing_pct": 18,
+      "logistics_pct": 52,
+      "quality_pct": 12,
+      "documentation_pct": 10,
+      "no_reason_pct": 8
+    },
+    "category_performance": [
+      {
+        "category": "Dairy & Frozen",
+        "otif_pct": 80.4,
+        "fill_rate_pct": 83.8,
+        "avg_delay_days": 1.9,
+        "order_value_cr": 28.6,
+        "stockouts_caused": 14
+      },
+      {
+        "category": "Grocery & Staples",
+        "otif_pct": 83.8,
+        "fill_rate_pct": 85.9,
+        "avg_delay_days": 1.5,
+        "order_value_cr": 5.6,
+        "stockouts_caused": 4
+      }
+    ],
+    "store_impact": [
+      {
+        "store_id": "STR-001",
+        "store_name": "Delhi NCR Hypermarket 1",
+        "city": "Delhi NCR",
+        "stockouts_caused": 5,
+        "rev_at_risk_cr": 0.24,
+        "last_delivery_status": "at_risk"
+      },
+      {
+        "store_id": "STR-009",
+        "store_name": "Mumbai Hypermarket 1",
+        "city": "Mumbai",
+        "stockouts_caused": 4,
+        "rev_at_risk_cr": 0.19,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-013",
+        "store_name": "Bangalore Hypermarket 1",
+        "city": "Bangalore",
+        "stockouts_caused": 3,
+        "rev_at_risk_cr": 0.14,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-016",
+        "store_name": "Chennai Hypermarket 1",
+        "city": "Chennai",
+        "stockouts_caused": 3,
+        "rev_at_risk_cr": 0.12,
+        "last_delivery_status": "scheduled"
+      },
+      {
+        "store_id": "STR-018",
+        "store_name": "Pune Hypermarket 1",
+        "city": "Pune",
+        "stockouts_caused": 3,
+        "rev_at_risk_cr": 0.11,
+        "last_delivery_status": "scheduled"
+      }
+    ],
+    "open_pos": [
+      {
+        "po_id": "PO-AMU-3201",
+        "category": "Dairy & Frozen",
+        "store_name": "Delhi NCR Hypermarket 1",
+        "qty": 480,
+        "value_cr": 1.23,
+        "expected_date": "2026-05-01",
+        "status": "at_risk"
+      },
+      {
+        "po_id": "PO-AMU-3215",
+        "category": "Dairy & Frozen",
+        "store_name": "Bangalore Hypermarket 1",
+        "qty": 360,
+        "value_cr": 1.11,
+        "expected_date": "2026-05-02",
+        "status": "on_track"
+      },
+      {
+        "po_id": "PO-AMU-3229",
+        "category": "Dairy & Frozen",
+        "store_name": "Pune Hypermarket 1",
+        "qty": 320,
+        "value_cr": 0.97,
+        "expected_date": "2026-05-05",
+        "status": "scheduled"
+      }
+    ],
+    "top_skus": [
+      {
+        "product_id": "PRD-AMU-001",
+        "product_name": "Amul Gold Milk 1L Tetra",
+        "category": "Dairy & Frozen",
+        "avg_daily_demand": 240,
+        "current_stock": 480,
+        "days_of_supply": 2.0,
+        "status": "low",
+        "stockout_events_90d": 3,
+        "rev_at_risk_cr": 0.12
+      },
+      {
+        "product_id": "PRD-AMU-002",
+        "product_name": "Amul Butter 500g",
+        "category": "Dairy & Frozen",
+        "avg_daily_demand": 96,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 4,
+        "rev_at_risk_cr": 0.09
+      },
+      {
+        "product_id": "PRD-AMU-003",
+        "product_name": "Amul Cheese Slices 200g",
+        "category": "Dairy & Frozen",
+        "avg_daily_demand": 72,
+        "current_stock": 288,
+        "days_of_supply": 4.0,
+        "status": "low",
+        "stockout_events_90d": 2,
+        "rev_at_risk_cr": 0.08
+      },
+      {
+        "product_id": "PRD-AMU-004",
+        "product_name": "Amul Taaza Toned Milk 1L",
+        "category": "Dairy & Frozen",
+        "avg_daily_demand": 180,
+        "current_stock": 360,
+        "days_of_supply": 2.0,
+        "status": "low",
+        "stockout_events_90d": 2,
+        "rev_at_risk_cr": 0.07
+      },
+      {
+        "product_id": "PRD-AMU-005",
+        "product_name": "Amul Kool Koko 200ml 24pk",
+        "category": "Dairy & Frozen",
+        "avg_daily_demand": 84,
+        "current_stock": 672,
+        "days_of_supply": 8.0,
+        "status": "healthy",
+        "stockout_events_90d": 1,
+        "rev_at_risk_cr": 0.03
+      }
+    ],
+    "peer_comparison": [
+      {
+        "supplier_id": "SUP-003",
+        "name": "Nestlé India",
+        "category": "Dairy & Frozen",
+        "otif_pct": 74.3,
+        "order_value_cr": 18.7
+      },
+      {
+        "supplier_id": "SUP-011",
+        "name": "Britannia Industries",
+        "category": "Dairy & Frozen",
+        "otif_pct": 86.2,
+        "order_value_cr": 14.2
+      }
+    ],
+    "ai_recommendations": [
+      {
+        "priority": "medium",
+        "action": "Improve cold-chain logistics reliability",
+        "detail": "52% of Amul delays are logistics-side, likely cold-chain constraints. Review refrigerated transport SLAs and consider pre-positioned stock at regional DCs.",
+        "expected_impact": "Reduce avg delay from 1.8d to under 1d"
+      },
+      {
+        "priority": "low",
+        "action": "Increase safety stock for top 3 Dairy SKUs",
+        "detail": "Dairy items are time-sensitive. Given 81.2% OTIF, maintain 7-day safety stock buffer instead of current 3-day buffer.",
+        "expected_impact": "Eliminate stockouts on critical Dairy SKUs"
+      },
+      {
+        "priority": "low",
+        "action": "Target 90% OTIF with volume incentive",
+        "detail": "Amul is a critical supplier at ₹34.2Cr. Offer 5% volume increase if they achieve 90% OTIF over 2 consecutive quarters.",
+        "expected_impact": "Improve OTIF by ~9pp; reduce stockouts caused from 18 to ~8"
+      }
+    ]
+  },
+  "SUP-005": {
+    "supplier_id": "SUP-005",
+    "name": "Tata Consumer Products",
+    "short_name": "Tata Consumer",
+    "category": "Grocery & Staples",
+    "categories_supplied": [
+      "Grocery & Staples",
+      "Beverages"
+    ],
+    "headquarters": "Mumbai",
+    "account_manager": "Suresh Nair",
+    "contract_expiry": "2027-12-31",
+    "relationship_years": 7,
+    "overall_score": 71,
+    "score_trend": "improving",
+    "otif_pct": 83.7,
+    "fill_rate_pct": 86.9,
+    "avg_delay_days": 1.4,
+    "order_value_cr": 31.8,
+    "stockouts_caused": 14,
+    "trend": "improving",
+    "otif_12m": [
+      {
+        "month": "May 2025",
+        "otif_pct": 78.2,
+        "target": 90
+      },
+      {
+        "month": "Jun 2025",
+        "otif_pct": 79.1,
+        "target": 90
+      },
+      {
+        "month": "Jul 2025",
+        "otif_pct": 79.8,
+        "target": 90
+      },
+      {
+        "month": "Aug 2025",
+        "otif_pct": 80.4,
+        "target": 90
+      },
+      {
+        "month": "Sep 2025",
+        "otif_pct": 81.2,
+        "target": 90
+      },
+      {
+        "month": "Oct 2025",
+        "otif_pct": 81.8,
+        "target": 90
+      },
+      {
+        "month": "Nov 2025",
+        "otif_pct": 82.4,
+        "target": 90
+      },
+      {
+        "month": "Dec 2025",
+        "otif_pct": 83.1,
+        "target": 90
+      },
+      {
+        "month": "Jan 2026",
+        "otif_pct": 82.8,
+        "target": 90
+      },
+      {
+        "month": "Feb 2026",
+        "otif_pct": 83.4,
+        "target": 90
+      },
+      {
+        "month": "Mar 2026",
+        "otif_pct": 83.2,
+        "target": 90
+      },
+      {
+        "month": "Apr 2026",
+        "otif_pct": 83.7,
+        "target": 90
+      }
+    ],
+    "delay_reasons": {
+      "manufacturing_pct": 22,
+      "logistics_pct": 44,
+      "quality_pct": 18,
+      "documentation_pct": 8,
+      "no_reason_pct": 8
+    },
+    "category_performance": [
+      {
+        "category": "Grocery & Staples",
+        "otif_pct": 83.2,
+        "fill_rate_pct": 86.4,
+        "avg_delay_days": 1.5,
+        "order_value_cr": 24.6,
+        "stockouts_caused": 11
+      },
+      {
+        "category": "Beverages",
+        "otif_pct": 85.1,
+        "fill_rate_pct": 88.2,
+        "avg_delay_days": 1.1,
+        "order_value_cr": 7.2,
+        "stockouts_caused": 3
+      }
+    ],
+    "store_impact": [
+      {
+        "store_id": "STR-001",
+        "store_name": "Delhi NCR Hypermarket 1",
+        "city": "Delhi NCR",
+        "stockouts_caused": 4,
+        "rev_at_risk_cr": 0.18,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-009",
+        "store_name": "Mumbai Hypermarket 1",
+        "city": "Mumbai",
+        "stockouts_caused": 3,
+        "rev_at_risk_cr": 0.14,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-013",
+        "store_name": "Bangalore Hypermarket 1",
+        "city": "Bangalore",
+        "stockouts_caused": 2,
+        "rev_at_risk_cr": 0.09,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-016",
+        "store_name": "Chennai Hypermarket 1",
+        "city": "Chennai",
+        "stockouts_caused": 2,
+        "rev_at_risk_cr": 0.08,
+        "last_delivery_status": "scheduled"
+      },
+      {
+        "store_id": "STR-018",
+        "store_name": "Pune Hypermarket 1",
+        "city": "Pune",
+        "stockouts_caused": 2,
+        "rev_at_risk_cr": 0.07,
+        "last_delivery_status": "on_track"
+      }
+    ],
+    "open_pos": [
+      {
+        "po_id": "PO-TAT-2201",
+        "category": "Grocery & Staples",
+        "store_name": "Pune Hypermarket 2",
+        "qty": 420,
+        "value_cr": 1.11,
+        "expected_date": "2026-04-29",
+        "status": "on_track"
+      },
+      {
+        "po_id": "PO-TAT-2215",
+        "category": "Grocery & Staples",
+        "store_name": "Mumbai Hypermarket 2",
+        "qty": 180,
+        "value_cr": 0.48,
+        "expected_date": "2026-05-08",
+        "status": "on_track"
+      },
+      {
+        "po_id": "PO-TAT-2229",
+        "category": "Beverages",
+        "store_name": "Chennai Hypermarket 2",
+        "qty": 360,
+        "value_cr": 1.0,
+        "expected_date": "2026-04-28",
+        "status": "scheduled"
+      }
+    ],
+    "top_skus": [
+      {
+        "product_id": "PRD-TAT-001",
+        "product_name": "Tata Salt 1kg Pack of 6",
+        "category": "Grocery & Staples",
+        "avg_daily_demand": 84,
+        "current_stock": 504,
+        "days_of_supply": 6.0,
+        "status": "low",
+        "stockout_events_90d": 2,
+        "rev_at_risk_cr": 0.06
+      },
+      {
+        "product_id": "PRD-TAT-002",
+        "product_name": "Tata Tea Premium 500g",
+        "category": "Beverages",
+        "avg_daily_demand": 62,
+        "current_stock": 496,
+        "days_of_supply": 8.0,
+        "status": "healthy",
+        "stockout_events_90d": 1,
+        "rev_at_risk_cr": 0.04
+      },
+      {
+        "product_id": "PRD-TAT-003",
+        "product_name": "Tata Sampann Pulses 1kg",
+        "category": "Grocery & Staples",
+        "avg_daily_demand": 56,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 3,
+        "rev_at_risk_cr": 0.08
+      },
+      {
+        "product_id": "PRD-TAT-004",
+        "product_name": "Himalayan Natural Water 1L",
+        "category": "Beverages",
+        "avg_daily_demand": 120,
+        "current_stock": 960,
+        "days_of_supply": 8.0,
+        "status": "healthy",
+        "stockout_events_90d": 1,
+        "rev_at_risk_cr": 0.03
+      },
+      {
+        "product_id": "PRD-TAT-005",
+        "product_name": "Tata Soulfull Millet Muesli",
+        "category": "Grocery & Staples",
+        "avg_daily_demand": 38,
+        "current_stock": 114,
+        "days_of_supply": 3.0,
+        "status": "low",
+        "stockout_events_90d": 2,
+        "rev_at_risk_cr": 0.05
+      }
+    ],
+    "peer_comparison": [
+      {
+        "supplier_id": "SUP-009",
+        "name": "Patanjali Ayurved",
+        "category": "Grocery & Staples",
+        "otif_pct": 62.1,
+        "order_value_cr": 6.4
+      },
+      {
+        "supplier_id": "SUP-004",
+        "name": "Amul (GCMMF)",
+        "category": "Grocery & Staples",
+        "otif_pct": 81.2,
+        "order_value_cr": 34.2
+      }
+    ],
+    "ai_recommendations": [
+      {
+        "priority": "low",
+        "action": "Reward with increased order volume",
+        "detail": "Tata Consumer has improved OTIF from 78.2% to 83.7% — best improving trajectory among top-5 spend suppliers. Increase order volume by 15% as a signal of preferred partner status.",
+        "expected_impact": "₹4.8Cr additional annual order value"
+      },
+      {
+        "priority": "low",
+        "action": "Fast-track to 90% OTIF milestone",
+        "detail": "At current improvement rate (+5.5pp over 12 months), Tata Consumer is on track for 90% OTIF by mid-2027. Support with shared demand forecasts to help them plan capacity.",
+        "expected_impact": "Achieve 90% OTIF 6 months ahead of schedule"
+      },
+      {
+        "priority": "low",
+        "action": "Expand Beverages category share",
+        "detail": "Beverages OTIF at 85.1% outperforms their Grocery segment. Consolidate more beverage volumes with Tata Consumer.",
+        "expected_impact": "₹2.4Cr incremental category revenue"
+      }
+    ]
+  },
+  "SUP-006": {
+    "supplier_id": "SUP-006",
+    "name": "Marico Ltd",
+    "short_name": "Marico",
+    "category": "Personal Care",
+    "categories_supplied": [
+      "Personal Care",
+      "Grocery & Staples"
+    ],
+    "headquarters": "Mumbai",
+    "account_manager": "Kavitha Rao",
+    "contract_expiry": "2026-09-30",
+    "relationship_years": 6,
+    "overall_score": 46,
+    "score_trend": "declining",
+    "otif_pct": 68.9,
+    "fill_rate_pct": 73.2,
+    "avg_delay_days": 3.8,
+    "order_value_cr": 12.4,
+    "stockouts_caused": 21,
+    "trend": "declining",
+    "otif_12m": [
+      {
+        "month": "May 2025",
+        "otif_pct": 76.4,
+        "target": 90
+      },
+      {
+        "month": "Jun 2025",
+        "otif_pct": 74.8,
+        "target": 90
+      },
+      {
+        "month": "Jul 2025",
+        "otif_pct": 73.2,
+        "target": 90
+      },
+      {
+        "month": "Aug 2025",
+        "otif_pct": 72.1,
+        "target": 90
+      },
+      {
+        "month": "Sep 2025",
+        "otif_pct": 71.4,
+        "target": 90
+      },
+      {
+        "month": "Oct 2025",
+        "otif_pct": 70.8,
+        "target": 90
+      },
+      {
+        "month": "Nov 2025",
+        "otif_pct": 70.1,
+        "target": 90
+      },
+      {
+        "month": "Dec 2025",
+        "otif_pct": 71.2,
+        "target": 90
+      },
+      {
+        "month": "Jan 2026",
+        "otif_pct": 69.8,
+        "target": 90
+      },
+      {
+        "month": "Feb 2026",
+        "otif_pct": 69.2,
+        "target": 90
+      },
+      {
+        "month": "Mar 2026",
+        "otif_pct": 69.4,
+        "target": 90
+      },
+      {
+        "month": "Apr 2026",
+        "otif_pct": 68.9,
+        "target": 90
+      }
+    ],
+    "delay_reasons": {
+      "manufacturing_pct": 38,
+      "logistics_pct": 32,
+      "quality_pct": 14,
+      "documentation_pct": 8,
+      "no_reason_pct": 8
+    },
+    "category_performance": [
+      {
+        "category": "Personal Care",
+        "otif_pct": 67.4,
+        "fill_rate_pct": 71.8,
+        "avg_delay_days": 4.1,
+        "order_value_cr": 10.2,
+        "stockouts_caused": 18
+      },
+      {
+        "category": "Grocery & Staples",
+        "otif_pct": 74.8,
+        "fill_rate_pct": 78.2,
+        "avg_delay_days": 2.8,
+        "order_value_cr": 2.2,
+        "stockouts_caused": 3
+      }
+    ],
+    "store_impact": [
+      {
+        "store_id": "STR-001",
+        "store_name": "Delhi NCR Hypermarket 1",
+        "city": "Delhi NCR",
+        "stockouts_caused": 6,
+        "rev_at_risk_cr": 0.28,
+        "last_delivery_status": "at_risk"
+      },
+      {
+        "store_id": "STR-002",
+        "store_name": "Delhi NCR Hypermarket 2",
+        "city": "Delhi NCR",
+        "stockouts_caused": 4,
+        "rev_at_risk_cr": 0.22,
+        "last_delivery_status": "at_risk"
+      },
+      {
+        "store_id": "STR-013",
+        "store_name": "Bangalore Hypermarket 1",
+        "city": "Bangalore",
+        "stockouts_caused": 3,
+        "rev_at_risk_cr": 0.14,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-009",
+        "store_name": "Mumbai Hypermarket 1",
+        "city": "Mumbai",
+        "stockouts_caused": 3,
+        "rev_at_risk_cr": 0.12,
+        "last_delivery_status": "delayed"
+      },
+      {
+        "store_id": "STR-018",
+        "store_name": "Pune Hypermarket 1",
+        "city": "Pune",
+        "stockouts_caused": 3,
+        "rev_at_risk_cr": 0.12,
+        "last_delivery_status": "delayed"
+      }
+    ],
+    "open_pos": [
+      {
+        "po_id": "PO-MAR-1401",
+        "category": "Personal Care",
+        "store_name": "Delhi NCR Hypermarket 3",
+        "qty": 200,
+        "value_cr": 0.9,
+        "expected_date": "2026-05-10",
+        "status": "at_risk"
+      },
+      {
+        "po_id": "PO-MAR-1415",
+        "category": "Personal Care",
+        "store_name": "Bangalore Hypermarket 3",
+        "qty": 280,
+        "value_cr": 1.11,
+        "expected_date": "2026-05-03",
+        "status": "on_track"
+      },
+      {
+        "po_id": "PO-MAR-1429",
+        "category": "Personal Care",
+        "store_name": "Pune Hypermarket 3",
+        "qty": 160,
+        "value_cr": 0.9,
+        "expected_date": "2026-05-01",
+        "status": "delayed"
+      }
+    ],
+    "top_skus": [
+      {
+        "product_id": "PRD-MAR-001",
+        "product_name": "Parachute Coconut Oil 500ml",
+        "category": "Personal Care",
+        "avg_daily_demand": 58,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 5,
+        "rev_at_risk_cr": 0.1
+      },
+      {
+        "product_id": "PRD-MAR-002",
+        "product_name": "Set Wet Hair Gel 250ml",
+        "category": "Personal Care",
+        "avg_daily_demand": 44,
+        "current_stock": 88,
+        "days_of_supply": 2.0,
+        "status": "low",
+        "stockout_events_90d": 3,
+        "rev_at_risk_cr": 0.07
+      },
+      {
+        "product_id": "PRD-MAR-003",
+        "product_name": "Livon Hair Serum 100ml",
+        "category": "Personal Care",
+        "avg_daily_demand": 36,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 4,
+        "rev_at_risk_cr": 0.08
+      },
+      {
+        "product_id": "PRD-MAR-004",
+        "product_name": "Nihar Shanti Amla Oil 200ml",
+        "category": "Personal Care",
+        "avg_daily_demand": 52,
+        "current_stock": 156,
+        "days_of_supply": 3.0,
+        "status": "low",
+        "stockout_events_90d": 2,
+        "rev_at_risk_cr": 0.06
+      },
+      {
+        "product_id": "PRD-MAR-005",
+        "product_name": "Saffola Gold 5L Oil",
+        "category": "Grocery & Staples",
+        "avg_daily_demand": 28,
+        "current_stock": 168,
+        "days_of_supply": 6.0,
+        "status": "low",
+        "stockout_events_90d": 2,
+        "rev_at_risk_cr": 0.05
+      }
+    ],
+    "peer_comparison": [
+      {
+        "supplier_id": "SUP-001",
+        "name": "Hindustan Unilever Ltd",
+        "category": "Personal Care",
+        "otif_pct": 64.2,
+        "order_value_cr": 28.4
+      },
+      {
+        "supplier_id": "SUP-007",
+        "name": "Godrej Consumer",
+        "category": "Personal Care",
+        "otif_pct": 72.4,
+        "order_value_cr": 9.8
+      },
+      {
+        "supplier_id": "SUP-008",
+        "name": "Dabur India",
+        "category": "Personal Care",
+        "otif_pct": 76.8,
+        "order_value_cr": 8.2
+      }
+    ],
+    "ai_recommendations": [
+      {
+        "priority": "high",
+        "action": "Issue formal improvement notice",
+        "detail": "Marico has declined 7.5pp over 12 months. Issue a formal supplier improvement notice with 90-day deadline to reach 75% OTIF or face order reduction.",
+        "expected_impact": "Creates accountability mechanism"
+      },
+      {
+        "priority": "high",
+        "action": "Dual-source Parachute and Livon",
+        "detail": "Top 2 stockout SKUs from Marico. Onboard alternate supplier for Coconut Oil and Hair Serum to reduce dependency.",
+        "expected_impact": "Protect ₹0.18Cr annual revenue from top 2 SKUs"
+      },
+      {
+        "priority": "medium",
+        "action": "Contract renewal review in Sep 2026",
+        "detail": "Contract expires Sep 2026. If OTIF does not improve to 75% by then, reduce order volumes by 20% at renewal.",
+        "expected_impact": "Reallocate ₹2.5Cr order value to better-performing suppliers"
+      }
+    ]
+  },
+  "SUP-007": {
+    "supplier_id": "SUP-007",
+    "name": "Godrej Consumer",
+    "short_name": "Godrej",
+    "category": "Personal Care",
+    "categories_supplied": [
+      "Personal Care"
+    ],
+    "headquarters": "Mumbai",
+    "account_manager": "Deepak Joshi",
+    "contract_expiry": "2027-01-31",
+    "relationship_years": 5,
+    "overall_score": 54,
+    "score_trend": "stable",
+    "otif_pct": 72.4,
+    "fill_rate_pct": 77.8,
+    "avg_delay_days": 3.1,
+    "order_value_cr": 9.8,
+    "stockouts_caused": 17,
+    "trend": "stable",
+    "otif_12m": [
+      {
+        "month": "May 2025",
+        "otif_pct": 73.1,
+        "target": 90
+      },
+      {
+        "month": "Jun 2025",
+        "otif_pct": 72.4,
+        "target": 90
+      },
+      {
+        "month": "Jul 2025",
+        "otif_pct": 71.8,
+        "target": 90
+      },
+      {
+        "month": "Aug 2025",
+        "otif_pct": 72.8,
+        "target": 90
+      },
+      {
+        "month": "Sep 2025",
+        "otif_pct": 71.4,
+        "target": 90
+      },
+      {
+        "month": "Oct 2025",
+        "otif_pct": 72.1,
+        "target": 90
+      },
+      {
+        "month": "Nov 2025",
+        "otif_pct": 73.4,
+        "target": 90
+      },
+      {
+        "month": "Dec 2025",
+        "otif_pct": 72.8,
+        "target": 90
+      },
+      {
+        "month": "Jan 2026",
+        "otif_pct": 71.9,
+        "target": 90
+      },
+      {
+        "month": "Feb 2026",
+        "otif_pct": 73.2,
+        "target": 90
+      },
+      {
+        "month": "Mar 2026",
+        "otif_pct": 72.8,
+        "target": 90
+      },
+      {
+        "month": "Apr 2026",
+        "otif_pct": 72.4,
+        "target": 90
+      }
+    ],
+    "delay_reasons": {
+      "manufacturing_pct": 28,
+      "logistics_pct": 42,
+      "quality_pct": 16,
+      "documentation_pct": 8,
+      "no_reason_pct": 6
+    },
+    "category_performance": [
+      {
+        "category": "Personal Care",
+        "otif_pct": 72.4,
+        "fill_rate_pct": 77.8,
+        "avg_delay_days": 3.1,
+        "order_value_cr": 9.8,
+        "stockouts_caused": 17
+      }
+    ],
+    "store_impact": [
+      {
+        "store_id": "STR-009",
+        "store_name": "Mumbai Hypermarket 1",
+        "city": "Mumbai",
+        "stockouts_caused": 5,
+        "rev_at_risk_cr": 0.22,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-016",
+        "store_name": "Chennai Hypermarket 1",
+        "city": "Chennai",
+        "stockouts_caused": 4,
+        "rev_at_risk_cr": 0.18,
+        "last_delivery_status": "at_risk"
+      },
+      {
+        "store_id": "STR-001",
+        "store_name": "Delhi NCR Hypermarket 1",
+        "city": "Delhi NCR",
+        "stockouts_caused": 3,
+        "rev_at_risk_cr": 0.14,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-013",
+        "store_name": "Bangalore Hypermarket 1",
+        "city": "Bangalore",
+        "stockouts_caused": 3,
+        "rev_at_risk_cr": 0.12,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-018",
+        "store_name": "Pune Hypermarket 1",
+        "city": "Pune",
+        "stockouts_caused": 2,
+        "rev_at_risk_cr": 0.09,
+        "last_delivery_status": "scheduled"
+      }
+    ],
+    "open_pos": [
+      {
+        "po_id": "PO-GOD-0801",
+        "category": "Personal Care",
+        "store_name": "Mumbai Hypermarket 3",
+        "qty": 220,
+        "value_cr": 0.58,
+        "expected_date": "2026-04-27",
+        "status": "on_track"
+      },
+      {
+        "po_id": "PO-GOD-0815",
+        "category": "Personal Care",
+        "store_name": "Chennai Hypermarket 3",
+        "qty": 300,
+        "value_cr": 1.09,
+        "expected_date": "2026-05-10",
+        "status": "at_risk"
+      }
+    ],
+    "top_skus": [
+      {
+        "product_id": "PRD-GOD-001",
+        "product_name": "Good Knight Fast Card 10pk",
+        "category": "Personal Care",
+        "avg_daily_demand": 64,
+        "current_stock": 192,
+        "days_of_supply": 3.0,
+        "status": "low",
+        "stockout_events_90d": 3,
+        "rev_at_risk_cr": 0.08
+      },
+      {
+        "product_id": "PRD-GOD-002",
+        "product_name": "Cinthol Deo Spray 150ml",
+        "category": "Personal Care",
+        "avg_daily_demand": 48,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 4,
+        "rev_at_risk_cr": 0.09
+      },
+      {
+        "product_id": "PRD-GOD-003",
+        "product_name": "HIT Mosquito Spray 320ml",
+        "category": "Personal Care",
+        "avg_daily_demand": 36,
+        "current_stock": 144,
+        "days_of_supply": 4.0,
+        "status": "low",
+        "stockout_events_90d": 2,
+        "rev_at_risk_cr": 0.06
+      },
+      {
+        "product_id": "PRD-GOD-004",
+        "product_name": "Godrej No.1 Soap 100g 8pk",
+        "category": "Personal Care",
+        "avg_daily_demand": 56,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 3,
+        "rev_at_risk_cr": 0.07
+      },
+      {
+        "product_id": "PRD-GOD-005",
+        "product_name": "Godrej Expert Hair Colour",
+        "category": "Personal Care",
+        "avg_daily_demand": 28,
+        "current_stock": 168,
+        "days_of_supply": 6.0,
+        "status": "low",
+        "stockout_events_90d": 1,
+        "rev_at_risk_cr": 0.04
+      }
+    ],
+    "peer_comparison": [
+      {
+        "supplier_id": "SUP-001",
+        "name": "Hindustan Unilever Ltd",
+        "category": "Personal Care",
+        "otif_pct": 64.2,
+        "order_value_cr": 28.4
+      },
+      {
+        "supplier_id": "SUP-006",
+        "name": "Marico Ltd",
+        "category": "Personal Care",
+        "otif_pct": 68.9,
+        "order_value_cr": 12.4
+      },
+      {
+        "supplier_id": "SUP-008",
+        "name": "Dabur India",
+        "category": "Personal Care",
+        "otif_pct": 76.8,
+        "order_value_cr": 8.2
+      }
+    ],
+    "ai_recommendations": [
+      {
+        "priority": "medium",
+        "action": "Set 80% OTIF improvement target for 2026",
+        "detail": "Godrej has been stable at 72% for 12 months. Engage account manager to jointly set a 6-month roadmap targeting 80% OTIF with quarterly review milestones.",
+        "expected_impact": "Reduce stockouts from 17 to ~10"
+      },
+      {
+        "priority": "medium",
+        "action": "Improve logistics partner SLA",
+        "detail": "42% logistics delays. Negotiate faster carrier options or allow Godrej to use our inbound logistics provider at discounted rates.",
+        "expected_impact": "Reduce avg delay from 3.1d to under 2d"
+      },
+      {
+        "priority": "low",
+        "action": "Increase order share if 80% OTIF achieved",
+        "detail": "Offer Godrej 20% volume increase if they hit 80% OTIF for 2 consecutive quarters. Creates positive incentive.",
+        "expected_impact": "₹2Cr incremental order value for Godrej"
+      }
+    ]
+  },
+  "SUP-008": {
+    "supplier_id": "SUP-008",
+    "name": "Dabur India",
+    "short_name": "Dabur",
+    "category": "Personal Care",
+    "categories_supplied": [
+      "Personal Care",
+      "Healthcare"
+    ],
+    "headquarters": "Ghaziabad, UP",
+    "account_manager": "Meera Iyer",
+    "contract_expiry": "2027-03-31",
+    "relationship_years": 10,
+    "overall_score": 62,
+    "score_trend": "improving",
+    "otif_pct": 76.8,
+    "fill_rate_pct": 81.2,
+    "avg_delay_days": 2.4,
+    "order_value_cr": 8.2,
+    "stockouts_caused": 11,
+    "trend": "improving",
+    "otif_12m": [
+      {
+        "month": "May 2025",
+        "otif_pct": 71.4,
+        "target": 90
+      },
+      {
+        "month": "Jun 2025",
+        "otif_pct": 72.2,
+        "target": 90
+      },
+      {
+        "month": "Jul 2025",
+        "otif_pct": 73.1,
+        "target": 90
+      },
+      {
+        "month": "Aug 2025",
+        "otif_pct": 73.8,
+        "target": 90
+      },
+      {
+        "month": "Sep 2025",
+        "otif_pct": 74.4,
+        "target": 90
+      },
+      {
+        "month": "Oct 2025",
+        "otif_pct": 74.8,
+        "target": 90
+      },
+      {
+        "month": "Nov 2025",
+        "otif_pct": 75.2,
+        "target": 90
+      },
+      {
+        "month": "Dec 2025",
+        "otif_pct": 76.1,
+        "target": 90
+      },
+      {
+        "month": "Jan 2026",
+        "otif_pct": 75.8,
+        "target": 90
+      },
+      {
+        "month": "Feb 2026",
+        "otif_pct": 76.4,
+        "target": 90
+      },
+      {
+        "month": "Mar 2026",
+        "otif_pct": 76.2,
+        "target": 90
+      },
+      {
+        "month": "Apr 2026",
+        "otif_pct": 76.8,
+        "target": 90
+      }
+    ],
+    "delay_reasons": {
+      "manufacturing_pct": 32,
+      "logistics_pct": 38,
+      "quality_pct": 18,
+      "documentation_pct": 6,
+      "no_reason_pct": 6
+    },
+    "category_performance": [
+      {
+        "category": "Personal Care",
+        "otif_pct": 75.4,
+        "fill_rate_pct": 79.8,
+        "avg_delay_days": 2.6,
+        "order_value_cr": 5.8,
+        "stockouts_caused": 8
+      },
+      {
+        "category": "Healthcare",
+        "otif_pct": 79.8,
+        "fill_rate_pct": 84.2,
+        "avg_delay_days": 2.0,
+        "order_value_cr": 2.4,
+        "stockouts_caused": 3
+      }
+    ],
+    "store_impact": [
+      {
+        "store_id": "STR-018",
+        "store_name": "Pune Hypermarket 1",
+        "city": "Pune",
+        "stockouts_caused": 4,
+        "rev_at_risk_cr": 0.18,
+        "last_delivery_status": "delayed"
+      },
+      {
+        "store_id": "STR-009",
+        "store_name": "Mumbai Hypermarket 1",
+        "city": "Mumbai",
+        "stockouts_caused": 3,
+        "rev_at_risk_cr": 0.14,
+        "last_delivery_status": "scheduled"
+      },
+      {
+        "store_id": "STR-016",
+        "store_name": "Chennai Hypermarket 1",
+        "city": "Chennai",
+        "stockouts_caused": 2,
+        "rev_at_risk_cr": 0.09,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-001",
+        "store_name": "Delhi NCR Hypermarket 1",
+        "city": "Delhi NCR",
+        "stockouts_caused": 1,
+        "rev_at_risk_cr": 0.05,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-013",
+        "store_name": "Bangalore Hypermarket 1",
+        "city": "Bangalore",
+        "stockouts_caused": 1,
+        "rev_at_risk_cr": 0.04,
+        "last_delivery_status": "on_track"
+      }
+    ],
+    "open_pos": [
+      {
+        "po_id": "PO-DAB-0601",
+        "category": "Personal Care",
+        "store_name": "Pune Hypermarket 1",
+        "qty": 180,
+        "value_cr": 0.56,
+        "expected_date": "2026-05-01",
+        "status": "delayed"
+      },
+      {
+        "po_id": "PO-DAB-0615",
+        "category": "Personal Care",
+        "store_name": "Mumbai Hypermarket 1",
+        "qty": 240,
+        "value_cr": 1.2,
+        "expected_date": "2026-04-29",
+        "status": "scheduled"
+      },
+      {
+        "po_id": "PO-DAB-0629",
+        "category": "Healthcare",
+        "store_name": "Chennai Hypermarket 1",
+        "qty": 120,
+        "value_cr": 0.53,
+        "expected_date": "2026-04-30",
+        "status": "on_track"
+      }
+    ],
+    "top_skus": [
+      {
+        "product_id": "PRD-DAB-001",
+        "product_name": "Dabur Vatika Hair Oil 300ml",
+        "category": "Personal Care",
+        "avg_daily_demand": 42,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 3,
+        "rev_at_risk_cr": 0.07
+      },
+      {
+        "product_id": "PRD-DAB-002",
+        "product_name": "Dabur Chyawanprash 1kg",
+        "category": "Healthcare",
+        "avg_daily_demand": 36,
+        "current_stock": 288,
+        "days_of_supply": 8.0,
+        "status": "healthy",
+        "stockout_events_90d": 1,
+        "rev_at_risk_cr": 0.03
+      },
+      {
+        "product_id": "PRD-DAB-003",
+        "product_name": "Real Fruit Juice 1L 6pk",
+        "category": "Personal Care",
+        "avg_daily_demand": 64,
+        "current_stock": 128,
+        "days_of_supply": 2.0,
+        "status": "low",
+        "stockout_events_90d": 2,
+        "rev_at_risk_cr": 0.08
+      },
+      {
+        "product_id": "PRD-DAB-004",
+        "product_name": "Dabur Honey 500g",
+        "category": "Healthcare",
+        "avg_daily_demand": 48,
+        "current_stock": 480,
+        "days_of_supply": 10.0,
+        "status": "healthy",
+        "stockout_events_90d": 1,
+        "rev_at_risk_cr": 0.02
+      },
+      {
+        "product_id": "PRD-DAB-005",
+        "product_name": "Odonil Room Freshener 50g",
+        "category": "Personal Care",
+        "avg_daily_demand": 38,
+        "current_stock": 76,
+        "days_of_supply": 2.0,
+        "status": "low",
+        "stockout_events_90d": 2,
+        "rev_at_risk_cr": 0.05
+      }
+    ],
+    "peer_comparison": [
+      {
+        "supplier_id": "SUP-001",
+        "name": "Hindustan Unilever Ltd",
+        "category": "Personal Care",
+        "otif_pct": 64.2,
+        "order_value_cr": 28.4
+      },
+      {
+        "supplier_id": "SUP-006",
+        "name": "Marico Ltd",
+        "category": "Personal Care",
+        "otif_pct": 68.9,
+        "order_value_cr": 12.4
+      },
+      {
+        "supplier_id": "SUP-007",
+        "name": "Godrej Consumer",
+        "category": "Personal Care",
+        "otif_pct": 72.4,
+        "order_value_cr": 9.8
+      }
+    ],
+    "ai_recommendations": [
+      {
+        "priority": "low",
+        "action": "Maintain improving trajectory — light touch",
+        "detail": "Dabur has improved OTIF from 71.4% to 76.8% over 12 months with a positive trend. Continue current engagement model with quarterly check-ins.",
+        "expected_impact": "On track for 80% OTIF by Q3 2026"
+      },
+      {
+        "priority": "medium",
+        "action": "Resolve current shipment delay (SHP-010)",
+        "detail": "SHP-010 is delayed from Pune Hypermarket. Chase dispatch confirmation directly with Dabur supply ops to prevent stockout escalation.",
+        "expected_impact": "Unblock ₹0.56Cr shipment affecting 3 stores"
+      },
+      {
+        "priority": "low",
+        "action": "Expand Healthcare category share",
+        "detail": "Dabur Healthcare OTIF (79.8%) outperforms their Personal Care segment. Consider shifting more healthcare volume to Dabur from lower-performing suppliers.",
+        "expected_impact": "₹1.2Cr incremental annual order value"
+      }
+    ]
+  },
+  "SUP-009": {
+    "supplier_id": "SUP-009",
+    "name": "Patanjali Ayurved",
+    "short_name": "Patanjali",
+    "category": "Grocery & Staples",
+    "categories_supplied": [
+      "Grocery & Staples",
+      "Personal Care"
+    ],
+    "headquarters": "Haridwar, Uttarakhand",
+    "account_manager": "Arun Gupta",
+    "contract_expiry": "2026-06-30",
+    "relationship_years": 4,
+    "overall_score": 28,
+    "score_trend": "declining",
+    "otif_pct": 62.1,
+    "fill_rate_pct": 68.7,
+    "avg_delay_days": 5.4,
+    "order_value_cr": 6.4,
+    "stockouts_caused": 24,
+    "trend": "declining",
+    "otif_12m": [
+      {
+        "month": "May 2025",
+        "otif_pct": 72.4,
+        "target": 90
+      },
+      {
+        "month": "Jun 2025",
+        "otif_pct": 70.8,
+        "target": 90
+      },
+      {
+        "month": "Jul 2025",
+        "otif_pct": 68.4,
+        "target": 90
+      },
+      {
+        "month": "Aug 2025",
+        "otif_pct": 67.1,
+        "target": 90
+      },
+      {
+        "month": "Sep 2025",
+        "otif_pct": 66.8,
+        "target": 90
+      },
+      {
+        "month": "Oct 2025",
+        "otif_pct": 65.4,
+        "target": 90
+      },
+      {
+        "month": "Nov 2025",
+        "otif_pct": 64.2,
+        "target": 90
+      },
+      {
+        "month": "Dec 2025",
+        "otif_pct": 65.1,
+        "target": 90
+      },
+      {
+        "month": "Jan 2026",
+        "otif_pct": 63.8,
+        "target": 90
+      },
+      {
+        "month": "Feb 2026",
+        "otif_pct": 62.4,
+        "target": 90
+      },
+      {
+        "month": "Mar 2026",
+        "otif_pct": 62.8,
+        "target": 90
+      },
+      {
+        "month": "Apr 2026",
+        "otif_pct": 62.1,
+        "target": 90
+      }
+    ],
+    "delay_reasons": {
+      "manufacturing_pct": 62,
+      "logistics_pct": 18,
+      "quality_pct": 8,
+      "documentation_pct": 4,
+      "no_reason_pct": 8
+    },
+    "category_performance": [
+      {
+        "category": "Grocery & Staples",
+        "otif_pct": 62.8,
+        "fill_rate_pct": 69.4,
+        "avg_delay_days": 5.2,
+        "order_value_cr": 4.8,
+        "stockouts_caused": 18
+      },
+      {
+        "category": "Personal Care",
+        "otif_pct": 60.2,
+        "fill_rate_pct": 66.8,
+        "avg_delay_days": 6.1,
+        "order_value_cr": 1.6,
+        "stockouts_caused": 6
+      }
+    ],
+    "store_impact": [
+      {
+        "store_id": "STR-001",
+        "store_name": "Delhi NCR Hypermarket 1",
+        "city": "Delhi NCR",
+        "stockouts_caused": 8,
+        "rev_at_risk_cr": 0.38,
+        "last_delivery_status": "delayed"
+      },
+      {
+        "store_id": "STR-003",
+        "store_name": "Delhi NCR Hypermarket 3",
+        "city": "Delhi NCR",
+        "stockouts_caused": 5,
+        "rev_at_risk_cr": 0.24,
+        "last_delivery_status": "delayed"
+      },
+      {
+        "store_id": "STR-016",
+        "store_name": "Chennai Hypermarket 1",
+        "city": "Chennai",
+        "stockouts_caused": 4,
+        "rev_at_risk_cr": 0.18,
+        "last_delivery_status": "at_risk"
+      },
+      {
+        "store_id": "STR-013",
+        "store_name": "Bangalore Hypermarket 1",
+        "city": "Bangalore",
+        "stockouts_caused": 4,
+        "rev_at_risk_cr": 0.16,
+        "last_delivery_status": "at_risk"
+      },
+      {
+        "store_id": "STR-009",
+        "store_name": "Mumbai Hypermarket 1",
+        "city": "Mumbai",
+        "stockouts_caused": 3,
+        "rev_at_risk_cr": 0.12,
+        "last_delivery_status": "on_track"
+      }
+    ],
+    "open_pos": [
+      {
+        "po_id": "PO-PAT-0901",
+        "category": "Grocery & Staples",
+        "store_name": "Chennai Hypermarket 3",
+        "qty": 280,
+        "value_cr": 0.87,
+        "expected_date": "2026-05-10",
+        "status": "at_risk"
+      },
+      {
+        "po_id": "PO-PAT-0915",
+        "category": "Grocery & Staples",
+        "store_name": "Delhi NCR Hypermarket 3",
+        "qty": 380,
+        "value_cr": 1.19,
+        "expected_date": "2026-04-30",
+        "status": "delayed"
+      },
+      {
+        "po_id": "PO-PAT-0929",
+        "category": "Personal Care",
+        "store_name": "Bangalore Hypermarket 3",
+        "qty": 160,
+        "value_cr": 0.4,
+        "expected_date": "2026-04-27",
+        "status": "at_risk"
+      }
+    ],
+    "top_skus": [
+      {
+        "product_id": "PRD-PAT-001",
+        "product_name": "Patanjali Desi Ghee 1kg",
+        "category": "Grocery & Staples",
+        "avg_daily_demand": 48,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 7,
+        "rev_at_risk_cr": 0.14
+      },
+      {
+        "product_id": "PRD-PAT-002",
+        "product_name": "Patanjali Cow Milk 1L",
+        "category": "Grocery & Staples",
+        "avg_daily_demand": 84,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 8,
+        "rev_at_risk_cr": 0.09
+      },
+      {
+        "product_id": "PRD-PAT-003",
+        "product_name": "Patanjali Kachi Ghani Mustard Oil 1L",
+        "category": "Grocery & Staples",
+        "avg_daily_demand": 38,
+        "current_stock": 76,
+        "days_of_supply": 2.0,
+        "status": "low",
+        "stockout_events_90d": 5,
+        "rev_at_risk_cr": 0.08
+      },
+      {
+        "product_id": "PRD-PAT-004",
+        "product_name": "Patanjali Neem Soap 100g",
+        "category": "Personal Care",
+        "avg_daily_demand": 52,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 6,
+        "rev_at_risk_cr": 0.07
+      },
+      {
+        "product_id": "PRD-PAT-005",
+        "product_name": "Patanjali Herbal Shampoo 200ml",
+        "category": "Personal Care",
+        "avg_daily_demand": 34,
+        "current_stock": 68,
+        "days_of_supply": 2.0,
+        "status": "low",
+        "stockout_events_90d": 4,
+        "rev_at_risk_cr": 0.06
+      }
+    ],
+    "peer_comparison": [
+      {
+        "supplier_id": "SUP-005",
+        "name": "Tata Consumer Products",
+        "category": "Grocery & Staples",
+        "otif_pct": 83.7,
+        "order_value_cr": 31.8
+      },
+      {
+        "supplier_id": "SUP-004",
+        "name": "Amul (GCMMF)",
+        "category": "Grocery & Staples",
+        "otif_pct": 81.2,
+        "order_value_cr": 34.2
+      }
+    ],
+    "ai_recommendations": [
+      {
+        "priority": "critical",
+        "action": "Put on 90-day performance review",
+        "detail": "Patanjali OTIF has declined from 72.4% to 62.1% — worst in portfolio. Place on formal 90-day review with mandatory weekly calls. Condition of continuation: reach 70% OTIF by July 2026.",
+        "expected_impact": "Creates clear exit criteria if performance doesn't improve"
+      },
+      {
+        "priority": "critical",
+        "action": "Dual-source all Patanjali top SKUs immediately",
+        "detail": "3 of 5 top SKUs are in stockout right now. Urgently onboard Tata Consumer or local suppliers as alternates for all Patanjali SKUs above ₹0.05Cr daily demand.",
+        "expected_impact": "Recover estimated ₹0.44Cr daily revenue at risk"
+      },
+      {
+        "priority": "high",
+        "action": "Reduce order volumes at contract renewal (Jun 2026)",
+        "detail": "Contract expires Jun 2026. Given 24 stockouts caused and ₹6.4Cr order value, the ROI is poor. Reduce order volume by 40% and redistribute to Tata Consumer.",
+        "expected_impact": "₹2.6Cr order value reallocated to 83.7% OTIF supplier"
+      }
+    ]
+  },
+  "SUP-010": {
+    "supplier_id": "SUP-010",
+    "name": "Parle Products",
+    "short_name": "Parle",
+    "category": "Snacks & Beverages",
+    "categories_supplied": [
+      "Snacks & Beverages",
+      "Grocery & Staples"
+    ],
+    "headquarters": "Mumbai",
+    "account_manager": "Nisha Bhat",
+    "contract_expiry": "2028-03-31",
+    "relationship_years": 16,
+    "overall_score": 82,
+    "score_trend": "improving",
+    "otif_pct": 88.4,
+    "fill_rate_pct": 91.2,
+    "avg_delay_days": 0.9,
+    "order_value_cr": 15.6,
+    "stockouts_caused": 6,
+    "trend": "improving",
+    "otif_12m": [
+      {
+        "month": "May 2025",
+        "otif_pct": 84.2,
+        "target": 90
+      },
+      {
+        "month": "Jun 2025",
+        "otif_pct": 84.8,
+        "target": 90
+      },
+      {
+        "month": "Jul 2025",
+        "otif_pct": 85.4,
+        "target": 90
+      },
+      {
+        "month": "Aug 2025",
+        "otif_pct": 86.1,
+        "target": 90
+      },
+      {
+        "month": "Sep 2025",
+        "otif_pct": 86.8,
+        "target": 90
+      },
+      {
+        "month": "Oct 2025",
+        "otif_pct": 87.2,
+        "target": 90
+      },
+      {
+        "month": "Nov 2025",
+        "otif_pct": 87.8,
+        "target": 90
+      },
+      {
+        "month": "Dec 2025",
+        "otif_pct": 88.4,
+        "target": 90
+      },
+      {
+        "month": "Jan 2026",
+        "otif_pct": 87.9,
+        "target": 90
+      },
+      {
+        "month": "Feb 2026",
+        "otif_pct": 88.2,
+        "target": 90
+      },
+      {
+        "month": "Mar 2026",
+        "otif_pct": 88.1,
+        "target": 90
+      },
+      {
+        "month": "Apr 2026",
+        "otif_pct": 88.4,
+        "target": 90
+      }
+    ],
+    "delay_reasons": {
+      "manufacturing_pct": 14,
+      "logistics_pct": 48,
+      "quality_pct": 20,
+      "documentation_pct": 12,
+      "no_reason_pct": 6
+    },
+    "category_performance": [
+      {
+        "category": "Snacks & Beverages",
+        "otif_pct": 88.8,
+        "fill_rate_pct": 91.6,
+        "avg_delay_days": 0.8,
+        "order_value_cr": 13.2,
+        "stockouts_caused": 5
+      },
+      {
+        "category": "Grocery & Staples",
+        "otif_pct": 86.4,
+        "fill_rate_pct": 89.8,
+        "avg_delay_days": 1.1,
+        "order_value_cr": 2.4,
+        "stockouts_caused": 1
+      }
+    ],
+    "store_impact": [
+      {
+        "store_id": "STR-001",
+        "store_name": "Delhi NCR Hypermarket 1",
+        "city": "Delhi NCR",
+        "stockouts_caused": 2,
+        "rev_at_risk_cr": 0.09,
+        "last_delivery_status": "at_risk"
+      },
+      {
+        "store_id": "STR-009",
+        "store_name": "Mumbai Hypermarket 1",
+        "city": "Mumbai",
+        "stockouts_caused": 2,
+        "rev_at_risk_cr": 0.08,
+        "last_delivery_status": "scheduled"
+      },
+      {
+        "store_id": "STR-016",
+        "store_name": "Chennai Hypermarket 1",
+        "city": "Chennai",
+        "stockouts_caused": 1,
+        "rev_at_risk_cr": 0.04,
+        "last_delivery_status": "scheduled"
+      },
+      {
+        "store_id": "STR-013",
+        "store_name": "Bangalore Hypermarket 1",
+        "city": "Bangalore",
+        "stockouts_caused": 1,
+        "rev_at_risk_cr": 0.04,
+        "last_delivery_status": "on_track"
+      }
+    ],
+    "open_pos": [
+      {
+        "po_id": "PO-PAR-1001",
+        "category": "Snacks & Beverages",
+        "store_name": "Mumbai Hypermarket 1",
+        "qty": 240,
+        "value_cr": 0.31,
+        "expected_date": "2026-04-28",
+        "status": "scheduled"
+      },
+      {
+        "po_id": "PO-PAR-1015",
+        "category": "Snacks & Beverages",
+        "store_name": "Chennai Hypermarket 1",
+        "qty": 360,
+        "value_cr": 0.98,
+        "expected_date": "2026-05-04",
+        "status": "scheduled"
+      },
+      {
+        "po_id": "PO-PAR-1029",
+        "category": "Snacks & Beverages",
+        "store_name": "Delhi NCR Hypermarket 1",
+        "qty": 200,
+        "value_cr": 0.62,
+        "expected_date": "2026-05-10",
+        "status": "at_risk"
+      }
+    ],
+    "top_skus": [
+      {
+        "product_id": "PRD-PAR-001",
+        "product_name": "Parle-G Biscuits 800g",
+        "category": "Snacks & Beverages",
+        "avg_daily_demand": 180,
+        "current_stock": 1440,
+        "days_of_supply": 8.0,
+        "status": "healthy",
+        "stockout_events_90d": 1,
+        "rev_at_risk_cr": 0.04
+      },
+      {
+        "product_id": "PRD-PAR-002",
+        "product_name": "Monaco Biscuits 400g",
+        "category": "Snacks & Beverages",
+        "avg_daily_demand": 96,
+        "current_stock": 768,
+        "days_of_supply": 8.0,
+        "status": "healthy",
+        "stockout_events_90d": 1,
+        "rev_at_risk_cr": 0.03
+      },
+      {
+        "product_id": "PRD-PAR-003",
+        "product_name": "Hide&Seek Choco Biscuits 300g",
+        "category": "Snacks & Beverages",
+        "avg_daily_demand": 72,
+        "current_stock": 216,
+        "days_of_supply": 3.0,
+        "status": "low",
+        "stockout_events_90d": 2,
+        "rev_at_risk_cr": 0.05
+      },
+      {
+        "product_id": "PRD-PAR-004",
+        "product_name": "Krackjack Sweet Salty 300g",
+        "category": "Snacks & Beverages",
+        "avg_daily_demand": 58,
+        "current_stock": 464,
+        "days_of_supply": 8.0,
+        "status": "healthy",
+        "stockout_events_90d": 1,
+        "rev_at_risk_cr": 0.02
+      },
+      {
+        "product_id": "PRD-PAR-005",
+        "product_name": "Melody Toffee 100pc",
+        "category": "Snacks & Beverages",
+        "avg_daily_demand": 120,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 2,
+        "rev_at_risk_cr": 0.04
+      }
+    ],
+    "peer_comparison": [
+      {
+        "supplier_id": "SUP-011",
+        "name": "Britannia Industries",
+        "category": "Snacks & Beverages",
+        "otif_pct": 86.2,
+        "order_value_cr": 14.2
+      },
+      {
+        "supplier_id": "SUP-002",
+        "name": "ITC Limited",
+        "category": "Snacks & Beverages",
+        "otif_pct": 71.8,
+        "order_value_cr": 22.1
+      },
+      {
+        "supplier_id": "SUP-003",
+        "name": "Nestlé India",
+        "category": "Snacks & Beverages",
+        "otif_pct": 74.3,
+        "order_value_cr": 18.7
+      }
+    ],
+    "ai_recommendations": [
+      {
+        "priority": "low",
+        "action": "Increase order volume — preferred supplier",
+        "detail": "Parle is near-target at 88.4% OTIF and improving. Consolidate additional Snacks & Beverages volume from ITC and Nestlé to reward performance.",
+        "expected_impact": "₹4Cr incremental annual order value"
+      },
+      {
+        "priority": "low",
+        "action": "Award preferred supplier status",
+        "detail": "Parle qualifies for preferred supplier designation. This unlocks priority allocation during supply crunches and annual performance recognition.",
+        "expected_impact": "Strengthens long-term relationship"
+      },
+      {
+        "priority": "low",
+        "action": "Minor SLA tightening on documentation",
+        "detail": "12% documentation delays are slightly above best-in-class. Request EDI integration to reduce manual PO/invoice reconciliation.",
+        "expected_impact": "Push OTIF from 88.4% to 90%+"
+      }
+    ]
+  },
+  "SUP-011": {
+    "supplier_id": "SUP-011",
+    "name": "Britannia Industries",
+    "short_name": "Britannia",
+    "category": "Snacks & Beverages",
+    "categories_supplied": [
+      "Snacks & Beverages",
+      "Dairy & Frozen"
+    ],
+    "headquarters": "Bengaluru",
+    "account_manager": "Ritu Verma",
+    "contract_expiry": "2027-06-30",
+    "relationship_years": 12,
+    "overall_score": 78,
+    "score_trend": "stable",
+    "otif_pct": 86.2,
+    "fill_rate_pct": 89.4,
+    "avg_delay_days": 1.1,
+    "order_value_cr": 14.2,
+    "stockouts_caused": 8,
+    "trend": "stable",
+    "otif_12m": [
+      {
+        "month": "May 2025",
+        "otif_pct": 86.8,
+        "target": 90
+      },
+      {
+        "month": "Jun 2025",
+        "otif_pct": 85.4,
+        "target": 90
+      },
+      {
+        "month": "Jul 2025",
+        "otif_pct": 86.1,
+        "target": 90
+      },
+      {
+        "month": "Aug 2025",
+        "otif_pct": 86.8,
+        "target": 90
+      },
+      {
+        "month": "Sep 2025",
+        "otif_pct": 85.9,
+        "target": 90
+      },
+      {
+        "month": "Oct 2025",
+        "otif_pct": 86.4,
+        "target": 90
+      },
+      {
+        "month": "Nov 2025",
+        "otif_pct": 87.1,
+        "target": 90
+      },
+      {
+        "month": "Dec 2025",
+        "otif_pct": 86.8,
+        "target": 90
+      },
+      {
+        "month": "Jan 2026",
+        "otif_pct": 85.4,
+        "target": 90
+      },
+      {
+        "month": "Feb 2026",
+        "otif_pct": 86.2,
+        "target": 90
+      },
+      {
+        "month": "Mar 2026",
+        "otif_pct": 86.4,
+        "target": 90
+      },
+      {
+        "month": "Apr 2026",
+        "otif_pct": 86.2,
+        "target": 90
+      }
+    ],
+    "delay_reasons": {
+      "manufacturing_pct": 16,
+      "logistics_pct": 54,
+      "quality_pct": 14,
+      "documentation_pct": 10,
+      "no_reason_pct": 6
+    },
+    "category_performance": [
+      {
+        "category": "Snacks & Beverages",
+        "otif_pct": 86.8,
+        "fill_rate_pct": 90.1,
+        "avg_delay_days": 1.0,
+        "order_value_cr": 11.4,
+        "stockouts_caused": 6
+      },
+      {
+        "category": "Dairy & Frozen",
+        "otif_pct": 84.2,
+        "fill_rate_pct": 87.4,
+        "avg_delay_days": 1.4,
+        "order_value_cr": 2.8,
+        "stockouts_caused": 2
+      }
+    ],
+    "store_impact": [
+      {
+        "store_id": "STR-013",
+        "store_name": "Bangalore Hypermarket 1",
+        "city": "Bangalore",
+        "stockouts_caused": 3,
+        "rev_at_risk_cr": 0.14,
+        "last_delivery_status": "at_risk"
+      },
+      {
+        "store_id": "STR-009",
+        "store_name": "Mumbai Hypermarket 1",
+        "city": "Mumbai",
+        "stockouts_caused": 2,
+        "rev_at_risk_cr": 0.1,
+        "last_delivery_status": "at_risk"
+      },
+      {
+        "store_id": "STR-018",
+        "store_name": "Pune Hypermarket 1",
+        "city": "Pune",
+        "stockouts_caused": 2,
+        "rev_at_risk_cr": 0.08,
+        "last_delivery_status": "scheduled"
+      },
+      {
+        "store_id": "STR-001",
+        "store_name": "Delhi NCR Hypermarket 1",
+        "city": "Delhi NCR",
+        "stockouts_caused": 1,
+        "rev_at_risk_cr": 0.04,
+        "last_delivery_status": "on_track"
+      }
+    ],
+    "open_pos": [
+      {
+        "po_id": "PO-BRI-1101",
+        "category": "Snacks & Beverages",
+        "store_name": "Bangalore Hypermarket 2",
+        "qty": 180,
+        "value_cr": 0.47,
+        "expected_date": "2026-04-27",
+        "status": "at_risk"
+      },
+      {
+        "po_id": "PO-BRI-1115",
+        "category": "Snacks & Beverages",
+        "store_name": "Pune Hypermarket 2",
+        "qty": 140,
+        "value_cr": 0.36,
+        "expected_date": "2026-05-09",
+        "status": "scheduled"
+      },
+      {
+        "po_id": "PO-BRI-1129",
+        "category": "Snacks & Beverages",
+        "store_name": "Mumbai Hypermarket 2",
+        "qty": 280,
+        "value_cr": 0.66,
+        "expected_date": "2026-05-10",
+        "status": "at_risk"
+      }
+    ],
+    "top_skus": [
+      {
+        "product_id": "PRD-BRI-001",
+        "product_name": "Good Day Butter Biscuits 600g",
+        "category": "Snacks & Beverages",
+        "avg_daily_demand": 120,
+        "current_stock": 960,
+        "days_of_supply": 8.0,
+        "status": "healthy",
+        "stockout_events_90d": 1,
+        "rev_at_risk_cr": 0.03
+      },
+      {
+        "product_id": "PRD-BRI-002",
+        "product_name": "50-50 Biscuits 400g",
+        "category": "Snacks & Beverages",
+        "avg_daily_demand": 84,
+        "current_stock": 252,
+        "days_of_supply": 3.0,
+        "status": "low",
+        "stockout_events_90d": 2,
+        "rev_at_risk_cr": 0.05
+      },
+      {
+        "product_id": "PRD-BRI-003",
+        "product_name": "NutriChoice 5-Grain 300g",
+        "category": "Snacks & Beverages",
+        "avg_daily_demand": 62,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 2,
+        "rev_at_risk_cr": 0.06
+      },
+      {
+        "product_id": "PRD-BRI-004",
+        "product_name": "Britannia Milk Bikis 800g",
+        "category": "Snacks & Beverages",
+        "avg_daily_demand": 96,
+        "current_stock": 768,
+        "days_of_supply": 8.0,
+        "status": "healthy",
+        "stockout_events_90d": 1,
+        "rev_at_risk_cr": 0.02
+      },
+      {
+        "product_id": "PRD-BRI-005",
+        "product_name": "Britannia Cheese Slices 200g",
+        "category": "Dairy & Frozen",
+        "avg_daily_demand": 58,
+        "current_stock": 116,
+        "days_of_supply": 2.0,
+        "status": "low",
+        "stockout_events_90d": 2,
+        "rev_at_risk_cr": 0.05
+      }
+    ],
+    "peer_comparison": [
+      {
+        "supplier_id": "SUP-010",
+        "name": "Parle Products",
+        "category": "Snacks & Beverages",
+        "otif_pct": 88.4,
+        "order_value_cr": 15.6
+      },
+      {
+        "supplier_id": "SUP-002",
+        "name": "ITC Limited",
+        "category": "Snacks & Beverages",
+        "otif_pct": 71.8,
+        "order_value_cr": 22.1
+      },
+      {
+        "supplier_id": "SUP-003",
+        "name": "Nestlé India",
+        "category": "Snacks & Beverages",
+        "otif_pct": 74.3,
+        "order_value_cr": 18.7
+      }
+    ],
+    "ai_recommendations": [
+      {
+        "priority": "low",
+        "action": "Maintain relationship — minor SLA tightening",
+        "detail": "Britannia is a reliable performer at 86.2% OTIF. Focus on closing the 3.8pp gap to target through minor logistics improvements.",
+        "expected_impact": "Push OTIF to 90% within 2 quarters"
+      },
+      {
+        "priority": "low",
+        "action": "Reduce logistics delays",
+        "detail": "54% of Britannia delays are logistics-side. Discuss dedicated cold-chain carrier arrangement for Dairy & Frozen category.",
+        "expected_impact": "Improve Dairy OTIF from 84.2% to match Snacks 86.8%"
+      },
+      {
+        "priority": "low",
+        "action": "Tighten documentation SLA",
+        "detail": "10% documentation delays slightly above target. Request ERP-level PO automation integration.",
+        "expected_impact": "Eliminate documentation delays entirely"
+      }
+    ]
+  },
+  "SUP-012": {
+    "supplier_id": "SUP-012",
+    "name": "Samsung India",
+    "short_name": "Samsung",
+    "category": "Electronics",
+    "categories_supplied": [
+      "Electronics"
+    ],
+    "headquarters": "Gurugram, Haryana",
+    "account_manager": "Vikram Singh",
+    "contract_expiry": "2028-12-31",
+    "relationship_years": 3,
+    "overall_score": 91,
+    "score_trend": "stable",
+    "otif_pct": 91.8,
+    "fill_rate_pct": 93.4,
+    "avg_delay_days": 0.6,
+    "order_value_cr": 42.8,
+    "stockouts_caused": 3,
+    "trend": "stable",
+    "otif_12m": [
+      {
+        "month": "May 2025",
+        "otif_pct": 91.2,
+        "target": 95
+      },
+      {
+        "month": "Jun 2025",
+        "otif_pct": 91.8,
+        "target": 95
+      },
+      {
+        "month": "Jul 2025",
+        "otif_pct": 92.4,
+        "target": 95
+      },
+      {
+        "month": "Aug 2025",
+        "otif_pct": 91.6,
+        "target": 95
+      },
+      {
+        "month": "Sep 2025",
+        "otif_pct": 92.1,
+        "target": 95
+      },
+      {
+        "month": "Oct 2025",
+        "otif_pct": 91.4,
+        "target": 95
+      },
+      {
+        "month": "Nov 2025",
+        "otif_pct": 92.8,
+        "target": 95
+      },
+      {
+        "month": "Dec 2025",
+        "otif_pct": 93.2,
+        "target": 95
+      },
+      {
+        "month": "Jan 2026",
+        "otif_pct": 91.8,
+        "target": 95
+      },
+      {
+        "month": "Feb 2026",
+        "otif_pct": 92.4,
+        "target": 95
+      },
+      {
+        "month": "Mar 2026",
+        "otif_pct": 91.6,
+        "target": 95
+      },
+      {
+        "month": "Apr 2026",
+        "otif_pct": 91.8,
+        "target": 95
+      }
+    ],
+    "delay_reasons": {
+      "manufacturing_pct": 8,
+      "logistics_pct": 62,
+      "quality_pct": 18,
+      "documentation_pct": 8,
+      "no_reason_pct": 4
+    },
+    "category_performance": [
+      {
+        "category": "Electronics",
+        "otif_pct": 91.8,
+        "fill_rate_pct": 93.4,
+        "avg_delay_days": 0.6,
+        "order_value_cr": 42.8,
+        "stockouts_caused": 3
+      }
+    ],
+    "store_impact": [
+      {
+        "store_id": "STR-001",
+        "store_name": "Delhi NCR Hypermarket 1",
+        "city": "Delhi NCR",
+        "stockouts_caused": 1,
+        "rev_at_risk_cr": 0.08,
+        "last_delivery_status": "on_track"
+      },
+      {
+        "store_id": "STR-013",
+        "store_name": "Bangalore Hypermarket 1",
+        "city": "Bangalore",
+        "stockouts_caused": 1,
+        "rev_at_risk_cr": 0.06,
+        "last_delivery_status": "scheduled"
+      },
+      {
+        "store_id": "STR-009",
+        "store_name": "Mumbai Hypermarket 1",
+        "city": "Mumbai",
+        "stockouts_caused": 1,
+        "rev_at_risk_cr": 0.04,
+        "last_delivery_status": "on_track"
+      }
+    ],
+    "open_pos": [
+      {
+        "po_id": "PO-SAM-1201",
+        "category": "Electronics",
+        "store_name": "Delhi NCR Hypermarket 2",
+        "qty": 24,
+        "value_cr": 0.51,
+        "expected_date": "2026-05-04",
+        "status": "on_track"
+      },
+      {
+        "po_id": "PO-SAM-1215",
+        "category": "Electronics",
+        "store_name": "Bangalore Hypermarket 2",
+        "qty": 18,
+        "value_cr": 0.53,
+        "expected_date": "2026-05-03",
+        "status": "scheduled"
+      }
+    ],
+    "top_skus": [
+      {
+        "product_id": "PRD-SAM-001",
+        "product_name": "Samsung Galaxy A54 5G",
+        "category": "Electronics",
+        "avg_daily_demand": 8,
+        "current_stock": 64,
+        "days_of_supply": 8.0,
+        "status": "healthy",
+        "stockout_events_90d": 0,
+        "rev_at_risk_cr": 0.0
+      },
+      {
+        "product_id": "PRD-SAM-002",
+        "product_name": "Samsung 65\" Crystal 4K TV",
+        "category": "Electronics",
+        "avg_daily_demand": 4,
+        "current_stock": 28,
+        "days_of_supply": 7.0,
+        "status": "healthy",
+        "stockout_events_90d": 0,
+        "rev_at_risk_cr": 0.0
+      },
+      {
+        "product_id": "PRD-SAM-003",
+        "product_name": "Samsung Side-by-Side Fridge 674L",
+        "category": "Electronics",
+        "avg_daily_demand": 3,
+        "current_stock": 9,
+        "days_of_supply": 3.0,
+        "status": "low",
+        "stockout_events_90d": 1,
+        "rev_at_risk_cr": 0.06
+      },
+      {
+        "product_id": "PRD-SAM-004",
+        "product_name": "Samsung Galaxy Buds2 Pro",
+        "category": "Electronics",
+        "avg_daily_demand": 12,
+        "current_stock": 120,
+        "days_of_supply": 10.0,
+        "status": "healthy",
+        "stockout_events_90d": 0,
+        "rev_at_risk_cr": 0.0
+      },
+      {
+        "product_id": "PRD-SAM-005",
+        "product_name": "Samsung 8kg Front Load Washer",
+        "category": "Electronics",
+        "avg_daily_demand": 5,
+        "current_stock": 0,
+        "days_of_supply": 0,
+        "status": "stockout",
+        "stockout_events_90d": 1,
+        "rev_at_risk_cr": 0.08
+      }
+    ],
+    "peer_comparison": [],
+    "ai_recommendations": [
+      {
+        "priority": "low",
+        "action": "Explore strategic partnership expansion",
+        "detail": "Samsung is the best-performing supplier at 91.8% OTIF and ₹42.8Cr order value. Explore expanding the relationship to include Samsung B2B enterprise sales and exclusive product launch windows.",
+        "expected_impact": "₹10-15Cr incremental category revenue opportunity"
+      },
+      {
+        "priority": "low",
+        "action": "Negotiate category exclusivity for new launches",
+        "detail": "Given Samsung's reliability, negotiate 2-week exclusivity on new model launches in exchange for guaranteed minimum order volumes.",
+        "expected_impact": "Competitive differentiation on Electronics"
+      },
+      {
+        "priority": "low",
+        "action": "Raise OTIF target to 95%",
+        "detail": "Samsung consistently performs at 91-93%. The 95% OTIF target is achievable — use contract renewal (Dec 2028) to formalize higher SLA with mutual benefit clauses.",
+        "expected_impact": "Close remaining 3.2pp gap to best-in-class"
+      }
+    ]
+  }
+}

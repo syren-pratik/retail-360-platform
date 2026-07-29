@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-07-01T05:28:24.195Z",
+  "insights": [
+    {
+      "type": "risk",
+      "severity": "critical",
+      "title": "₹46L Revenue at Risk from Stockouts",
+      "description": "15 SKUs face imminent stockout with ₹46L demand at risk. Top 5 replenishment actions total ₹16.7L impact, driven by salary effects (+47% demand spike), festival prep, and competitor spillovers. Clusters STR-0001, STR-0013, STR-0025 need urgent orders of 263-425 units each.",
+      "metric": "₹46.0L",
+      "action": "Execute immediate replenishment orders for 1,267 total units across 5 priority store clusters within 24 hours to prevent revenue loss and capture spillover demand",
+      "relatedChart": "lost-sales",
+      "id": "merch-insight-1782883704195-0",
+      "source": "claude"
+    },
+    {
+      "type": "risk",
+      "severity": "critical",
+      "title": "58 SKUs Unready for Eid Event",
+      "description": "Eid al-Adha arrives in 20 days but 58 SKUs lack inventory ramp-up. Current demand actions show festival prep already driving +12% above forecast. Dairy & Frozen (14.4% MAPE) and Beverages (14.9% MAPE) show weakest accuracy during event cycles.",
+      "metric": "58 SKUs",
+      "action": "Trigger immediate Eid demand plan review for 58 at-risk SKUs, prioritize Dairy, Frozen, and Beverages categories with accelerated safety stock buildup starting this week",
+      "relatedChart": "forecast-vs-actual",
+      "id": "merch-insight-1782883704195-1",
+      "source": "claude"
+    },
+    {
+      "type": "anomaly",
+      "severity": "warning",
+      "title": "5 Major Forecast Anomalies Requiring Model Tuning",
+      "description": "Open anomalies show ±19% to ±62% deviations: early salary effect (+62%), promo cannibalization (+55%), stockout cascades (-50%), competitor activity (+31%), and weather shocks (-19% Bangalore rain). Model failing to capture real-time market dynamics.",
+      "metric": "±62%",
+      "action": "Update forecasting model to incorporate payday calendars, competitor OOS signals, and weather APIs; retrain on recent anomaly patterns to reduce future MAPE below 10%",
+      "relatedChart": "feature-importance",
+      "id": "merch-insight-1782883704195-2",
+      "source": "claude"
+    },
+    {
+      "type": "opportunity",
+      "severity": "positive",
+      "title": "Grocery & Personal Care Leading at 8.7% MAPE",
+      "description": "Grocery & Staples and Personal Care achieve best-in-class 8.7% MAPE vs company average 11.3%. These categories demonstrate stable demand patterns and effective forecasting, contrasting with Beverages (14.9%) and Dairy (14.4%) struggles.",
+      "metric": "8.7%",
+      "action": "Audit forecasting methodology from Grocery/Personal Care teams and replicate best practices (feature engineering, promotional handling) to Beverages and Dairy departments",
+      "relatedChart": "accuracy-heatmap",
+      "id": "merch-insight-1782883704195-3",
+      "source": "claude"
+    }
+  ],
+  "source": "claude"
+}

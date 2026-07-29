@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Search, X } from 'lucide-react';
 import { AGENT_REGISTRY, AGENTS_BY_MODULE, getAgent, type AgentDefinition } from '@/app/agents/lib/agent-registry';
+import { useTenant } from '@/app/context/TenantContext';
 import type { PriceIntelCore } from '@/app/lib/price-intel-types';
 import type { UIComponentType } from '@/app/lib/types';
 import { fetchPriceIntelCore } from '@/app/lib/price-intel-loader';
@@ -32,6 +33,11 @@ export default function AgentHub() {
   const [activeActionAgent, setActiveActionAgent] = useState<AgentDefinition | null>(null);
   const [showActionPanel, setShowActionPanel] = useState(false);
   const { history: runHistory, addRun } = useRunHistory();
+  const { tenant } = useTenant();
+  const tenantLabel =
+    tenant === 'us_retail' ? 'US General Retail · $USD' :
+    tenant === 'us_apparel' ? 'US Apparel · $USD' :
+    'India Grocery · ₹INR';
 
   const actionAgents = AGENT_REGISTRY.filter((a) => a.is_action_agent);
 
@@ -69,7 +75,7 @@ export default function AgentHub() {
                 AI agents
               </h1>
               <p className="text-sm text-[var(--text-secondary)] mt-1">
-                {AGENT_REGISTRY.length} agents · powered by Claude · generative UI
+                {AGENT_REGISTRY.length} agents · powered by Claude · generative UI · {tenantLabel}
               </p>
             </div>
             <div className="flex items-center gap-1.5 text-xs text-[var(--positive)]">

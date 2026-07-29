@@ -1,0 +1,149 @@
+{
+  "summary": {
+    "revenue_optimal_gap_cr": 18.4,
+    "stores_over_allocated": 6,
+    "stores_under_allocated": 8,
+    "skus_misallocated": 284,
+    "reallocation_opportunity_cr": 18.4
+  },
+  "by_store": [
+    {
+      "store_id": "STR-001",
+      "store_name": "Delhi NCR Hypermarket 1",
+      "city": "Delhi NCR",
+      "current_allocation_cr": 48.4,
+      "revenue_optimal_allocation_cr": 62.8,
+      "gap_cr": -14.4,
+      "gap_type": "under_allocated",
+      "daily_revenue_cr": 8.4,
+      "revenue_lost_daily_cr": 0.82,
+      "top_gap_category": "Personal Care",
+      "allocation_score": 42
+    },
+    {
+      "store_id": "STR-002",
+      "store_name": "Delhi NCR Hypermarket 2",
+      "city": "Delhi NCR",
+      "current_allocation_cr": 52.1,
+      "revenue_optimal_allocation_cr": 64.2,
+      "gap_cr": -12.1,
+      "gap_type": "under_allocated",
+      "daily_revenue_cr": 7.8,
+      "revenue_lost_daily_cr": 0.71,
+      "top_gap_category": "Grocery & Staples",
+      "allocation_score": 48
+    },
+    {
+      "store_id": "STR-011",
+      "store_name": "Mumbai Hypermarket 1",
+      "city": "Mumbai",
+      "current_allocation_cr": 84.2,
+      "revenue_optimal_allocation_cr": 72.4,
+      "gap_cr": 11.8,
+      "gap_type": "over_allocated",
+      "daily_revenue_cr": 9.2,
+      "revenue_lost_daily_cr": 0,
+      "top_gap_category": "Apparel",
+      "allocation_score": 78
+    },
+    {
+      "store_id": "STR-012",
+      "store_name": "Mumbai Hypermarket 2",
+      "city": "Mumbai",
+      "current_allocation_cr": 76.8,
+      "revenue_optimal_allocation_cr": 68.4,
+      "gap_cr": 8.4,
+      "gap_type": "over_allocated",
+      "daily_revenue_cr": 8.6,
+      "revenue_lost_daily_cr": 0,
+      "top_gap_category": "Electronics",
+      "allocation_score": 74
+    },
+    {
+      "store_id": "STR-015",
+      "store_name": "Bangalore Hypermarket 1",
+      "city": "Bangalore",
+      "current_allocation_cr": 68.4,
+      "revenue_optimal_allocation_cr": 71.2,
+      "gap_cr": -2.8,
+      "gap_type": "slightly_under",
+      "daily_revenue_cr": 7.4,
+      "revenue_lost_daily_cr": 0.18,
+      "top_gap_category": "Snacks & Beverages",
+      "allocation_score": 72
+    },
+    {
+      "store_id": "STR-017",
+      "store_name": "Chennai Hypermarket 1",
+      "city": "Chennai",
+      "current_allocation_cr": 58.4,
+      "revenue_optimal_allocation_cr": 54.2,
+      "gap_cr": 4.2,
+      "gap_type": "slightly_over",
+      "daily_revenue_cr": 6.2,
+      "revenue_lost_daily_cr": 0,
+      "top_gap_category": "Home & Kitchen",
+      "allocation_score": 68
+    },
+    {
+      "store_id": "STR-019",
+      "store_name": "Pune Hypermarket 1",
+      "city": "Pune",
+      "current_allocation_cr": 48.2,
+      "revenue_optimal_allocation_cr": 52.4,
+      "gap_cr": -4.2,
+      "gap_type": "under_allocated",
+      "daily_revenue_cr": 5.8,
+      "revenue_lost_daily_cr": 0.28,
+      "top_gap_category": "Personal Care",
+      "allocation_score": 64
+    }
+  ],
+  "by_category": [
+    {
+      "category": "Personal Care",
+      "total_current_allocation_cr": 84.2,
+      "total_optimal_allocation_cr": 96.8,
+      "gap_cr": -12.6,
+      "stores_under": 8,
+      "stores_over": 2,
+      "revenue_opportunity_cr": 4.8
+    },
+    {
+      "category": "Grocery & Staples",
+      "total_current_allocation_cr": 248.4,
+      "total_optimal_allocation_cr": 262.8,
+      "gap_cr": -14.4,
+      "stores_under": 10,
+      "stores_over": 1,
+      "revenue_opportunity_cr": 6.2
+    },
+    {
+      "category": "Apparel",
+      "total_current_allocation_cr": 142.8,
+      "total_optimal_allocation_cr": 98.4,
+      "gap_cr": 44.4,
+      "stores_under": 0,
+      "stores_over": 8,
+      "revenue_opportunity_cr": 0
+    },
+    {
+      "category": "Electronics",
+      "total_current_allocation_cr": 184.2,
+      "total_optimal_allocation_cr": 162.4,
+      "gap_cr": 21.8,
+      "stores_under": 1,
+      "stores_over": 6,
+      "revenue_opportunity_cr": 0
+    },
+    {
+      "category": "Dairy & Frozen",
+      "total_current_allocation_cr": 48.4,
+      "total_optimal_allocation_cr": 62.8,
+      "gap_cr": -14.4,
+      "stores_under": 9,
+      "stores_over": 0,
+      "revenue_opportunity_cr": 4.2
+    }
+  ]
+}

@@ -126,7 +126,7 @@ function formatTime(date: Date): string {
 }
 
 export default function CompetitiveResponseAgent({ core }: Props) {
-  const { isApparel } = useTenant();
+  const { isApparel, isRetail } = useTenant();
   const SUGGESTION_CHIPS = isApparel ? buildApparelChips(core) : GROCERY_CHIPS;
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');

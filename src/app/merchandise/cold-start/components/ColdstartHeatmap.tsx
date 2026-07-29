@@ -42,7 +42,7 @@ function mapeToTextColor(mape: number): string {
 }
 
 export default function ColdstartHeatmap({ cells }: Props) {
-  const { isApparel } = useTenant();
+  const { isApparel, isRetail } = useTenant();
   const ALL_CATEGORIES = isApparel ? ALL_CATEGORIES_APPAREL : ALL_CATEGORIES_GROCERY;
   const ALL_STORE_TYPES = isApparel ? ALL_STORE_TYPES_APPAREL : ALL_STORE_TYPES_GROCERY;
   const { filters } = useColdstartFilters();

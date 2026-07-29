@@ -30,6 +30,8 @@ interface Props {
   onProposalChange: (proposals: ProposalItem[]) => void;
   onApprove: (selected: ProposalItem[]) => void;
   onDismiss: () => void;
+  userInstructions?: string;
+  onUserInstructionsChange?: (value: string) => void;
 }
 
 const PHASE_ORDER: Record<AgentWorkflowPhase, number> = {
@@ -59,6 +61,8 @@ export default function AgentWorkflow({
   onProposalChange,
   onApprove,
   onDismiss,
+  userInstructions,
+  onUserInstructionsChange,
 }: Props) {
   const p = PHASE_ORDER[phase];
 
@@ -74,6 +78,23 @@ export default function AgentWorkflow({
             <p className="text-xs text-[var(--text-secondary)] mt-0.5">{initialTrigger}</p>
           </div>
         </div>
+        {onUserInstructionsChange && (
+          <div className="mb-4 space-y-1.5">
+            <p className="text-xs text-[var(--text-secondary)]">
+              Any specific instructions? (optional)
+            </p>
+            <input
+              type="text"
+              value={userInstructions ?? ''}
+              onChange={(e) => onUserInstructionsChange(e.target.value)}
+              placeholder="e.g. focus on Beverages only, skip Dairy, top 3 SKUs..."
+              className="w-full text-sm px-3 py-2 border border-[var(--border-default)] rounded-lg bg-white text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] outline-none focus:border-[var(--border-hover)]"
+            />
+            <p className="text-[11px] text-[var(--text-secondary)]">
+              Claude will adjust its proposals based on your instructions
+            </p>
+          </div>
+        )}
         <button
           onClick={onStart}
           className="px-4 py-2 text-sm rounded-md bg-[var(--accent-primary)] text-white"

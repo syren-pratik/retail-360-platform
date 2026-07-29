@@ -1,0 +1,93 @@
+{
+  "summary": {
+    "total_customers": 50000,
+    "champions_pct": 7.4,
+    "at_risk_pct": 10.0,
+    "avg_rfm_score": 6.4,
+    "segments_monitored": 9,
+    "high_value_at_risk_revenue": 48200000
+  },
+  "nine_box": [
+    { "r_band": "Recent (1-3)", "f_band": "Frequent (3)", "label": "Champions",         "r_score": 3, "f_score": 3, "customer_count": 3700,  "avg_clv": 128000, "revenue": 473600000, "avg_recency": 8,  "avg_frequency": 38, "action": "Reward & delight — VIP access, early launches",        "color": "#10B981" },
+    { "r_band": "Recent (1-3)", "f_band": "Medium (2)",   "label": "Potential Loyalists","r_score": 3, "f_score": 2, "customer_count": 5200,  "avg_clv": 72000,  "revenue": 374400000, "avg_recency": 12, "avg_frequency": 18, "action": "Frequency incentives — points multiplier, bundle offers","color": "#3B82F6" },
+    { "r_band": "Recent (1-3)", "f_band": "Low (1)",      "label": "New Customers",      "r_score": 3, "f_score": 1, "customer_count": 6600,  "avg_clv": 8200,   "revenue": 54120000,  "avg_recency": 18, "avg_frequency": 3,  "action": "Onboarding flow — 2nd purchase incentive, education",   "color": "#8B5CF6" },
+    { "r_band": "Mid (2)",      "f_band": "Frequent (3)", "label": "Loyal Customers",    "r_score": 2, "f_score": 3, "customer_count": 5500,  "avg_clv": 89000,  "revenue": 489500000, "avg_recency": 32, "avg_frequency": 35, "action": "Re-engagement — personalised reminder, loyalty upgrade", "color": "#0EA5E9" },
+    { "r_band": "Mid (2)",      "f_band": "Medium (2)",   "label": "At Need",            "r_score": 2, "f_score": 2, "customer_count": 7900,  "avg_clv": 42000,  "revenue": 331800000, "avg_recency": 38, "avg_frequency": 14, "action": "Category expansion — cross-sell adjacent categories",    "color": "#F59E0B" },
+    { "r_band": "Mid (2)",      "f_band": "Low (1)",      "label": "Promising",          "r_score": 2, "f_score": 1, "customer_count": 4300,  "avg_clv": 14000,  "revenue": 60200000,  "avg_recency": 45, "avg_frequency": 5,  "action": "Activate dormant — limited-time offer, cart reminder",   "color": "#6366F1" },
+    { "r_band": "Lapsed (1)",   "f_band": "Frequent (3)", "label": "At Risk",            "r_score": 1, "f_score": 3, "customer_count": 5000,  "avg_clv": 98000,  "revenue": 490000000, "avg_recency": 68, "avg_frequency": 28, "action": "WIN-BACK URGENT — personalised offer + phone outreach",  "color": "#EF4444" },
+    { "r_band": "Lapsed (1)",   "f_band": "Medium (2)",   "label": "Slipping Away",      "r_score": 1, "f_score": 2, "customer_count": 6100,  "avg_clv": 38000,  "revenue": 231800000, "avg_recency": 82, "avg_frequency": 12, "action": "Win-back campaign — survey + targeted discount",         "color": "#F97316" },
+    { "r_band": "Lapsed (1)",   "f_band": "Low (1)",      "label": "Lost",               "r_score": 1, "f_score": 1, "customer_count": 5700,  "avg_clv": 5800,   "revenue": 33060000,  "avg_recency": 142,"avg_frequency": 2,  "action": "Reactivation email — last chance, low-cost channel",    "color": "#94A3B8" }
+  ],
+  "density_heatmap": [
+    { "r_score": 1, "f_score": 1, "m_score": 1, "count": 1800 },
+    { "r_score": 1, "f_score": 1, "m_score": 2, "count": 2100 },
+    { "r_score": 1, "f_score": 1, "m_score": 3, "count": 1800 },
+    { "r_score": 1, "f_score": 2, "m_score": 1, "count": 1600 },
+    { "r_score": 1, "f_score": 2, "m_score": 2, "count": 2300 },
+    { "r_score": 1, "f_score": 2, "m_score": 3, "count": 2200 },
+    { "r_score": 1, "f_score": 3, "m_score": 1, "count": 1100 },
+    { "r_score": 1, "f_score": 3, "m_score": 2, "count": 1900 },
+    { "r_score": 1, "f_score": 3, "m_score": 3, "count": 2000 },
+    { "r_score": 2, "f_score": 1, "m_score": 1, "count": 1300 },
+    { "r_score": 2, "f_score": 1, "m_score": 2, "count": 1600 },
+    { "r_score": 2, "f_score": 1, "m_score": 3, "count": 1400 },
+    { "r_score": 2, "f_score": 2, "m_score": 1, "count": 2000 },
+    { "r_score": 2, "f_score": 2, "m_score": 2, "count": 3300 },
+    { "r_score": 2, "f_score": 2, "m_score": 3, "count": 2600 },
+    { "r_score": 2, "f_score": 3, "m_score": 1, "count": 1200 },
+    { "r_score": 2, "f_score": 3, "m_score": 2, "count": 2200 },
+    { "r_score": 2, "f_score": 3, "m_score": 3, "count": 2100 },
+    { "r_score": 3, "f_score": 1, "m_score": 1, "count": 1900 },
+    { "r_score": 3, "f_score": 1, "m_score": 2, "count": 2500 },
+    { "r_score": 3, "f_score": 1, "m_score": 3, "count": 2200 },
+    { "r_score": 3, "f_score": 2, "m_score": 1, "count": 1300 },
+    { "r_score": 3, "f_score": 2, "m_score": 2, "count": 1900 },
+    { "r_score": 3, "f_score": 2, "m_score": 3, "count": 2000 },
+    { "r_score": 3, "f_score": 3, "m_score": 1, "count": 700  },
+    { "r_score": 3, "f_score": 3, "m_score": 2, "count": 1500 },
+    { "r_score": 3, "f_score": 3, "m_score": 3, "count": 1500 }
+  ],
+  "action_playbook": [
+    { "segment": "Champions",          "size": 3700,  "message": "You're our VIP — exclusive early access to new collection",     "channel": "WhatsApp", "timing": "Immediate",     "expected_lift": 0.18, "cost_per_customer": 8   },
+    { "segment": "Potential Loyalists","size": 5200,  "message": "Double points this week — shop 2 more times to unlock Gold",    "channel": "Push/Email","timing": "This week",     "expected_lift": 0.22, "cost_per_customer": 4   },
+    { "segment": "New Customers",      "size": 6600,  "message": "Complete your first 3 purchases — ₹500 bonus awaits",          "channel": "Email",    "timing": "Day 3 post-reg","expected_lift": 0.31, "cost_per_customer": 3   },
+    { "segment": "Loyal Customers",    "size": 5500,  "message": "We miss you — here is 15% off your favourite category",         "channel": "Email",    "timing": "Day 30+",       "expected_lift": 0.26, "cost_per_customer": 5   },
+    { "segment": "At Need",            "size": 7900,  "message": "Customers like you also love — personalised recommendations",   "channel": "App/Web",  "timing": "Next visit",    "expected_lift": 0.14, "cost_per_customer": 2   },
+    { "segment": "At Risk",            "size": 5000,  "message": "We have not seen you in a while — special offer just for you",  "channel": "SMS+Email","timing": "Urgent",        "expected_lift": 0.19, "cost_per_customer": 12  },
+    { "segment": "Slipping Away",      "size": 6100,  "message": "Come back — your cart is waiting + 20% discount expires soon",  "channel": "Retarget", "timing": "This week",     "expected_lift": 0.12, "cost_per_customer": 18  },
+    { "segment": "Lost",               "size": 5700,  "message": "Last chance — here is our best offer before we say goodbye",    "channel": "Email",    "timing": "Monthly",       "expected_lift": 0.06, "cost_per_customer": 2   }
+  ],
+  "migration": {
+    "period": "Q3 → Q4 2024",
+    "flows": [
+      { "from": "Potential Loyalists", "to": "Champions",          "count": 820  },
+      { "from": "New Customers",       "to": "Potential Loyalists","count": 1240 },
+      { "from": "Loyal Customers",     "to": "At Risk",            "count": 680  },
+      { "from": "At Need",             "to": "Slipping Away",      "count": 920  },
+      { "from": "Champions",           "to": "Loyal Customers",    "count": 340  },
+      { "from": "Slipping Away",       "to": "Lost",               "count": 580  },
+      { "from": "At Risk",             "to": "Lost",               "count": 420  }
+    ],
+    "net_change": {
+      "upgraded": 3800,
+      "stable": 36800,
+      "downgraded": 8400,
+      "lost": 1000
+    }
+  },
+  "definitions": [
+    { "metric": "R Score (Recency)",   "definition": "1-3 score: 3=purchased within 30 days, 2=31-90 days, 1=91+ days",          "why": "Recent buyers are more likely to respond to offers" },
+    { "metric": "F Score (Frequency)", "definition": "1-3 score: 3=10+ purchases, 2=4-9 purchases, 1=1-3 purchases",             "why": "Frequency predicts future purchase probability" },
+    { "metric": "M Score (Monetary)",  "definition": "1-3 score: 3=top 33% spend, 2=mid 33%, 1=bottom 33%",                      "why": "High monetary value customers are worth more to retain" },
+    { "metric": "RFM Segment",         "definition": "Combined R+F score mapped to 9 behavioural segments (3×3 grid)",           "why": "Enables targeted action for each behaviour archetype" },
+    { "metric": "CLV (12m)",           "definition": "Predicted customer lifetime value over next 12 months using BG-NBD model", "why": "Prioritises intervention budget on highest-value customers" },
+    { "metric": "P(Alive)",            "definition": "Probability customer is still active (not permanently churned)",           "why": "Determines if win-back efforts are worth the cost" }
+  ],
+  "insights": [
+    "Champions (7.4%) generate 18.7% of total revenue — protect with VIP experiences",
+    "At Risk segment has highest avg CLV (₹98K) among lapsed groups — urgent win-back required",
+    "5,000 At Risk customers represent ₹49 Cr of potential lost revenue if not engaged in 30 days",
+    "Potential Loyalists (5,200 customers) are one purchase away from Champions — lowest-cost upgrade path",
+    "New Customer repeat rate critically low — onboarding campaign can add ₹43 Cr if 2nd purchase rate improves by 10pp"
+  ]
+}

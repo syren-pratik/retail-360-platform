@@ -1,0 +1,91 @@
+{
+  "pareto": [
+    {
+      "percentile": "Top 10%",
+      "customer_count": 8000,
+      "revenue_share": 31.2,
+      "total_revenue": 37339087
+    },
+    {
+      "percentile": "Top 20%",
+      "customer_count": 16000,
+      "revenue_share": 50.8,
+      "total_revenue": 60722626
+    },
+    {
+      "percentile": "Top 30%",
+      "customer_count": 24000,
+      "revenue_share": 64.4,
+      "total_revenue": 77073049
+    },
+    {
+      "percentile": "Top 40%",
+      "customer_count": 32000,
+      "revenue_share": 74.4,
+      "total_revenue": 89028407
+    },
+    {
+      "percentile": "Top 50%",
+      "customer_count": 40000,
+      "revenue_share": 82.1,
+      "total_revenue": 98195544
+    },
+    {
+      "percentile": "Top 100%",
+      "customer_count": 80000,
+      "revenue_share": 100,
+      "total_revenue": 119608008
+    }
+  ],
+  "by_segment": [
+    {
+      "segment": "Brand Loyalist",
+      "total_revenue": 31559066,
+      "customer_count": 9438,
+      "revenue_share": 26.4,
+      "avg_revenue_per_customer": 3344
+    },
+    {
+      "segment": "Athletic Enthusiast",
+      "total_revenue": 30782470,
+      "customer_count": 11112,
+      "revenue_share": 25.7,
+      "avg_revenue_per_customer": 2770
+    },
+    {
+      "segment": "Fashion Forward",
+      "total_revenue": 17103883,
+      "customer_count": 7156,
+      "revenue_share": 14.3,
+      "avg_revenue_per_customer": 2390
+    },
+    {
+      "segment": "Value Shopper",
+      "total_revenue": 16094167,
+      "customer_count": 17655,
+      "revenue_share": 13.5,
+      "avg_revenue_per_customer": 912
+    },
+    {
+      "segment": "Lapsed",
+      "total_revenue": 8196388,
+      "customer_count": 14348,
+      "revenue_share": 6.9,
+      "avg_revenue_per_customer": 571
+    },
+    {
+      "segment": "Casual",
+      "total_revenue": 7624765,
+      "customer_count": 10749,
+      "revenue_share": 6.4,
+      "avg_revenue_per_customer": 709
+    },
+    {
+      "segment": "Returner",
+      "total_revenue": 6842487,
+      "customer_count": 5582,
+      "revenue_share": 5.7,
+      "avg_revenue_per_customer": 1226
+    }
+  ]
+}

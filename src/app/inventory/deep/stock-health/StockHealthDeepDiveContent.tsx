@@ -156,7 +156,7 @@ export default function StockHealthDeepDiveContent({
   categoryHealth,
   overstock,
 }: Props) {
-  const { isApparel } = useTenant();
+  const { isApparel, isRetail } = useTenant();
   const [isMounted, setIsMounted] = useState(false);
   const [selectedDateRange, setSelectedDateRange] = useState('90d');
   const [sortKey, setSortKey] = useState<keyof CategoryHealthItem>('osa_pct');

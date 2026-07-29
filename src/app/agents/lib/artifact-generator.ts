@@ -4,6 +4,38 @@ import type { PriceIntelCore } from '@/app/lib/price-intel-types';
 
 export { generateActionRef } from './databricks-mock';
 
+// ─── Currency helpers ───────────────────────────────────────────────────
+
+function currencySymbol(isUSD: boolean): string {
+  return isUSD ? '$' : '₹';
+}
+
+/** Format a raw money value. For INR: lakhs/crores. For USD: K/M. */
+function formatMoney(value: number, isUSD: boolean): string {
+  if (isUSD) {
+    if (value >= 1_000_000) return `$${(value / 1_000_000).toFixed(1)}M`;
+    if (value >= 1_000) return `$${(value / 1_000).toFixed(0)}K`;
+    return `$${value.toFixed(0)}`;
+  }
+  if (value >= 10_000_000) return `₹${(value / 10_000_000).toFixed(1)}Cr`;
+  if (value >= 100_000) return `₹${(value / 100_000).toFixed(1)}L`;
+  return `₹${value.toFixed(0)}`;
+}
+
+/**
+ * Format a value already scaled to lakhs (INR) or thousands (USD).
+ * Used for `value_inr` fields on ProposalItem which store scaled amounts.
+ */
+function formatScaledMoney(scaled: number, isUSD: boolean): string {
+  return isUSD ? `$${scaled.toFixed(0)}K` : `₹${scaled.toFixed(1)}L`;
+}
+
+function scaledUnitLabel(isUSD: boolean): string {
+  return isUSD ? '$K' : '₹L';
+}
+
+// ─── Blob helper ────────────────────────────────────────────────────────
+
 function toBlob(wb: XLSX.WorkBook): Blob {
   const wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
   return new Blob([wbout], {
@@ -11,18 +43,22 @@ function toBlob(wb: XLSX.WorkBook): Blob {
   });
 }
 
+// ─── Purchase order (inventory replenishment) ───────────────────────────
+
 export function generatePOSpreadsheet(
   proposals: ProposalItem[],
   eventName: string,
-  anchorDate: string
+  anchorDate: string,
+  isUSD = false
 ): Blob {
   const wb = XLSX.utils.book_new();
+  const sym = currencySymbol(isUSD);
 
   const poHeader = [
     [`Purchase Orders — ${eventName}`],
     [`Anchor date: ${anchorDate}`],
     [],
-    ['SKU ID', 'Product', 'Department', 'Reorder Qty', 'Value (₹L)', 'Priority'],
+    ['SKU ID', 'Product', 'Department', 'Reorder Qty', `Value (${scaledUnitLabel(isUSD)})`, 'Priority'],
   ];
   const poRows = proposals.map((p) => [
     p.sku_id,
@@ -49,6 +85,7 @@ export function generatePOSpreadsheet(
     ['2. Confirm supplier lead time is within 20 days.'],
     ['3. Send this file to procurement@retailer.com for issuance.'],
     ['4. Databricks inventory_intent flags have been set — do not double-order.'],
+    [`5. All amounts in ${sym}.`],
   ];
   const insSheet = XLSX.utils.aoa_to_sheet(instructions);
   insSheet['!merges'] = [{ s: { r: 0, c: 0 }, e: { r: 0, c: 3 } }];
@@ -57,12 +94,14 @@ export function generatePOSpreadsheet(
   return toBlob(wb);
 }
 
-export function generatePriceChangeCSV(proposals: ProposalItem[]): Blob {
+// ─── Price change ────────────────────────────────────────────────────────
+
+export function generatePriceChangeCSV(proposals: ProposalItem[], isUSD = false): Blob {
   const wb = XLSX.utils.book_new();
   const header = [
     [`Price Change Batch`],
     [],
-    ['SKU ID', 'Product', 'Department', 'Current Price', 'New Price', 'Change %', 'Revenue Impact (₹L)', 'Priority'],
+    ['SKU ID', 'Product', 'Department', 'Current Price', 'New Price', 'Change %', `Revenue Impact (${scaledUnitLabel(isUSD)})`, 'Priority'],
   ];
   const rows = proposals.map((p) => [
     p.sku_id,
@@ -83,8 +122,15 @@ export function generatePriceChangeCSV(proposals: ProposalItem[]): Blob {
   return toBlob(wb);
 }
 
-export function generateSupplierEmailHref(proposals: ProposalItem[], eventName: string): string {
+// ─── Email helpers ──────────────────────────────────────────────────────
+
+export function generateSupplierEmailHref(
+  proposals: ProposalItem[],
+  eventName: string,
+  isUSD = false
+): string {
   const subject = `Urgent PO for ${eventName} — ${proposals.length} SKUs`;
+  const totalScaled = proposals.reduce((s, p) => s + p.value_inr, 0);
   const bodyLines = [
     `Hello,`,
     ``,
@@ -92,7 +138,7 @@ export function generateSupplierEmailHref(proposals: ProposalItem[], eventName: 
     ``,
     ...proposals.slice(0, 10).map((p) => `- ${p.sku_id} ${p.product_name} — ${p.action_label}`),
     ``,
-    `Total value: ₹${proposals.reduce((s, p) => s + p.value_inr, 0).toFixed(1)}L`,
+    `Total value: ${formatScaledMoney(totalScaled, isUSD)}`,
     ``,
     `Full spreadsheet attached.`,
     ``,
@@ -103,7 +149,8 @@ export function generateSupplierEmailHref(proposals: ProposalItem[], eventName: 
   return `mailto:procurement@retailer.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
-export function generateStoreOpsEmailHref(proposals: ProposalItem[]): string {
+export function generateStoreOpsEmailHref(proposals: ProposalItem[], _isUSD = false): string {
+  void _isUSD;
   const subject = `Price change batch — ${proposals.length} SKUs (POS refresh required)`;
   const bodyLines = [
     `Store Ops,`,
@@ -123,20 +170,22 @@ export function generateStoreOpsEmailHref(proposals: ProposalItem[]): string {
 
 // ─── Campaign pause ─────────────────────────────────────────────────────
 
-export function generateCampaignMemoXlsx(proposals: ProposalItem[]): Blob {
+export function generateCampaignMemoXlsx(proposals: ProposalItem[], isUSD = false): Blob {
   const wb = XLSX.utils.book_new();
+  const unit = scaledUnitLabel(isUSD);
   const header = [
     ['Campaign Pause Request'],
     [`Generated: ${new Date().toISOString().slice(0, 10)}`],
     [],
-    ['Campaign', 'Mechanic', 'FR Ratio %', 'Waste ₹L', 'Incremental Revenue ₹L', 'ROI', 'Recommended Action'],
+    ['Campaign', 'Mechanic', 'FR Ratio %', `Waste ${unit}`, `Incremental Revenue ${unit}`, 'ROI', 'Recommended Action'],
   ];
+  const scaleDivisor = isUSD ? 1000 : 100000;
   const rows = proposals.map((p) => {
     const mechanic = String(p.metadata.mechanic ?? '');
     const fr = Number(p.metadata.free_rider_pct ?? 0);
     const spend = Number(p.metadata.spend_inr ?? 0);
-    const waste = parseFloat(((spend * fr) / 100 / 100000).toFixed(2));
-    const inc = parseFloat((Number(p.metadata.incremental_revenue ?? 0) / 100000).toFixed(2));
+    const waste = parseFloat(((spend * fr) / 100 / scaleDivisor).toFixed(2));
+    const inc = parseFloat((Number(p.metadata.incremental_revenue ?? 0) / scaleDivisor).toFixed(2));
     const roi = String(p.metadata.roi ?? '');
     return [p.product_name, mechanic, fr, waste, inc, roi, 'Pause campaign — review targeting'];
   });
@@ -158,7 +207,7 @@ export function generateCampaignMemoXlsx(proposals: ProposalItem[]): Blob {
   return toBlob(wb);
 }
 
-export function generatePromoTeamEmailHref(proposals: ProposalItem[]): string {
+export function generatePromoTeamEmailHref(proposals: ProposalItem[], isUSD = false): string {
   const subject = `Campaign Pause Request — Free-Rider Threshold Exceeded`;
   const totalWaste = proposals.reduce((s, p) => {
     const fr = Number(p.metadata.free_rider_pct ?? 0);
@@ -170,14 +219,12 @@ export function generatePromoTeamEmailHref(proposals: ProposalItem[]): string {
     ``,
     `The following ${proposals.length} live campaigns have exceeded the 50% free-rider threshold. Requesting immediate pause pending re-targeting review:`,
     ``,
-    ...proposals.map(
-      (p) =>
-        `- ${p.product_name} (${p.metadata.mechanic}) — FR ${p.metadata.free_rider_pct}% — waste ≈ ₹${(
-          (Number(p.metadata.spend_inr ?? 0) * Number(p.metadata.free_rider_pct ?? 0)) / 100 / 100000
-        ).toFixed(1)}L`
-    ),
+    ...proposals.map((p) => {
+      const waste = (Number(p.metadata.spend_inr ?? 0) * Number(p.metadata.free_rider_pct ?? 0)) / 100;
+      return `- ${p.product_name} (${p.metadata.mechanic}) — FR ${p.metadata.free_rider_pct}% — waste ≈ ${formatMoney(waste, isUSD)}`;
+    }),
     ``,
-    `Total waste being avoided: ₹${(totalWaste / 100000).toFixed(1)}L`,
+    `Total waste being avoided: ${formatMoney(totalWaste, isUSD)}`,
     ``,
     `Detailed memo attached.`,
     ``,
@@ -189,8 +236,9 @@ export function generatePromoTeamEmailHref(proposals: ProposalItem[]): string {
 
 // ─── Markdown execution ─────────────────────────────────────────────────
 
-export function generateMarkdownInstructionXlsx(proposals: ProposalItem[]): Blob {
+export function generateMarkdownInstructionXlsx(proposals: ProposalItem[], isUSD = false): Blob {
   const wb = XLSX.utils.book_new();
+  const sym = currencySymbol(isUSD);
   const header = [
     ['Markdown Instructions'],
     [`Generated: ${new Date().toISOString().slice(0, 10)}`],
@@ -199,8 +247,8 @@ export function generateMarkdownInstructionXlsx(proposals: ProposalItem[]): Blob
       'SKU ID',
       'Product',
       'Department',
-      'Current Price ₹',
-      'New Price ₹',
+      `Current Price ${sym}`,
+      `New Price ${sym}`,
       'Markdown %',
       'Days Remaining',
       'Current ST%',
@@ -233,7 +281,7 @@ export function generateMarkdownInstructionXlsx(proposals: ProposalItem[]): Blob
   const waRows: (string | number)[][] = [];
   proposals.forEach((p) => {
     const depth = Math.abs(Number(p.metadata.recommended_depth ?? 0));
-    const msg = `Retail 360: Markdown ${p.sku_id} ${p.product_name} by ${depth}% (₹${p.metadata.current_price}→₹${p.metadata.recommended_price}). Apply POS + shelf tag by 9am tomorrow. Priority ${p.priority.toUpperCase()}.`;
+    const msg = `Retail 360: Markdown ${p.sku_id} ${p.product_name} by ${depth}% (${sym}${p.metadata.current_price}→${sym}${p.metadata.recommended_price}). Apply POS + shelf tag by 9am tomorrow. Priority ${p.priority.toUpperCase()}.`;
     waRows.push([p.sku_id, p.product_name, msg]);
     waRows.push([]);
   });
@@ -243,7 +291,8 @@ export function generateMarkdownInstructionXlsx(proposals: ProposalItem[]): Blob
   return toBlob(wb);
 }
 
-export function generateStoreManagerEmailHref(proposals: ProposalItem[]): string {
+export function generateStoreManagerEmailHref(proposals: ProposalItem[], isUSD = false): string {
+  const sym = currencySymbol(isUSD);
   const subject = `Markdown Action Required — ${proposals.length} SKUs — Please action by tomorrow 9am`;
   const body = [
     `Store managers,`,
@@ -252,7 +301,7 @@ export function generateStoreManagerEmailHref(proposals: ProposalItem[]): string
     ``,
     ...proposals.map(
       (p) =>
-        `- ${p.sku_id} ${p.product_name}: ${p.action_label} (₹${p.metadata.current_price} → ₹${p.metadata.recommended_price})`
+        `- ${p.sku_id} ${p.product_name}: ${p.action_label} (${sym}${p.metadata.current_price} → ${sym}${p.metadata.recommended_price})`
     ),
     ``,
     `Full instruction file + WhatsApp templates attached.`,
@@ -275,9 +324,12 @@ export function calculateTargetCostReduction(sku: {
 }
 
 export function generateRFQSpreadsheet(
-  proposals: ProposalItem[]
+  proposals: ProposalItem[],
+  isUSD = false
 ): { blob: Blob; reference: string; deadlineISO: string } {
   const wb = XLSX.utils.book_new();
+  const sym = currencySymbol(isUSD);
+  const currencyName = isUSD ? 'USD' : 'INR';
   const now = new Date();
   const year = now.getFullYear();
   const seq = String(Math.floor(1000 + Math.random() * 9000));
@@ -302,11 +354,11 @@ export function generateRFQSpreadsheet(
       'SKU ID',
       'Product Description',
       'Department',
-      'Current Cost ₹',
+      `Current Cost ${sym}`,
       'Current Margin %',
       'Target Margin %',
       'Required Cost Reduction %',
-      'Target Cost ₹',
+      `Target Cost ${sym}`,
       'Annual Volume (est)',
       'Priority',
     ],
@@ -330,7 +382,7 @@ export function generateRFQSpreadsheet(
   });
   rows.push([]);
   rows.push(['TERMS & CONDITIONS']);
-  rows.push(['1. Prices to be quoted in INR, inclusive of applicable taxes.']);
+  rows.push([`1. Prices to be quoted in ${currencyName}, inclusive of applicable taxes.`]);
   rows.push(['2. Payment terms: Net 30 from date of invoice.']);
   rows.push([`3. Response required by ${deadlineISO} EOB.`]);
   rows.push(['4. Please email quote to procurement@retailer.com.']);
@@ -344,8 +396,10 @@ export function generateRFQSpreadsheet(
 export function generateSupplierNegotiationEmailHref(
   proposals: ProposalItem[],
   reference: string,
-  deadlineISO: string
+  deadlineISO: string,
+  isUSD = false
 ): string {
+  const sym = currencySymbol(isUSD);
   const subject = `RFQ ${reference} — Revised Pricing Request — Response Required by ${deadlineISO}`;
   const body = [
     `Dear Supplier,`,
@@ -356,7 +410,7 @@ export function generateSupplierNegotiationEmailHref(
     ``,
     ...proposals.map(
       (p) =>
-        `- ${p.sku_id} ${p.product_name}: current cost ₹${p.metadata.cost_inr}, current margin ${p.metadata.current_margin}% vs target ${p.metadata.target_margin}%`
+        `- ${p.sku_id} ${p.product_name}: current cost ${sym}${p.metadata.cost_inr}, current margin ${p.metadata.current_margin}% vs target ${p.metadata.target_margin}%`
     ),
     ``,
     `Ask: Please respond with best terms (cost reduction of ~${proposals[0]?.metadata.target_cost_reduction_pct ?? 8}% required) by ${deadlineISO}.`,
@@ -371,9 +425,10 @@ export function generateSupplierNegotiationEmailHref(
 
 // ─── Weekly brief ───────────────────────────────────────────────────────
 
-export function generateWeeklyBriefXlsx(core: PriceIntelCore): Blob {
+export function generateWeeklyBriefXlsx(core: PriceIntelCore, isUSD = false): Blob {
   const wb = XLSX.utils.book_new();
   const k = core.kpis;
+  const sym = currencySymbol(isUSD);
 
   // Sheet 1 — Executive Summary
   const execRows: (string | number)[][] = [
@@ -381,7 +436,7 @@ export function generateWeeklyBriefXlsx(core: PriceIntelCore): Blob {
     [`Generated: ${new Date().toISOString().slice(0, 10)}`],
     [],
     ['Metric', 'Value'],
-    ['Total margin leakage (₹)', k.total_margin_leakage_inr ?? 0],
+    [`Total margin leakage (${sym})`, k.total_margin_leakage_inr ?? 0],
     ['Margin realization %', k.margin_realization_pct ?? 0],
     ['Margin realization trend (pp)', k.margin_realization_trend ?? 0],
     ['Promo ROI index', k.promo_roi_index ?? 0],
@@ -403,7 +458,7 @@ export function generateWeeklyBriefXlsx(core: PriceIntelCore): Blob {
   const campRows: (string | number)[][] = [
     ['Campaign Performance'],
     [],
-    ['Campaign', 'Mechanic', 'Status', 'Spend ₹', 'ROI', 'FR %', 'Incremental Revenue ₹', 'Net Incremental ₹'],
+    ['Campaign', 'Mechanic', 'Status', `Spend ${sym}`, 'ROI', 'FR %', `Incremental Revenue ${sym}`, `Net Incremental ${sym}`],
   ];
   core.campaigns.forEach((c) =>
     campRows.push([
@@ -422,7 +477,7 @@ export function generateWeeklyBriefXlsx(core: PriceIntelCore): Blob {
   XLSX.utils.book_append_sheet(wb, s2, 'Campaign Performance');
 
   // Sheet 3 — What's Coming
-  const nextRows: (string | number)[][] = [["What's Coming — Next 14 days"], [], ['Week', 'Event / Note', 'Forecast Revenue ₹', 'Forecast Margin ₹']];
+  const nextRows: (string | number)[][] = [["What's Coming — Next 14 days"], [], ['Week', 'Event / Note', `Forecast Revenue ${sym}`, `Forecast Margin ${sym}`]];
   (core.forecast_14w ?? []).slice(0, 2).forEach((f) =>
     nextRows.push([f.week_label, f.event_label ?? '—', f.forecast_revenue_inr, f.forecast_margin_inr])
   );
@@ -433,18 +488,19 @@ export function generateWeeklyBriefXlsx(core: PriceIntelCore): Blob {
   return toBlob(wb);
 }
 
-export function generateWeeklyBriefEmailHref(core: PriceIntelCore, weekOf: string): string {
+export function generateWeeklyBriefEmailHref(core: PriceIntelCore, weekOf: string, isUSD = false): string {
   const k = core.kpis;
   const alerts = k.active_alerts ?? 0;
-  const leakL = ((k.total_margin_leakage_inr ?? 0) / 100000).toFixed(1);
-  const subject = `Weekly Pricing Brief — ${weekOf} — ${alerts} alerts · ₹${leakL}L leakage`;
+  const leakageValue = k.total_margin_leakage_inr ?? 0;
+  const leakageDisplay = formatMoney(leakageValue, isUSD);
+  const subject = `Weekly Pricing Brief — ${weekOf} — ${alerts} alerts · ${leakageDisplay} leakage`;
   const body = [
     `Team,`,
     ``,
     `Weekly pricing brief for week of ${weekOf} attached.`,
     ``,
     `Headline: ${core.headline?.sentence ?? 'See brief'}`,
-    `Margin leakage: ₹${leakL}L`,
+    `Margin leakage: ${leakageDisplay}`,
     `Active alerts: ${alerts}`,
     `Promo ROI: ${k.promo_roi_index ?? 0}/100`,
     `Sell-through: ${k.sell_through_pct ?? 0}%`,
@@ -456,20 +512,22 @@ export function generateWeeklyBriefEmailHref(core: PriceIntelCore, weekOf: strin
   return `mailto:leadership@retailer.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
-export function generateVPSummary(core: PriceIntelCore): string {
+export function generateVPSummary(core: PriceIntelCore, isUSD = false): string {
   const k = core.kpis;
   const now = new Date();
   const start = new Date(now.getFullYear(), 0, 1);
   const weekNum = Math.ceil(((now.getTime() - start.getTime()) / 86400000 + 1) / 7);
-  const leak = ((k.total_margin_leakage_inr ?? 0) / 100000).toFixed(1);
+  const leakageDisplay = formatMoney(k.total_margin_leakage_inr ?? 0, isUSD);
   const alerts = k.active_alerts ?? 0;
   const urgent = (core.action_queue ?? []).filter((a) => a.priority === 'urgent').length;
   const roi = k.promo_roi_index ?? 0;
   const st = k.sell_through_pct ?? 0;
   const top = core.action_queue?.[0]?.recommended_action ?? 'No urgent items';
-  const raw = `Retail 360 WK${weekNum}: ₹${leak}L leakage, ${alerts} alerts (${urgent} urgent), ROI ${roi}/100, ST ${st}%. Top: ${top.slice(0, 40)}...`;
+  const raw = `Retail 360 WK${weekNum}: ${leakageDisplay} leakage, ${alerts} alerts (${urgent} urgent), ROI ${roi}/100, ST ${st}%. Top: ${top.slice(0, 40)}...`;
   return raw.slice(0, 160);
 }
+
+// ─── Download helper ────────────────────────────────────────────────────
 
 export function downloadBlob(blob: Blob, filename: string): void {
   const url = URL.createObjectURL(blob);

@@ -16,6 +16,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { NextResponse, type NextRequest } from 'next/server';
 import { dispatchTypedTool, type TypedToolName } from '@/app/lib/dbx-tools';
 import { TENANT_COOKIE, type Tenant } from '@/app/lib/tenant-constants';
+import type { UIComponentType } from '@/app/lib/types';
 
 // ── Anthropic client init (mirrors chat/route.ts) ──────────────────────────
 
@@ -48,7 +49,19 @@ export function detectTenant(req: NextRequest): Tenant {
   const cookieHeader = req.headers.get('cookie') ?? '';
   const match = cookieHeader.split(/;\s*/).find((c) => c.startsWith(`${TENANT_COOKIE}=`));
   const value = match?.split('=')[1];
-  return value === 'us_apparel' ? 'us_apparel' : 'india_grocery';
+  if (value === 'us_apparel') return 'us_apparel';
+  if (value === 'us_retail') return 'us_retail';
+  return 'india_grocery';
+}
+
+function tenantContextForPrompt(tenant: Tenant): string {
+  if (tenant === 'us_retail') {
+    return `\n\n## Tenant context — Meridian Retail (US general retail)\nAll currency is USD ($). NEVER use ₹, lakhs, or crores. 7 departments: Electronics, Apparel & Shoes, Home & Garden, Sports & Outdoor, Beauty & Personal, Grocery & Snacks, Toys & Games. Channels: In-Store, Online, App, Curbside, Marketplace. Anchor date 2026-05-17. Key events: Memorial Day, July 4, Back to School, Labor Day, Halloween, Black Friday, Cyber Monday. NEVER reference Eid, Diwali, Monsoon, or Indian cities. There is NO live Databricks connection in this tenant — reason from the tenant context and the user's dashboard state provided in the prompt.`;
+  }
+  if (tenant === 'us_apparel') {
+    return `\n\n## Tenant context — US apparel\nAll currency is USD ($). NEVER use ₹, lakhs, or crores. Departments: Mens/Womens/Kids/Footwear/Accessories. Key events: BTS, BFCM, Holiday, Memorial Day, July 4. There is NO live Databricks connection in this tenant — reason from the tenant context.`;
+  }
+  return '';
 }
 
 // ── SSE stream helper ──────────────────────────────────────────────────────
@@ -337,6 +350,55 @@ export function extractProposals(text: string): unknown {
   return JSON.parse(match[1]);
 }
 
+const VALID_COMPONENT_TYPES = new Set([
+  'bar_chart',
+  'line_chart',
+  'donut_chart',
+  'data_table',
+  'kpi_card',
+  'comparison',
+  'text_only',
+]);
+
+/**
+ * Extract the first ```components ...``` fenced block from Claude's final text.
+ * Returns an empty array if the block is missing or malformed — never throws.
+ */
+export function extractComponents(text: string): UIComponentType[] {
+  const match = text.match(/```components\s*\n([\s\S]*?)```/);
+  if (!match) return [];
+  try {
+    const parsed = JSON.parse(match[1]);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter(
+      (c) => c && typeof c === 'object' && typeof c.type === 'string' && VALID_COMPONENT_TYPES.has(c.type),
+    ) as UIComponentType[];
+  } catch {
+    return [];
+  }
+}
+
+const COMPONENTS_APPENDIX = `
+
+After the \`\`\`proposals block, also return a \`\`\`components block with 2-3 charts visualizing the same data:
+
+\`\`\`components
+[
+  { "type": "bar_chart", "title": "SKU stock levels", "data": [{"name": "SKU name", "value": 1.8}], "x_key": "name", "y_key": "value" },
+  { "type": "kpi_card", "label": "Total at risk", "value": "₹9.5L", "direction": "down" }
+]
+\`\`\`
+
+Match the chart data to the proposals:
+- inventory: bar chart of weeks_of_supply per SKU
+- campaigns: bar chart of free_rider_pct per campaign
+- markdown: bar chart of current_st_pct vs target per SKU
+- price change: bar chart of revenue_impact_lakhs per SKU
+- rfq: bar chart of target_cost_reduction_pct per SKU
+- weekly: 2-3 KPI cards from the summary block
+
+Use real numbers from your tool results. Return at most 3 components.`;
+
 // ── High-level route factory used by all 6 action-agent routes ─────────────
 
 export interface ActionAgentRouteConfig {
@@ -350,7 +412,32 @@ export function createActionAgentRoute(cfg: ActionAgentRouteConfig) {
     const { client, model } = initAnthropicClient();
     if (!client) return NextResponse.json({ error: 'No API key configured' }, { status: 500 });
 
-    detectTenant(req);
+    let tenant = detectTenant(req);
+    let userInstructions: string | undefined;
+    try {
+      const body = (await req.json()) as { user_instructions?: string; tenant?: Tenant };
+      userInstructions = body?.user_instructions?.trim() || undefined;
+      if (body?.tenant === 'us_apparel' || body?.tenant === 'us_retail' || body?.tenant === 'india_grocery') {
+        tenant = body.tenant;
+      }
+    } catch { /* no body — leave undefined */ }
+    const isUSD = tenant === 'us_apparel' || tenant === 'us_retail';
+    // For USD tenants, avoid Eid framing in the prompt (spec: substitute Black Friday / Holiday).
+    let effectiveUserPrompt = cfg.userPrompt;
+    if (isUSD) {
+      effectiveUserPrompt = effectiveUserPrompt
+        .replace(/Eid al-Adha/gi, 'Black Friday')
+        .replace(/Eid/gi, 'Holiday')
+        .replace(/Diwali/gi, 'Black Friday')
+        .replace(/₹/g, '$')
+        .replace(/lakhs?/gi, 'thousand')
+        .replace(/crores?/gi, 'million');
+    }
+    const finalUserPrompt = userInstructions
+      ? `${effectiveUserPrompt}\n\nUser instructions: "${userInstructions}"\nAdjust your proposals to follow these instructions exactly.`
+      : effectiveUserPrompt;
+    const effectiveSystemPrompt = tenantContextForPrompt(tenant) + cfg.systemPrompt;
+
     const { stream, send, close } = createSSEStream();
 
     (async () => {
@@ -359,9 +446,10 @@ export function createActionAgentRoute(cfg: ActionAgentRouteConfig) {
         const finalText = await runAgentLoop(
           client,
           model,
-          cfg.systemPrompt,
-          cfg.userPrompt,
-          getActionAgentTools(),
+          effectiveSystemPrompt + COMPONENTS_APPENDIX,
+          finalUserPrompt,
+          // USD tenants have no Databricks access — Claude reasons purely from prompt context.
+          isUSD ? [] : getActionAgentTools(),
           (text) => send({ type: 'thinking', text }),
           (tool, input) => send({ type: 'tool_call', tool, input }),
           (tool, result) => send({ type: 'tool_result', tool, summary: summarize(result) }),
@@ -375,6 +463,10 @@ export function createActionAgentRoute(cfg: ActionAgentRouteConfig) {
             type: 'error',
             text: `Could not parse proposals: ${e instanceof Error ? e.message : String(e)}`,
           });
+        }
+        const components = extractComponents(finalText);
+        if (components.length > 0) {
+          send({ type: 'components', data: components });
         }
         send({ type: 'done' });
       } catch (err) {

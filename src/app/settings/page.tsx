@@ -72,6 +72,12 @@ const TENANT_OPTIONS: { id: Tenant; flag: string; title: string; subtitle: strin
     title: 'US · Apparel',
     subtitle: 'US apparel retailer · $ amounts (CX360 module only — other modules stay India)',
   },
+  {
+    id: 'us_retail',
+    flag: '🛒',
+    title: 'US · General Retail',
+    subtitle: 'Meridian Retail · 85 stores · Electronics, Apparel, Home',
+  },
 ];
 
 export default function SettingsPage() {

@@ -19,8 +19,8 @@ import type { PriceIntelSKU, PriceIntelSKUDetail } from '@/app/lib/price-intel-t
 import { useTenant } from '@/app/context/TenantContext';
 import { formatMoneyAuto, getLocaleAuto } from '@/app/lib/format-money';
 
-function moneySymbol(isApparel: boolean): string {
-  return isApparel ? '$' : '₹';
+function moneySymbol(isUSD: boolean): string {
+  return isUSD ? '$' : '₹';
 }
 
 interface WhatIfResult {
@@ -58,8 +58,8 @@ const PRI_COLORS: Record<string, string> = {
 };
 
 export default function PriceIntelSKUDrawer({ skuId, sku, onClose }: Props) {
-  const { isApparel } = useTenant();
-  const sym = moneySymbol(isApparel);
+  const { isApparel, isRetail } = useTenant();
+  const sym = moneySymbol(isApparel || isRetail);
   const [detail, setDetail] = useState<PriceIntelSKUDetail | null>(null);
   const [notAvailable, setNotAvailable] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -277,7 +277,7 @@ export default function PriceIntelSKUDrawer({ skuId, sku, onClose }: Props) {
                   formatter={(value: unknown, name: unknown): [string, string] => {
                     const v = value as number;
                     if (name === 'price_inr') return [`${sym}${v}`, 'Price'];
-                    if (name === 'mrp_inr') return [`${sym}${v}`, isApparel ? 'MSRP' : 'MRP'];
+                    if (name === 'mrp_inr') return [`${sym}${v}`, (isApparel || isRetail) ? 'MSRP' : 'MRP'];
                     if (name === 'cost_inr') return [`${sym}${v}`, 'Cost'];
                     return [String(v), String(name)];
                   }}

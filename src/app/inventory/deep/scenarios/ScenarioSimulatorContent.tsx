@@ -299,7 +299,7 @@ function TimingBadge({ timing }: { timing: string }) {
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export default function ScenarioSimulatorContent() {
-  const { isApparel } = useTenant();
+  const { isApparel, isRetail } = useTenant();
   const SCENARIO_PRESETS = buildScenarioPresets(isApparel);
   const QUICK_PRESETS = buildQuickPresets(isApparel);
   const [selectedScenarioId, setSelectedScenarioId] = useState<string>('supplier_delay');

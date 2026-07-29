@@ -1,0 +1,616 @@
+{
+  "summary": {
+    "in_transit": {
+      "count": 11,
+      "value_cr": 8.0
+    },
+    "delayed": {
+      "count": 4,
+      "value_cr": 2.8,
+      "avg_delay_days": 2.5
+    },
+    "due_this_week": {
+      "count": 9,
+      "value_cr": 6.2
+    },
+    "on_time_probability_pct": 64.2
+  },
+  "gantt_14d": [
+    {
+      "shipment_id": "SHP-001",
+      "supplier": "Amul (GCMMF)",
+      "category": "Dairy & Frozen",
+      "store_name": "Delhi NCR Hypermarket 1",
+      "city": "Delhi NCR",
+      "expected_date": "2026-05-01",
+      "value_cr": 1.23,
+      "status": "at_risk",
+      "skus_count": 6,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-002",
+      "supplier": "Hindustan Unilever Ltd",
+      "category": "Personal Care",
+      "store_name": "Mumbai Hypermarket 2",
+      "city": "Mumbai",
+      "expected_date": "2026-05-08",
+      "value_cr": 0.87,
+      "status": "scheduled",
+      "skus_count": 28,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-003",
+      "supplier": "ITC Limited",
+      "category": "Snacks & Beverages",
+      "store_name": "Bangalore Hypermarket 3",
+      "city": "Bangalore",
+      "expected_date": "2026-04-30",
+      "value_cr": 0.52,
+      "status": "on_track",
+      "skus_count": 15,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-004",
+      "supplier": "Nestlé India",
+      "category": "Snacks & Beverages",
+      "store_name": "Chennai Hypermarket 1",
+      "city": "Chennai",
+      "expected_date": "2026-05-05",
+      "value_cr": 0.77,
+      "status": "delayed",
+      "skus_count": 16,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-005",
+      "supplier": "Tata Consumer Products",
+      "category": "Grocery & Staples",
+      "store_name": "Pune Hypermarket 2",
+      "city": "Pune",
+      "expected_date": "2026-04-29",
+      "value_cr": 1.11,
+      "status": "on_track",
+      "skus_count": 15,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-006",
+      "supplier": "Marico Ltd",
+      "category": "Personal Care",
+      "store_name": "Delhi NCR Hypermarket 3",
+      "city": "Delhi NCR",
+      "expected_date": "2026-05-10",
+      "value_cr": 0.9,
+      "status": "at_risk",
+      "skus_count": 7,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-007",
+      "supplier": "Parle Products",
+      "category": "Snacks & Beverages",
+      "store_name": "Mumbai Hypermarket 1",
+      "city": "Mumbai",
+      "expected_date": "2026-04-28",
+      "value_cr": 0.31,
+      "status": "scheduled",
+      "skus_count": 14,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-008",
+      "supplier": "Britannia Industries",
+      "category": "Snacks & Beverages",
+      "store_name": "Bangalore Hypermarket 2",
+      "city": "Bangalore",
+      "expected_date": "2026-04-27",
+      "value_cr": 0.47,
+      "status": "at_risk",
+      "skus_count": 10,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-009",
+      "supplier": "Patanjali Ayurved",
+      "category": "Grocery & Staples",
+      "store_name": "Chennai Hypermarket 3",
+      "city": "Chennai",
+      "expected_date": "2026-05-10",
+      "value_cr": 0.87,
+      "status": "at_risk",
+      "skus_count": 18,
+      "resolves_stockout": true
+    },
+    {
+      "shipment_id": "SHP-010",
+      "supplier": "Dabur India",
+      "category": "Personal Care",
+      "store_name": "Pune Hypermarket 1",
+      "city": "Pune",
+      "expected_date": "2026-05-06",
+      "value_cr": 0.56,
+      "status": "delayed",
+      "skus_count": 21,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-011",
+      "supplier": "Samsung India",
+      "category": "Electronics",
+      "store_name": "Delhi NCR Hypermarket 2",
+      "city": "Delhi NCR",
+      "expected_date": "2026-05-04",
+      "value_cr": 0.51,
+      "status": "on_track",
+      "skus_count": 6,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-012",
+      "supplier": "Godrej Consumer",
+      "category": "Personal Care",
+      "store_name": "Mumbai Hypermarket 3",
+      "city": "Mumbai",
+      "expected_date": "2026-04-27",
+      "value_cr": 0.58,
+      "status": "on_track",
+      "skus_count": 28,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-013",
+      "supplier": "Amul (GCMMF)",
+      "category": "Dairy & Frozen",
+      "store_name": "Bangalore Hypermarket 1",
+      "city": "Bangalore",
+      "expected_date": "2026-05-02",
+      "value_cr": 1.11,
+      "status": "on_track",
+      "skus_count": 4,
+      "resolves_stockout": true
+    },
+    {
+      "shipment_id": "SHP-014",
+      "supplier": "Hindustan Unilever Ltd",
+      "category": "Personal Care",
+      "store_name": "Chennai Hypermarket 2",
+      "city": "Chennai",
+      "expected_date": "2026-05-05",
+      "value_cr": 0.95,
+      "status": "on_track",
+      "skus_count": 26,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-015",
+      "supplier": "ITC Limited",
+      "category": "Snacks & Beverages",
+      "store_name": "Pune Hypermarket 3",
+      "city": "Pune",
+      "expected_date": "2026-05-10",
+      "value_cr": 0.7,
+      "status": "on_track",
+      "skus_count": 23,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-016",
+      "supplier": "Nestlé India",
+      "category": "Snacks & Beverages",
+      "store_name": "Delhi NCR Hypermarket 1",
+      "city": "Delhi NCR",
+      "expected_date": "2026-05-04",
+      "value_cr": 0.27,
+      "status": "scheduled",
+      "skus_count": 23,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-017",
+      "supplier": "Tata Consumer Products",
+      "category": "Grocery & Staples",
+      "store_name": "Mumbai Hypermarket 2",
+      "city": "Mumbai",
+      "expected_date": "2026-05-08",
+      "value_cr": 0.48,
+      "status": "on_track",
+      "skus_count": 20,
+      "resolves_stockout": true
+    },
+    {
+      "shipment_id": "SHP-018",
+      "supplier": "Marico Ltd",
+      "category": "Personal Care",
+      "store_name": "Bangalore Hypermarket 3",
+      "city": "Bangalore",
+      "expected_date": "2026-05-03",
+      "value_cr": 1.11,
+      "status": "on_track",
+      "skus_count": 28,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-019",
+      "supplier": "Parle Products",
+      "category": "Snacks & Beverages",
+      "store_name": "Chennai Hypermarket 1",
+      "city": "Chennai",
+      "expected_date": "2026-05-04",
+      "value_cr": 0.98,
+      "status": "scheduled",
+      "skus_count": 14,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-020",
+      "supplier": "Britannia Industries",
+      "category": "Snacks & Beverages",
+      "store_name": "Pune Hypermarket 2",
+      "city": "Pune",
+      "expected_date": "2026-05-09",
+      "value_cr": 0.36,
+      "status": "scheduled",
+      "skus_count": 9,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-021",
+      "supplier": "Patanjali Ayurved",
+      "category": "Grocery & Staples",
+      "store_name": "Delhi NCR Hypermarket 3",
+      "city": "Delhi NCR",
+      "expected_date": "2026-05-08",
+      "value_cr": 1.19,
+      "status": "delayed",
+      "skus_count": 23,
+      "resolves_stockout": true
+    },
+    {
+      "shipment_id": "SHP-022",
+      "supplier": "Dabur India",
+      "category": "Personal Care",
+      "store_name": "Mumbai Hypermarket 1",
+      "city": "Mumbai",
+      "expected_date": "2026-04-29",
+      "value_cr": 1.2,
+      "status": "scheduled",
+      "skus_count": 17,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-023",
+      "supplier": "Samsung India",
+      "category": "Electronics",
+      "store_name": "Bangalore Hypermarket 2",
+      "city": "Bangalore",
+      "expected_date": "2026-05-03",
+      "value_cr": 0.53,
+      "status": "scheduled",
+      "skus_count": 24,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-024",
+      "supplier": "Godrej Consumer",
+      "category": "Personal Care",
+      "store_name": "Chennai Hypermarket 3",
+      "city": "Chennai",
+      "expected_date": "2026-05-10",
+      "value_cr": 1.09,
+      "status": "at_risk",
+      "skus_count": 25,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-025",
+      "supplier": "Amul (GCMMF)",
+      "category": "Dairy & Frozen",
+      "store_name": "Pune Hypermarket 1",
+      "city": "Pune",
+      "expected_date": "2026-05-05",
+      "value_cr": 0.97,
+      "status": "scheduled",
+      "skus_count": 27,
+      "resolves_stockout": true
+    },
+    {
+      "shipment_id": "SHP-026",
+      "supplier": "Hindustan Unilever Ltd",
+      "category": "Personal Care",
+      "store_name": "Delhi NCR Hypermarket 2",
+      "city": "Delhi NCR",
+      "expected_date": "2026-04-27",
+      "value_cr": 0.28,
+      "status": "on_track",
+      "skus_count": 12,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-027",
+      "supplier": "ITC Limited",
+      "category": "Snacks & Beverages",
+      "store_name": "Mumbai Hypermarket 3",
+      "city": "Mumbai",
+      "expected_date": "2026-05-10",
+      "value_cr": 0.79,
+      "status": "at_risk",
+      "skus_count": 10,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-028",
+      "supplier": "Nestlé India",
+      "category": "Snacks & Beverages",
+      "store_name": "Bangalore Hypermarket 1",
+      "city": "Bangalore",
+      "expected_date": "2026-05-10",
+      "value_cr": 1.19,
+      "status": "scheduled",
+      "skus_count": 6,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-029",
+      "supplier": "Tata Consumer Products",
+      "category": "Grocery & Staples",
+      "store_name": "Chennai Hypermarket 2",
+      "city": "Chennai",
+      "expected_date": "2026-04-28",
+      "value_cr": 1.0,
+      "status": "scheduled",
+      "skus_count": 22,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-030",
+      "supplier": "Marico Ltd",
+      "category": "Personal Care",
+      "store_name": "Pune Hypermarket 3",
+      "city": "Pune",
+      "expected_date": "2026-05-03",
+      "value_cr": 0.9,
+      "status": "delayed",
+      "skus_count": 4,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-031",
+      "supplier": "Parle Products",
+      "category": "Snacks & Beverages",
+      "store_name": "Delhi NCR Hypermarket 1",
+      "city": "Delhi NCR",
+      "expected_date": "2026-05-10",
+      "value_cr": 0.62,
+      "status": "at_risk",
+      "skus_count": 6,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-032",
+      "supplier": "Britannia Industries",
+      "category": "Snacks & Beverages",
+      "store_name": "Mumbai Hypermarket 2",
+      "city": "Mumbai",
+      "expected_date": "2026-05-10",
+      "value_cr": 0.66,
+      "status": "at_risk",
+      "skus_count": 28,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-033",
+      "supplier": "Patanjali Ayurved",
+      "category": "Grocery & Staples",
+      "store_name": "Bangalore Hypermarket 3",
+      "city": "Bangalore",
+      "expected_date": "2026-04-27",
+      "value_cr": 0.4,
+      "status": "at_risk",
+      "skus_count": 21,
+      "resolves_stockout": false
+    },
+    {
+      "shipment_id": "SHP-034",
+      "supplier": "Dabur India",
+      "category": "Personal Care",
+      "store_name": "Chennai Hypermarket 1",
+      "city": "Chennai",
+      "expected_date": "2026-04-30",
+      "value_cr": 0.53,
+      "status": "on_track",
+      "skus_count": 6,
+      "resolves_stockout": false
+    }
+  ],
+  "delayed_impact": [
+    {
+      "shipment_id": "SHP-004",
+      "supplier": "Nestlé India",
+      "category": "Snacks & Beverages",
+      "original_eta": "2026-04-25",
+      "new_eta": "2026-05-02",
+      "delay_days": 7,
+      "skus_affected": 14,
+      "stores_affected": 5,
+      "rev_at_risk_cr": 0.77,
+      "action_required": "Expedite logistics or source alternate"
+    },
+    {
+      "shipment_id": "SHP-010",
+      "supplier": "Dabur India",
+      "category": "Personal Care",
+      "original_eta": "2026-04-26",
+      "new_eta": "2026-05-01",
+      "delay_days": 5,
+      "skus_affected": 9,
+      "stores_affected": 3,
+      "rev_at_risk_cr": 0.56,
+      "action_required": "Chase supplier for dispatch confirmation"
+    },
+    {
+      "shipment_id": "SHP-021",
+      "supplier": "Patanjali Ayurved",
+      "category": "Grocery & Staples",
+      "original_eta": "2026-04-23",
+      "new_eta": "2026-04-30",
+      "delay_days": 7,
+      "skus_affected": 18,
+      "stores_affected": 6,
+      "rev_at_risk_cr": 1.19,
+      "action_required": "Escalate to procurement — chronic offender"
+    },
+    {
+      "shipment_id": "SHP-030",
+      "supplier": "Marico Ltd",
+      "category": "Personal Care",
+      "original_eta": "2026-04-27",
+      "new_eta": "2026-05-01",
+      "delay_days": 4,
+      "skus_affected": 7,
+      "stores_affected": 2,
+      "rev_at_risk_cr": 0.9,
+      "action_required": "Request alternate dispatch route"
+    }
+  ],
+  "receiving_capacity": [
+    {
+      "date": "2026-04-27",
+      "inbound_pallets": 212,
+      "capacity_pallets": 180,
+      "utilization_pct": 117.8,
+      "over_capacity": true
+    },
+    {
+      "date": "2026-04-28",
+      "inbound_pallets": 181,
+      "capacity_pallets": 180,
+      "utilization_pct": 100.6,
+      "over_capacity": true
+    },
+    {
+      "date": "2026-04-29",
+      "inbound_pallets": 157,
+      "capacity_pallets": 180,
+      "utilization_pct": 87.2,
+      "over_capacity": false
+    },
+    {
+      "date": "2026-04-30",
+      "inbound_pallets": 121,
+      "capacity_pallets": 180,
+      "utilization_pct": 67.2,
+      "over_capacity": false
+    },
+    {
+      "date": "2026-05-01",
+      "inbound_pallets": 214,
+      "capacity_pallets": 180,
+      "utilization_pct": 118.9,
+      "over_capacity": true
+    },
+    {
+      "date": "2026-05-02",
+      "inbound_pallets": 203,
+      "capacity_pallets": 180,
+      "utilization_pct": 112.8,
+      "over_capacity": true
+    },
+    {
+      "date": "2026-05-03",
+      "inbound_pallets": 120,
+      "capacity_pallets": 180,
+      "utilization_pct": 66.7,
+      "over_capacity": false
+    },
+    {
+      "date": "2026-05-04",
+      "inbound_pallets": 118,
+      "capacity_pallets": 180,
+      "utilization_pct": 65.6,
+      "over_capacity": false
+    },
+    {
+      "date": "2026-05-05",
+      "inbound_pallets": 181,
+      "capacity_pallets": 180,
+      "utilization_pct": 100.6,
+      "over_capacity": true
+    },
+    {
+      "date": "2026-05-06",
+      "inbound_pallets": 155,
+      "capacity_pallets": 180,
+      "utilization_pct": 86.1,
+      "over_capacity": false
+    },
+    {
+      "date": "2026-05-07",
+      "inbound_pallets": 197,
+      "capacity_pallets": 180,
+      "utilization_pct": 109.4,
+      "over_capacity": true
+    },
+    {
+      "date": "2026-05-08",
+      "inbound_pallets": 160,
+      "capacity_pallets": 180,
+      "utilization_pct": 88.9,
+      "over_capacity": false
+    },
+    {
+      "date": "2026-05-09",
+      "inbound_pallets": 159,
+      "capacity_pallets": 180,
+      "utilization_pct": 88.3,
+      "over_capacity": false
+    },
+    {
+      "date": "2026-05-10",
+      "inbound_pallets": 185,
+      "capacity_pallets": 180,
+      "utilization_pct": 102.8,
+      "over_capacity": true
+    }
+  ],
+  "reliability_by_city": [
+    {
+      "city": "Mumbai",
+      "on_time_pct": 84.2,
+      "avg_delay_days": 1.2,
+      "shipment_count": 124
+    },
+    {
+      "city": "Pune",
+      "on_time_pct": 81.8,
+      "avg_delay_days": 1.6,
+      "shipment_count": 48
+    },
+    {
+      "city": "Bangalore",
+      "on_time_pct": 76.4,
+      "avg_delay_days": 2.1,
+      "shipment_count": 86
+    },
+    {
+      "city": "Chennai",
+      "on_time_pct": 71.2,
+      "avg_delay_days": 2.8,
+      "shipment_count": 62
+    },
+    {
+      "city": "Delhi NCR",
+      "on_time_pct": 63.8,
+      "avg_delay_days": 3.9,
+      "shipment_count": 218
+    },
+    {
+      "city": "Ahmedabad",
+      "on_time_pct": 58.4,
+      "avg_delay_days": 4.8,
+      "shipment_count": 34
+    }
+  ]
+}
