@@ -1,0 +1,74 @@
+[
+  {
+    "month": "2025-01",
+    "stockout_count": "3802",
+    "total_count": "3943938",
+    "stockout_pct": "0.1"
+  },
+  {
+    "month": "2025-02",
+    "stockout_count": "361",
+    "total_count": "3586206",
+    "stockout_pct": "0.0"
+  },
+  {
+    "month": "2025-03",
+    "stockout_count": "20445",
+    "total_count": "4010107",
+    "stockout_pct": "0.5"
+  },
+  {
+    "month": "2025-04",
+    "stockout_count": "14214",
+    "total_count": "3896310",
+    "stockout_pct": "0.4"
+  },
+  {
+    "month": "2025-05",
+    "stockout_count": "9402",
+    "total_count": "4034727",
+    "stockout_pct": "0.2"
+  },
+  {
+    "month": "2025-06",
+    "stockout_count": "2551",
+    "total_count": "3910401",
+    "stockout_pct": "0.1"
+  },
+  {
+    "month": "2025-07",
+    "stockout_count": "127",
+    "total_count": "4063839",
+    "stockout_pct": "0.0"
+  },
+  {
+    "month": "2025-08",
+    "stockout_count": "6530",
+    "total_count": "4067727",
+    "stockout_pct": "0.2"
+  },
+  {
+    "month": "2025-09",
+    "stockout_count": "4570",
+    "total_count": "3936510",
+    "stockout_pct": "0.1"
+  },
+  {
+    "month": "2025-10",
+    "stockout_count": "11756",
+    "total_count": "4067727",
+    "stockout_pct": "0.3"
+  },
+  {
+    "month": "2025-11",
+    "stockout_count": "1308",
+    "total_count": "3936510",
+    "stockout_pct": "0.0"
+  },
+  {
+    "month": "2025-12",
+    "stockout_count": "960",
+    "total_count": "4076694",
+    "stockout_pct": "0.0"
+  }
+]

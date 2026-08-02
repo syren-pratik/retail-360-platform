@@ -36,7 +36,7 @@ function DeepDiveButton({ onClick }: { onClick: () => void }) {
 
 export default function OverviewTab({ core, onSKUSelect, persona }: Props) {
   const router = useRouter();
-  const { isApparel, isRetail } = useTenant();
+  const { isApparel } = useTenant();
 
   if (persona === 'vp_commercial') {
     return (

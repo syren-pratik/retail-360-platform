@@ -1,0 +1,242 @@
+[
+  {
+    "department": "Women's Tops",
+    "category": "Tees",
+    "avg_elasticity": "-0.62",
+    "product_count": "8",
+    "avg_margin": "57.4",
+    "avg_ragm": "44.7"
+  },
+  {
+    "department": "Women's Tops",
+    "category": "Blouses",
+    "avg_elasticity": "-1.41",
+    "product_count": "10",
+    "avg_margin": "60",
+    "avg_ragm": "46.8"
+  },
+  {
+    "department": "Women's Tops",
+    "category": "Sweaters",
+    "avg_elasticity": "-1.11",
+    "product_count": "7",
+    "avg_margin": "62.1",
+    "avg_ragm": "48.1"
+  },
+  {
+    "department": "Women's Tops",
+    "category": "Tanks",
+    "avg_elasticity": "-1.11",
+    "product_count": "11",
+    "avg_margin": "57.6",
+    "avg_ragm": "45.9"
+  },
+  {
+    "department": "Women's Bottoms",
+    "category": "Jeans",
+    "avg_elasticity": "-1.66",
+    "product_count": "6",
+    "avg_margin": "58.9",
+    "avg_ragm": "38.8"
+  },
+  {
+    "department": "Women's Bottoms",
+    "category": "Trousers",
+    "avg_elasticity": "-1.36",
+    "product_count": "10",
+    "avg_margin": "54.2",
+    "avg_ragm": "36.1"
+  },
+  {
+    "department": "Women's Bottoms",
+    "category": "Skirts",
+    "avg_elasticity": "-1.43",
+    "product_count": "14",
+    "avg_margin": "59.4",
+    "avg_ragm": "40.2"
+  },
+  {
+    "department": "Women's Bottoms",
+    "category": "Leggings",
+    "avg_elasticity": "-1.38",
+    "product_count": "2",
+    "avg_margin": "53.7",
+    "avg_ragm": "36.8"
+  },
+  {
+    "department": "Women's Dresses",
+    "category": "Sheath Dresses",
+    "avg_elasticity": "-1.13",
+    "product_count": "5",
+    "avg_margin": "58.7",
+    "avg_ragm": "41.3"
+  },
+  {
+    "department": "Women's Dresses",
+    "category": "Midi Dresses",
+    "avg_elasticity": "-1.37",
+    "product_count": "8",
+    "avg_margin": "62.2",
+    "avg_ragm": "46.8"
+  },
+  {
+    "department": "Women's Dresses",
+    "category": "Maxi Dresses",
+    "avg_elasticity": "-1.04",
+    "product_count": "8",
+    "avg_margin": "58.4",
+    "avg_ragm": "45.1"
+  },
+  {
+    "department": "Women's Dresses",
+    "category": "New Customer Dresses",
+    "avg_elasticity": "-1.76",
+    "product_count": "3",
+    "avg_margin": "59.1",
+    "avg_ragm": "45.5"
+  },
+  {
+    "department": "Men's Tops",
+    "category": "Tees",
+    "avg_elasticity": "-0.55",
+    "product_count": "4",
+    "avg_margin": "52",
+    "avg_ragm": "41.9"
+  },
+  {
+    "department": "Men's Tops",
+    "category": "Polos",
+    "avg_elasticity": "-1.36",
+    "product_count": "5",
+    "avg_margin": "58",
+    "avg_ragm": "49.4"
+  },
+  {
+    "department": "Men's Tops",
+    "category": "Button-Downs",
+    "avg_elasticity": "-1.52",
+    "product_count": "11",
+    "avg_margin": "55.2",
+    "avg_ragm": "46.6"
+  },
+  {
+    "department": "Men's Tops",
+    "category": "Sweaters",
+    "avg_elasticity": "-1.17",
+    "product_count": "8",
+    "avg_margin": "53.3",
+    "avg_ragm": "43.7"
+  },
+  {
+    "department": "Men's Bottoms",
+    "category": "Jeans",
+    "avg_elasticity": "-1.07",
+    "product_count": "4",
+    "avg_margin": "52.2",
+    "avg_ragm": "40.4"
+  },
+  {
+    "department": "Men's Bottoms",
+    "category": "Chinos",
+    "avg_elasticity": "-1.51",
+    "product_count": "5",
+    "avg_margin": "52.6",
+    "avg_ragm": "43.7"
+  },
+  {
+    "department": "Men's Bottoms",
+    "category": "Shorts",
+    "avg_elasticity": "-1.35",
+    "product_count": "5",
+    "avg_margin": "56.6",
+    "avg_ragm": "43.6"
+  },
+  {
+    "department": "Men's Bottoms",
+    "category": "Trousers",
+    "avg_elasticity": "-1.24",
+    "product_count": "10",
+    "avg_margin": "55.2",
+    "avg_ragm": "45.5"
+  },
+  {
+    "department": "Home & Garden'",
+    "category": "Tops",
+    "avg_elasticity": "-1.68",
+    "product_count": "6",
+    "avg_margin": "52.4",
+    "avg_ragm": "45.6"
+  },
+  {
+    "department": "Home & Garden'",
+    "category": "Bottoms",
+    "avg_elasticity": "-2.29",
+    "product_count": "2",
+    "avg_margin": "53.5",
+    "avg_ragm": "48.2"
+  },
+  {
+    "department": "Home & Garden'",
+    "category": "Sets",
+    "avg_elasticity": "-1.5",
+    "product_count": "6",
+    "avg_margin": "53",
+    "avg_ragm": "46"
+  },
+  {
+    "department": "Home & Garden'",
+    "category": "Outerwear",
+    "avg_elasticity": "-1.56",
+    "product_count": "6",
+    "avg_margin": "56.5",
+    "avg_ragm": "50.1"
+  },
+  {
+    "department": "Sports & Outdoor",
+    "category": "Sneakers",
+    "avg_elasticity": "-1.19",
+    "product_count": "4",
+    "avg_margin": "48.4",
+    "avg_ragm": "37.6"
+  },
+  {
+    "department": "Sports & Outdoor",
+    "category": "Boots",
+    "avg_elasticity": "-1.38",
+    "product_count": "9",
+    "avg_margin": "53.5",
+    "avg_ragm": "41.7"
+  },
+  {
+    "department": "Sports & Outdoor",
+    "category": "Sandals",
+    "avg_elasticity": "-1.48",
+    "product_count": "5",
+    "avg_margin": "44.3",
+    "avg_ragm": "33.7"
+  },
+  {
+    "department": "Sports & Outdoor",
+    "category": "Dress Shoes",
+    "avg_elasticity": "-1.36",
+    "product_count": "6",
+    "avg_margin": "53.7",
+    "avg_ragm": "42"
+  },
+  {
+    "department": "Beauty & Personal",
+    "category": "Bags",
+    "avg_elasticity": "-1.25",
+    "product_count": "5",
+    "avg_margin": "63.2",
+    "avg_ragm": "60.1"
+  },
+  {
+    "department": "Beauty & Personal",
+    "category": "Belts",
+    "avg_elasticity": "-1.44",
+    "product_count": "7",
+    "avg_margin": "63.6",
+    "avg_ragm": "59.4"
+  }
+]

@@ -56,7 +56,7 @@ const TIME_PERIODS = ['30d', '90d', '6m', '12m'];
 
 export default function InventoryFilterBar() {
   const { filters, setFilters, resetFilters, setRole } = useInventory();
-  const { isApparel, isRetail } = useTenant();
+  const { isApparel } = useTenant();
   const selectedRole = filters.selectedRole;
   const timePeriod = filters.timePeriod ?? '90d';
   const VIEW_AS_OPTIONS = isApparel ? VIEW_AS_OPTIONS_APPAREL : VIEW_AS_OPTIONS_GROCERY;

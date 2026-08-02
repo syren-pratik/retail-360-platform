@@ -1,0 +1,72 @@
+[
+  {
+    "test_id": "TEST-001",
+    "product_name": "Fortune Sunflower Oil 5L",
+    "department": "Grocery & Staples",
+    "control_price": 789.51,
+    "test_price": 866.57,
+    "control_qty": 12450,
+    "test_qty": 11280,
+    "lift_pct": -9.4,
+    "revenue_lift_pct": 0.8,
+    "significance": "95%",
+    "winner": "test",
+    "status": "completed"
+  },
+  {
+    "test_id": "TEST-002",
+    "product_name": "Kohinoor Basmati Rice 5kg",
+    "department": "Grocery & Staples",
+    "control_price": 659.03,
+    "test_price": 737.92,
+    "control_qty": 8920,
+    "test_qty": 7650,
+    "lift_pct": -14.2,
+    "revenue_lift_pct": -2.1,
+    "significance": "92%",
+    "winner": "control",
+    "status": "completed"
+  },
+  {
+    "test_id": "TEST-003",
+    "product_name": "Amul Butter 500g Value",
+    "department": "Dairy & Frozen",
+    "control_price": 295.57,
+    "test_price": 277.43,
+    "control_qty": 15680,
+    "test_qty": 18420,
+    "lift_pct": 17.5,
+    "revenue_lift_pct": 10.2,
+    "significance": "98%",
+    "winner": "test",
+    "status": "completed"
+  },
+  {
+    "test_id": "TEST-004",
+    "product_name": "Head & Shoulders Anti-Dandruff Shampoo 340ml",
+    "department": "Personal Care",
+    "control_price": 474.71,
+    "test_price": 513.10,
+    "control_qty": 4250,
+    "test_qty": null,
+    "lift_pct": null,
+    "revenue_lift_pct": null,
+    "significance": null,
+    "winner": null,
+    "status": "running"
+  },
+  {
+    "test_id": "TEST-005",
+    "product_name": "Patanjali Wheat Atta 5kg Premium",
+    "department": "Grocery & Staples",
+    "control_price": 267.56,
+    "test_price": 296.67,
+    "control_qty": 6780,
+    "test_qty": null,
+    "lift_pct": null,
+    "revenue_lift_pct": null,
+    "significance": null,
+    "winner": null,
+    "status": "running"
+  }
+]

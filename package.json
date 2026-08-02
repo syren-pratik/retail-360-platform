@@ -20,6 +20,9 @@
     "gen:apparel-price-intel": "ts-node --project scripts/tsconfig.json scripts/gen-apparel-price-intel.ts",
     "gen:us-retail": "ts-node --project scripts/tsconfig.json scripts/gen-us-retail.ts",
     "verify:tenants": "node scripts/verify-tenant-data.mjs",
+    "test:e2e": "playwright test tests/e2e-tenant-verification.spec.ts",
+    "test:e2e:local": "E2E_BASE_URL=http://localhost:3000 playwright test tests/e2e-tenant-verification.spec.ts",
+    "test:e2e:prod": "E2E_BASE_URL=https://rct-app.azurewebsites.net playwright test tests/e2e-tenant-verification.spec.ts",
     "lint:apparel-schema": "ts-node --project scripts/tsconfig.json scripts/lint-apparel-schema.ts"
   },
   "dependencies": {

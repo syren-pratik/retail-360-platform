@@ -85,7 +85,7 @@ const CustomTooltip = ({
 };
 
 export default function ColdstartMAPEOverTime({ data, convergenceDay }: Props) {
-  const { isApparel, isRetail } = useTenant();
+  const { isApparel } = useTenant();
   const FESTIVAL_MARKERS = isApparel ? FESTIVAL_MARKERS_APPAREL : FESTIVAL_MARKERS_GROCERY;
   const { filters } = useColdstartFilters();
 

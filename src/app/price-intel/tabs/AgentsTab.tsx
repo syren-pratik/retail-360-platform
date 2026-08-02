@@ -140,7 +140,7 @@ function AgentCard({ agent, core }: { agent: AgentConfig; core: PriceIntelCore }
 }
 
 export default function AgentsTab({ core }: Props) {
-  const { isApparel, isRetail } = useTenant();
+  const { isApparel } = useTenant();
   return (
     <div>
       {/* Apparel-mode enablement banner */}

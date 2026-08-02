@@ -55,7 +55,7 @@ const SNAP_DAYS = [1, 15, 30, 60, 90];
 
 export default function ColdstartPredictionDecomposition({ data }: Props) {
   const { filters } = useColdstartFilters();
-  const { isApparel, isRetail } = useTenant();
+  const { isApparel } = useTenant();
   const STACK_COLORS = isApparel ? STACK_COLORS_APPAREL : STACK_COLORS_GROCERY;
   const STACK_LABELS = isApparel ? STACK_LABELS_APPAREL : STACK_LABELS_GROCERY;
   const STACK_KEYS = isApparel ? STACK_KEYS_APPAREL : STACK_KEYS_GROCERY;

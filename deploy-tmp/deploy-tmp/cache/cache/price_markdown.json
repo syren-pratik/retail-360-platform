@@ -1,0 +1,32 @@
+{
+  "summary": {
+    "total_markdown_skus": 293,
+    "cleared_in_7d": 87,
+    "cleared_in_14d": 121,
+    "cleared_in_30d": 156,
+    "still_active_30d_plus": 50,
+    "total_recovery": 12500000,
+    "total_original_value": 18000000,
+    "recovery_rate": 69.4
+  },
+  "by_bucket": [
+    { "bucket": "<7 days", "count": 87, "avg_discount": 12.5, "recovery_rate": 92.1 },
+    { "bucket": "8-14 days", "count": 34, "avg_discount": 18.3, "recovery_rate": 78.5 },
+    { "bucket": "15-30 days", "count": 35, "avg_discount": 25.7, "recovery_rate": 61.2 },
+    { "bucket": ">30 days", "count": 50, "avg_discount": 35.4, "recovery_rate": 42.8 }
+  ],
+  "recovery_trend": [
+    { "week": "W1", "cumulative_recovery": 2100000, "target": 18000000 },
+    { "week": "W2", "cumulative_recovery": 4800000, "target": 18000000 },
+    { "week": "W3", "cumulative_recovery": 7200000, "target": 18000000 },
+    { "week": "W4", "cumulative_recovery": 9100000, "target": 18000000 },
+    { "week": "W5", "cumulative_recovery": 10500000, "target": 18000000 },
+    { "week": "W6", "cumulative_recovery": 11400000, "target": 18000000 },
+    { "week": "W7", "cumulative_recovery": 12000000, "target": 18000000 },
+    { "week": "W8", "cumulative_recovery": 12500000, "target": 18000000 }
+  ],
+  "top_markdown_products": [
+    { "product_id": "MD001", "product_name": "Seasonal Snack Mix", "department": "Snacks & Biscuits", "original_price": 199, "markdown_price": 149, "discount_pct": 25.1, "days_active": 45, "units_sold": 320, "recovery_pct": 38.2 },
+    { "product_id": "MD002", "product_name": "Premium Cookies Pack", "department": "Snacks & Biscuits", "original_price": 249, "markdown_price": 179, "discount_pct": 28.1, "days_active": 38, "units_sold": 450, "recovery_pct": 42.5 }
+  ]
+}

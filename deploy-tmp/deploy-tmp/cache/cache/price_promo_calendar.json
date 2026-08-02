@@ -1,0 +1,22 @@
+[
+  { "category": "Beverages", "week": "W1", "promo_type": "BOGO", "expected_lift": 45, "discount": 50, "active": true },
+  { "category": "Beverages", "week": "W2", "promo_type": null, "expected_lift": null, "discount": null, "active": false },
+  { "category": "Beverages", "week": "W3", "promo_type": "% Off", "expected_lift": 25, "discount": 20, "active": true },
+  { "category": "Beverages", "week": "W4", "promo_type": null, "expected_lift": null, "discount": null, "active": false },
+  { "category": "Dairy & Frozen", "week": "W1", "promo_type": null, "expected_lift": null, "discount": null, "active": false },
+  { "category": "Dairy & Frozen", "week": "W2", "promo_type": "Bundle", "expected_lift": 35, "discount": 15, "active": true },
+  { "category": "Dairy & Frozen", "week": "W3", "promo_type": null, "expected_lift": null, "discount": null, "active": false },
+  { "category": "Dairy & Frozen", "week": "W4", "promo_type": "% Off", "expected_lift": 28, "discount": 25, "active": true },
+  { "category": "Grocery & Staples", "week": "W1", "promo_type": "% Off", "expected_lift": 22, "discount": 15, "active": true },
+  { "category": "Grocery & Staples", "week": "W2", "promo_type": null, "expected_lift": null, "discount": null, "active": false },
+  { "category": "Grocery & Staples", "week": "W3", "promo_type": "BOGO", "expected_lift": 48, "discount": 50, "active": true },
+  { "category": "Grocery & Staples", "week": "W4", "promo_type": null, "expected_lift": null, "discount": null, "active": false },
+  { "category": "Personal Care", "week": "W1", "promo_type": null, "expected_lift": null, "discount": null, "active": false },
+  { "category": "Personal Care", "week": "W2", "promo_type": "% Off", "expected_lift": 30, "discount": 20, "active": true },
+  { "category": "Personal Care", "week": "W3", "promo_type": null, "expected_lift": null, "discount": null, "active": false },
+  { "category": "Personal Care", "week": "W4", "promo_type": "Bundle", "expected_lift": 32, "discount": 18, "active": true },
+  { "category": "Snacks & Biscuits", "week": "W1", "promo_type": "Bundle", "expected_lift": 38, "discount": 20, "active": true },
+  { "category": "Snacks & Biscuits", "week": "W2", "promo_type": "% Off", "expected_lift": 25, "discount": 15, "active": true },
+  { "category": "Snacks & Biscuits", "week": "W3", "promo_type": null, "expected_lift": null, "discount": null, "active": false },
+  { "category": "Snacks & Biscuits", "week": "W4", "promo_type": "BOGO", "expected_lift": 52, "discount": 50, "active": true }
+]

@@ -1,0 +1,1697 @@
+{
+  "kpis": {
+    "mape_pct": 15.8,
+    "mape_prior": 17.2,
+    "bias_pct": 2.4,
+    "bias_direction": "under",
+    "lost_sales_from_miss_cr": 4.8,
+    "lost_sales_prior_cr": 5.2,
+    "forecast_coverage_pct": 82.4,
+    "model_health": "stable"
+  },
+  "forecast_vs_actual": [
+    {
+      "date": "2026-03-31",
+      "forecast": 36861,
+      "actual": 33849,
+      "upper_bound": 42759,
+      "lower_bound": 30963
+    },
+    {
+      "date": "2026-04-01",
+      "forecast": 37548,
+      "actual": 23226,
+      "upper_bound": 43556,
+      "lower_bound": 31540
+    },
+    {
+      "date": "2026-04-02",
+      "forecast": 30845,
+      "actual": 31864,
+      "upper_bound": 35780,
+      "lower_bound": 25910
+    },
+    {
+      "date": "2026-04-03",
+      "forecast": 33031,
+      "actual": 37604,
+      "upper_bound": 38316,
+      "lower_bound": 27746
+    },
+    {
+      "date": "2026-04-04",
+      "forecast": 35769,
+      "actual": 28445,
+      "upper_bound": 41492,
+      "lower_bound": 30046
+    },
+    {
+      "date": "2026-04-05",
+      "forecast": 35872,
+      "actual": 35041,
+      "upper_bound": 41612,
+      "lower_bound": 30132
+    },
+    {
+      "date": "2026-04-06",
+      "forecast": 35074,
+      "actual": 27993,
+      "upper_bound": 40686,
+      "lower_bound": 29462
+    },
+    {
+      "date": "2026-04-07",
+      "forecast": 40593,
+      "actual": 39659,
+      "upper_bound": 47088,
+      "lower_bound": 34098
+    },
+    {
+      "date": "2026-04-08",
+      "forecast": 40154,
+      "actual": 36557,
+      "upper_bound": 46579,
+      "lower_bound": 33729
+    },
+    {
+      "date": "2026-04-09",
+      "forecast": 36244,
+      "actual": 29254,
+      "upper_bound": 42043,
+      "lower_bound": 30445
+    },
+    {
+      "date": "2026-04-10",
+      "forecast": 34573,
+      "actual": 33950,
+      "upper_bound": 40105,
+      "lower_bound": 29041
+    },
+    {
+      "date": "2026-04-11",
+      "forecast": 34511,
+      "actual": 38551,
+      "upper_bound": 40033,
+      "lower_bound": 28989
+    },
+    {
+      "date": "2026-04-12",
+      "forecast": 37078,
+      "actual": 35969,
+      "upper_bound": 43010,
+      "lower_bound": 31146
+    },
+    {
+      "date": "2026-04-13",
+      "forecast": 33644,
+      "actual": 32538,
+      "upper_bound": 39027,
+      "lower_bound": 28261
+    },
+    {
+      "date": "2026-04-14",
+      "forecast": 38689,
+      "actual": 45904,
+      "upper_bound": 44879,
+      "lower_bound": 32499
+    },
+    {
+      "date": "2026-04-15",
+      "forecast": 40698,
+      "actual": 37340,
+      "upper_bound": 47210,
+      "lower_bound": 34186
+    },
+    {
+      "date": "2026-04-16",
+      "forecast": 33275,
+      "actual": 32892,
+      "upper_bound": 38599,
+      "lower_bound": 27951
+    },
+    {
+      "date": "2026-04-17",
+      "forecast": 33779,
+      "actual": 35816,
+      "upper_bound": 39184,
+      "lower_bound": 28374
+    },
+    {
+      "date": "2026-04-18",
+      "forecast": 33599,
+      "actual": 35236,
+      "upper_bound": 38975,
+      "lower_bound": 28223
+    },
+    {
+      "date": "2026-04-19",
+      "forecast": 32929,
+      "actual": 30070,
+      "upper_bound": 38198,
+      "lower_bound": 27660
+    },
+    {
+      "date": "2026-04-20",
+      "forecast": 31397,
+      "actual": 37872,
+      "upper_bound": 36421,
+      "lower_bound": 26373
+    },
+    {
+      "date": "2026-04-21",
+      "forecast": 35452,
+      "actual": 34851,
+      "upper_bound": 41124,
+      "lower_bound": 29780
+    },
+    {
+      "date": "2026-04-22",
+      "forecast": 35780,
+      "actual": 36377,
+      "upper_bound": 41505,
+      "lower_bound": 30055
+    },
+    {
+      "date": "2026-04-23",
+      "forecast": 30737,
+      "actual": 29408,
+      "upper_bound": 35655,
+      "lower_bound": 25819
+    },
+    {
+      "date": "2026-04-24",
+      "forecast": 29658,
+      "actual": 34776,
+      "upper_bound": 34403,
+      "lower_bound": 24913
+    },
+    {
+      "date": "2026-04-25",
+      "forecast": 29069,
+      "actual": 35621,
+      "upper_bound": 33720,
+      "lower_bound": 24418
+    },
+    {
+      "date": "2026-04-26",
+      "forecast": 26738,
+      "actual": 30831,
+      "upper_bound": 31016,
+      "lower_bound": 22460
+    },
+    {
+      "date": "2026-04-27",
+      "forecast": 25872,
+      "actual": 25097,
+      "upper_bound": 30012,
+      "lower_bound": 21732
+    },
+    {
+      "date": "2026-04-28",
+      "forecast": 30765,
+      "actual": 36685,
+      "upper_bound": 35687,
+      "lower_bound": 25843
+    },
+    {
+      "date": "2026-04-29",
+      "forecast": 34892,
+      "actual": 38246,
+      "upper_bound": 40475,
+      "lower_bound": 29309
+    },
+    {
+      "date": "2026-04-30",
+      "forecast": 30742,
+      "actual": 28081,
+      "upper_bound": 35661,
+      "lower_bound": 25823
+    },
+    {
+      "date": "2026-05-01",
+      "forecast": 29414,
+      "actual": 30696,
+      "upper_bound": 34120,
+      "lower_bound": 24708
+    },
+    {
+      "date": "2026-05-02",
+      "forecast": 26572,
+      "actual": 24072,
+      "upper_bound": 30824,
+      "lower_bound": 22320
+    },
+    {
+      "date": "2026-05-03",
+      "forecast": 28573,
+      "actual": 24765,
+      "upper_bound": 33145,
+      "lower_bound": 24001
+    },
+    {
+      "date": "2026-05-04",
+      "forecast": 30659,
+      "actual": 28813,
+      "upper_bound": 35564,
+      "lower_bound": 25754
+    },
+    {
+      "date": "2026-05-05",
+      "forecast": 34619,
+      "actual": 33564,
+      "upper_bound": 40158,
+      "lower_bound": 29080
+    },
+    {
+      "date": "2026-05-06",
+      "forecast": 33858,
+      "actual": 29855,
+      "upper_bound": 39275,
+      "lower_bound": 28441
+    },
+    {
+      "date": "2026-05-07",
+      "forecast": 31827,
+      "actual": 28083,
+      "upper_bound": 36919,
+      "lower_bound": 26735
+    },
+    {
+      "date": "2026-05-08",
+      "forecast": 32835,
+      "actual": 31140,
+      "upper_bound": 38089,
+      "lower_bound": 27581
+    },
+    {
+      "date": "2026-05-09",
+      "forecast": 32862,
+      "actual": 37455,
+      "upper_bound": 38120,
+      "lower_bound": 27604
+    },
+    {
+      "date": "2026-05-10",
+      "forecast": 32880,
+      "actual": 29262,
+      "upper_bound": 38141,
+      "lower_bound": 27619
+    },
+    {
+      "date": "2026-05-11",
+      "forecast": 33750,
+      "actual": 38049,
+      "upper_bound": 39150,
+      "lower_bound": 28350
+    },
+    {
+      "date": "2026-05-12",
+      "forecast": 38723,
+      "actual": 34879,
+      "upper_bound": 44919,
+      "lower_bound": 32527
+    },
+    {
+      "date": "2026-05-13",
+      "forecast": 40458,
+      "actual": 45757,
+      "upper_bound": 46931,
+      "lower_bound": 33985
+    },
+    {
+      "date": "2026-05-14",
+      "forecast": 32390,
+      "actual": 30717,
+      "upper_bound": 37572,
+      "lower_bound": 27208
+    },
+    {
+      "date": "2026-05-15",
+      "forecast": 33738,
+      "actual": 42965,
+      "upper_bound": 39136,
+      "lower_bound": 28340
+    },
+    {
+      "date": "2026-05-16",
+      "forecast": 37464,
+      "actual": 31826,
+      "upper_bound": 43458,
+      "lower_bound": 31470
+    },
+    {
+      "date": "2026-05-17",
+      "forecast": 35776,
+      "actual": 38923,
+      "upper_bound": 41500,
+      "lower_bound": 30052
+    },
+    {
+      "date": "2026-05-18",
+      "forecast": 34617,
+      "actual": 33231,
+      "upper_bound": 40156,
+      "lower_bound": 29078
+    },
+    {
+      "date": "2026-05-19",
+      "forecast": 40795,
+      "actual": 38388,
+      "upper_bound": 47322,
+      "lower_bound": 34268
+    },
+    {
+      "date": "2026-05-20",
+      "forecast": 40468,
+      "actual": 33375,
+      "upper_bound": 46943,
+      "lower_bound": 33993
+    },
+    {
+      "date": "2026-05-21",
+      "forecast": 37243,
+      "actual": 42414,
+      "upper_bound": 43202,
+      "lower_bound": 31284
+    },
+    {
+      "date": "2026-05-22",
+      "forecast": 33244,
+      "actual": 42283,
+      "upper_bound": 38563,
+      "lower_bound": 27925
+    },
+    {
+      "date": "2026-05-23",
+      "forecast": 34441,
+      "actual": 35243,
+      "upper_bound": 39952,
+      "lower_bound": 28930
+    },
+    {
+      "date": "2026-05-24",
+      "forecast": 32478,
+      "actual": 35641,
+      "upper_bound": 37674,
+      "lower_bound": 27282
+    },
+    {
+      "date": "2026-05-25",
+      "forecast": 32638,
+      "actual": 31523,
+      "upper_bound": 37860,
+      "lower_bound": 27416
+    },
+    {
+      "date": "2026-05-26",
+      "forecast": 38201,
+      "actual": 38852,
+      "upper_bound": 44313,
+      "lower_bound": 32089
+    },
+    {
+      "date": "2026-05-27",
+      "forecast": 34968,
+      "actual": 38502,
+      "upper_bound": 40563,
+      "lower_bound": 29373
+    },
+    {
+      "date": "2026-05-28",
+      "forecast": 27958,
+      "actual": 29883,
+      "upper_bound": 32431,
+      "lower_bound": 23485
+    },
+    {
+      "date": "2026-05-29",
+      "forecast": 30214,
+      "actual": 27458,
+      "upper_bound": 35048,
+      "lower_bound": 25380
+    },
+    {
+      "date": "2026-05-30",
+      "forecast": 30617,
+      "actual": 31956,
+      "upper_bound": 35516,
+      "lower_bound": 25718
+    },
+    {
+      "date": "2026-05-31",
+      "forecast": 29571,
+      "actual": 27483,
+      "upper_bound": 34302,
+      "lower_bound": 24840
+    },
+    {
+      "date": "2026-06-01",
+      "forecast": 28206,
+      "actual": 31757,
+      "upper_bound": 32719,
+      "lower_bound": 23693
+    },
+    {
+      "date": "2026-06-02",
+      "forecast": 35500,
+      "actual": 34113,
+      "upper_bound": 41180,
+      "lower_bound": 29820
+    },
+    {
+      "date": "2026-06-03",
+      "forecast": 34596,
+      "actual": 32216,
+      "upper_bound": 40131,
+      "lower_bound": 29061
+    },
+    {
+      "date": "2026-06-04",
+      "forecast": 28842,
+      "actual": 33602,
+      "upper_bound": 33457,
+      "lower_bound": 24227
+    },
+    {
+      "date": "2026-06-05",
+      "forecast": 29181,
+      "actual": 35071,
+      "upper_bound": 33850,
+      "lower_bound": 24512
+    },
+    {
+      "date": "2026-06-06",
+      "forecast": 27754,
+      "actual": 36746,
+      "upper_bound": 32195,
+      "lower_bound": 23313
+    },
+    {
+      "date": "2026-06-07",
+      "forecast": 27661,
+      "actual": 30012,
+      "upper_bound": 32087,
+      "lower_bound": 23235
+    },
+    {
+      "date": "2026-06-08",
+      "forecast": 29773,
+      "actual": 35370,
+      "upper_bound": 34537,
+      "lower_bound": 25009
+    },
+    {
+      "date": "2026-06-09",
+      "forecast": 34955,
+      "actual": 31912,
+      "upper_bound": 40548,
+      "lower_bound": 29362
+    },
+    {
+      "date": "2026-06-10",
+      "forecast": 33234,
+      "actual": 32592,
+      "upper_bound": 38551,
+      "lower_bound": 27917
+    },
+    {
+      "date": "2026-06-11",
+      "forecast": 28900,
+      "actual": 24614,
+      "upper_bound": 33524,
+      "lower_bound": 24276
+    },
+    {
+      "date": "2026-06-12",
+      "forecast": 30193,
+      "actual": 29074,
+      "upper_bound": 35024,
+      "lower_bound": 25362
+    },
+    {
+      "date": "2026-06-13",
+      "forecast": 32433,
+      "actual": 29270,
+      "upper_bound": 37622,
+      "lower_bound": 27244
+    },
+    {
+      "date": "2026-06-14",
+      "forecast": 30431,
+      "actual": 33418,
+      "upper_bound": 35300,
+      "lower_bound": 25562
+    },
+    {
+      "date": "2026-06-15",
+      "forecast": 31468,
+      "actual": 29340,
+      "upper_bound": 36503,
+      "lower_bound": 26433
+    },
+    {
+      "date": "2026-06-16",
+      "forecast": 38134,
+      "actual": 38377,
+      "upper_bound": 44235,
+      "lower_bound": 32033
+    },
+    {
+      "date": "2026-06-17",
+      "forecast": 38952,
+      "actual": 34907,
+      "upper_bound": 45184,
+      "lower_bound": 32720
+    },
+    {
+      "date": "2026-06-18",
+      "forecast": 35751,
+      "actual": 44759,
+      "upper_bound": 41471,
+      "lower_bound": 30031
+    },
+    {
+      "date": "2026-06-19",
+      "forecast": 33893,
+      "actual": 42423,
+      "upper_bound": 39316,
+      "lower_bound": 28470
+    },
+    {
+      "date": "2026-06-20",
+      "forecast": 35725,
+      "actual": 44086,
+      "upper_bound": 41441,
+      "lower_bound": 30009
+    },
+    {
+      "date": "2026-06-21",
+      "forecast": 33435,
+      "actual": 34778,
+      "upper_bound": 38785,
+      "lower_bound": 28085
+    },
+    {
+      "date": "2026-06-22",
+      "forecast": 36016,
+      "actual": 44135,
+      "upper_bound": 41779,
+      "lower_bound": 30253
+    },
+    {
+      "date": "2026-06-23",
+      "forecast": 39903,
+      "actual": 33770,
+      "upper_bound": 46287,
+      "lower_bound": 33519
+    },
+    {
+      "date": "2026-06-24",
+      "forecast": 42349,
+      "actual": 39093,
+      "upper_bound": 49125,
+      "lower_bound": 35573
+    },
+    {
+      "date": "2026-06-25",
+      "forecast": 35946,
+      "actual": 38052,
+      "upper_bound": 41697,
+      "lower_bound": 30195
+    },
+    {
+      "date": "2026-06-26",
+      "forecast": 37546,
+      "actual": 28208,
+      "upper_bound": 43553,
+      "lower_bound": 31539
+    },
+    {
+      "date": "2026-06-27",
+      "forecast": 34260,
+      "actual": 30601,
+      "upper_bound": 39742,
+      "lower_bound": 28778
+    },
+    {
+      "date": "2026-06-28",
+      "forecast": 34071,
+      "actual": 29333,
+      "upper_bound": 39522,
+      "lower_bound": 28620
+    }
+  ],
+  "accuracy_by_dept": [
+    {
+      "department": "Women's Tops",
+      "mape": 20,
+      "accuracy_pct": 86.3,
+      "bias_pct": 5.2,
+      "trend": "declining"
+    },
+    {
+      "department": "Women's Bottoms",
+      "mape": 14.6,
+      "accuracy_pct": 75.1,
+      "bias_pct": -5.3,
+      "trend": "declining"
+    },
+    {
+      "department": "Women's Dresses",
+      "mape": 25.8,
+      "accuracy_pct": 79.2,
+      "bias_pct": -2.3,
+      "trend": "improving"
+    },
+    {
+      "department": "Men's Tops",
+      "mape": 17.7,
+      "accuracy_pct": 75.1,
+      "bias_pct": -1.3,
+      "trend": "declining"
+    },
+    {
+      "department": "Men's Bottoms",
+      "mape": 18.1,
+      "accuracy_pct": 77.1,
+      "bias_pct": -0.5,
+      "trend": "stable"
+    },
+    {
+      "department": "Home & Garden'",
+      "mape": 14.9,
+      "accuracy_pct": 75.9,
+      "bias_pct": -4.2,
+      "trend": "stable"
+    },
+    {
+      "department": "Sports & Outdoor",
+      "mape": 13.3,
+      "accuracy_pct": 75.4,
+      "bias_pct": -1.9,
+      "trend": "stable"
+    },
+    {
+      "department": "Beauty & Personal",
+      "mape": 18.5,
+      "accuracy_pct": 80.3,
+      "bias_pct": 1.5,
+      "trend": "declining"
+    }
+  ],
+  "accuracy_trend_12w": [
+    {
+      "week": "W1",
+      "accuracy_pct": 82.6,
+      "mape": 17.2,
+      "bias_pct": -4.3
+    },
+    {
+      "week": "W2",
+      "accuracy_pct": 76.3,
+      "mape": 20,
+      "bias_pct": -5.2
+    },
+    {
+      "week": "W3",
+      "accuracy_pct": 83.2,
+      "mape": 20.7,
+      "bias_pct": 0.5
+    },
+    {
+      "week": "W4",
+      "accuracy_pct": 81.8,
+      "mape": 20.8,
+      "bias_pct": -0.5
+    },
+    {
+      "week": "W5",
+      "accuracy_pct": 84.2,
+      "mape": 23.5,
+      "bias_pct": -3.7
+    },
+    {
+      "week": "W6",
+      "accuracy_pct": 79.3,
+      "mape": 19.3,
+      "bias_pct": -2.3
+    },
+    {
+      "week": "W7",
+      "accuracy_pct": 78.1,
+      "mape": 20,
+      "bias_pct": -0.6
+    },
+    {
+      "week": "W8",
+      "accuracy_pct": 85.7,
+      "mape": 18.6,
+      "bias_pct": 1.7
+    },
+    {
+      "week": "W9",
+      "accuracy_pct": 82.2,
+      "mape": 17.2,
+      "bias_pct": -2.6
+    },
+    {
+      "week": "W10",
+      "accuracy_pct": 85.6,
+      "mape": 17.1,
+      "bias_pct": -3.3
+    },
+    {
+      "week": "W11",
+      "accuracy_pct": 80,
+      "mape": 20,
+      "bias_pct": 4.1
+    },
+    {
+      "week": "W12",
+      "accuracy_pct": 82.2,
+      "mape": 17.1,
+      "bias_pct": 0.1
+    }
+  ],
+  "model_comparison": [
+    {
+      "model": "Champion (GBM+events)",
+      "accuracy": 84.2,
+      "mape": 15.8,
+      "rmse": 2840,
+      "mae": 1680,
+      "status": "production",
+      "last_trained": "2026-06-22"
+    },
+    {
+      "model": "Naive Seasonal",
+      "accuracy": 68.4,
+      "mape": 31.6,
+      "rmse": 5240,
+      "mae": 3120,
+      "status": "baseline",
+      "last_trained": "2026-05-30"
+    },
+    {
+      "model": "Prophet",
+      "accuracy": 76.8,
+      "mape": 23.2,
+      "rmse": 3680,
+      "mae": 2240,
+      "status": "shadow",
+      "last_trained": "2026-06-15"
+    },
+    {
+      "model": "LightGBM-no-events",
+      "accuracy": 78.4,
+      "mape": 21.6,
+      "rmse": 3420,
+      "mae": 2080,
+      "status": "shadow",
+      "last_trained": "2026-06-15"
+    },
+    {
+      "model": "Ensemble",
+      "accuracy": 85.6,
+      "mape": 14.4,
+      "rmse": 2620,
+      "mae": 1540,
+      "status": "champion-candidate",
+      "last_trained": "2026-06-26"
+    }
+  ],
+  "feature_importance": [
+    {
+      "feature": "weeks_to_next_event",
+      "importance": 0.84,
+      "direction": "positive"
+    },
+    {
+      "feature": "markdown_depth",
+      "importance": 0.71,
+      "direction": "negative"
+    },
+    {
+      "feature": "lifecycle_stage",
+      "importance": 0.62,
+      "direction": "negative"
+    },
+    {
+      "feature": "weather_temp_anomaly",
+      "importance": 0.54,
+      "direction": "positive"
+    },
+    {
+      "feature": "competitor_promo_active",
+      "importance": 0.48,
+      "direction": "negative"
+    },
+    {
+      "feature": "prior_year_same_event_lift",
+      "importance": 0.46,
+      "direction": "positive"
+    },
+    {
+      "feature": "creator_attribution_active",
+      "importance": 0.41,
+      "direction": "positive"
+    },
+    {
+      "feature": "size_curve_inventory_health",
+      "importance": 0.38,
+      "direction": "positive"
+    },
+    {
+      "feature": "store_format",
+      "importance": 0.34,
+      "direction": "null"
+    },
+    {
+      "feature": "days_in_market",
+      "importance": 0.31,
+      "direction": "negative"
+    },
+    {
+      "feature": "channel_mix_app_pct",
+      "importance": 0.28,
+      "direction": "positive"
+    },
+    {
+      "feature": "season_tag",
+      "importance": 0.24,
+      "direction": "null"
+    }
+  ],
+  "demand_decomposition": [
+    {
+      "date": "2026-03-31",
+      "baseline": 23813,
+      "trend": 0,
+      "seasonal": 0,
+      "promo_lift": 2400,
+      "total": 26213,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-01",
+      "baseline": 23865,
+      "trend": 28,
+      "seasonal": 456,
+      "promo_lift": 2400,
+      "total": 26748,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-02",
+      "baseline": 24408,
+      "trend": 56,
+      "seasonal": 902,
+      "promo_lift": 2400,
+      "total": 27766,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-03",
+      "baseline": 25016,
+      "trend": 84,
+      "seasonal": 1330,
+      "promo_lift": 0,
+      "total": 26430,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-04",
+      "baseline": 23800,
+      "trend": 112,
+      "seasonal": 1731,
+      "promo_lift": 0,
+      "total": 25643,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-05",
+      "baseline": 24172,
+      "trend": 140,
+      "seasonal": 2096,
+      "promo_lift": 0,
+      "total": 33209,
+      "event_lift": 6800
+    },
+    {
+      "date": "2026-04-06",
+      "baseline": 25327,
+      "trend": 168,
+      "seasonal": 2419,
+      "promo_lift": 0,
+      "total": 27914,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-07",
+      "baseline": 25021,
+      "trend": 196,
+      "seasonal": 2693,
+      "promo_lift": 0,
+      "total": 27910,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-08",
+      "baseline": 23341,
+      "trend": 224,
+      "seasonal": 2911,
+      "promo_lift": 0,
+      "total": 26477,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-09",
+      "baseline": 22757,
+      "trend": 252,
+      "seasonal": 3071,
+      "promo_lift": 0,
+      "total": 26080,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-10",
+      "baseline": 24373,
+      "trend": 280,
+      "seasonal": 3168,
+      "promo_lift": 0,
+      "total": 27821,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-11",
+      "baseline": 23897,
+      "trend": 308,
+      "seasonal": 3200,
+      "promo_lift": 0,
+      "total": 27405,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-12",
+      "baseline": 24616,
+      "trend": 336,
+      "seasonal": 3167,
+      "promo_lift": 0,
+      "total": 28119,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-13",
+      "baseline": 24023,
+      "trend": 364,
+      "seasonal": 3070,
+      "promo_lift": 0,
+      "total": 27456,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-14",
+      "baseline": 24461,
+      "trend": 392,
+      "seasonal": 2910,
+      "promo_lift": 2400,
+      "total": 30163,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-15",
+      "baseline": 24081,
+      "trend": 420,
+      "seasonal": 2691,
+      "promo_lift": 2400,
+      "total": 29591,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-16",
+      "baseline": 23296,
+      "trend": 448,
+      "seasonal": 2416,
+      "promo_lift": 2400,
+      "total": 28560,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-17",
+      "baseline": 23856,
+      "trend": 476,
+      "seasonal": 2093,
+      "promo_lift": 0,
+      "total": 26425,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-18",
+      "baseline": 25413,
+      "trend": 504,
+      "seasonal": 1727,
+      "promo_lift": 0,
+      "total": 27644,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-19",
+      "baseline": 24654,
+      "trend": 532,
+      "seasonal": 1326,
+      "promo_lift": 0,
+      "total": 26512,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-20",
+      "baseline": 23427,
+      "trend": 560,
+      "seasonal": 898,
+      "promo_lift": 0,
+      "total": 24885,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-21",
+      "baseline": 25221,
+      "trend": 588,
+      "seasonal": 452,
+      "promo_lift": 0,
+      "total": 26261,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-22",
+      "baseline": 24674,
+      "trend": 616,
+      "seasonal": -4,
+      "promo_lift": 0,
+      "total": 25286,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-23",
+      "baseline": 24739,
+      "trend": 644,
+      "seasonal": -460,
+      "promo_lift": 0,
+      "total": 24923,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-24",
+      "baseline": 23814,
+      "trend": 672,
+      "seasonal": -906,
+      "promo_lift": 0,
+      "total": 23580,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-25",
+      "baseline": 23230,
+      "trend": 700,
+      "seasonal": -1334,
+      "promo_lift": 0,
+      "total": 22596,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-26",
+      "baseline": 24574,
+      "trend": 728,
+      "seasonal": -1734,
+      "promo_lift": 0,
+      "total": 23568,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-27",
+      "baseline": 23730,
+      "trend": 756,
+      "seasonal": -2099,
+      "promo_lift": 0,
+      "total": 22387,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-28",
+      "baseline": 24378,
+      "trend": 784,
+      "seasonal": -2422,
+      "promo_lift": 2400,
+      "total": 25141,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-29",
+      "baseline": 23787,
+      "trend": 812,
+      "seasonal": -2695,
+      "promo_lift": 2400,
+      "total": 24304,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-04-30",
+      "baseline": 23466,
+      "trend": 840,
+      "seasonal": -2913,
+      "promo_lift": 2400,
+      "total": 23793,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-01",
+      "baseline": 24010,
+      "trend": 868,
+      "seasonal": -3072,
+      "promo_lift": 0,
+      "total": 21806,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-02",
+      "baseline": 24727,
+      "trend": 896,
+      "seasonal": -3168,
+      "promo_lift": 0,
+      "total": 22455,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-03",
+      "baseline": 23148,
+      "trend": 924,
+      "seasonal": -3200,
+      "promo_lift": 0,
+      "total": 20872,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-04",
+      "baseline": 24436,
+      "trend": 952,
+      "seasonal": -3167,
+      "promo_lift": 0,
+      "total": 22221,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-05",
+      "baseline": 24916,
+      "trend": 980,
+      "seasonal": -3069,
+      "promo_lift": 0,
+      "total": 29627,
+      "event_lift": 6800
+    },
+    {
+      "date": "2026-05-06",
+      "baseline": 22417,
+      "trend": 1008,
+      "seasonal": -2908,
+      "promo_lift": 0,
+      "total": 20517,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-07",
+      "baseline": 22991,
+      "trend": 1036,
+      "seasonal": -2688,
+      "promo_lift": 0,
+      "total": 21339,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-08",
+      "baseline": 25051,
+      "trend": 1064,
+      "seasonal": -2414,
+      "promo_lift": 0,
+      "total": 23701,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-09",
+      "baseline": 22891,
+      "trend": 1092,
+      "seasonal": -2090,
+      "promo_lift": 0,
+      "total": 21893,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-10",
+      "baseline": 24202,
+      "trend": 1120,
+      "seasonal": -1724,
+      "promo_lift": 0,
+      "total": 23598,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-11",
+      "baseline": 25210,
+      "trend": 1148,
+      "seasonal": -1322,
+      "promo_lift": 0,
+      "total": 25035,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-12",
+      "baseline": 23697,
+      "trend": 1176,
+      "seasonal": -894,
+      "promo_lift": 2400,
+      "total": 26379,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-13",
+      "baseline": 24640,
+      "trend": 1204,
+      "seasonal": -448,
+      "promo_lift": 2400,
+      "total": 27797,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-14",
+      "baseline": 23222,
+      "trend": 1232,
+      "seasonal": 8,
+      "promo_lift": 2400,
+      "total": 26863,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-15",
+      "baseline": 24975,
+      "trend": 1260,
+      "seasonal": 464,
+      "promo_lift": 0,
+      "total": 26698,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-16",
+      "baseline": 23758,
+      "trend": 1288,
+      "seasonal": 910,
+      "promo_lift": 0,
+      "total": 25955,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-17",
+      "baseline": 22533,
+      "trend": 1316,
+      "seasonal": 1337,
+      "promo_lift": 0,
+      "total": 25186,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-18",
+      "baseline": 24157,
+      "trend": 1344,
+      "seasonal": 1737,
+      "promo_lift": 0,
+      "total": 27238,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-19",
+      "baseline": 24354,
+      "trend": 1372,
+      "seasonal": 2102,
+      "promo_lift": 0,
+      "total": 27829,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-20",
+      "baseline": 25440,
+      "trend": 1400,
+      "seasonal": 2424,
+      "promo_lift": 0,
+      "total": 29265,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-21",
+      "baseline": 24076,
+      "trend": 1428,
+      "seasonal": 2697,
+      "promo_lift": 0,
+      "total": 28201,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-22",
+      "baseline": 25740,
+      "trend": 1456,
+      "seasonal": 2915,
+      "promo_lift": 0,
+      "total": 30111,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-23",
+      "baseline": 25021,
+      "trend": 1484,
+      "seasonal": 3073,
+      "promo_lift": 0,
+      "total": 29578,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-24",
+      "baseline": 23996,
+      "trend": 1512,
+      "seasonal": 3169,
+      "promo_lift": 0,
+      "total": 28677,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-25",
+      "baseline": 22994,
+      "trend": 1540,
+      "seasonal": 3200,
+      "promo_lift": 0,
+      "total": 27734,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-26",
+      "baseline": 23495,
+      "trend": 1568,
+      "seasonal": 3166,
+      "promo_lift": 2400,
+      "total": 30629,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-27",
+      "baseline": 23476,
+      "trend": 1596,
+      "seasonal": 3067,
+      "promo_lift": 2400,
+      "total": 30539,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-28",
+      "baseline": 24581,
+      "trend": 1624,
+      "seasonal": 2906,
+      "promo_lift": 2400,
+      "total": 31511,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-29",
+      "baseline": 25079,
+      "trend": 1652,
+      "seasonal": 2686,
+      "promo_lift": 0,
+      "total": 29417,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-30",
+      "baseline": 23938,
+      "trend": 1680,
+      "seasonal": 2411,
+      "promo_lift": 0,
+      "total": 28029,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-05-31",
+      "baseline": 24010,
+      "trend": 1708,
+      "seasonal": 2087,
+      "promo_lift": 0,
+      "total": 27805,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-01",
+      "baseline": 23653,
+      "trend": 1736,
+      "seasonal": 1720,
+      "promo_lift": 0,
+      "total": 27110,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-02",
+      "baseline": 24238,
+      "trend": 1764,
+      "seasonal": 1319,
+      "promo_lift": 0,
+      "total": 27321,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-03",
+      "baseline": 24901,
+      "trend": 1792,
+      "seasonal": 890,
+      "promo_lift": 0,
+      "total": 27583,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-04",
+      "baseline": 24742,
+      "trend": 1820,
+      "seasonal": 444,
+      "promo_lift": 0,
+      "total": 33805,
+      "event_lift": 6800
+    },
+    {
+      "date": "2026-06-05",
+      "baseline": 23321,
+      "trend": 1848,
+      "seasonal": -12,
+      "promo_lift": 0,
+      "total": 25156,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-06",
+      "baseline": 23365,
+      "trend": 1876,
+      "seasonal": -468,
+      "promo_lift": 0,
+      "total": 24773,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-07",
+      "baseline": 22995,
+      "trend": 1904,
+      "seasonal": -914,
+      "promo_lift": 0,
+      "total": 23985,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-08",
+      "baseline": 22519,
+      "trend": 1932,
+      "seasonal": -1341,
+      "promo_lift": 0,
+      "total": 23110,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-09",
+      "baseline": 25390,
+      "trend": 1960,
+      "seasonal": -1741,
+      "promo_lift": 2400,
+      "total": 28009,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-10",
+      "baseline": 24869,
+      "trend": 1988,
+      "seasonal": -2105,
+      "promo_lift": 2400,
+      "total": 27152,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-11",
+      "baseline": 24433,
+      "trend": 2016,
+      "seasonal": -2427,
+      "promo_lift": 2400,
+      "total": 26422,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-12",
+      "baseline": 22270,
+      "trend": 2044,
+      "seasonal": -2699,
+      "promo_lift": 0,
+      "total": 21615,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-13",
+      "baseline": 23752,
+      "trend": 2072,
+      "seasonal": -2916,
+      "promo_lift": 0,
+      "total": 22907,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-14",
+      "baseline": 23899,
+      "trend": 2100,
+      "seasonal": -3074,
+      "promo_lift": 0,
+      "total": 22925,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-15",
+      "baseline": 24554,
+      "trend": 2128,
+      "seasonal": -3169,
+      "promo_lift": 0,
+      "total": 23513,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-16",
+      "baseline": 24267,
+      "trend": 2156,
+      "seasonal": -3200,
+      "promo_lift": 0,
+      "total": 23223,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-17",
+      "baseline": 23829,
+      "trend": 2184,
+      "seasonal": -3165,
+      "promo_lift": 0,
+      "total": 22847,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-18",
+      "baseline": 23383,
+      "trend": 2212,
+      "seasonal": -3066,
+      "promo_lift": 0,
+      "total": 22528,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-19",
+      "baseline": 23871,
+      "trend": 2240,
+      "seasonal": -2905,
+      "promo_lift": 0,
+      "total": 23207,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-20",
+      "baseline": 23116,
+      "trend": 2268,
+      "seasonal": -2684,
+      "promo_lift": 0,
+      "total": 22700,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-21",
+      "baseline": 23820,
+      "trend": 2296,
+      "seasonal": -2408,
+      "promo_lift": 0,
+      "total": 23707,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-22",
+      "baseline": 23485,
+      "trend": 2324,
+      "seasonal": -2084,
+      "promo_lift": 0,
+      "total": 23725,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-23",
+      "baseline": 24193,
+      "trend": 2352,
+      "seasonal": -1717,
+      "promo_lift": 2400,
+      "total": 27228,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-24",
+      "baseline": 23531,
+      "trend": 2380,
+      "seasonal": -1315,
+      "promo_lift": 2400,
+      "total": 26996,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-25",
+      "baseline": 23739,
+      "trend": 2408,
+      "seasonal": -886,
+      "promo_lift": 2400,
+      "total": 27661,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-26",
+      "baseline": 23265,
+      "trend": 2436,
+      "seasonal": -440,
+      "promo_lift": 0,
+      "total": 25262,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-27",
+      "baseline": 25404,
+      "trend": 2464,
+      "seasonal": 16,
+      "promo_lift": 0,
+      "total": 27884,
+      "event_lift": 0
+    },
+    {
+      "date": "2026-06-28",
+      "baseline": 24850,
+      "trend": 2492,
+      "seasonal": 472,
+      "promo_lift": 0,
+      "total": 27813,
+      "event_lift": 0
+    }
+  ]
+}

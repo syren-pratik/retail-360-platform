@@ -1,0 +1,66 @@
+[
+  {
+    "category": "Women's Tops",
+    "cost_change_pct": 5.1,
+    "price_change_pct": 2.2,
+    "passthrough_rate": 43.6,
+    "margin_impact": -2.9,
+    "ragm_impact": -4.1
+  },
+  {
+    "category": "Women's Bottoms",
+    "cost_change_pct": 1.4,
+    "price_change_pct": 0.9,
+    "passthrough_rate": 67,
+    "margin_impact": -0.5,
+    "ragm_impact": -0.7
+  },
+  {
+    "category": "Women's Dresses",
+    "cost_change_pct": 3.2,
+    "price_change_pct": 3.2,
+    "passthrough_rate": 100.2,
+    "margin_impact": 0,
+    "ragm_impact": 0
+  },
+  {
+    "category": "Men's Tops",
+    "cost_change_pct": 5.5,
+    "price_change_pct": 4.1,
+    "passthrough_rate": 74.2,
+    "margin_impact": -1.4,
+    "ragm_impact": -2
+  },
+  {
+    "category": "Men's Bottoms",
+    "cost_change_pct": 2.3,
+    "price_change_pct": 2.1,
+    "passthrough_rate": 89.8,
+    "margin_impact": -0.2,
+    "ragm_impact": -0.3
+  },
+  {
+    "category": "Kids'",
+    "cost_change_pct": 4.7,
+    "price_change_pct": 4.8,
+    "passthrough_rate": 101.4,
+    "margin_impact": 0.1,
+    "ragm_impact": 0.1
+  },
+  {
+    "category": "Footwear",
+    "cost_change_pct": 3.7,
+    "price_change_pct": 2.3,
+    "passthrough_rate": 61.4,
+    "margin_impact": -1.4,
+    "ragm_impact": -2
+  },
+  {
+    "category": "Accessories",
+    "cost_change_pct": 3.5,
+    "price_change_pct": 2.6,
+    "passthrough_rate": 74.8,
+    "margin_impact": -0.9,
+    "ragm_impact": -1.3
+  }
+]

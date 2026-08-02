@@ -1,0 +1,2782 @@
+[
+  {
+    "dim_type": "stores",
+    "id": "STR-0001",
+    "name": "Mumbai Hypermarket 1",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0002",
+    "name": "Mumbai Hypermarket 2",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0003",
+    "name": "Mumbai Hypermarket 3",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0004",
+    "name": "Mumbai Hypermarket 4",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0005",
+    "name": "Mumbai Hypermarket 5",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0006",
+    "name": "Mumbai Hypermarket 6",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0007",
+    "name": "Mumbai Hypermarket 7",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0008",
+    "name": "Mumbai Hypermarket 8",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0009",
+    "name": "Mumbai Hypermarket 9",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0010",
+    "name": "Mumbai Hypermarket 10",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0011",
+    "name": "Mumbai Hypermarket 11",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0012",
+    "name": "Mumbai Hypermarket 12",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0013",
+    "name": "Mumbai Supermarket 1",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0014",
+    "name": "Mumbai Supermarket 2",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0015",
+    "name": "Mumbai Supermarket 3",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0016",
+    "name": "Mumbai Supermarket 4",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0017",
+    "name": "Mumbai Supermarket 5",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0018",
+    "name": "Mumbai Supermarket 6",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0019",
+    "name": "Mumbai Supermarket 7",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0020",
+    "name": "Mumbai Supermarket 8",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0021",
+    "name": "Mumbai Supermarket 9",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0022",
+    "name": "Mumbai Supermarket 10",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0023",
+    "name": "Mumbai Supermarket 11",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0024",
+    "name": "Mumbai Supermarket 12",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0025",
+    "name": "Mumbai Express 1",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0026",
+    "name": "Mumbai Express 2",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0027",
+    "name": "Mumbai Express 3",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0028",
+    "name": "Mumbai Express 4",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0029",
+    "name": "Mumbai Express 5",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0030",
+    "name": "Mumbai Express 6",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0031",
+    "name": "Mumbai Dark Store 1",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0032",
+    "name": "Mumbai Dark Store 2",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0033",
+    "name": "Mumbai Dark Store 3",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0034",
+    "name": "Mumbai Dark Store 4",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0035",
+    "name": "Mumbai Dark Store 5",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0036",
+    "name": "Mumbai Dark Store 6",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0037",
+    "name": "Mumbai Kirana Partner 1",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0038",
+    "name": "Mumbai Kirana Partner 2",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0039",
+    "name": "Mumbai Kirana Partner 3",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0040",
+    "name": "Mumbai Kirana Partner 4",
+    "city": "Mumbai",
+    "region": "West",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0041",
+    "name": "Delhi NCR Hypermarket 1",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0042",
+    "name": "Delhi NCR Hypermarket 2",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0043",
+    "name": "Delhi NCR Hypermarket 3",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0044",
+    "name": "Delhi NCR Hypermarket 4",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0045",
+    "name": "Delhi NCR Hypermarket 5",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0046",
+    "name": "Delhi NCR Hypermarket 6",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0047",
+    "name": "Delhi NCR Hypermarket 7",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0048",
+    "name": "Delhi NCR Hypermarket 8",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0049",
+    "name": "Delhi NCR Hypermarket 9",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0050",
+    "name": "Delhi NCR Hypermarket 10",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0051",
+    "name": "Delhi NCR Hypermarket 11",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0052",
+    "name": "Delhi NCR Hypermarket 12",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0053",
+    "name": "Delhi NCR Supermarket 1",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0054",
+    "name": "Delhi NCR Supermarket 2",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0055",
+    "name": "Delhi NCR Supermarket 3",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0056",
+    "name": "Delhi NCR Supermarket 4",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0057",
+    "name": "Delhi NCR Supermarket 5",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0058",
+    "name": "Delhi NCR Supermarket 6",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0059",
+    "name": "Delhi NCR Supermarket 7",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0060",
+    "name": "Delhi NCR Supermarket 8",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0061",
+    "name": "Delhi NCR Supermarket 9",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0062",
+    "name": "Delhi NCR Supermarket 10",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0063",
+    "name": "Delhi NCR Express 1",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0064",
+    "name": "Delhi NCR Express 2",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0065",
+    "name": "Delhi NCR Express 3",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0066",
+    "name": "Delhi NCR Express 4",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0067",
+    "name": "Delhi NCR Express 5",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0068",
+    "name": "Delhi NCR Express 6",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0069",
+    "name": "Delhi NCR Dark Store 1",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0070",
+    "name": "Delhi NCR Dark Store 2",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0071",
+    "name": "Delhi NCR Dark Store 3",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0072",
+    "name": "Delhi NCR Dark Store 4",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0073",
+    "name": "Delhi NCR Dark Store 5",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0074",
+    "name": "Delhi NCR Dark Store 6",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0075",
+    "name": "Delhi NCR Dark Store 7",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0076",
+    "name": "Delhi NCR Dark Store 8",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0077",
+    "name": "Delhi NCR Kirana Partner 1",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0078",
+    "name": "Delhi NCR Kirana Partner 2",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0079",
+    "name": "Delhi NCR Kirana Partner 3",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0080",
+    "name": "Delhi NCR Kirana Partner 4",
+    "city": "Delhi NCR",
+    "region": "North",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0081",
+    "name": "Bangalore Hypermarket 1",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0082",
+    "name": "Bangalore Hypermarket 2",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0083",
+    "name": "Bangalore Hypermarket 3",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0084",
+    "name": "Bangalore Hypermarket 4",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0085",
+    "name": "Bangalore Hypermarket 5",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0086",
+    "name": "Bangalore Hypermarket 6",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0087",
+    "name": "Bangalore Hypermarket 7",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0088",
+    "name": "Bangalore Hypermarket 8",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0089",
+    "name": "Bangalore Hypermarket 9",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0090",
+    "name": "Bangalore Supermarket 1",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0091",
+    "name": "Bangalore Supermarket 2",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0092",
+    "name": "Bangalore Supermarket 3",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0093",
+    "name": "Bangalore Supermarket 4",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0094",
+    "name": "Bangalore Supermarket 5",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0095",
+    "name": "Bangalore Supermarket 6",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0096",
+    "name": "Bangalore Supermarket 7",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0097",
+    "name": "Bangalore Supermarket 8",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0098",
+    "name": "Bangalore Supermarket 9",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0099",
+    "name": "Bangalore Supermarket 10",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0100",
+    "name": "Bangalore Express 1",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0101",
+    "name": "Bangalore Express 2",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0102",
+    "name": "Bangalore Express 3",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0103",
+    "name": "Bangalore Express 4",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0104",
+    "name": "Bangalore Express 5",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0105",
+    "name": "Bangalore Dark Store 1",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0106",
+    "name": "Bangalore Dark Store 2",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0107",
+    "name": "Bangalore Dark Store 3",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0108",
+    "name": "Bangalore Dark Store 4",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0109",
+    "name": "Bangalore Dark Store 5",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0110",
+    "name": "Bangalore Dark Store 6",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0111",
+    "name": "Bangalore Dark Store 7",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0112",
+    "name": "Bangalore Kirana Partner 1",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0113",
+    "name": "Bangalore Kirana Partner 2",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0114",
+    "name": "Bangalore Kirana Partner 3",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0115",
+    "name": "Bangalore Kirana Partner 4",
+    "city": "Bangalore",
+    "region": "South",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0116",
+    "name": "Chennai Hypermarket 1",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0117",
+    "name": "Chennai Hypermarket 2",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0118",
+    "name": "Chennai Hypermarket 3",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0119",
+    "name": "Chennai Hypermarket 4",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0120",
+    "name": "Chennai Hypermarket 5",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0121",
+    "name": "Chennai Hypermarket 6",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0122",
+    "name": "Chennai Hypermarket 7",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0123",
+    "name": "Chennai Hypermarket 8",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0124",
+    "name": "Chennai Supermarket 1",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0125",
+    "name": "Chennai Supermarket 2",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0126",
+    "name": "Chennai Supermarket 3",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0127",
+    "name": "Chennai Supermarket 4",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0128",
+    "name": "Chennai Supermarket 5",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0129",
+    "name": "Chennai Supermarket 6",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0130",
+    "name": "Chennai Supermarket 7",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0131",
+    "name": "Chennai Supermarket 8",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0132",
+    "name": "Chennai Supermarket 9",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0133",
+    "name": "Chennai Supermarket 10",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0134",
+    "name": "Chennai Express 1",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0135",
+    "name": "Chennai Express 2",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0136",
+    "name": "Chennai Express 3",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0137",
+    "name": "Chennai Express 4",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0138",
+    "name": "Chennai Dark Store 1",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0139",
+    "name": "Chennai Dark Store 2",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0140",
+    "name": "Chennai Dark Store 3",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0141",
+    "name": "Chennai Dark Store 4",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0142",
+    "name": "Chennai Kirana Partner 1",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0143",
+    "name": "Chennai Kirana Partner 2",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0144",
+    "name": "Chennai Kirana Partner 3",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0145",
+    "name": "Chennai Kirana Partner 4",
+    "city": "Chennai",
+    "region": "South",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0146",
+    "name": "Hyderabad Hypermarket 1",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0147",
+    "name": "Hyderabad Hypermarket 2",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0148",
+    "name": "Hyderabad Hypermarket 3",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0149",
+    "name": "Hyderabad Hypermarket 4",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0150",
+    "name": "Hyderabad Hypermarket 5",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0151",
+    "name": "Hyderabad Hypermarket 6",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0152",
+    "name": "Hyderabad Hypermarket 7",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0153",
+    "name": "Hyderabad Hypermarket 8",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0154",
+    "name": "Hyderabad Supermarket 1",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0155",
+    "name": "Hyderabad Supermarket 2",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0156",
+    "name": "Hyderabad Supermarket 3",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0157",
+    "name": "Hyderabad Supermarket 4",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0158",
+    "name": "Hyderabad Supermarket 5",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0159",
+    "name": "Hyderabad Supermarket 6",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0160",
+    "name": "Hyderabad Supermarket 7",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0161",
+    "name": "Hyderabad Supermarket 8",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0162",
+    "name": "Hyderabad Supermarket 9",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0163",
+    "name": "Hyderabad Express 1",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0164",
+    "name": "Hyderabad Express 2",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0165",
+    "name": "Hyderabad Express 3",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0166",
+    "name": "Hyderabad Express 4",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0167",
+    "name": "Hyderabad Dark Store 1",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0168",
+    "name": "Hyderabad Dark Store 2",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0169",
+    "name": "Hyderabad Dark Store 3",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0170",
+    "name": "Hyderabad Dark Store 4",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0171",
+    "name": "Hyderabad Kirana Partner 1",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0172",
+    "name": "Hyderabad Kirana Partner 2",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0173",
+    "name": "Hyderabad Kirana Partner 3",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0174",
+    "name": "Hyderabad Kirana Partner 4",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0175",
+    "name": "Hyderabad Kirana Partner 5",
+    "city": "Hyderabad",
+    "region": "South",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0176",
+    "name": "Kolkata Hypermarket 1",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0177",
+    "name": "Kolkata Hypermarket 2",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0178",
+    "name": "Kolkata Hypermarket 3",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0179",
+    "name": "Kolkata Hypermarket 4",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0180",
+    "name": "Kolkata Hypermarket 5",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0181",
+    "name": "Kolkata Hypermarket 6",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0182",
+    "name": "Kolkata Supermarket 1",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0183",
+    "name": "Kolkata Supermarket 2",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0184",
+    "name": "Kolkata Supermarket 3",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0185",
+    "name": "Kolkata Supermarket 4",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0186",
+    "name": "Kolkata Supermarket 5",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0187",
+    "name": "Kolkata Supermarket 6",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0188",
+    "name": "Kolkata Supermarket 7",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0189",
+    "name": "Kolkata Supermarket 8",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0190",
+    "name": "Kolkata Supermarket 9",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0191",
+    "name": "Kolkata Express 1",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0192",
+    "name": "Kolkata Express 2",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0193",
+    "name": "Kolkata Express 3",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0194",
+    "name": "Kolkata Express 4",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0195",
+    "name": "Kolkata Dark Store 1",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0196",
+    "name": "Kolkata Dark Store 2",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0197",
+    "name": "Kolkata Kirana Partner 1",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0198",
+    "name": "Kolkata Kirana Partner 2",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0199",
+    "name": "Kolkata Kirana Partner 3",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0200",
+    "name": "Kolkata Kirana Partner 4",
+    "city": "Kolkata",
+    "region": "East",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0201",
+    "name": "Pune Hypermarket 1",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0202",
+    "name": "Pune Hypermarket 2",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0203",
+    "name": "Pune Hypermarket 3",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0204",
+    "name": "Pune Hypermarket 4",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0205",
+    "name": "Pune Hypermarket 5",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0206",
+    "name": "Pune Hypermarket 6",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0207",
+    "name": "Pune Hypermarket 7",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0208",
+    "name": "Pune Hypermarket 8",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0209",
+    "name": "Pune Supermarket 1",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0210",
+    "name": "Pune Supermarket 2",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0211",
+    "name": "Pune Supermarket 3",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0212",
+    "name": "Pune Supermarket 4",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0213",
+    "name": "Pune Supermarket 5",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0214",
+    "name": "Pune Supermarket 6",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0215",
+    "name": "Pune Supermarket 7",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0216",
+    "name": "Pune Supermarket 8",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0217",
+    "name": "Pune Supermarket 9",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0218",
+    "name": "Pune Express 1",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0219",
+    "name": "Pune Express 2",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0220",
+    "name": "Pune Express 3",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0221",
+    "name": "Pune Express 4",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0222",
+    "name": "Pune Dark Store 1",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0223",
+    "name": "Pune Dark Store 2",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0224",
+    "name": "Pune Kirana Partner 1",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0225",
+    "name": "Pune Kirana Partner 2",
+    "city": "Pune",
+    "region": "West",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0226",
+    "name": "Ahmedabad Hypermarket 1",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0227",
+    "name": "Ahmedabad Hypermarket 2",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0228",
+    "name": "Ahmedabad Hypermarket 3",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0229",
+    "name": "Ahmedabad Hypermarket 4",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0230",
+    "name": "Ahmedabad Hypermarket 5",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0231",
+    "name": "Ahmedabad Hypermarket 6",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0232",
+    "name": "Ahmedabad Supermarket 1",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0233",
+    "name": "Ahmedabad Supermarket 2",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0234",
+    "name": "Ahmedabad Supermarket 3",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0235",
+    "name": "Ahmedabad Supermarket 4",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0236",
+    "name": "Ahmedabad Supermarket 5",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0237",
+    "name": "Ahmedabad Supermarket 6",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0238",
+    "name": "Ahmedabad Supermarket 7",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0239",
+    "name": "Ahmedabad Express 1",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0240",
+    "name": "Ahmedabad Express 2",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0241",
+    "name": "Ahmedabad Express 3",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0242",
+    "name": "Ahmedabad Dark Store 1",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0243",
+    "name": "Ahmedabad Dark Store 2",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0244",
+    "name": "Ahmedabad Kirana Partner 1",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0245",
+    "name": "Ahmedabad Kirana Partner 2",
+    "city": "Ahmedabad",
+    "region": "West",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0246",
+    "name": "Jaipur Hypermarket 1",
+    "city": "Jaipur",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0247",
+    "name": "Jaipur Hypermarket 2",
+    "city": "Jaipur",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0248",
+    "name": "Jaipur Hypermarket 3",
+    "city": "Jaipur",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0249",
+    "name": "Jaipur Hypermarket 4",
+    "city": "Jaipur",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0250",
+    "name": "Jaipur Supermarket 1",
+    "city": "Jaipur",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0251",
+    "name": "Jaipur Supermarket 2",
+    "city": "Jaipur",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0252",
+    "name": "Jaipur Supermarket 3",
+    "city": "Jaipur",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0253",
+    "name": "Jaipur Supermarket 4",
+    "city": "Jaipur",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0254",
+    "name": "Jaipur Supermarket 5",
+    "city": "Jaipur",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0255",
+    "name": "Jaipur Express 1",
+    "city": "Jaipur",
+    "region": "North",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0256",
+    "name": "Jaipur Express 2",
+    "city": "Jaipur",
+    "region": "North",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0257",
+    "name": "Jaipur Express 3",
+    "city": "Jaipur",
+    "region": "North",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0258",
+    "name": "Jaipur Dark Store 1",
+    "city": "Jaipur",
+    "region": "North",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0259",
+    "name": "Jaipur Kirana Partner 1",
+    "city": "Jaipur",
+    "region": "North",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0260",
+    "name": "Jaipur Kirana Partner 2",
+    "city": "Jaipur",
+    "region": "North",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0261",
+    "name": "Lucknow Hypermarket 1",
+    "city": "Lucknow",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0262",
+    "name": "Lucknow Hypermarket 2",
+    "city": "Lucknow",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0263",
+    "name": "Lucknow Hypermarket 3",
+    "city": "Lucknow",
+    "region": "North",
+    "store_type": "Hypermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0264",
+    "name": "Lucknow Supermarket 1",
+    "city": "Lucknow",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0265",
+    "name": "Lucknow Supermarket 2",
+    "city": "Lucknow",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0266",
+    "name": "Lucknow Supermarket 3",
+    "city": "Lucknow",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0267",
+    "name": "Lucknow Supermarket 4",
+    "city": "Lucknow",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0268",
+    "name": "Lucknow Supermarket 5",
+    "city": "Lucknow",
+    "region": "North",
+    "store_type": "Supermarket"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0269",
+    "name": "Lucknow Express 1",
+    "city": "Lucknow",
+    "region": "North",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0270",
+    "name": "Lucknow Express 2",
+    "city": "Lucknow",
+    "region": "North",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0271",
+    "name": "Lucknow Express 3",
+    "city": "Lucknow",
+    "region": "North",
+    "store_type": "Express"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0272",
+    "name": "Lucknow Dark Store 1",
+    "city": "Lucknow",
+    "region": "North",
+    "store_type": "Dark Store"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0273",
+    "name": "Lucknow Kirana Partner 1",
+    "city": "Lucknow",
+    "region": "North",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0274",
+    "name": "Lucknow Kirana Partner 2",
+    "city": "Lucknow",
+    "region": "North",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-0275",
+    "name": "Lucknow Kirana Partner 3",
+    "city": "Lucknow",
+    "region": "North",
+    "store_type": "Kirana Partner"
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0001",
+    "name": "Salt",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0002",
+    "name": "Salt",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0003",
+    "name": "Edible Oil",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0004",
+    "name": "Edible Oil",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0005",
+    "name": "Edible Oil",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0006",
+    "name": "Edible Oil",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0007",
+    "name": "Atta & Flour",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0008",
+    "name": "Atta & Flour",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0009",
+    "name": "Atta & Flour",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0010",
+    "name": "Rice",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0011",
+    "name": "Rice",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0012",
+    "name": "Dal & Pulses",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0013",
+    "name": "Dal & Pulses",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0014",
+    "name": "Dal & Pulses",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0015",
+    "name": "Sugar & Jaggery",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0016",
+    "name": "Sugar & Jaggery",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0017",
+    "name": "Spices",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0018",
+    "name": "Spices",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0019",
+    "name": "Spices",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0020",
+    "name": "Spices",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0021",
+    "name": "Milk",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0022",
+    "name": "Milk",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0023",
+    "name": "Curd & Yogurt",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0024",
+    "name": "Curd & Yogurt",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0025",
+    "name": "Butter & Ghee",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0026",
+    "name": "Butter & Ghee",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0027",
+    "name": "Cheese",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0028",
+    "name": "Ice Cream",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0029",
+    "name": "Paneer",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0030",
+    "name": "Frozen Foods",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0031",
+    "name": "Soft Drinks",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0032",
+    "name": "Soft Drinks",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0033",
+    "name": "Juice",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0034",
+    "name": "Juice",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0035",
+    "name": "Water",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0036",
+    "name": "Tea",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0037",
+    "name": "Tea",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0038",
+    "name": "Coffee",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0039",
+    "name": "Coffee",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0040",
+    "name": "Energy Drinks",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0041",
+    "name": "Biscuits",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0042",
+    "name": "Biscuits",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0043",
+    "name": "Chips & Namkeen",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0044",
+    "name": "Chips & Namkeen",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0045",
+    "name": "Noodles",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0046",
+    "name": "Soaps",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0047",
+    "name": "Shampoo",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0048",
+    "name": "Toothpaste",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0049",
+    "name": "Detergent",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "categories",
+    "id": "CAT-0050",
+    "name": "Detergent",
+    "city": null,
+    "region": null,
+    "store_type": null
+  },
+  {
+    "dim_type": "segments",
+    "id": "SEG-0001",
+    "name": "High-Value VIP"
+  },
+  {
+    "dim_type": "segments",
+    "id": "SEG-0002",
+    "name": "Low Risk"
+  },
+  {
+    "dim_type": "segments",
+    "id": "SEG-0003",
+    "name": "Medium Risk"
+  },
+  {
+    "dim_type": "segments",
+    "id": "SEG-0004",
+    "name": "High Risk"
+  },
+  {
+    "dim_type": "segments",
+    "id": "SEG-0005",
+    "name": "New Customers"
+  },
+  {
+    "dim_type": "segments",
+    "id": "SEG-0006",
+    "name": "Churned"
+  },
+  {
+    "dim_type": "segments",
+    "id": "SEG-0007",
+    "name": "Low-Value"
+  },
+  {
+    "dim_type": "loyalty_tiers",
+    "id": "TIER-0001",
+    "name": "Platinum"
+  },
+  {
+    "dim_type": "loyalty_tiers",
+    "id": "TIER-0002",
+    "name": "Gold"
+  },
+  {
+    "dim_type": "loyalty_tiers",
+    "id": "TIER-0003",
+    "name": "Silver"
+  },
+  {
+    "dim_type": "loyalty_tiers",
+    "id": "TIER-0004",
+    "name": "Bronze"
+  },
+  {
+    "dim_type": "loyalty_tiers",
+    "id": "TIER-0005",
+    "name": "None"
+  },
+  {
+    "dim_type": "cities",
+    "id": "CITY-0001",
+    "name": "Mumbai"
+  },
+  {
+    "dim_type": "cities",
+    "id": "CITY-0002",
+    "name": "Delhi NCR"
+  },
+  {
+    "dim_type": "cities",
+    "id": "CITY-0003",
+    "name": "Bangalore"
+  },
+  {
+    "dim_type": "cities",
+    "id": "CITY-0004",
+    "name": "Hyderabad"
+  },
+  {
+    "dim_type": "cities",
+    "id": "CITY-0005",
+    "name": "Chennai"
+  },
+  {
+    "dim_type": "cities",
+    "id": "CITY-0006",
+    "name": "Pune"
+  },
+  {
+    "dim_type": "cities",
+    "id": "CITY-0007",
+    "name": "Kolkata"
+  },
+  {
+    "dim_type": "cities",
+    "id": "CITY-0008",
+    "name": "Ahmedabad"
+  },
+  {
+    "dim_type": "cities",
+    "id": "CITY-0009",
+    "name": "Jaipur"
+  },
+  {
+    "dim_type": "cities",
+    "id": "CITY-0010",
+    "name": "Lucknow"
+  },
+  {
+    "dim_type": "cities",
+    "id": "CITY-0011",
+    "name": "Chandigarh"
+  },
+  {
+    "dim_type": "cities",
+    "id": "CITY-0012",
+    "name": "Kochi"
+  },
+  {
+    "dim_type": "acquisition_channels",
+    "id": "ACQ-0001",
+    "name": "Organic Search"
+  },
+  {
+    "dim_type": "acquisition_channels",
+    "id": "ACQ-0002",
+    "name": "Paid Ads (Google/Meta)"
+  },
+  {
+    "dim_type": "acquisition_channels",
+    "id": "ACQ-0003",
+    "name": "Direct Traffic"
+  },
+  {
+    "dim_type": "acquisition_channels",
+    "id": "ACQ-0004",
+    "name": "Referral"
+  },
+  {
+    "dim_type": "acquisition_channels",
+    "id": "ACQ-0005",
+    "name": "Email / SMS"
+  },
+  {
+    "dim_type": "acquisition_channels",
+    "id": "ACQ-0006",
+    "name": "Marketplace"
+  },
+  {
+    "dim_type": "acquisition_channels",
+    "id": "ACQ-0007",
+    "name": "Social Media"
+  },
+  {
+    "dim_type": "acquisition_channels",
+    "id": "ACQ-0008",
+    "name": "Offline (Store Walk-in)"
+  },
+  {
+    "dim_type": "shopping_channels",
+    "id": "SHOP-0001",
+    "name": "In-Store"
+  },
+  {
+    "dim_type": "shopping_channels",
+    "id": "SHOP-0002",
+    "name": "Online"
+  },
+  {
+    "dim_type": "shopping_channels",
+    "id": "SHOP-0003",
+    "name": "Mobile App"
+  },
+  {
+    "dim_type": "shopping_channels",
+    "id": "SHOP-0004",
+    "name": "Omnichannel"
+  }
+]

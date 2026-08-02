@@ -51,7 +51,7 @@ function CustomTooltip({ active, payload, label }: { active?: boolean; payload?:
 
 export default function BasketDistribution({ data: legacyData, basketData }: Props) {
   const { expandedChart, setExpandedChart } = useDashboard();
-  const { isApparel, isRetail } = useTenant();
+  const { isApparel } = useTenant();
   const [isMounted, setIsMounted] = useState(false);
   useEffect(() => { setIsMounted(true); }, []);
 

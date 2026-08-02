@@ -19,7 +19,7 @@ export default function RootLayout({
   const cookieStore = cookies();
   const raw = cookieStore.get(TENANT_COOKIE)?.value;
   const initialTenant: Tenant =
-    raw === 'us_apparel' || raw === 'india_grocery' ? raw : DEFAULT_TENANT;
+    raw === 'us_apparel' || raw === 'us_retail' || raw === 'india_grocery' ? raw : DEFAULT_TENANT;
 
   return (
     <html lang="en">

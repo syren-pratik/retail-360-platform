@@ -1,0 +1,61 @@
+{
+  "generated_at": "2026-05-17T00:00:00.000Z",
+  "insights": [
+    {
+      "type": "opportunity",
+      "severity": "amber",
+      "title": "Samsung 55\" TV nearing markdown trigger",
+      "description": "Sell-through 58% at week 6 — queue md25.",
+      "metric": "sell_through_pct",
+      "action": "Queue md25",
+      "relatedChart": "markdown_queue",
+      "id": "INS-R001",
+      "source": "rule_engine"
+    },
+    {
+      "type": "risk",
+      "severity": "red",
+      "title": "Black Friday overlap: 4 active markdowns in Electronics",
+      "description": "Pre-clear by Nov 15 to protect margin.",
+      "metric": "markdown_overlap_flag",
+      "action": "Pre-clear",
+      "relatedChart": "campaigns_table",
+      "id": "INS-R002",
+      "source": "rule_engine"
+    },
+    {
+      "type": "competitive",
+      "severity": "amber",
+      "title": "Best Buy dropped Sony headphones by 12%",
+      "description": "Competitive index now 108 (was 96). Match within 48h.",
+      "metric": "competitive_index",
+      "action": "Match price",
+      "relatedChart": "competitive_index",
+      "id": "INS-R003",
+      "source": "rule_engine"
+    },
+    {
+      "type": "returns",
+      "severity": "red",
+      "title": "Home & Garden returns RAGM erosion",
+      "description": "8 SKUs below 20% RAGM due to 14% returns.",
+      "metric": "ragm_pct",
+      "action": "Add product info",
+      "relatedChart": "margin_distribution",
+      "id": "INS-R004",
+      "source": "rule_engine"
+    },
+    {
+      "type": "opportunity",
+      "severity": "green",
+      "title": "Back-to-School Electronics volume +18% WoW",
+      "description": "Reallocate budget to top laptops; projected 2.6x ROI.",
+      "metric": "campaign_roi",
+      "action": "Reallocate",
+      "relatedChart": "ai_suggestions",
+      "id": "INS-R005",
+      "source": "rule_engine"
+    }
+  ],
+  "source": "rule_engine"
+}

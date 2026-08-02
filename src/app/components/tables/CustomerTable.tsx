@@ -42,7 +42,7 @@ const formatPercent = (value: number) => {
 export default function CustomerTable({ data, onResetFilters }: CustomerTableProps) {
   const router = useRouter();
   const formatCurrency = useFormatMoneyPlain();
-  const { isApparel, isRetail } = useTenant();
+  const { isApparel } = useTenant();
   const [searchQuery, setSearchQuery] = useState('');
   const [sortField, setSortField] = useState<SortField>('clv_12m');
   const [sortDirection, setSortDirection] = useState<SortDirection>('desc');

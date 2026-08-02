@@ -1,0 +1,559 @@
+{
+  "kpis": {
+    "total_acquired": 80000,
+    "online_pct": 43,
+    "offline_pct": 48,
+    "omni_pct": 9,
+    "blended_cac": 42,
+    "top_channel": "Paid Social",
+    "growth_rate": 8.4
+  },
+  "monthly_trend": [
+    {
+      "month": "Jul 2025",
+      "Organic": 1487,
+      "Paid": 1161,
+      "Direct": 1290,
+      "Referral": 776,
+      "Email": 753,
+      "Social": 633,
+      "Marketplace": 622,
+      "Offline": 555
+    },
+    {
+      "month": "Aug 2025",
+      "Organic": 1630,
+      "Paid": 1426,
+      "Direct": 1005,
+      "Referral": 902,
+      "Email": 767,
+      "Social": 756,
+      "Marketplace": 409,
+      "Offline": 500
+    },
+    {
+      "month": "Sep 2025",
+      "Organic": 2059,
+      "Paid": 1225,
+      "Direct": 820,
+      "Referral": 985,
+      "Email": 669,
+      "Social": 676,
+      "Marketplace": 427,
+      "Offline": 460
+    },
+    {
+      "month": "Oct 2025",
+      "Organic": 1424,
+      "Paid": 1843,
+      "Direct": 1172,
+      "Referral": 640,
+      "Email": 566,
+      "Social": 791,
+      "Marketplace": 520,
+      "Offline": 606
+    },
+    {
+      "month": "Nov 2025",
+      "Organic": 1516,
+      "Paid": 1853,
+      "Direct": 887,
+      "Referral": 745,
+      "Email": 890,
+      "Social": 639,
+      "Marketplace": 628,
+      "Offline": 557
+    },
+    {
+      "month": "Dec 2025",
+      "Organic": 2070,
+      "Paid": 1784,
+      "Direct": 1175,
+      "Referral": 969,
+      "Email": 707,
+      "Social": 740,
+      "Marketplace": 568,
+      "Offline": 522
+    },
+    {
+      "month": "Jan 2026",
+      "Organic": 1961,
+      "Paid": 1409,
+      "Direct": 1165,
+      "Referral": 831,
+      "Email": 743,
+      "Social": 459,
+      "Marketplace": 696,
+      "Offline": 513
+    },
+    {
+      "month": "Feb 2026",
+      "Organic": 1714,
+      "Paid": 1548,
+      "Direct": 914,
+      "Referral": 823,
+      "Email": 678,
+      "Social": 739,
+      "Marketplace": 701,
+      "Offline": 459
+    },
+    {
+      "month": "Mar 2026",
+      "Organic": 2000,
+      "Paid": 1616,
+      "Direct": 873,
+      "Referral": 785,
+      "Email": 626,
+      "Social": 651,
+      "Marketplace": 514,
+      "Offline": 483
+    },
+    {
+      "month": "Apr 2026",
+      "Organic": 1942,
+      "Paid": 1811,
+      "Direct": 1242,
+      "Referral": 882,
+      "Email": 584,
+      "Social": 710,
+      "Marketplace": 425,
+      "Offline": 454
+    },
+    {
+      "month": "May 2026",
+      "Organic": 1642,
+      "Paid": 1505,
+      "Direct": 1287,
+      "Referral": 632,
+      "Email": 755,
+      "Social": 723,
+      "Marketplace": 715,
+      "Offline": 573
+    },
+    {
+      "month": "Jun 2026",
+      "Organic": 2055,
+      "Paid": 1800,
+      "Direct": 1214,
+      "Referral": 854,
+      "Email": 830,
+      "Social": 718,
+      "Marketplace": 468,
+      "Offline": 567
+    }
+  ],
+  "cac_trend": [
+    {
+      "month": "Jul 2025",
+      "Paid": 49,
+      "Social": 48,
+      "Email": 8,
+      "Referral": 13,
+      "Marketplace": 30
+    },
+    {
+      "month": "Aug 2025",
+      "Paid": 61,
+      "Social": 55,
+      "Email": 9,
+      "Referral": 10,
+      "Marketplace": 46
+    },
+    {
+      "month": "Sep 2025",
+      "Paid": 76,
+      "Social": 44,
+      "Email": 12,
+      "Referral": 10,
+      "Marketplace": 20
+    },
+    {
+      "month": "Oct 2025",
+      "Paid": 53,
+      "Social": 34,
+      "Email": 4,
+      "Referral": 15,
+      "Marketplace": 46
+    },
+    {
+      "month": "Nov 2025",
+      "Paid": 65,
+      "Social": 45,
+      "Email": 6,
+      "Referral": 6,
+      "Marketplace": 27
+    },
+    {
+      "month": "Dec 2025",
+      "Paid": 50,
+      "Social": 32,
+      "Email": 8,
+      "Referral": 21,
+      "Marketplace": 20
+    }
+  ],
+  "budget": [
+    {
+      "channel": "Paid Social (Meta/TikTok)",
+      "spent": 1820000,
+      "allocated": 2400000,
+      "utilization": 76
+    },
+    {
+      "channel": "Paid Search (Google)",
+      "spent": 980000,
+      "allocated": 1200000,
+      "utilization": 82
+    },
+    {
+      "channel": "Affiliate / Creator",
+      "spent": 480000,
+      "allocated": 600000,
+      "utilization": 80
+    },
+    {
+      "channel": "Email / SMS",
+      "spent": 120000,
+      "allocated": 180000,
+      "utilization": 67
+    }
+  ],
+  "ltv_cac": [
+    {
+      "channel": "Organic",
+      "ltv": 505,
+      "cac": 1,
+      "ratio": 505,
+      "payback_months": 0
+    },
+    {
+      "channel": "Paid Social",
+      "ltv": 506,
+      "cac": 50,
+      "ratio": 10.1,
+      "payback_months": 1.2
+    },
+    {
+      "channel": "Paid Search",
+      "ltv": 509,
+      "cac": 58,
+      "ratio": 8.8,
+      "payback_months": 1.4
+    },
+    {
+      "channel": "Direct",
+      "ltv": 512,
+      "cac": 1,
+      "ratio": 512,
+      "payback_months": 0
+    },
+    {
+      "channel": "Email",
+      "ltv": 510,
+      "cac": 10,
+      "ratio": 51,
+      "payback_months": 0.2
+    },
+    {
+      "channel": "Referral",
+      "ltv": 503,
+      "cac": 7,
+      "ratio": 71.9,
+      "payback_months": 0.2
+    },
+    {
+      "channel": "Affiliate",
+      "ltv": 513,
+      "cac": 35,
+      "ratio": 14.7,
+      "payback_months": 0.8
+    }
+  ],
+  "repeat_rates": [
+    {
+      "channel": "Organic",
+      "r30": 54,
+      "r60": 28,
+      "r90": 47
+    },
+    {
+      "channel": "Paid Social",
+      "r30": 61,
+      "r60": 26,
+      "r90": 26
+    },
+    {
+      "channel": "Paid Search",
+      "r30": 67,
+      "r60": 62,
+      "r90": 34
+    },
+    {
+      "channel": "Direct",
+      "r30": 69,
+      "r60": 33,
+      "r90": 23
+    },
+    {
+      "channel": "Email",
+      "r30": 42,
+      "r60": 46,
+      "r90": 52
+    },
+    {
+      "channel": "Referral",
+      "r30": 36,
+      "r60": 48,
+      "r90": 44
+    },
+    {
+      "channel": "Affiliate",
+      "r30": 58,
+      "r60": 38,
+      "r90": 51
+    }
+  ],
+  "first_purchase_category": [
+    {
+      "channel": "Organic",
+      "Tops": 34,
+      "Bottoms": 25,
+      "Outerwear": 14,
+      "Sports & Outdoor": 21,
+      "Beauty & Personal": 21
+    },
+    {
+      "channel": "Paid Social",
+      "Tops": 38,
+      "Bottoms": 29,
+      "Outerwear": 22,
+      "Sports & Outdoor": 27,
+      "Beauty & Personal": 21
+    },
+    {
+      "channel": "Paid Search",
+      "Tops": 23,
+      "Bottoms": 22,
+      "Outerwear": 13,
+      "Sports & Outdoor": 16,
+      "Beauty & Personal": 22
+    },
+    {
+      "channel": "Direct",
+      "Tops": 24,
+      "Bottoms": 21,
+      "Outerwear": 19,
+      "Sports & Outdoor": 25,
+      "Beauty & Personal": 17
+    },
+    {
+      "channel": "Email",
+      "Tops": 36,
+      "Bottoms": 29,
+      "Outerwear": 22,
+      "Sports & Outdoor": 20,
+      "Beauty & Personal": 15
+    },
+    {
+      "channel": "Referral",
+      "Tops": 36,
+      "Bottoms": 32,
+      "Outerwear": 20,
+      "Sports & Outdoor": 27,
+      "Beauty & Personal": 14
+    },
+    {
+      "channel": "Affiliate",
+      "Tops": 37,
+      "Bottoms": 18,
+      "Outerwear": 20,
+      "Sports & Outdoor": 19,
+      "Beauty & Personal": 11
+    }
+  ],
+  "city_channel_split": [
+    {
+      "city": "NYC",
+      "Organic": 421,
+      "Paid": 970,
+      "Direct": 781,
+      "Referral": 137,
+      "Social": 694,
+      "Offline": 196,
+      "Email": 180,
+      "Marketplace": 105
+    },
+    {
+      "city": "Boston",
+      "Organic": 484,
+      "Paid": 1068,
+      "Direct": 410,
+      "Referral": 453,
+      "Social": 270,
+      "Offline": 458,
+      "Email": 327,
+      "Marketplace": 261
+    },
+    {
+      "city": "Philadelphia",
+      "Organic": 416,
+      "Paid": 1073,
+      "Direct": 793,
+      "Referral": 553,
+      "Social": 607,
+      "Offline": 467,
+      "Email": 246,
+      "Marketplace": 270
+    },
+    {
+      "city": "Chicago",
+      "Organic": 693,
+      "Paid": 801,
+      "Direct": 497,
+      "Referral": 597,
+      "Social": 313,
+      "Offline": 165,
+      "Email": 255,
+      "Marketplace": 164
+    },
+    {
+      "city": "Minneapolis",
+      "Organic": 1248,
+      "Paid": 1049,
+      "Direct": 485,
+      "Referral": 525,
+      "Social": 670,
+      "Offline": 451,
+      "Email": 157,
+      "Marketplace": 155
+    },
+    {
+      "city": "Detroit",
+      "Organic": 873,
+      "Paid": 655,
+      "Direct": 182,
+      "Referral": 455,
+      "Social": 593,
+      "Offline": 370,
+      "Email": 180,
+      "Marketplace": 90
+    },
+    {
+      "city": "Columbus",
+      "Organic": 1053,
+      "Paid": 707,
+      "Direct": 716,
+      "Referral": 447,
+      "Social": 524,
+      "Offline": 298,
+      "Email": 174,
+      "Marketplace": 83
+    },
+    {
+      "city": "Atlanta",
+      "Organic": 1395,
+      "Paid": 1045,
+      "Direct": 304,
+      "Referral": 229,
+      "Social": 666,
+      "Offline": 211,
+      "Email": 243,
+      "Marketplace": 138
+    },
+    {
+      "city": "Charlotte",
+      "Organic": 411,
+      "Paid": 525,
+      "Direct": 569,
+      "Referral": 163,
+      "Social": 265,
+      "Offline": 309,
+      "Email": 114,
+      "Marketplace": 186
+    },
+    {
+      "city": "Miami",
+      "Organic": 675,
+      "Paid": 474,
+      "Direct": 671,
+      "Referral": 335,
+      "Social": 287,
+      "Offline": 270,
+      "Email": 111,
+      "Marketplace": 107
+    },
+    {
+      "city": "Orlando",
+      "Organic": 1278,
+      "Paid": 586,
+      "Direct": 432,
+      "Referral": 566,
+      "Social": 421,
+      "Offline": 186,
+      "Email": 283,
+      "Marketplace": 268
+    },
+    {
+      "city": "Houston",
+      "Organic": 560,
+      "Paid": 720,
+      "Direct": 550,
+      "Referral": 458,
+      "Social": 240,
+      "Offline": 409,
+      "Email": 265,
+      "Marketplace": 91
+    }
+  ],
+  "alerts": [
+    {
+      "severity": "warning",
+      "message": "Marketplace LTV:CAC is 2.4:1 — below 3:1 target, watch for next quarter."
+    },
+    {
+      "severity": "info",
+      "message": "Referral repeat-30d is 62% — scale referral programme."
+    },
+    {
+      "severity": "critical",
+      "message": "Paid Social CAC up 18% MoM — TikTok auctions tightening, diversify spend."
+    }
+  ],
+  "time_to_first_purchase": [
+    {
+      "channel": "Organic",
+      "avg_days": 2,
+      "median_days": 1
+    },
+    {
+      "channel": "Paid Social",
+      "avg_days": 13,
+      "median_days": 4
+    },
+    {
+      "channel": "Paid Search",
+      "avg_days": 6,
+      "median_days": 7
+    },
+    {
+      "channel": "Direct",
+      "avg_days": 1,
+      "median_days": 2
+    },
+    {
+      "channel": "Email",
+      "avg_days": 10,
+      "median_days": 1
+    },
+    {
+      "channel": "Referral",
+      "avg_days": 0,
+      "median_days": 3
+    },
+    {
+      "channel": "Affiliate",
+      "avg_days": 2,
+      "median_days": 9
+    }
+  ]
+}

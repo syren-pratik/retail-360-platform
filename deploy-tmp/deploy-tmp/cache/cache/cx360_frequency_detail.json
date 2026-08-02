@@ -1,0 +1,105 @@
+{
+  "summary": {
+    "total_customers": 50000,
+    "avg_frequency": 16.8,
+    "median_frequency": 12,
+    "repeat_rate_90d": 68.5,
+    "pct_active_30d": 42.0,
+    "pct_active_60d": 61.0,
+    "pct_active_90d": 74.0,
+    "median_interpurchase_days": 18,
+    "omni_frequent_pct": 8.4,
+    "frequency_trend_mom": 2.1
+  },
+  "distribution": [
+    { "range": "1x", "customer_count": 3500, "pct": 7.0, "revenue": 4810000, "pct_revenue": 2.5, "avg_basket": 1374, "avg_clv": 380 },
+    { "range": "2-3x", "customer_count": 5500, "pct": 11.0, "revenue": 11540000, "pct_revenue": 6.0, "avg_basket": 1398, "avg_clv": 720 },
+    { "range": "4-6x", "customer_count": 6000, "pct": 12.0, "revenue": 17310000, "pct_revenue": 9.0, "avg_basket": 1442, "avg_clv": 1150 },
+    { "range": "7-12x", "customer_count": 8500, "pct": 17.0, "revenue": 34610000, "pct_revenue": 18.0, "avg_basket": 1520, "avg_clv": 1850 },
+    { "range": "13-24x", "customer_count": 11000, "pct": 22.0, "revenue": 48200000, "pct_revenue": 25.1, "avg_basket": 1680, "avg_clv": 2800 },
+    { "range": "25-52x", "customer_count": 10500, "pct": 21.0, "revenue": 50100000, "pct_revenue": 26.1, "avg_basket": 1820, "avg_clv": 3400 },
+    { "range": "52x+", "customer_count": 5000, "pct": 10.0, "revenue": 25680000, "pct_revenue": 13.3, "avg_basket": 985, "avg_clv": 4200 }
+  ],
+  "by_segment": [
+    { "range": "1x", "High-Value VIP": 25, "Low Risk": 100, "Medium Risk": 400, "High Risk": 800, "New Customers": 1500, "Low-Value": 500, "Churned": 175 },
+    { "range": "2-3x", "High-Value VIP": 50, "Low Risk": 200, "Medium Risk": 800, "High Risk": 1200, "New Customers": 2000, "Low-Value": 900, "Churned": 350 },
+    { "range": "4-6x", "High-Value VIP": 100, "Low Risk": 500, "Medium Risk": 1200, "High Risk": 1500, "New Customers": 1500, "Low-Value": 800, "Churned": 400 },
+    { "range": "7-12x", "High-Value VIP": 200, "Low Risk": 1500, "Medium Risk": 2500, "High Risk": 1800, "New Customers": 1200, "Low-Value": 800, "Churned": 500 },
+    { "range": "13-24x", "High-Value VIP": 600, "Low Risk": 2500, "Medium Risk": 3000, "High Risk": 1500, "New Customers": 1000, "Low-Value": 1800, "Churned": 600 },
+    { "range": "25-52x", "High-Value VIP": 900, "Low Risk": 2200, "Medium Risk": 2100, "High Risk": 700, "New Customers": 300, "Low-Value": 4100, "Churned": 200 },
+    { "range": "52x+", "High-Value VIP": 625, "Low Risk": 1500, "Medium Risk": 1000, "High Risk": 500, "New Customers": 200, "Low-Value": 1100, "Churned": 75 }
+  ],
+  "with_recency": [
+    { "range": "1x", "active_30d": 1200, "slipping_30_90": 800, "at_risk_90_180": 700, "lost_180plus": 800 },
+    { "range": "2-3x", "active_30d": 1800, "slipping_30_90": 1500, "at_risk_90_180": 1200, "lost_180plus": 1000 },
+    { "range": "4-6x", "active_30d": 2400, "slipping_30_90": 1800, "at_risk_90_180": 1200, "lost_180plus": 600 },
+    { "range": "7-12x", "active_30d": 4200, "slipping_30_90": 2500, "at_risk_90_180": 1200, "lost_180plus": 600 },
+    { "range": "13-24x", "active_30d": 6600, "slipping_30_90": 2800, "at_risk_90_180": 1100, "lost_180plus": 500 },
+    { "range": "25-52x", "active_30d": 7200, "slipping_30_90": 2100, "at_risk_90_180": 800, "lost_180plus": 400 },
+    { "range": "52x+", "active_30d": 3800, "slipping_30_90": 800, "at_risk_90_180": 300, "lost_180plus": 100 }
+  ],
+  "frequency_migration": {
+    "period": "Q1 2024 → Q2 2024",
+    "flows": [
+      { "from": "1x", "to": "1x", "count": 1500, "direction": "same" },
+      { "from": "1x", "to": "2-3x", "count": 1200, "direction": "up" },
+      { "from": "1x", "to": "Churned", "count": 800, "direction": "lost" },
+      { "from": "2-3x", "to": "4-6x", "count": 1800, "direction": "up" },
+      { "from": "2-3x", "to": "2-3x", "count": 2200, "direction": "same" },
+      { "from": "2-3x", "to": "1x", "count": 1000, "direction": "down" },
+      { "from": "2-3x", "to": "Churned", "count": 500, "direction": "lost" },
+      { "from": "4-6x", "to": "7-12x", "count": 2200, "direction": "up" },
+      { "from": "4-6x", "to": "4-6x", "count": 2500, "direction": "same" },
+      { "from": "4-6x", "to": "2-3x", "count": 800, "direction": "down" },
+      { "from": "4-6x", "to": "Churned", "count": 500, "direction": "lost" },
+      { "from": "7-12x", "to": "13-24x", "count": 3000, "direction": "up" },
+      { "from": "7-12x", "to": "7-12x", "count": 3500, "direction": "same" },
+      { "from": "7-12x", "to": "4-6x", "count": 1500, "direction": "down" },
+      { "from": "7-12x", "to": "Churned", "count": 500, "direction": "lost" },
+      { "from": "13-24x", "to": "25-52x", "count": 2800, "direction": "up" },
+      { "from": "13-24x", "to": "13-24x", "count": 5500, "direction": "same" },
+      { "from": "13-24x", "to": "7-12x", "count": 2200, "direction": "down" },
+      { "from": "13-24x", "to": "Churned", "count": 500, "direction": "lost" },
+      { "from": "25-52x", "to": "52x+", "count": 1500, "direction": "up" },
+      { "from": "25-52x", "to": "25-52x", "count": 6500, "direction": "same" },
+      { "from": "25-52x", "to": "13-24x", "count": 2000, "direction": "down" },
+      { "from": "25-52x", "to": "Churned", "count": 500, "direction": "lost" },
+      { "from": "52x+", "to": "52x+", "count": 3500, "direction": "same" },
+      { "from": "52x+", "to": "25-52x", "count": 1200, "direction": "down" },
+      { "from": "52x+", "to": "Churned", "count": 300, "direction": "lost" }
+    ]
+  },
+  "interpurchase_interval": [
+    { "range": "1-3 days", "customers": 4200, "pct": 8.4, "segment_dominant": "52x+ weekly" },
+    { "range": "4-7 days", "customers": 8500, "pct": 17.0, "segment_dominant": "25-52x" },
+    { "range": "8-14 days", "customers": 11000, "pct": 22.0, "segment_dominant": "13-24x" },
+    { "range": "15-30 days", "customers": 12500, "pct": 25.0, "segment_dominant": "7-12x" },
+    { "range": "31-60 days", "customers": 7800, "pct": 15.6, "segment_dominant": "4-6x" },
+    { "range": "61-90 days", "customers": 3500, "pct": 7.0, "segment_dominant": "2-3x" },
+    { "range": "90+ days", "customers": 2500, "pct": 5.0, "segment_dominant": "1x / Churned" }
+  ],
+  "frequency_trend": [
+    { "month": "Jan 2024", "avg_freq": 15.2, "median_freq": 11, "repeat_rate": 65.8, "active_pct": 38.5 },
+    { "month": "Feb 2024", "avg_freq": 15.5, "median_freq": 11, "repeat_rate": 66.2, "active_pct": 39.2 },
+    { "month": "Mar 2024", "avg_freq": 15.8, "median_freq": 11, "repeat_rate": 66.8, "active_pct": 40.0 },
+    { "month": "Apr 2024", "avg_freq": 16.1, "median_freq": 12, "repeat_rate": 67.5, "active_pct": 40.8 },
+    { "month": "May 2024", "avg_freq": 16.5, "median_freq": 12, "repeat_rate": 68.0, "active_pct": 41.5 },
+    { "month": "Jun 2024", "avg_freq": 16.8, "median_freq": 12, "repeat_rate": 68.5, "active_pct": 42.0 }
+  ],
+  "early_warning": [
+    { "customer_id": "CUST-0042", "normal_interval": 7, "current_gap": 22, "days_overdue": 15, "clv": 3200, "risk": "high" },
+    { "customer_id": "CUST-0187", "normal_interval": 14, "current_gap": 38, "days_overdue": 24, "clv": 2800, "risk": "high" },
+    { "customer_id": "CUST-0391", "normal_interval": 10, "current_gap": 28, "days_overdue": 18, "clv": 4100, "risk": "high" },
+    { "customer_id": "CUST-0654", "normal_interval": 21, "current_gap": 45, "days_overdue": 24, "clv": 1900, "risk": "medium" },
+    { "customer_id": "CUST-0812", "normal_interval": 7, "current_gap": 19, "days_overdue": 12, "clv": 5600, "risk": "high" },
+    { "customer_id": "CUST-1023", "normal_interval": 30, "current_gap": 58, "days_overdue": 28, "clv": 1400, "risk": "medium" },
+    { "customer_id": "CUST-1247", "normal_interval": 5, "current_gap": 16, "days_overdue": 11, "clv": 3800, "risk": "medium" }
+  ],
+  "insights": [
+    "52x+ (weekly shoppers): 5,000 customers, 10% of base, but 13.3% of revenue. Avg basket ₹985 — these are daily-needs loyalists, not big spenders. Protect frequency.",
+    "1x customers: 73% churn within 90 days. The first-to-second purchase gap is where you lose the most people. Focus onboarding campaigns here.",
+    "Frequency migration: 2,800 customers moved from 13-24x to 25-52x this quarter — positive momentum. But 2,200 dropped from 13-24x to 7-12x — investigate.",
+    "25-52x bucket has avg CLV of ₹3,400 vs ₹985 basket — high frequency compensates for moderate baskets. Don't push basket upsell, protect the visit habit.",
+    "Median inter-purchase interval: 18 days. Customers visiting less than every 18 days are below baseline — flag for engagement."
+  ]
+}

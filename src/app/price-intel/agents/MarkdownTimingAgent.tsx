@@ -62,7 +62,7 @@ function UrgencyBadge({ urgency }: { urgency: ScheduleItem['urgency'] }) {
 }
 
 export default function MarkdownTimingAgent({ core }: Props) {
-  const { isApparel, isRetail } = useTenant();
+  const { isApparel } = useTenant();
   const pendingItems = isApparel
     ? core.skus.slice(0, 15).map((s) => ({
         product_id: s.sku_id,

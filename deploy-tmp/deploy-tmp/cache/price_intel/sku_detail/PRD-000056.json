@@ -1,0 +1,1140 @@
+{
+  "sku_id": "PRD-000056",
+  "product_name": "Red Label Natural Care 500g",
+  "price_history": [
+    {
+      "date": "2026-02-16",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-02-17",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-02-18",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-02-19",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-02-20",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-02-21",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-02-22",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-02-23",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-02-24",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-02-25",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-02-26",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-02-27",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-02-28",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-01",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-02",
+      "price_inr": 200,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.18,
+      "is_promo": true,
+      "promo_depth_pct": 19,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-03",
+      "price_inr": 190,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.14,
+      "is_promo": true,
+      "promo_depth_pct": 23,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-04",
+      "price_inr": 227,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.28,
+      "is_promo": true,
+      "promo_depth_pct": 8,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-05",
+      "price_inr": 225,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.27,
+      "is_promo": true,
+      "promo_depth_pct": 9,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-06",
+      "price_inr": 190,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.14,
+      "is_promo": true,
+      "promo_depth_pct": 23,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-07",
+      "price_inr": 193,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.15,
+      "is_promo": true,
+      "promo_depth_pct": 22,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-08",
+      "price_inr": 190,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.14,
+      "is_promo": true,
+      "promo_depth_pct": 23,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-09",
+      "price_inr": 193,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.15,
+      "is_promo": true,
+      "promo_depth_pct": 22,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-10",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-11",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-12",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-13",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-14",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-15",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-16",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-17",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-18",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-19",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-20",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-21",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-22",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-23",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-24",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-25",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-26",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-27",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-28",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-29",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-30",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-03-31",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 164,
+      "margin_pct": 0.34,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-01",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-02",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-03",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-04",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-05",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-06",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-07",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-08",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-09",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-10",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-11",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-12",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-13",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-14",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-15",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-16",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-17",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-18",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-19",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-20",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-21",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-22",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-23",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-24",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-25",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-26",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-27",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": "Republic Day"
+    },
+    {
+      "date": "2026-04-28",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-29",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-04-30",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": "Holi"
+    },
+    {
+      "date": "2026-05-01",
+      "price_inr": 215,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.17,
+      "is_promo": true,
+      "promo_depth_pct": 13,
+      "event_name": "Republic Day"
+    },
+    {
+      "date": "2026-05-02",
+      "price_inr": 210,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.15,
+      "is_promo": true,
+      "promo_depth_pct": 15,
+      "event_name": null
+    },
+    {
+      "date": "2026-05-03",
+      "price_inr": 212,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.16,
+      "is_promo": true,
+      "promo_depth_pct": 14,
+      "event_name": null
+    },
+    {
+      "date": "2026-05-04",
+      "price_inr": 198,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.1,
+      "is_promo": true,
+      "promo_depth_pct": 20,
+      "event_name": null
+    },
+    {
+      "date": "2026-05-05",
+      "price_inr": 205,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.13,
+      "is_promo": true,
+      "promo_depth_pct": 17,
+      "event_name": null
+    },
+    {
+      "date": "2026-05-06",
+      "price_inr": 210,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.15,
+      "is_promo": true,
+      "promo_depth_pct": 15,
+      "event_name": null
+    },
+    {
+      "date": "2026-05-07",
+      "price_inr": 188,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.05,
+      "is_promo": true,
+      "promo_depth_pct": 24,
+      "event_name": null
+    },
+    {
+      "date": "2026-05-08",
+      "price_inr": 220,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.19,
+      "is_promo": true,
+      "promo_depth_pct": 11,
+      "event_name": null
+    },
+    {
+      "date": "2026-05-09",
+      "price_inr": 195,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.08,
+      "is_promo": true,
+      "promo_depth_pct": 21,
+      "event_name": null
+    },
+    {
+      "date": "2026-05-10",
+      "price_inr": 200,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.11,
+      "is_promo": true,
+      "promo_depth_pct": 19,
+      "event_name": null
+    },
+    {
+      "date": "2026-05-11",
+      "price_inr": 225,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.2,
+      "is_promo": true,
+      "promo_depth_pct": 9,
+      "event_name": null
+    },
+    {
+      "date": "2026-05-12",
+      "price_inr": 207,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.14,
+      "is_promo": true,
+      "promo_depth_pct": 16,
+      "event_name": null
+    },
+    {
+      "date": "2026-05-13",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-05-14",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-05-15",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-05-16",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    },
+    {
+      "date": "2026-05-17",
+      "price_inr": 247,
+      "mrp_inr": 258,
+      "cost_inr": 179,
+      "margin_pct": 0.28,
+      "is_promo": false,
+      "promo_depth_pct": null,
+      "event_name": null
+    }
+  ],
+  "elasticity_curve": [
+    {
+      "price_inr": 176.4,
+      "demand_index": 1.17,
+      "margin_inr": 1532,
+      "revenue_inr": 115990
+    },
+    {
+      "price_inr": 183.96,
+      "demand_index": 1.15,
+      "margin_inr": 6392,
+      "revenue_inr": 118893
+    },
+    {
+      "price_inr": 191.52,
+      "demand_index": 1.14,
+      "margin_inr": 11180,
+      "revenue_inr": 122703
+    },
+    {
+      "price_inr": 199.08,
+      "demand_index": 1.12,
+      "margin_inr": 15742,
+      "revenue_inr": 125309
+    },
+    {
+      "price_inr": 206.64,
+      "demand_index": 1.1,
+      "margin_inr": 20135,
+      "revenue_inr": 127745
+    },
+    {
+      "price_inr": 214.2,
+      "demand_index": 1.09,
+      "margin_inr": 24583,
+      "revenue_inr": 131215
+    },
+    {
+      "price_inr": 221.76,
+      "demand_index": 1.07,
+      "margin_inr": 28678,
+      "revenue_inr": 133353
+    },
+    {
+      "price_inr": 229.32,
+      "demand_index": 1.05,
+      "margin_inr": 32603,
+      "revenue_inr": 135322
+    },
+    {
+      "price_inr": 236.88,
+      "demand_index": 1.03,
+      "margin_inr": 36358,
+      "revenue_inr": 137120
+    },
+    {
+      "price_inr": 244.44,
+      "demand_index": 1.02,
+      "margin_inr": 40339,
+      "revenue_inr": 140123
+    },
+    {
+      "price_inr": 252,
+      "demand_index": 1,
+      "margin_inr": 43797,
+      "revenue_inr": 141624
+    },
+    {
+      "price_inr": 259.56,
+      "demand_index": 0.98,
+      "margin_inr": 47084,
+      "revenue_inr": 142955
+    },
+    {
+      "price_inr": 267.12,
+      "demand_index": 0.97,
+      "margin_inr": 50725,
+      "revenue_inr": 145618
+    },
+    {
+      "price_inr": 274.68,
+      "demand_index": 0.95,
+      "margin_inr": 53716,
+      "revenue_inr": 146652
+    },
+    {
+      "price_inr": 282.24,
+      "demand_index": 0.93,
+      "margin_inr": 56536,
+      "revenue_inr": 147516
+    },
+    {
+      "price_inr": 289.8,
+      "demand_index": 0.91,
+      "margin_inr": 59187,
+      "revenue_inr": 148210
+    },
+    {
+      "price_inr": 297.36,
+      "demand_index": 0.9,
+      "margin_inr": 62360,
+      "revenue_inr": 150405
+    },
+    {
+      "price_inr": 304.92,
+      "demand_index": 0.88,
+      "margin_inr": 64713,
+      "revenue_inr": 150801
+    },
+    {
+      "price_inr": 312.48,
+      "demand_index": 0.86,
+      "margin_inr": 66896,
+      "revenue_inr": 151028
+    },
+    {
+      "price_inr": 320.04,
+      "demand_index": 0.85,
+      "margin_inr": 69730,
+      "revenue_inr": 152883
+    },
+    {
+      "price_inr": 327.6,
+      "demand_index": 0.83,
+      "margin_inr": 71616,
+      "revenue_inr": 152812
+    }
+  ],
+  "margin_waterfall": {
+    "cost_inr": 174.07,
+    "shelf_price_inr": 252,
+    "gross_margin_inr": 78,
+    "gross_margin_pct": 0.31,
+    "promo_discount_inr": 5,
+    "realized_price_inr": 247,
+    "realized_margin_inr": 73,
+    "realized_margin_pct": 0.3,
+    "free_rider_waste_inr": 2,
+    "net_margin_inr": 71,
+    "net_margin_pct": 0.29
+  },
+  "promo_history": [
+    {
+      "promo_id": "PROMO-PRD-000056-1",
+      "mechanic": "cashback",
+      "start_date": "2026-05-09",
+      "end_date": "2026-05-17",
+      "depth_pct": 12,
+      "budget_inr": 228813,
+      "lift_pct": 24,
+      "incremental_revenue_inr": 573637,
+      "free_rider_ratio_pct": 52.79,
+      "post_promo_dip_pct": -5.73,
+      "roi": 2.51,
+      "net_roi": 1.18
+    },
+    {
+      "promo_id": "PROMO-PRD-000056-2",
+      "mechanic": "bundle",
+      "start_date": "2026-04-16",
+      "end_date": "2026-04-23",
+      "depth_pct": 21,
+      "budget_inr": 277511,
+      "lift_pct": 37.73,
+      "incremental_revenue_inr": 493587,
+      "free_rider_ratio_pct": 31.47,
+      "post_promo_dip_pct": -9.34,
+      "roi": 1.78,
+      "net_roi": 1.22
+    },
+    {
+      "promo_id": "PROMO-PRD-000056-3",
+      "mechanic": "bundle",
+      "start_date": "2026-04-11",
+      "end_date": "2026-04-22",
+      "depth_pct": 28,
+      "budget_inr": 150689,
+      "lift_pct": 18.92,
+      "incremental_revenue_inr": 385583,
+      "free_rider_ratio_pct": 28.47,
+      "post_promo_dip_pct": -6.06,
+      "roi": 2.56,
+      "net_roi": 1.83
+    },
+    {
+      "promo_id": "PROMO-PRD-000056-4",
+      "mechanic": "multipack",
+      "start_date": "2026-03-26",
+      "end_date": "2026-04-04",
+      "depth_pct": 16,
+      "budget_inr": 245226,
+      "lift_pct": 22.11,
+      "incremental_revenue_inr": 453220,
+      "free_rider_ratio_pct": 47.69,
+      "post_promo_dip_pct": -10.69,
+      "roi": 1.85,
+      "net_roi": 0.97
+    },
+    {
+      "promo_id": "PROMO-PRD-000056-5",
+      "mechanic": "bundle",
+      "start_date": "2026-03-15",
+      "end_date": "2026-03-21",
+      "depth_pct": 21,
+      "budget_inr": 168428,
+      "lift_pct": 22.72,
+      "incremental_revenue_inr": 512357,
+      "free_rider_ratio_pct": 57.16,
+      "post_promo_dip_pct": -14.38,
+      "roi": 3.04,
+      "net_roi": 1.3
+    }
+  ],
+  "recommendation": {
+    "current_price_inr": 252,
+    "recommended_price_inr": 252,
+    "price_change_pct": 0,
+    "rationale": "Red Label Natural Care 500g is already priced optimally — current margin of 31.0% meets the Beverages target. Model confidence is high with 0.57 elasticity coefficient.",
+    "projected_volume_change_pct": 0,
+    "projected_revenue_change_inr": 0,
+    "projected_margin_change_pp": 0,
+    "confidence": "high",
+    "priority": "Low"
+  }
+}

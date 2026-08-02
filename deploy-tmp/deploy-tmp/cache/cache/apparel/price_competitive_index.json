@@ -1,0 +1,82 @@
+[
+  {
+    "department": "Women's Tops",
+    "avg_current_price": "25.72",
+    "avg_recommended_price": "25.19",
+    "avg_margin": "59.1",
+    "product_count": "36",
+    "competitive_index": "1.02",
+    "top_competitor": "AMZN",
+    "vs_top_competitor_pct": "2.2"
+  },
+  {
+    "department": "Women's Bottoms",
+    "avg_current_price": "47.12",
+    "avg_recommended_price": "46.4",
+    "avg_margin": "57.3",
+    "product_count": "32",
+    "competitive_index": "1.01",
+    "top_competitor": "AMZN",
+    "vs_top_competitor_pct": "0.6"
+  },
+  {
+    "department": "Women's Dresses",
+    "avg_current_price": "56.74",
+    "avg_recommended_price": "55.95",
+    "avg_margin": "59.8",
+    "product_count": "24",
+    "competitive_index": "1.03",
+    "top_competitor": "NORD",
+    "vs_top_competitor_pct": "3.5"
+  },
+  {
+    "department": "Men's Tops",
+    "avg_current_price": "35.97",
+    "avg_recommended_price": "35.33",
+    "avg_margin": "54.7",
+    "product_count": "28",
+    "competitive_index": "1.01",
+    "top_competitor": "NORD",
+    "vs_top_competitor_pct": "1"
+  },
+  {
+    "department": "Men's Bottoms",
+    "avg_current_price": "51.38",
+    "avg_recommended_price": "51.1",
+    "avg_margin": "54.5",
+    "product_count": "24",
+    "competitive_index": "1.02",
+    "top_competitor": "WMT",
+    "vs_top_competitor_pct": "2"
+  },
+  {
+    "department": "Kids'",
+    "avg_current_price": "18.18",
+    "avg_recommended_price": "18.18",
+    "avg_margin": "53.9",
+    "product_count": "20",
+    "competitive_index": "1.01",
+    "top_competitor": "NORD",
+    "vs_top_competitor_pct": "1.1"
+  },
+  {
+    "department": "Footwear",
+    "avg_current_price": "56.37",
+    "avg_recommended_price": "54.26",
+    "avg_margin": "50.8",
+    "product_count": "24",
+    "competitive_index": "1.01",
+    "top_competitor": "MACYS",
+    "vs_top_competitor_pct": "1.2"
+  },
+  {
+    "department": "Accessories",
+    "avg_current_price": "28.53",
+    "avg_recommended_price": "27.66",
+    "avg_margin": "63.5",
+    "product_count": "12",
+    "competitive_index": "0.99",
+    "top_competitor": "ASOS",
+    "vs_top_competitor_pct": "-0.9"
+  }
+]

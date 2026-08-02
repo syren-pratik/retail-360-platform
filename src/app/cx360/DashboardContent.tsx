@@ -138,7 +138,7 @@ export default function DashboardContent({
   expandChart,
 }: DashboardContentProps) {
   const { globalFilters, activeDrilldowns, resetFilters, setExpandedChart } = useDashboard();
-  const { isApparel, isRetail } = useTenant();
+  const { isApparel } = useTenant();
   const fmtMoney = useFormatMoney();
   const locale = useLocale();
   const [lastUpdated] = useState(new Date());

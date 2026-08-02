@@ -78,7 +78,7 @@ const SPARKLINE_CONFIG = [
 ] as const;
 
 export default function IntelligenceTab({ core }: Props) {
-  const { isApparel, isRetail } = useTenant();
+  const { isApparel } = useTenant();
   const INSIGHTS = isApparel ? APPAREL_INSIGHTS : GROCERY_INSIGHTS;
   const trendData = core.kpis.trend_12w;
 

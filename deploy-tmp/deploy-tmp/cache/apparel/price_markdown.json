@@ -1,0 +1,261 @@
+{
+  "summary": {
+    "total_markdown_skus": 88,
+    "cleared_in_7d": 25,
+    "cleared_in_14d": 37,
+    "cleared_in_30d": 55,
+    "still_active_30d_plus": 33,
+    "total_recovery": 655688,
+    "total_original_value": 1092814,
+    "recovery_rate": 60,
+    "cadence_compliance_pct": 73.3,
+    "stuck_styles": 21
+  },
+  "by_bucket": [
+    {
+      "bucket": "<7 days",
+      "count": 25,
+      "avg_discount": 25,
+      "recovery_rate": 88.2
+    },
+    {
+      "bucket": "8-14 days",
+      "count": 12,
+      "avg_discount": 40,
+      "recovery_rate": 72.5
+    },
+    {
+      "bucket": "15-30 days",
+      "count": 18,
+      "avg_discount": 60,
+      "recovery_rate": 58.2
+    },
+    {
+      "bucket": ">30 days",
+      "count": 33,
+      "avg_discount": 78,
+      "recovery_rate": 38.6
+    }
+  ],
+  "recovery_trend": [
+    {
+      "week": "W1",
+      "cumulative_recovery": 54641,
+      "target": 1092814
+    },
+    {
+      "week": "W2",
+      "cumulative_recovery": 109281,
+      "target": 1092814
+    },
+    {
+      "week": "W3",
+      "cumulative_recovery": 163922,
+      "target": 1092814
+    },
+    {
+      "week": "W4",
+      "cumulative_recovery": 218563,
+      "target": 1092814
+    },
+    {
+      "week": "W5",
+      "cumulative_recovery": 273203,
+      "target": 1092814
+    },
+    {
+      "week": "W6",
+      "cumulative_recovery": 327844,
+      "target": 1092814
+    },
+    {
+      "week": "W7",
+      "cumulative_recovery": 382485,
+      "target": 1092814
+    },
+    {
+      "week": "W8",
+      "cumulative_recovery": 437125,
+      "target": 1092814
+    },
+    {
+      "week": "W9",
+      "cumulative_recovery": 491766,
+      "target": 1092814
+    },
+    {
+      "week": "W10",
+      "cumulative_recovery": 546407,
+      "target": 1092814
+    },
+    {
+      "week": "W11",
+      "cumulative_recovery": 601047,
+      "target": 1092814
+    },
+    {
+      "week": "W12",
+      "cumulative_recovery": 655688,
+      "target": 1092814
+    }
+  ],
+  "top_markdown_products": [
+    {
+      "product_id": "APR-WT-0001",
+      "product_name": "Converse Blouses Relaxed",
+      "department": "Women's Tops",
+      "original_price": 32.8,
+      "markdown_price": 19.68,
+      "discount_pct": 40,
+      "days_active": 23,
+      "units_sold": 763,
+      "recovery_pct": 70.6
+    },
+    {
+      "product_id": "APR-WT-0003",
+      "product_name": "Calvin Klein Tanks Modern",
+      "department": "Women's Tops",
+      "original_price": 39.7,
+      "markdown_price": 15.88,
+      "discount_pct": 60,
+      "days_active": 16,
+      "units_sold": 163,
+      "recovery_pct": 65.9
+    },
+    {
+      "product_id": "APR-WT-0004",
+      "product_name": "Levi's Blouses Relaxed",
+      "department": "Women's Tops",
+      "original_price": 39.59,
+      "markdown_price": 23.75,
+      "discount_pct": 40,
+      "days_active": 16,
+      "units_sold": 400,
+      "recovery_pct": 75.5
+    },
+    {
+      "product_id": "APR-WT-0006",
+      "product_name": "Gap Tees Slim",
+      "department": "Women's Tops",
+      "original_price": 23.55,
+      "markdown_price": 4.71,
+      "discount_pct": 80,
+      "days_active": 46,
+      "units_sold": 1245,
+      "recovery_pct": 87.2
+    },
+    {
+      "product_id": "APR-WT-0009",
+      "product_name": "Under Armour Tanks Premium",
+      "department": "Women's Tops",
+      "original_price": 41.41,
+      "markdown_price": 24.85,
+      "discount_pct": 40,
+      "days_active": 24,
+      "units_sold": 201,
+      "recovery_pct": 76.9
+    },
+    {
+      "product_id": "APR-WT-0010",
+      "product_name": "House Brand Blouses Premium",
+      "department": "Women's Tops",
+      "original_price": 42.75,
+      "markdown_price": 32.06,
+      "discount_pct": 25,
+      "days_active": 20,
+      "units_sold": 776,
+      "recovery_pct": 71.9
+    },
+    {
+      "product_id": "APR-WT-0011",
+      "product_name": "Tommy Hilfiger Tees Classic",
+      "department": "Women's Tops",
+      "original_price": 20,
+      "markdown_price": 12,
+      "discount_pct": 40,
+      "days_active": 30,
+      "units_sold": 403,
+      "recovery_pct": 61.8
+    },
+    {
+      "product_id": "APR-WT-0012",
+      "product_name": "House Brand Tees Relaxed",
+      "department": "Women's Tops",
+      "original_price": 33.99,
+      "markdown_price": 6.8,
+      "discount_pct": 80,
+      "days_active": 15,
+      "units_sold": 683,
+      "recovery_pct": 66.8
+    },
+    {
+      "product_id": "APR-WT-0013",
+      "product_name": "Patagonia Tees Classic",
+      "department": "Women's Tops",
+      "original_price": 27.68,
+      "markdown_price": 16.61,
+      "discount_pct": 40,
+      "days_active": 14,
+      "units_sold": 332,
+      "recovery_pct": 87.8
+    },
+    {
+      "product_id": "APR-WT-0016",
+      "product_name": "Old Navy Tees Relaxed",
+      "department": "Women's Tops",
+      "original_price": 26.06,
+      "markdown_price": 10.42,
+      "discount_pct": 60,
+      "days_active": 9,
+      "units_sold": 162,
+      "recovery_pct": 33.1
+    }
+  ],
+  "by_cadence_step": [
+    {
+      "step": "md25",
+      "style_count": 31,
+      "avg_days_in_step": 13,
+      "target_days_in_step": 14,
+      "stuck_count": 8,
+      "total_value_usd": 403925,
+      "expected_recovery_usd": 196917
+    },
+    {
+      "step": "md40",
+      "style_count": 16,
+      "avg_days_in_step": 21,
+      "target_days_in_step": 21,
+      "stuck_count": 2,
+      "total_value_usd": 182566,
+      "expected_recovery_usd": 71200
+    },
+    {
+      "step": "md60",
+      "style_count": 23,
+      "avg_days_in_step": 14,
+      "target_days_in_step": 14,
+      "stuck_count": 5,
+      "total_value_usd": 258550,
+      "expected_recovery_usd": 67222
+    },
+    {
+      "step": "md80",
+      "style_count": 3,
+      "avg_days_in_step": 15,
+      "target_days_in_step": 14,
+      "stuck_count": 1,
+      "total_value_usd": 25056,
+      "expected_recovery_usd": 3257
+    },
+    {
+      "step": "clearance",
+      "style_count": 15,
+      "avg_days_in_step": 31,
+      "target_days_in_step": 28,
+      "stuck_count": 5,
+      "total_value_usd": 222718,
+      "expected_recovery_usd": 28954
+    }
+  ]
+}

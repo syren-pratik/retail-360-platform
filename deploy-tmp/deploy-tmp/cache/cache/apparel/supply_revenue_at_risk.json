@@ -1,0 +1,934 @@
+{
+  "by_store": [
+    {
+      "store_id": "STR-A010",
+      "store_name": "Flagship Mag Mile Chicago",
+      "city": "Chicago",
+      "rev_at_risk_cr": 1.4,
+      "daily_revenue_cr": 4.8,
+      "pct_daily_rev": 11.2,
+      "stockout_skus": 37,
+      "avg_duration_days": 2.3,
+      "status": "critical"
+    },
+    {
+      "store_id": "STR-A016",
+      "store_name": "Flagship Lenox Square Atlanta",
+      "city": "Atlanta",
+      "rev_at_risk_cr": 1.4,
+      "daily_revenue_cr": 14.4,
+      "pct_daily_rev": 3.9,
+      "stockout_skus": 37,
+      "avg_duration_days": 1.9,
+      "status": "critical"
+    },
+    {
+      "store_id": "STR-A005",
+      "store_name": "Flagship Newbury St Boston",
+      "city": "Boston",
+      "rev_at_risk_cr": 0.9,
+      "daily_revenue_cr": 15,
+      "pct_daily_rev": 5,
+      "stockout_skus": 36,
+      "avg_duration_days": 3.3,
+      "status": "critical"
+    },
+    {
+      "store_id": "STR-A008",
+      "store_name": "Standard King of Prussia",
+      "city": "King of Prussia",
+      "rev_at_risk_cr": 0.8,
+      "daily_revenue_cr": 6.2,
+      "pct_daily_rev": 4.5,
+      "stockout_skus": 17,
+      "avg_duration_days": 1.6,
+      "status": "critical"
+    },
+    {
+      "store_id": "STR-A019",
+      "store_name": "Standard Bal Harbour Shops Miami",
+      "city": "Bal Harbour",
+      "rev_at_risk_cr": 0.8,
+      "daily_revenue_cr": 7.6,
+      "pct_daily_rev": 14,
+      "stockout_skus": 16,
+      "avg_duration_days": 4.1,
+      "status": "critical"
+    },
+    {
+      "store_id": "STR-A024",
+      "store_name": "Standard Highland Village Houston",
+      "city": "Houston",
+      "rev_at_risk_cr": 0.8,
+      "daily_revenue_cr": 2.9,
+      "pct_daily_rev": 8.8,
+      "stockout_skus": 16,
+      "avg_duration_days": 3.5,
+      "status": "critical"
+    },
+    {
+      "store_id": "STR-A030",
+      "store_name": "Standard La Cantera San Antonio",
+      "city": "San Antonio",
+      "rev_at_risk_cr": 0.8,
+      "daily_revenue_cr": 3.9,
+      "pct_daily_rev": 5.2,
+      "stockout_skus": 16,
+      "avg_duration_days": 2.4,
+      "status": "critical"
+    },
+    {
+      "store_id": "STR-A042",
+      "store_name": "Standard Park Meadows Denver",
+      "city": "Lone Tree",
+      "rev_at_risk_cr": 0.8,
+      "daily_revenue_cr": 3.7,
+      "pct_daily_rev": 7.1,
+      "stockout_skus": 47,
+      "avg_duration_days": 3.6,
+      "status": "critical"
+    },
+    {
+      "store_id": "STR-A047",
+      "store_name": "Standard Country Club Plaza KC",
+      "city": "Kansas City",
+      "rev_at_risk_cr": 0.8,
+      "daily_revenue_cr": 9.1,
+      "pct_daily_rev": 7.5,
+      "stockout_skus": 20,
+      "avg_duration_days": 3,
+      "status": "critical"
+    },
+    {
+      "store_id": "STR-A004",
+      "store_name": "Standard Brooklyn Atlantic",
+      "city": "Brooklyn",
+      "rev_at_risk_cr": 0.7,
+      "daily_revenue_cr": 5.1,
+      "pct_daily_rev": 5.7,
+      "stockout_skus": 24,
+      "avg_duration_days": 3.9,
+      "status": "critical"
+    },
+    {
+      "store_id": "STR-A006",
+      "store_name": "Standard Prudential Boston",
+      "city": "Boston",
+      "rev_at_risk_cr": 0.7,
+      "daily_revenue_cr": 9.4,
+      "pct_daily_rev": 6.1,
+      "stockout_skus": 45,
+      "avg_duration_days": 2.3,
+      "status": "critical"
+    },
+    {
+      "store_id": "STR-A023",
+      "store_name": "Standard Galleria Houston",
+      "city": "Houston",
+      "rev_at_risk_cr": 0.7,
+      "daily_revenue_cr": 3.3,
+      "pct_daily_rev": 6.9,
+      "stockout_skus": 43,
+      "avg_duration_days": 2.4,
+      "status": "critical"
+    },
+    {
+      "store_id": "STR-A029",
+      "store_name": "Standard Domain Austin",
+      "city": "Austin",
+      "rev_at_risk_cr": 0.7,
+      "daily_revenue_cr": 4.1,
+      "pct_daily_rev": 6.5,
+      "stockout_skus": 42,
+      "avg_duration_days": 3.5,
+      "status": "critical"
+    },
+    {
+      "store_id": "STR-A032",
+      "store_name": "Standard Grove LA",
+      "city": "Los Angeles",
+      "rev_at_risk_cr": 0.7,
+      "daily_revenue_cr": 4.7,
+      "pct_daily_rev": 5.7,
+      "stockout_skus": 40,
+      "avg_duration_days": 4.1,
+      "status": "critical"
+    },
+    {
+      "store_id": "STR-A035",
+      "store_name": "Flagship Union Sq SF",
+      "city": "San Francisco",
+      "rev_at_risk_cr": 0.7,
+      "daily_revenue_cr": 14.3,
+      "pct_daily_rev": 7.5,
+      "stockout_skus": 39,
+      "avg_duration_days": 1.2,
+      "status": "critical"
+    },
+    {
+      "store_id": "STR-A044",
+      "store_name": "Standard Bellevue Square",
+      "city": "Bellevue",
+      "rev_at_risk_cr": 0.7,
+      "daily_revenue_cr": 3.5,
+      "pct_daily_rev": 2.3,
+      "stockout_skus": 25,
+      "avg_duration_days": 1.9,
+      "status": "critical"
+    },
+    {
+      "store_id": "STR-A045",
+      "store_name": "Standard Pioneer Place Portland",
+      "city": "Portland",
+      "rev_at_risk_cr": 0.7,
+      "daily_revenue_cr": 4,
+      "pct_daily_rev": 5.2,
+      "stockout_skus": 44,
+      "avg_duration_days": 2.9,
+      "status": "critical"
+    },
+    {
+      "store_id": "STR-A009",
+      "store_name": "Standard Walnut St Philly",
+      "city": "Philadelphia",
+      "rev_at_risk_cr": 0.6,
+      "daily_revenue_cr": 4.5,
+      "pct_daily_rev": 7.8,
+      "stockout_skus": 32,
+      "avg_duration_days": 2.8,
+      "status": "at_risk"
+    },
+    {
+      "store_id": "STR-A011",
+      "store_name": "Standard Oakbrook Center",
+      "city": "Oak Brook",
+      "rev_at_risk_cr": 0.6,
+      "daily_revenue_cr": 4.7,
+      "pct_daily_rev": 11.8,
+      "stockout_skus": 27,
+      "avg_duration_days": 2,
+      "status": "at_risk"
+    },
+    {
+      "store_id": "STR-A015",
+      "store_name": "Standard Easton Town Center",
+      "city": "Columbus",
+      "rev_at_risk_cr": 0.6,
+      "daily_revenue_cr": 5,
+      "pct_daily_rev": 13,
+      "stockout_skus": 38,
+      "avg_duration_days": 1.1,
+      "status": "at_risk"
+    },
+    {
+      "store_id": "STR-A031",
+      "store_name": "Flagship Beverly Center LA",
+      "city": "Los Angeles",
+      "rev_at_risk_cr": 0.6,
+      "daily_revenue_cr": 6.7,
+      "pct_daily_rev": 5.5,
+      "stockout_skus": 45,
+      "avg_duration_days": 1.2,
+      "status": "at_risk"
+    },
+    {
+      "store_id": "STR-A033",
+      "store_name": "Standard South Coast Plaza",
+      "city": "Costa Mesa",
+      "rev_at_risk_cr": 0.6,
+      "daily_revenue_cr": 4.9,
+      "pct_daily_rev": 7.5,
+      "stockout_skus": 23,
+      "avg_duration_days": 1.6,
+      "status": "at_risk"
+    },
+    {
+      "store_id": "STR-A037",
+      "store_name": "Standard Fashion Valley San Diego",
+      "city": "San Diego",
+      "rev_at_risk_cr": 0.6,
+      "daily_revenue_cr": 7.8,
+      "pct_daily_rev": 9.5,
+      "stockout_skus": 8,
+      "avg_duration_days": 2.8,
+      "status": "at_risk"
+    },
+    {
+      "store_id": "STR-A001",
+      "store_name": "Flagship SoHo NYC",
+      "city": "New York",
+      "rev_at_risk_cr": 0.5,
+      "daily_revenue_cr": 14.8,
+      "pct_daily_rev": 8.1,
+      "stockout_skus": 39,
+      "avg_duration_days": 3,
+      "status": "at_risk"
+    },
+    {
+      "store_id": "STR-A017",
+      "store_name": "Outlet North Georgia Premium",
+      "city": "Dawsonville",
+      "rev_at_risk_cr": 0.5,
+      "daily_revenue_cr": 3.4,
+      "pct_daily_rev": 12.7,
+      "stockout_skus": 43,
+      "avg_duration_days": 1,
+      "status": "at_risk"
+    },
+    {
+      "store_id": "STR-A034",
+      "store_name": "Outlet Citadel LA",
+      "city": "Commerce",
+      "rev_at_risk_cr": 0.5,
+      "daily_revenue_cr": 3.1,
+      "pct_daily_rev": 9.4,
+      "stockout_skus": 43,
+      "avg_duration_days": 4,
+      "status": "at_risk"
+    },
+    {
+      "store_id": "STR-A012",
+      "store_name": "Outlet Aurora Premium",
+      "city": "Aurora",
+      "rev_at_risk_cr": 0.4,
+      "daily_revenue_cr": 4.7,
+      "pct_daily_rev": 5.6,
+      "stockout_skus": 36,
+      "avg_duration_days": 2.7,
+      "status": "at_risk"
+    },
+    {
+      "store_id": "STR-A013",
+      "store_name": "Standard Mall of America",
+      "city": "Bloomington",
+      "rev_at_risk_cr": 0.4,
+      "daily_revenue_cr": 3.9,
+      "pct_daily_rev": 12.5,
+      "stockout_skus": 47,
+      "avg_duration_days": 3.5,
+      "status": "at_risk"
+    },
+    {
+      "store_id": "STR-A014",
+      "store_name": "Standard Somerset Detroit",
+      "city": "Troy",
+      "rev_at_risk_cr": 0.4,
+      "daily_revenue_cr": 9.1,
+      "pct_daily_rev": 8.9,
+      "stockout_skus": 30,
+      "avg_duration_days": 1.9,
+      "status": "at_risk"
+    },
+    {
+      "store_id": "STR-A020",
+      "store_name": "Standard Aventura Mall",
+      "city": "Aventura",
+      "rev_at_risk_cr": 0.4,
+      "daily_revenue_cr": 4.6,
+      "pct_daily_rev": 11.4,
+      "stockout_skus": 36,
+      "avg_duration_days": 2.6,
+      "status": "at_risk"
+    },
+    {
+      "store_id": "STR-A021",
+      "store_name": "Outlet Sawgrass Mills",
+      "city": "Sunrise",
+      "rev_at_risk_cr": 0.4,
+      "daily_revenue_cr": 3.2,
+      "pct_daily_rev": 10.7,
+      "stockout_skus": 36,
+      "avg_duration_days": 4.2,
+      "status": "at_risk"
+    },
+    {
+      "store_id": "STR-A028",
+      "store_name": "Flagship S Congress Austin",
+      "city": "Austin",
+      "rev_at_risk_cr": 0.4,
+      "daily_revenue_cr": 14.4,
+      "pct_daily_rev": 8.6,
+      "stockout_skus": 31,
+      "avg_duration_days": 0.9,
+      "status": "at_risk"
+    },
+    {
+      "store_id": "STR-A003",
+      "store_name": "Outlet Woodbury Common",
+      "city": "Central Valley",
+      "rev_at_risk_cr": 0.3,
+      "daily_revenue_cr": 2.5,
+      "pct_daily_rev": 4.9,
+      "stockout_skus": 24,
+      "avg_duration_days": 1.9,
+      "status": "healthy"
+    },
+    {
+      "store_id": "STR-A018",
+      "store_name": "Standard SouthPark Charlotte",
+      "city": "Charlotte",
+      "rev_at_risk_cr": 0.3,
+      "daily_revenue_cr": 8.7,
+      "pct_daily_rev": 14,
+      "stockout_skus": 28,
+      "avg_duration_days": 1.2,
+      "status": "healthy"
+    },
+    {
+      "store_id": "STR-A038",
+      "store_name": "Standard Scottsdale Fashion Square",
+      "city": "Scottsdale",
+      "rev_at_risk_cr": 0.3,
+      "daily_revenue_cr": 5.1,
+      "pct_daily_rev": 10.1,
+      "stockout_skus": 43,
+      "avg_duration_days": 2.1,
+      "status": "healthy"
+    },
+    {
+      "store_id": "STR-A039",
+      "store_name": "Outlet Phoenix Premium",
+      "city": "Chandler",
+      "rev_at_risk_cr": 0.3,
+      "daily_revenue_cr": 5.2,
+      "pct_daily_rev": 4.3,
+      "stockout_skus": 28,
+      "avg_duration_days": 4.2,
+      "status": "healthy"
+    },
+    {
+      "store_id": "STR-A043",
+      "store_name": "Flagship University Village Seattle",
+      "city": "Seattle",
+      "rev_at_risk_cr": 0.3,
+      "daily_revenue_cr": 4.3,
+      "pct_daily_rev": 13.9,
+      "stockout_skus": 43,
+      "avg_duration_days": 1.7,
+      "status": "healthy"
+    },
+    {
+      "store_id": "STR-A046",
+      "store_name": "Standard Plaza Frontenac St Louis",
+      "city": "St. Louis",
+      "rev_at_risk_cr": 0.3,
+      "daily_revenue_cr": 6.1,
+      "pct_daily_rev": 12.5,
+      "stockout_skus": 12,
+      "avg_duration_days": 3.4,
+      "status": "healthy"
+    },
+    {
+      "store_id": "STR-A048",
+      "store_name": "Standard Crocker Park Cleveland",
+      "city": "Westlake",
+      "rev_at_risk_cr": 0.3,
+      "daily_revenue_cr": 7.4,
+      "pct_daily_rev": 9.2,
+      "stockout_skus": 22,
+      "avg_duration_days": 1.7,
+      "status": "healthy"
+    },
+    {
+      "store_id": "STR-A007",
+      "store_name": "Outlet Wrentham Premium",
+      "city": "Wrentham",
+      "rev_at_risk_cr": 0.2,
+      "daily_revenue_cr": 1.4,
+      "pct_daily_rev": 13.4,
+      "stockout_skus": 47,
+      "avg_duration_days": 4.1,
+      "status": "healthy"
+    },
+    {
+      "store_id": "STR-A022",
+      "store_name": "Standard Mall at Millenia Orlando",
+      "city": "Orlando",
+      "rev_at_risk_cr": 0.2,
+      "daily_revenue_cr": 3.4,
+      "pct_daily_rev": 11,
+      "stockout_skus": 37,
+      "avg_duration_days": 3.8,
+      "status": "healthy"
+    },
+    {
+      "store_id": "STR-A025",
+      "store_name": "Flagship Galleria Dallas",
+      "city": "Dallas",
+      "rev_at_risk_cr": 0.2,
+      "daily_revenue_cr": 8.1,
+      "pct_daily_rev": 11.1,
+      "stockout_skus": 10,
+      "avg_duration_days": 2.2,
+      "status": "healthy"
+    },
+    {
+      "store_id": "STR-A049",
+      "store_name": "Standard Indianapolis Fashion Mall",
+      "city": "Indianapolis",
+      "rev_at_risk_cr": 0.2,
+      "daily_revenue_cr": 9.3,
+      "pct_daily_rev": 10.8,
+      "stockout_skus": 28,
+      "avg_duration_days": 3.2,
+      "status": "healthy"
+    },
+    {
+      "store_id": "STR-A050",
+      "store_name": "Standard Stamford Town Center",
+      "city": "Stamford",
+      "rev_at_risk_cr": 0.2,
+      "daily_revenue_cr": 2.6,
+      "pct_daily_rev": 10.3,
+      "stockout_skus": 47,
+      "avg_duration_days": 1.1,
+      "status": "healthy"
+    },
+    {
+      "store_id": "STR-A027",
+      "store_name": "Outlet Allen Premium",
+      "city": "Allen",
+      "rev_at_risk_cr": 0.1,
+      "daily_revenue_cr": 5.6,
+      "pct_daily_rev": 2.2,
+      "stockout_skus": 30,
+      "avg_duration_days": 2.8,
+      "status": "healthy"
+    },
+    {
+      "store_id": "STR-A036",
+      "store_name": "Standard Stanford Shopping",
+      "city": "Palo Alto",
+      "rev_at_risk_cr": 0.1,
+      "daily_revenue_cr": 5.8,
+      "pct_daily_rev": 2.6,
+      "stockout_skus": 17,
+      "avg_duration_days": 1.7,
+      "status": "healthy"
+    },
+    {
+      "store_id": "STR-A040",
+      "store_name": "Standard Forum Las Vegas",
+      "city": "Las Vegas",
+      "rev_at_risk_cr": 0.1,
+      "daily_revenue_cr": 4.9,
+      "pct_daily_rev": 4.4,
+      "stockout_skus": 20,
+      "avg_duration_days": 3.7,
+      "status": "healthy"
+    },
+    {
+      "store_id": "STR-A041",
+      "store_name": "Standard Cherry Creek Denver",
+      "city": "Denver",
+      "rev_at_risk_cr": 0.1,
+      "daily_revenue_cr": 9.2,
+      "pct_daily_rev": 5,
+      "stockout_skus": 42,
+      "avg_duration_days": 3.8,
+      "status": "healthy"
+    },
+    {
+      "store_id": "STR-A002",
+      "store_name": "Standard 5th Ave NYC",
+      "city": "New York",
+      "rev_at_risk_cr": 0,
+      "daily_revenue_cr": 4.4,
+      "pct_daily_rev": 11.1,
+      "stockout_skus": 23,
+      "avg_duration_days": 2.1,
+      "status": "healthy"
+    },
+    {
+      "store_id": "STR-A026",
+      "store_name": "Standard NorthPark Dallas",
+      "city": "Dallas",
+      "rev_at_risk_cr": 0,
+      "daily_revenue_cr": 6.8,
+      "pct_daily_rev": 10.5,
+      "stockout_skus": 25,
+      "avg_duration_days": 3.6,
+      "status": "healthy"
+    }
+  ],
+  "by_category": [
+    {
+      "category": "Women's Tops",
+      "rev_at_risk_cr": 1.4,
+      "days_running": 25,
+      "stores_affected": 19,
+      "stockout_skus": 237
+    },
+    {
+      "category": "Women's Bottoms",
+      "rev_at_risk_cr": 1,
+      "days_running": 7,
+      "stores_affected": 25,
+      "stockout_skus": 172
+    },
+    {
+      "category": "Women's Dresses",
+      "rev_at_risk_cr": 0.3,
+      "days_running": 24,
+      "stores_affected": 28,
+      "stockout_skus": 172
+    },
+    {
+      "category": "Men's Tops",
+      "rev_at_risk_cr": 1.7,
+      "days_running": 7,
+      "stores_affected": 36,
+      "stockout_skus": 118
+    },
+    {
+      "category": "Men's Bottoms",
+      "rev_at_risk_cr": 0.9,
+      "days_running": 19,
+      "stores_affected": 25,
+      "stockout_skus": 28
+    },
+    {
+      "category": "Kids'",
+      "rev_at_risk_cr": 0.4,
+      "days_running": 13,
+      "stores_affected": 14,
+      "stockout_skus": 102
+    },
+    {
+      "category": "Footwear",
+      "rev_at_risk_cr": 0.3,
+      "days_running": 2,
+      "stores_affected": 35,
+      "stockout_skus": 88
+    },
+    {
+      "category": "Accessories",
+      "rev_at_risk_cr": 0.2,
+      "days_running": 7,
+      "stores_affected": 12,
+      "stockout_skus": 190
+    }
+  ],
+  "trend_60d": [
+    {
+      "date": "2026-04-30",
+      "rev_at_risk_cr": 3
+    },
+    {
+      "date": "2026-05-01",
+      "rev_at_risk_cr": 3.3
+    },
+    {
+      "date": "2026-05-02",
+      "rev_at_risk_cr": 3.1
+    },
+    {
+      "date": "2026-05-03",
+      "rev_at_risk_cr": 3.7
+    },
+    {
+      "date": "2026-05-04",
+      "rev_at_risk_cr": 3.5
+    },
+    {
+      "date": "2026-05-05",
+      "rev_at_risk_cr": 3.8
+    },
+    {
+      "date": "2026-05-06",
+      "rev_at_risk_cr": 4
+    },
+    {
+      "date": "2026-05-07",
+      "rev_at_risk_cr": 4.1
+    },
+    {
+      "date": "2026-05-08",
+      "rev_at_risk_cr": 3.8
+    },
+    {
+      "date": "2026-05-09",
+      "rev_at_risk_cr": 3.9
+    },
+    {
+      "date": "2026-05-10",
+      "rev_at_risk_cr": 4.2
+    },
+    {
+      "date": "2026-05-11",
+      "rev_at_risk_cr": 4.2
+    },
+    {
+      "date": "2026-05-12",
+      "rev_at_risk_cr": 3.7
+    },
+    {
+      "date": "2026-05-13",
+      "rev_at_risk_cr": 4.8
+    },
+    {
+      "date": "2026-05-14",
+      "rev_at_risk_cr": 3.5
+    },
+    {
+      "date": "2026-05-15",
+      "rev_at_risk_cr": 3.5
+    },
+    {
+      "date": "2026-05-16",
+      "rev_at_risk_cr": 3.5
+    },
+    {
+      "date": "2026-05-17",
+      "rev_at_risk_cr": 4.2
+    },
+    {
+      "date": "2026-05-18",
+      "rev_at_risk_cr": 3.7
+    },
+    {
+      "date": "2026-05-19",
+      "rev_at_risk_cr": 3.6
+    },
+    {
+      "date": "2026-05-20",
+      "rev_at_risk_cr": 3.9
+    },
+    {
+      "date": "2026-05-21",
+      "rev_at_risk_cr": 3.5
+    },
+    {
+      "date": "2026-05-22",
+      "rev_at_risk_cr": 3.6
+    },
+    {
+      "date": "2026-05-23",
+      "rev_at_risk_cr": 3.2
+    },
+    {
+      "date": "2026-05-24",
+      "rev_at_risk_cr": 3.2
+    },
+    {
+      "date": "2026-05-25",
+      "rev_at_risk_cr": 3.6
+    },
+    {
+      "date": "2026-05-26",
+      "rev_at_risk_cr": 3
+    },
+    {
+      "date": "2026-05-27",
+      "rev_at_risk_cr": 3.9
+    },
+    {
+      "date": "2026-05-28",
+      "rev_at_risk_cr": 3
+    },
+    {
+      "date": "2026-05-29",
+      "rev_at_risk_cr": 3.2
+    },
+    {
+      "date": "2026-05-30",
+      "rev_at_risk_cr": 3
+    },
+    {
+      "date": "2026-05-31",
+      "rev_at_risk_cr": 3.3
+    },
+    {
+      "date": "2026-06-01",
+      "rev_at_risk_cr": 3
+    },
+    {
+      "date": "2026-06-02",
+      "rev_at_risk_cr": 3.3
+    },
+    {
+      "date": "2026-06-03",
+      "rev_at_risk_cr": 3.3
+    },
+    {
+      "date": "2026-06-04",
+      "rev_at_risk_cr": 2.6
+    },
+    {
+      "date": "2026-06-05",
+      "rev_at_risk_cr": 2.2
+    },
+    {
+      "date": "2026-06-06",
+      "rev_at_risk_cr": 3.3
+    },
+    {
+      "date": "2026-06-07",
+      "rev_at_risk_cr": 2.2
+    },
+    {
+      "date": "2026-06-08",
+      "rev_at_risk_cr": 2.3
+    },
+    {
+      "date": "2026-06-09",
+      "rev_at_risk_cr": 3
+    },
+    {
+      "date": "2026-06-10",
+      "rev_at_risk_cr": 2.9
+    },
+    {
+      "date": "2026-06-11",
+      "rev_at_risk_cr": 2.5
+    },
+    {
+      "date": "2026-06-12",
+      "rev_at_risk_cr": 2.5
+    },
+    {
+      "date": "2026-06-13",
+      "rev_at_risk_cr": 2.8
+    },
+    {
+      "date": "2026-06-14",
+      "rev_at_risk_cr": 3
+    },
+    {
+      "date": "2026-06-15",
+      "rev_at_risk_cr": 3.3
+    },
+    {
+      "date": "2026-06-16",
+      "rev_at_risk_cr": 3.1
+    },
+    {
+      "date": "2026-06-17",
+      "rev_at_risk_cr": 3.1
+    },
+    {
+      "date": "2026-06-18",
+      "rev_at_risk_cr": 3.5
+    },
+    {
+      "date": "2026-06-19",
+      "rev_at_risk_cr": 3.4
+    },
+    {
+      "date": "2026-06-20",
+      "rev_at_risk_cr": 3.6
+    },
+    {
+      "date": "2026-06-21",
+      "rev_at_risk_cr": 3.6
+    },
+    {
+      "date": "2026-06-22",
+      "rev_at_risk_cr": 3.7
+    },
+    {
+      "date": "2026-06-23",
+      "rev_at_risk_cr": 3.4
+    },
+    {
+      "date": "2026-06-24",
+      "rev_at_risk_cr": 3.8
+    },
+    {
+      "date": "2026-06-25",
+      "rev_at_risk_cr": 3.8
+    },
+    {
+      "date": "2026-06-26",
+      "rev_at_risk_cr": 3.2
+    },
+    {
+      "date": "2026-06-27",
+      "rev_at_risk_cr": 3.3
+    },
+    {
+      "date": "2026-06-28",
+      "rev_at_risk_cr": 4.4
+    }
+  ],
+  "weekly_lost_vs_recovered": [
+    {
+      "week": "W1",
+      "lost_cr": 4.4,
+      "recovered_cr": 1,
+      "recovery_rate_pct": 22
+    },
+    {
+      "week": "W2",
+      "lost_cr": 5.3,
+      "recovered_cr": 1.2,
+      "recovery_rate_pct": 22
+    },
+    {
+      "week": "W3",
+      "lost_cr": 4.9,
+      "recovered_cr": 1.1,
+      "recovery_rate_pct": 22
+    },
+    {
+      "week": "W4",
+      "lost_cr": 5.7,
+      "recovered_cr": 1.3,
+      "recovery_rate_pct": 22
+    },
+    {
+      "week": "W5",
+      "lost_cr": 4.7,
+      "recovered_cr": 1,
+      "recovery_rate_pct": 22
+    },
+    {
+      "week": "W6",
+      "lost_cr": 3.8,
+      "recovered_cr": 0.8,
+      "recovery_rate_pct": 22
+    },
+    {
+      "week": "W7",
+      "lost_cr": 4,
+      "recovered_cr": 0.9,
+      "recovery_rate_pct": 22
+    },
+    {
+      "week": "W8",
+      "lost_cr": 6,
+      "recovered_cr": 1.3,
+      "recovery_rate_pct": 22
+    },
+    {
+      "week": "W9",
+      "lost_cr": 3.9,
+      "recovered_cr": 0.9,
+      "recovery_rate_pct": 22
+    },
+    {
+      "week": "W10",
+      "lost_cr": 4.8,
+      "recovered_cr": 1.1,
+      "recovery_rate_pct": 22
+    },
+    {
+      "week": "W11",
+      "lost_cr": 4.6,
+      "recovered_cr": 1,
+      "recovery_rate_pct": 22
+    },
+    {
+      "week": "W12",
+      "lost_cr": 5.5,
+      "recovered_cr": 1.2,
+      "recovery_rate_pct": 22
+    },
+    {
+      "week": "W13",
+      "lost_cr": 4.1,
+      "recovered_cr": 0.9,
+      "recovery_rate_pct": 22
+    }
+  ]
+}

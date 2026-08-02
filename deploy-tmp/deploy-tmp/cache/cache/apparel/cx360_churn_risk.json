@@ -1,0 +1,34 @@
+[
+  {
+    "churn_risk_tier": "Critical",
+    "customer_count": 13654,
+    "avg_prob_30d": 0.604,
+    "avg_prob_60d": 0.734,
+    "avg_prob_90d": 0.863,
+    "total_clv_at_risk": 2306670
+  },
+  {
+    "churn_risk_tier": "High",
+    "customer_count": 7482,
+    "avg_prob_30d": 0.381,
+    "avg_prob_60d": 0.463,
+    "avg_prob_90d": 0.544,
+    "total_clv_at_risk": 1358525
+  },
+  {
+    "churn_risk_tier": "Medium",
+    "customer_count": 25451,
+    "avg_prob_30d": 0.223,
+    "avg_prob_60d": 0.271,
+    "avg_prob_90d": 0.318,
+    "total_clv_at_risk": 2522601
+  },
+  {
+    "churn_risk_tier": "Low",
+    "customer_count": 19931,
+    "avg_prob_30d": 0.086,
+    "avg_prob_60d": 0.105,
+    "avg_prob_90d": 0.123,
+    "total_clv_at_risk": 1621366
+  }
+]

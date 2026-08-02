@@ -170,6 +170,20 @@ const DEMAND_DEFAULT_PROMPTS = [
   "What's driving demand for Beverages?",
 ];
 
+const DEMAND_DEFAULT_PROMPTS_APPAREL = [
+  "What's the forecast accuracy for Women's Tops?",
+  'Which styles have the most lost sales?',
+  'Show me the demand forecast for next 14 days',
+  "What's driving demand for Footwear?",
+];
+
+const DEMAND_DEFAULT_PROMPTS_RETAIL = [
+  "What's the forecast accuracy for Electronics?",
+  'Which SKUs have the most lost sales this week?',
+  'Show me the demand forecast for next 14 days',
+  "What's driving demand for Sports & Outdoor?",
+];
+
 const INVENTORY_DEFAULT_PROMPTS = [
   "Why is revenue at risk increasing this week?",
   "Which supplier is causing the most stockouts?",
@@ -287,15 +301,24 @@ export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
       return isApparel ? COLDSTART_DEFAULT_PROMPTS_APPAREL : COLDSTART_DEFAULT_PROMPTS;
     }
     if (currentModule === 'merchandise') {
+      const accuracyChip = isRetail
+        ? "What's the forecast accuracy for Electronics?"
+        : isApparel
+          ? "What's the forecast accuracy for Womens?"
+          : "What's the forecast accuracy for Grocery & Staples?";
       return [
         'Which SKUs are not ramped for the next event?',
         'Show me under-performing promos',
-        isApparel ? "What's the forecast accuracy for Womens?" : "What's the forecast accuracy for Grocery & Staples?",
+        accuracyChip,
         'Which categories will miss their Q2 plan?',
       ];
     }
     if (currentModule === 'demand') {
-      return DEMAND_DEFAULT_PROMPTS;
+      return isRetail
+        ? DEMAND_DEFAULT_PROMPTS_RETAIL
+        : isApparel
+          ? DEMAND_DEFAULT_PROMPTS_APPAREL
+          : DEMAND_DEFAULT_PROMPTS;
     }
     if (currentModule === 'inventory') {
       return INVENTORY_DEFAULT_PROMPTS;

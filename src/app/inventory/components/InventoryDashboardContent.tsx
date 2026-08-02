@@ -412,7 +412,7 @@ export default function InventoryDashboardContent({
   apparelBrandedVsPL = null,
 }: InventoryDashboardContentProps = {}) {
   const { filters, resetFilters } = useInventory();
-  const { isApparel, isRetail } = useTenant();
+  const { isApparel } = useTenant();
 
   const [kpis, setKpis] = useState<SupplyKPIs | null>(null);
   const [revenueAtRisk, setRevenueAtRisk] = useState<RevenueAtRiskData | null>(null);

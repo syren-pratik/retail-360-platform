@@ -1,0 +1,2410 @@
+{
+  "summary": {
+    "stockout_skus_with_substitutes": 60,
+    "revenue_preservation_opportunity_cr": 6.2,
+    "avg_substitution_acceptance_rate_pct": 56,
+    "top_substitute_pairs": 18
+  },
+  "substitutions": [
+    {
+      "stockout_sku_id": "APR-COA-1248-IND-OS",
+      "stockout_sku_name": "Coach Tabby Shoulder Bag Indigo OS",
+      "category": "Accessories",
+      "stockout_stores": 22,
+      "daily_revenue_lost_cr": 0.3,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-COA-1248-YEL-OS",
+          "substitute_name": "Coach Tabby Shoulder Bag Yellow OS",
+          "brand": "Coach",
+          "price_variance_pct": 0,
+          "in_stock_stores": 35,
+          "in_stock_dos": 17.5,
+          "historical_acceptance_rate_pct": 63,
+          "revenue_preservation_pct": 65,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-RAY-1246-IND-OS",
+          "substitute_name": "Ray-Ban Minimalist Watch Indigo OS",
+          "brand": "Ray-Ban",
+          "price_variance_pct": 9,
+          "in_stock_stores": 26,
+          "in_stock_dos": 23.9,
+          "historical_acceptance_rate_pct": 34,
+          "revenue_preservation_pct": 22,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.74
+        }
+      ],
+      "style_id": "COA-HAN-248",
+      "color": "Indigo",
+      "size": "OS"
+    },
+    {
+      "stockout_sku_id": "APR-H&M-1090-BLA-M",
+      "stockout_sku_name": "H&M Bodycon Mini Black M",
+      "category": "Women's Dresses",
+      "stockout_stores": 24,
+      "daily_revenue_lost_cr": 0.3,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-H&M-1090-OLI-M",
+          "substitute_name": "H&M Bodycon Mini Olive M",
+          "brand": "H&M",
+          "price_variance_pct": 0,
+          "in_stock_stores": 41,
+          "in_stock_dos": 35.6,
+          "historical_acceptance_rate_pct": 70,
+          "revenue_preservation_pct": 52,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-FOR-1073-BLA-M",
+          "substitute_name": "Forever 21 Cotton Maxi Black M",
+          "brand": "Forever 21",
+          "price_variance_pct": -11,
+          "in_stock_stores": 34,
+          "in_stock_dos": 15.3,
+          "historical_acceptance_rate_pct": 24,
+          "revenue_preservation_pct": 34,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.62
+        }
+      ],
+      "style_id": "HXM-MIN-090",
+      "color": "Black",
+      "size": "M"
+    },
+    {
+      "stockout_sku_id": "APR-RAY-1226-OLI-OS",
+      "stockout_sku_name": "Ray-Ban Leather Belt Olive OS",
+      "category": "Accessories",
+      "stockout_stores": 25,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-RAY-1226-BUR-OS",
+          "substitute_name": "Ray-Ban Leather Belt Burgundy OS",
+          "brand": "Ray-Ban",
+          "price_variance_pct": 0,
+          "in_stock_stores": 22,
+          "in_stock_dos": 28.7,
+          "historical_acceptance_rate_pct": 73,
+          "revenue_preservation_pct": 48,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-RAY-1246-OLI-OS",
+          "substitute_name": "Ray-Ban Minimalist Watch Olive OS",
+          "brand": "Ray-Ban",
+          "price_variance_pct": -9,
+          "in_stock_stores": 15,
+          "in_stock_dos": 19.2,
+          "historical_acceptance_rate_pct": 35,
+          "revenue_preservation_pct": 26,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.81
+        }
+      ],
+      "style_id": "RAY-BEL-226",
+      "color": "Olive",
+      "size": "OS"
+    },
+    {
+      "stockout_sku_id": "APR-HER-1247-WHI-OS",
+      "stockout_sku_name": "Herschel Daypack White OS",
+      "category": "Accessories",
+      "stockout_stores": 29,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-HER-1247-YEL-OS",
+          "substitute_name": "Herschel Daypack Yellow OS",
+          "brand": "Herschel",
+          "price_variance_pct": 0,
+          "in_stock_stores": 20,
+          "in_stock_dos": 36.9,
+          "historical_acceptance_rate_pct": 71,
+          "revenue_preservation_pct": 54,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-RAY-1246-WHI-OS",
+          "substitute_name": "Ray-Ban Minimalist Watch White OS",
+          "brand": "Ray-Ban",
+          "price_variance_pct": -7,
+          "in_stock_stores": 23,
+          "in_stock_dos": 22.1,
+          "historical_acceptance_rate_pct": 38,
+          "revenue_preservation_pct": 36,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.8
+        }
+      ],
+      "style_id": "HER-BAC-247",
+      "color": "White",
+      "size": "OS"
+    },
+    {
+      "stockout_sku_id": "APR-HER-1239-WHI-OS",
+      "stockout_sku_name": "Herschel Aviator White OS",
+      "category": "Accessories",
+      "stockout_stores": 30,
+      "daily_revenue_lost_cr": 0.4,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-HER-1239-GRA-OS",
+          "substitute_name": "Herschel Aviator Gray OS",
+          "brand": "Herschel",
+          "price_variance_pct": 0,
+          "in_stock_stores": 19,
+          "in_stock_dos": 14.3,
+          "historical_acceptance_rate_pct": 66,
+          "revenue_preservation_pct": 67,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-RAY-1246-WHI-OS",
+          "substitute_name": "Ray-Ban Minimalist Watch White OS",
+          "brand": "Ray-Ban",
+          "price_variance_pct": 3,
+          "in_stock_stores": 36,
+          "in_stock_dos": 24.4,
+          "historical_acceptance_rate_pct": 33,
+          "revenue_preservation_pct": 25,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.73
+        }
+      ],
+      "style_id": "HER-SUN-239",
+      "color": "White",
+      "size": "OS"
+    },
+    {
+      "stockout_sku_id": "APR-H&M-1075-BLA-M",
+      "stockout_sku_name": "H&M Wrap Dress Black M",
+      "category": "Women's Dresses",
+      "stockout_stores": 31,
+      "daily_revenue_lost_cr": 0.3,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-H&M-1075-KHA-M",
+          "substitute_name": "H&M Wrap Dress Khaki M",
+          "brand": "H&M",
+          "price_variance_pct": 0,
+          "in_stock_stores": 41,
+          "in_stock_dos": 15.4,
+          "historical_acceptance_rate_pct": 65,
+          "revenue_preservation_pct": 66,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-FOR-1073-BLA-M",
+          "substitute_name": "Forever 21 Cotton Maxi Black M",
+          "brand": "Forever 21",
+          "price_variance_pct": -10,
+          "in_stock_stores": 36,
+          "in_stock_dos": 19.5,
+          "historical_acceptance_rate_pct": 33,
+          "revenue_preservation_pct": 23,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.79
+        }
+      ],
+      "style_id": "HXM-WRA-075",
+      "color": "Black",
+      "size": "M"
+    },
+    {
+      "stockout_sku_id": "APR-FOR-1083-OLI-M",
+      "stockout_sku_name": "Forever 21 Wrap Dress Olive M",
+      "category": "Women's Dresses",
+      "stockout_stores": 9,
+      "daily_revenue_lost_cr": 0.1,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-FOR-1083-GRA-M",
+          "substitute_name": "Forever 21 Wrap Dress Gray M",
+          "brand": "Forever 21",
+          "price_variance_pct": 0,
+          "in_stock_stores": 18,
+          "in_stock_dos": 33.5,
+          "historical_acceptance_rate_pct": 58,
+          "revenue_preservation_pct": 65,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-FOR-1073-OLI-M",
+          "substitute_name": "Forever 21 Cotton Maxi Olive M",
+          "brand": "Forever 21",
+          "price_variance_pct": 12,
+          "in_stock_stores": 23,
+          "in_stock_dos": 28,
+          "historical_acceptance_rate_pct": 31,
+          "revenue_preservation_pct": 28,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.64
+        }
+      ],
+      "style_id": "FOR-WRA-083",
+      "color": "Olive",
+      "size": "M"
+    },
+    {
+      "stockout_sku_id": "APR-MAD-1076-PIN-M",
+      "stockout_sku_name": "Madewell Floral Midi Pink M",
+      "category": "Women's Dresses",
+      "stockout_stores": 9,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-MAD-1076-BUR-M",
+          "substitute_name": "Madewell Floral Midi Burgundy M",
+          "brand": "Madewell",
+          "price_variance_pct": 0,
+          "in_stock_stores": 18,
+          "in_stock_dos": 29,
+          "historical_acceptance_rate_pct": 56,
+          "revenue_preservation_pct": 66,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-FOR-1073-PIN-M",
+          "substitute_name": "Forever 21 Cotton Maxi Pink M",
+          "brand": "Forever 21",
+          "price_variance_pct": -7,
+          "in_stock_stores": 25,
+          "in_stock_dos": 18.2,
+          "historical_acceptance_rate_pct": 31,
+          "revenue_preservation_pct": 29,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.73
+        }
+      ],
+      "style_id": "MAD-MID-076",
+      "color": "Pink",
+      "size": "M"
+    },
+    {
+      "stockout_sku_id": "APR-HER-1231-OLI-OS",
+      "stockout_sku_name": "Herschel Bifold Wallet Olive OS",
+      "category": "Accessories",
+      "stockout_stores": 17,
+      "daily_revenue_lost_cr": 0.3,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-HER-1231-NAV-OS",
+          "substitute_name": "Herschel Bifold Wallet Navy OS",
+          "brand": "Herschel",
+          "price_variance_pct": 0,
+          "in_stock_stores": 22,
+          "in_stock_dos": 32,
+          "historical_acceptance_rate_pct": 63,
+          "revenue_preservation_pct": 51,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-RAY-1246-OLI-OS",
+          "substitute_name": "Ray-Ban Minimalist Watch Olive OS",
+          "brand": "Ray-Ban",
+          "price_variance_pct": -8,
+          "in_stock_stores": 33,
+          "in_stock_dos": 13.1,
+          "historical_acceptance_rate_pct": 25,
+          "revenue_preservation_pct": 24,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.65
+        }
+      ],
+      "style_id": "HER-WAL-231",
+      "color": "Olive",
+      "size": "OS"
+    },
+    {
+      "stockout_sku_id": "APR-DR.-1209-GRA-10",
+      "stockout_sku_name": "Dr. Martens Chelsea Boot Gray 10",
+      "category": "Footwear",
+      "stockout_stores": 13,
+      "daily_revenue_lost_cr": 0.3,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-DR.-1209-BLA-10",
+          "substitute_name": "Dr. Martens Chelsea Boot Black 10",
+          "brand": "Dr. Martens",
+          "price_variance_pct": 0,
+          "in_stock_stores": 36,
+          "in_stock_dos": 22.2,
+          "historical_acceptance_rate_pct": 68,
+          "revenue_preservation_pct": 65,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-CON-1214-GRA-10",
+          "substitute_name": "Converse Air Max 90 Gray 10",
+          "brand": "Converse",
+          "price_variance_pct": -5,
+          "in_stock_stores": 22,
+          "in_stock_dos": 24.6,
+          "historical_acceptance_rate_pct": 26,
+          "revenue_preservation_pct": 30,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.8
+        }
+      ],
+      "style_id": "DRX-BOO-209",
+      "color": "Gray",
+      "size": "10"
+    },
+    {
+      "stockout_sku_id": "APR-COA-1244-BLA-OS",
+      "stockout_sku_name": "Coach Leather Belt Black OS",
+      "category": "Accessories",
+      "stockout_stores": 8,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-COA-1244-GRA-OS",
+          "substitute_name": "Coach Leather Belt Gray OS",
+          "brand": "Coach",
+          "price_variance_pct": 0,
+          "in_stock_stores": 34,
+          "in_stock_dos": 17.5,
+          "historical_acceptance_rate_pct": 60,
+          "revenue_preservation_pct": 53,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-RAY-1246-BLA-OS",
+          "substitute_name": "Ray-Ban Minimalist Watch Black OS",
+          "brand": "Ray-Ban",
+          "price_variance_pct": 1,
+          "in_stock_stores": 16,
+          "in_stock_dos": 31,
+          "historical_acceptance_rate_pct": 30,
+          "revenue_preservation_pct": 36,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.69
+        }
+      ],
+      "style_id": "COA-BEL-244",
+      "color": "Black",
+      "size": "OS"
+    },
+    {
+      "stockout_sku_id": "APR-WRA-1139-BLA-32×34",
+      "stockout_sku_name": "Wrangler 502 Slim Black 32×34",
+      "category": "Men's Bottoms",
+      "stockout_stores": 25,
+      "daily_revenue_lost_cr": 0.3,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-WRA-1139-BUR-32×34",
+          "substitute_name": "Wrangler 502 Slim Burgundy 32×34",
+          "brand": "Wrangler",
+          "price_variance_pct": 0,
+          "in_stock_stores": 25,
+          "in_stock_dos": 31.9,
+          "historical_acceptance_rate_pct": 60,
+          "revenue_preservation_pct": 70,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-LEV-1158-BLA-32×34",
+          "substitute_name": "Levi's 501 Original Black 32×34",
+          "brand": "Levi's",
+          "price_variance_pct": 5,
+          "in_stock_stores": 31,
+          "in_stock_dos": 16.2,
+          "historical_acceptance_rate_pct": 25,
+          "revenue_preservation_pct": 25,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.79
+        }
+      ],
+      "style_id": "WRA-JEA-139",
+      "color": "Black",
+      "size": "32×34"
+    },
+    {
+      "stockout_sku_id": "APR-RAY-1254-BLA-OS",
+      "stockout_sku_name": "Ray-Ban Tabby Shoulder Bag Black OS",
+      "category": "Accessories",
+      "stockout_stores": 11,
+      "daily_revenue_lost_cr": 0.3,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-RAY-1254-PIN-OS",
+          "substitute_name": "Ray-Ban Tabby Shoulder Bag Pink OS",
+          "brand": "Ray-Ban",
+          "price_variance_pct": 0,
+          "in_stock_stores": 38,
+          "in_stock_dos": 14.9,
+          "historical_acceptance_rate_pct": 56,
+          "revenue_preservation_pct": 61,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-RAY-1246-BLA-OS",
+          "substitute_name": "Ray-Ban Minimalist Watch Black OS",
+          "brand": "Ray-Ban",
+          "price_variance_pct": -10,
+          "in_stock_stores": 35,
+          "in_stock_dos": 28.6,
+          "historical_acceptance_rate_pct": 33,
+          "revenue_preservation_pct": 26,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.75
+        }
+      ],
+      "style_id": "RAY-HAN-254",
+      "color": "Black",
+      "size": "OS"
+    },
+    {
+      "stockout_sku_id": "APR-ADI-1205-NAV-8",
+      "stockout_sku_name": "Adidas Ballet Flat Navy 8",
+      "category": "Footwear",
+      "stockout_stores": 8,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-ADI-1205-BUR-8",
+          "substitute_name": "Adidas Ballet Flat Burgundy 8",
+          "brand": "Adidas",
+          "price_variance_pct": 0,
+          "in_stock_stores": 29,
+          "in_stock_dos": 31.7,
+          "historical_acceptance_rate_pct": 54,
+          "revenue_preservation_pct": 50,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-CON-1214-NAV-8",
+          "substitute_name": "Converse Air Max 90 Navy 8",
+          "brand": "Converse",
+          "price_variance_pct": -6,
+          "in_stock_stores": 29,
+          "in_stock_dos": 22.2,
+          "historical_acceptance_rate_pct": 29,
+          "revenue_preservation_pct": 22,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.67
+        }
+      ],
+      "style_id": "ADI-FLA-205",
+      "color": "Navy",
+      "size": "8"
+    },
+    {
+      "stockout_sku_id": "APR-ADI-1223-PIN-8",
+      "stockout_sku_name": "Adidas Chelsea Boot Pink 8",
+      "category": "Footwear",
+      "stockout_stores": 7,
+      "daily_revenue_lost_cr": 0.4,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-ADI-1223-GRA-8",
+          "substitute_name": "Adidas Chelsea Boot Gray 8",
+          "brand": "Adidas",
+          "price_variance_pct": 0,
+          "in_stock_stores": 18,
+          "in_stock_dos": 36.2,
+          "historical_acceptance_rate_pct": 64,
+          "revenue_preservation_pct": 50,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-CON-1214-PIN-8",
+          "substitute_name": "Converse Air Max 90 Pink 8",
+          "brand": "Converse",
+          "price_variance_pct": -3,
+          "in_stock_stores": 14,
+          "in_stock_dos": 25.9,
+          "historical_acceptance_rate_pct": 37,
+          "revenue_preservation_pct": 36,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.75
+        }
+      ],
+      "style_id": "ADI-BOO-223",
+      "color": "Pink",
+      "size": "8"
+    },
+    {
+      "stockout_sku_id": "APR-FOS-1249-WHI-OS",
+      "stockout_sku_name": "Fossil Bifold Wallet White OS",
+      "category": "Accessories",
+      "stockout_stores": 12,
+      "daily_revenue_lost_cr": 0.3,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-FOS-1249-YEL-OS",
+          "substitute_name": "Fossil Bifold Wallet Yellow OS",
+          "brand": "Fossil",
+          "price_variance_pct": 0,
+          "in_stock_stores": 22,
+          "in_stock_dos": 28.2,
+          "historical_acceptance_rate_pct": 78,
+          "revenue_preservation_pct": 58,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-RAY-1246-WHI-OS",
+          "substitute_name": "Ray-Ban Minimalist Watch White OS",
+          "brand": "Ray-Ban",
+          "price_variance_pct": -6,
+          "in_stock_stores": 26,
+          "in_stock_dos": 25.2,
+          "historical_acceptance_rate_pct": 27,
+          "revenue_preservation_pct": 24,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.74
+        }
+      ],
+      "style_id": "FOS-WAL-249",
+      "color": "White",
+      "size": "OS"
+    },
+    {
+      "stockout_sku_id": "APR-DR.-1221-BLU-8",
+      "stockout_sku_name": "Dr. Martens Air Max 90 Blue 8",
+      "category": "Footwear",
+      "stockout_stores": 31,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-DR.-1221-BLA-8",
+          "substitute_name": "Dr. Martens Air Max 90 Black 8",
+          "brand": "Dr. Martens",
+          "price_variance_pct": 0,
+          "in_stock_stores": 33,
+          "in_stock_dos": 27.3,
+          "historical_acceptance_rate_pct": 69,
+          "revenue_preservation_pct": 56,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-CON-1214-BLU-8",
+          "substitute_name": "Converse Air Max 90 Blue 8",
+          "brand": "Converse",
+          "price_variance_pct": 11,
+          "in_stock_stores": 17,
+          "in_stock_dos": 21.5,
+          "historical_acceptance_rate_pct": 40,
+          "revenue_preservation_pct": 34,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.75
+        }
+      ],
+      "style_id": "DRX-SNE-221",
+      "color": "Blue",
+      "size": "8"
+    },
+    {
+      "stockout_sku_id": "APR-J.C-1121-OLI-L",
+      "stockout_sku_name": "J.Crew Sportswear Club Crew Olive L",
+      "category": "Men's Tops",
+      "stockout_stores": 12,
+      "daily_revenue_lost_cr": 0.1,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-J.C-1121-YEL-L",
+          "substitute_name": "J.Crew Sportswear Club Crew Yellow L",
+          "brand": "J.Crew",
+          "price_variance_pct": 0,
+          "in_stock_stores": 25,
+          "in_stock_dos": 33.3,
+          "historical_acceptance_rate_pct": 64,
+          "revenue_preservation_pct": 53,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-NIK-1110-OLI-L",
+          "substitute_name": "Nike Fleece Hoodie Olive L",
+          "brand": "Nike",
+          "price_variance_pct": 12,
+          "in_stock_stores": 26,
+          "in_stock_dos": 12.8,
+          "historical_acceptance_rate_pct": 35,
+          "revenue_preservation_pct": 23,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.78
+        }
+      ],
+      "style_id": "JXC-CRE-121",
+      "color": "Olive",
+      "size": "L"
+    },
+    {
+      "stockout_sku_id": "APR-VAN-1219-RED-8",
+      "stockout_sku_name": "Vans Ballet Flat Red 8",
+      "category": "Footwear",
+      "stockout_stores": 19,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-VAN-1219-KHA-8",
+          "substitute_name": "Vans Ballet Flat Khaki 8",
+          "brand": "Vans",
+          "price_variance_pct": 0,
+          "in_stock_stores": 33,
+          "in_stock_dos": 24.9,
+          "historical_acceptance_rate_pct": 74,
+          "revenue_preservation_pct": 70,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-CON-1214-RED-8",
+          "substitute_name": "Converse Air Max 90 Red 8",
+          "brand": "Converse",
+          "price_variance_pct": -12,
+          "in_stock_stores": 29,
+          "in_stock_dos": 22.3,
+          "historical_acceptance_rate_pct": 32,
+          "revenue_preservation_pct": 33,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.81
+        }
+      ],
+      "style_id": "VAN-FLA-219",
+      "color": "Red",
+      "size": "8"
+    },
+    {
+      "stockout_sku_id": "APR-MAD-1033-WHI-28",
+      "stockout_sku_name": "Madewell Skinny Jean White 28",
+      "category": "Women's Bottoms",
+      "stockout_stores": 31,
+      "daily_revenue_lost_cr": 0.4,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-MAD-1033-RED-28",
+          "substitute_name": "Madewell Skinny Jean Red 28",
+          "brand": "Madewell",
+          "price_variance_pct": 0,
+          "in_stock_stores": 29,
+          "in_stock_dos": 24,
+          "historical_acceptance_rate_pct": 63,
+          "revenue_preservation_pct": 53,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-LUL-1054-WHI-28",
+          "substitute_name": "Lululemon Skinny Jean White 28",
+          "brand": "Lululemon",
+          "price_variance_pct": 1,
+          "in_stock_stores": 21,
+          "in_stock_dos": 26.1,
+          "historical_acceptance_rate_pct": 36,
+          "revenue_preservation_pct": 36,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.68
+        }
+      ],
+      "style_id": "MAD-JEA-033",
+      "color": "White",
+      "size": "28"
+    },
+    {
+      "stockout_sku_id": "APR-GAP-1131-BUR-L",
+      "stockout_sku_name": "Gap Tech Jogger Burgundy L",
+      "category": "Men's Bottoms",
+      "stockout_stores": 31,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-GAP-1131-BLU-L",
+          "substitute_name": "Gap Tech Jogger Blue L",
+          "brand": "Gap",
+          "price_variance_pct": 0,
+          "in_stock_stores": 27,
+          "in_stock_dos": 22.4,
+          "historical_acceptance_rate_pct": 62,
+          "revenue_preservation_pct": 53,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-LEV-1158-BUR-L",
+          "substitute_name": "Levi's 501 Original Burgundy L",
+          "brand": "Levi's",
+          "price_variance_pct": 0,
+          "in_stock_stores": 25,
+          "in_stock_dos": 15.2,
+          "historical_acceptance_rate_pct": 40,
+          "revenue_preservation_pct": 36,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.63
+        }
+      ],
+      "style_id": "GAP-JOG-131",
+      "color": "Burgundy",
+      "size": "L"
+    },
+    {
+      "stockout_sku_id": "APR-LEV-1138-PIN-32×34",
+      "stockout_sku_name": "Levi's 501 Original Pink 32×34",
+      "category": "Men's Bottoms",
+      "stockout_stores": 21,
+      "daily_revenue_lost_cr": 0.1,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-LEV-1138-BUR-32×34",
+          "substitute_name": "Levi's 501 Original Burgundy 32×34",
+          "brand": "Levi's",
+          "price_variance_pct": 0,
+          "in_stock_stores": 24,
+          "in_stock_dos": 20.7,
+          "historical_acceptance_rate_pct": 78,
+          "revenue_preservation_pct": 55,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-LEV-1158-PIN-32×34",
+          "substitute_name": "Levi's 501 Original Pink 32×34",
+          "brand": "Levi's",
+          "price_variance_pct": -5,
+          "in_stock_stores": 22,
+          "in_stock_dos": 12.2,
+          "historical_acceptance_rate_pct": 38,
+          "revenue_preservation_pct": 30,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.77
+        }
+      ],
+      "style_id": "LEV-JEA-138",
+      "color": "Pink",
+      "size": "32×34"
+    },
+    {
+      "stockout_sku_id": "APR-WRA-1144-RED-32×34",
+      "stockout_sku_name": "Wrangler 502 Slim Red 32×34",
+      "category": "Men's Bottoms",
+      "stockout_stores": 32,
+      "daily_revenue_lost_cr": 0.4,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-WRA-1144-IND-32×34",
+          "substitute_name": "Wrangler 502 Slim Indigo 32×34",
+          "brand": "Wrangler",
+          "price_variance_pct": 0,
+          "in_stock_stores": 32,
+          "in_stock_dos": 35.3,
+          "historical_acceptance_rate_pct": 59,
+          "revenue_preservation_pct": 69,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-LEV-1158-RED-32×34",
+          "substitute_name": "Levi's 501 Original Red 32×34",
+          "brand": "Levi's",
+          "price_variance_pct": -3,
+          "in_stock_stores": 31,
+          "in_stock_dos": 12.7,
+          "historical_acceptance_rate_pct": 27,
+          "revenue_preservation_pct": 26,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.83
+        }
+      ],
+      "style_id": "WRA-JEA-144",
+      "color": "Red",
+      "size": "32×34"
+    },
+    {
+      "stockout_sku_id": "APR-MAD-1071-RED-M",
+      "stockout_sku_name": "Madewell Wrap Dress Red M",
+      "category": "Women's Dresses",
+      "stockout_stores": 13,
+      "daily_revenue_lost_cr": 0.4,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-MAD-1071-BLA-M",
+          "substitute_name": "Madewell Wrap Dress Black M",
+          "brand": "Madewell",
+          "price_variance_pct": 0,
+          "in_stock_stores": 18,
+          "in_stock_dos": 33.5,
+          "historical_acceptance_rate_pct": 63,
+          "revenue_preservation_pct": 48,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-FOR-1073-RED-M",
+          "substitute_name": "Forever 21 Cotton Maxi Red M",
+          "brand": "Forever 21",
+          "price_variance_pct": 11,
+          "in_stock_stores": 18,
+          "in_stock_dos": 18.1,
+          "historical_acceptance_rate_pct": 36,
+          "revenue_preservation_pct": 28,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.7
+        }
+      ],
+      "style_id": "MAD-WRA-071",
+      "color": "Red",
+      "size": "M"
+    },
+    {
+      "stockout_sku_id": "APR-NIK-1173-YEL-7",
+      "stockout_sku_name": "Nike Kids Pull-On Pant Yellow 7",
+      "category": "Kids'",
+      "stockout_stores": 24,
+      "daily_revenue_lost_cr": 0.1,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-NIK-1173-YEL-7",
+          "substitute_name": "Nike Kids Pull-On Pant Yellow 7",
+          "brand": "Nike Kids",
+          "price_variance_pct": 0,
+          "in_stock_stores": 32,
+          "in_stock_dos": 19.6,
+          "historical_acceptance_rate_pct": 72,
+          "revenue_preservation_pct": 52,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-CAR-1175-YEL-7",
+          "substitute_name": "Carter's PJ Set Yellow 7",
+          "brand": "Carter's",
+          "price_variance_pct": 8,
+          "in_stock_stores": 32,
+          "in_stock_dos": 24.3,
+          "historical_acceptance_rate_pct": 36,
+          "revenue_preservation_pct": 23,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.63
+        }
+      ],
+      "style_id": "NIK-BOT-173",
+      "color": "Yellow",
+      "size": "7"
+    },
+    {
+      "stockout_sku_id": "APR-FOR-1088-OLI-M",
+      "stockout_sku_name": "Forever 21 Floral Midi Olive M",
+      "category": "Women's Dresses",
+      "stockout_stores": 15,
+      "daily_revenue_lost_cr": 0.4,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-FOR-1088-WHI-M",
+          "substitute_name": "Forever 21 Floral Midi White M",
+          "brand": "Forever 21",
+          "price_variance_pct": 0,
+          "in_stock_stores": 30,
+          "in_stock_dos": 19.7,
+          "historical_acceptance_rate_pct": 56,
+          "revenue_preservation_pct": 72,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-FOR-1073-OLI-M",
+          "substitute_name": "Forever 21 Cotton Maxi Olive M",
+          "brand": "Forever 21",
+          "price_variance_pct": -5,
+          "in_stock_stores": 27,
+          "in_stock_dos": 26.7,
+          "historical_acceptance_rate_pct": 29,
+          "revenue_preservation_pct": 26,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.77
+        }
+      ],
+      "style_id": "FOR-MID-088",
+      "color": "Olive",
+      "size": "M"
+    },
+    {
+      "stockout_sku_id": "APR-LUL-1044-WHI-L",
+      "stockout_sku_name": "Lululemon Denim Short White L",
+      "category": "Women's Bottoms",
+      "stockout_stores": 22,
+      "daily_revenue_lost_cr": 0.4,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-LUL-1044-YEL-L",
+          "substitute_name": "Lululemon Denim Short Yellow L",
+          "brand": "Lululemon",
+          "price_variance_pct": 0,
+          "in_stock_stores": 29,
+          "in_stock_dos": 36.7,
+          "historical_acceptance_rate_pct": 61,
+          "revenue_preservation_pct": 64,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-LUL-1054-WHI-L",
+          "substitute_name": "Lululemon Skinny Jean White L",
+          "brand": "Lululemon",
+          "price_variance_pct": -4,
+          "in_stock_stores": 36,
+          "in_stock_dos": 19.1,
+          "historical_acceptance_rate_pct": 41,
+          "revenue_preservation_pct": 26,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.67
+        }
+      ],
+      "style_id": "LUL-SHO-044",
+      "color": "White",
+      "size": "L"
+    },
+    {
+      "stockout_sku_id": "APR-NIK-1096-YEL-L",
+      "stockout_sku_name": "Nike Sportswear Club Crew Yellow L",
+      "category": "Men's Tops",
+      "stockout_stores": 9,
+      "daily_revenue_lost_cr": 0.3,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-NIK-1096-IND-L",
+          "substitute_name": "Nike Sportswear Club Crew Indigo L",
+          "brand": "Nike",
+          "price_variance_pct": 0,
+          "in_stock_stores": 18,
+          "in_stock_dos": 32.4,
+          "historical_acceptance_rate_pct": 57,
+          "revenue_preservation_pct": 52,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-J.C-1121-YEL-L",
+          "substitute_name": "J.Crew Sportswear Club Crew Yellow L",
+          "brand": "J.Crew",
+          "price_variance_pct": -4,
+          "in_stock_stores": 21,
+          "in_stock_dos": 19.9,
+          "historical_acceptance_rate_pct": 27,
+          "revenue_preservation_pct": 32,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.68
+        }
+      ],
+      "style_id": "NIK-CRE-096",
+      "color": "Yellow",
+      "size": "L"
+    },
+    {
+      "stockout_sku_id": "APR-ZAR-1084-BLA-M",
+      "stockout_sku_name": "Zara Floral Midi Black M",
+      "category": "Women's Dresses",
+      "stockout_stores": 21,
+      "daily_revenue_lost_cr": 0.4,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-ZAR-1084-GRA-M",
+          "substitute_name": "Zara Floral Midi Gray M",
+          "brand": "Zara",
+          "price_variance_pct": 0,
+          "in_stock_stores": 28,
+          "in_stock_dos": 28,
+          "historical_acceptance_rate_pct": 57,
+          "revenue_preservation_pct": 72,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-FOR-1073-BLA-M",
+          "substitute_name": "Forever 21 Cotton Maxi Black M",
+          "brand": "Forever 21",
+          "price_variance_pct": -1,
+          "in_stock_stores": 20,
+          "in_stock_dos": 12.9,
+          "historical_acceptance_rate_pct": 40,
+          "revenue_preservation_pct": 32,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.75
+        }
+      ],
+      "style_id": "ZAR-MID-084",
+      "color": "Black",
+      "size": "M"
+    },
+    {
+      "stockout_sku_id": "APR-NEW-1200-YEL-10",
+      "stockout_sku_name": "New Balance Air Max 90 Yellow 10",
+      "category": "Footwear",
+      "stockout_stores": 15,
+      "daily_revenue_lost_cr": 0.3,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-NEW-1200-BLA-10",
+          "substitute_name": "New Balance Air Max 90 Black 10",
+          "brand": "New Balance",
+          "price_variance_pct": 0,
+          "in_stock_stores": 20,
+          "in_stock_dos": 16.2,
+          "historical_acceptance_rate_pct": 57,
+          "revenue_preservation_pct": 58,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-CON-1214-YEL-10",
+          "substitute_name": "Converse Air Max 90 Yellow 10",
+          "brand": "Converse",
+          "price_variance_pct": -11,
+          "in_stock_stores": 23,
+          "in_stock_dos": 17.5,
+          "historical_acceptance_rate_pct": 35,
+          "revenue_preservation_pct": 26,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.83
+        }
+      ],
+      "style_id": "NEW-SNE-200",
+      "color": "Yellow",
+      "size": "10"
+    },
+    {
+      "stockout_sku_id": "APR-ADI-1211-BLA-10",
+      "stockout_sku_name": "Adidas Block Heel Black 10",
+      "category": "Footwear",
+      "stockout_stores": 11,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-ADI-1211-KHA-10",
+          "substitute_name": "Adidas Block Heel Khaki 10",
+          "brand": "Adidas",
+          "price_variance_pct": 0,
+          "in_stock_stores": 32,
+          "in_stock_dos": 15.7,
+          "historical_acceptance_rate_pct": 54,
+          "revenue_preservation_pct": 65,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-CON-1214-BLA-10",
+          "substitute_name": "Converse Air Max 90 Black 10",
+          "brand": "Converse",
+          "price_variance_pct": -12,
+          "in_stock_stores": 16,
+          "in_stock_dos": 28,
+          "historical_acceptance_rate_pct": 31,
+          "revenue_preservation_pct": 37,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.75
+        }
+      ],
+      "style_id": "ADI-HEE-211",
+      "color": "Black",
+      "size": "10"
+    },
+    {
+      "stockout_sku_id": "APR-CON-1220-OLI-10",
+      "stockout_sku_name": "Converse Air Force 1 '07 Olive 10",
+      "category": "Footwear",
+      "stockout_stores": 19,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-CON-1220-OLI-10",
+          "substitute_name": "Converse Air Force 1 '07 Olive 10",
+          "brand": "Converse",
+          "price_variance_pct": 0,
+          "in_stock_stores": 37,
+          "in_stock_dos": 22,
+          "historical_acceptance_rate_pct": 76,
+          "revenue_preservation_pct": 59,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-CON-1214-OLI-10",
+          "substitute_name": "Converse Air Max 90 Olive 10",
+          "brand": "Converse",
+          "price_variance_pct": -7,
+          "in_stock_stores": 26,
+          "in_stock_dos": 27.8,
+          "historical_acceptance_rate_pct": 37,
+          "revenue_preservation_pct": 30,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.66
+        }
+      ],
+      "style_id": "CON-SNE-220",
+      "color": "Olive",
+      "size": "10"
+    },
+    {
+      "stockout_sku_id": "APR-GAP-1151-OLI-L",
+      "stockout_sku_name": "Gap Tech Jogger Olive L",
+      "category": "Men's Bottoms",
+      "stockout_stores": 27,
+      "daily_revenue_lost_cr": 0.3,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-GAP-1151-GRA-L",
+          "substitute_name": "Gap Tech Jogger Gray L",
+          "brand": "Gap",
+          "price_variance_pct": 0,
+          "in_stock_stores": 23,
+          "in_stock_dos": 34.5,
+          "historical_acceptance_rate_pct": 71,
+          "revenue_preservation_pct": 49,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-LEV-1158-OLI-L",
+          "substitute_name": "Levi's 501 Original Olive L",
+          "brand": "Levi's",
+          "price_variance_pct": -10,
+          "in_stock_stores": 36,
+          "in_stock_dos": 17.1,
+          "historical_acceptance_rate_pct": 26,
+          "revenue_preservation_pct": 30,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.75
+        }
+      ],
+      "style_id": "GAP-JOG-151",
+      "color": "Olive",
+      "size": "L"
+    },
+    {
+      "stockout_sku_id": "APR-MAD-1081-WHI-M",
+      "stockout_sku_name": "Madewell Cotton Maxi White M",
+      "category": "Women's Dresses",
+      "stockout_stores": 29,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-MAD-1081-RED-M",
+          "substitute_name": "Madewell Cotton Maxi Red M",
+          "brand": "Madewell",
+          "price_variance_pct": 0,
+          "in_stock_stores": 28,
+          "in_stock_dos": 24.4,
+          "historical_acceptance_rate_pct": 61,
+          "revenue_preservation_pct": 49,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-FOR-1073-WHI-M",
+          "substitute_name": "Forever 21 Cotton Maxi White M",
+          "brand": "Forever 21",
+          "price_variance_pct": -3,
+          "in_stock_stores": 24,
+          "in_stock_dos": 15.6,
+          "historical_acceptance_rate_pct": 42,
+          "revenue_preservation_pct": 30,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.63
+        }
+      ],
+      "style_id": "MAD-MAX-081",
+      "color": "White",
+      "size": "M"
+    },
+    {
+      "stockout_sku_id": "APR-LEV-1042-PIN-L",
+      "stockout_sku_name": "Levi's Align Pant Pink L",
+      "category": "Women's Bottoms",
+      "stockout_stores": 6,
+      "daily_revenue_lost_cr": 0.1,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-LEV-1042-KHA-L",
+          "substitute_name": "Levi's Align Pant Khaki L",
+          "brand": "Levi's",
+          "price_variance_pct": 0,
+          "in_stock_stores": 41,
+          "in_stock_dos": 28.1,
+          "historical_acceptance_rate_pct": 78,
+          "revenue_preservation_pct": 65,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-LUL-1054-PIN-L",
+          "substitute_name": "Lululemon Skinny Jean Pink L",
+          "brand": "Lululemon",
+          "price_variance_pct": 9,
+          "in_stock_stores": 23,
+          "in_stock_dos": 24.6,
+          "historical_acceptance_rate_pct": 25,
+          "revenue_preservation_pct": 35,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.66
+        }
+      ],
+      "style_id": "LEV-LEG-042",
+      "color": "Pink",
+      "size": "L"
+    },
+    {
+      "stockout_sku_id": "APR-WRA-1159-BLA-32×34",
+      "stockout_sku_name": "Wrangler 502 Slim Black 32×34",
+      "category": "Men's Bottoms",
+      "stockout_stores": 23,
+      "daily_revenue_lost_cr": 0.3,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-WRA-1159-WHI-32×34",
+          "substitute_name": "Wrangler 502 Slim White 32×34",
+          "brand": "Wrangler",
+          "price_variance_pct": 0,
+          "in_stock_stores": 41,
+          "in_stock_dos": 16.5,
+          "historical_acceptance_rate_pct": 62,
+          "revenue_preservation_pct": 59,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-LEV-1158-BLA-32×34",
+          "substitute_name": "Levi's 501 Original Black 32×34",
+          "brand": "Levi's",
+          "price_variance_pct": -9,
+          "in_stock_stores": 23,
+          "in_stock_dos": 27.1,
+          "historical_acceptance_rate_pct": 30,
+          "revenue_preservation_pct": 35,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.67
+        }
+      ],
+      "style_id": "WRA-JEA-159",
+      "color": "Black",
+      "size": "32×34"
+    },
+    {
+      "stockout_sku_id": "APR-ADI-1199-YEL-10",
+      "stockout_sku_name": "Adidas Air Force 1 '07 Yellow 10",
+      "category": "Footwear",
+      "stockout_stores": 32,
+      "daily_revenue_lost_cr": 0.1,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-ADI-1199-IND-10",
+          "substitute_name": "Adidas Air Force 1 '07 Indigo 10",
+          "brand": "Adidas",
+          "price_variance_pct": 0,
+          "in_stock_stores": 35,
+          "in_stock_dos": 33,
+          "historical_acceptance_rate_pct": 55,
+          "revenue_preservation_pct": 52,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-CON-1214-YEL-10",
+          "substitute_name": "Converse Air Max 90 Yellow 10",
+          "brand": "Converse",
+          "price_variance_pct": -2,
+          "in_stock_stores": 20,
+          "in_stock_dos": 12.4,
+          "historical_acceptance_rate_pct": 24,
+          "revenue_preservation_pct": 22,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.67
+        }
+      ],
+      "style_id": "ADI-SNE-199",
+      "color": "Yellow",
+      "size": "10"
+    },
+    {
+      "stockout_sku_id": "APR-ADI-1104-WHI-L",
+      "stockout_sku_name": "Adidas Wool Sweater White L",
+      "category": "Men's Tops",
+      "stockout_stores": 6,
+      "daily_revenue_lost_cr": 0.4,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-ADI-1104-IND-L",
+          "substitute_name": "Adidas Wool Sweater Indigo L",
+          "brand": "Adidas",
+          "price_variance_pct": 0,
+          "in_stock_stores": 20,
+          "in_stock_dos": 20.4,
+          "historical_acceptance_rate_pct": 76,
+          "revenue_preservation_pct": 67,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-J.C-1121-WHI-L",
+          "substitute_name": "J.Crew Sportswear Club Crew White L",
+          "brand": "J.Crew",
+          "price_variance_pct": -8,
+          "in_stock_stores": 22,
+          "in_stock_dos": 19.8,
+          "historical_acceptance_rate_pct": 27,
+          "revenue_preservation_pct": 33,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.68
+        }
+      ],
+      "style_id": "ADI-SWE-104",
+      "color": "White",
+      "size": "L"
+    },
+    {
+      "stockout_sku_id": "APR-BAN-1013-WHI-L",
+      "stockout_sku_name": "Banana Republic Ribbed Tank White L",
+      "category": "Women's Tops",
+      "stockout_stores": 11,
+      "daily_revenue_lost_cr": 0.3,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-BAN-1013-RED-L",
+          "substitute_name": "Banana Republic Ribbed Tank Red L",
+          "brand": "Banana Republic",
+          "price_variance_pct": 0,
+          "in_stock_stores": 19,
+          "in_stock_dos": 18.7,
+          "historical_acceptance_rate_pct": 56,
+          "revenue_preservation_pct": 68,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-LUL-1001-WHI-L",
+          "substitute_name": "Lululemon Ribbed Tank White L",
+          "brand": "Lululemon",
+          "price_variance_pct": 9,
+          "in_stock_stores": 27,
+          "in_stock_dos": 23.4,
+          "historical_acceptance_rate_pct": 37,
+          "revenue_preservation_pct": 38,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.8
+        }
+      ],
+      "style_id": "BAN-TAN-013",
+      "color": "White",
+      "size": "L"
+    },
+    {
+      "stockout_sku_id": "APR-FOR-1078-KHA-M",
+      "stockout_sku_name": "Forever 21 Bodycon Mini Khaki M",
+      "category": "Women's Dresses",
+      "stockout_stores": 27,
+      "daily_revenue_lost_cr": 0.4,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-FOR-1078-OLI-M",
+          "substitute_name": "Forever 21 Bodycon Mini Olive M",
+          "brand": "Forever 21",
+          "price_variance_pct": 0,
+          "in_stock_stores": 26,
+          "in_stock_dos": 35.6,
+          "historical_acceptance_rate_pct": 74,
+          "revenue_preservation_pct": 59,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-FOR-1073-KHA-M",
+          "substitute_name": "Forever 21 Cotton Maxi Khaki M",
+          "brand": "Forever 21",
+          "price_variance_pct": 2,
+          "in_stock_stores": 30,
+          "in_stock_dos": 27.8,
+          "historical_acceptance_rate_pct": 25,
+          "revenue_preservation_pct": 32,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.71
+        }
+      ],
+      "style_id": "FOR-MIN-078",
+      "color": "Khaki",
+      "size": "M"
+    },
+    {
+      "stockout_sku_id": "APR-HAN-1102-BUR-L",
+      "stockout_sku_name": "Hanes Cotton Polo Burgundy L",
+      "category": "Men's Tops",
+      "stockout_stores": 12,
+      "daily_revenue_lost_cr": 0.4,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-HAN-1102-WHI-L",
+          "substitute_name": "Hanes Cotton Polo White L",
+          "brand": "Hanes",
+          "price_variance_pct": 0,
+          "in_stock_stores": 30,
+          "in_stock_dos": 22.7,
+          "historical_acceptance_rate_pct": 62,
+          "revenue_preservation_pct": 62,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-J.C-1121-BUR-L",
+          "substitute_name": "J.Crew Sportswear Club Crew Burgundy L",
+          "brand": "J.Crew",
+          "price_variance_pct": -10,
+          "in_stock_stores": 33,
+          "in_stock_dos": 17.5,
+          "historical_acceptance_rate_pct": 34,
+          "revenue_preservation_pct": 24,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.83
+        }
+      ],
+      "style_id": "HAN-POL-102",
+      "color": "Burgundy",
+      "size": "L"
+    },
+    {
+      "stockout_sku_id": "APR-CAR-1190-BLA-7",
+      "stockout_sku_name": "Carter's 2-Piece Set Black 7",
+      "category": "Kids'",
+      "stockout_stores": 23,
+      "daily_revenue_lost_cr": 0.1,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-CAR-1190-KHA-7",
+          "substitute_name": "Carter's 2-Piece Set Khaki 7",
+          "brand": "Carter's",
+          "price_variance_pct": 0,
+          "in_stock_stores": 30,
+          "in_stock_dos": 31.3,
+          "historical_acceptance_rate_pct": 63,
+          "revenue_preservation_pct": 70,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-CAR-1175-BLA-7",
+          "substitute_name": "Carter's PJ Set Black 7",
+          "brand": "Carter's",
+          "price_variance_pct": -4,
+          "in_stock_stores": 14,
+          "in_stock_dos": 28.6,
+          "historical_acceptance_rate_pct": 38,
+          "revenue_preservation_pct": 38,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.75
+        }
+      ],
+      "style_id": "CAR-OUT-190",
+      "color": "Black",
+      "size": "7"
+    },
+    {
+      "stockout_sku_id": "APR-NIK-1188-BUR-7",
+      "stockout_sku_name": "Nike Kids Crew Tee Burgundy 7",
+      "category": "Kids'",
+      "stockout_stores": 21,
+      "daily_revenue_lost_cr": 0.4,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-NIK-1188-OLI-7",
+          "substitute_name": "Nike Kids Crew Tee Olive 7",
+          "brand": "Nike Kids",
+          "price_variance_pct": 0,
+          "in_stock_stores": 42,
+          "in_stock_dos": 16.9,
+          "historical_acceptance_rate_pct": 58,
+          "revenue_preservation_pct": 69,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-CAR-1175-BUR-7",
+          "substitute_name": "Carter's PJ Set Burgundy 7",
+          "brand": "Carter's",
+          "price_variance_pct": 10,
+          "in_stock_stores": 32,
+          "in_stock_dos": 27.1,
+          "historical_acceptance_rate_pct": 42,
+          "revenue_preservation_pct": 27,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.65
+        }
+      ],
+      "style_id": "NIK-TOP-188",
+      "color": "Burgundy",
+      "size": "7"
+    },
+    {
+      "stockout_sku_id": "APR-HER-1255-BLA-OS",
+      "stockout_sku_name": "Herschel Bifold Wallet Black OS",
+      "category": "Accessories",
+      "stockout_stores": 6,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-HER-1255-NAV-OS",
+          "substitute_name": "Herschel Bifold Wallet Navy OS",
+          "brand": "Herschel",
+          "price_variance_pct": 0,
+          "in_stock_stores": 29,
+          "in_stock_dos": 35.3,
+          "historical_acceptance_rate_pct": 69,
+          "revenue_preservation_pct": 71,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-RAY-1246-BLA-OS",
+          "substitute_name": "Ray-Ban Minimalist Watch Black OS",
+          "brand": "Ray-Ban",
+          "price_variance_pct": 12,
+          "in_stock_stores": 30,
+          "in_stock_dos": 19.1,
+          "historical_acceptance_rate_pct": 30,
+          "revenue_preservation_pct": 35,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.65
+        }
+      ],
+      "style_id": "HER-WAL-255",
+      "color": "Black",
+      "size": "OS"
+    },
+    {
+      "stockout_sku_id": "APR-FOS-1225-GRA-OS",
+      "stockout_sku_name": "Fossil Bifold Wallet Gray OS",
+      "category": "Accessories",
+      "stockout_stores": 12,
+      "daily_revenue_lost_cr": 0.3,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-FOS-1225-RED-OS",
+          "substitute_name": "Fossil Bifold Wallet Red OS",
+          "brand": "Fossil",
+          "price_variance_pct": 0,
+          "in_stock_stores": 38,
+          "in_stock_dos": 18.6,
+          "historical_acceptance_rate_pct": 63,
+          "revenue_preservation_pct": 53,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-RAY-1246-GRA-OS",
+          "substitute_name": "Ray-Ban Minimalist Watch Gray OS",
+          "brand": "Ray-Ban",
+          "price_variance_pct": 1,
+          "in_stock_stores": 35,
+          "in_stock_dos": 17.2,
+          "historical_acceptance_rate_pct": 40,
+          "revenue_preservation_pct": 32,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.83
+        }
+      ],
+      "style_id": "FOS-WAL-225",
+      "color": "Gray",
+      "size": "OS"
+    },
+    {
+      "stockout_sku_id": "APR-J.C-1107-BUR-L",
+      "stockout_sku_name": "J.Crew Cotton Polo Burgundy L",
+      "category": "Men's Tops",
+      "stockout_stores": 8,
+      "daily_revenue_lost_cr": 0.1,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-J.C-1107-GRA-L",
+          "substitute_name": "J.Crew Cotton Polo Gray L",
+          "brand": "J.Crew",
+          "price_variance_pct": 0,
+          "in_stock_stores": 26,
+          "in_stock_dos": 14.3,
+          "historical_acceptance_rate_pct": 71,
+          "revenue_preservation_pct": 56,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-J.C-1121-BUR-L",
+          "substitute_name": "J.Crew Sportswear Club Crew Burgundy L",
+          "brand": "J.Crew",
+          "price_variance_pct": 3,
+          "in_stock_stores": 25,
+          "in_stock_dos": 16.3,
+          "historical_acceptance_rate_pct": 33,
+          "revenue_preservation_pct": 23,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.79
+        }
+      ],
+      "style_id": "JXC-POL-107",
+      "color": "Burgundy",
+      "size": "L"
+    },
+    {
+      "stockout_sku_id": "APR-MAD-1063-OLI-L",
+      "stockout_sku_name": "Madewell Align Pant Olive L",
+      "category": "Women's Bottoms",
+      "stockout_stores": 16,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-MAD-1063-BUR-L",
+          "substitute_name": "Madewell Align Pant Burgundy L",
+          "brand": "Madewell",
+          "price_variance_pct": 0,
+          "in_stock_stores": 22,
+          "in_stock_dos": 22.7,
+          "historical_acceptance_rate_pct": 66,
+          "revenue_preservation_pct": 57,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-LUL-1054-OLI-L",
+          "substitute_name": "Lululemon Skinny Jean Olive L",
+          "brand": "Lululemon",
+          "price_variance_pct": -2,
+          "in_stock_stores": 16,
+          "in_stock_dos": 15.7,
+          "historical_acceptance_rate_pct": 37,
+          "revenue_preservation_pct": 32,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.64
+        }
+      ],
+      "style_id": "MAD-LEG-063",
+      "color": "Olive",
+      "size": "L"
+    },
+    {
+      "stockout_sku_id": "APR-NEW-1206-GRA-10",
+      "stockout_sku_name": "New Balance Air Force 1 '07 Gray 10",
+      "category": "Footwear",
+      "stockout_stores": 12,
+      "daily_revenue_lost_cr": 0.4,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-NEW-1206-BLU-10",
+          "substitute_name": "New Balance Air Force 1 '07 Blue 10",
+          "brand": "New Balance",
+          "price_variance_pct": 0,
+          "in_stock_stores": 27,
+          "in_stock_dos": 29.4,
+          "historical_acceptance_rate_pct": 60,
+          "revenue_preservation_pct": 68,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-CON-1214-GRA-10",
+          "substitute_name": "Converse Air Max 90 Gray 10",
+          "brand": "Converse",
+          "price_variance_pct": 0,
+          "in_stock_stores": 14,
+          "in_stock_dos": 12.9,
+          "historical_acceptance_rate_pct": 41,
+          "revenue_preservation_pct": 22,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.65
+        }
+      ],
+      "style_id": "NEW-SNE-206",
+      "color": "Gray",
+      "size": "10"
+    },
+    {
+      "stockout_sku_id": "APR-HAN-1164-YEL-7",
+      "stockout_sku_name": "Hanes Kids Crew Tee Yellow 7",
+      "category": "Kids'",
+      "stockout_stores": 15,
+      "daily_revenue_lost_cr": 0.4,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-HAN-1164-NAV-7",
+          "substitute_name": "Hanes Kids Crew Tee Navy 7",
+          "brand": "Hanes Kids",
+          "price_variance_pct": 0,
+          "in_stock_stores": 32,
+          "in_stock_dos": 35.8,
+          "historical_acceptance_rate_pct": 54,
+          "revenue_preservation_pct": 53,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-CAR-1175-YEL-7",
+          "substitute_name": "Carter's PJ Set Yellow 7",
+          "brand": "Carter's",
+          "price_variance_pct": 6,
+          "in_stock_stores": 30,
+          "in_stock_dos": 12.4,
+          "historical_acceptance_rate_pct": 32,
+          "revenue_preservation_pct": 37,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.76
+        }
+      ],
+      "style_id": "HAN-TOP-164",
+      "color": "Yellow",
+      "size": "7"
+    },
+    {
+      "stockout_sku_id": "APR-HAN-1087-GRA-M",
+      "stockout_sku_name": "Hansae Wrap Dress Gray M",
+      "category": "Women's Dresses",
+      "stockout_stores": 16,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-HAN-1087-NAV-M",
+          "substitute_name": "Hansae Wrap Dress Navy M",
+          "brand": "Hansae",
+          "price_variance_pct": 0,
+          "in_stock_stores": 18,
+          "in_stock_dos": 28,
+          "historical_acceptance_rate_pct": 74,
+          "revenue_preservation_pct": 49,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-FOR-1073-GRA-M",
+          "substitute_name": "Forever 21 Cotton Maxi Gray M",
+          "brand": "Forever 21",
+          "price_variance_pct": -12,
+          "in_stock_stores": 16,
+          "in_stock_dos": 28.9,
+          "historical_acceptance_rate_pct": 42,
+          "revenue_preservation_pct": 32,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.67
+        }
+      ],
+      "style_id": "HAN-WRA-087",
+      "color": "Gray",
+      "size": "M"
+    },
+    {
+      "stockout_sku_id": "APR-HAN-1123-PIN-L",
+      "stockout_sku_name": "Hanes Oxford Button-Down Pink L",
+      "category": "Men's Tops",
+      "stockout_stores": 11,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-HAN-1123-BLU-L",
+          "substitute_name": "Hanes Oxford Button-Down Blue L",
+          "brand": "Hanes",
+          "price_variance_pct": 0,
+          "in_stock_stores": 41,
+          "in_stock_dos": 19.3,
+          "historical_acceptance_rate_pct": 68,
+          "revenue_preservation_pct": 63,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-J.C-1121-PIN-L",
+          "substitute_name": "J.Crew Sportswear Club Crew Pink L",
+          "brand": "J.Crew",
+          "price_variance_pct": -10,
+          "in_stock_stores": 33,
+          "in_stock_dos": 13.1,
+          "historical_acceptance_rate_pct": 24,
+          "revenue_preservation_pct": 32,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.82
+        }
+      ],
+      "style_id": "HAN-BUT-123",
+      "color": "Pink",
+      "size": "L"
+    },
+    {
+      "stockout_sku_id": "APR-LEV-1148-BLA-32×34",
+      "stockout_sku_name": "Levi's 501 Original Black 32×34",
+      "category": "Men's Bottoms",
+      "stockout_stores": 10,
+      "daily_revenue_lost_cr": 0.3,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-LEV-1148-IND-32×34",
+          "substitute_name": "Levi's 501 Original Indigo 32×34",
+          "brand": "Levi's",
+          "price_variance_pct": 0,
+          "in_stock_stores": 27,
+          "in_stock_dos": 28.9,
+          "historical_acceptance_rate_pct": 57,
+          "revenue_preservation_pct": 63,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-LEV-1158-BLA-32×34",
+          "substitute_name": "Levi's 501 Original Black 32×34",
+          "brand": "Levi's",
+          "price_variance_pct": 6,
+          "in_stock_stores": 21,
+          "in_stock_dos": 28.6,
+          "historical_acceptance_rate_pct": 42,
+          "revenue_preservation_pct": 22,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.67
+        }
+      ],
+      "style_id": "LEV-JEA-148",
+      "color": "Black",
+      "size": "32×34"
+    },
+    {
+      "stockout_sku_id": "APR-ADI-1125-GRA-L",
+      "stockout_sku_name": "Adidas Fleece Hoodie Gray L",
+      "category": "Men's Tops",
+      "stockout_stores": 18,
+      "daily_revenue_lost_cr": 0.3,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-ADI-1125-OLI-L",
+          "substitute_name": "Adidas Fleece Hoodie Olive L",
+          "brand": "Adidas",
+          "price_variance_pct": 0,
+          "in_stock_stores": 30,
+          "in_stock_dos": 20.3,
+          "historical_acceptance_rate_pct": 62,
+          "revenue_preservation_pct": 53,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-J.C-1121-GRA-L",
+          "substitute_name": "J.Crew Sportswear Club Crew Gray L",
+          "brand": "J.Crew",
+          "price_variance_pct": 2,
+          "in_stock_stores": 27,
+          "in_stock_dos": 23,
+          "historical_acceptance_rate_pct": 32,
+          "revenue_preservation_pct": 38,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.69
+        }
+      ],
+      "style_id": "ADI-HOO-125",
+      "color": "Gray",
+      "size": "L"
+    },
+    {
+      "stockout_sku_id": "APR-LEE-1135-GRA-L",
+      "stockout_sku_name": "Lee Classic Chino Gray L",
+      "category": "Men's Bottoms",
+      "stockout_stores": 27,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-LEE-1135-NAV-L",
+          "substitute_name": "Lee Classic Chino Navy L",
+          "brand": "Lee",
+          "price_variance_pct": 0,
+          "in_stock_stores": 31,
+          "in_stock_dos": 36.4,
+          "historical_acceptance_rate_pct": 56,
+          "revenue_preservation_pct": 70,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-LEV-1158-GRA-L",
+          "substitute_name": "Levi's 501 Original Gray L",
+          "brand": "Levi's",
+          "price_variance_pct": -8,
+          "in_stock_stores": 17,
+          "in_stock_dos": 29.8,
+          "historical_acceptance_rate_pct": 33,
+          "revenue_preservation_pct": 35,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.66
+        }
+      ],
+      "style_id": "LEE-CHI-135",
+      "color": "Gray",
+      "size": "L"
+    },
+    {
+      "stockout_sku_id": "APR-MAD-1014-PIN-L",
+      "stockout_sku_name": "Madewell Silk Blouse Pink L",
+      "category": "Women's Tops",
+      "stockout_stores": 23,
+      "daily_revenue_lost_cr": 0.1,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-MAD-1014-BLA-L",
+          "substitute_name": "Madewell Silk Blouse Black L",
+          "brand": "Madewell",
+          "price_variance_pct": 0,
+          "in_stock_stores": 28,
+          "in_stock_dos": 27.2,
+          "historical_acceptance_rate_pct": 67,
+          "revenue_preservation_pct": 60,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-LUL-1001-PIN-L",
+          "substitute_name": "Lululemon Ribbed Tank Pink L",
+          "brand": "Lululemon",
+          "price_variance_pct": 7,
+          "in_stock_stores": 33,
+          "in_stock_dos": 29.6,
+          "historical_acceptance_rate_pct": 32,
+          "revenue_preservation_pct": 32,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.75
+        }
+      ],
+      "style_id": "MAD-BLO-014",
+      "color": "Pink",
+      "size": "L"
+    },
+    {
+      "stockout_sku_id": "APR-HAN-1189-RED-7",
+      "stockout_sku_name": "Hanes Kids Pull-On Pant Red 7",
+      "category": "Kids'",
+      "stockout_stores": 9,
+      "daily_revenue_lost_cr": 0.1,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-HAN-1189-BUR-7",
+          "substitute_name": "Hanes Kids Pull-On Pant Burgundy 7",
+          "brand": "Hanes Kids",
+          "price_variance_pct": 0,
+          "in_stock_stores": 29,
+          "in_stock_dos": 24.1,
+          "historical_acceptance_rate_pct": 55,
+          "revenue_preservation_pct": 52,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-CAR-1175-RED-7",
+          "substitute_name": "Carter's PJ Set Red 7",
+          "brand": "Carter's",
+          "price_variance_pct": -8,
+          "in_stock_stores": 18,
+          "in_stock_dos": 21.9,
+          "historical_acceptance_rate_pct": 30,
+          "revenue_preservation_pct": 27,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.7
+        }
+      ],
+      "style_id": "HAN-BOT-189",
+      "color": "Red",
+      "size": "7"
+    },
+    {
+      "stockout_sku_id": "APR-BAN-1142-BUR-L",
+      "stockout_sku_name": "Banana Republic Cargo Short Burgundy L",
+      "category": "Men's Bottoms",
+      "stockout_stores": 16,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-BAN-1142-OLI-L",
+          "substitute_name": "Banana Republic Cargo Short Olive L",
+          "brand": "Banana Republic",
+          "price_variance_pct": 0,
+          "in_stock_stores": 40,
+          "in_stock_dos": 20.2,
+          "historical_acceptance_rate_pct": 70,
+          "revenue_preservation_pct": 71,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-LEV-1158-BUR-L",
+          "substitute_name": "Levi's 501 Original Burgundy L",
+          "brand": "Levi's",
+          "price_variance_pct": 7,
+          "in_stock_stores": 31,
+          "in_stock_dos": 18.9,
+          "historical_acceptance_rate_pct": 31,
+          "revenue_preservation_pct": 26,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.7
+        }
+      ],
+      "style_id": "BAN-SHO-142",
+      "color": "Burgundy",
+      "size": "L"
+    },
+    {
+      "stockout_sku_id": "APR-GAP-1156-KHA-L",
+      "stockout_sku_name": "Gap Tech Jogger Khaki L",
+      "category": "Men's Bottoms",
+      "stockout_stores": 27,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-GAP-1156-YEL-L",
+          "substitute_name": "Gap Tech Jogger Yellow L",
+          "brand": "Gap",
+          "price_variance_pct": 0,
+          "in_stock_stores": 22,
+          "in_stock_dos": 27,
+          "historical_acceptance_rate_pct": 75,
+          "revenue_preservation_pct": 62,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-LEV-1158-KHA-L",
+          "substitute_name": "Levi's 501 Original Khaki L",
+          "brand": "Levi's",
+          "price_variance_pct": 1,
+          "in_stock_stores": 15,
+          "in_stock_dos": 25.9,
+          "historical_acceptance_rate_pct": 25,
+          "revenue_preservation_pct": 34,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.7
+        }
+      ],
+      "style_id": "GAP-JOG-156",
+      "color": "Khaki",
+      "size": "L"
+    },
+    {
+      "stockout_sku_id": "APR-LEV-1062-BUR-28",
+      "stockout_sku_name": "Levi's Wide-Leg Crop Burgundy 28",
+      "category": "Women's Bottoms",
+      "stockout_stores": 21,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-LEV-1062-GRA-28",
+          "substitute_name": "Levi's Wide-Leg Crop Gray 28",
+          "brand": "Levi's",
+          "price_variance_pct": 0,
+          "in_stock_stores": 35,
+          "in_stock_dos": 33.6,
+          "historical_acceptance_rate_pct": 76,
+          "revenue_preservation_pct": 64,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-LUL-1054-BUR-28",
+          "substitute_name": "Lululemon Skinny Jean Burgundy 28",
+          "brand": "Lululemon",
+          "price_variance_pct": -10,
+          "in_stock_stores": 23,
+          "in_stock_dos": 31.8,
+          "historical_acceptance_rate_pct": 36,
+          "revenue_preservation_pct": 25,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.75
+        }
+      ],
+      "style_id": "LEV-JEA-062",
+      "color": "Burgundy",
+      "size": "28"
+    },
+    {
+      "stockout_sku_id": "APR-CAR-1170-BUR-7",
+      "stockout_sku_name": "Carter's 2-Piece Set Burgundy 7",
+      "category": "Kids'",
+      "stockout_stores": 15,
+      "daily_revenue_lost_cr": 0.2,
+      "substitutes": [
+        {
+          "substitute_sku_id": "APR-CAR-1170-WHI-7",
+          "substitute_name": "Carter's 2-Piece Set White 7",
+          "brand": "Carter's",
+          "price_variance_pct": 0,
+          "in_stock_stores": 27,
+          "in_stock_dos": 22.8,
+          "historical_acceptance_rate_pct": 78,
+          "revenue_preservation_pct": 67,
+          "recommendation": "Primary substitute (same style, alt color)",
+          "confidence": "high",
+          "substitution_tier": "Size-Color",
+          "fit_compatibility_score": 0.96
+        },
+        {
+          "substitute_sku_id": "APR-CAR-1175-BUR-7",
+          "substitute_name": "Carter's PJ Set Burgundy 7",
+          "brand": "Carter's",
+          "price_variance_pct": -8,
+          "in_stock_stores": 20,
+          "in_stock_dos": 23.3,
+          "historical_acceptance_rate_pct": 28,
+          "revenue_preservation_pct": 33,
+          "recommendation": "Style sibling",
+          "confidence": "medium",
+          "substitution_tier": "Style-Family",
+          "fit_compatibility_score": 0.75
+        }
+      ],
+      "style_id": "CAR-OUT-170",
+      "color": "Burgundy",
+      "size": "7"
+    }
+  ]
+}

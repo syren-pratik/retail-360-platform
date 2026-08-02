@@ -1,0 +1,37 @@
+[
+  {
+    "department": "Grocery & Staples",
+    "avg_dos": "18.3",
+    "sku_count": "1566760",
+    "stockout_count": "481",
+    "stockout_pct": "0.0"
+  },
+  {
+    "department": "Snacks & Biscuits",
+    "avg_dos": "18.6",
+    "sku_count": "476840",
+    "stockout_count": "256",
+    "stockout_pct": "0.1"
+  },
+  {
+    "department": "Dairy & Frozen",
+    "avg_dos": "20.1",
+    "sku_count": "738814",
+    "stockout_count": "57",
+    "stockout_pct": "0.0"
+  },
+  {
+    "department": "Personal Care",
+    "avg_dos": "20.8",
+    "sku_count": "553475",
+    "stockout_count": "166",
+    "stockout_pct": "0.0"
+  },
+  {
+    "department": "Beverages",
+    "avg_dos": "32.1",
+    "sku_count": "740805",
+    "stockout_count": "0",
+    "stockout_pct": "0.0"
+  }
+]

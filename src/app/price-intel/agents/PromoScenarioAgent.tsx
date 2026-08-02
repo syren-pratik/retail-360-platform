@@ -81,7 +81,7 @@ function MetricCard({
 }
 
 export default function PromoScenarioAgent({ core }: Props) {
-  const { isApparel, isRetail } = useTenant();
+  const { isApparel } = useTenant();
   const ctx = buildAgentSKUContext(core, isApparel);
   const skuList = ctx.skus;
   const { currency, unitLabel, unitDivisor, segments } = ctx;
