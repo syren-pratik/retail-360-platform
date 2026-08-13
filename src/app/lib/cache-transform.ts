@@ -309,6 +309,38 @@ export function transformDimensions(raw: unknown[]): DimensionsCache {
 }
 
 // Transform Segment Migration Data
+// Explicit hierarchy — lower rank = healthier segment. Any name not listed
+// falls between VIP and Churned based on the position of the first flow.
+const SEGMENT_RANK: Record<string, number> = {
+  'High-Value VIP': 0,
+  'Premium Loyalist': 0,
+  'Champions': 0,
+  'Loyal Customers': 1,
+  'Low Risk': 1,
+  'Omnichannel Shopper': 1,
+  'Brand Loyalist': 1,
+  'Deal Seeker': 2,
+  'Fashion Forward': 2,
+  'Athletic Enthusiast': 2,
+  'Medium Risk': 2,
+  'Occasional Buyer': 3,
+  'High Risk': 3,
+  'Value Shopper': 3,
+  'High Returner': 4,
+  'Low-Value': 5,
+  'Lapsed': 6,
+  'New Customers': 7,
+  'New Customer': 7,
+  'Casual': 7,
+  'Hibernating': 8,
+  'Returner': 8,
+  'Churned': 9,
+};
+
+function rankOf(seg: string, fallback: number): number {
+  return SEGMENT_RANK[seg] ?? fallback;
+}
+
 export function transformSegmentMigration(raw: unknown): SegmentMigrationData {
   // Handle new format: { period: string, flows: [...] }
   if (raw && typeof raw === 'object' && 'flows' in raw) {
@@ -317,16 +349,27 @@ export function transformSegmentMigration(raw: unknown): SegmentMigrationData {
     const segments = Array.from(new Set(flows.flatMap(f => [f.from, f.to])));
     const totalCustomers = flows.reduce((sum, f) => sum + (f.count || 0), 0);
 
-    // Calculate summary
-    const upgraded = flows.filter(f => {
-      const fromIdx = segments.indexOf(f.from);
-      const toIdx = segments.indexOf(f.to);
-      return toIdx < fromIdx; // Lower index = better segment
-    }).reduce((sum, f) => sum + f.count, 0);
-
-    const stable = flows.filter(f => f.from === f.to).reduce((sum, f) => sum + f.count, 0);
-    const churned = flows.filter(f => f.to === 'Churned').reduce((sum, f) => sum + f.count, 0);
-    const downgraded = totalCustomers - upgraded - stable - churned;
+    // Categorize each flow exactly once — no double-counting.
+    let upgraded = 0;
+    let stable = 0;
+    let downgraded = 0;
+    let churned = 0;
+    for (const f of flows) {
+      const count = f.count || 0;
+      const fromRank = rankOf(f.from, 5);
+      const toRank = rankOf(f.to, 5);
+      if (f.to === 'Churned' && f.from !== 'Churned') {
+        churned += count; // Moving into Churned this period
+      } else if (f.from === f.to) {
+        stable += count;
+      } else if (toRank < fromRank) {
+        upgraded += count;
+      } else if (toRank > fromRank) {
+        downgraded += count;
+      } else {
+        stable += count; // Same rank, different label — treat as lateral / stable
+      }
+    }
 
     return {
       period: {
@@ -344,7 +387,7 @@ export function transformSegmentMigration(raw: unknown): SegmentMigrationData {
         total_customers: totalCustomers,
         upgraded,
         stable,
-        downgraded: Math.max(0, downgraded),
+        downgraded,
         churned,
       },
     };
