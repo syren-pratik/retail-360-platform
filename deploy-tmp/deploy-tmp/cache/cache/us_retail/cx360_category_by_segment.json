@@ -1,0 +1,509 @@
+{
+  "categories": [
+    "Tops",
+    "Bottoms",
+    "Outerwear",
+    "Sports & Outdoor",
+    "Beauty & Personal"
+  ],
+  "segments": [
+    "Premium Loyalist",
+    "Deal Seeker",
+    "Occasional Buyer",
+    "Omnichannel Shopper",
+    "High Returner",
+    "Lapsed",
+    "New Customer",
+    "New"
+  ],
+  "matrix": [
+    {
+      "segment": "Premium Loyalist",
+      "total_customers": 7156,
+      "total_revenue": 17103883,
+      "categories": {
+        "Tops": {
+          "customers": 5008,
+          "revenue": 911456,
+          "penetration": 70,
+          "revenue_share": 5.3,
+          "avg_spend": 182,
+          "growth_mom": 5.8,
+          "affinity_index": 3.1
+        },
+        "Bottoms": {
+          "customers": 2360,
+          "revenue": 818920,
+          "penetration": 33,
+          "revenue_share": 4.8,
+          "avg_spend": 347,
+          "growth_mom": -1.2,
+          "affinity_index": 1.4
+        },
+        "Outerwear": {
+          "customers": 4800,
+          "revenue": 1161600,
+          "penetration": 67,
+          "revenue_share": 6.8,
+          "avg_spend": 242,
+          "growth_mom": -6,
+          "affinity_index": 3.4
+        },
+        "Sports & Outdoor": {
+          "customers": 3191,
+          "revenue": 1321074,
+          "penetration": 45,
+          "revenue_share": 7.7,
+          "avg_spend": 414,
+          "growth_mom": -4.1,
+          "affinity_index": 4
+        },
+        "Beauty & Personal": {
+          "customers": 1800,
+          "revenue": 640800,
+          "penetration": 25,
+          "revenue_share": 3.7,
+          "avg_spend": 356,
+          "growth_mom": 4.2,
+          "affinity_index": 0.6
+        }
+      }
+    },
+    {
+      "segment": "Deal Seeker",
+      "total_customers": 11112,
+      "total_revenue": 30782470,
+      "categories": {
+        "Tops": {
+          "customers": 8080,
+          "revenue": 3482480,
+          "penetration": 73,
+          "revenue_share": 11.3,
+          "avg_spend": 431,
+          "growth_mom": 1.6,
+          "affinity_index": 3.7
+        },
+        "Bottoms": {
+          "customers": 8592,
+          "revenue": 1108368,
+          "penetration": 77,
+          "revenue_share": 3.6,
+          "avg_spend": 129,
+          "growth_mom": -3.1,
+          "affinity_index": 4.1
+        },
+        "Outerwear": {
+          "customers": 3892,
+          "revenue": 1292144,
+          "penetration": 35,
+          "revenue_share": 4.2,
+          "avg_spend": 332,
+          "growth_mom": 1.9,
+          "affinity_index": 0.6
+        },
+        "Sports & Outdoor": {
+          "customers": 2890,
+          "revenue": 323680,
+          "penetration": 26,
+          "revenue_share": 1.1,
+          "avg_spend": 112,
+          "growth_mom": -2,
+          "affinity_index": 3.7
+        },
+        "Beauty & Personal": {
+          "customers": 6796,
+          "revenue": 1236872,
+          "penetration": 61,
+          "revenue_share": 4,
+          "avg_spend": 182,
+          "growth_mom": -1.4,
+          "affinity_index": 3.4
+        }
+      }
+    },
+    {
+      "segment": "Occasional Buyer",
+      "total_customers": 17655,
+      "total_revenue": 16094167,
+      "categories": {
+        "Tops": {
+          "customers": 3314,
+          "revenue": 619718,
+          "penetration": 19,
+          "revenue_share": 3.9,
+          "avg_spend": 187,
+          "growth_mom": -0.9,
+          "affinity_index": 3.3
+        },
+        "Bottoms": {
+          "customers": 8270,
+          "revenue": 2514080,
+          "penetration": 47,
+          "revenue_share": 15.6,
+          "avg_spend": 304,
+          "growth_mom": 0.2,
+          "affinity_index": 4
+        },
+        "Outerwear": {
+          "customers": 11137,
+          "revenue": 2728565,
+          "penetration": 63,
+          "revenue_share": 17,
+          "avg_spend": 245,
+          "growth_mom": -3.5,
+          "affinity_index": 3.4
+        },
+        "Sports & Outdoor": {
+          "customers": 6083,
+          "revenue": 766458,
+          "penetration": 34,
+          "revenue_share": 4.8,
+          "avg_spend": 126,
+          "growth_mom": 0.3,
+          "affinity_index": 2.9
+        },
+        "Beauty & Personal": {
+          "customers": 6482,
+          "revenue": 1445486,
+          "penetration": 37,
+          "revenue_share": 9,
+          "avg_spend": 223,
+          "growth_mom": 5.4,
+          "affinity_index": 1.9
+        }
+      }
+    },
+    {
+      "segment": "Omnichannel Shopper",
+      "total_customers": 9438,
+      "total_revenue": 31559066,
+      "categories": {
+        "Tops": {
+          "customers": 6676,
+          "revenue": 1782492,
+          "penetration": 71,
+          "revenue_share": 5.6,
+          "avg_spend": 267,
+          "growth_mom": 7,
+          "affinity_index": 0.8
+        },
+        "Bottoms": {
+          "customers": 5668,
+          "revenue": 1241292,
+          "penetration": 60,
+          "revenue_share": 3.9,
+          "avg_spend": 219,
+          "growth_mom": 2.6,
+          "affinity_index": 2.6
+        },
+        "Outerwear": {
+          "customers": 2369,
+          "revenue": 599357,
+          "penetration": 25,
+          "revenue_share": 1.9,
+          "avg_spend": 253,
+          "growth_mom": 1.7,
+          "affinity_index": 1
+        },
+        "Sports & Outdoor": {
+          "customers": 5088,
+          "revenue": 463008,
+          "penetration": 54,
+          "revenue_share": 1.5,
+          "avg_spend": 91,
+          "growth_mom": 3.6,
+          "affinity_index": 0.8
+        },
+        "Beauty & Personal": {
+          "customers": 6012,
+          "revenue": 2675340,
+          "penetration": 64,
+          "revenue_share": 8.5,
+          "avg_spend": 445,
+          "growth_mom": 3,
+          "affinity_index": 1.3
+        }
+      }
+    },
+    {
+      "segment": "High Returner",
+      "total_customers": 5582,
+      "total_revenue": 6842487,
+      "categories": {
+        "Tops": {
+          "customers": 4188,
+          "revenue": 1260588,
+          "penetration": 75,
+          "revenue_share": 18.4,
+          "avg_spend": 301,
+          "growth_mom": 3.8,
+          "affinity_index": 3.7
+        },
+        "Bottoms": {
+          "customers": 2042,
+          "revenue": 704490,
+          "penetration": 37,
+          "revenue_share": 10.3,
+          "avg_spend": 345,
+          "growth_mom": 8.2,
+          "affinity_index": 3
+        },
+        "Outerwear": {
+          "customers": 3065,
+          "revenue": 1103400,
+          "penetration": 55,
+          "revenue_share": 16.1,
+          "avg_spend": 360,
+          "growth_mom": 1.3,
+          "affinity_index": 3.6
+        },
+        "Sports & Outdoor": {
+          "customers": 3316,
+          "revenue": 1260080,
+          "penetration": 59,
+          "revenue_share": 18.4,
+          "avg_spend": 380,
+          "growth_mom": 1.4,
+          "affinity_index": 3.7
+        },
+        "Beauty & Personal": {
+          "customers": 2983,
+          "revenue": 1249877,
+          "penetration": 53,
+          "revenue_share": 18.3,
+          "avg_spend": 419,
+          "growth_mom": 1.5,
+          "affinity_index": 3.8
+        }
+      }
+    },
+    {
+      "segment": "Lapsed",
+      "total_customers": 14348,
+      "total_revenue": 8196388,
+      "categories": {
+        "Tops": {
+          "customers": 4008,
+          "revenue": 1162320,
+          "penetration": 28,
+          "revenue_share": 14.2,
+          "avg_spend": 290,
+          "growth_mom": 0.1,
+          "affinity_index": 0.3
+        },
+        "Bottoms": {
+          "customers": 7603,
+          "revenue": 2714271,
+          "penetration": 53,
+          "revenue_share": 33.1,
+          "avg_spend": 357,
+          "growth_mom": 12.4,
+          "affinity_index": 1.5
+        },
+        "Outerwear": {
+          "customers": 7863,
+          "revenue": 2453256,
+          "penetration": 55,
+          "revenue_share": 29.9,
+          "avg_spend": 312,
+          "growth_mom": 6.4,
+          "affinity_index": 1.6
+        },
+        "Sports & Outdoor": {
+          "customers": 7650,
+          "revenue": 1851300,
+          "penetration": 53,
+          "revenue_share": 22.6,
+          "avg_spend": 242,
+          "growth_mom": 7.7,
+          "affinity_index": 1.2
+        },
+        "Beauty & Personal": {
+          "customers": 8185,
+          "revenue": 2741975,
+          "penetration": 57,
+          "revenue_share": 33.5,
+          "avg_spend": 335,
+          "growth_mom": 0.6,
+          "affinity_index": 1.4
+        }
+      }
+    },
+    {
+      "segment": "New Customer",
+      "total_customers": 10749,
+      "total_revenue": 7624765,
+      "categories": {
+        "Tops": {
+          "customers": 4995,
+          "revenue": 2127870,
+          "penetration": 46,
+          "revenue_share": 27.9,
+          "avg_spend": 426,
+          "growth_mom": -4.3,
+          "affinity_index": 0.5
+        },
+        "Bottoms": {
+          "customers": 3904,
+          "revenue": 597312,
+          "penetration": 36,
+          "revenue_share": 7.8,
+          "avg_spend": 153,
+          "growth_mom": -2.2,
+          "affinity_index": 1.4
+        },
+        "Outerwear": {
+          "customers": 5589,
+          "revenue": 2682720,
+          "penetration": 52,
+          "revenue_share": 35.2,
+          "avg_spend": 480,
+          "growth_mom": -1.8,
+          "affinity_index": 0.5
+        },
+        "Sports & Outdoor": {
+          "customers": 6285,
+          "revenue": 1759800,
+          "penetration": 58,
+          "revenue_share": 23.1,
+          "avg_spend": 280,
+          "growth_mom": 4.7,
+          "affinity_index": 0.9
+        },
+        "Beauty & Personal": {
+          "customers": 3892,
+          "revenue": 599368,
+          "penetration": 36,
+          "revenue_share": 7.9,
+          "avg_spend": 154,
+          "growth_mom": 4.8,
+          "affinity_index": 2.2
+        }
+      }
+    },
+    {
+      "segment": "New",
+      "total_customers": 3960,
+      "total_revenue": 1404782,
+      "categories": {
+        "Tops": {
+          "customers": 1872,
+          "revenue": 685152,
+          "penetration": 47,
+          "revenue_share": 48.8,
+          "avg_spend": 366,
+          "growth_mom": 6.9,
+          "affinity_index": 2.1
+        },
+        "Bottoms": {
+          "customers": 1249,
+          "revenue": 404676,
+          "penetration": 32,
+          "revenue_share": 28.8,
+          "avg_spend": 324,
+          "growth_mom": -3.2,
+          "affinity_index": 0.3
+        },
+        "Outerwear": {
+          "customers": 2938,
+          "revenue": 531778,
+          "penetration": 74,
+          "revenue_share": 37.9,
+          "avg_spend": 181,
+          "growth_mom": 1.2,
+          "affinity_index": 2.1
+        },
+        "Sports & Outdoor": {
+          "customers": 2113,
+          "revenue": 515572,
+          "penetration": 53,
+          "revenue_share": 36.7,
+          "avg_spend": 244,
+          "growth_mom": -4.8,
+          "affinity_index": 3.8
+        },
+        "Beauty & Personal": {
+          "customers": 2133,
+          "revenue": 279423,
+          "penetration": 54,
+          "revenue_share": 19.9,
+          "avg_spend": 131,
+          "growth_mom": -0.8,
+          "affinity_index": 1.2
+        }
+      }
+    }
+  ],
+  "cross_sell_opportunities": [
+    {
+      "segment": "Premium Loyalist",
+      "from_category": "Tops",
+      "to_category": "Beauty & Personal",
+      "current_penetration": 30,
+      "potential_penetration": 55,
+      "gap_customers": 2674,
+      "estimated_revenue": 1531418,
+      "priority": "High"
+    },
+    {
+      "segment": "Deal Seeker",
+      "from_category": "Tops",
+      "to_category": "Beauty & Personal",
+      "current_penetration": 25,
+      "potential_penetration": 68,
+      "gap_customers": 3073,
+      "estimated_revenue": 1754947,
+      "priority": "High"
+    },
+    {
+      "segment": "Occasional Buyer",
+      "from_category": "Tops",
+      "to_category": "Outerwear",
+      "current_penetration": 23,
+      "potential_penetration": 64,
+      "gap_customers": 1235,
+      "estimated_revenue": 1162672,
+      "priority": "Medium"
+    },
+    {
+      "segment": "Omnichannel Shopper",
+      "from_category": "Tops",
+      "to_category": "Beauty & Personal",
+      "current_penetration": 19,
+      "potential_penetration": 66,
+      "gap_customers": 3800,
+      "estimated_revenue": 499993,
+      "priority": "High"
+    },
+    {
+      "segment": "High Returner",
+      "from_category": "Tops",
+      "to_category": "Beauty & Personal",
+      "current_penetration": 34,
+      "potential_penetration": 67,
+      "gap_customers": 2655,
+      "estimated_revenue": 1761628,
+      "priority": "High"
+    },
+    {
+      "segment": "Lapsed",
+      "from_category": "Tops",
+      "to_category": "Bottoms",
+      "current_penetration": 22,
+      "potential_penetration": 63,
+      "gap_customers": 4118,
+      "estimated_revenue": 299286,
+      "priority": "High"
+    }
+  ],
+  "segment_diagnostics": {
+    "Premium Loyalist": "Premium Loyalist: Sports & Outdoor under-indexed — cross-sell opportunity via curated lookbooks.",
+    "Deal Seeker": "Deal Seeker: Sports & Outdoor under-indexed — cross-sell opportunity via curated lookbooks.",
+    "Occasional Buyer": "Occasional Buyer: Outerwear under-indexed — cross-sell opportunity via curated lookbooks.",
+    "Omnichannel Shopper": "Omnichannel Shopper: Outerwear under-indexed — cross-sell opportunity via curated lookbooks.",
+    "High Returner": "High Returner: Sports & Outdoor under-indexed — cross-sell opportunity via curated lookbooks.",
+    "Lapsed": "Lapsed: Beauty & Personal under-indexed — cross-sell opportunity via curated lookbooks.",
+    "New Customer": "New Customer: Outerwear under-indexed — cross-sell opportunity via curated lookbooks.",
+    "New": "New: Outerwear under-indexed — cross-sell opportunity via curated lookbooks."
+  }
+}

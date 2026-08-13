@@ -1,0 +1,106 @@
+{
+  "summary": {
+    "stockout_skus_with_substitutes": 84,
+    "revenue_preservation_opportunity_cr": 8.4,
+    "avg_substitution_acceptance_rate_pct": 64,
+    "top_substitute_pairs": 12
+  },
+  "substitutions": [
+    {
+      "stockout_sku_id": "PRD-HUL-001",
+      "stockout_sku_name": "Dove Body Wash 250ml",
+      "category": "Personal Care",
+      "stockout_stores": 8,
+      "daily_revenue_lost_cr": 0.14,
+      "substitutes": [
+        {
+          "substitute_sku_id": "PRD-SUB-001",
+          "substitute_name": "Nivea Body Wash 250ml",
+          "brand": "Nivea",
+          "price_variance_pct": 8,
+          "in_stock_stores": 14,
+          "in_stock_dos": 12.4,
+          "historical_acceptance_rate_pct": 72,
+          "revenue_preservation_pct": 68,
+          "recommendation": "Primary substitute",
+          "confidence": "high"
+        },
+        {
+          "substitute_sku_id": "PRD-SUB-002",
+          "substitute_name": "Himalaya Body Wash 200ml",
+          "brand": "Himalaya",
+          "price_variance_pct": -12,
+          "in_stock_stores": 18,
+          "in_stock_dos": 22.8,
+          "historical_acceptance_rate_pct": 58,
+          "revenue_preservation_pct": 51,
+          "recommendation": "Secondary substitute",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "stockout_sku_id": "PRD-HUL-003",
+      "stockout_sku_name": "Lux Soap 100g Pack of 4",
+      "category": "Personal Care",
+      "stockout_stores": 11,
+      "daily_revenue_lost_cr": 0.19,
+      "substitutes": [
+        {
+          "substitute_sku_id": "PRD-SUB-003",
+          "substitute_name": "Dettol Soap 125g Pack of 4",
+          "brand": "Dettol",
+          "price_variance_pct": 6,
+          "in_stock_stores": 16,
+          "in_stock_dos": 18.2,
+          "historical_acceptance_rate_pct": 68,
+          "revenue_preservation_pct": 64,
+          "recommendation": "Primary substitute",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "stockout_sku_id": "PRD-GS-001",
+      "stockout_sku_name": "Tata Salt 1kg",
+      "category": "Grocery & Staples",
+      "stockout_stores": 6,
+      "daily_revenue_lost_cr": 0.08,
+      "substitutes": [
+        {
+          "substitute_sku_id": "PRD-SUB-004",
+          "substitute_name": "Aashirvaad Salt 1kg",
+          "brand": "Aashirvaad",
+          "price_variance_pct": 4,
+          "in_stock_stores": 18,
+          "in_stock_dos": 14.8,
+          "historical_acceptance_rate_pct": 84,
+          "revenue_preservation_pct": 79,
+          "recommendation": "Primary substitute",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "stockout_sku_id": "PRD-DF-001",
+      "stockout_sku_name": "Amul Gold Milk 1L",
+      "category": "Dairy & Frozen",
+      "stockout_stores": 4,
+      "daily_revenue_lost_cr": 0.24,
+      "substitutes": [
+        {
+          "substitute_sku_id": "PRD-SUB-005",
+          "substitute_name": "Mother Dairy Milk 1L",
+          "brand": "Mother Dairy",
+          "price_variance_pct": -2,
+          "in_stock_stores": 12,
+          "in_stock_dos": 8.4,
+          "historical_acceptance_rate_pct": 88,
+          "revenue_preservation_pct": 86,
+          "recommendation": "Primary substitute",
+          "confidence": "high"
+        }
+      ]
+    }
+  ]
+}

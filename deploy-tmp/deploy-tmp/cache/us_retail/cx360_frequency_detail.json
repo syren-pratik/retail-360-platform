@@ -1,0 +1,481 @@
+{
+  "summary": {
+    "total_customers": 80000,
+    "avg_frequency": 9.2,
+    "median_frequency": 2,
+    "repeat_rate_90d": 42.8,
+    "pct_active_30d": 23.8,
+    "pct_active_60d": 47.3,
+    "pct_active_90d": 71.5,
+    "median_interpurchase_days": 62,
+    "omni_frequent_pct": 8.4,
+    "frequency_trend_mom": 1.4
+  },
+  "distribution": [
+    {
+      "range": "1x",
+      "customer_count": 7257,
+      "pct": 9.1,
+      "revenue": 4081022,
+      "pct_revenue": 3.4,
+      "avg_basket": 249,
+      "avg_clv": 190
+    },
+    {
+      "range": "2-3x",
+      "customer_count": 14934,
+      "pct": 18.7,
+      "revenue": 8998162,
+      "pct_revenue": 7.5,
+      "avg_basket": 202,
+      "avg_clv": 204
+    },
+    {
+      "range": "4-5x",
+      "customer_count": 10029,
+      "pct": 12.5,
+      "revenue": 8020460,
+      "pct_revenue": 6.7,
+      "avg_basket": 160,
+      "avg_clv": 270
+    },
+    {
+      "range": "6-8x",
+      "customer_count": 11865,
+      "pct": 14.8,
+      "revenue": 16443557,
+      "pct_revenue": 13.7,
+      "avg_basket": 163,
+      "avg_clv": 472
+    },
+    {
+      "range": "9-12x",
+      "customer_count": 13457,
+      "pct": 16.8,
+      "revenue": 24097452,
+      "pct_revenue": 20.1,
+      "avg_basket": 151,
+      "avg_clv": 608
+    },
+    {
+      "range": "13-20x",
+      "customer_count": 15096,
+      "pct": 18.9,
+      "revenue": 36411064,
+      "pct_revenue": 30.4,
+      "avg_basket": 145,
+      "avg_clv": 818
+    },
+    {
+      "range": "20+x",
+      "customer_count": 7362,
+      "pct": 9.2,
+      "revenue": 21556291,
+      "pct_revenue": 18,
+      "avg_basket": 120,
+      "avg_clv": 996
+    }
+  ],
+  "by_segment": [
+    {
+      "range": "1x",
+      "Premium Loyalist": 0,
+      "Deal Seeker": 0,
+      "Occasional Buyer": 0,
+      "Omnichannel Shopper": 0,
+      "High Returner": 0,
+      "Lapsed": 6792,
+      "New Customer": 176,
+      "New": 289
+    },
+    {
+      "range": "2-3x",
+      "Premium Loyalist": 0,
+      "Deal Seeker": 0,
+      "Occasional Buyer": 862,
+      "Omnichannel Shopper": 0,
+      "High Returner": 0,
+      "Lapsed": 7556,
+      "New Customer": 4404,
+      "New": 2112
+    },
+    {
+      "range": "4-5x",
+      "Premium Loyalist": 253,
+      "Deal Seeker": 46,
+      "Occasional Buyer": 3706,
+      "Omnichannel Shopper": 0,
+      "High Returner": 187,
+      "Lapsed": 0,
+      "New Customer": 4390,
+      "New": 1447
+    },
+    {
+      "range": "6-8x",
+      "Premium Loyalist": 1266,
+      "Deal Seeker": 1339,
+      "Occasional Buyer": 5775,
+      "Omnichannel Shopper": 569,
+      "High Returner": 1025,
+      "Lapsed": 0,
+      "New Customer": 1779,
+      "New": 112
+    },
+    {
+      "range": "9-12x",
+      "Premium Loyalist": 1864,
+      "Deal Seeker": 2413,
+      "Occasional Buyer": 6018,
+      "Omnichannel Shopper": 1737,
+      "High Returner": 1425,
+      "Lapsed": 0,
+      "New Customer": 0,
+      "New": 0
+    },
+    {
+      "range": "13-20x",
+      "Premium Loyalist": 3158,
+      "Deal Seeker": 4722,
+      "Occasional Buyer": 1294,
+      "Omnichannel Shopper": 3451,
+      "High Returner": 2471,
+      "Lapsed": 0,
+      "New Customer": 0,
+      "New": 0
+    },
+    {
+      "range": "20+x",
+      "Premium Loyalist": 615,
+      "Deal Seeker": 2592,
+      "Occasional Buyer": 0,
+      "Omnichannel Shopper": 3681,
+      "High Returner": 474,
+      "Lapsed": 0,
+      "New Customer": 0,
+      "New": 0
+    }
+  ],
+  "with_recency": [
+    {
+      "range": "1x",
+      "active_30d": 149,
+      "slipping_30_90": 184,
+      "at_risk_90_180": 130,
+      "lost_180plus": 6794
+    },
+    {
+      "range": "2-3x",
+      "active_30d": 1353,
+      "slipping_30_90": 2567,
+      "at_risk_90_180": 2836,
+      "lost_180plus": 8178
+    },
+    {
+      "range": "4-5x",
+      "active_30d": 2072,
+      "slipping_30_90": 4520,
+      "at_risk_90_180": 2812,
+      "lost_180plus": 625
+    },
+    {
+      "range": "6-8x",
+      "active_30d": 3430,
+      "slipping_30_90": 7032,
+      "at_risk_90_180": 1141,
+      "lost_180plus": 262
+    },
+    {
+      "range": "9-12x",
+      "active_30d": 4466,
+      "slipping_30_90": 8991,
+      "at_risk_90_180": 0,
+      "lost_180plus": 0
+    },
+    {
+      "range": "13-20x",
+      "active_30d": 5126,
+      "slipping_30_90": 9970,
+      "at_risk_90_180": 0,
+      "lost_180plus": 0
+    },
+    {
+      "range": "20+x",
+      "active_30d": 2444,
+      "slipping_30_90": 4918,
+      "at_risk_90_180": 0,
+      "lost_180plus": 0
+    }
+  ],
+  "frequency_migration": {
+    "period": "Q1 2026 → Q2 2026",
+    "flows": [
+      {
+        "from": "1x",
+        "to": "1x",
+        "count": 994,
+        "direction": "same"
+      },
+      {
+        "from": "1x",
+        "to": "2-3x",
+        "count": 1138,
+        "direction": "up"
+      },
+      {
+        "from": "2-3x",
+        "to": "2-3x",
+        "count": 7213,
+        "direction": "same"
+      },
+      {
+        "from": "2-3x",
+        "to": "4-5x",
+        "count": 238,
+        "direction": "up"
+      },
+      {
+        "from": "2-3x",
+        "to": "1x",
+        "count": 314,
+        "direction": "down"
+      },
+      {
+        "from": "4-5x",
+        "to": "4-5x",
+        "count": 1926,
+        "direction": "same"
+      },
+      {
+        "from": "4-5x",
+        "to": "6-8x",
+        "count": 229,
+        "direction": "up"
+      },
+      {
+        "from": "4-5x",
+        "to": "2-3x",
+        "count": 719,
+        "direction": "down"
+      },
+      {
+        "from": "6-8x",
+        "to": "6-8x",
+        "count": 2639,
+        "direction": "same"
+      },
+      {
+        "from": "6-8x",
+        "to": "9-12x",
+        "count": 271,
+        "direction": "up"
+      },
+      {
+        "from": "6-8x",
+        "to": "4-5x",
+        "count": 317,
+        "direction": "down"
+      },
+      {
+        "from": "9-12x",
+        "to": "9-12x",
+        "count": 5267,
+        "direction": "same"
+      },
+      {
+        "from": "9-12x",
+        "to": "13-20x",
+        "count": 646,
+        "direction": "up"
+      },
+      {
+        "from": "9-12x",
+        "to": "6-8x",
+        "count": 726,
+        "direction": "down"
+      },
+      {
+        "from": "13-20x",
+        "to": "13-20x",
+        "count": 2971,
+        "direction": "same"
+      },
+      {
+        "from": "13-20x",
+        "to": "20+x",
+        "count": 993,
+        "direction": "up"
+      },
+      {
+        "from": "13-20x",
+        "to": "9-12x",
+        "count": 677,
+        "direction": "down"
+      },
+      {
+        "from": "20+x",
+        "to": "20+x",
+        "count": 4604,
+        "direction": "same"
+      },
+      {
+        "from": "20+x",
+        "to": "13-20x",
+        "count": 585,
+        "direction": "down"
+      }
+    ]
+  },
+  "interpurchase_interval": [
+    {
+      "range": "180+ days",
+      "customers": 8732,
+      "pct": 16.1,
+      "segment_dominant": "Deal Seeker"
+    },
+    {
+      "range": "90-180 days",
+      "customers": 2203,
+      "pct": 19.4,
+      "segment_dominant": "Lapsed"
+    },
+    {
+      "range": "60-90 days",
+      "customers": 5509,
+      "pct": 8.5,
+      "segment_dominant": "Deal Seeker"
+    },
+    {
+      "range": "30-60 days",
+      "customers": 16949,
+      "pct": 4,
+      "segment_dominant": "New"
+    },
+    {
+      "range": "20-30 days",
+      "customers": 16363,
+      "pct": 8.1,
+      "segment_dominant": "Omnichannel Shopper"
+    },
+    {
+      "range": "10-20 days",
+      "customers": 17956,
+      "pct": 10.2,
+      "segment_dominant": "High Returner"
+    },
+    {
+      "range": "<10 days",
+      "customers": 9464,
+      "pct": 7.9,
+      "segment_dominant": "High Returner"
+    }
+  ],
+  "frequency_trend": [
+    {
+      "month": "Jan 2026",
+      "avg_freq": 2.3,
+      "median_freq": 2,
+      "repeat_rate": 40,
+      "active_pct": 38
+    },
+    {
+      "month": "Feb 2026",
+      "avg_freq": 2.3,
+      "median_freq": 2,
+      "repeat_rate": 40.6,
+      "active_pct": 38.4
+    },
+    {
+      "month": "Mar 2026",
+      "avg_freq": 2.4,
+      "median_freq": 2,
+      "repeat_rate": 41.2,
+      "active_pct": 38.8
+    },
+    {
+      "month": "Apr 2026",
+      "avg_freq": 2.4,
+      "median_freq": 2,
+      "repeat_rate": 41.8,
+      "active_pct": 39.2
+    },
+    {
+      "month": "May 2026",
+      "avg_freq": 2.5,
+      "median_freq": 2,
+      "repeat_rate": 42.4,
+      "active_pct": 39.6
+    },
+    {
+      "month": "Jun 2026",
+      "avg_freq": 2.5,
+      "median_freq": 2,
+      "repeat_rate": 43,
+      "active_pct": 40
+    }
+  ],
+  "early_warning": [
+    {
+      "customer_id": "CUST-01610",
+      "normal_interval": 30,
+      "current_gap": 88,
+      "days_overdue": 58,
+      "clv": 810,
+      "risk": "high"
+    },
+    {
+      "customer_id": "CUST-02073",
+      "normal_interval": 30,
+      "current_gap": 85,
+      "days_overdue": 55,
+      "clv": 854,
+      "risk": "high"
+    },
+    {
+      "customer_id": "CUST-03738",
+      "normal_interval": 30,
+      "current_gap": 56,
+      "days_overdue": 26,
+      "clv": 897,
+      "risk": "high"
+    },
+    {
+      "customer_id": "CUST-05251",
+      "normal_interval": 30,
+      "current_gap": 36,
+      "days_overdue": 6,
+      "clv": 931,
+      "risk": "high"
+    },
+    {
+      "customer_id": "CUST-05708",
+      "normal_interval": 30,
+      "current_gap": 88,
+      "days_overdue": 58,
+      "clv": 838,
+      "risk": "high"
+    },
+    {
+      "customer_id": "CUST-05824",
+      "normal_interval": 30,
+      "current_gap": 8,
+      "days_overdue": 0,
+      "clv": 816,
+      "risk": "high"
+    },
+    {
+      "customer_id": "CUST-09566",
+      "normal_interval": 30,
+      "current_gap": 57,
+      "days_overdue": 27,
+      "clv": 801,
+      "risk": "high"
+    }
+  ],
+  "insights": [
+    "Frequency-1 customers are 55% of base but generate 22% of revenue — biggest unlock is converting them to 2-3x/year.",
+    "Active-30d rate at 41.4% is healthy for apparel (industry 35-45%).",
+    "Deal Seeker over-indexes on 6-12x frequency (gym/yoga refresh cycle).",
+    "Markdown-only buyers concentrate in 2-3x bucket — high churn risk on next full-price drop.",
+    "BTS seasonal shoppers (kids) spike frequency Jul-Aug then dormant until Nov-Dec."
+  ]
+}

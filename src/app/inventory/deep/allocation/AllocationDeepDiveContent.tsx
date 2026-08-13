@@ -207,21 +207,23 @@ export default function AllocationDeepDiveContent({ allocation: allocationRaw, t
     [allocation.by_store]
   );
 
-  const delhiUnderTotal = useMemo(() =>
-    allocation.by_store
-      .filter(s => s.city === 'Delhi NCR' && s.gap_cr < 0)
-      .reduce((s, st) => s + Math.abs(st.gap_cr), 0)
-      .toFixed(1),
-    [allocation.by_store]
-  );
-
-  const mumbaiOverTotal = useMemo(() =>
-    allocation.by_store
-      .filter(s => s.city === 'Mumbai' && s.gap_cr > 0)
-      .reduce((s, st) => s + st.gap_cr, 0)
-      .toFixed(1),
-    [allocation.by_store]
-  );
+  // Derive the two extremes dynamically from data (worst under-allocated city
+  // and worst over-allocated city) so captions work for any tenant.
+  const { underCity, underTotal, overCity, overTotal } = useMemo(() => {
+    const cityGap: Record<string, number> = {};
+    for (const s of allocation.by_store) {
+      cityGap[s.city] = (cityGap[s.city] ?? 0) + s.gap_cr;
+    }
+    const entries = Object.entries(cityGap);
+    const underEntry = entries.reduce((min, cur) => (cur[1] < min[1] ? cur : min), entries[0] ?? ['—', 0]);
+    const overEntry = entries.reduce((max, cur) => (cur[1] > max[1] ? cur : max), entries[0] ?? ['—', 0]);
+    return {
+      underCity: underEntry[0],
+      underTotal: Math.abs(underEntry[1]).toFixed(1),
+      overCity: overEntry[0],
+      overTotal: Math.max(0, overEntry[1]).toFixed(1),
+    };
+  }, [allocation.by_store]);
 
   const criticalRevenuePreserved = useMemo(() =>
     transfers.transfers
@@ -412,7 +414,7 @@ export default function AllocationDeepDiveContent({ allocation: allocationRaw, t
           </div>
 
           <Insight>
-            Delhi NCR stores are under-allocated by {formatCrOrUsdMAuto(delhiUnderTotal)} while Mumbai stores carry {formatCrOrUsdMAuto(mumbaiOverTotal)} in excess inventory. A lateral rebalance would preserve {formatCrOrUsdMAuto(transfers.summary.estimated_revenue_preserved_cr)} in daily revenue without any new procurement.
+            {underCity} stores are under-allocated by {formatCrOrUsdMAuto(underTotal)} while {overCity} stores carry {formatCrOrUsdMAuto(overTotal)} in excess inventory. A lateral rebalance would preserve {formatCrOrUsdMAuto(transfers.summary.estimated_revenue_preserved_cr)} in daily revenue without any new procurement.
           </Insight>
         </section>
 

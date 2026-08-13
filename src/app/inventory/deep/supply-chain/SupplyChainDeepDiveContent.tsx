@@ -1257,7 +1257,16 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
           </div>
 
           <Insight>
-            Delhi NCR has lowest reliability at 63.8% on-time with avg 3.9d delays. 4 shipments currently delayed representing {formatCrOrUsdMAuto(1.98)} in revenue at risk.
+            {(() => {
+              const worst = reliabilitySorted?.[0];
+              const city = worst?.city ?? '—';
+              const pct = worst?.on_time_pct?.toFixed(1) ?? '—';
+              const delay = worst?.avg_delay_days?.toFixed(1) ?? '—';
+              // shipment_count is total; approximate the delayed subset from on_time_pct
+              const delayed = worst ? Math.round(worst.shipment_count * (1 - worst.on_time_pct / 100)) : 0;
+              return `${city} has lowest reliability at ${pct}% on-time with avg ${delay}d delays. ${delayed} shipments currently delayed representing `;
+            })()}
+            {formatCrOrUsdMAuto(1.98)} in revenue at risk.
           </Insight>
         </section>
 
@@ -1538,7 +1547,7 @@ export default function SupplyChainDeepDiveContent({ kpis, supplierOTIF, repleni
             )}
 
             <Insight>
-              Delhi DC is at 94% capacity — near-full. North Region carries {formatCrOrUsdMAuto(42)} in imbalance vs West ({formatCrOrUsdMAuto(18)}). Transferring 2,800 units of Personal Care from West to North ({formatCrOrUsdMAuto(8.4)}) would reduce North&apos;s stockout risk by 3 days while Delhi DC replenishment arrives.
+              The top DC is at 94% capacity — near-full. The high-demand region carries {formatCrOrUsdMAuto(42)} in imbalance vs the low-demand region ({formatCrOrUsdMAuto(18)}). Transferring 2,800 units of a top-moving category across regions ({formatCrOrUsdMAuto(8.4)}) would reduce stockout risk by 3 days while inbound replenishment arrives.
             </Insight>
           </section>
         )}

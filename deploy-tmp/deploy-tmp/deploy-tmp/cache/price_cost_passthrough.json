@@ -1,0 +1,7 @@
+[
+  { "category": "Beverages", "cost_change_pct": 8.5, "price_change_pct": 7.2, "passthrough_rate": 84.7, "margin_impact": -1.3 },
+  { "category": "Dairy & Frozen", "cost_change_pct": 6.2, "price_change_pct": 4.8, "passthrough_rate": 77.4, "margin_impact": -1.4 },
+  { "category": "Grocery & Staples", "cost_change_pct": 9.1, "price_change_pct": 5.3, "passthrough_rate": 58.2, "margin_impact": -3.8 },
+  { "category": "Personal Care", "cost_change_pct": 4.5, "price_change_pct": 5.1, "passthrough_rate": 113.3, "margin_impact": 0.6 },
+  { "category": "Snacks & Biscuits", "cost_change_pct": 7.8, "price_change_pct": 6.9, "passthrough_rate": 88.5, "margin_impact": -0.9 }
+]

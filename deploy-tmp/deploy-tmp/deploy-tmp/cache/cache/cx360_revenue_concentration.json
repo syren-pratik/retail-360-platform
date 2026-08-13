@@ -1,0 +1,91 @@
+{
+  "pareto": [
+    {
+      "percentile": "Top 10%",
+      "customer_count": 5000,
+      "revenue_share": 38.3,
+      "total_revenue": 579661934
+    },
+    {
+      "percentile": "Top 20%",
+      "customer_count": 10000,
+      "revenue_share": 58.5,
+      "total_revenue": 886513720
+    },
+    {
+      "percentile": "Top 30%",
+      "customer_count": 15000,
+      "revenue_share": 71.9,
+      "total_revenue": 1088976095
+    },
+    {
+      "percentile": "Top 50%",
+      "customer_count": 25000,
+      "revenue_share": 87.9,
+      "total_revenue": 1331694472
+    },
+    {
+      "percentile": "Top 80%",
+      "customer_count": 40000,
+      "revenue_share": 97.7,
+      "total_revenue": 1480750507
+    },
+    {
+      "percentile": "Top 100%",
+      "customer_count": 50000,
+      "revenue_share": 100.0,
+      "total_revenue": 1515180624
+    }
+  ],
+  "by_segment": [
+    {
+      "segment": "Low Risk",
+      "total_revenue": 527022722,
+      "customer_count": 7516,
+      "revenue_share": 34.8,
+      "avg_revenue_per_customer": 70120
+    },
+    {
+      "segment": "High-Value VIP",
+      "total_revenue": 358544806,
+      "customer_count": 2555,
+      "revenue_share": 23.7,
+      "avg_revenue_per_customer": 140331
+    },
+    {
+      "segment": "Medium Risk",
+      "total_revenue": 321483204,
+      "customer_count": 9916,
+      "revenue_share": 21.2,
+      "avg_revenue_per_customer": 32421
+    },
+    {
+      "segment": "High Risk",
+      "total_revenue": 153734018,
+      "customer_count": 7477,
+      "revenue_share": 10.1,
+      "avg_revenue_per_customer": 20561
+    },
+    {
+      "segment": "Low-Value",
+      "total_revenue": 55608211,
+      "customer_count": 10165,
+      "revenue_share": 3.7,
+      "avg_revenue_per_customer": 5471
+    },
+    {
+      "segment": "Churned",
+      "total_revenue": 52579004,
+      "customer_count": 4987,
+      "revenue_share": 3.5,
+      "avg_revenue_per_customer": 10543
+    },
+    {
+      "segment": "New Customers",
+      "total_revenue": 46208659,
+      "customer_count": 7384,
+      "revenue_share": 3.0,
+      "avg_revenue_per_customer": 6258
+    }
+  ]
+}

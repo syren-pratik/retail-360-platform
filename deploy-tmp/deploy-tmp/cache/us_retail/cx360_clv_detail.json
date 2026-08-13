@@ -1,0 +1,301 @@
+{
+  "summary": {
+    "total_customers": 80000,
+    "total_clv": 40598325,
+    "avg_clv": 507,
+    "median_clv": 346,
+    "top_tier_share": 0.412,
+    "platinum_pct": 0.2,
+    "avg_payback_months": 6.2,
+    "clv_growth_mom": 2.4
+  },
+  "tier_economics": [
+    {
+      "tier": "Platinum",
+      "customer_count": 198,
+      "pct": 0.2,
+      "avg_clv": 2156,
+      "total_clv": 426894,
+      "margin_pct": 48,
+      "cac": 180,
+      "ltv_cac": 12,
+      "payback_months": 1,
+      "avg_basket": 251,
+      "avg_frequency": 18.9,
+      "avg_recency": 44
+    },
+    {
+      "tier": "Gold",
+      "customer_count": 18588,
+      "pct": 23.2,
+      "avg_clv": 1151,
+      "total_clv": 21395370,
+      "margin_pct": 42,
+      "cac": 95,
+      "ltv_cac": 12,
+      "payback_months": 1,
+      "avg_basket": 203,
+      "avg_frequency": 16.3,
+      "avg_recency": 45
+    },
+    {
+      "tier": "Silver",
+      "customer_count": 27196,
+      "pct": 34,
+      "avg_clv": 472,
+      "total_clv": 12828915,
+      "margin_pct": 34,
+      "cac": 48,
+      "ltv_cac": 10,
+      "payback_months": 1.2,
+      "avg_basket": 167,
+      "avg_frequency": 9.9,
+      "avg_recency": 82
+    },
+    {
+      "tier": "Bronze",
+      "customer_count": 29542,
+      "pct": 36.9,
+      "avg_clv": 195,
+      "total_clv": 5764078,
+      "margin_pct": 26,
+      "cac": 28,
+      "ltv_cac": 7,
+      "payback_months": 1.7,
+      "avg_basket": 163,
+      "avg_frequency": 4.7,
+      "avg_recency": 168
+    },
+    {
+      "tier": "At-Risk",
+      "customer_count": 4476,
+      "pct": 5.6,
+      "avg_clv": 41,
+      "total_clv": 183068,
+      "margin_pct": 18,
+      "cac": 18,
+      "ltv_cac": 2,
+      "payback_months": 5.3,
+      "avg_basket": 63,
+      "avg_frequency": 3.8,
+      "avg_recency": 218
+    }
+  ],
+  "behavioral_profile": [
+    {
+      "tier": "Platinum",
+      "top_category": "Belt",
+      "top_channel": "In-Store",
+      "avg_sessions_pw": 2.8,
+      "browse_to_buy": 0.4,
+      "discount_sensitivity": "low",
+      "omni_rate": 0.38,
+      "mobile_share": 0.51,
+      "nps": 71
+    },
+    {
+      "tier": "Gold",
+      "top_category": "Sandal",
+      "top_channel": "In-Store",
+      "avg_sessions_pw": 1.9,
+      "browse_to_buy": 0.22,
+      "discount_sensitivity": "low",
+      "omni_rate": 0.23,
+      "mobile_share": 0.63,
+      "nps": 65
+    },
+    {
+      "tier": "Silver",
+      "top_category": "Mom Jean",
+      "top_channel": "Web",
+      "avg_sessions_pw": 4.1,
+      "browse_to_buy": 0.38,
+      "discount_sensitivity": "medium",
+      "omni_rate": 0.33,
+      "mobile_share": 0.62,
+      "nps": 29
+    },
+    {
+      "tier": "Bronze",
+      "top_category": "Crew Tee",
+      "top_channel": "Web",
+      "avg_sessions_pw": 4.3,
+      "browse_to_buy": 0.24,
+      "discount_sensitivity": "medium",
+      "omni_rate": 0.57,
+      "mobile_share": 0.53,
+      "nps": 41
+    },
+    {
+      "tier": "At-Risk",
+      "top_category": "Home & Garden Jean",
+      "top_channel": "Web",
+      "avg_sessions_pw": 2.5,
+      "browse_to_buy": 0.4,
+      "discount_sensitivity": "high",
+      "omni_rate": 0.62,
+      "mobile_share": 0.67,
+      "nps": 47
+    }
+  ],
+  "pareto": [
+    {
+      "top_pct": 5,
+      "customers": 4000,
+      "clv_share": 27.9
+    },
+    {
+      "top_pct": 10,
+      "customers": 8000,
+      "clv_share": 48
+    },
+    {
+      "top_pct": 20,
+      "customers": 16000,
+      "clv_share": 62.9
+    },
+    {
+      "top_pct": 30,
+      "customers": 24000,
+      "clv_share": 73
+    },
+    {
+      "top_pct": 40,
+      "customers": 32000,
+      "clv_share": 80.6
+    },
+    {
+      "top_pct": 50,
+      "customers": 40000,
+      "clv_share": 86.8
+    }
+  ],
+  "migration_flows": [
+    {
+      "from": "Bronze",
+      "to": "Silver",
+      "count": 1850,
+      "direction": "up"
+    },
+    {
+      "from": "Silver",
+      "to": "Gold",
+      "count": 920,
+      "direction": "up"
+    },
+    {
+      "from": "Gold",
+      "to": "Platinum",
+      "count": 240,
+      "direction": "up"
+    },
+    {
+      "from": "Silver",
+      "to": "Bronze",
+      "count": 1420,
+      "direction": "down"
+    },
+    {
+      "from": "Bronze",
+      "to": "At-Risk",
+      "count": 2180,
+      "direction": "down"
+    }
+  ],
+  "upgrade_opportunities": [
+    {
+      "tier": "Gold → Platinum",
+      "customers": 1840,
+      "gap_avg_clv": 980,
+      "revenue_potential": 1803200,
+      "action": "Concierge stylist + early-access invites"
+    },
+    {
+      "tier": "Silver → Gold",
+      "customers": 4200,
+      "gap_avg_clv": 480,
+      "revenue_potential": 2016000,
+      "action": "Loyalty tier upgrade nudge + free shipping"
+    },
+    {
+      "tier": "Bronze → Silver",
+      "customers": 6800,
+      "gap_avg_clv": 280,
+      "revenue_potential": 1904000,
+      "action": "Wardrobe quiz + curated lookbook"
+    }
+  ],
+  "at_risk_high_clv": [
+    {
+      "tier": "Platinum",
+      "at_risk_count": 180,
+      "avg_clv": 2680,
+      "revenue_at_risk": 482400,
+      "avg_days_inactive": 62,
+      "action": "Personal outreach from store stylist"
+    },
+    {
+      "tier": "Gold",
+      "at_risk_count": 920,
+      "avg_clv": 1180,
+      "revenue_at_risk": 1085600,
+      "avg_days_inactive": 88,
+      "action": "Reactivation: 25% off + free returns"
+    }
+  ],
+  "trends": [
+    {
+      "month": "Jan 2026",
+      "platinum_avg": 2490,
+      "gold_avg": 1121,
+      "silver_avg": 472,
+      "bronze_avg": 173,
+      "total_avg": 492
+    },
+    {
+      "month": "Feb 2026",
+      "platinum_avg": 2570,
+      "gold_avg": 1211,
+      "silver_avg": 462,
+      "bronze_avg": 182,
+      "total_avg": 498
+    },
+    {
+      "month": "Mar 2026",
+      "platinum_avg": 2655,
+      "gold_avg": 1114,
+      "silver_avg": 476,
+      "bronze_avg": 177,
+      "total_avg": 513
+    },
+    {
+      "month": "Apr 2026",
+      "platinum_avg": 2634,
+      "gold_avg": 1195,
+      "silver_avg": 494,
+      "bronze_avg": 184,
+      "total_avg": 506
+    },
+    {
+      "month": "May 2026",
+      "platinum_avg": 2405,
+      "gold_avg": 1104,
+      "silver_avg": 443,
+      "bronze_avg": 190,
+      "total_avg": 513
+    },
+    {
+      "month": "Jun 2026",
+      "platinum_avg": 2482,
+      "gold_avg": 1180,
+      "silver_avg": 463,
+      "bronze_avg": 180,
+      "total_avg": 507
+    }
+  ],
+  "insights": [
+    "Platinum tier (0.2% of customers) contributes 41% of total CLV — $0.4M of $41M",
+    "Gold→Platinum is the highest-leverage upgrade — ~1,840 customers within $980 of the next tier",
+    "Activewear and accessories over-index in Platinum baskets (Lululemon, Coach drive 38% of tier spend)"
+  ]
+}

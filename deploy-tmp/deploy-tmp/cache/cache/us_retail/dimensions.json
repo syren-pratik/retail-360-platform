@@ -1,0 +1,1127 @@
+[
+  {
+    "dim_type": "stores",
+    "id": "STR-A001",
+    "name": "Flagship SoHo NYC",
+    "city": "New York",
+    "state": "NY",
+    "metro": "NYC"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A002",
+    "name": "Standard 5th Ave NYC",
+    "city": "New York",
+    "state": "NY",
+    "metro": "NYC"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A003",
+    "name": "Outlet Woodbury Common",
+    "city": "Central Valley",
+    "state": "NY",
+    "metro": "NYC"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A004",
+    "name": "Standard Brooklyn Atlantic",
+    "city": "Brooklyn",
+    "state": "NY",
+    "metro": "NYC"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A005",
+    "name": "Flagship Newbury St Boston",
+    "city": "Boston",
+    "state": "MA",
+    "metro": "Boston"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A006",
+    "name": "Standard Prudential Boston",
+    "city": "Boston",
+    "state": "MA",
+    "metro": "Boston"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A007",
+    "name": "Outlet Wrentham Premium",
+    "city": "Wrentham",
+    "state": "MA",
+    "metro": "Boston"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A008",
+    "name": "Standard King of Prussia",
+    "city": "King of Prussia",
+    "state": "PA",
+    "metro": "Philadelphia"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A009",
+    "name": "Standard Walnut St Philly",
+    "city": "Philadelphia",
+    "state": "PA",
+    "metro": "Philadelphia"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A010",
+    "name": "Flagship Mag Mile Chicago",
+    "city": "Chicago",
+    "state": "IL",
+    "metro": "Chicago"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A011",
+    "name": "Standard Oakbrook Center",
+    "city": "Oak Brook",
+    "state": "IL",
+    "metro": "Chicago"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A012",
+    "name": "Outlet Aurora Premium",
+    "city": "Aurora",
+    "state": "IL",
+    "metro": "Chicago"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A013",
+    "name": "Standard Mall of America",
+    "city": "Bloomington",
+    "state": "MN",
+    "metro": "Minneapolis"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A014",
+    "name": "Standard Somerset Detroit",
+    "city": "Troy",
+    "state": "MI",
+    "metro": "Detroit"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A015",
+    "name": "Standard Easton Town Center",
+    "city": "Columbus",
+    "state": "OH",
+    "metro": "Columbus"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A016",
+    "name": "Flagship Lenox Square Atlanta",
+    "city": "Atlanta",
+    "state": "GA",
+    "metro": "Atlanta"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A017",
+    "name": "Outlet North Georgia Premium",
+    "city": "Dawsonville",
+    "state": "GA",
+    "metro": "Atlanta"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A018",
+    "name": "Standard SouthPark Charlotte",
+    "city": "Charlotte",
+    "state": "NC",
+    "metro": "Charlotte"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A019",
+    "name": "Standard Bal Harbour Shops Miami",
+    "city": "Bal Harbour",
+    "state": "FL",
+    "metro": "Miami"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A020",
+    "name": "Standard Aventura Mall",
+    "city": "Aventura",
+    "state": "FL",
+    "metro": "Miami"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A021",
+    "name": "Outlet Sawgrass Mills",
+    "city": "Sunrise",
+    "state": "FL",
+    "metro": "Miami"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A022",
+    "name": "Standard Mall at Millenia Orlando",
+    "city": "Orlando",
+    "state": "FL",
+    "metro": "Orlando"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A023",
+    "name": "Standard Galleria Houston",
+    "city": "Houston",
+    "state": "TX",
+    "metro": "Houston"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A024",
+    "name": "Standard Highland Village Houston",
+    "city": "Houston",
+    "state": "TX",
+    "metro": "Houston"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A025",
+    "name": "Flagship Galleria Dallas",
+    "city": "Dallas",
+    "state": "TX",
+    "metro": "Dallas"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A026",
+    "name": "Standard NorthPark Dallas",
+    "city": "Dallas",
+    "state": "TX",
+    "metro": "Dallas"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A027",
+    "name": "Outlet Allen Premium",
+    "city": "Allen",
+    "state": "TX",
+    "metro": "Dallas"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A028",
+    "name": "Flagship S Congress Austin",
+    "city": "Austin",
+    "state": "TX",
+    "metro": "Austin"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A029",
+    "name": "Standard Domain Austin",
+    "city": "Austin",
+    "state": "TX",
+    "metro": "Austin"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A030",
+    "name": "Standard La Cantera San Antonio",
+    "city": "San Antonio",
+    "state": "TX",
+    "metro": "San Antonio"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A031",
+    "name": "Flagship Beverly Center LA",
+    "city": "Los Angeles",
+    "state": "CA",
+    "metro": "Los Angeles"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A032",
+    "name": "Standard Grove LA",
+    "city": "Los Angeles",
+    "state": "CA",
+    "metro": "Los Angeles"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A033",
+    "name": "Standard South Coast Plaza",
+    "city": "Costa Mesa",
+    "state": "CA",
+    "metro": "Los Angeles"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A034",
+    "name": "Outlet Citadel LA",
+    "city": "Commerce",
+    "state": "CA",
+    "metro": "Los Angeles"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A035",
+    "name": "Flagship Union Sq SF",
+    "city": "San Francisco",
+    "state": "CA",
+    "metro": "San Francisco"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A036",
+    "name": "Standard Stanford Shopping",
+    "city": "Palo Alto",
+    "state": "CA",
+    "metro": "San Francisco"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A037",
+    "name": "Standard Fashion Valley San Diego",
+    "city": "San Diego",
+    "state": "CA",
+    "metro": "San Diego"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A038",
+    "name": "Standard Scottsdale Fashion Square",
+    "city": "Scottsdale",
+    "state": "AZ",
+    "metro": "Phoenix"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A039",
+    "name": "Outlet Phoenix Premium",
+    "city": "Chandler",
+    "state": "AZ",
+    "metro": "Phoenix"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A040",
+    "name": "Standard Forum Las Vegas",
+    "city": "Las Vegas",
+    "state": "NV",
+    "metro": "Las Vegas"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A041",
+    "name": "Standard Cherry Creek Denver",
+    "city": "Denver",
+    "state": "CO",
+    "metro": "Denver"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A042",
+    "name": "Standard Park Meadows Denver",
+    "city": "Lone Tree",
+    "state": "CO",
+    "metro": "Denver"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A043",
+    "name": "Flagship University Village Seattle",
+    "city": "Seattle",
+    "state": "WA",
+    "metro": "Seattle"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A044",
+    "name": "Standard Bellevue Square",
+    "city": "Bellevue",
+    "state": "WA",
+    "metro": "Seattle"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A045",
+    "name": "Standard Pioneer Place Portland",
+    "city": "Portland",
+    "state": "OR",
+    "metro": "Portland"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A046",
+    "name": "Standard Plaza Frontenac St Louis",
+    "city": "St. Louis",
+    "state": "MO",
+    "metro": "St. Louis"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A047",
+    "name": "Standard Country Club Plaza KC",
+    "city": "Kansas City",
+    "state": "MO",
+    "metro": "Kansas City"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A048",
+    "name": "Standard Crocker Park Cleveland",
+    "city": "Westlake",
+    "state": "OH",
+    "metro": "Cleveland"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A049",
+    "name": "Standard Indianapolis Fashion Mall",
+    "city": "Indianapolis",
+    "state": "IN",
+    "metro": "Indianapolis"
+  },
+  {
+    "dim_type": "stores",
+    "id": "STR-A050",
+    "name": "Standard Stamford Town Center",
+    "city": "Stamford",
+    "state": "CT",
+    "metro": "NYC"
+  },
+  {
+    "dim_type": "brands",
+    "id": "LEV",
+    "name": "Levi's",
+    "tier": "Mid"
+  },
+  {
+    "dim_type": "brands",
+    "id": "WRG",
+    "name": "Wrangler",
+    "tier": "Value"
+  },
+  {
+    "dim_type": "brands",
+    "id": "LEE",
+    "name": "Lee",
+    "tier": "Value"
+  },
+  {
+    "dim_type": "brands",
+    "id": "MAD",
+    "name": "Madewell",
+    "tier": "Premium"
+  },
+  {
+    "dim_type": "brands",
+    "id": "NKE",
+    "name": "Nike",
+    "tier": "Premium"
+  },
+  {
+    "dim_type": "brands",
+    "id": "ADI",
+    "name": "Adidas",
+    "tier": "Premium"
+  },
+  {
+    "dim_type": "brands",
+    "id": "UAR",
+    "name": "Under Armour",
+    "tier": "Mid"
+  },
+  {
+    "dim_type": "brands",
+    "id": "LUL",
+    "name": "Lululemon",
+    "tier": "Premium"
+  },
+  {
+    "dim_type": "brands",
+    "id": "NB",
+    "name": "New Balance",
+    "tier": "Mid"
+  },
+  {
+    "dim_type": "brands",
+    "id": "HM",
+    "name": "H&M",
+    "tier": "Value"
+  },
+  {
+    "dim_type": "brands",
+    "id": "ZRA",
+    "name": "Zara",
+    "tier": "Mid"
+  },
+  {
+    "dim_type": "brands",
+    "id": "UNQ",
+    "name": "Uniqlo",
+    "tier": "Value"
+  },
+  {
+    "dim_type": "brands",
+    "id": "FOR",
+    "name": "Forever 21",
+    "tier": "Value"
+  },
+  {
+    "dim_type": "brands",
+    "id": "ON",
+    "name": "Old Navy",
+    "tier": "Value"
+  },
+  {
+    "dim_type": "brands",
+    "id": "GAP",
+    "name": "Gap",
+    "tier": "Mid"
+  },
+  {
+    "dim_type": "brands",
+    "id": "BR",
+    "name": "Banana Republic",
+    "tier": "Premium"
+  },
+  {
+    "dim_type": "brands",
+    "id": "JCR",
+    "name": "J.Crew",
+    "tier": "Premium"
+  },
+  {
+    "dim_type": "brands",
+    "id": "CRT",
+    "name": "Carter's",
+    "tier": "Value"
+  },
+  {
+    "dim_type": "brands",
+    "id": "OSH",
+    "name": "OshKosh B'gosh",
+    "tier": "Value"
+  },
+  {
+    "dim_type": "brands",
+    "id": "VAN",
+    "name": "Vans",
+    "tier": "Mid"
+  },
+  {
+    "dim_type": "brands",
+    "id": "CNV",
+    "name": "Converse",
+    "tier": "Mid"
+  },
+  {
+    "dim_type": "brands",
+    "id": "DRM",
+    "name": "Dr. Martens",
+    "tier": "Premium"
+  },
+  {
+    "dim_type": "brands",
+    "id": "COA",
+    "name": "Coach",
+    "tier": "Premium"
+  },
+  {
+    "dim_type": "brands",
+    "id": "FOS",
+    "name": "Fossil",
+    "tier": "Mid"
+  },
+  {
+    "dim_type": "brands",
+    "id": "RAY",
+    "name": "Ray-Ban",
+    "tier": "Premium"
+  },
+  {
+    "dim_type": "brands",
+    "id": "HER",
+    "name": "Herschel",
+    "tier": "Mid"
+  },
+  {
+    "dim_type": "categories",
+    "id": "crew_tee",
+    "name": "Crew Tee",
+    "parent_department": "Women's Tops"
+  },
+  {
+    "dim_type": "categories",
+    "id": "tank",
+    "name": "Tank",
+    "parent_department": "Women's Tops"
+  },
+  {
+    "dim_type": "categories",
+    "id": "blouse",
+    "name": "Blouse",
+    "parent_department": "Women's Tops"
+  },
+  {
+    "dim_type": "categories",
+    "id": "cardigan",
+    "name": "Cardigan",
+    "parent_department": "Women's Tops"
+  },
+  {
+    "dim_type": "categories",
+    "id": "pullover",
+    "name": "Pullover",
+    "parent_department": "Women's Tops"
+  },
+  {
+    "dim_type": "categories",
+    "id": "hoodie",
+    "name": "Hoodie",
+    "parent_department": "Women's Tops"
+  },
+  {
+    "dim_type": "categories",
+    "id": "skinny_jean",
+    "name": "Skinny Jean",
+    "parent_department": "Women's Bottoms"
+  },
+  {
+    "dim_type": "categories",
+    "id": "mom_jean",
+    "name": "Mom Jean",
+    "parent_department": "Women's Bottoms"
+  },
+  {
+    "dim_type": "categories",
+    "id": "wide_leg_jean",
+    "name": "Wide-Leg Jean",
+    "parent_department": "Women's Bottoms"
+  },
+  {
+    "dim_type": "categories",
+    "id": "legging",
+    "name": "Legging",
+    "parent_department": "Women's Bottoms"
+  },
+  {
+    "dim_type": "categories",
+    "id": "trouser",
+    "name": "Trouser",
+    "parent_department": "Women's Bottoms"
+  },
+  {
+    "dim_type": "categories",
+    "id": "mini_dress",
+    "name": "Mini Dress",
+    "parent_department": "Women's Dresses"
+  },
+  {
+    "dim_type": "categories",
+    "id": "midi_dress",
+    "name": "Midi Dress",
+    "parent_department": "Women's Dresses"
+  },
+  {
+    "dim_type": "categories",
+    "id": "maxi_dress",
+    "name": "Maxi Dress",
+    "parent_department": "Women's Dresses"
+  },
+  {
+    "dim_type": "categories",
+    "id": "wrap_dress",
+    "name": "Wrap Dress",
+    "parent_department": "Women's Dresses"
+  },
+  {
+    "dim_type": "categories",
+    "id": "polo",
+    "name": "Polo",
+    "parent_department": "Men's Tops"
+  },
+  {
+    "dim_type": "categories",
+    "id": "henley",
+    "name": "Henley",
+    "parent_department": "Men's Tops"
+  },
+  {
+    "dim_type": "categories",
+    "id": "button_down",
+    "name": "Button-Down",
+    "parent_department": "Men's Tops"
+  },
+  {
+    "dim_type": "categories",
+    "id": "flannel",
+    "name": "Flannel",
+    "parent_department": "Men's Tops"
+  },
+  {
+    "dim_type": "categories",
+    "id": "slim_jean",
+    "name": "Slim Jean",
+    "parent_department": "Men's Bottoms"
+  },
+  {
+    "dim_type": "categories",
+    "id": "straight_jean",
+    "name": "Straight Jean",
+    "parent_department": "Men's Bottoms"
+  },
+  {
+    "dim_type": "categories",
+    "id": "chino",
+    "name": "Chino",
+    "parent_department": "Men's Bottoms"
+  },
+  {
+    "dim_type": "categories",
+    "id": "cargo",
+    "name": "Cargo",
+    "parent_department": "Men's Bottoms"
+  },
+  {
+    "dim_type": "categories",
+    "id": "short",
+    "name": "Short",
+    "parent_department": "Men's Bottoms"
+  },
+  {
+    "dim_type": "categories",
+    "id": "graphic_tee",
+    "name": "Graphic Tee",
+    "parent_department": "Home & Garden'"
+  },
+  {
+    "dim_type": "categories",
+    "id": "kids_jean",
+    "name": "Home & Garden Jean",
+    "parent_department": "Home & Garden'"
+  },
+  {
+    "dim_type": "categories",
+    "id": "kids_hoodie",
+    "name": "Home & Garden Hoodie",
+    "parent_department": "Home & Garden'"
+  },
+  {
+    "dim_type": "categories",
+    "id": "puffer_jacket",
+    "name": "Puffer Jacket",
+    "parent_department": "Home & Garden'"
+  },
+  {
+    "dim_type": "categories",
+    "id": "running_sneaker",
+    "name": "Running Sneaker",
+    "parent_department": "Sports & Outdoor"
+  },
+  {
+    "dim_type": "categories",
+    "id": "casual_sneaker",
+    "name": "New Customer Sneaker",
+    "parent_department": "Sports & Outdoor"
+  },
+  {
+    "dim_type": "categories",
+    "id": "boot",
+    "name": "Boot",
+    "parent_department": "Sports & Outdoor"
+  },
+  {
+    "dim_type": "categories",
+    "id": "sandal",
+    "name": "Sandal",
+    "parent_department": "Sports & Outdoor"
+  },
+  {
+    "dim_type": "categories",
+    "id": "tote_bag",
+    "name": "Tote Bag",
+    "parent_department": "Beauty & Personal"
+  },
+  {
+    "dim_type": "categories",
+    "id": "backpack",
+    "name": "Backpack",
+    "parent_department": "Beauty & Personal"
+  },
+  {
+    "dim_type": "categories",
+    "id": "belt",
+    "name": "Belt",
+    "parent_department": "Beauty & Personal"
+  },
+  {
+    "dim_type": "categories",
+    "id": "sunglasses",
+    "name": "Sunglasses",
+    "parent_department": "Beauty & Personal"
+  },
+  {
+    "dim_type": "categories",
+    "id": "watch",
+    "name": "Watch",
+    "parent_department": "Beauty & Personal"
+  },
+  {
+    "dim_type": "segments",
+    "id": "fashion_forward",
+    "name": "Premium Loyalist"
+  },
+  {
+    "dim_type": "segments",
+    "id": "athletic_enthusiast",
+    "name": "Deal Seeker"
+  },
+  {
+    "dim_type": "segments",
+    "id": "value_shopper",
+    "name": "Occasional Buyer"
+  },
+  {
+    "dim_type": "segments",
+    "id": "brand_loyalist",
+    "name": "Omnichannel Shopper"
+  },
+  {
+    "dim_type": "segments",
+    "id": "returner",
+    "name": "High Returner"
+  },
+  {
+    "dim_type": "segments",
+    "id": "lapsed",
+    "name": "Lapsed"
+  },
+  {
+    "dim_type": "segments",
+    "id": "casual",
+    "name": "New Customer"
+  },
+  {
+    "dim_type": "segments",
+    "id": "new",
+    "name": "New"
+  },
+  {
+    "dim_type": "loyalty_tiers",
+    "id": "elite",
+    "name": "Elite"
+  },
+  {
+    "dim_type": "loyalty_tiers",
+    "id": "reward",
+    "name": "Reward"
+  },
+  {
+    "dim_type": "loyalty_tiers",
+    "id": "insider",
+    "name": "Insider"
+  },
+  {
+    "dim_type": "loyalty_tiers",
+    "id": "member",
+    "name": "Member"
+  },
+  {
+    "dim_type": "loyalty_tiers",
+    "id": "guest",
+    "name": "Guest"
+  },
+  {
+    "dim_type": "channels",
+    "id": "in_store",
+    "name": "In-Store"
+  },
+  {
+    "dim_type": "channels",
+    "id": "web",
+    "name": "Web"
+  },
+  {
+    "dim_type": "channels",
+    "id": "app",
+    "name": "App"
+  },
+  {
+    "dim_type": "channels",
+    "id": "curbside",
+    "name": "Curbside"
+  },
+  {
+    "dim_type": "channels",
+    "id": "marketplace",
+    "name": "Marketplace"
+  },
+  {
+    "dim_type": "acquisition_channels",
+    "id": "organic",
+    "name": "Organic"
+  },
+  {
+    "dim_type": "acquisition_channels",
+    "id": "paid_social",
+    "name": "Paid Social"
+  },
+  {
+    "dim_type": "acquisition_channels",
+    "id": "paid_search",
+    "name": "Paid Search"
+  },
+  {
+    "dim_type": "acquisition_channels",
+    "id": "direct",
+    "name": "Direct"
+  },
+  {
+    "dim_type": "acquisition_channels",
+    "id": "email",
+    "name": "Email"
+  },
+  {
+    "dim_type": "acquisition_channels",
+    "id": "referral",
+    "name": "Referral"
+  },
+  {
+    "dim_type": "acquisition_channels",
+    "id": "affiliate",
+    "name": "Affiliate"
+  },
+  {
+    "dim_type": "holidays",
+    "id": "new_year_s_day",
+    "name": "New Year's Day",
+    "window": "Jan 1",
+    "depts": "All",
+    "uplift": 0.6
+  },
+  {
+    "dim_type": "holidays",
+    "id": "mlk_day_sale",
+    "name": "MLK Day Sale",
+    "window": "Jan 16-19",
+    "depts": "All",
+    "uplift": 1.4
+  },
+  {
+    "dim_type": "holidays",
+    "id": "valentine_s_day",
+    "name": "Valentine's Day",
+    "window": "Feb 7-14",
+    "depts": "Women's, Beauty & Personal",
+    "uplift": 1.7
+  },
+  {
+    "dim_type": "holidays",
+    "id": "presidents_day_sale",
+    "name": "Presidents Day Sale",
+    "window": "Feb 13-16",
+    "depts": "All",
+    "uplift": 1.6
+  },
+  {
+    "dim_type": "holidays",
+    "id": "spring_break_drop",
+    "name": "Spring Break Drop",
+    "window": "Mar 7-22",
+    "depts": "Women's, Sports & Outdoor",
+    "uplift": 1.8
+  },
+  {
+    "dim_type": "holidays",
+    "id": "easter",
+    "name": "Easter",
+    "window": "Apr 5",
+    "depts": "Home & Garden', Women's Dresses",
+    "uplift": 1.5
+  },
+  {
+    "dim_type": "holidays",
+    "id": "mother_s_day",
+    "name": "Mother's Day",
+    "window": "May 3-10",
+    "depts": "Women's, Beauty & Personal",
+    "uplift": 2
+  },
+  {
+    "dim_type": "holidays",
+    "id": "memorial_day_sale",
+    "name": "Memorial Day Sale",
+    "window": "May 22-25",
+    "depts": "All",
+    "uplift": 2.4
+  },
+  {
+    "dim_type": "holidays",
+    "id": "father_s_day",
+    "name": "Father's Day",
+    "window": "Jun 14-21",
+    "depts": "Men's",
+    "uplift": 1.7
+  },
+  {
+    "dim_type": "holidays",
+    "id": "4th_of_july",
+    "name": "4th of July",
+    "window": "Jul 1-5",
+    "depts": "All",
+    "uplift": 1.9
+  },
+  {
+    "dim_type": "holidays",
+    "id": "back_to_school",
+    "name": "Back-to-School",
+    "window": "Jul 25-Aug 25",
+    "depts": "Home & Garden', Sports & Outdoor, M+W Bottoms",
+    "uplift": 2.8
+  },
+  {
+    "dim_type": "holidays",
+    "id": "tax_free_weekends",
+    "name": "Tax-Free Weekends",
+    "window": "Aug 7-9",
+    "depts": "All",
+    "uplift": 1.9
+  },
+  {
+    "dim_type": "holidays",
+    "id": "labor_day_sale",
+    "name": "Labor Day Sale",
+    "window": "Sep 4-7",
+    "depts": "All",
+    "uplift": 2.1
+  },
+  {
+    "dim_type": "holidays",
+    "id": "fall_drop___nyfw",
+    "name": "Fall Drop / NYFW",
+    "window": "Sep 10-20",
+    "depts": "All",
+    "uplift": 1.6
+  },
+  {
+    "dim_type": "holidays",
+    "id": "columbus_day",
+    "name": "Columbus Day",
+    "window": "Oct 9-12",
+    "depts": "All",
+    "uplift": 1.4
+  },
+  {
+    "dim_type": "holidays",
+    "id": "halloween",
+    "name": "Halloween",
+    "window": "Oct 20-31",
+    "depts": "Home & Garden', Beauty & Personal",
+    "uplift": 1.3
+  },
+  {
+    "dim_type": "holidays",
+    "id": "veterans_day_sale",
+    "name": "Veterans Day Sale",
+    "window": "Nov 7-11",
+    "depts": "All",
+    "uplift": 1.5
+  },
+  {
+    "dim_type": "holidays",
+    "id": "pre_black_friday",
+    "name": "Pre-Black Friday",
+    "window": "Nov 16-24",
+    "depts": "All",
+    "uplift": 2.6
+  },
+  {
+    "dim_type": "holidays",
+    "id": "black_friday",
+    "name": "Black Friday",
+    "window": "Nov 27",
+    "depts": "All",
+    "uplift": 4.2
+  },
+  {
+    "dim_type": "holidays",
+    "id": "cyber_monday",
+    "name": "Cyber Monday",
+    "window": "Nov 30",
+    "depts": "Web, App",
+    "uplift": 3.6
+  },
+  {
+    "dim_type": "holidays",
+    "id": "free_shipping_day",
+    "name": "Free Shipping Day",
+    "window": "Dec 14",
+    "depts": "Web, App",
+    "uplift": 2
+  },
+  {
+    "dim_type": "holidays",
+    "id": "christmas_eve",
+    "name": "Christmas Eve",
+    "window": "Dec 24",
+    "depts": "All",
+    "uplift": 1.9
+  },
+  {
+    "dim_type": "holidays",
+    "id": "christmas",
+    "name": "Christmas",
+    "window": "Dec 25",
+    "depts": "All",
+    "uplift": 0.3
+  },
+  {
+    "dim_type": "holidays",
+    "id": "nye_clearance",
+    "name": "NYE Clearance",
+    "window": "Dec 26-31",
+    "depts": "All",
+    "uplift": 2.3
+  },
+  {
+    "dim_type": "return_reasons",
+    "id": "fit",
+    "name": "Fit"
+  },
+  {
+    "dim_type": "return_reasons",
+    "id": "style",
+    "name": "Style"
+  },
+  {
+    "dim_type": "return_reasons",
+    "id": "quality",
+    "name": "Quality"
+  },
+  {
+    "dim_type": "return_reasons",
+    "id": "wrong_item",
+    "name": "Wrong Item"
+  },
+  {
+    "dim_type": "return_reasons",
+    "id": "damaged",
+    "name": "Damaged"
+  },
+  {
+    "dim_type": "return_reasons",
+    "id": "changed_mind",
+    "name": "Changed Mind"
+  }
+]

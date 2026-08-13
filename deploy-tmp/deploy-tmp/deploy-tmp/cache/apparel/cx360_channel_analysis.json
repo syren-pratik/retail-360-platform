@@ -1,0 +1,97 @@
+{
+  "acquisition": [
+    {
+      "channel": "Organic",
+      "customer_count": 17622,
+      "pct_of_total": 22,
+      "avg_clv": 505,
+      "total_revenue": 26289792,
+      "description": "Organic search, social discovery, content"
+    },
+    {
+      "channel": "Paid Social",
+      "customer_count": 19225,
+      "pct_of_total": 24,
+      "avg_clv": 506,
+      "total_revenue": 28672406,
+      "description": "Meta, TikTok, Pinterest ads"
+    },
+    {
+      "channel": "Paid Search",
+      "customer_count": 11118,
+      "pct_of_total": 13.9,
+      "avg_clv": 509,
+      "total_revenue": 16620774,
+      "description": "Google, Microsoft ad spend"
+    },
+    {
+      "channel": "Direct",
+      "customer_count": 8060,
+      "pct_of_total": 10.1,
+      "avg_clv": 512,
+      "total_revenue": 12150036,
+      "description": "Direct site visits, brand awareness"
+    },
+    {
+      "channel": "Email",
+      "customer_count": 7863,
+      "pct_of_total": 9.8,
+      "avg_clv": 510,
+      "total_revenue": 11836186,
+      "description": "Email marketing campaigns"
+    },
+    {
+      "channel": "Referral",
+      "customer_count": 9705,
+      "pct_of_total": 12.1,
+      "avg_clv": 503,
+      "total_revenue": 14351854,
+      "description": "Word of mouth, referral programs"
+    },
+    {
+      "channel": "Affiliate",
+      "customer_count": 6407,
+      "pct_of_total": 8,
+      "avg_clv": 513,
+      "total_revenue": 9686960,
+      "description": "Affiliate networks & creator partnerships"
+    }
+  ],
+  "shopping": [
+    {
+      "channel": "In-Store",
+      "customer_count": 38088,
+      "pct_of_total": 47.6,
+      "avg_basket": 176,
+      "total_transactions": 292492
+    },
+    {
+      "channel": "Web",
+      "customer_count": 16835,
+      "pct_of_total": 21,
+      "avg_basket": 161,
+      "total_transactions": 170435
+    },
+    {
+      "channel": "App",
+      "customer_count": 17669,
+      "pct_of_total": 22.1,
+      "avg_basket": 162,
+      "total_transactions": 195594
+    },
+    {
+      "channel": "Curbside",
+      "customer_count": 2434,
+      "pct_of_total": 3,
+      "avg_basket": 160,
+      "total_transactions": 24680
+    },
+    {
+      "channel": "Marketplace",
+      "customer_count": 4974,
+      "pct_of_total": 6.2,
+      "avg_basket": 161,
+      "total_transactions": 50142
+    }
+  ]
+}

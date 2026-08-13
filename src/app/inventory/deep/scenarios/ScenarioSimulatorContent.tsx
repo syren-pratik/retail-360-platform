@@ -82,11 +82,36 @@ const APPAREL_DCS = [
   { value: 'atlanta',   label: 'Southeast Region DC — Atlanta' },
 ];
 
-function buildScenarioPresets(isApparel: boolean): ScenarioPreset[] {
-  const suppliers  = isApparel ? APPAREL_SUPPLIERS  : REAL_SUPPLIERS;
-  const departments = isApparel ? APPAREL_DEPARTMENTS : REAL_DEPARTMENTS;
-  const stores     = isApparel ? APPAREL_STORES     : REAL_STORES;
-  const dcs        = isApparel ? APPAREL_DCS        : REAL_DCS;
+// US General Retail (Meridian Retail) equivalents — general merchandise chain
+const RETAIL_SUPPLIERS = [
+  'Samsung Electronics', 'Apple', 'LG Electronics', 'Sony', 'Whirlpool',
+  'Procter & Gamble', 'Unilever', 'Nike', 'Adidas', 'Hasbro',
+];
+const RETAIL_DEPARTMENTS = [
+  'Electronics', 'Apparel & Shoes', 'Home & Garden', 'Sports & Outdoor',
+  'Beauty & Personal', 'Grocery & Snacks', 'Toys & Games',
+];
+const RETAIL_STORES = [
+  'NYC Flagship 1', 'Chicago Store 3', 'Los Angeles Store 5', 'Houston Store 2',
+  'Phoenix Store 4', 'Philadelphia Store 6', 'Dallas Store 8', 'San Diego Store 7',
+  'Atlanta Store 9', 'Boston Store 10', 'Seattle Store 12', 'Miami Store 14',
+];
+const RETAIL_DCS = [
+  { value: 'ontario',   label: 'West Region DC — Ontario, CA' },
+  { value: 'louisville',label: 'Central Region DC — Louisville, KY' },
+  { value: 'edison',    label: 'Northeast Region DC — Edison, NJ' },
+  { value: 'jacksonville', label: 'Southeast Region DC — Jacksonville, FL' },
+];
+
+type Market = 'grocery' | 'apparel' | 'retail';
+function optionsFor(market: Market) {
+  if (market === 'retail') return { suppliers: RETAIL_SUPPLIERS, departments: RETAIL_DEPARTMENTS, stores: RETAIL_STORES, dcs: RETAIL_DCS };
+  if (market === 'apparel') return { suppliers: APPAREL_SUPPLIERS, departments: APPAREL_DEPARTMENTS, stores: APPAREL_STORES, dcs: APPAREL_DCS };
+  return { suppliers: REAL_SUPPLIERS, departments: REAL_DEPARTMENTS, stores: REAL_STORES, dcs: REAL_DCS };
+}
+
+function buildScenarioPresets(market: Market): ScenarioPreset[] {
+  const { suppliers, departments, stores, dcs } = optionsFor(market);
   return [
     {
       id: 'supplier_delay',
@@ -134,12 +159,9 @@ function buildScenarioPresets(isApparel: boolean): ScenarioPreset[] {
 
 // ─── Quick Presets ───────────────────────────────────────────────────────────
 
-function buildQuickPresets(isApparel: boolean) {
-  const suppliers  = isApparel ? APPAREL_SUPPLIERS  : REAL_SUPPLIERS;
-  const departments = isApparel ? APPAREL_DEPARTMENTS : REAL_DEPARTMENTS;
-  const stores     = isApparel ? APPAREL_STORES     : REAL_STORES;
-  const dcs        = isApparel ? APPAREL_DCS        : REAL_DCS;
-  const eventName  = isApparel ? 'BTS' : 'Diwali';
+function buildQuickPresets(market: Market) {
+  const { suppliers, departments, stores, dcs } = optionsFor(market);
+  const eventName = market === 'apparel' ? 'BTS' : market === 'retail' ? 'Black Friday' : 'Diwali';
   return [
     {
       label: `${suppliers[0]} delays 14 days`,
@@ -166,14 +188,18 @@ function buildQuickPresets(isApparel: boolean) {
 
 // ─── Prompt Builder ───────────────────────────────────────────────────────────
 
-function buildScenarioPrompt(scenario: ScenarioPreset, params: Record<string, unknown>, isApparel: boolean): string {
-  const analystPreamble = isApparel
-    ? 'You are a supply chain analyst for a large US omnichannel apparel retailer (150+ stores across Flagship, Mall, Outlet, Urban, and Popup formats spanning Northeast, Southeast, Central, and West regions, with 4 DCs in Reno, Memphis, Allentown, and Atlanta).'
-    : 'You are a supply chain analyst for a large Indian omnichannel retailer (275 active stores across Hypermarket, Supermarket, Express, Dark Store, and Kirana Partner formats spanning South, West, North, and East regions).';
-  const currencyAsk = isApparel
+function buildScenarioPrompt(scenario: ScenarioPreset, params: Record<string, unknown>, market: Market): string {
+  const isUSD = market !== 'grocery';
+  const analystPreamble = market === 'retail'
+    ? 'You are a supply chain analyst for Meridian Retail — a US general-merchandise chain (85 stores nationwide across Electronics, Apparel & Shoes, Home & Garden, Sports & Outdoor, Beauty & Personal, Grocery & Snacks, Toys & Games, with 4 DCs in Ontario CA, Louisville KY, Edison NJ, and Jacksonville FL).'
+    : market === 'apparel'
+      ? 'You are a supply chain analyst for a large US omnichannel apparel retailer (150+ stores across Flagship, Mall, Outlet, Urban, and Popup formats spanning Northeast, Southeast, Central, and West regions, with 4 DCs in Reno, Memphis, Allentown, and Atlanta).'
+      : 'You are a supply chain analyst for a large Indian omnichannel retailer (275 active stores across Hypermarket, Supermarket, Express, Dark Store, and Kirana Partner formats spanning South, West, North, and East regions).';
+  const currencyAsk = isUSD
     ? 'What is the $ revenue at risk per day (in USD)?'
     : 'What is the ₹ revenue at risk per day?';
-  const revenueKey  = isApparel ? 'revenue_at_risk_usd_m' : 'revenue_at_risk_cr';
+  const revenueKey  = isUSD ? 'revenue_at_risk_usd_m' : 'revenue_at_risk_cr';
+  const isApparel = market === 'apparel'; // preserve back-compat for demand-spike copy below
   const jsonSchema = `{"${revenueKey}":number,"stockout_skus_affected":number,"stores_affected":number,"days_to_resolve":number,"cascade_events":["Day 0: event","Day 1-2: event","Day 3-5: event","Day 7+: event"],"mitigation_actions":[{"action":"string","timing":"Immediate|24h|1 week","expected_impact":"string"}],"confidence":"high|medium|low","summary":"2-sentence executive summary"}`;
 
   const prompts: Record<string, string> = {
@@ -299,9 +325,10 @@ function TimingBadge({ timing }: { timing: string }) {
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export default function ScenarioSimulatorContent() {
-  const { isApparel } = useTenant();
-  const SCENARIO_PRESETS = buildScenarioPresets(isApparel);
-  const QUICK_PRESETS = buildQuickPresets(isApparel);
+  const { isApparel, isRetail } = useTenant();
+  const market: Market = isRetail ? 'retail' : isApparel ? 'apparel' : 'grocery';
+  const SCENARIO_PRESETS = buildScenarioPresets(market);
+  const QUICK_PRESETS = buildQuickPresets(market);
   const [selectedScenarioId, setSelectedScenarioId] = useState<string>('supplier_delay');
   const [paramValues, setParamValues] = useState<Record<string, unknown>>({});
   const [loading, setLoading] = useState(false);
@@ -354,7 +381,7 @@ ${JSON.stringify(ctxData.baseline, null, 2)}
 
 Use these EXACT numbers as the baseline for your cascade analysis. Do not invent figures.`;
 
-      const scenarioDescription = `${buildScenarioPrompt(selectedScenario, currentParams, isApparel)}\n\n${baselineBlock}`;
+      const scenarioDescription = `${buildScenarioPrompt(selectedScenario, currentParams, market)}\n\n${baselineBlock}`;
 
       // Step 3: ask Claude to model the cascade on top of the real state
       const response = await fetch('/api/chat', {

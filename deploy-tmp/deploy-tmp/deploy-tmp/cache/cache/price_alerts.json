@@ -1,0 +1,7 @@
+[
+  { "type": "critical", "message": "Grocery margin erosion: 12 products below 5% margin due to cost increases", "related_chart": "margin_distribution", "category": "Grocery & Staples", "impact": -2500000 },
+  { "type": "warning", "message": "Competitive gap widening in Beverages - 8% above market average", "related_chart": "competitive_index", "category": "Beverages", "impact": -1200000 },
+  { "type": "warning", "message": "High markdown inventory: 50 SKUs stuck >30 days need deeper discounts", "related_chart": "markdown_performance", "category": null, "impact": -3200000 },
+  { "type": "info", "message": "A/B test opportunity: 15 products with high elasticity ready for price testing", "related_chart": "ab_tests", "category": null, "impact": 1800000 },
+  { "type": "info", "message": "Promo optimization: BOGO promotions outperforming % discounts by 23%", "related_chart": "promo_calendar", "category": null, "impact": 950000 }
+]

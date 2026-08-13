@@ -1,0 +1,6 @@
+[
+  { "clv_tier": "Platinum", "customer_count": 7500, "pct": 15.0, "avg_clv": 148000, "total_clv": 1110000000, "avg_frequency": 42, "avg_recency": 8, "avg_basket": 4200 },
+  { "clv_tier": "Gold", "customer_count": 10000, "pct": 20.0, "avg_clv": 68500, "total_clv": 685000000, "avg_frequency": 28, "avg_recency": 15, "avg_basket": 2400 },
+  { "clv_tier": "Silver", "customer_count": 17500, "pct": 35.0, "avg_clv": 18200, "total_clv": 318500000, "avg_frequency": 14, "avg_recency": 32, "avg_basket": 1100 },
+  { "clv_tier": "Bronze", "customer_count": 15000, "pct": 30.0, "avg_clv": 4800, "total_clv": 72000000, "avg_frequency": 5, "avg_recency": 58, "avg_basket": 450 }
+]

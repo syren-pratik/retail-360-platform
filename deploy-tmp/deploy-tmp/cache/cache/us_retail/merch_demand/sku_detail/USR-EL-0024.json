@@ -1,0 +1,559 @@
+{
+  "sku_id": "USR-EL-0024",
+  "product_name": "Meridian Audio Everyday",
+  "department": "Electronics",
+  "category": "Audio",
+  "brand": "Meridian",
+  "forecast_14w": [
+    {
+      "week": 1,
+      "forecast_units": 352,
+      "forecast_revenue_inr": 556402,
+      "lower_ci": 413,
+      "upper_ci": 108
+    },
+    {
+      "week": 2,
+      "forecast_units": 389,
+      "forecast_revenue_inr": 489470,
+      "lower_ci": 461,
+      "upper_ci": 424
+    },
+    {
+      "week": 3,
+      "forecast_units": 699,
+      "forecast_revenue_inr": 554656,
+      "lower_ci": 172,
+      "upper_ci": 99
+    },
+    {
+      "week": 4,
+      "forecast_units": 755,
+      "forecast_revenue_inr": 564550,
+      "lower_ci": 854,
+      "upper_ci": 933
+    },
+    {
+      "week": 5,
+      "forecast_units": 698,
+      "forecast_revenue_inr": 319523,
+      "lower_ci": 548,
+      "upper_ci": 1066
+    },
+    {
+      "week": 6,
+      "forecast_units": 988,
+      "forecast_revenue_inr": 609364,
+      "lower_ci": 85,
+      "upper_ci": 328
+    },
+    {
+      "week": 7,
+      "forecast_units": 207,
+      "forecast_revenue_inr": 500529,
+      "lower_ci": 437,
+      "upper_ci": 1252
+    },
+    {
+      "week": 8,
+      "forecast_units": 976,
+      "forecast_revenue_inr": 228730,
+      "lower_ci": 216,
+      "upper_ci": 260
+    },
+    {
+      "week": 9,
+      "forecast_units": 744,
+      "forecast_revenue_inr": 434179,
+      "lower_ci": 737,
+      "upper_ci": 257
+    },
+    {
+      "week": 10,
+      "forecast_units": 233,
+      "forecast_revenue_inr": 127460,
+      "lower_ci": 582,
+      "upper_ci": 350
+    },
+    {
+      "week": 11,
+      "forecast_units": 630,
+      "forecast_revenue_inr": 497619,
+      "lower_ci": 236,
+      "upper_ci": 1014
+    },
+    {
+      "week": 12,
+      "forecast_units": 1142,
+      "forecast_revenue_inr": 446402,
+      "lower_ci": 188,
+      "upper_ci": 1151
+    },
+    {
+      "week": 13,
+      "forecast_units": 1185,
+      "forecast_revenue_inr": 103016,
+      "lower_ci": 379,
+      "upper_ci": 647
+    },
+    {
+      "week": 14,
+      "forecast_units": 107,
+      "forecast_revenue_inr": 445238,
+      "lower_ci": 350,
+      "upper_ci": 430
+    }
+  ],
+  "history_90d": [
+    {
+      "date": "2026-02-17",
+      "units": 21,
+      "revenue_inr": 1135
+    },
+    {
+      "date": "2026-02-18",
+      "units": 7,
+      "revenue_inr": 736
+    },
+    {
+      "date": "2026-02-19",
+      "units": 4,
+      "revenue_inr": 373
+    },
+    {
+      "date": "2026-02-20",
+      "units": 16,
+      "revenue_inr": 535
+    },
+    {
+      "date": "2026-02-21",
+      "units": 8,
+      "revenue_inr": 391
+    },
+    {
+      "date": "2026-02-22",
+      "units": 59,
+      "revenue_inr": 1064
+    },
+    {
+      "date": "2026-02-23",
+      "units": 19,
+      "revenue_inr": 254
+    },
+    {
+      "date": "2026-02-24",
+      "units": 49,
+      "revenue_inr": 485
+    },
+    {
+      "date": "2026-02-25",
+      "units": 60,
+      "revenue_inr": 1087
+    },
+    {
+      "date": "2026-02-26",
+      "units": 46,
+      "revenue_inr": 1211
+    },
+    {
+      "date": "2026-02-27",
+      "units": 48,
+      "revenue_inr": 304
+    },
+    {
+      "date": "2026-02-28",
+      "units": 47,
+      "revenue_inr": 276
+    },
+    {
+      "date": "2026-03-01",
+      "units": 9,
+      "revenue_inr": 1240
+    },
+    {
+      "date": "2026-03-02",
+      "units": 47,
+      "revenue_inr": 227
+    },
+    {
+      "date": "2026-03-03",
+      "units": 27,
+      "revenue_inr": 1079
+    },
+    {
+      "date": "2026-03-04",
+      "units": 38,
+      "revenue_inr": 620
+    },
+    {
+      "date": "2026-03-05",
+      "units": 49,
+      "revenue_inr": 819
+    },
+    {
+      "date": "2026-03-06",
+      "units": 13,
+      "revenue_inr": 433
+    },
+    {
+      "date": "2026-03-07",
+      "units": 55,
+      "revenue_inr": 847
+    },
+    {
+      "date": "2026-03-08",
+      "units": 12,
+      "revenue_inr": 1249
+    },
+    {
+      "date": "2026-03-09",
+      "units": 34,
+      "revenue_inr": 201
+    },
+    {
+      "date": "2026-03-10",
+      "units": 41,
+      "revenue_inr": 437
+    },
+    {
+      "date": "2026-03-11",
+      "units": 20,
+      "revenue_inr": 1367
+    },
+    {
+      "date": "2026-03-12",
+      "units": 56,
+      "revenue_inr": 1394
+    },
+    {
+      "date": "2026-03-13",
+      "units": 13,
+      "revenue_inr": 86
+    },
+    {
+      "date": "2026-03-14",
+      "units": 17,
+      "revenue_inr": 1204
+    },
+    {
+      "date": "2026-03-15",
+      "units": 35,
+      "revenue_inr": 528
+    },
+    {
+      "date": "2026-03-16",
+      "units": 37,
+      "revenue_inr": 982
+    },
+    {
+      "date": "2026-03-17",
+      "units": 56,
+      "revenue_inr": 1375
+    },
+    {
+      "date": "2026-03-18",
+      "units": 37,
+      "revenue_inr": 388
+    },
+    {
+      "date": "2026-03-19",
+      "units": 51,
+      "revenue_inr": 1219
+    },
+    {
+      "date": "2026-03-20",
+      "units": 21,
+      "revenue_inr": 166
+    },
+    {
+      "date": "2026-03-21",
+      "units": 36,
+      "revenue_inr": 891
+    },
+    {
+      "date": "2026-03-22",
+      "units": 43,
+      "revenue_inr": 1016
+    },
+    {
+      "date": "2026-03-23",
+      "units": 52,
+      "revenue_inr": 1059
+    },
+    {
+      "date": "2026-03-24",
+      "units": 24,
+      "revenue_inr": 762
+    },
+    {
+      "date": "2026-03-25",
+      "units": 60,
+      "revenue_inr": 1076
+    },
+    {
+      "date": "2026-03-26",
+      "units": 37,
+      "revenue_inr": 235
+    },
+    {
+      "date": "2026-03-27",
+      "units": 40,
+      "revenue_inr": 1307
+    },
+    {
+      "date": "2026-03-28",
+      "units": 57,
+      "revenue_inr": 260
+    },
+    {
+      "date": "2026-03-29",
+      "units": 41,
+      "revenue_inr": 98
+    },
+    {
+      "date": "2026-03-30",
+      "units": 37,
+      "revenue_inr": 814
+    },
+    {
+      "date": "2026-03-31",
+      "units": 8,
+      "revenue_inr": 1122
+    },
+    {
+      "date": "2026-04-01",
+      "units": 47,
+      "revenue_inr": 1104
+    },
+    {
+      "date": "2026-04-02",
+      "units": 22,
+      "revenue_inr": 830
+    },
+    {
+      "date": "2026-04-03",
+      "units": 39,
+      "revenue_inr": 181
+    },
+    {
+      "date": "2026-04-04",
+      "units": 47,
+      "revenue_inr": 155
+    },
+    {
+      "date": "2026-04-05",
+      "units": 48,
+      "revenue_inr": 509
+    },
+    {
+      "date": "2026-04-06",
+      "units": 12,
+      "revenue_inr": 771
+    },
+    {
+      "date": "2026-04-07",
+      "units": 36,
+      "revenue_inr": 1017
+    },
+    {
+      "date": "2026-04-08",
+      "units": 49,
+      "revenue_inr": 878
+    },
+    {
+      "date": "2026-04-09",
+      "units": 60,
+      "revenue_inr": 1153
+    },
+    {
+      "date": "2026-04-10",
+      "units": 15,
+      "revenue_inr": 556
+    },
+    {
+      "date": "2026-04-11",
+      "units": 12,
+      "revenue_inr": 116
+    },
+    {
+      "date": "2026-04-12",
+      "units": 5,
+      "revenue_inr": 83
+    },
+    {
+      "date": "2026-04-13",
+      "units": 32,
+      "revenue_inr": 382
+    },
+    {
+      "date": "2026-04-14",
+      "units": 53,
+      "revenue_inr": 174
+    },
+    {
+      "date": "2026-04-15",
+      "units": 35,
+      "revenue_inr": 1205
+    },
+    {
+      "date": "2026-04-16",
+      "units": 53,
+      "revenue_inr": 760
+    },
+    {
+      "date": "2026-04-17",
+      "units": 50,
+      "revenue_inr": 1349
+    },
+    {
+      "date": "2026-04-18",
+      "units": 39,
+      "revenue_inr": 635
+    },
+    {
+      "date": "2026-04-19",
+      "units": 4,
+      "revenue_inr": 434
+    },
+    {
+      "date": "2026-04-20",
+      "units": 59,
+      "revenue_inr": 395
+    },
+    {
+      "date": "2026-04-21",
+      "units": 15,
+      "revenue_inr": 808
+    },
+    {
+      "date": "2026-04-22",
+      "units": 35,
+      "revenue_inr": 573
+    },
+    {
+      "date": "2026-04-23",
+      "units": 38,
+      "revenue_inr": 1230
+    },
+    {
+      "date": "2026-04-24",
+      "units": 28,
+      "revenue_inr": 409
+    },
+    {
+      "date": "2026-04-25",
+      "units": 52,
+      "revenue_inr": 1301
+    },
+    {
+      "date": "2026-04-26",
+      "units": 5,
+      "revenue_inr": 346
+    },
+    {
+      "date": "2026-04-27",
+      "units": 20,
+      "revenue_inr": 504
+    },
+    {
+      "date": "2026-04-28",
+      "units": 5,
+      "revenue_inr": 486
+    },
+    {
+      "date": "2026-04-29",
+      "units": 4,
+      "revenue_inr": 106
+    },
+    {
+      "date": "2026-04-30",
+      "units": 29,
+      "revenue_inr": 155
+    },
+    {
+      "date": "2026-05-01",
+      "units": 59,
+      "revenue_inr": 204
+    },
+    {
+      "date": "2026-05-02",
+      "units": 7,
+      "revenue_inr": 1015
+    },
+    {
+      "date": "2026-05-03",
+      "units": 7,
+      "revenue_inr": 1137
+    },
+    {
+      "date": "2026-05-04",
+      "units": 48,
+      "revenue_inr": 1388
+    },
+    {
+      "date": "2026-05-05",
+      "units": 16,
+      "revenue_inr": 472
+    },
+    {
+      "date": "2026-05-06",
+      "units": 48,
+      "revenue_inr": 196
+    },
+    {
+      "date": "2026-05-07",
+      "units": 42,
+      "revenue_inr": 718
+    },
+    {
+      "date": "2026-05-08",
+      "units": 40,
+      "revenue_inr": 1202
+    },
+    {
+      "date": "2026-05-09",
+      "units": 44,
+      "revenue_inr": 557
+    },
+    {
+      "date": "2026-05-10",
+      "units": 36,
+      "revenue_inr": 232
+    },
+    {
+      "date": "2026-05-11",
+      "units": 52,
+      "revenue_inr": 589
+    },
+    {
+      "date": "2026-05-12",
+      "units": 16,
+      "revenue_inr": 1031
+    },
+    {
+      "date": "2026-05-13",
+      "units": 25,
+      "revenue_inr": 1181
+    },
+    {
+      "date": "2026-05-14",
+      "units": 17,
+      "revenue_inr": 759
+    },
+    {
+      "date": "2026-05-15",
+      "units": 7,
+      "revenue_inr": 161
+    },
+    {
+      "date": "2026-05-16",
+      "units": 36,
+      "revenue_inr": 437
+    },
+    {
+      "date": "2026-05-17",
+      "units": 40,
+      "revenue_inr": 355
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "alerts": [
+    {
+      "customer_id": "CUST-18227",
+      "customer_name": "Anika Diaz",
+      "segment": "High Returner",
+      "clv": 1006,
+      "churn_probability": 0.764,
+      "days_since_last_order": 89,
+      "alert_type": "return_abuse",
+      "recommended_action": "Book virtual fit consult with stylist",
+      "potential_revenue_at_risk": 402
+    },
+    {
+      "customer_id": "CUST-76642",
+      "customer_name": "Carlos Gonzalez",
+      "segment": "High Returner",
+      "clv": 923,
+      "churn_probability": 0.733,
+      "days_since_last_order": 78,
+      "alert_type": "return_abuse",
+      "recommended_action": "Book virtual fit consult with stylist",
+      "potential_revenue_at_risk": 369
+    },
+    {
+      "customer_id": "CUST-34230",
+      "customer_name": "Amir Diaz",
+      "segment": "High Returner",
+      "clv": 996,
+      "churn_probability": 0.651,
+      "days_since_last_order": 33,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Reactivation: 25% off + free returns",
+      "potential_revenue_at_risk": 398
+    },
+    {
+      "customer_id": "CUST-36524",
+      "customer_name": "Diego Walker",
+      "segment": "High Returner",
+      "clv": 869,
+      "churn_probability": 0.733,
+      "days_since_last_order": 44,
+      "alert_type": "return_abuse",
+      "recommended_action": "Book virtual fit consult with stylist",
+      "potential_revenue_at_risk": 348
+    },
+    {
+      "customer_id": "CUST-79688",
+      "customer_name": "Brandon Gonzalez",
+      "segment": "Omnichannel Shopper",
+      "clv": 2501,
+      "churn_probability": 0.246,
+      "days_since_last_order": 62,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Reactivation: 25% off + free returns",
+      "potential_revenue_at_risk": 1000
+    },
+    {
+      "customer_id": "CUST-30246",
+      "customer_name": "Kai Mitchell",
+      "segment": "High Returner",
+      "clv": 908,
+      "churn_probability": 0.67,
+      "days_since_last_order": 27,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Reactivation: 25% off + free returns",
+      "potential_revenue_at_risk": 363
+    },
+    {
+      "customer_id": "CUST-62560",
+      "customer_name": "Sarah Fischer",
+      "segment": "High Returner",
+      "clv": 850,
+      "churn_probability": 0.705,
+      "days_since_last_order": 38,
+      "alert_type": "return_abuse",
+      "recommended_action": "Book virtual fit consult with stylist",
+      "potential_revenue_at_risk": 340
+    },
+    {
+      "customer_id": "CUST-47443",
+      "customer_name": "Amir Rivera",
+      "segment": "High Returner",
+      "clv": 858,
+      "churn_probability": 0.698,
+      "days_since_last_order": 33,
+      "alert_type": "return_abuse",
+      "recommended_action": "Book virtual fit consult with stylist",
+      "potential_revenue_at_risk": 343
+    },
+    {
+      "customer_id": "CUST-20261",
+      "customer_name": "Ricardo Garcia",
+      "segment": "High Returner",
+      "clv": 909,
+      "churn_probability": 0.658,
+      "days_since_last_order": 10,
+      "alert_type": "return_abuse",
+      "recommended_action": "Book virtual fit consult with stylist",
+      "potential_revenue_at_risk": 364
+    },
+    {
+      "customer_id": "CUST-67179",
+      "customer_name": "Samantha Torres",
+      "segment": "High Returner",
+      "clv": 886,
+      "churn_probability": 0.674,
+      "days_since_last_order": 53,
+      "alert_type": "return_abuse",
+      "recommended_action": "Book virtual fit consult with stylist",
+      "potential_revenue_at_risk": 354
+    },
+    {
+      "customer_id": "CUST-42531",
+      "customer_name": "Kai O'Brien",
+      "segment": "High Returner",
+      "clv": 997,
+      "churn_probability": 0.596,
+      "days_since_last_order": 83,
+      "alert_type": "return_abuse",
+      "recommended_action": "Book virtual fit consult with stylist",
+      "potential_revenue_at_risk": 399
+    },
+    {
+      "customer_id": "CUST-78365",
+      "customer_name": "Sarah Davis",
+      "segment": "High Returner",
+      "clv": 795,
+      "churn_probability": 0.742,
+      "days_since_last_order": 87,
+      "alert_type": "return_abuse",
+      "recommended_action": "Book virtual fit consult with stylist",
+      "potential_revenue_at_risk": 318
+    },
+    {
+      "customer_id": "CUST-08770",
+      "customer_name": "Imani Patel",
+      "segment": "High Returner",
+      "clv": 820,
+      "churn_probability": 0.715,
+      "days_since_last_order": 46,
+      "alert_type": "return_abuse",
+      "recommended_action": "Book virtual fit consult with stylist",
+      "potential_revenue_at_risk": 328
+    },
+    {
+      "customer_id": "CUST-10413",
+      "customer_name": "Sarah Foster",
+      "segment": "High Returner",
+      "clv": 897,
+      "churn_probability": 0.65,
+      "days_since_last_order": 2,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Reactivation: 25% off + free returns",
+      "potential_revenue_at_risk": 359
+    },
+    {
+      "customer_id": "CUST-18622",
+      "customer_name": "Elena Rodriguez",
+      "segment": "High Returner",
+      "clv": 776,
+      "churn_probability": 0.75,
+      "days_since_last_order": 80,
+      "alert_type": "return_abuse",
+      "recommended_action": "Book virtual fit consult with stylist",
+      "potential_revenue_at_risk": 310
+    },
+    {
+      "customer_id": "CUST-30980",
+      "customer_name": "Marcus O'Brien",
+      "segment": "High Returner",
+      "clv": 837,
+      "churn_probability": 0.693,
+      "days_since_last_order": 56,
+      "alert_type": "return_abuse",
+      "recommended_action": "Book virtual fit consult with stylist",
+      "potential_revenue_at_risk": 335
+    },
+    {
+      "customer_id": "CUST-51728",
+      "customer_name": "Alex Mitchell",
+      "segment": "High Returner",
+      "clv": 968,
+      "churn_probability": 0.599,
+      "days_since_last_order": 70,
+      "alert_type": "high_value_declining",
+      "recommended_action": "Reactivation: 25% off + free returns",
+      "potential_revenue_at_risk": 387
+    },
+    {
+      "customer_id": "CUST-27652",
+      "customer_name": "Raj Kumar",
+      "segment": "High Returner",
+      "clv": 910,
+      "churn_probability": 0.627,
+      "days_since_last_order": 67,
+      "alert_type": "return_abuse",
+      "recommended_action": "Book virtual fit consult with stylist",
+      "potential_revenue_at_risk": 364
+    },
+    {
+      "customer_id": "CUST-49045",
+      "customer_name": "David Lee",
+      "segment": "High Returner",
+      "clv": 788,
+      "churn_probability": 0.72,
+      "days_since_last_order": 63,
+      "alert_type": "return_abuse",
+      "recommended_action": "Book virtual fit consult with stylist",
+      "potential_revenue_at_risk": 315
+    },
+    {
+      "customer_id": "CUST-01610",
+      "customer_name": "Brandon Torres",
+      "segment": "High Returner",
+      "clv": 810,
+      "churn_probability": 0.698,
+      "days_since_last_order": 88,
+      "alert_type": "return_abuse",
+      "recommended_action": "Book virtual fit consult with stylist",
+      "potential_revenue_at_risk": 324
+    }
+  ],
+  "summary": {
+    "total_at_risk": 21136,
+    "high_priority": 13654,
+    "medium_priority": 7482,
+    "low_priority": 0,
+    "total_revenue_at_risk": 3665196,
+    "avg_churn_probability": 0.75
+  }
+}

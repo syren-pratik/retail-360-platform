@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-02T04:00:06.973Z",
+  "generated_at": "2026-07-29T15:03:29.305Z",
   "insights": [
     {
       "type": "risk",
       "severity": "critical",
-      "title": "₹9.8L Free-Rider Waste in Snacks & Grocery",
-      "description": "Two promotions in Grocery & Staples are bleeding ₹6.0L combined due to 57-58% free-rider ratios — loyal buyers stockpiling on BOGO offers instead of new customer acquisition. Weekend Snack Bundle shows 62% free-riders with ROI of only 1.4×.",
+      "title": "₹9.8L Wasted on Free-Rider Promotions Weekly",
+      "description": "Two grocery campaigns (Eid Essentials 58% free-rider, Oil BOGO 57%) are hemorrhaging ₹6L/week in discount waste to loyal buyers who would purchase anyway. Snacks & Biscuits bundle shows 62% free-rider ratio with only 1.4× ROI.",
       "metric": "₹9.8L",
-      "action": "Immediately gate Eid Essentials and Oil BOGO to new-to-brand/lapsed segments. Switch Oil BOGO to bundle mechanic (Saffola + spice combo). Projected recovery: ₹6.0L this week.",
+      "action": "Immediately gate Eid Essentials and Oil BOGO to new-to-brand/lapsed segments only. Replace Weekend Snack Bundle with SKU-restricted mechanics. Projected recovery: ₹6L+ weekly.",
       "relatedChart": "price-intel-overview",
-      "id": "price-insight-1782964806972-0",
+      "id": "price-insight-1785337409305-0",
       "source": "claude"
     },
     {
       "type": "opportunity",
       "severity": "positive",
-      "title": "Scale Loyalty Gold Cashback Model Chain-Wide",
-      "description": "Personal Care cashback campaign delivering 3.7× ROI with only 31% free-riders and ₹17.8L net incremental revenue on ₹5.7L spend. Lift of 28% with minimal post-promo dip (-4%) vs. bundle promotions showing -14% hangover.",
+      "title": "Cashback Mechanic Outperforming Bundles by 2.6×",
+      "description": "Loyalty Gold Cashback (Personal Care) delivering 3.7× ROI with only 31% free-riders vs. Weekend Snack Bundle's 1.4× ROI and 62% waste. Promo ROI trending up from 2.48 to 3.52 week-over-week.",
       "metric": "3.7× ROI",
-      "action": "Replicate cashback mechanic to Grocery staples (rice, oil, pulses) and Home Care. Target 40-50% budget reallocation from underperforming BOGO/bundle offers to cashback in Q2.",
+      "action": "Reallocate ₹4-5L from underperforming bundle campaigns to cashback mechanics in high-margin categories. Test cashback expansion in Grocery & Staples to reduce current 41.2% chain-wide free-rider ratio.",
       "relatedChart": "price-intel-overview",
-      "id": "price-insight-1782964806972-1",
+      "id": "price-insight-1785337409305-1",
+      "source": "claude"
+    },
+    {
+      "type": "risk",
+      "severity": "critical",
+      "title": "₹6.2L Cost Passthrough Gap Eroding Margins",
+      "description": "India Gate Basmati 5kg margin compressed to 12.0% (8% cost increase not passed through). Chain-wide margin realization at 79.47%, down 1.4pp, with ₹6.2L weekly leakage from unactioned cost changes.",
+      "metric": "₹6.2L",
+      "action": "Execute immediate price increase of ₹30 on India Gate Basmati. Audit all SKUs with cost updates >5% in past 45 days and schedule shelf price adjustments within 7 days to recover margin target.",
+      "relatedChart": "price-intel-overview",
+      "id": "price-insight-1785337409305-2",
       "source": "claude"
     },
     {
       "type": "risk",
       "severity": "warning",
-      "title": "₹6.2L Cost Passthrough Gap Eroding Margins",
-      "description": "Shelf prices not updated despite cost inflation. India Gate Basmati 5kg cost up 8% but price unchanged — margin compressed to 12.0% vs. target. Total passthrough gap: ₹6.2L across portfolio this week.",
-      "metric": "₹6.2L",
-      "action": "Execute urgent price review on staples (rice, oil, pulses). Raise India Gate Basmati by ₹30 immediately. Automate cost-to-shelf lag alerts to prevent future margin erosion.",
+      "title": "₹40L Markdown Exposure with 69.83% Sell-Through",
+      "description": "Sell-through 5.17pp below target with ₹39.9L inventory at markdown risk. Premature markdowns already costing ₹3.4L weekly, suggesting reactive rather than predictive clearance strategy.",
+      "metric": "₹39.9L",
+      "action": "Deploy dynamic markdown model for slow-movers before end-of-season crunch. Priority: Snacks & Biscuits (worst campaign category) and Grocery staples with promo overhang. Target 85% sell-through in next 3 weeks.",
       "relatedChart": "price-intel-overview",
-      "id": "price-insight-1782964806972-2",
-      "source": "claude"
-    },
-    {
-      "type": "trend",
-      "severity": "warning",
-      "title": "Promo ROI Surging But Margin Realization Falling",
-      "description": "Promo ROI jumped from 2.48× to 3.52× week-over-week, but margin realization dropped 1.4 points to 79.47% and sell-through is 5.17% below target at 69.83%. ₹39.9L inventory at markdown risk indicates overstocking on promoted SKUs.",
-      "metric": "79.47%",
-      "action": "Tighten inventory planning on high-velocity promo SKUs. Reduce order quantities by 15-20% on Snacks/Grocery promos with >50% free-rider ratios to prevent markdown cycle.",
-      "relatedChart": "price-intel-overview",
-      "id": "price-insight-1782964806972-3",
+      "id": "price-insight-1785337409305-3",
       "source": "claude"
     }
   ],

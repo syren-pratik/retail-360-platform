@@ -1,0 +1,2597 @@
+{
+  "generated_at": "2026-06-29T00:00:00.000Z",
+  "departments": {
+    "all": {
+      "sell_through_heatmap": [
+        {
+          "category": "Tees",
+          "department": "Women's Tops",
+          "values": [
+            8.6,
+            14.8,
+            28.7,
+            33.6,
+            44.9,
+            51.8,
+            61.5,
+            72.7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 70
+        },
+        {
+          "category": "Blouses",
+          "department": "Women's Tops",
+          "values": [
+            5.5,
+            16.4,
+            20.4,
+            28.7,
+            38,
+            45,
+            55.2,
+            60.1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Sweaters",
+          "department": "Women's Tops",
+          "values": [
+            3.8,
+            14.1,
+            17.9,
+            22.5,
+            31.9,
+            39.5,
+            45.6,
+            50.9,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Tanks",
+          "department": "Women's Tops",
+          "values": [
+            11.1,
+            18.2,
+            26.5,
+            30.4,
+            39,
+            51.1,
+            58.8,
+            66.8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Jeans",
+          "department": "Women's Bottoms",
+          "values": [
+            5.5,
+            18.4,
+            23.7,
+            29.4,
+            39.7,
+            44.2,
+            54.9,
+            59.8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Trousers",
+          "department": "Women's Bottoms",
+          "values": [
+            9.4,
+            18,
+            25.5,
+            36.8,
+            44.2,
+            53.3,
+            61.1,
+            69.7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Skirts",
+          "department": "Women's Bottoms",
+          "values": [
+            7.5,
+            12.4,
+            22.7,
+            28.8,
+            36.2,
+            41.3,
+            49.9,
+            59.6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Leggings",
+          "department": "Women's Bottoms",
+          "values": [
+            0.6,
+            8,
+            8.2,
+            13.8,
+            15.7,
+            23.3,
+            24.9,
+            27.4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Sheath Dresses",
+          "department": "Women's Dresses",
+          "values": [
+            9.8,
+            17.4,
+            27.9,
+            32.8,
+            43.7,
+            47.9,
+            56.8,
+            65.8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Midi Dresses",
+          "department": "Women's Dresses",
+          "values": [
+            8.7,
+            20.2,
+            25.9,
+            34.9,
+            44.8,
+            50.4,
+            63.9,
+            70.7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Maxi Dresses",
+          "department": "Women's Dresses",
+          "values": [
+            5.7,
+            17,
+            26.6,
+            36.7,
+            45.7,
+            51.7,
+            58.1,
+            68,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Casual Dresses",
+          "department": "Women's Dresses",
+          "values": [
+            9.6,
+            18.8,
+            33,
+            39.4,
+            50.6,
+            62.3,
+            71.5,
+            78.8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Tees",
+          "department": "Men's Tops",
+          "values": [
+            6.2,
+            12.4,
+            17,
+            28.5,
+            31.6,
+            41.1,
+            45.3,
+            53.8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 70
+        },
+        {
+          "category": "Polos",
+          "department": "Men's Tops",
+          "values": [
+            6.2,
+            14.1,
+            21.8,
+            35.1,
+            40.7,
+            51.7,
+            59.6,
+            66.6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 70
+        },
+        {
+          "category": "Button-Downs",
+          "department": "Men's Tops",
+          "values": [
+            7.1,
+            15.2,
+            21.4,
+            32,
+            36.5,
+            45.3,
+            55,
+            61.3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Sweaters",
+          "department": "Men's Tops",
+          "values": [
+            6.9,
+            16.3,
+            19.9,
+            28.5,
+            38.6,
+            41.2,
+            50.3,
+            59.9,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        }
+      ],
+      "top_skus_by_impact": [
+        {
+          "sku_id": "APR-WT-0001",
+          "product_name": "Converse Blouses Relaxed",
+          "category": "Blouses",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-WT-0002",
+          "product_name": "Under Armour Tees Relaxed",
+          "category": "Tees",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-WT-0003",
+          "product_name": "Calvin Klein Tanks Modern",
+          "category": "Tanks",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WT-0004",
+          "product_name": "Levi's Blouses Relaxed",
+          "category": "Blouses",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-WT-0005",
+          "product_name": "Adidas Blouses Relaxed",
+          "category": "Blouses",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WT-0006",
+          "product_name": "Gap Tees Slim",
+          "category": "Tees",
+          "revenue_impact_inr": 102700,
+          "price_change_pct": -25.1,
+          "recommendation_priority": "High"
+        },
+        {
+          "sku_id": "APR-WT-0007",
+          "product_name": "North Face Sweaters Slim",
+          "category": "Sweaters",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WT-0008",
+          "product_name": "House Brand Tanks Relaxed",
+          "category": "Tanks",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-WT-0009",
+          "product_name": "Under Armour Tanks Premium",
+          "category": "Tanks",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WT-0010",
+          "product_name": "House Brand Blouses Premium",
+          "category": "Blouses",
+          "revenue_impact_inr": 767000,
+          "price_change_pct": -25,
+          "recommendation_priority": "High"
+        }
+      ],
+      "margin_by_category": [
+        {
+          "category": "Tees",
+          "current_margin_pct": 55.6,
+          "target_margin_pct": 58,
+          "margin_floor_pct": 54,
+          "sku_count": 12
+        },
+        {
+          "category": "Blouses",
+          "current_margin_pct": 60,
+          "target_margin_pct": 58,
+          "margin_floor_pct": 54,
+          "sku_count": 10
+        },
+        {
+          "category": "Sweaters",
+          "current_margin_pct": 57.4,
+          "target_margin_pct": 58,
+          "margin_floor_pct": 54,
+          "sku_count": 15
+        },
+        {
+          "category": "Tanks",
+          "current_margin_pct": 57.6,
+          "target_margin_pct": 58,
+          "margin_floor_pct": 54,
+          "sku_count": 11
+        },
+        {
+          "category": "Jeans",
+          "current_margin_pct": 56.2,
+          "target_margin_pct": 56,
+          "margin_floor_pct": 52,
+          "sku_count": 10
+        },
+        {
+          "category": "Trousers",
+          "current_margin_pct": 54.7,
+          "target_margin_pct": 56,
+          "margin_floor_pct": 52,
+          "sku_count": 20
+        },
+        {
+          "category": "Skirts",
+          "current_margin_pct": 59.4,
+          "target_margin_pct": 56,
+          "margin_floor_pct": 52,
+          "sku_count": 14
+        },
+        {
+          "category": "Leggings",
+          "current_margin_pct": 53.7,
+          "target_margin_pct": 56,
+          "margin_floor_pct": 52,
+          "sku_count": 2
+        },
+        {
+          "category": "Sheath Dresses",
+          "current_margin_pct": 58.7,
+          "target_margin_pct": 60,
+          "margin_floor_pct": 56,
+          "sku_count": 5
+        },
+        {
+          "category": "Midi Dresses",
+          "current_margin_pct": 62.2,
+          "target_margin_pct": 60,
+          "margin_floor_pct": 56,
+          "sku_count": 8
+        },
+        {
+          "category": "Maxi Dresses",
+          "current_margin_pct": 58.4,
+          "target_margin_pct": 60,
+          "margin_floor_pct": 56,
+          "sku_count": 8
+        },
+        {
+          "category": "Casual Dresses",
+          "current_margin_pct": 59.1,
+          "target_margin_pct": 60,
+          "margin_floor_pct": 56,
+          "sku_count": 3
+        },
+        {
+          "category": "Tees",
+          "current_margin_pct": 55.6,
+          "target_margin_pct": 58,
+          "margin_floor_pct": 54,
+          "sku_count": 12
+        },
+        {
+          "category": "Polos",
+          "current_margin_pct": 58,
+          "target_margin_pct": 54,
+          "margin_floor_pct": 50,
+          "sku_count": 5
+        },
+        {
+          "category": "Button-Downs",
+          "current_margin_pct": 55.2,
+          "target_margin_pct": 54,
+          "margin_floor_pct": 50,
+          "sku_count": 11
+        },
+        {
+          "category": "Sweaters",
+          "current_margin_pct": 57.4,
+          "target_margin_pct": 58,
+          "margin_floor_pct": 54,
+          "sku_count": 15
+        },
+        {
+          "category": "Jeans",
+          "current_margin_pct": 56.2,
+          "target_margin_pct": 56,
+          "margin_floor_pct": 52,
+          "sku_count": 10
+        },
+        {
+          "category": "Chinos",
+          "current_margin_pct": 52.6,
+          "target_margin_pct": 52,
+          "margin_floor_pct": 48,
+          "sku_count": 5
+        },
+        {
+          "category": "Shorts",
+          "current_margin_pct": 56.6,
+          "target_margin_pct": 52,
+          "margin_floor_pct": 48,
+          "sku_count": 5
+        },
+        {
+          "category": "Trousers",
+          "current_margin_pct": 54.7,
+          "target_margin_pct": 56,
+          "margin_floor_pct": 52,
+          "sku_count": 20
+        },
+        {
+          "category": "Tops",
+          "current_margin_pct": 52.4,
+          "target_margin_pct": 56,
+          "margin_floor_pct": 52,
+          "sku_count": 6
+        },
+        {
+          "category": "Bottoms",
+          "current_margin_pct": 53.5,
+          "target_margin_pct": 56,
+          "margin_floor_pct": 52,
+          "sku_count": 2
+        },
+        {
+          "category": "Sets",
+          "current_margin_pct": 53,
+          "target_margin_pct": 56,
+          "margin_floor_pct": 52,
+          "sku_count": 6
+        },
+        {
+          "category": "Outerwear",
+          "current_margin_pct": 56.5,
+          "target_margin_pct": 56,
+          "margin_floor_pct": 52,
+          "sku_count": 6
+        },
+        {
+          "category": "Sneakers",
+          "current_margin_pct": 48.4,
+          "target_margin_pct": 49,
+          "margin_floor_pct": 45,
+          "sku_count": 4
+        },
+        {
+          "category": "Boots",
+          "current_margin_pct": 53.5,
+          "target_margin_pct": 49,
+          "margin_floor_pct": 45,
+          "sku_count": 9
+        },
+        {
+          "category": "Sandals",
+          "current_margin_pct": 44.3,
+          "target_margin_pct": 49,
+          "margin_floor_pct": 45,
+          "sku_count": 5
+        },
+        {
+          "category": "Dress Shoes",
+          "current_margin_pct": 53.7,
+          "target_margin_pct": 49,
+          "margin_floor_pct": 45,
+          "sku_count": 6
+        },
+        {
+          "category": "Bags",
+          "current_margin_pct": 63.2,
+          "target_margin_pct": 62,
+          "margin_floor_pct": 58,
+          "sku_count": 5
+        },
+        {
+          "category": "Belts",
+          "current_margin_pct": 63.6,
+          "target_margin_pct": 62,
+          "margin_floor_pct": 58,
+          "sku_count": 7
+        }
+      ],
+      "campaign_performance": [
+        {
+          "campaign_id": "CAMP-A001",
+          "campaign_name": "BFCM Kids % Off",
+          "mechanic": "pct_off",
+          "department": "Kids'",
+          "category": "Bottoms",
+          "budget_inr": 507768,
+          "start_date": "2026-11-27",
+          "end_date": "2026-11-29",
+          "status": "scheduled",
+          "spend_to_date_inr": 0,
+          "incremental_revenue_inr": 0,
+          "gross_promo_revenue_inr": 0,
+          "roi": 3.02,
+          "free_rider_ratio_pct": 52.3,
+          "post_promo_dip_pct": -17.5,
+          "lift_pct": 206,
+          "cannibalization_inr": 91940,
+          "net_incremental_inr": 1409753,
+          "confidence": 0.66,
+          "affected_skus": [
+            "APR-KD-0001",
+            "APR-KD-0002",
+            "APR-KD-0003",
+            "APR-KD-0004"
+          ],
+          "event_anchor": "BFCM",
+          "markdown_overlap_flag": true
+        },
+        {
+          "campaign_id": "CAMP-A002",
+          "campaign_name": "Cyber Monday Women % Off",
+          "mechanic": "pct_off",
+          "department": "Women's Bottoms",
+          "category": "Jeans",
+          "budget_inr": 2163745,
+          "start_date": "2026-12-01",
+          "end_date": "2026-12-06",
+          "status": "scheduled",
+          "spend_to_date_inr": 0,
+          "incremental_revenue_inr": 0,
+          "gross_promo_revenue_inr": 0,
+          "roi": 3.18,
+          "free_rider_ratio_pct": 43.7,
+          "post_promo_dip_pct": -21.7,
+          "lift_pct": 267,
+          "cannibalization_inr": 412435,
+          "net_incremental_inr": 6324007,
+          "confidence": 0.73,
+          "affected_skus": [
+            "APR-WB-0001",
+            "APR-WB-0002",
+            "APR-WB-0003",
+            "APR-WB-0004"
+          ],
+          "event_anchor": "Cyber Monday",
+          "markdown_overlap_flag": true
+        },
+        {
+          "campaign_id": "CAMP-A003",
+          "campaign_name": "Christmas Accessories % Off",
+          "mechanic": "pct_off",
+          "department": "Accessories",
+          "category": "Belts",
+          "budget_inr": 552986,
+          "start_date": "2026-12-22",
+          "end_date": "2026-12-27",
+          "status": "scheduled",
+          "spend_to_date_inr": 0,
+          "incremental_revenue_inr": 0,
+          "gross_promo_revenue_inr": 0,
+          "roi": 3.42,
+          "free_rider_ratio_pct": 62,
+          "post_promo_dip_pct": -12.5,
+          "lift_pct": 167,
+          "cannibalization_inr": 113481,
+          "net_incremental_inr": 1740041,
+          "confidence": 0.75,
+          "affected_skus": [
+            "APR-AC-0001",
+            "APR-AC-0002",
+            "APR-AC-0003",
+            "APR-AC-0004"
+          ],
+          "event_anchor": "Christmas",
+          "markdown_overlap_flag": true
+        },
+        {
+          "campaign_id": "CAMP-A004",
+          "campaign_name": "Boxing Day Kids % Off",
+          "mechanic": "pct_off",
+          "department": "Kids'",
+          "category": "Bottoms",
+          "budget_inr": 2618344,
+          "start_date": "2026-12-26",
+          "end_date": "2026-12-29",
+          "status": "scheduled",
+          "spend_to_date_inr": 0,
+          "incremental_revenue_inr": 0,
+          "gross_promo_revenue_inr": 0,
+          "roi": 3.97,
+          "free_rider_ratio_pct": 51,
+          "post_promo_dip_pct": -14.6,
+          "lift_pct": 234,
+          "cannibalization_inr": 623997,
+          "net_incremental_inr": 9567947,
+          "confidence": 0.72,
+          "affected_skus": [
+            "APR-KD-0001",
+            "APR-KD-0002",
+            "APR-KD-0003",
+            "APR-KD-0004"
+          ],
+          "event_anchor": "Boxing Day",
+          "markdown_overlap_flag": true
+        },
+        {
+          "campaign_id": "CAMP-A005",
+          "campaign_name": "BTS Peak Women B2G1 Half",
+          "mechanic": "b2g1_half",
+          "department": "Women's Dresses",
+          "category": "Midi Dresses",
+          "budget_inr": 1296542,
+          "start_date": "2026-08-15",
+          "end_date": "2026-08-20",
+          "status": "scheduled",
+          "spend_to_date_inr": 0,
+          "incremental_revenue_inr": 0,
+          "gross_promo_revenue_inr": 0,
+          "roi": 2.17,
+          "free_rider_ratio_pct": 41.6,
+          "post_promo_dip_pct": -14.1,
+          "lift_pct": 133,
+          "cannibalization_inr": 168753,
+          "net_incremental_inr": 2587552,
+          "confidence": 0.86,
+          "affected_skus": [
+            "APR-WD-0001",
+            "APR-WD-0002",
+            "APR-WD-0003",
+            "APR-WD-0004"
+          ],
+          "event_anchor": "BTS Peak",
+          "markdown_overlap_flag": true
+        },
+        {
+          "campaign_id": "CAMP-A006",
+          "campaign_name": "Labor Day Kids BOGO 50%",
+          "mechanic": "bogo_50",
+          "department": "Kids'",
+          "category": "Tops",
+          "budget_inr": 961919,
+          "start_date": "2026-09-05",
+          "end_date": "2026-09-08",
+          "status": "scheduled",
+          "spend_to_date_inr": 0,
+          "incremental_revenue_inr": 0,
+          "gross_promo_revenue_inr": 0,
+          "roi": 2.51,
+          "free_rider_ratio_pct": 59.2,
+          "post_promo_dip_pct": -10.6,
+          "lift_pct": 206,
+          "cannibalization_inr": 145124,
+          "net_incremental_inr": 2225241,
+          "confidence": 0.86,
+          "affected_skus": [
+            "APR-KD-0001",
+            "APR-KD-0002",
+            "APR-KD-0003",
+            "APR-KD-0004"
+          ],
+          "event_anchor": "Labor Day",
+          "markdown_overlap_flag": true
+        },
+        {
+          "campaign_id": "CAMP-A007",
+          "campaign_name": "Memorial Day Women BOGO 50%",
+          "mechanic": "bogo_50",
+          "department": "Women's Dresses",
+          "category": "Midi Dresses",
+          "budget_inr": 1549694,
+          "start_date": "2026-05-25",
+          "end_date": "2026-05-29",
+          "status": "completed",
+          "spend_to_date_inr": 1549694,
+          "incremental_revenue_inr": 5001989,
+          "gross_promo_revenue_inr": 6402546,
+          "roi": 3.23,
+          "free_rider_ratio_pct": 52.5,
+          "post_promo_dip_pct": -10.5,
+          "lift_pct": 128,
+          "cannibalization_inr": 300119,
+          "net_incremental_inr": 4601830,
+          "confidence": 0.7,
+          "affected_skus": [
+            "APR-WD-0001",
+            "APR-WD-0002",
+            "APR-WD-0003",
+            "APR-WD-0004"
+          ],
+          "event_anchor": "Memorial Day",
+          "markdown_overlap_flag": true
+        },
+        {
+          "campaign_id": "CAMP-A008",
+          "campaign_name": "Mother's Day Footwear GWP",
+          "mechanic": "gwp",
+          "department": "Footwear",
+          "category": "Boots",
+          "budget_inr": 1568855,
+          "start_date": "2026-05-10",
+          "end_date": "2026-05-12",
+          "status": "completed",
+          "spend_to_date_inr": 1568855,
+          "incremental_revenue_inr": 6448946,
+          "gross_promo_revenue_inr": 8254651,
+          "roi": 4.11,
+          "free_rider_ratio_pct": 39.2,
+          "post_promo_dip_pct": -20.7,
+          "lift_pct": 165,
+          "cannibalization_inr": 386937,
+          "net_incremental_inr": 5933030,
+          "confidence": 0.76,
+          "affected_skus": [
+            "APR-FW-0001",
+            "APR-FW-0002",
+            "APR-FW-0003",
+            "APR-FW-0004"
+          ],
+          "event_anchor": "Mother's Day",
+          "markdown_overlap_flag": true
+        },
+        {
+          "campaign_id": "CAMP-A009",
+          "campaign_name": "Father's Day Men Bundle",
+          "mechanic": "bundle",
+          "department": "Men's Bottoms",
+          "category": "Chinos",
+          "budget_inr": 1796174,
+          "start_date": "2026-06-15",
+          "end_date": "2026-06-20",
+          "status": "completed",
+          "spend_to_date_inr": 1796174,
+          "incremental_revenue_inr": 5108776,
+          "gross_promo_revenue_inr": 6539233,
+          "roi": 2.84,
+          "free_rider_ratio_pct": 45.9,
+          "post_promo_dip_pct": -10.6,
+          "lift_pct": 235,
+          "cannibalization_inr": 306527,
+          "net_incremental_inr": 4700074,
+          "confidence": 0.72,
+          "affected_skus": [
+            "APR-MB-0001",
+            "APR-MB-0002",
+            "APR-MB-0003",
+            "APR-MB-0004"
+          ],
+          "event_anchor": "Father's Day",
+          "markdown_overlap_flag": true
+        },
+        {
+          "campaign_id": "CAMP-A010",
+          "campaign_name": "July 4 Women % Off",
+          "mechanic": "pct_off",
+          "department": "Women's Dresses",
+          "category": "Maxi Dresses",
+          "budget_inr": 842138,
+          "start_date": "2026-07-04",
+          "end_date": "2026-07-08",
+          "status": "scheduled",
+          "spend_to_date_inr": 0,
+          "incremental_revenue_inr": 0,
+          "gross_promo_revenue_inr": 0,
+          "roi": 4.16,
+          "free_rider_ratio_pct": 39.8,
+          "post_promo_dip_pct": -13.3,
+          "lift_pct": 270,
+          "cannibalization_inr": 210201,
+          "net_incremental_inr": 3223076,
+          "confidence": 0.72,
+          "affected_skus": [
+            "APR-WD-0001",
+            "APR-WD-0002",
+            "APR-WD-0003",
+            "APR-WD-0004"
+          ],
+          "event_anchor": "July 4",
+          "markdown_overlap_flag": true
+        },
+        {
+          "campaign_id": "CAMP-A011",
+          "campaign_name": "Halloween Footwear % Off",
+          "mechanic": "pct_off",
+          "department": "Footwear",
+          "category": "Boots",
+          "budget_inr": 2202158,
+          "start_date": "2026-10-31",
+          "end_date": "2026-11-04",
+          "status": "scheduled",
+          "spend_to_date_inr": 0,
+          "incremental_revenue_inr": 0,
+          "gross_promo_revenue_inr": 0,
+          "roi": 2.33,
+          "free_rider_ratio_pct": 50.6,
+          "post_promo_dip_pct": -15.5,
+          "lift_pct": 127,
+          "cannibalization_inr": 308082,
+          "net_incremental_inr": 4723931,
+          "confidence": 0.77,
+          "affected_skus": [
+            "APR-FW-0001",
+            "APR-FW-0002",
+            "APR-FW-0003",
+            "APR-FW-0004"
+          ],
+          "event_anchor": "Halloween",
+          "markdown_overlap_flag": true
+        },
+        {
+          "campaign_id": "CAMP-A012",
+          "campaign_name": "Columbus Day Accessories % Off",
+          "mechanic": "pct_off",
+          "department": "Accessories",
+          "category": "Bags",
+          "budget_inr": 659269,
+          "start_date": "2026-10-12",
+          "end_date": "2026-10-16",
+          "status": "scheduled",
+          "spend_to_date_inr": 0,
+          "incremental_revenue_inr": 0,
+          "gross_promo_revenue_inr": 0,
+          "roi": 3.36,
+          "free_rider_ratio_pct": 47.4,
+          "post_promo_dip_pct": -11.3,
+          "lift_pct": 264,
+          "cannibalization_inr": 132732,
+          "net_incremental_inr": 2035218,
+          "confidence": 0.77,
+          "affected_skus": [
+            "APR-AC-0001",
+            "APR-AC-0002",
+            "APR-AC-0003",
+            "APR-AC-0004"
+          ],
+          "event_anchor": "Columbus Day",
+          "markdown_overlap_flag": true
+        }
+      ]
+    },
+    "Women's Tops": {
+      "sell_through_heatmap": [
+        {
+          "category": "Tees",
+          "department": "Women's Tops",
+          "values": [
+            8.6,
+            14.8,
+            28.7,
+            33.6,
+            44.9,
+            51.8,
+            61.5,
+            72.7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 70
+        },
+        {
+          "category": "Blouses",
+          "department": "Women's Tops",
+          "values": [
+            5.5,
+            16.4,
+            20.4,
+            28.7,
+            38,
+            45,
+            55.2,
+            60.1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Sweaters",
+          "department": "Women's Tops",
+          "values": [
+            3.8,
+            14.1,
+            17.9,
+            22.5,
+            31.9,
+            39.5,
+            45.6,
+            50.9,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Tanks",
+          "department": "Women's Tops",
+          "values": [
+            11.1,
+            18.2,
+            26.5,
+            30.4,
+            39,
+            51.1,
+            58.8,
+            66.8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        }
+      ],
+      "top_skus_by_impact": [
+        {
+          "sku_id": "APR-WT-0001",
+          "product_name": "Converse Blouses Relaxed",
+          "category": "Blouses",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-WT-0002",
+          "product_name": "Under Armour Tees Relaxed",
+          "category": "Tees",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-WT-0003",
+          "product_name": "Calvin Klein Tanks Modern",
+          "category": "Tanks",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WT-0004",
+          "product_name": "Levi's Blouses Relaxed",
+          "category": "Blouses",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-WT-0005",
+          "product_name": "Adidas Blouses Relaxed",
+          "category": "Blouses",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WT-0006",
+          "product_name": "Gap Tees Slim",
+          "category": "Tees",
+          "revenue_impact_inr": 102700,
+          "price_change_pct": -25.1,
+          "recommendation_priority": "High"
+        },
+        {
+          "sku_id": "APR-WT-0007",
+          "product_name": "North Face Sweaters Slim",
+          "category": "Sweaters",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WT-0008",
+          "product_name": "House Brand Tanks Relaxed",
+          "category": "Tanks",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-WT-0009",
+          "product_name": "Under Armour Tanks Premium",
+          "category": "Tanks",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WT-0010",
+          "product_name": "House Brand Blouses Premium",
+          "category": "Blouses",
+          "revenue_impact_inr": 767000,
+          "price_change_pct": -25,
+          "recommendation_priority": "High"
+        }
+      ],
+      "margin_by_category": [
+        {
+          "category": "Tees",
+          "current_margin_pct": 57.4,
+          "target_margin_pct": 58,
+          "margin_floor_pct": 54,
+          "sku_count": 8
+        },
+        {
+          "category": "Blouses",
+          "current_margin_pct": 60,
+          "target_margin_pct": 58,
+          "margin_floor_pct": 54,
+          "sku_count": 10
+        },
+        {
+          "category": "Sweaters",
+          "current_margin_pct": 62.1,
+          "target_margin_pct": 58,
+          "margin_floor_pct": 54,
+          "sku_count": 7
+        },
+        {
+          "category": "Tanks",
+          "current_margin_pct": 57.6,
+          "target_margin_pct": 58,
+          "margin_floor_pct": 54,
+          "sku_count": 11
+        }
+      ],
+      "campaign_performance": []
+    },
+    "Women's Bottoms": {
+      "sell_through_heatmap": [
+        {
+          "category": "Jeans",
+          "department": "Women's Bottoms",
+          "values": [
+            5.5,
+            18.4,
+            23.7,
+            29.4,
+            39.7,
+            44.2,
+            54.9,
+            59.8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Trousers",
+          "department": "Women's Bottoms",
+          "values": [
+            9.4,
+            18,
+            25.5,
+            36.8,
+            44.2,
+            53.3,
+            61.1,
+            69.7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Skirts",
+          "department": "Women's Bottoms",
+          "values": [
+            7.5,
+            12.4,
+            22.7,
+            28.8,
+            36.2,
+            41.3,
+            49.9,
+            59.6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Leggings",
+          "department": "Women's Bottoms",
+          "values": [
+            0.6,
+            8,
+            8.2,
+            13.8,
+            15.7,
+            23.3,
+            24.9,
+            27.4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        }
+      ],
+      "top_skus_by_impact": [
+        {
+          "sku_id": "APR-WB-0001",
+          "product_name": "House Brand Skirts Relaxed",
+          "category": "Skirts",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WB-0002",
+          "product_name": "New Balance Skirts Slim",
+          "category": "Skirts",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WB-0003",
+          "product_name": "Free People Skirts Premium",
+          "category": "Skirts",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-WB-0004",
+          "product_name": "House Brand Skirts Slim",
+          "category": "Skirts",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WB-0005",
+          "product_name": "J.Crew Jeans Premium",
+          "category": "Jeans",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WB-0006",
+          "product_name": "House Brand Skirts Slim",
+          "category": "Skirts",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-WB-0007",
+          "product_name": "House Brand Jeans Modern",
+          "category": "Jeans",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WB-0008",
+          "product_name": "Coach Skirts Slim",
+          "category": "Skirts",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WB-0009",
+          "product_name": "Gap Trousers Relaxed",
+          "category": "Trousers",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WB-0010",
+          "product_name": "Polo Ralph Lauren Skirts Relaxed",
+          "category": "Skirts",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        }
+      ],
+      "margin_by_category": [
+        {
+          "category": "Jeans",
+          "current_margin_pct": 58.9,
+          "target_margin_pct": 56,
+          "margin_floor_pct": 52,
+          "sku_count": 6
+        },
+        {
+          "category": "Trousers",
+          "current_margin_pct": 54.2,
+          "target_margin_pct": 56,
+          "margin_floor_pct": 52,
+          "sku_count": 10
+        },
+        {
+          "category": "Skirts",
+          "current_margin_pct": 59.4,
+          "target_margin_pct": 56,
+          "margin_floor_pct": 52,
+          "sku_count": 14
+        },
+        {
+          "category": "Leggings",
+          "current_margin_pct": 53.7,
+          "target_margin_pct": 56,
+          "margin_floor_pct": 52,
+          "sku_count": 2
+        }
+      ],
+      "campaign_performance": [
+        {
+          "campaign_id": "CAMP-A002",
+          "campaign_name": "Cyber Monday Women % Off",
+          "mechanic": "pct_off",
+          "department": "Women's Bottoms",
+          "category": "Jeans",
+          "budget_inr": 2163745,
+          "start_date": "2026-12-01",
+          "end_date": "2026-12-06",
+          "status": "scheduled",
+          "spend_to_date_inr": 0,
+          "incremental_revenue_inr": 0,
+          "gross_promo_revenue_inr": 0,
+          "roi": 3.18,
+          "free_rider_ratio_pct": 43.7,
+          "post_promo_dip_pct": -21.7,
+          "lift_pct": 267,
+          "cannibalization_inr": 412435,
+          "net_incremental_inr": 6324007,
+          "confidence": 0.73,
+          "affected_skus": [
+            "APR-WB-0001",
+            "APR-WB-0002",
+            "APR-WB-0003",
+            "APR-WB-0004"
+          ],
+          "event_anchor": "Cyber Monday",
+          "markdown_overlap_flag": true
+        }
+      ]
+    },
+    "Women's Dresses": {
+      "sell_through_heatmap": [
+        {
+          "category": "Sheath Dresses",
+          "department": "Women's Dresses",
+          "values": [
+            9.8,
+            17.4,
+            27.9,
+            32.8,
+            43.7,
+            47.9,
+            56.8,
+            65.8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Midi Dresses",
+          "department": "Women's Dresses",
+          "values": [
+            8.7,
+            20.2,
+            25.9,
+            34.9,
+            44.8,
+            50.4,
+            63.9,
+            70.7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Maxi Dresses",
+          "department": "Women's Dresses",
+          "values": [
+            5.7,
+            17,
+            26.6,
+            36.7,
+            45.7,
+            51.7,
+            58.1,
+            68,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Casual Dresses",
+          "department": "Women's Dresses",
+          "values": [
+            9.6,
+            18.8,
+            33,
+            39.4,
+            50.6,
+            62.3,
+            71.5,
+            78.8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        }
+      ],
+      "top_skus_by_impact": [
+        {
+          "sku_id": "APR-WD-0001",
+          "product_name": "Calvin Klein Casual Dresses Modern",
+          "category": "Casual Dresses",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WD-0002",
+          "product_name": "Polo Ralph Lauren Sheath Dresses Classic",
+          "category": "Sheath Dresses",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-WD-0003",
+          "product_name": "House Brand Midi Dresses Modern",
+          "category": "Midi Dresses",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WD-0004",
+          "product_name": "Tommy Hilfiger Midi Dresses Relaxed",
+          "category": "Midi Dresses",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WD-0005",
+          "product_name": "Calvin Klein Midi Dresses Relaxed",
+          "category": "Midi Dresses",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-WD-0006",
+          "product_name": "Uniqlo Sheath Dresses Modern",
+          "category": "Sheath Dresses",
+          "revenue_impact_inr": 603700,
+          "price_change_pct": -8,
+          "recommendation_priority": "High"
+        },
+        {
+          "sku_id": "APR-WD-0007",
+          "product_name": "House Brand Midi Dresses Classic",
+          "category": "Midi Dresses",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-WD-0008",
+          "product_name": "Under Armour Maxi Dresses Classic",
+          "category": "Maxi Dresses",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WD-0009",
+          "product_name": "Lululemon Maxi Dresses Relaxed",
+          "category": "Maxi Dresses",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-WD-0010",
+          "product_name": "Tommy Hilfiger Midi Dresses Slim",
+          "category": "Midi Dresses",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        }
+      ],
+      "margin_by_category": [
+        {
+          "category": "Sheath Dresses",
+          "current_margin_pct": 58.7,
+          "target_margin_pct": 60,
+          "margin_floor_pct": 56,
+          "sku_count": 5
+        },
+        {
+          "category": "Midi Dresses",
+          "current_margin_pct": 62.2,
+          "target_margin_pct": 60,
+          "margin_floor_pct": 56,
+          "sku_count": 8
+        },
+        {
+          "category": "Maxi Dresses",
+          "current_margin_pct": 58.4,
+          "target_margin_pct": 60,
+          "margin_floor_pct": 56,
+          "sku_count": 8
+        },
+        {
+          "category": "Casual Dresses",
+          "current_margin_pct": 59.1,
+          "target_margin_pct": 60,
+          "margin_floor_pct": 56,
+          "sku_count": 3
+        }
+      ],
+      "campaign_performance": [
+        {
+          "campaign_id": "CAMP-A005",
+          "campaign_name": "BTS Peak Women B2G1 Half",
+          "mechanic": "b2g1_half",
+          "department": "Women's Dresses",
+          "category": "Midi Dresses",
+          "budget_inr": 1296542,
+          "start_date": "2026-08-15",
+          "end_date": "2026-08-20",
+          "status": "scheduled",
+          "spend_to_date_inr": 0,
+          "incremental_revenue_inr": 0,
+          "gross_promo_revenue_inr": 0,
+          "roi": 2.17,
+          "free_rider_ratio_pct": 41.6,
+          "post_promo_dip_pct": -14.1,
+          "lift_pct": 133,
+          "cannibalization_inr": 168753,
+          "net_incremental_inr": 2587552,
+          "confidence": 0.86,
+          "affected_skus": [
+            "APR-WD-0001",
+            "APR-WD-0002",
+            "APR-WD-0003",
+            "APR-WD-0004"
+          ],
+          "event_anchor": "BTS Peak",
+          "markdown_overlap_flag": true
+        },
+        {
+          "campaign_id": "CAMP-A007",
+          "campaign_name": "Memorial Day Women BOGO 50%",
+          "mechanic": "bogo_50",
+          "department": "Women's Dresses",
+          "category": "Midi Dresses",
+          "budget_inr": 1549694,
+          "start_date": "2026-05-25",
+          "end_date": "2026-05-29",
+          "status": "completed",
+          "spend_to_date_inr": 1549694,
+          "incremental_revenue_inr": 5001989,
+          "gross_promo_revenue_inr": 6402546,
+          "roi": 3.23,
+          "free_rider_ratio_pct": 52.5,
+          "post_promo_dip_pct": -10.5,
+          "lift_pct": 128,
+          "cannibalization_inr": 300119,
+          "net_incremental_inr": 4601830,
+          "confidence": 0.7,
+          "affected_skus": [
+            "APR-WD-0001",
+            "APR-WD-0002",
+            "APR-WD-0003",
+            "APR-WD-0004"
+          ],
+          "event_anchor": "Memorial Day",
+          "markdown_overlap_flag": true
+        },
+        {
+          "campaign_id": "CAMP-A010",
+          "campaign_name": "July 4 Women % Off",
+          "mechanic": "pct_off",
+          "department": "Women's Dresses",
+          "category": "Maxi Dresses",
+          "budget_inr": 842138,
+          "start_date": "2026-07-04",
+          "end_date": "2026-07-08",
+          "status": "scheduled",
+          "spend_to_date_inr": 0,
+          "incremental_revenue_inr": 0,
+          "gross_promo_revenue_inr": 0,
+          "roi": 4.16,
+          "free_rider_ratio_pct": 39.8,
+          "post_promo_dip_pct": -13.3,
+          "lift_pct": 270,
+          "cannibalization_inr": 210201,
+          "net_incremental_inr": 3223076,
+          "confidence": 0.72,
+          "affected_skus": [
+            "APR-WD-0001",
+            "APR-WD-0002",
+            "APR-WD-0003",
+            "APR-WD-0004"
+          ],
+          "event_anchor": "July 4",
+          "markdown_overlap_flag": true
+        }
+      ]
+    },
+    "Men's Tops": {
+      "sell_through_heatmap": [
+        {
+          "category": "Tees",
+          "department": "Men's Tops",
+          "values": [
+            6.2,
+            12.4,
+            17,
+            28.5,
+            31.6,
+            41.1,
+            45.3,
+            53.8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 70
+        },
+        {
+          "category": "Polos",
+          "department": "Men's Tops",
+          "values": [
+            6.2,
+            14.1,
+            21.8,
+            35.1,
+            40.7,
+            51.7,
+            59.6,
+            66.6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 70
+        },
+        {
+          "category": "Button-Downs",
+          "department": "Men's Tops",
+          "values": [
+            7.1,
+            15.2,
+            21.4,
+            32,
+            36.5,
+            45.3,
+            55,
+            61.3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        },
+        {
+          "category": "Sweaters",
+          "department": "Men's Tops",
+          "values": [
+            6.9,
+            16.3,
+            19.9,
+            28.5,
+            38.6,
+            41.2,
+            50.3,
+            59.9,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_pct": 62
+        }
+      ],
+      "top_skus_by_impact": [
+        {
+          "sku_id": "APR-MT-0001",
+          "product_name": "Gap Tees Relaxed",
+          "category": "Tees",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-MT-0002",
+          "product_name": "Uniqlo Sweaters Classic",
+          "category": "Sweaters",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-MT-0003",
+          "product_name": "House Brand Button-Downs Modern",
+          "category": "Button-Downs",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-MT-0004",
+          "product_name": "Calvin Klein Sweaters Slim",
+          "category": "Sweaters",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-MT-0005",
+          "product_name": "North Face Tees Relaxed",
+          "category": "Tees",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-MT-0006",
+          "product_name": "Vans Sweaters Slim",
+          "category": "Sweaters",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-MT-0007",
+          "product_name": "Michael Kors Tees Premium",
+          "category": "Tees",
+          "revenue_impact_inr": 287200,
+          "price_change_pct": 5,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-MT-0008",
+          "product_name": "Free People Button-Downs Relaxed",
+          "category": "Button-Downs",
+          "revenue_impact_inr": 598100,
+          "price_change_pct": -25,
+          "recommendation_priority": "High"
+        },
+        {
+          "sku_id": "APR-MT-0009",
+          "product_name": "House Brand Polos Relaxed",
+          "category": "Polos",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-MT-0010",
+          "product_name": "Nike Button-Downs Slim",
+          "category": "Button-Downs",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        }
+      ],
+      "margin_by_category": [
+        {
+          "category": "Tees",
+          "current_margin_pct": 52,
+          "target_margin_pct": 54,
+          "margin_floor_pct": 50,
+          "sku_count": 4
+        },
+        {
+          "category": "Polos",
+          "current_margin_pct": 58,
+          "target_margin_pct": 54,
+          "margin_floor_pct": 50,
+          "sku_count": 5
+        },
+        {
+          "category": "Button-Downs",
+          "current_margin_pct": 55.2,
+          "target_margin_pct": 54,
+          "margin_floor_pct": 50,
+          "sku_count": 11
+        },
+        {
+          "category": "Sweaters",
+          "current_margin_pct": 53.3,
+          "target_margin_pct": 54,
+          "margin_floor_pct": 50,
+          "sku_count": 8
+        }
+      ],
+      "campaign_performance": []
+    },
+    "Men's Bottoms": {
+      "sell_through_heatmap": [],
+      "top_skus_by_impact": [
+        {
+          "sku_id": "APR-MB-0001",
+          "product_name": "Polo Ralph Lauren Jeans Modern",
+          "category": "Jeans",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-MB-0002",
+          "product_name": "House Brand Trousers Slim",
+          "category": "Trousers",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-MB-0003",
+          "product_name": "Vans Chinos Premium",
+          "category": "Chinos",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-MB-0004",
+          "product_name": "Levi's Jeans Classic",
+          "category": "Jeans",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-MB-0005",
+          "product_name": "New Balance Chinos Slim",
+          "category": "Chinos",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-MB-0006",
+          "product_name": "House Brand Trousers Classic",
+          "category": "Trousers",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-MB-0007",
+          "product_name": "Coach Chinos Relaxed",
+          "category": "Chinos",
+          "revenue_impact_inr": 374400,
+          "price_change_pct": -25,
+          "recommendation_priority": "High"
+        },
+        {
+          "sku_id": "APR-MB-0008",
+          "product_name": "Free People Trousers Relaxed",
+          "category": "Trousers",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-MB-0009",
+          "product_name": "Coach Trousers Relaxed",
+          "category": "Trousers",
+          "revenue_impact_inr": 891700,
+          "price_change_pct": 5,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-MB-0010",
+          "product_name": "Levi's Trousers Slim",
+          "category": "Trousers",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        }
+      ],
+      "margin_by_category": [
+        {
+          "category": "Jeans",
+          "current_margin_pct": 52.2,
+          "target_margin_pct": 52,
+          "margin_floor_pct": 48,
+          "sku_count": 4
+        },
+        {
+          "category": "Chinos",
+          "current_margin_pct": 52.6,
+          "target_margin_pct": 52,
+          "margin_floor_pct": 48,
+          "sku_count": 5
+        },
+        {
+          "category": "Shorts",
+          "current_margin_pct": 56.6,
+          "target_margin_pct": 52,
+          "margin_floor_pct": 48,
+          "sku_count": 5
+        },
+        {
+          "category": "Trousers",
+          "current_margin_pct": 55.2,
+          "target_margin_pct": 52,
+          "margin_floor_pct": 48,
+          "sku_count": 10
+        }
+      ],
+      "campaign_performance": [
+        {
+          "campaign_id": "CAMP-A009",
+          "campaign_name": "Father's Day Men Bundle",
+          "mechanic": "bundle",
+          "department": "Men's Bottoms",
+          "category": "Chinos",
+          "budget_inr": 1796174,
+          "start_date": "2026-06-15",
+          "end_date": "2026-06-20",
+          "status": "completed",
+          "spend_to_date_inr": 1796174,
+          "incremental_revenue_inr": 5108776,
+          "gross_promo_revenue_inr": 6539233,
+          "roi": 2.84,
+          "free_rider_ratio_pct": 45.9,
+          "post_promo_dip_pct": -10.6,
+          "lift_pct": 235,
+          "cannibalization_inr": 306527,
+          "net_incremental_inr": 4700074,
+          "confidence": 0.72,
+          "affected_skus": [
+            "APR-MB-0001",
+            "APR-MB-0002",
+            "APR-MB-0003",
+            "APR-MB-0004"
+          ],
+          "event_anchor": "Father's Day",
+          "markdown_overlap_flag": true
+        }
+      ]
+    },
+    "Kids'": {
+      "sell_through_heatmap": [],
+      "top_skus_by_impact": [
+        {
+          "sku_id": "APR-KD-0001",
+          "product_name": "Adidas Sets Slim",
+          "category": "Sets",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-KD-0002",
+          "product_name": "House Brand Outerwear Slim",
+          "category": "Outerwear",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-KD-0003",
+          "product_name": "Lululemon Tops Relaxed",
+          "category": "Tops",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-KD-0004",
+          "product_name": "Madewell Sets Premium",
+          "category": "Sets",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-KD-0005",
+          "product_name": "Converse Tops Slim",
+          "category": "Tops",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-KD-0006",
+          "product_name": "Adidas Sets Relaxed",
+          "category": "Sets",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-KD-0007",
+          "product_name": "Michael Kors Bottoms Slim",
+          "category": "Bottoms",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-KD-0008",
+          "product_name": "Tommy Hilfiger Sets Modern",
+          "category": "Sets",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-KD-0009",
+          "product_name": "J.Crew Outerwear Relaxed",
+          "category": "Outerwear",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-KD-0010",
+          "product_name": "Free People Outerwear Slim",
+          "category": "Outerwear",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        }
+      ],
+      "margin_by_category": [
+        {
+          "category": "Tops",
+          "current_margin_pct": 52.4,
+          "target_margin_pct": 56,
+          "margin_floor_pct": 52,
+          "sku_count": 6
+        },
+        {
+          "category": "Bottoms",
+          "current_margin_pct": 53.5,
+          "target_margin_pct": 56,
+          "margin_floor_pct": 52,
+          "sku_count": 2
+        },
+        {
+          "category": "Sets",
+          "current_margin_pct": 53,
+          "target_margin_pct": 56,
+          "margin_floor_pct": 52,
+          "sku_count": 6
+        },
+        {
+          "category": "Outerwear",
+          "current_margin_pct": 56.5,
+          "target_margin_pct": 56,
+          "margin_floor_pct": 52,
+          "sku_count": 6
+        }
+      ],
+      "campaign_performance": [
+        {
+          "campaign_id": "CAMP-A001",
+          "campaign_name": "BFCM Kids % Off",
+          "mechanic": "pct_off",
+          "department": "Kids'",
+          "category": "Bottoms",
+          "budget_inr": 507768,
+          "start_date": "2026-11-27",
+          "end_date": "2026-11-29",
+          "status": "scheduled",
+          "spend_to_date_inr": 0,
+          "incremental_revenue_inr": 0,
+          "gross_promo_revenue_inr": 0,
+          "roi": 3.02,
+          "free_rider_ratio_pct": 52.3,
+          "post_promo_dip_pct": -17.5,
+          "lift_pct": 206,
+          "cannibalization_inr": 91940,
+          "net_incremental_inr": 1409753,
+          "confidence": 0.66,
+          "affected_skus": [
+            "APR-KD-0001",
+            "APR-KD-0002",
+            "APR-KD-0003",
+            "APR-KD-0004"
+          ],
+          "event_anchor": "BFCM",
+          "markdown_overlap_flag": true
+        },
+        {
+          "campaign_id": "CAMP-A004",
+          "campaign_name": "Boxing Day Kids % Off",
+          "mechanic": "pct_off",
+          "department": "Kids'",
+          "category": "Bottoms",
+          "budget_inr": 2618344,
+          "start_date": "2026-12-26",
+          "end_date": "2026-12-29",
+          "status": "scheduled",
+          "spend_to_date_inr": 0,
+          "incremental_revenue_inr": 0,
+          "gross_promo_revenue_inr": 0,
+          "roi": 3.97,
+          "free_rider_ratio_pct": 51,
+          "post_promo_dip_pct": -14.6,
+          "lift_pct": 234,
+          "cannibalization_inr": 623997,
+          "net_incremental_inr": 9567947,
+          "confidence": 0.72,
+          "affected_skus": [
+            "APR-KD-0001",
+            "APR-KD-0002",
+            "APR-KD-0003",
+            "APR-KD-0004"
+          ],
+          "event_anchor": "Boxing Day",
+          "markdown_overlap_flag": true
+        },
+        {
+          "campaign_id": "CAMP-A006",
+          "campaign_name": "Labor Day Kids BOGO 50%",
+          "mechanic": "bogo_50",
+          "department": "Kids'",
+          "category": "Tops",
+          "budget_inr": 961919,
+          "start_date": "2026-09-05",
+          "end_date": "2026-09-08",
+          "status": "scheduled",
+          "spend_to_date_inr": 0,
+          "incremental_revenue_inr": 0,
+          "gross_promo_revenue_inr": 0,
+          "roi": 2.51,
+          "free_rider_ratio_pct": 59.2,
+          "post_promo_dip_pct": -10.6,
+          "lift_pct": 206,
+          "cannibalization_inr": 145124,
+          "net_incremental_inr": 2225241,
+          "confidence": 0.86,
+          "affected_skus": [
+            "APR-KD-0001",
+            "APR-KD-0002",
+            "APR-KD-0003",
+            "APR-KD-0004"
+          ],
+          "event_anchor": "Labor Day",
+          "markdown_overlap_flag": true
+        }
+      ]
+    },
+    "Footwear": {
+      "sell_through_heatmap": [],
+      "top_skus_by_impact": [
+        {
+          "sku_id": "APR-FW-0001",
+          "product_name": "House Brand Dress Shoes Slim",
+          "category": "Dress Shoes",
+          "revenue_impact_inr": 386800,
+          "price_change_pct": 5,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-FW-0002",
+          "product_name": "House Brand Sneakers Relaxed",
+          "category": "Sneakers",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-FW-0003",
+          "product_name": "House Brand Boots Relaxed",
+          "category": "Boots",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-FW-0004",
+          "product_name": "Vans Boots Modern",
+          "category": "Boots",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-FW-0005",
+          "product_name": "Converse Sandals Relaxed",
+          "category": "Sandals",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-FW-0006",
+          "product_name": "House Brand Boots Slim",
+          "category": "Boots",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-FW-0007",
+          "product_name": "Gap Sneakers Classic",
+          "category": "Sneakers",
+          "revenue_impact_inr": 5400400,
+          "price_change_pct": -25,
+          "recommendation_priority": "High"
+        },
+        {
+          "sku_id": "APR-FW-0008",
+          "product_name": "House Brand Dress Shoes Modern",
+          "category": "Dress Shoes",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-FW-0009",
+          "product_name": "Nike Sandals Modern",
+          "category": "Sandals",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-FW-0010",
+          "product_name": "Under Armour Boots Slim",
+          "category": "Boots",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        }
+      ],
+      "margin_by_category": [
+        {
+          "category": "Sneakers",
+          "current_margin_pct": 48.4,
+          "target_margin_pct": 49,
+          "margin_floor_pct": 45,
+          "sku_count": 4
+        },
+        {
+          "category": "Boots",
+          "current_margin_pct": 53.5,
+          "target_margin_pct": 49,
+          "margin_floor_pct": 45,
+          "sku_count": 9
+        },
+        {
+          "category": "Sandals",
+          "current_margin_pct": 44.3,
+          "target_margin_pct": 49,
+          "margin_floor_pct": 45,
+          "sku_count": 5
+        },
+        {
+          "category": "Dress Shoes",
+          "current_margin_pct": 53.7,
+          "target_margin_pct": 49,
+          "margin_floor_pct": 45,
+          "sku_count": 6
+        }
+      ],
+      "campaign_performance": [
+        {
+          "campaign_id": "CAMP-A008",
+          "campaign_name": "Mother's Day Footwear GWP",
+          "mechanic": "gwp",
+          "department": "Footwear",
+          "category": "Boots",
+          "budget_inr": 1568855,
+          "start_date": "2026-05-10",
+          "end_date": "2026-05-12",
+          "status": "completed",
+          "spend_to_date_inr": 1568855,
+          "incremental_revenue_inr": 6448946,
+          "gross_promo_revenue_inr": 8254651,
+          "roi": 4.11,
+          "free_rider_ratio_pct": 39.2,
+          "post_promo_dip_pct": -20.7,
+          "lift_pct": 165,
+          "cannibalization_inr": 386937,
+          "net_incremental_inr": 5933030,
+          "confidence": 0.76,
+          "affected_skus": [
+            "APR-FW-0001",
+            "APR-FW-0002",
+            "APR-FW-0003",
+            "APR-FW-0004"
+          ],
+          "event_anchor": "Mother's Day",
+          "markdown_overlap_flag": true
+        },
+        {
+          "campaign_id": "CAMP-A011",
+          "campaign_name": "Halloween Footwear % Off",
+          "mechanic": "pct_off",
+          "department": "Footwear",
+          "category": "Boots",
+          "budget_inr": 2202158,
+          "start_date": "2026-10-31",
+          "end_date": "2026-11-04",
+          "status": "scheduled",
+          "spend_to_date_inr": 0,
+          "incremental_revenue_inr": 0,
+          "gross_promo_revenue_inr": 0,
+          "roi": 2.33,
+          "free_rider_ratio_pct": 50.6,
+          "post_promo_dip_pct": -15.5,
+          "lift_pct": 127,
+          "cannibalization_inr": 308082,
+          "net_incremental_inr": 4723931,
+          "confidence": 0.77,
+          "affected_skus": [
+            "APR-FW-0001",
+            "APR-FW-0002",
+            "APR-FW-0003",
+            "APR-FW-0004"
+          ],
+          "event_anchor": "Halloween",
+          "markdown_overlap_flag": true
+        }
+      ]
+    },
+    "Accessories": {
+      "sell_through_heatmap": [],
+      "top_skus_by_impact": [
+        {
+          "sku_id": "APR-AC-0001",
+          "product_name": "Carter's Belts Slim",
+          "category": "Belts",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-AC-0002",
+          "product_name": "North Face Bags Premium",
+          "category": "Bags",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        },
+        {
+          "sku_id": "APR-AC-0003",
+          "product_name": "Levi's Belts Slim",
+          "category": "Belts",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-AC-0004",
+          "product_name": "H&M Belts Premium",
+          "category": "Belts",
+          "revenue_impact_inr": 2158200,
+          "price_change_pct": -25,
+          "recommendation_priority": "High"
+        },
+        {
+          "sku_id": "APR-AC-0005",
+          "product_name": "House Brand Belts Premium",
+          "category": "Belts",
+          "revenue_impact_inr": 4041500,
+          "price_change_pct": -25,
+          "recommendation_priority": "High"
+        },
+        {
+          "sku_id": "APR-AC-0006",
+          "product_name": "Uniqlo Bags Relaxed",
+          "category": "Bags",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-AC-0007",
+          "product_name": "H&M Belts Relaxed",
+          "category": "Belts",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-AC-0008",
+          "product_name": "Calvin Klein Belts Classic",
+          "category": "Belts",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-AC-0009",
+          "product_name": "Nike Bags Modern",
+          "category": "Bags",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Medium"
+        },
+        {
+          "sku_id": "APR-AC-0010",
+          "product_name": "Old Navy Bags Relaxed",
+          "category": "Bags",
+          "revenue_impact_inr": 0,
+          "price_change_pct": 0,
+          "recommendation_priority": "Low"
+        }
+      ],
+      "margin_by_category": [
+        {
+          "category": "Bags",
+          "current_margin_pct": 63.2,
+          "target_margin_pct": 62,
+          "margin_floor_pct": 58,
+          "sku_count": 5
+        },
+        {
+          "category": "Belts",
+          "current_margin_pct": 63.6,
+          "target_margin_pct": 62,
+          "margin_floor_pct": 58,
+          "sku_count": 7
+        }
+      ],
+      "campaign_performance": [
+        {
+          "campaign_id": "CAMP-A003",
+          "campaign_name": "Christmas Accessories % Off",
+          "mechanic": "pct_off",
+          "department": "Accessories",
+          "category": "Belts",
+          "budget_inr": 552986,
+          "start_date": "2026-12-22",
+          "end_date": "2026-12-27",
+          "status": "scheduled",
+          "spend_to_date_inr": 0,
+          "incremental_revenue_inr": 0,
+          "gross_promo_revenue_inr": 0,
+          "roi": 3.42,
+          "free_rider_ratio_pct": 62,
+          "post_promo_dip_pct": -12.5,
+          "lift_pct": 167,
+          "cannibalization_inr": 113481,
+          "net_incremental_inr": 1740041,
+          "confidence": 0.75,
+          "affected_skus": [
+            "APR-AC-0001",
+            "APR-AC-0002",
+            "APR-AC-0003",
+            "APR-AC-0004"
+          ],
+          "event_anchor": "Christmas",
+          "markdown_overlap_flag": true
+        },
+        {
+          "campaign_id": "CAMP-A012",
+          "campaign_name": "Columbus Day Accessories % Off",
+          "mechanic": "pct_off",
+          "department": "Accessories",
+          "category": "Bags",
+          "budget_inr": 659269,
+          "start_date": "2026-10-12",
+          "end_date": "2026-10-16",
+          "status": "scheduled",
+          "spend_to_date_inr": 0,
+          "incremental_revenue_inr": 0,
+          "gross_promo_revenue_inr": 0,
+          "roi": 3.36,
+          "free_rider_ratio_pct": 47.4,
+          "post_promo_dip_pct": -11.3,
+          "lift_pct": 264,
+          "cannibalization_inr": 132732,
+          "net_incremental_inr": 2035218,
+          "confidence": 0.77,
+          "affected_skus": [
+            "APR-AC-0001",
+            "APR-AC-0002",
+            "APR-AC-0003",
+            "APR-AC-0004"
+          ],
+          "event_anchor": "Columbus Day",
+          "markdown_overlap_flag": true
+        }
+      ]
+    }
+  }
+}

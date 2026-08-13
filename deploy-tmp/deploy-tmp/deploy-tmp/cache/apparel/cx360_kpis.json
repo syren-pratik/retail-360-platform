@@ -1,0 +1,48 @@
+{
+  "total_customers": 80000,
+  "active_customers": 19040,
+  "active_rate_pct": 23.8,
+  "avg_clv": 507,
+  "total_revenue": 119608008,
+  "avg_basket_value": 168,
+  "churn_rate_pct": 26.4,
+  "new_customers_30d": 1614,
+  "at_risk_count": 21136,
+  "at_risk_rate_pct": 26.4,
+  "total_customers_prior": 78137,
+  "total_customers_trend": [
+    78551,
+    78467,
+    80161,
+    80388,
+    80373,
+    81415
+  ],
+  "avg_clv_prior": 493,
+  "avg_clv_trend": [
+    495,
+    492,
+    498,
+    503,
+    501,
+    498
+  ],
+  "churn_rate_pct_prior": 24.8,
+  "churn_rate_pct_trend": [
+    24.59,
+    25.58,
+    25.06,
+    25.69,
+    26.29,
+    26.47
+  ],
+  "active_rate_pct_prior": 24.6,
+  "active_rate_pct_trend": [
+    25.08,
+    24.85,
+    23.87,
+    24.35,
+    24.08,
+    23.96
+  ]
+}

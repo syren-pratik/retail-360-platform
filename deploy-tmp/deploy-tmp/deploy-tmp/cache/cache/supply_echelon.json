@@ -1,0 +1,118 @@
+{
+  "network_summary": {
+    "total_inventory_cr": 1178,
+    "dc_inventory_cr": 284,
+    "regional_inventory_cr": 412,
+    "store_inventory_cr": 482,
+    "dc_to_regional_in_transit_cr": 48,
+    "regional_to_store_in_transit_cr": 38,
+    "network_efficiency_pct": 68.4,
+    "imbalance_opportunity_cr": 84
+  },
+  "distribution_centres": [
+    {
+      "dc_id": "DC-001",
+      "name": "Mumbai DC",
+      "city": "Mumbai",
+      "inventory_cr": 142,
+      "capacity_utilisation_pct": 78,
+      "serves_regions": ["West", "South"],
+      "avg_replenishment_days": 1.8,
+      "status": "healthy"
+    },
+    {
+      "dc_id": "DC-002",
+      "name": "Delhi DC",
+      "city": "Delhi NCR",
+      "inventory_cr": 142,
+      "capacity_utilisation_pct": 94,
+      "serves_regions": ["North"],
+      "avg_replenishment_days": 2.1,
+      "status": "near_capacity"
+    }
+  ],
+  "regions": [
+    {
+      "region": "North",
+      "dc_id": "DC-002",
+      "cities": ["Delhi NCR"],
+      "regional_inventory_cr": 168,
+      "store_inventory_cr": 198,
+      "in_transit_cr": 18,
+      "stores": 12,
+      "avg_dos": 18.4,
+      "health": "at_risk",
+      "imbalance_cr": 42
+    },
+    {
+      "region": "West",
+      "dc_id": "DC-001",
+      "cities": ["Mumbai", "Pune", "Ahmedabad"],
+      "regional_inventory_cr": 148,
+      "store_inventory_cr": 164,
+      "in_transit_cr": 12,
+      "stores": 6,
+      "avg_dos": 24.2,
+      "health": "healthy",
+      "imbalance_cr": 18
+    },
+    {
+      "region": "South",
+      "dc_id": "DC-001",
+      "cities": ["Bangalore", "Chennai"],
+      "regional_inventory_cr": 96,
+      "store_inventory_cr": 120,
+      "in_transit_cr": 8,
+      "stores": 5,
+      "avg_dos": 22.8,
+      "health": "healthy",
+      "imbalance_cr": 24
+    }
+  ],
+  "flow_data": [
+    {
+      "from": "Mumbai DC",
+      "to": "West Region",
+      "flow_cr": 142,
+      "in_transit_cr": 12,
+      "lead_days": 1.2,
+      "status": "on_time"
+    },
+    {
+      "from": "Mumbai DC",
+      "to": "South Region",
+      "flow_cr": 96,
+      "in_transit_cr": 8,
+      "lead_days": 1.8,
+      "status": "on_time"
+    },
+    {
+      "from": "Delhi DC",
+      "to": "North Region",
+      "flow_cr": 168,
+      "in_transit_cr": 18,
+      "lead_days": 2.4,
+      "status": "delayed"
+    }
+  ],
+  "rebalancing_opportunities": [
+    {
+      "from_region": "West",
+      "to_region": "North",
+      "category": "Personal Care",
+      "transfer_value_cr": 8.4,
+      "units": 2800,
+      "benefit": "Reduces North stockout risk by 3 days",
+      "urgency": "high"
+    },
+    {
+      "from_region": "South",
+      "to_region": "North",
+      "category": "Grocery & Staples",
+      "transfer_value_cr": 6.2,
+      "units": 4200,
+      "benefit": "Covers 5-day gap while DC replenishment arrives",
+      "urgency": "medium"
+    }
+  ]
+}

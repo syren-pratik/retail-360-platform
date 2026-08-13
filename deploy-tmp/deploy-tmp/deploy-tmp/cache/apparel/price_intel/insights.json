@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-07-21T03:34:16.953Z",
+  "insights": [
+    {
+      "type": "risk",
+      "severity": "critical",
+      "title": "Margin Leakage Hits $1.82M This Week",
+      "description": "Total margin leakage of $1.82M driven by $780K in BFCM-overlap free-rider waste (43.6% of promo spend), $420K in premature markdowns, and $340K in returns-driven margin loss. Margin realization declining -0.4pp to 85.8%.",
+      "metric": "$1.82M",
+      "action": "Immediately pause BFCM-overlapping promos, tighten markdown gates requiring 70%+ sell-through, and implement fit-guide modules on high-return SKUs like Converse Tops Slim (11.4% return rate).",
+      "relatedChart": "price-intel-overview",
+      "id": "price-insight-1784604856953-0",
+      "source": "claude"
+    },
+    {
+      "type": "opportunity",
+      "severity": "positive",
+      "title": "July 4 Women's Dresses 4.16× ROI",
+      "description": "Campaign CAMP-A010 targeting Women's Maxi Dresses forecasts $3.22M net incremental revenue at 4.16× ROI with 270% lift, despite 39.8% free-rider ratio. Budget of $842K scheduled for July 4-8.",
+      "metric": "4.16×",
+      "action": "Green-light CAMP-A010 immediately and reallocate $200K from underperforming campaigns (current portfolio ROI only 2.41×) to scale this women's dresses mechanic across July 4 event.",
+      "relatedChart": "price-intel-overview",
+      "id": "price-insight-1784604856953-1",
+      "source": "claude"
+    },
+    {
+      "type": "risk",
+      "severity": "warning",
+      "title": "Competitive Price Gaps Cost $114K Weekly",
+      "description": "North Face Tees (Men's) overpriced at $43.29 vs competitor $33.77 (106.6 index) losing $77K weekly; Calvin Klein Tanks (Women's) at $15.88 vs $12.39 (113.5 index) losing $37K weekly.",
+      "metric": "$114K",
+      "action": "Match North Face Tees to $36.80 and Calvin Klein Tanks to $13.50 by EOD to retain premium positioning while recovering combined $80K weekly revenue.",
+      "relatedChart": "price-intel-overview",
+      "id": "price-insight-1784604856953-2",
+      "source": "claude"
+    },
+    {
+      "type": "risk",
+      "severity": "warning",
+      "title": "Kids Returns Destroying 6.8pp Margin",
+      "description": "Converse Tops Slim (Kids) showing 11.4% return rate collapsing RAGM to 44.8% vs 51.6% gross margin — representing $35K weekly margin loss. 29 active pricing alerts requiring intervention.",
+      "metric": "6.8pp",
+      "action": "Suspend all web promos on Converse Kids Tops, add size/fit guidance UX module, and flag all Kids SKUs with 9%+ return rates for photography/description audits to reduce returns 8-12pp.",
+      "relatedChart": "price-intel-overview",
+      "id": "price-insight-1784604856953-3",
+      "source": "claude"
+    }
+  ],
+  "source": "claude"
+}

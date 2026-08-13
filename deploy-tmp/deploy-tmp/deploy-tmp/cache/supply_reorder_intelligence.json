@@ -1,0 +1,178 @@
+{
+  "summary": {
+    "skus_below_reorder_point": 147,
+    "skus_with_wrong_order_qty": 203,
+    "potential_savings_cr": 12.4,
+    "stockout_risk_skus": 84
+  },
+  "by_category": [
+    {
+      "category": "Grocery & Staples",
+      "sample_skus": [
+        {
+          "product_id": "PRD-GS-001",
+          "product_name": "Tata Salt 1kg",
+          "abc_class": "A",
+          "avg_daily_demand": 64,
+          "lead_time_days": 2.1,
+          "demand_std_dev": 14,
+          "current_reorder_point": 80,
+          "recommended_reorder_point": 162,
+          "reorder_point_gap": 82,
+          "current_order_qty": 500,
+          "eoq": 284,
+          "order_qty_gap": 216,
+          "current_stock": 48,
+          "status": "below_reorder",
+          "annual_holding_cost_cr": 0.08,
+          "annual_ordering_cost_cr": 0.06,
+          "total_cost_current_cr": 0.14,
+          "total_cost_eoq_cr": 0.09,
+          "savings_cr": 0.05
+        },
+        {
+          "product_id": "PRD-GS-002",
+          "product_name": "Fortune Sunflower Oil 5L",
+          "abc_class": "A",
+          "avg_daily_demand": 48,
+          "lead_time_days": 2.8,
+          "demand_std_dev": 11,
+          "current_reorder_point": 100,
+          "recommended_reorder_point": 158,
+          "reorder_point_gap": 58,
+          "current_order_qty": 400,
+          "eoq": 218,
+          "order_qty_gap": 182,
+          "current_stock": 92,
+          "status": "below_reorder",
+          "annual_holding_cost_cr": 0.12,
+          "annual_ordering_cost_cr": 0.04,
+          "total_cost_current_cr": 0.16,
+          "total_cost_eoq_cr": 0.11,
+          "savings_cr": 0.05
+        }
+      ]
+    },
+    {
+      "category": "Personal Care",
+      "sample_skus": [
+        {
+          "product_id": "PRD-PC-001",
+          "product_name": "Dove Body Wash 250ml",
+          "abc_class": "A",
+          "avg_daily_demand": 48,
+          "lead_time_days": 4.8,
+          "demand_std_dev": 14,
+          "current_reorder_point": 100,
+          "recommended_reorder_point": 282,
+          "reorder_point_gap": 182,
+          "current_order_qty": 300,
+          "eoq": 196,
+          "order_qty_gap": 104,
+          "current_stock": 0,
+          "status": "stockout",
+          "annual_holding_cost_cr": 0.09,
+          "annual_ordering_cost_cr": 0.07,
+          "total_cost_current_cr": 0.16,
+          "total_cost_eoq_cr": 0.12,
+          "savings_cr": 0.04
+        }
+      ]
+    },
+    {
+      "category": "Dairy & Frozen",
+      "sample_skus": [
+        {
+          "product_id": "PRD-DF-001",
+          "product_name": "Amul Gold Milk 1L",
+          "abc_class": "A",
+          "avg_daily_demand": 128,
+          "lead_time_days": 1.8,
+          "demand_std_dev": 28,
+          "current_reorder_point": 150,
+          "recommended_reorder_point": 298,
+          "reorder_point_gap": 148,
+          "current_order_qty": 1000,
+          "eoq": 482,
+          "order_qty_gap": 518,
+          "current_stock": 284,
+          "status": "at_risk",
+          "annual_holding_cost_cr": 0.18,
+          "annual_ordering_cost_cr": 0.08,
+          "total_cost_current_cr": 0.26,
+          "total_cost_eoq_cr": 0.18,
+          "savings_cr": 0.08
+        }
+      ]
+    },
+    {
+      "category": "Snacks & Beverages",
+      "sample_skus": [
+        {
+          "product_id": "PRD-SB-001",
+          "product_name": "Lay's Classic Salted 26g",
+          "abc_class": "B",
+          "avg_daily_demand": 84,
+          "lead_time_days": 2.4,
+          "demand_std_dev": 18,
+          "current_reorder_point": 120,
+          "recommended_reorder_point": 238,
+          "reorder_point_gap": 118,
+          "current_stock": 156,
+          "current_order_qty": 600,
+          "eoq": 328,
+          "order_qty_gap": 272,
+          "status": "healthy",
+          "annual_holding_cost_cr": 0.06,
+          "annual_ordering_cost_cr": 0.05,
+          "total_cost_current_cr": 0.11,
+          "total_cost_eoq_cr": 0.08,
+          "savings_cr": 0.03
+        }
+      ]
+    },
+    {
+      "category": "Electronics",
+      "sample_skus": [
+        {
+          "product_id": "PRD-EL-001",
+          "product_name": "Samsung 65W Charger",
+          "abc_class": "B",
+          "avg_daily_demand": 12,
+          "lead_time_days": 2.8,
+          "demand_std_dev": 4,
+          "current_reorder_point": 40,
+          "recommended_reorder_point": 42,
+          "reorder_point_gap": 2,
+          "current_stock": 84,
+          "current_order_qty": 100,
+          "eoq": 68,
+          "order_qty_gap": 32,
+          "status": "healthy",
+          "annual_holding_cost_cr": 0.04,
+          "annual_ordering_cost_cr": 0.03,
+          "total_cost_current_cr": 0.07,
+          "total_cost_eoq_cr": 0.06,
+          "savings_cr": 0.01
+        }
+      ]
+    }
+  ],
+  "eoq_formula": {
+    "description": "Economic Order Quantity: EOQ = √(2DS/H)",
+    "variables": {
+      "D": "Annual demand (units)",
+      "S": "Order/setup cost (₹ per order)",
+      "H": "Annual holding cost per unit (₹)"
+    },
+    "assumptions": {
+      "ordering_cost_per_order": 850,
+      "holding_cost_rate_pct": 18,
+      "working_days_per_year": 365
+    }
+  },
+  "reorder_point_formula": {
+    "description": "ROP = (Avg Daily Demand × Lead Time) + Safety Stock",
+    "safety_stock_formula": "Z × σ_demand × √lead_time"
+  }
+}
