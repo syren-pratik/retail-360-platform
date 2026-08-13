@@ -1,4 +1,0 @@
-{
-  "buildCommand": "npm run gen:coldstart-data && npm run gen:merch-demand && next build",
-  "framework": "nextjs"
-}

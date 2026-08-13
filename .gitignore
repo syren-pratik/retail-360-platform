@@ -48,3 +48,6 @@ deploy.zip
 e2e-audit/
 *.png
 !public/**/*.png
+deploy-tmp/
+test-results/
+deploy.zip
